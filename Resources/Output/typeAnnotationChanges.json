@@ -1,1 +1,30 @@
-"[{\"commit\": \"3jdi32d3\", \"line\": \"234\", \"old_code\": \"if(x>)\", \"new_code\": \"while(x<0)\"}, {\"commit\": \"3jdi32d3\", \"line\": \"234\", \"old_code\": \"if(x>)\", \"new_code\": \"while(x<0)\"}]"
+[
+    {
+        "commit": "32321kj321k",
+        "old_line": 3,
+        "new_line": 3,
+        "old_code": "def process_something(arguments: Any) -> Any:",
+        "new_code": "def process_something(arguments: Any) -> int:"
+    },
+    {
+        "commit": "32321kj321k",
+        "old_line": 9,
+        "new_line": 9,
+        "old_code": "def foo2(l: List[str]) -> None:",
+        "new_code": "def foo2(l: List[str]) -> int:"
+    },
+    {
+        "commit": "32321kj321k",
+        "old_line": 12,
+        "new_line": 12,
+        "old_code": "def goo(t: Tuple[str, ...]) -> None:",
+        "new_code": "def goo(t: Tuple[str, ...]) -> int:"
+    },
+    {
+        "commit": "32321kj321k",
+        "old_line": 17,
+        "new_line": 17,
+        "old_code": "def foo1(s: Optional[str]) -> None:",
+        "new_code": "def foo1(s: Optional[str]) -> int:"
+    }
+]
