@@ -1,4 +1,3 @@
-
 from typing import Any
 
 def process_something(arguments: Any) -> int:
@@ -7,13 +6,13 @@ def process_something(arguments: Any) -> int:
 
 from typing import List, Tuple
 
-def f2(l: List[str]) -> int:
+def foo2(l: Tuple[str]) -> int:
     pass
 
-def g(t: Tuple[str, ...]) -> int:
+def goo(t: List[str, ...]) -> int:
     pass
 
 from typing import Optional
 
-def f(s: Optional[str]) -> int:
+def foo1(s: Optional[str]) -> int:
     pass
