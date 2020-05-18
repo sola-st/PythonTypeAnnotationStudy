@@ -4,6 +4,7 @@ import time
 import config
 from Code import gitUtils
 from Code.codeChangeExtraction import writeJSON
+from Code.codeStatistics import CodeStatistics
 
 if __name__ == "__main__":
     start = time.time()
@@ -13,12 +14,17 @@ if __name__ == "__main__":
 
     code_changes = []
 
-    for dir in dirlist:
-        print("\nWorking on " + dir)
-        code_changes += gitUtils.query_repo_get_commits(config.ROOT_DIR + "/GitHub/" + dir, '.py')
+    statistics = CodeStatistics()
 
+    if config.TEST:
+        print("\nWorking on pythontest")
+        code_changes += gitUtils.query_repo_get_commits(config.ROOT_DIR + "/GitHub/pythontest", '.py', statistics)
+    else:
+        for dir in dirlist:
+            print("\nWorking on " + dir)
+            code_changes += gitUtils.query_repo_get_commits(config.ROOT_DIR + "/GitHub/" + dir, '.py', statistics)
 
-    # add statistics
+    statistics.percentageComputation()
 
     writeJSON("typeAnnotationChanges", code_changes)
 
@@ -26,5 +32,11 @@ if __name__ == "__main__":
     end = time.time()
     hours, rem = divmod(end - start, 3600)
     minutes, seconds = divmod(rem, 60)
+
+    statistics.execution_time = "{:0>2}:{:0>2}:{:05.2f}".format(int(hours), int(minutes), seconds)
+
+    writeJSON("typeAnnotationStatistics", [statistics])
+
+
 
     print("\nProgram ends successfully in " + "{:0>2}:{:0>2}:{:05.2f}".format(int(hours), int(minutes), seconds))

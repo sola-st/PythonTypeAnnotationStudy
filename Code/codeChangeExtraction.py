@@ -113,7 +113,7 @@ def search_key_value_in_snippet(file, list_of_strings):
     return False
 
 
-def TypeAnnotationExtraction(repo_path, commit, patch, url):
+def TypeAnnotationExtraction(repo_path, commit, patch, url, statistics):
     # command = "git --git-dir " + str(repo_path) + '/.git show ' + str(commit.hex) + ":" + str(patch.delta.old_file.path)
     # os.system(command)
     code_changes = []
@@ -154,28 +154,36 @@ def TypeAnnotationExtraction(repo_path, commit, patch, url):
                     new_line, new_code = search_key_value_in_snippet(str(new_stdout)[2:-1].replace("\\n", os.linesep),
                                                                      [key, new_return_types[key]])
 
-                    code_changes.append(
-                        CodeChange(url + str(old_line), str(patch.delta.old_file.path), old_line, old_code,
-                                   str(patch.delta.new_file.path),
-                                   new_line, new_code))
+                    temp = CodeChange(url + str(old_line), str(patch.delta.old_file.path), old_line, old_code,
+                                      str(patch.delta.new_file.path),
+                                      new_line, new_code)
+
+                    if temp not in code_changes:
+                        code_changes.append(temp)
+                        statistics.modify_existing_types += 1
             else:
-                ssss = old_return_types[key]
-                sss = [key, old_return_types[key]]
                 old_line, old_code = search_key_value_in_snippet(str(old_stdout)[2:-1].replace("\\n", os.linesep),
                                                                  [key, old_return_types[key]])
-                code_changes.append(
-                    CodeChange(url + str(old_line), str(patch.delta.old_file.path), old_line, old_code,
-                               str(patch.delta.new_file.path),
-                               '', ''))
+
+                temp = CodeChange(url + str(old_line), str(patch.delta.old_file.path), old_line, old_code,
+                                  str(patch.delta.new_file.path),
+                                  '', '')
+
+                if temp not in code_changes:
+                    code_changes.append(temp)
+                    statistics.remove_types += 1
 
         for key in new_return_types:
             if key not in old_return_types:
                 new_line, new_code = search_key_value_in_snippet(str(new_stdout)[2:-1].replace("\\n", os.linesep),
                                                                  [key, new_return_types[key]])
-                code_changes.append(
-                    CodeChange(url + str(new_line), str(patch.delta.old_file.path), '', '',
-                               str(patch.delta.new_file.path),
-                               new_line, new_code))
+                temp = CodeChange(url + str(new_line), str(patch.delta.old_file.path), '', '',
+                                  str(patch.delta.new_file.path),
+                                  new_line, new_code)
+
+                if temp not in code_changes:
+                    code_changes.append(temp)
+                    statistics.insert_types += 1
 
         ################################################################
         ########  ARGUMENTS TYPE ANNOTATIONS                       #####
@@ -188,31 +196,40 @@ def TypeAnnotationExtraction(repo_path, commit, patch, url):
                     new_line, new_code = search_key_value_in_snippet(str(new_stdout)[2:-1].replace("\\n", os.linesep),
                                                                      [key, new_param_types[key]])
 
-                    code_changes.append(
-                        CodeChange(url + str(old_line), str(patch.delta.old_file.path), old_line, old_code,
-                                   str(patch.delta.new_file.path),
-                                   new_line, new_code))
+                    temp = CodeChange(url + str(old_line), str(patch.delta.old_file.path), old_line, old_code,
+                                      str(patch.delta.new_file.path),
+                                      new_line, new_code)
+
+                    if temp not in code_changes:
+                        code_changes.append(temp)
+                        statistics.modify_existing_types += 1
 
             else:
                 old_line, old_code = search_key_value_in_snippet(str(old_stdout)[2:-1].replace("\\n", os.linesep),
                                                                  [key, old_param_types[key]])
-                code_changes.append(
-                    CodeChange(url + str(old_line), str(patch.delta.old_file.path), old_line, old_code,
-                               str(patch.delta.new_file.path),
-                               '', ''))
+                temp = CodeChange(url + str(old_line), str(patch.delta.old_file.path), old_line, old_code,
+                                  str(patch.delta.new_file.path),
+                                  '', '')
+
+                if temp not in code_changes:
+                    code_changes.append(temp)
+                    statistics.remove_types += 1
 
         for key in new_param_types:
             if key not in old_param_types:
                 new_line, new_code = search_key_value_in_snippet(str(new_stdout)[2:-1].replace("\\n", os.linesep),
                                                                  [key, new_param_types[key]])
-                code_changes.append(
-                    CodeChange(url + str(new_line), str(patch.delta.old_file.path), '', '',
+                temp = CodeChange(url + str(new_line), str(patch.delta.old_file.path), '', '',
                                str(patch.delta.new_file.path),
-                               new_line, new_code))
+                               new_line, new_code)
+
+                if temp not in code_changes:
+                    code_changes.append(temp)
+                    statistics.insert_types += 1
     except:
         print('Error with old line ' + str(old_stdout))
 
-    return list(set(code_changes))
+    return code_changes
 
 
 def writeJSON(filename, change_list):

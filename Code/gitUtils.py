@@ -5,7 +5,8 @@ from pygit2 import GIT_SORT_TOPOLOGICAL, GIT_SORT_REVERSE
 from Code.codeChangeExtraction import TypeAnnotationExtraction, writeJSON
 
 
-def query_repo_get_commits(repo_path, file_extension):
+def query_repo_get_commits(repo_path, file_extension, statistics):
+    statistics.total_repositories += 1
     code_changes = []
 
     repo = git.Repository(repo_path)
@@ -21,6 +22,7 @@ def query_repo_get_commits(repo_path, file_extension):
     # Go through each commit starting from the most recent commit
     for commit in repo.walk(last_commit, GIT_SORT_TOPOLOGICAL | GIT_SORT_REVERSE):
         print(str(commit.hex))
+        statistics.total_commits += 1
 
         num_parents = len(
             commit.parents)  # Do not want to include merges for now, hence we check if the number of parents is 'one'
@@ -33,11 +35,10 @@ def query_repo_get_commits(repo_path, file_extension):
                 if str(patch.delta.old_file.path)[-3:] != file_extension or str(patch.delta.new_file.path)[-3:] != file_extension:
                     continue
 
-                temp_list = []
-                temp_list = TypeAnnotationExtraction(repo_path, commit, patch, remote_url + '/commit/' + commit.hex + '#diff-' + diff.patchid.hex + 'L')
-                x = len(temp_list)
+                temp_list = TypeAnnotationExtraction(repo_path, commit, patch, remote_url + '/commit/' + commit.hex + '#diff-' + diff.patchid.hex + 'L', statistics)
 
-                if temp_list is not None:
+                if len(temp_list) > 0:
+                    statistics.commits_with_typeChanges += 1
                     code_changes += temp_list
 
                     if len(code_changes) > 1:
