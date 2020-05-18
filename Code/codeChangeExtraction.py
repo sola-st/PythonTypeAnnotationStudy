@@ -13,7 +13,10 @@ def extract_from_snippet(string):
         return {}, {}
 
     # Parse file to AST
-    ast = cst.parse_module(string[2:-1].replace("\\n", os.linesep))
+    try:
+        ast = cst.parse_module(string[2:-1].replace("\\n", os.linesep))
+    except:
+        return {}, {}
 
     # Collect types
     type_collector = TypeCollector()
@@ -86,58 +89,136 @@ def search_key_value_in_file(file_name, list_of_strings):
     return False
 
 
+def search_key_value_in_snippet(file, list_of_strings):
+    """Get line from the file along with line numbers, which contains any string from the list"""
+    line_number = 0
+
+    # Read all lines in the file one by one
+    for line in file.splitlines():
+        line_number += 1
+        # TODO: Add regex for edge cases
+        if len(list_of_strings[0]) > 1:
+            str = list_of_strings[0][1]
+        else:
+            str = "".join(list_of_strings[0])
+
+        str2 = "".join(list_of_strings[1])
+
+        l = line
+        if str in line and "".join(list_of_strings[1]) in line.replace(" ", "") and '->' in l:
+            # If any string is found in line, then append that line along with line number in list
+            return line_number, l.rstrip()
+
+    # Return list of tuples containing matched string, line numbers and lines where string is found
+    return False
+
+
 def TypeAnnotationExtraction(repo_path, commit, patch, url):
     # command = "git --git-dir " + str(repo_path) + '/.git show ' + str(commit.hex) + ":" + str(patch.delta.old_file.path)
     # os.system(command)
     code_changes = []
 
     old_out = subprocess.Popen(
-        ["git", "--git-dir", str(repo_path) + '/.git', 'show', str(commit.hex) + ":" + str(patch.delta.old_file.path)],
+        ["git", "--git-dir", str(repo_path) + '/.git', 'show',
+         str(commit.hex + '^') + ":" + str(patch.delta.old_file.path)],
         stdout=subprocess.PIPE,
         stderr=subprocess.STDOUT)
     old_stdout, old_stderr = old_out.communicate()
 
+    if "fatal" in str(old_stdout):
+        return code_changes
+
     old_param_types, old_return_types = extract_from_snippet(str(old_stdout))
 
     new_out = subprocess.Popen(["git", "--git-dir", str(repo_path) + '/.git', 'show',
-                                str('^' + commit.hex) + ":" + str(patch.delta.new_file.path)],
+                                str(commit.hex) + ":" + str(patch.delta.new_file.path)],
                                stdout=subprocess.PIPE,
                                stderr=subprocess.STDOUT)
     new_stdout, new_stderr = new_out.communicate()
 
+    if "fatal" in str(new_stdout):
+        return code_changes
+
     new_param_types, new_return_types = extract_from_snippet(str(new_stdout))
 
-    for key in old_return_types:
-        if old_return_types[key] != new_return_types[key]:
-            old_line, old_code = search_key_value_in_file(config.ROOT_DIR + '/Resources/Input/old.py',
-                                                          [key, old_return_types[key]])
-            new_line, new_code = search_key_value_in_file(config.ROOT_DIR + '/Resources/Input/new.py',
-                                                          [key, new_return_types[key]])
+    try:
 
-            code_changes.append(
-                CodeChange(url, str(patch.delta.old_file.path), old_line, old_code, str(patch.delta.new_file.path),
-                           new_line, new_code))
+        ################################################################
+        ########  RETURN TYPE ANNOTATIONS                          #####
+        ################################################################
+        for key in old_return_types:
+            if key in new_return_types:
+                if old_return_types[key] != new_return_types[key]:
+                    old_line, old_code = search_key_value_in_snippet(str(old_stdout)[2:-1].replace("\\n", os.linesep),
+                                                                     [key, old_return_types[key]])
+                    new_line, new_code = search_key_value_in_snippet(str(new_stdout)[2:-1].replace("\\n", os.linesep),
+                                                                     [key, new_return_types[key]])
 
-    for key in old_param_types:
-        s = old_param_types[key]
-        ss = new_param_types[key]
-        if old_param_types[key] != new_param_types[key]:
-            old_line, old_code = search_key_value_in_file(config.ROOT_DIR + '/Resources/Input/old.py',
-                                                          [key, old_param_types[key]])
-            new_line, new_code = search_key_value_in_file(config.ROOT_DIR + '/Resources/Input/new.py',
-                                                          [key, new_param_types[key]])
+                    code_changes.append(
+                        CodeChange(url + str(old_line), str(patch.delta.old_file.path), old_line, old_code,
+                                   str(patch.delta.new_file.path),
+                                   new_line, new_code))
+            else:
+                ssss = old_return_types[key]
+                sss = [key, old_return_types[key]]
+                old_line, old_code = search_key_value_in_snippet(str(old_stdout)[2:-1].replace("\\n", os.linesep),
+                                                                 [key, old_return_types[key]])
+                code_changes.append(
+                    CodeChange(url + str(old_line), str(patch.delta.old_file.path), old_line, old_code,
+                               str(patch.delta.new_file.path),
+                               '', ''))
 
-            code_changes.append(
-                CodeChange(url, str(patch.delta.old_file.path), old_line, old_code, str(patch.delta.new_file.path),
-                           new_line, new_code))
+        for key in new_return_types:
+            if key not in old_return_types:
+                new_line, new_code = search_key_value_in_snippet(str(new_stdout)[2:-1].replace("\\n", os.linesep),
+                                                                 [key, new_return_types[key]])
+                code_changes.append(
+                    CodeChange(url + str(new_line), str(patch.delta.old_file.path), '', '',
+                               str(patch.delta.new_file.path),
+                               new_line, new_code))
 
-        return code_changes
+        ################################################################
+        ########  ARGUMENTS TYPE ANNOTATIONS                       #####
+        ################################################################
+        for key in old_param_types:
+            if key in new_param_types:
+                if old_param_types[key] != new_param_types[key]:
+                    old_line, old_code = search_key_value_in_snippet(str(old_stdout)[2:-1].replace("\\n", os.linesep),
+                                                                     [key, old_param_types[key]])
+                    new_line, new_code = search_key_value_in_snippet(str(new_stdout)[2:-1].replace("\\n", os.linesep),
+                                                                     [key, new_param_types[key]])
+
+                    code_changes.append(
+                        CodeChange(url + str(old_line), str(patch.delta.old_file.path), old_line, old_code,
+                                   str(patch.delta.new_file.path),
+                                   new_line, new_code))
+
+            else:
+                old_line, old_code = search_key_value_in_snippet(str(old_stdout)[2:-1].replace("\\n", os.linesep),
+                                                                 [key, old_param_types[key]])
+                code_changes.append(
+                    CodeChange(url + str(old_line), str(patch.delta.old_file.path), old_line, old_code,
+                               str(patch.delta.new_file.path),
+                               '', ''))
+
+        for key in new_param_types:
+            if key not in old_param_types:
+                new_line, new_code = search_key_value_in_snippet(str(new_stdout)[2:-1].replace("\\n", os.linesep),
+                                                                 [key, new_param_types[key]])
+                code_changes.append(
+                    CodeChange(url + str(new_line), str(patch.delta.old_file.path), '', '',
+                               str(patch.delta.new_file.path),
+                               new_line, new_code))
+    except:
+        print('Error with old line ' + str(old_stdout))
+
+    return list(set(code_changes))
 
 
 def writeJSON(filename, change_list):
     json_file = json.dumps([change.__dict__ for change in change_list], indent=4)
 
-    print(json_file)
+    print('\nCode changes with type annotations found: ' + str(len(change_list)))
 
     with open(config.ROOT_DIR + "/Resources/Output/" + filename + ".json", "w") as f:
         f.write(json_file)

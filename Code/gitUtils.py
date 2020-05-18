@@ -1,3 +1,5 @@
+import json
+
 import pygit2 as git
 from pygit2 import GIT_SORT_TOPOLOGICAL, GIT_SORT_REVERSE
 from Code.codeChangeExtraction import TypeAnnotationExtraction, writeJSON
@@ -28,10 +30,22 @@ def query_repo_get_commits(repo_path, file_extension):
             diff = repo.diff(commit.hex + '^', commit.hex)
 
             for patch in diff:
-                temp_list = TypeAnnotationExtraction(repo_path, commit, patch, remote_url + '/commit/' + commit.hex)
+                if str(patch.delta.old_file.path)[-3:] != file_extension or str(patch.delta.new_file.path)[-3:] != file_extension:
+                    continue
+
+                temp_list = []
+                temp_list = TypeAnnotationExtraction(repo_path, commit, patch, remote_url + '/commit/' + commit.hex + '#diff-' + diff.patchid.hex + 'L')
+                x = len(temp_list)
 
                 if temp_list is not None:
                     code_changes += temp_list
 
-    writeJSON("typeAnnotationChanges", code_changes)
+                    if len(code_changes) > 1:
+                        json_file = json.dumps([change.__dict__ for change in code_changes], indent=4)
+                       # print(json_file)
+
+
+    return code_changes
+
+
 

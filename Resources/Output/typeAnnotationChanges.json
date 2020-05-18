@@ -1,1 +1,272 @@
-[]
+[
+    {
+        "url": "https://github.com/scikit-learn/scikit-learn/commit/cd81de1ccc9773af119dc290c25cef34029a7c47#diff-5f9b6b21e15dc5ae3f6f845f23507782ccd88aaeL87",
+        "old_file": "maint_tools/test_docstrings.py",
+        "old_line": 87,
+        "old_code": "def repr_errors(res, estimator=None, method: Optional[str] = None) -> str:",
+        "new_line": "",
+        "new_file": "maint_tools/test_docstrings.py",
+        "new_code": ""
+    },
+    {
+        "url": "https://github.com/Instagram/MonkeyType/commit/f787188e22481b419ec91cd81e60c22bc1b36467#diff-543c09ad6c94ff8ca805defbd6e5d34d4aca4cd9L26",
+        "old_file": "tests/test_util.py",
+        "old_line": 26,
+        "old_code": "    def a_settable_property(self) -> Optional[FrameType]:",
+        "new_line": "",
+        "new_file": "tests/test_util.py",
+        "new_code": ""
+    },
+    {
+        "url": "https://github.com/Instagram/MonkeyType/commit/f787188e22481b419ec91cd81e60c22bc1b36467#diff-543c09ad6c94ff8ca805defbd6e5d34d4aca4cd9L18",
+        "old_file": "tests/test_util.py",
+        "old_line": 18,
+        "old_code": "    def an_instance_method(self, foo: Any, bar: Any) -> Optional[FrameType]:",
+        "new_line": "",
+        "new_file": "tests/test_util.py",
+        "new_code": ""
+    },
+    {
+        "url": "https://github.com/Instagram/MonkeyType/commit/f787188e22481b419ec91cd81e60c22bc1b36467#diff-543c09ad6c94ff8ca805defbd6e5d34d4aca4cd9L11",
+        "old_file": "tests/test_util.py",
+        "old_line": 11,
+        "old_code": "    def a_static_method(foo: Any) -> Optional[FrameType]:",
+        "new_line": "",
+        "new_file": "tests/test_util.py",
+        "new_code": ""
+    },
+    {
+        "url": "https://github.com/Instagram/MonkeyType/commit/f787188e22481b419ec91cd81e60c22bc1b36467#diff-543c09ad6c94ff8ca805defbd6e5d34d4aca4cd9L22",
+        "old_file": "tests/test_util.py",
+        "old_line": 22,
+        "old_code": "    def a_property(self) -> Optional[FrameType]:",
+        "new_line": "",
+        "new_file": "tests/test_util.py",
+        "new_code": ""
+    },
+    {
+        "url": "https://github.com/Instagram/MonkeyType/commit/f787188e22481b419ec91cd81e60c22bc1b36467#diff-543c09ad6c94ff8ca805defbd6e5d34d4aca4cd9L15",
+        "old_file": "tests/test_util.py",
+        "old_line": 15,
+        "old_code": "    def a_class_method(cls, foo: Any) -> Optional[FrameType]:",
+        "new_line": "",
+        "new_file": "tests/test_util.py",
+        "new_code": ""
+    },
+    {
+        "url": "https://github.com/Instagram/MonkeyType/commit/4f4efc80a78dc087b090aa0ff17f367738ad135a#diff-8a259a39739e7468241b4090d05d40248faeb252L24",
+        "old_file": "tests/util.py",
+        "old_line": 24,
+        "old_code": "    def an_instance_method(self, foo: Any, bar: Any) -> Optional[FrameType]:",
+        "new_line": "",
+        "new_file": "tests/util.py",
+        "new_code": ""
+    },
+    {
+        "url": "https://github.com/Instagram/MonkeyType/commit/4f4efc80a78dc087b090aa0ff17f367738ad135a#diff-8a259a39739e7468241b4090d05d40248faeb252L21",
+        "old_file": "tests/util.py",
+        "old_line": 21,
+        "old_code": "    def a_class_method(cls, foo: Any) -> Optional[FrameType]:",
+        "new_line": "",
+        "new_file": "tests/util.py",
+        "new_code": ""
+    },
+    {
+        "url": "https://github.com/Instagram/MonkeyType/commit/4f4efc80a78dc087b090aa0ff17f367738ad135a#diff-8a259a39739e7468241b4090d05d40248faeb252L17",
+        "old_file": "tests/util.py",
+        "old_line": 17,
+        "old_code": "    def a_static_method(foo: Any) -> Optional[FrameType]:",
+        "new_line": "",
+        "new_file": "tests/util.py",
+        "new_code": ""
+    },
+    {
+        "url": "https://github.com/Instagram/MonkeyType/commit/4f4efc80a78dc087b090aa0ff17f367738ad135a#diff-8a259a39739e7468241b4090d05d40248faeb252L32",
+        "old_file": "tests/util.py",
+        "old_line": 32,
+        "old_code": "    def a_settable_property(self) -> Optional[FrameType]:",
+        "new_line": "",
+        "new_file": "tests/util.py",
+        "new_code": ""
+    },
+    {
+        "url": "https://github.com/Instagram/MonkeyType/commit/4f4efc80a78dc087b090aa0ff17f367738ad135a#diff-8a259a39739e7468241b4090d05d40248faeb252L28",
+        "old_file": "tests/util.py",
+        "old_line": 28,
+        "old_code": "    def a_property(self) -> Optional[FrameType]:",
+        "new_line": "",
+        "new_file": "tests/util.py",
+        "new_code": ""
+    },
+    {
+        "url": "https://github.com/Instagram/MonkeyType/commit/c281ba2994c62496ab926cff18d4f3c69179dccb#diff-848d68b40915cd4524c13f377a69bc7c3b0269f4L19",
+        "old_file": "monkeytype/db/base.py",
+        "old_line": 19,
+        "old_code": "    def to_trace(self) -> CallTrace:",
+        "new_line": "",
+        "new_file": "monkeytype/db/base.py",
+        "new_code": ""
+    },
+    {
+        "url": "https://github.com/Instagram/MonkeyType/commit/c281ba2994c62496ab926cff18d4f3c69179dccb#diff-848d68b40915cd4524c13f377a69bc7c3b0269f4L28",
+        "old_file": "monkeytype/db/base.py",
+        "old_line": 28,
+        "old_code": "    def add(self, traces: Iterable[CallTrace]) -> None:",
+        "new_line": "",
+        "new_file": "monkeytype/db/base.py",
+        "new_code": ""
+    },
+    {
+        "url": "https://github.com/Instagram/MonkeyType/commit/05f4111a76168e7aa34c70c9fddd6a0988651b7a#diff-cf297b87329722946cf02bbdf779cb5ea0c8660bL18",
+        "old_file": "monkeytype/__init__.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": 18,
+        "new_file": "monkeytype/__init__.py",
+        "new_code": "def trace(config: Config = DEFAULT_CONFIG) -> ContextManager:"
+    },
+    {
+        "url": "https://github.com/Instagram/MonkeyType/commit/b4b9bc484819443f823aff595ccec0229b18fc27#diff-c470031ea087fd7c589af73994260683b8c03590L18",
+        "old_file": "monkeytype/__init__.py",
+        "old_line": 18,
+        "old_code": "def trace(config: Config = DEFAULT_CONFIG) -> ContextManager:",
+        "new_line": 21,
+        "new_file": "monkeytype/__init__.py",
+        "new_code": "def trace(config: Optional[Config] = None) -> ContextManager:"
+    },
+    {
+        "url": "https://github.com/Instagram/MonkeyType/commit/d33d81e7d76d70f76752520365cb5017405630ae#diff-6ac92be467f75fe5088f971ed9e6d60512621d5eL12",
+        "old_file": "monkeytype/compat.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": 12,
+        "new_file": "monkeytype/compat.py",
+        "new_code": "    def is_any(typ: Any) -> bool:"
+    },
+    {
+        "url": "https://github.com/Instagram/MonkeyType/commit/d33d81e7d76d70f76752520365cb5017405630ae#diff-6ac92be467f75fe5088f971ed9e6d60512621d5eL30",
+        "old_file": "monkeytype/compat.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": 30,
+        "new_file": "monkeytype/compat.py",
+        "new_code": "    def is_forward_ref(typ: Any) -> bool:"
+    },
+    {
+        "url": "https://github.com/Instagram/MonkeyType/commit/e34bc5aef3e6377905ba55c8acaddb399d87267e#diff-43e1a0520b57761969cbe59efa9971fd2b12714dL12",
+        "old_file": "monkeytype/compat.py",
+        "old_line": 12,
+        "old_code": "    def is_any(typ: Any) -> bool:",
+        "new_line": "",
+        "new_file": "monkeytype/compat.py",
+        "new_code": ""
+    },
+    {
+        "url": "https://github.com/Instagram/MonkeyType/commit/e34bc5aef3e6377905ba55c8acaddb399d87267e#diff-43e1a0520b57761969cbe59efa9971fd2b12714dL30",
+        "old_file": "monkeytype/compat.py",
+        "old_line": 30,
+        "old_code": "    def is_forward_ref(typ: Any) -> bool:",
+        "new_line": "",
+        "new_file": "monkeytype/compat.py",
+        "new_code": ""
+    },
+    {
+        "url": "https://github.com/Instagram/MonkeyType/commit/e34bc5aef3e6377905ba55c8acaddb399d87267e#diff-43e1a0520b57761969cbe59efa9971fd2b12714dL24",
+        "old_file": "monkeytype/compat.py",
+        "old_line": 24,
+        "old_code": "    def qualname_of_generic(typ: Any) -> str:",
+        "new_line": "",
+        "new_file": "monkeytype/compat.py",
+        "new_code": ""
+    },
+    {
+        "url": "https://github.com/Instagram/MonkeyType/commit/e34bc5aef3e6377905ba55c8acaddb399d87267e#diff-43e1a0520b57761969cbe59efa9971fd2b12714dL18",
+        "old_file": "monkeytype/compat.py",
+        "old_line": 18,
+        "old_code": "    def is_generic(typ: Any) -> bool:",
+        "new_line": "",
+        "new_file": "monkeytype/compat.py",
+        "new_code": ""
+    },
+    {
+        "url": "https://github.com/Instagram/MonkeyType/commit/e34bc5aef3e6377905ba55c8acaddb399d87267e#diff-43e1a0520b57761969cbe59efa9971fd2b12714dL21",
+        "old_file": "monkeytype/compat.py",
+        "old_line": 21,
+        "old_code": "    def is_generic_of(typ: Any, gen: Any) -> bool:",
+        "new_line": "",
+        "new_file": "monkeytype/compat.py",
+        "new_code": ""
+    },
+    {
+        "url": "https://github.com/Instagram/MonkeyType/commit/e34bc5aef3e6377905ba55c8acaddb399d87267e#diff-43e1a0520b57761969cbe59efa9971fd2b12714dL15",
+        "old_file": "monkeytype/compat.py",
+        "old_line": 15,
+        "old_code": "    def is_union(typ: Any) -> bool:",
+        "new_line": "",
+        "new_file": "monkeytype/compat.py",
+        "new_code": ""
+    },
+    {
+        "url": "https://github.com/lucaresearch/pythontest/commit/8f60755881865733528c1391c1102c2165bdb022#diff-5b3247aeaa94c9a1e743fcd7915093f3ce145adbL12",
+        "old_file": "main.py",
+        "old_line": 12,
+        "old_code": "def goo(t: Tuple[str, ...]) -> None:",
+        "new_line": 12,
+        "new_file": "main.py",
+        "new_code": "def goo(t: Tuple[str, ...]) -> int:"
+    },
+    {
+        "url": "https://github.com/lucaresearch/pythontest/commit/8f60755881865733528c1391c1102c2165bdb022#diff-5b3247aeaa94c9a1e743fcd7915093f3ce145adbL9",
+        "old_file": "main.py",
+        "old_line": 9,
+        "old_code": "def foo2(l: List[str]) -> None:",
+        "new_line": 9,
+        "new_file": "main.py",
+        "new_code": "def foo2(l: List[str]) -> int:"
+    },
+    {
+        "url": "https://github.com/lucaresearch/pythontest/commit/a5d9d2a37c383384dbace073b878212df2574a11#diff-86d8c2b93f8f9c98e0dd0d950f9f4d5b1756eaaeL9",
+        "old_file": "main.py",
+        "old_line": 9,
+        "old_code": "def foo2(l: List[str]) -> int:",
+        "new_line": 9,
+        "new_file": "main.py",
+        "new_code": "def foo2(l: List[str]) -> str:"
+    },
+    {
+        "url": "https://github.com/lucaresearch/pythontest/commit/a5d9d2a37c383384dbace073b878212df2574a11#diff-86d8c2b93f8f9c98e0dd0d950f9f4d5b1756eaaeL17",
+        "old_file": "main.py",
+        "old_line": 17,
+        "old_code": "def foo1(s: Optional[str]) -> None:",
+        "new_line": 17,
+        "new_file": "main.py",
+        "new_code": "def foo1(s: Optional[str]) -> str:"
+    },
+    {
+        "url": "https://github.com/lucaresearch/pythontest/commit/4f0460f5b5dc4786c3539b3381f0e0ac32d97622#diff-285267cc26b84fc713f32e383289f25004168ff3L9",
+        "old_file": "main.py",
+        "old_line": 9,
+        "old_code": "def foo2(l: List[str]) -> str:",
+        "new_line": 9,
+        "new_file": "main.py",
+        "new_code": "def foo2(l: Tuple[str]) -> str:"
+    },
+    {
+        "url": "https://github.com/lucaresearch/pythontest/commit/99a4d6882a843eab615de95e6ea2585e3cb8b2a6#diff-ebe5f47148bc5542acdc2fe6751f232cf8b174a2L3",
+        "old_file": "main.py",
+        "old_line": 3,
+        "old_code": "def process_something(arguments: Any) -> Any:",
+        "new_line": "",
+        "new_file": "main.py",
+        "new_code": ""
+    },
+    {
+        "url": "https://github.com/lucaresearch/pythontest/commit/01d078e80fde3052845b5018c3407ee2daeaf7c1#diff-6eead058c2e33d804090871a2b72788032f8e6b2L16",
+        "old_file": "main.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": 16,
+        "new_file": "main.py",
+        "new_code": "def something(arguments: Any) -> int:"
+    }
+]

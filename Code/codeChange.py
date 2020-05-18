@@ -1,4 +1,3 @@
-
 class CodeChange:
     """Code change class"""
 
@@ -13,3 +12,14 @@ class CodeChange:
         self.new_file = new_file
         self.new_code = new_code
 
+    def __members(self):
+        return self.url, self.old_file, self.old_line, self.old_code, self.new_file, self.new_line, self.new_code
+
+    def __eq__(self, other):
+        if type(other) is type(self):
+            return self.__members() == other.__members()
+        else:
+            return False
+
+    def __hash__(self):
+        return hash(self.__members())
