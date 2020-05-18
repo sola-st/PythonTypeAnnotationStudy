@@ -7,6 +7,9 @@ from Code.codeChangeExtraction import writeJSON
 from Code.codeStatistics import CodeStatistics
 
 if __name__ == "__main__":
+    if config.CLONING:
+        gitUtils.repo_cloning(config.ROOT_DIR + '/Resources/Input/top30pythonRepo.json', config.ROOT_DIR + "/GitHub")
+
     start = time.time()
 
     dirlist = [item for item in os.listdir(config.ROOT_DIR + "/GitHub") if

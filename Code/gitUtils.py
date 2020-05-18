@@ -1,8 +1,31 @@
 import json
+import os
 
 import pygit2 as git
 from pygit2 import GIT_SORT_TOPOLOGICAL, GIT_SORT_REVERSE
 from Code.codeChangeExtraction import TypeAnnotationExtraction, writeJSON
+
+
+def repo_cloning(filenameInput, pathOutput):
+    with open(filenameInput) as fh:
+        articles = json.load(fh)
+
+    article_urls = [article['html_url'] for article in articles]
+
+    i = 0
+    for link in article_urls:
+        i +=1
+        out = link.rsplit('/', 1)[-1].replace('.git', '')
+
+        if os.path.isdir(pathOutput + '/'+ out):
+            print(str(i) + ') Already cloned ' + link)
+            continue
+
+        else:
+            print(str(i) + ') Cloning ' + link)
+            #        command = "git clone " + link + " ./src/main/resources/GitHub/" + link.rsplit('/', 1)[-1].replace('.git', '')
+            #       os.system(command)
+            git.clone_repository(link, pathOutput + '/'+ out)
 
 
 def query_repo_get_commits(repo_path, file_extension, statistics):
@@ -32,10 +55,13 @@ def query_repo_get_commits(repo_path, file_extension, statistics):
             diff = repo.diff(commit.hex + '^', commit.hex)
 
             for patch in diff:
-                if str(patch.delta.old_file.path)[-3:] != file_extension or str(patch.delta.new_file.path)[-3:] != file_extension:
+                if str(patch.delta.old_file.path)[-3:] != file_extension or str(patch.delta.new_file.path)[
+                                                                            -3:] != file_extension:
                     continue
 
-                temp_list = TypeAnnotationExtraction(repo_path, commit, patch, remote_url + '/commit/' + commit.hex + '#diff-' + diff.patchid.hex + 'L', statistics)
+                temp_list = TypeAnnotationExtraction(repo_path, commit, patch,
+                                                     remote_url + '/commit/' + commit.hex + '#diff-' + diff.patchid.hex + 'L',
+                                                     statistics)
 
                 if len(temp_list) > 0:
                     statistics.commits_with_typeChanges += 1
@@ -43,10 +69,6 @@ def query_repo_get_commits(repo_path, file_extension, statistics):
 
                     if len(code_changes) > 1:
                         json_file = json.dumps([change.__dict__ for change in code_changes], indent=4)
-                       # print(json_file)
-
+                    # print(json_file)
 
     return code_changes
-
-
-
