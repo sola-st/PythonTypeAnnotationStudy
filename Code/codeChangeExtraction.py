@@ -113,7 +113,7 @@ def search_key_value_in_snippet(file, list_of_strings):
     return False
 
 
-def TypeAnnotationExtraction(repo_path, commit, patch, url, statistics):
+def TypeAnnotationExtraction(repo_path, commit, patch, url, statistics, lock, typeAdded_dict):
     # command = "git --git-dir " + str(repo_path) + '/.git show ' + str(commit.hex) + ":" + str(patch.delta.old_file.path)
     # os.system(command)
     code_changes = []
@@ -146,6 +146,8 @@ def TypeAnnotationExtraction(repo_path, commit, patch, url, statistics):
         ################################################################
         ########  RETURN TYPE ANNOTATIONS                          #####
         ################################################################
+
+        #Modify existing type annotation
         for key in old_return_types:
             if key in new_return_types:
                 if old_return_types[key] != new_return_types[key]:
@@ -160,7 +162,12 @@ def TypeAnnotationExtraction(repo_path, commit, patch, url, statistics):
 
                     if temp not in code_changes:
                         code_changes.append(temp)
+
+                        lock.acquire()
                         statistics.modify_existing_types += 1
+                        lock.release()
+
+            # Remove type annotation
             else:
                 old_line, old_code = search_key_value_in_snippet(str(old_stdout)[2:-1].replace("\\n", os.linesep),
                                                                  [key, old_return_types[key]])
@@ -171,8 +178,12 @@ def TypeAnnotationExtraction(repo_path, commit, patch, url, statistics):
 
                 if temp not in code_changes:
                     code_changes.append(temp)
-                    statistics.remove_types += 1
 
+                    lock.acquire()
+                    statistics.remove_types += 1
+                    lock.release()
+
+        # Insert type annotation
         for key in new_return_types:
             if key not in old_return_types:
                 new_line, new_code = search_key_value_in_snippet(str(new_stdout)[2:-1].replace("\\n", os.linesep),
@@ -183,11 +194,20 @@ def TypeAnnotationExtraction(repo_path, commit, patch, url, statistics):
 
                 if temp not in code_changes:
                     code_changes.append(temp)
+
+                    lock.acquire()
                     statistics.insert_types += 1
+                    if new_return_types[key] not in typeAdded_dict:
+                        typeAdded_dict[new_return_types[key]] = 1
+                    else:
+                        typeAdded_dict[new_return_types[key]] += 1
+                    lock.release()
 
         ################################################################
         ########  ARGUMENTS TYPE ANNOTATIONS                       #####
         ################################################################
+
+        # Modify existing type annotation
         for key in old_param_types:
             if key in new_param_types:
                 if old_param_types[key] != new_param_types[key]:
@@ -202,8 +222,12 @@ def TypeAnnotationExtraction(repo_path, commit, patch, url, statistics):
 
                     if temp not in code_changes:
                         code_changes.append(temp)
-                        statistics.modify_existing_types += 1
 
+                        lock.acquire()
+                        statistics.modify_existing_types += 1
+                        lock.release()
+
+            # Remove type annotation
             else:
                 old_line, old_code = search_key_value_in_snippet(str(old_stdout)[2:-1].replace("\\n", os.linesep),
                                                                  [key, old_param_types[key]])
@@ -213,8 +237,12 @@ def TypeAnnotationExtraction(repo_path, commit, patch, url, statistics):
 
                 if temp not in code_changes:
                     code_changes.append(temp)
-                    statistics.remove_types += 1
 
+                    lock.acquire()
+                    statistics.remove_types += 1
+                    lock.release()
+
+        # Insert type annotation
         for key in new_param_types:
             if key not in old_param_types:
                 new_line, new_code = search_key_value_in_snippet(str(new_stdout)[2:-1].replace("\\n", os.linesep),
@@ -225,7 +253,14 @@ def TypeAnnotationExtraction(repo_path, commit, patch, url, statistics):
 
                 if temp not in code_changes:
                     code_changes.append(temp)
+
+                    lock.acquire()
                     statistics.insert_types += 1
+                    if new_param_types[key] not in typeAdded_dict:
+                        typeAdded_dict[new_param_types[key]] = 1
+                    else:
+                        typeAdded_dict[new_param_types[key]] += 1
+                    lock.release()
     except:
         print('Error with old line ' + str(old_stdout))
 
@@ -236,6 +271,16 @@ def writeJSON(filename, change_list):
     json_file = json.dumps([change.__dict__ for change in change_list], indent=4)
 
     print('\nCode changes with type annotations found: ' + str(len(change_list)))
+
+    with open(config.ROOT_DIR + "/Resources/Output/" + filename + ".json", "w") as f:
+        f.write(json_file)
+    f.close()
+
+
+def writeJSONstatistics(filename, statistics_json):
+    json_file = json.dumps(statistics_json, indent=4)
+
+    #print('\nCode changes with type annotations found: ' + str(len(change_list)))
 
     with open(config.ROOT_DIR + "/Resources/Output/" + filename + ".json", "w") as f:
         f.write(json_file)

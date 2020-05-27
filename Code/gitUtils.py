@@ -3,10 +3,10 @@ import os
 
 import pygit2 as git
 from pygit2 import GIT_SORT_TOPOLOGICAL, GIT_SORT_REVERSE
-from Code.codeChangeExtraction import TypeAnnotationExtraction, writeJSON
+from Code.codeChangeExtraction import TypeAnnotationExtraction
 
 
-def repo_cloning(filenameInput, pathOutput):
+def repo_cloning(filenameInput: str, pathOutput: str) -> None:
     with open(filenameInput) as fh:
         articles = json.load(fh)
 
@@ -18,18 +18,19 @@ def repo_cloning(filenameInput, pathOutput):
         out = link.rsplit('/', 1)[-1].replace('.git', '')
 
         if os.path.isdir(pathOutput + '/'+ out):
-            print(str(i) + ') Already cloned ' + link)
+            print(str(i) + ') Already cloned' + link)
             continue
 
         else:
             print(str(i) + ') Cloning ' + link)
-            #        command = "git clone " + link + " ./src/main/resources/GitHub/" + link.rsplit('/', 1)[-1].replace('.git', '')
-            #       os.system(command)
             git.clone_repository(link, pathOutput + '/'+ out)
 
 
-def query_repo_get_commits(repo_path, file_extension, statistics):
+def query_repo_get_changes(repo_path, file_extension, statistics, lock, typeAdded_dict):
+    lock.acquire()
     statistics.total_repositories += 1
+    lock.release()
+
     code_changes = []
 
     repo = git.Repository(repo_path)
@@ -45,7 +46,10 @@ def query_repo_get_commits(repo_path, file_extension, statistics):
     # Go through each commit starting from the most recent commit
     for commit in repo.walk(last_commit, GIT_SORT_TOPOLOGICAL | GIT_SORT_REVERSE):
         print(str(commit.hex))
+
+        lock.acquire()
         statistics.total_commits += 1
+        lock.release()
 
         num_parents = len(
             commit.parents)  # Do not want to include merges for now, hence we check if the number of parents is 'one'
@@ -61,10 +65,13 @@ def query_repo_get_commits(repo_path, file_extension, statistics):
 
                 temp_list = TypeAnnotationExtraction(repo_path, commit, patch,
                                                      remote_url + '/commit/' + commit.hex + '#diff-' + diff.patchid.hex + 'L',
-                                                     statistics)
+                                                     statistics, lock, typeAdded_dict)
 
                 if len(temp_list) > 0:
+                    lock.acquire()
                     statistics.commits_with_typeChanges += 1
+                    lock.release()
+
                     code_changes += temp_list
 
                     if len(code_changes) > 1:
