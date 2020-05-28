@@ -1,8 +1,5 @@
-import json
 import os
 import subprocess
-
-import config
 from Code.codeChange import CodeChange
 from Code.parsers import TypeCollector
 import libcst as cst

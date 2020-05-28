@@ -1,8 +1,9 @@
 import os
+import threading
 import time
 import multiprocessing
 import config
-from Code import gitUtils, lucaUtils
+from Code import gitUtils
 from Code.codeStatistics import CodeStatistics
 from Code.projectUtils import write_results
 
@@ -24,18 +25,25 @@ if __name__ == "__main__":
 
     if config.TEST:
         listOfStrings1 = [config.ROOT_DIR + "/GitHub/pythontest"] * 1
-        data_chunks = lucaUtils.chunkify(listOfStrings1, cpu_cores)
 
-        #   for chunk in data_chunks:
         for repo in listOfStrings1:
             print("\nWorking on pythontest")
-            code_changes += gitUtils.query_repo_get_changes(config.ROOT_DIR + "/GitHub/pythontest",
-                                                            '.py', statistics, lock)
+            gitUtils.query_repo_get_changes(config.ROOT_DIR + "/GitHub/pythontest",
+                                            '.py', statistics, code_changes, lock)
+
     else:
-        for dir in dirlist:
-            print("\nWorking on " + dir)
-            code_changes += gitUtils.query_repo_get_changes(config.ROOT_DIR + "/GitHub/" + dir,
-                                                            '.py', statistics, lock)
+
+        threads = []
+        for repository in dirlist:
+            thread = threading.Thread(target=gitUtils.query_repo_get_changes,
+                                      args=(config.ROOT_DIR + "/GitHub/" + repository,
+                                            '.py', statistics, code_changes, lock))
+            threads.append(thread)
+            print("\nWorking on " + repository)
+            thread.start()
+
+        for thread in threads:
+            thread.join()
 
     # Statistics computation
     statistics.statistics_computation()

@@ -1,6 +1,5 @@
 import json
 import os
-
 import pygit2 as git
 from pygit2 import GIT_SORT_TOPOLOGICAL, GIT_SORT_REVERSE
 from Code.codeChangeExtraction import TypeAnnotationExtraction
@@ -26,12 +25,11 @@ def repo_cloning(filenameInput: str, pathOutput: str) -> None:
             git.clone_repository(link, pathOutput + '/'+ out)
 
 
-def query_repo_get_changes(repo_path, file_extension, statistics, lock):
+def query_repo_get_changes(repo_path, file_extension, statistics, code_changes, lock):
     lock.acquire()
     statistics.total_repositories += 1
     lock.release()
 
-    code_changes = []
 
     repo = git.Repository(repo_path)
     remote_url = None
@@ -59,8 +57,8 @@ def query_repo_get_changes(repo_path, file_extension, statistics, lock):
             diff = repo.diff(commit.hex + '^', commit.hex)
 
             for patch in diff:
-                if str(patch.delta.old_file.path)[-3:] != file_extension or str(patch.delta.new_file.path)[
-                                                                            -3:] != file_extension:
+                if str(patch.delta.old_file.path)[-3:] != file_extension or \
+                        str(patch.delta.new_file.path)[-3:] != file_extension:
                     continue
 
                 temp_list = TypeAnnotationExtraction(repo_path, commit, patch,
@@ -70,12 +68,8 @@ def query_repo_get_changes(repo_path, file_extension, statistics, lock):
                 if len(temp_list) > 0:
                     lock.acquire()
                     statistics.commits_with_typeChanges += 1
-                    lock.release()
 
                     code_changes += temp_list
 
-                    if len(code_changes) > 1:
-                        json_file = json.dumps([change.__dict__ for change in code_changes], indent=4)
-                    # print(json_file)
+                    lock.release()
 
-    return code_changes
