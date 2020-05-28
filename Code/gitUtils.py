@@ -26,7 +26,7 @@ def repo_cloning(filenameInput: str, pathOutput: str) -> None:
             git.clone_repository(link, pathOutput + '/'+ out)
 
 
-def query_repo_get_changes(repo_path, file_extension, statistics, lock, typeAdded_dict):
+def query_repo_get_changes(repo_path, file_extension, statistics, lock):
     lock.acquire()
     statistics.total_repositories += 1
     lock.release()
@@ -65,7 +65,7 @@ def query_repo_get_changes(repo_path, file_extension, statistics, lock, typeAdde
 
                 temp_list = TypeAnnotationExtraction(repo_path, commit, patch,
                                                      remote_url + '/commit/' + commit.hex + '#diff-' + diff.patchid.hex + 'L',
-                                                     statistics, lock, typeAdded_dict)
+                                                     statistics, lock)
 
                 if len(temp_list) > 0:
                     lock.acquire()

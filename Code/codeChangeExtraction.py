@@ -113,7 +113,7 @@ def search_key_value_in_snippet(file, list_of_strings):
     return False
 
 
-def TypeAnnotationExtraction(repo_path, commit, patch, url, statistics, lock, typeAdded_dict):
+def TypeAnnotationExtraction(repo_path, commit, patch, url, statistics, lock):
     # command = "git --git-dir " + str(repo_path) + '/.git show ' + str(commit.hex) + ":" + str(patch.delta.old_file.path)
     # os.system(command)
     code_changes = []
@@ -181,6 +181,11 @@ def TypeAnnotationExtraction(repo_path, commit, patch, url, statistics, lock, ty
 
                     lock.acquire()
                     statistics.remove_types += 1
+                    if old_return_types[key] not in statistics.typeRemoved_dict:
+                        statistics.typeRemoved_dict[old_return_types[key]] = 1
+                    else:
+                        statistics.typeRemoved_dict[old_return_types[key]] += 1
+                    statistics.total_removed += 1
                     lock.release()
 
         # Insert type annotation
@@ -197,10 +202,11 @@ def TypeAnnotationExtraction(repo_path, commit, patch, url, statistics, lock, ty
 
                     lock.acquire()
                     statistics.insert_types += 1
-                    if new_return_types[key] not in typeAdded_dict:
-                        typeAdded_dict[new_return_types[key]] = 1
+                    if new_return_types[key] not in statistics.typeAdded_dict:
+                        statistics.typeAdded_dict[new_return_types[key]] = 1
                     else:
-                        typeAdded_dict[new_return_types[key]] += 1
+                        statistics.typeAdded_dict[new_return_types[key]] += 1
+                    statistics.total_added += 1
                     lock.release()
 
         ################################################################
@@ -240,6 +246,11 @@ def TypeAnnotationExtraction(repo_path, commit, patch, url, statistics, lock, ty
 
                     lock.acquire()
                     statistics.remove_types += 1
+                    if old_param_types[key] not in statistics.typeRemoved_dict:
+                        statistics.typeRemoved_dict[old_param_types[key]] = 1
+                    else:
+                        statistics.typeRemoved_dict[old_param_types[key]] += 1
+                    statistics.total_removed += 1
                     lock.release()
 
         # Insert type annotation
@@ -256,32 +267,14 @@ def TypeAnnotationExtraction(repo_path, commit, patch, url, statistics, lock, ty
 
                     lock.acquire()
                     statistics.insert_types += 1
-                    if new_param_types[key] not in typeAdded_dict:
-                        typeAdded_dict[new_param_types[key]] = 1
+                    if new_param_types[key] not in statistics.typeAdded_dict:
+                        statistics.typeAdded_dict[new_param_types[key]] = 1
                     else:
-                        typeAdded_dict[new_param_types[key]] += 1
+                        statistics.typeAdded_dict[new_param_types[key]] += 1
+                    statistics.total_added += 1
                     lock.release()
     except:
         print('Error with old line ' + str(old_stdout))
 
     return code_changes
 
-
-def writeJSON(filename, change_list):
-    json_file = json.dumps([change.__dict__ for change in change_list], indent=4)
-
-    print('\nCode changes with type annotations found: ' + str(len(change_list)))
-
-    with open(config.ROOT_DIR + "/Resources/Output/" + filename + ".json", "w") as f:
-        f.write(json_file)
-    f.close()
-
-
-def writeJSONstatistics(filename, statistics_json):
-    json_file = json.dumps(statistics_json, indent=4)
-
-    #print('\nCode changes with type annotations found: ' + str(len(change_list)))
-
-    with open(config.ROOT_DIR + "/Resources/Output/" + filename + ".json", "w") as f:
-        f.write(json_file)
-    f.close()
