@@ -1,5 +1,6 @@
 import multiprocessing
 import platform
+import re
 
 
 class CodeStatistics:
@@ -26,21 +27,42 @@ class CodeStatistics:
         self.modify_existing_types = 0
         self.percentage_modify_existing_types = ''
 
-        # [RQ2]: What types are added (primitives, built-in classes, application-specific classes)?
-        self.RQ2 = 'What types are added (primitives, built-in classes, application-specific classes)?'
+        # [RQ2.1]: What types are added (primitives, built-in classes, application-specific classes)?
+        self.RQ2_1 = 'What types are added (primitives, built-in classes, application-specific classes)?'
         self.typeAdded_dict = {}
-        self.primitiveTypes_added = 0
-        self.buildinTypes_added = 0
-        self.newTypes_added = 0
+        self.primitiveType_added = 0
+        self.buildinType_added = 0
+        self.newType_added = 0
         self.total_added = 0
 
-        # [RQ3]: What types are removed (primitives, built-in classes, application-specific classes)?
-        self.RQ3 = 'What types are removed (primitives, built-in classes, application-specific classes)?'
+        # [RQ2.2]: What types are removed (primitives, built-in classes, application-specific classes)?
+        self.RQ2_2 = 'What types are removed (primitives, built-in classes, application-specific classes)?'
         self.typeRemoved_dict = {}
-        self.primitiveTypes_removed = 0
-        self.buildinTypes_removed = 0
-        self.newTypes_removed = 0
+        self.primitiveType_removed = 0
+        self.buildinType_removed = 0
+        self.newType_removed = 0
         self.total_removed = 0
+
+        # [RQ3.1]: Where are types added (function args, function returns, variables, fields)?
+        self.RQ3_1 = 'Where are types added (function args, function returns, variables, fields)?'
+        self.functionArgsType_added = 0
+        self.functionReturnsType_added = 0
+        self.variableType_added = 0
+        self.fieldType_added = 0
+
+        # [RQ3.2]: Where are types removed (function args, function returns, variables, fields)?
+        self.RQ3_2 = 'Where are types removed (function args, function returns, variables, fields)?'
+        self.functionArgsType_removed = 0
+        self.functionReturnsType_removed = 0
+        self.variableType_removed = 0
+        self.fieldType_removed = 0
+
+        # [RQ4]: Are many types added at once or rather a few types here and there?
+        self.RQ4 = 'Are types added along with other changes around this code or in commits that only add types?'
+        self.typeAnnotation_per_commit = 0
+
+        # [RQ5]: Are many types added at once or rather a few types here and there?
+        self.RQ5 = 'Are types added along with other changes around this code or in commits that only add types?'
 
     #################################################
     #################METHODS#########################
@@ -51,11 +73,14 @@ class CodeStatistics:
         # [RQ1]: Are type annotation inserted, removed and changed?
         self.percentage_computation()
 
-        # [RQ2]: What types are added (primitives, built-in classes, application-specific classes)?
+        # [RQ2.1]: What types are added (primitives, built-in classes, application-specific classes)?
         self.what_types_added()
 
-        # [RQ3]: What types are removed (primitives, built-in classes, application-specific classes)?
+        # [RQ2.2]: What types are removed (primitives, built-in classes, application-specific classes)?
         self.what_types_removed()
+
+        # [RQ4]: Are many types added at once or rather a few types here and there?
+        self.rate_annotation_commit()
 
     # [RQ1]: Are type annotation inserted, removed and changed?
     def percentage_computation(self):
@@ -70,12 +95,12 @@ class CodeStatistics:
         self.percentage_modify_existing_types = str(
             round(self.modify_existing_types / self.total_typeAnnotation_codeChanges * 100, 1)) + ' %'
 
-    # [RQ2]: What types are added (primitives, built-in classes, application-specific classes)?
+    # [RQ2.1]: What types are added (primitives, built-in classes, application-specific classes)?
 
     primitivesTypes_List = ['int', 'float', 'bool', 'str']  # Primitives types
 
     # Buil-in Types
-    buildinTypes_List = ['None', 'Any',  # Generic types
+    buildinTypes_List = ['none', 'any',  # Generic types
                          'long', 'complex',  # Numeric Types
                          'unicode', 'byte', 'list', 'tuple', 'bytearray', 'memoryview', 'buffer', 'range',
                          'xrange'  # Sequence Types
@@ -86,23 +111,31 @@ class CodeStatistics:
 
         for type in self.typeAdded_dict.keys():
             if type in self.primitivesTypes_List:
-                self.primitiveTypes_added += self.typeAdded_dict[type]
+                self.primitiveType_added += self.typeAdded_dict[type]
 
         for type in self.typeAdded_dict.keys():
-            if type in self.buildinTypes_List:
-                self.buildinTypes_added += self.typeAdded_dict[type]
+            type_clean = re.sub(r'\[[^)]*\]', '', type.lower())
+            if type_clean in self.buildinTypes_List:
+                self.buildinType_added += self.typeAdded_dict[type]
 
-    # self.newTypes = self.total_typeAnnotation_codeChanges - self.primitiveTypes_added - self.buildinTypes_added
+        self.newType_added = self.total_added  - self.buildinType_added  - self.primitiveType_added
 
-    # [RQ3]: What types are removed (primitives, built-in classes, application-specific classes)?
+    # [RQ2.2]: What types are removed (primitives, built-in classes, application-specific classes)?
     def what_types_removed(self):
 
         for type in self.typeRemoved_dict.keys():
             if type in self.primitivesTypes_List:
-                self.primitiveTypes_removed += self.typeRemoved_dict[type]
+                self.primitiveType_removed += self.typeRemoved_dict[type]
 
         for type in self.typeRemoved_dict.keys():
-            if type in self.buildinTypes_List:
-                self.buildinTypes_removed += self.typeRemoved_dict[type]
+            type_clean = re.sub(r'\[[^)]*\]', '', type.lower())
+            if type_clean in self.buildinTypes_List:
+                self.buildinType_removed += self.typeRemoved_dict[type]
 
-        # self.newTypes = self.total_typeAnnotation_codeChanges - self.primitiveTypes_added - self.buildinTypes_added
+        self.newType_removed = self.total_removed - self.buildinType_removed - self.primitiveType_removed
+
+    # [RQ4]: Are many types added at once or rather a few types here and there?
+    def rate_annotation_commit(self):
+        self.typeAnnotation_per_commit = str(
+            round(self.total_typeAnnotation_codeChanges / self.commits_with_typeChanges, 2)) + ' Type annotations ' \
+                                                                                               'changes per commit '

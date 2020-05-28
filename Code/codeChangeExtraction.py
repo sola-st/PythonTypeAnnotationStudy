@@ -165,6 +165,20 @@ def TypeAnnotationExtraction(repo_path, commit, patch, url, statistics, lock):
 
                         lock.acquire()
                         statistics.modify_existing_types += 1
+
+                        if old_return_types[key] not in statistics.typeRemoved_dict:
+                            statistics.typeRemoved_dict[old_return_types[key]] = 1
+                        else:
+                            statistics.typeRemoved_dict[old_return_types[key]] += 1
+                        statistics.total_removed += 1
+                        statistics.functionReturnsType_removed += 1
+
+                        if new_return_types[key] not in statistics.typeAdded_dict:
+                            statistics.typeAdded_dict[new_return_types[key]] = 1
+                        else:
+                            statistics.typeAdded_dict[new_return_types[key]] += 1
+                        statistics.total_added += 1
+                        statistics.functionReturnsType_added += 1
                         lock.release()
 
             # Remove type annotation
@@ -186,6 +200,7 @@ def TypeAnnotationExtraction(repo_path, commit, patch, url, statistics, lock):
                     else:
                         statistics.typeRemoved_dict[old_return_types[key]] += 1
                     statistics.total_removed += 1
+                    statistics.functionReturnsType_removed += 1
                     lock.release()
 
         # Insert type annotation
@@ -207,6 +222,7 @@ def TypeAnnotationExtraction(repo_path, commit, patch, url, statistics, lock):
                     else:
                         statistics.typeAdded_dict[new_return_types[key]] += 1
                     statistics.total_added += 1
+                    statistics.functionReturnsType_added += 1
                     lock.release()
 
         ################################################################
@@ -231,6 +247,20 @@ def TypeAnnotationExtraction(repo_path, commit, patch, url, statistics, lock):
 
                         lock.acquire()
                         statistics.modify_existing_types += 1
+
+                        if old_param_types[key] not in statistics.typeRemoved_dict:
+                            statistics.typeRemoved_dict[old_param_types[key]] = 1
+                        else:
+                            statistics.typeRemoved_dict[old_param_types[key]] += 1
+                        statistics.total_removed += 1
+                        statistics.functionArgsType_removed += 1
+
+                        if new_param_types[key] not in statistics.typeAdded_dict:
+                            statistics.typeAdded_dict[new_param_types[key]] = 1
+                        else:
+                            statistics.typeAdded_dict[new_param_types[key]] += 1
+                        statistics.total_added += 1
+                        statistics.functionArgsType_added += 1
                         lock.release()
 
             # Remove type annotation
@@ -251,6 +281,7 @@ def TypeAnnotationExtraction(repo_path, commit, patch, url, statistics, lock):
                     else:
                         statistics.typeRemoved_dict[old_param_types[key]] += 1
                     statistics.total_removed += 1
+                    statistics.functionArgsType_removed += 1
                     lock.release()
 
         # Insert type annotation
@@ -272,6 +303,7 @@ def TypeAnnotationExtraction(repo_path, commit, patch, url, statistics, lock):
                     else:
                         statistics.typeAdded_dict[new_param_types[key]] += 1
                     statistics.total_added += 1
+                    statistics.functionArgsType_added += 1
                     lock.release()
     except:
         print('Error with old line ' + str(old_stdout))

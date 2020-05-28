@@ -19,13 +19,22 @@ def chunkify(lst, n):
 
 
 """
+Data conversion and manipulation
+"""
+
+
+# Convert list of variable, in list of dictionaries with variable name as key .
+def convert_list_in_list_of_dicts(data: list) -> list:
+    return [temp.__dict__ for temp in data]
+
+
+"""
 Methods for writing files.
 """
 
 
 # Method that writes a list in a json file.
 def write_in_json(outputFilePath: str, data: list) -> None:
-
     try:
         json_file = json.dumps(data, indent=4)
     except Exception as e:
