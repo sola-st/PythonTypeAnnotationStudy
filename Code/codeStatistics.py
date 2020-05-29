@@ -1,6 +1,10 @@
+import json
 import multiprocessing
 import platform
 import re
+from collections import namedtuple
+import numpy as np
+import config
 
 
 class CodeStatistics:
@@ -63,6 +67,13 @@ class CodeStatistics:
 
         # [RQ5]: Are many types added at once or rather a few types here and there?
         self.RQ5 = 'Are types added along with other changes around this code or in commits that only add types?'
+
+        # [RQ6]: Relation of properties of projects vs. properties of type changes
+        # E.g., nb of stars/developers/overall commits vs. nb of added annotations
+        self.RQ6 = 'Relation of properties of projects vs. properties of type changes.'
+       # self.repoStruct = namedtuple("repoStruct", "name n_stars n_commit n_annotations")
+       # self.repoList = []
+        self.matrix_commits_stars_annotations = np.array([[0, 0, 0]])
 
     #################################################
     #################METHODS#########################
@@ -139,3 +150,16 @@ class CodeStatistics:
         self.typeAnnotation_per_commit = str(
             round(self.total_typeAnnotation_codeChanges / self.commits_with_typeChanges, 2)) + ' Type annotations ' \
                                                                                                'changes per commit '
+
+    # [RQ6]: Relation of properties of projects vs. properties of type changes
+    # E.g., nb of stars/developers/overall commits vs. nb of added annotations
+    def addRepo(self, name, n_commits, n_annotations):
+        input_file = open(config.REPO_LIST, 'r')
+        json_decode = json.load(input_file)
+
+        for item in json_decode:
+            if item.get('name') == name:
+               # self.repoList.append(self.repoStruct(item.get('html_url'), item.get('stars'), n_commits, n_annotations))
+                self.matrix_commits_stars_annotations =\
+                    np.append(self.matrix_commits_stars_annotations, np.array([[n_commits, item.get('stars'),  n_annotations]]), axis=0)
+                break
