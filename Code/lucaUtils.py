@@ -7,6 +7,8 @@ Last update: June-2020
 import json
 import matplotlib.pyplot as plt
 import matplotlib.style as style
+import numpy as np
+import seaborn as sns
 
 """
 Methods for multi-threading.
@@ -56,7 +58,7 @@ Method to build x-y graphs.
 """
 
 
-def cartesian_graph_xy(outputFilePath, x, y, x_label, y_label, title=None, color = 'blue', xlim = None, ylim = None):
+def cartesian_plot_xy(outputFilePath, x, y, x_label, y_label, title=None, color='blue', xlim=None, ylim=None):
     style.use('seaborn-paper')  # sets the size of the charts
 
     plt.rc('xtick', labelsize=18)
@@ -75,9 +77,53 @@ def cartesian_graph_xy(outputFilePath, x, y, x_label, y_label, title=None, color
     plt.ylabel(y_label, fontsize=18)
     plt.xlabel(x_label, fontsize=18)
 
-    if title != None:
+    if title is not None:
         plt.title('title')
 
     plt.savefig(outputFilePath, bbox_inches='tight')
 
     plt.figure()
+
+
+def bar_plot_xy(outputFilePath, x, y, x_label, y_label, title=None, color='blue', xlim=None, ylim=None):
+    style.use('seaborn-paper')  # sets the size of the charts
+
+    plt.rc('xtick', labelsize=18)
+    plt.rc('ytick', labelsize=18)
+
+    axes = plt.gca()
+    if ylim is not None:
+        axes.set_ylim([0, ylim])
+
+    if xlim is not None:
+        axes.set_xlim([0, xlim])
+
+    plt.ylabel(y_label, fontsize=18, fontweight='bold', color='black')
+    plt.xlabel(x_label, fontsize=18, fontweight='bold', color='black', horizontalalignment='center')
+
+    y_pos = np.arange(len(x))
+    plt.bar(y_pos, y, color=(0.2, 0.4, 0.6, 0.6))
+
+    if title is not None:
+        plt.title(title)
+
+    plt.savefig(outputFilePath, bbox_inches='tight')
+
+    plt.figure()
+
+
+def histogram_plot_xy(outputFilePath, x, x_label, title=None):
+    sns.set(color_codes=True)
+
+    plt.xlabel(x_label, fontsize=18, fontweight='bold', color='black', horizontalalignment='center')
+
+    if title is not None:
+        plt.title(title)
+
+    sns_plot = sns.distplot(x, bins=20, kde=False, rug=True)
+
+    fig = sns_plot.get_figure()
+
+    fig.savefig(outputFilePath, bbox_inches='tight')
+
+    #fig.figure()

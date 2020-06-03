@@ -3,21 +3,26 @@ import threading
 import time
 import multiprocessing
 from Code import gitUtils
+import logging
 from Code.codeStatistics import CodeStatistics
 from Code.projectUtils import *
+import sys
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 if __name__ == "__main__":
+    logging.basicConfig(filename=config.ROOT_DIR + "/Resources/Output/app.log", filemode='w', format='%(name)s - %(levelname)s - %(message)s')
+
     if config.CLONING:
         gitUtils.repo_cloning(config.ROOT_DIR + '/Resources/Input/top30pythonRepo.json', config.ROOT_DIR + "/GitHub")
 
     start = time.time()
 
-    dirlist = [item for item in os.listdir(config.ROOT_DIR + "/GitHub") if
+    dirlist:list = [item for item in os.listdir(config.ROOT_DIR + "/GitHub") if
                os.path.isdir(os.path.join(config.ROOT_DIR + "/GitHub", item))]
 
-    code_changes = []
+    code_changes:list = []
 
-    statistics = CodeStatistics()  # type: CodeStatistics
+    statistics:CodeStatistics = CodeStatistics()
 
     lock = multiprocessing.Lock()
 
@@ -27,24 +32,29 @@ if __name__ == "__main__":
         for repo in listOfStrings1:
             print("\nWorking on pythontest")
             gitUtils.query_repo_get_changes("pythontest",
-                                            '.py', statistics, code_changes, lock)
+                                            '.py', statistics, code_changes, lock, logging)
 
     else:
 
-        threads = []
-        for repository in dirlist:
+        threads:list = []
+        for repository in dirlist[:15]:
             thread = threading.Thread(target=gitUtils.query_repo_get_changes,
                                       args=(repository, '.py', statistics,
-                                            code_changes, lock))
+                                            code_changes, lock, logging))
             threads.append(thread)
-            print("\nWorking on " + repository)
+
+        for thread in threads:
             thread.start()
 
         for thread in threads:
             thread.join()
 
-    # Statistics computation
-    statistics.statistics_computation()
+    if(statistics.total_typeAnnotation_codeChanges > 0):
+        # Statistics computation
+        statistics.statistics_computation()
+    else:
+        print('No type annotation code changes found')
+        exit()
 
     # Computational time
     end = time.time()

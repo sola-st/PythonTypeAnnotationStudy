@@ -110,10 +110,12 @@ def search_key_value_in_snippet(file, list_of_strings):
     return False
 
 
-def TypeAnnotationExtraction(repo_path, commit, patch, url, statistics, lock):
+def TypeAnnotationExtraction(repo_path, commit, patch, url, statistics, lock, logging):
     # command = "git --git-dir " + str(repo_path) + '/.git show ' + str(commit.hex) + ":" + str(patch.delta.old_file.path)
     # os.system(command)
     code_changes = []
+    type_annotation_added_this_commit = 0
+    type_annotation_removed_this_commit = 0
 
     old_out = subprocess.Popen(
         ["git", "--git-dir", str(repo_path) + '/.git', 'show',
@@ -192,6 +194,8 @@ def TypeAnnotationExtraction(repo_path, commit, patch, url, statistics, lock):
 
                     lock.acquire()
                     statistics.remove_types += 1
+                    type_annotation_removed_this_commit += 1
+
                     if old_return_types[key] not in statistics.typeRemoved_dict:
                         statistics.typeRemoved_dict[old_return_types[key]] = 1
                     else:
@@ -214,6 +218,8 @@ def TypeAnnotationExtraction(repo_path, commit, patch, url, statistics, lock):
 
                     lock.acquire()
                     statistics.insert_types += 1
+                    type_annotation_added_this_commit += 1
+
                     if new_return_types[key] not in statistics.typeAdded_dict:
                         statistics.typeAdded_dict[new_return_types[key]] = 1
                     else:
@@ -273,6 +279,7 @@ def TypeAnnotationExtraction(repo_path, commit, patch, url, statistics, lock):
 
                     lock.acquire()
                     statistics.remove_types += 1
+                    type_annotation_removed_this_commit += 1
                     if old_param_types[key] not in statistics.typeRemoved_dict:
                         statistics.typeRemoved_dict[old_param_types[key]] = 1
                     else:
@@ -295,6 +302,8 @@ def TypeAnnotationExtraction(repo_path, commit, patch, url, statistics, lock):
 
                     lock.acquire()
                     statistics.insert_types += 1
+                    type_annotation_added_this_commit += 1
+
                     if new_param_types[key] not in statistics.typeAdded_dict:
                         statistics.typeAdded_dict[new_param_types[key]] = 1
                     else:
@@ -303,7 +312,13 @@ def TypeAnnotationExtraction(repo_path, commit, patch, url, statistics, lock):
                     statistics.functionArgsType_added += 1
                     lock.release()
     except:
-        print('Error with old line ' + str(old_stdout))
+       # logging.warning('Repository', repo_path, 'commit', commit, 'with old line', str(old_stdout))
+        pass
+
+    lock.acquire()
+    statistics.list_typeAnnotation_added_per_commit.append(type_annotation_added_this_commit)
+    statistics.list_typeAnnotation_removed_per_commit.append(type_annotation_removed_this_commit)
+    lock.release()
 
     return code_changes
 

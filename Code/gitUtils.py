@@ -27,12 +27,15 @@ def repo_cloning(filenameInput: str, pathOutput: str) -> None:
             git.clone_repository(link, pathOutput + '/' + out)
 
 
-def query_repo_get_changes(repo_name, file_extension, statistics, code_changes, lock):
+def query_repo_get_changes(repo_name, file_extension, statistics, code_changes, lock, logging):
+
     tot_this_repo_commit = 0
     tot_this_repo_commit_with_annotations = 0
+    commit_with_annotations_this_repo = 0
 
     lock.acquire()
     statistics.total_repositories += 1
+    print("Working on " + repo_name)
     lock.release()
 
     repo = git.Repository(config.ROOT_DIR + "/GitHub/" + repo_name)
@@ -47,7 +50,7 @@ def query_repo_get_changes(repo_name, file_extension, statistics, code_changes, 
 
     # Go through each commit starting from the most recent commit
     for commit in repo.walk(last_commit, GIT_SORT_TOPOLOGICAL | GIT_SORT_REVERSE):
-        print(str(commit.hex))
+    #    print(str(commit.hex))
 
         lock.acquire()
         statistics.total_commits += 1
@@ -68,15 +71,20 @@ def query_repo_get_changes(repo_name, file_extension, statistics, code_changes, 
 
                 temp_list = TypeAnnotationExtraction(config.ROOT_DIR + "/GitHub/" + repo_name, commit, patch,
                                                      remote_url + '/commit/' + commit.hex + '#diff-' + diff.patchid.hex + 'L',
-                                                     statistics, lock)
+                                                     statistics, lock, logging)
 
                 if len(temp_list) > 0:
                     lock.acquire()
                     statistics.commits_with_typeChanges += 1
                     tot_this_repo_commit_with_annotations += 1
+                    commit_with_annotations_this_repo += 1
 
                     code_changes += temp_list
 
                     lock.release()
 
+    lock.acquire()
     statistics.addRepo(repo_name, tot_this_repo_commit, tot_this_repo_commit_with_annotations)
+    print("Finished:", repo_name, "with", commit_with_annotations_this_repo, '/', tot_this_repo_commit, "commits with Type annotations.")
+
+    lock.release()

@@ -53,6 +53,7 @@ class CodeStatistics:
         self.functionReturnsType_added = 0
         self.variableType_added = 0
         self.fieldType_added = 0
+        # TODO: [RQ3.1]: variable types and field type
 
         # [RQ3.2]: Where are types removed (function args, function returns, variables, fields)?
         self.RQ3_2 = 'Where are types removed (function args, function returns, variables, fields)?'
@@ -60,19 +61,23 @@ class CodeStatistics:
         self.functionReturnsType_removed = 0
         self.variableType_removed = 0
         self.fieldType_removed = 0
+        # TODO: [RQ3.2]: variable types and field type
 
-        # [RQ4]: Are many types added at once or rather a few types here and there?
-        self.RQ4 = 'Are types added along with other changes around this code or in commits that only add types?'
-        self.typeAnnotation_per_commit = 0
+        # [RQ4.1]: Are many types added at once or rather a few types here and there?
+        self.RQ4_1 = 'Are types added along with other changes around this code or in commits that only add types?'
+        self.typeAnnotation_added_per_commit = 0
+        self.list_typeAnnotation_added_per_commit = []
 
-        # [RQ5]: Are many types added at once or rather a few types here and there?
-        self.RQ5 = 'Are types added along with other changes around this code or in commits that only add types?'
+        # [RQ4.2]: Are many types removed at once or rather a few types here and there?
+        self.RQ4_2 = 'Are types removed along with other changes around this code or in commits that only add types?'
+        #self.typeAnnotation_removed_per_commit = 0
+        self.list_typeAnnotation_removed_per_commit = []
 
         # [RQ6]: Relation of properties of projects vs. properties of type changes
         # E.g., nb of stars/developers/overall commits vs. nb of added annotations
         self.RQ6 = 'Relation of properties of projects vs. properties of type changes.'
-       # self.repoStruct = namedtuple("repoStruct", "name n_stars n_commit n_annotations")
-       # self.repoList = []
+        # self.repoStruct = namedtuple("repoStruct", "name n_stars n_commit n_annotations")
+        # self.repoList = []
         self.matrix_commits_stars_annotations = np.array([[0, 0, 0]])
 
     #################################################
@@ -129,7 +134,7 @@ class CodeStatistics:
             if type_clean in self.buildinTypes_List:
                 self.buildinType_added += self.typeAdded_dict[type]
 
-        self.newType_added = self.total_added  - self.buildinType_added  - self.primitiveType_added
+        self.newType_added = self.total_added - self.buildinType_added - self.primitiveType_added
 
     # [RQ2.2]: What types are removed (primitives, built-in classes, application-specific classes)?
     def what_types_removed(self):
@@ -147,7 +152,7 @@ class CodeStatistics:
 
     # [RQ4]: Are many types added at once or rather a few types here and there?
     def rate_annotation_commit(self):
-        self.typeAnnotation_per_commit = str(
+        self.typeAnnotation_added_per_commit = str(
             round(self.total_typeAnnotation_codeChanges / self.commits_with_typeChanges, 2)) + ' Type annotations ' \
                                                                                                'changes per commit '
 
@@ -159,7 +164,7 @@ class CodeStatistics:
 
         for item in json_decode:
             if item.get('name') == name:
-               # self.repoList.append(self.repoStruct(item.get('html_url'), item.get('stars'), n_commits, n_annotations))
-                self.matrix_commits_stars_annotations =\
-                    np.append(self.matrix_commits_stars_annotations, np.array([[n_commits, item.get('stars'),  n_annotations]]), axis=0)
+                self.matrix_commits_stars_annotations = \
+                    np.append(self.matrix_commits_stars_annotations,
+                              np.array([[n_commits, item.get('stars'), n_annotations]]), axis=0)
                 break
