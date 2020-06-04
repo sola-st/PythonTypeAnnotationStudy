@@ -6,8 +6,7 @@ from Code import gitUtils
 import logging
 from Code.codeStatistics import CodeStatistics
 from Code.projectUtils import *
-import sys
-sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
 
 if __name__ == "__main__":
     logging.basicConfig(filename=config.ROOT_DIR + "/Resources/Output/app.log", filemode='w', format='%(name)s - %(levelname)s - %(message)s')
