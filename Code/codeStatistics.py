@@ -2,7 +2,6 @@ import json
 import multiprocessing
 import platform
 import re
-from collections import namedtuple
 import numpy as np
 import config
 
@@ -18,6 +17,8 @@ class CodeStatistics:
 
         # [RQ0]: How many types are used?
         self.RQ0 = 'How many types are used?'
+        self.repo_with_types_changes = 0
+        self.percentage_repo_with_typeChanges = ''
         self.commits_with_typeChanges = 0
         self.percentage_commits_with_typeChanges = ''
         self.total_typeAnnotation_codeChanges = 0
@@ -102,6 +103,8 @@ class CodeStatistics:
     def percentage_computation(self):
         self.total_typeAnnotation_codeChanges = self.insert_types + self.remove_types + self.modify_existing_types
 
+        self.percentage_repo_with_typeChanges = str(
+            round(self.repo_with_types_changes / self.total_repositories * 100, 2)) + ' %'
         self.percentage_commits_with_typeChanges = str(
             round(self.commits_with_typeChanges / self.total_commits * 100, 2)) + ' %'
         self.percentage_insert_types = str(

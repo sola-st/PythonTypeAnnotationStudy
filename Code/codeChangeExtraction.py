@@ -163,6 +163,7 @@ def TypeAnnotationExtraction(repo_path, commit, patch, url, statistics, lock, lo
                         code_changes.append(temp)
 
                         lock.acquire()
+                        statistics.total_typeAnnotation_codeChanges += 1
                         statistics.modify_existing_types += 1
 
                         if old_return_types[key] not in statistics.typeRemoved_dict:
@@ -193,6 +194,7 @@ def TypeAnnotationExtraction(repo_path, commit, patch, url, statistics, lock, lo
                     code_changes.append(temp)
 
                     lock.acquire()
+                    statistics.total_typeAnnotation_codeChanges += 1
                     statistics.remove_types += 1
                     type_annotation_removed_this_commit += 1
 
@@ -217,6 +219,7 @@ def TypeAnnotationExtraction(repo_path, commit, patch, url, statistics, lock, lo
                     code_changes.append(temp)
 
                     lock.acquire()
+                    statistics.total_typeAnnotation_codeChanges += 1
                     statistics.insert_types += 1
                     type_annotation_added_this_commit += 1
 
@@ -249,6 +252,7 @@ def TypeAnnotationExtraction(repo_path, commit, patch, url, statistics, lock, lo
                         code_changes.append(temp)
 
                         lock.acquire()
+                        statistics.total_typeAnnotation_codeChanges += 1
                         statistics.modify_existing_types += 1
 
                         if old_param_types[key] not in statistics.typeRemoved_dict:
@@ -278,6 +282,7 @@ def TypeAnnotationExtraction(repo_path, commit, patch, url, statistics, lock, lo
                     code_changes.append(temp)
 
                     lock.acquire()
+                    statistics.total_typeAnnotation_codeChanges += 1
                     statistics.remove_types += 1
                     type_annotation_removed_this_commit += 1
                     if old_param_types[key] not in statistics.typeRemoved_dict:
@@ -301,6 +306,7 @@ def TypeAnnotationExtraction(repo_path, commit, patch, url, statistics, lock, lo
                     code_changes.append(temp)
 
                     lock.acquire()
+                    statistics.total_typeAnnotation_codeChanges += 1
                     statistics.insert_types += 1
                     type_annotation_added_this_commit += 1
 
@@ -316,8 +322,11 @@ def TypeAnnotationExtraction(repo_path, commit, patch, url, statistics, lock, lo
         pass
 
     lock.acquire()
-    statistics.list_typeAnnotation_added_per_commit.append(type_annotation_added_this_commit)
-    statistics.list_typeAnnotation_removed_per_commit.append(type_annotation_removed_this_commit)
+    if type_annotation_added_this_commit > 0:
+        statistics.list_typeAnnotation_added_per_commit.append(type_annotation_added_this_commit)
+
+    if type_annotation_removed_this_commit > 0:
+        statistics.list_typeAnnotation_removed_per_commit.append(type_annotation_removed_this_commit)
     lock.release()
 
     return code_changes

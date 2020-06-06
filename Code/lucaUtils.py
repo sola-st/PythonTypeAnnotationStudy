@@ -7,6 +7,7 @@ Last update: June-2020
 import json
 import matplotlib.pyplot as plt
 import matplotlib.style as style
+from  matplotlib.ticker import FuncFormatter
 import numpy as np
 import seaborn as sns
 
@@ -120,6 +121,7 @@ def histogram_plot_xy(outputFilePath, x, x_label, title=None):
     if title is not None:
         plt.title(title)
 
+    # TODO: remove float axis
     sns_plot = sns.distplot(x, bins=20, kde=False, rug=True)
 
     fig = sns_plot.get_figure()

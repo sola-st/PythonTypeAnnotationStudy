@@ -28,14 +28,14 @@ def repo_cloning(filenameInput: str, pathOutput: str) -> None:
 
 
 def query_repo_get_changes(repo_name, file_extension, statistics, code_changes, lock, logging):
-
     tot_this_repo_commit = 0
     tot_this_repo_commit_with_annotations = 0
     commit_with_annotations_this_repo = 0
+    at_least_one_type_change = 0
 
     lock.acquire()
     statistics.total_repositories += 1
-    print("Working on " + repo_name)
+    print("[Working]", repo_name)
     lock.release()
 
     repo = git.Repository(config.ROOT_DIR + "/GitHub/" + repo_name)
@@ -50,7 +50,7 @@ def query_repo_get_changes(repo_name, file_extension, statistics, code_changes, 
 
     # Go through each commit starting from the most recent commit
     for commit in repo.walk(last_commit, GIT_SORT_TOPOLOGICAL | GIT_SORT_REVERSE):
-    #    print(str(commit.hex))
+        #    print(str(commit.hex))
 
         lock.acquire()
         statistics.total_commits += 1
@@ -78,6 +78,7 @@ def query_repo_get_changes(repo_name, file_extension, statistics, code_changes, 
                     statistics.commits_with_typeChanges += 1
                     tot_this_repo_commit_with_annotations += 1
                     commit_with_annotations_this_repo += 1
+                    at_least_one_type_change = 1
 
                     code_changes += temp_list
 
@@ -85,6 +86,8 @@ def query_repo_get_changes(repo_name, file_extension, statistics, code_changes, 
 
     lock.acquire()
     statistics.addRepo(repo_name, tot_this_repo_commit, tot_this_repo_commit_with_annotations)
-    print("Finished:", repo_name, "with", commit_with_annotations_this_repo, '/', tot_this_repo_commit, "commits with Type annotations.")
+    statistics.repo_with_types_changes += at_least_one_type_change
+    print("[Finished]", repo_name, "with", commit_with_annotations_this_repo, '/', tot_this_repo_commit,
+          "commits with Type annotations.")
 
     lock.release()

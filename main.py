@@ -7,21 +7,21 @@ import logging
 from Code.codeStatistics import CodeStatistics
 from Code.projectUtils import *
 
-
 if __name__ == "__main__":
-    logging.basicConfig(filename=config.ROOT_DIR + "/Resources/Output/app.log", filemode='w', format='%(name)s - %(levelname)s - %(message)s')
+    logging.basicConfig(filename=config.ROOT_DIR + "/Resources/Output/app.log", filemode='w',
+                        format='%(name)s - %(levelname)s - %(message)s')
 
     if config.CLONING:
         gitUtils.repo_cloning(config.ROOT_DIR + '/Resources/Input/top30pythonRepo.json', config.ROOT_DIR + "/GitHub")
 
     start = time.time()
 
-    dirlist:list = [item for item in os.listdir(config.ROOT_DIR + "/GitHub") if
-               os.path.isdir(os.path.join(config.ROOT_DIR + "/GitHub", item))]
+    dirlist: list = [item for item in os.listdir(config.ROOT_DIR + "/GitHub") if
+                     os.path.isdir(os.path.join(config.ROOT_DIR + "/GitHub", item))]
 
-    code_changes:list = []
+    code_changes: list = []
 
-    statistics:CodeStatistics = CodeStatistics()
+    statistics: CodeStatistics = CodeStatistics()
 
     lock = multiprocessing.Lock()
 
@@ -35,8 +35,8 @@ if __name__ == "__main__":
 
     else:
 
-        threads:list = []
-        for repository in dirlist[:15]:
+        threads: list = []
+        for repository in dirlist:
             thread = threading.Thread(target=gitUtils.query_repo_get_changes,
                                       args=(repository, '.py', statistics,
                                             code_changes, lock, logging))
@@ -48,7 +48,7 @@ if __name__ == "__main__":
         for thread in threads:
             thread.join()
 
-    if(statistics.total_typeAnnotation_codeChanges > 0):
+    if (statistics.total_typeAnnotation_codeChanges > 0):
         # Statistics computation
         statistics.statistics_computation()
     else:
