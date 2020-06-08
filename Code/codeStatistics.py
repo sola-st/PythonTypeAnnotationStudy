@@ -88,7 +88,6 @@ class CodeStatistics:
 
         # [RQ6]: Which are the top 10 repository with the highest number of type annotations
         self.RQ6 = 'Which are the top 10 repository with the highest number of type annotations.'
-        # TODO: extract top 10 from the dictionary
         self.number_type_annotations_per_repo = {}
 
     #################################################
