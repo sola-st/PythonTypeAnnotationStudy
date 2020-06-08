@@ -35,7 +35,7 @@ if __name__ == "__main__":
                                             '.py', statistics, code_changes, lock, logging)
 
     else:
-
+        """
         threads: list = []
         for repository in dirlist:
             thread = threading.Thread(target=gitUtils.query_repo_get_changes,
@@ -48,6 +48,13 @@ if __name__ == "__main__":
 
         for thread in threads:
             thread.join()
+        """
+        i = 1
+        for repository in dirlist:
+            print(i, '/', len(dirlist))
+            i += 1
+            gitUtils.query_repo_get_changes(repository,
+                                            '.py', statistics, code_changes, lock, logging)
 
     if statistics.total_typeAnnotation_codeChanges > 0:
         # Statistics computation

@@ -31,9 +31,9 @@ def repo_cloning(filenameInput: str, pathOutput: str) -> None:
 
 def query_repo_get_changes(repo_name, file_extension, statistics, code_changes, lock, logging):
     tot_this_repo_commit = 0
-    tot_this_repo_commit_with_annotations = 0
-    commit_with_annotations_this_repo = 0
-    at_least_one_type_change = 0
+    tot_this_repo_commit_with_annotations = [0]
+    commit_with_annotations_this_repo = [0]
+    at_least_one_type_change = [0]
 
     lock.acquire()
     statistics.number_type_annotations_per_repo[repo_name] = 0
@@ -67,29 +67,30 @@ def query_repo_get_changes(repo_name, file_extension, statistics, code_changes, 
 
             diff = repo.diff(commit.hex + '^', commit.hex)
 
+            threads: list = []
             for patch in diff:
                 if str(patch.delta.old_file.path)[-3:] != file_extension or \
                         str(patch.delta.new_file.path)[-3:] != file_extension:
                     continue
 
-                temp_list = TypeAnnotationExtraction(config.ROOT_DIR + "/GitHub/", repo_name, commit, patch,
-                                                     remote_url + '/commit/' + commit.hex + '#diff-' + diff.patchid.hex + 'L',
-                                                     statistics, lock, logging)
+                thread = threading.Thread(target=TypeAnnotationExtraction,
+                                          args=(config.ROOT_DIR + "/GitHub/", repo_name, commit, patch,
+                                                remote_url + '/commit/' + commit.hex + '#diff-' + diff.patchid.hex + 'L',
+                                                statistics, lock, logging, tot_this_repo_commit_with_annotations,
+                                                commit_with_annotations_this_repo, at_least_one_type_change,
+                                                code_changes))
+                threads.append(thread)
 
-                if len(temp_list) > 0:
-                    lock.acquire()
-                    statistics.commits_with_typeChanges += 1
-                    tot_this_repo_commit_with_annotations += 1
-                    commit_with_annotations_this_repo += 1
-                    at_least_one_type_change = 1
+            for thread in threads:
+                thread.start()
 
-                    code_changes += temp_list
-
-                    lock.release()
+            for thread in threads:
+                thread.join()
 
     lock.acquire()
     statistics.addRepo(repo_name, tot_this_repo_commit, statistics.number_type_annotations_per_repo[repo_name])
-    statistics.repo_with_types_changes += at_least_one_type_change
+    if at_least_one_type_change[0] > 0:
+        statistics.repo_with_types_changes += 1
     print("[Finished]", repo_name, "with", commit_with_annotations_this_repo, '/', tot_this_repo_commit,
           "commits with Type annotations.")
 
