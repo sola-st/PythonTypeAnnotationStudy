@@ -4,6 +4,7 @@ import platform
 import re
 import numpy as np
 import config
+from Code.lucaUtils import sort_dictionary
 
 
 class CodeStatistics:
@@ -34,19 +35,23 @@ class CodeStatistics:
 
         # [RQ2.1]: What types are added (primitives, built-in classes, application-specific classes)?
         self.RQ2_1 = 'What types are added (primitives, built-in classes, application-specific classes)?'
-        self.typeAdded_dict = {}
         self.primitiveType_added = 0
         self.buildinType_added = 0
         self.newType_added = 0
         self.total_added = 0
 
-        # [RQ2.2]: What types are removed (primitives, built-in classes, application-specific classes)?
+        # [RQ2.2]: What are the top 5 types added?
+        self.typeAdded_dict = {}
+
+        # [RQ2.3]: What types are removed (primitives, built-in classes, application-specific classes)?
         self.RQ2_2 = 'What types are removed (primitives, built-in classes, application-specific classes)?'
-        self.typeRemoved_dict = {}
         self.primitiveType_removed = 0
         self.buildinType_removed = 0
         self.newType_removed = 0
         self.total_removed = 0
+
+        # [RQ2.4]: What are the top 5 types removed?
+        self.typeRemoved_dict = {}
 
         # [RQ3.1]: Where are types added (function args, function returns, variables, fields)?
         self.RQ3_1 = 'Where are types added (function args, function returns, variables, fields)?'
@@ -98,11 +103,20 @@ class CodeStatistics:
         # [RQ2.1]: What types are added (primitives, built-in classes, application-specific classes)?
         self.what_types_added()
 
-        # [RQ2.2]: What types are removed (primitives, built-in classes, application-specific classes)?
+        # [RQ2.2]: What are the top 5 types added?
+        self.typeAdded_dict = sort_dictionary(self.typeAdded_dict)[:2]
+
+        # [RQ2.3]: What types are removed (primitives, built-in classes, application-specific classes)?
         self.what_types_removed()
+
+        # [RQ2.4]: What are the top 5 types removed?
+        self.typeRemoved_dict = sort_dictionary(self.typeRemoved_dict)[:2]
 
         # [RQ4]: Are many types added at once or rather a few types here and there?
         self.rate_annotation_commit()
+
+        # [RQ6]: Which are the top 10 repository with the highest number of type annotations
+        self.number_type_annotations_per_repo = sort_dictionary(self.number_type_annotations_per_repo)[:3]
 
     # [RQ1]: Are type annotation inserted, removed and changed?
     def percentage_computation(self):

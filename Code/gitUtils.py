@@ -1,5 +1,7 @@
 import json
 import os
+import threading
+
 import pygit2 as git
 from pygit2 import GIT_SORT_TOPOLOGICAL, GIT_SORT_REVERSE
 

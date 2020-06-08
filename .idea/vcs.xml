@@ -5,31 +5,52 @@
     <mapping directory="$PROJECT_DIR$/GitHub/100-Days-Of-ML-Code" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/12306" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/CppCoreGuidelines" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/GitHub/HanLP" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/HelloGitHub" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/GitHub/ItChat" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/GitHub/ML-From-Scratch" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/GitHub/Mask_RCNN" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/MonkeyType" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/GitHub/PayloadsAllTheThings" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/Python" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/XX-Net" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/GitHub/YouCompleteMe" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/ansible" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/awesome-machine-learning" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/awesome-python" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/GitHub/bert" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/big-list-of-naughty-strings" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/certbot" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/GitHub/cheat.sh" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/GitHub/compose" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/core" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/cpython" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/GitHub/data-science-ipython-notebooks" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/django" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/face_recognition" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/faceswap" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/flask" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/GitHub/gym" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/GitHub/hosts" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/httpie" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/incubator-superset" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/GitHub/interactive-coding-challenges" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/GitHub/interview_internal_reference" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/GitHub/ipython" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/keras" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/GitHub/localstack" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/GitHub/manim" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/models" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/public-apis" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/GitHub/python-patterns" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/pythontest" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/GitHub/pytorch-tutorial" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/requests" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/GitHub/sanic" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/scikit-learn" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/scrapy" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/shadowsocks" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/GitHub/sqlmap" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/system-design-primer" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/thefuck" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/you-get" vcs="Git" />

@@ -6,13 +6,14 @@ from Code import gitUtils
 import logging
 from Code.codeStatistics import CodeStatistics
 from Code.projectUtils import *
+from config import REPO_LIST
 
 if __name__ == "__main__":
     logging.basicConfig(filename=config.ROOT_DIR + "/Resources/Output/app.log", filemode='w',
                         format='%(name)s - %(levelname)s - %(message)s')
 
     if config.CLONING:
-        gitUtils.repo_cloning(config.ROOT_DIR + '/Resources/Input/top30pythonRepo.json', config.ROOT_DIR + "/GitHub")
+        gitUtils.repo_cloning(REPO_LIST, config.ROOT_DIR + "/GitHub")
 
     start = time.time()
 

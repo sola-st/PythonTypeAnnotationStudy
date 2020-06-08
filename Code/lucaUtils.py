@@ -12,13 +12,13 @@ from scipy.interpolate import splrep, splev
 import numpy as np
 import seaborn as sns
 
-
 """
 Sorting algorithms
 """
-def sort_dictionary():
-    #sort_orders = sorted(orders.items(), key=lambda x: x[1], reverse=True)
-    pass
+
+
+def sort_dictionary(data: dict):
+    return sorted(data.items(), key=lambda x: x[1], reverse=True)
 
 
 """
@@ -138,7 +138,9 @@ def histogram_plot_xy(outputFilePath, x, x_label, title=None):
 
     fig.savefig(outputFilePath, bbox_inches='tight')
 
-    #fig.figure()
+    # fig.figure()
+
+
 def histogram_plot_xy2(outputFilePath, x, x_label, title=None):
     plt.xlabel(x_label, fontsize=18, fontweight='bold', color='black', horizontalalignment='center')
 
@@ -150,6 +152,7 @@ def histogram_plot_xy2(outputFilePath, x, x_label, title=None):
     plt.savefig(outputFilePath, bbox_inches='tight')
 
     plt.figure()
+
 
 def scatter_plot_xy(outputFilePath, x, y, x_label, y_label, title=None, color='blue', xlim=None, ylim=None):
     style.use('seaborn-paper')  # sets the size of the charts
@@ -176,7 +179,6 @@ def scatter_plot_xy(outputFilePath, x, y, x_label, y_label, title=None, color='b
     plt.savefig(outputFilePath, bbox_inches='tight')
 
     plt.figure()
-
 
 
 def histogram_2d_plot_xy(outputFilePath, x, y, x_label, y_label, title=None, color='blue', xlim=None, ylim=None):
