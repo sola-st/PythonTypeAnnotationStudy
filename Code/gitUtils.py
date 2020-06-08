@@ -34,6 +34,7 @@ def query_repo_get_changes(repo_name, file_extension, statistics, code_changes, 
     at_least_one_type_change = 0
 
     lock.acquire()
+    statistics.number_type_annotations_per_repo[repo_name] = 0
     statistics.total_repositories += 1
     print("[Working]", repo_name)
     lock.release()
@@ -69,7 +70,7 @@ def query_repo_get_changes(repo_name, file_extension, statistics, code_changes, 
                         str(patch.delta.new_file.path)[-3:] != file_extension:
                     continue
 
-                temp_list = TypeAnnotationExtraction(config.ROOT_DIR + "/GitHub/" + repo_name, commit, patch,
+                temp_list = TypeAnnotationExtraction(config.ROOT_DIR + "/GitHub/", repo_name, commit, patch,
                                                      remote_url + '/commit/' + commit.hex + '#diff-' + diff.patchid.hex + 'L',
                                                      statistics, lock, logging)
 
@@ -85,7 +86,7 @@ def query_repo_get_changes(repo_name, file_extension, statistics, code_changes, 
                     lock.release()
 
     lock.acquire()
-    statistics.addRepo(repo_name, tot_this_repo_commit, tot_this_repo_commit_with_annotations)
+    statistics.addRepo(repo_name, tot_this_repo_commit, statistics.number_type_annotations_per_repo[repo_name])
     statistics.repo_with_types_changes += at_least_one_type_change
     print("[Finished]", repo_name, "with", commit_with_annotations_this_repo, '/', tot_this_repo_commit,
           "commits with Type annotations.")

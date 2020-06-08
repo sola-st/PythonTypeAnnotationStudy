@@ -1,68 +1,5 @@
 [
     {
-        "url": "https://github.com/lucaresearch/pythontest/commit/8f60755881865733528c1391c1102c2165bdb022#diff-5b3247aeaa94c9a1e743fcd7915093f3ce145adbL9",
-        "old_file": "main.py",
-        "old_line": 9,
-        "old_code": "def foo2(l: List[str]) -> None:",
-        "new_line": 9,
-        "new_file": "main.py",
-        "new_code": "def foo2(l: List[str]) -> int:"
-    },
-    {
-        "url": "https://github.com/lucaresearch/pythontest/commit/8f60755881865733528c1391c1102c2165bdb022#diff-5b3247aeaa94c9a1e743fcd7915093f3ce145adbL12",
-        "old_file": "main.py",
-        "old_line": 12,
-        "old_code": "def goo(t: Tuple[str, ...]) -> None:",
-        "new_line": 12,
-        "new_file": "main.py",
-        "new_code": "def goo(t: Tuple[str, ...]) -> int:"
-    },
-    {
-        "url": "https://github.com/lucaresearch/pythontest/commit/a5d9d2a37c383384dbace073b878212df2574a11#diff-86d8c2b93f8f9c98e0dd0d950f9f4d5b1756eaaeL9",
-        "old_file": "main.py",
-        "old_line": 9,
-        "old_code": "def foo2(l: List[str]) -> int:",
-        "new_line": 9,
-        "new_file": "main.py",
-        "new_code": "def foo2(l: List[str]) -> str:"
-    },
-    {
-        "url": "https://github.com/lucaresearch/pythontest/commit/a5d9d2a37c383384dbace073b878212df2574a11#diff-86d8c2b93f8f9c98e0dd0d950f9f4d5b1756eaaeL17",
-        "old_file": "main.py",
-        "old_line": 17,
-        "old_code": "def foo1(s: Optional[str]) -> None:",
-        "new_line": 17,
-        "new_file": "main.py",
-        "new_code": "def foo1(s: Optional[str]) -> str:"
-    },
-    {
-        "url": "https://github.com/lucaresearch/pythontest/commit/4f0460f5b5dc4786c3539b3381f0e0ac32d97622#diff-285267cc26b84fc713f32e383289f25004168ff3L9",
-        "old_file": "main.py",
-        "old_line": 9,
-        "old_code": "def foo2(l: List[str]) -> str:",
-        "new_line": 9,
-        "new_file": "main.py",
-        "new_code": "def foo2(l: Tuple[str]) -> str:"
-    },
-    {
-        "url": "https://github.com/lucaresearch/pythontest/commit/99a4d6882a843eab615de95e6ea2585e3cb8b2a6#diff-ebe5f47148bc5542acdc2fe6751f232cf8b174a2L3",
-        "old_file": "main.py",
-        "old_line": 3,
-        "old_code": "def process_something(arguments: Any) -> Any:",
-        "new_line": "",
-        "new_file": "main.py",
-        "new_code": ""
-    },
-    {
-        "url": "https://github.com/lucaresearch/pythontest/commit/01d078e80fde3052845b5018c3407ee2daeaf7c1#diff-6eead058c2e33d804090871a2b72788032f8e6b2L16",
-        "old_file": "main.py",
-        "old_line": "",
-        "old_code": "",
-        "new_line": 16,
-        "new_file": "main.py",
-        "new_code": "def something(arguments: Any) -> int:"
-    },
-    {
         "url": "https://github.com/jakubroztocil/httpie/commit/b947d4826a3ee7a39992c9f88a433156c154507b#diff-aeeceddac9e636824c3f1e030d7a856bea75189fL103",
         "old_file": "httpie/plugins/base.py",
         "old_line": "",
@@ -1980,6 +1917,15 @@
         "new_code": "def celsius_to_fahrenheit(celsius: float) -> float:"
     },
     {
+        "url": "https://github.com/apache/incubator-superset/commit/9fc37ea9f1ff032dea923012613d4e7189ada178#diff-21a22639d74ea9f7f2959f0b77b88699860e1ae0L24",
+        "old_file": "superset/sql_validators/__init__.py",
+        "old_line": 24,
+        "old_code": "def get_validator_by_name(name: str) -> Optional[base.BaseSQLValidator]:",
+        "new_line": 23,
+        "new_file": "superset/sql_validators/__init__.py",
+        "new_code": "def get_validator_by_name(name: str) -> Optional[Type[base.BaseSQLValidator]]:"
+    },
+    {
         "url": "https://github.com/home-assistant/core/commit/26526ca57ab847cefcbd0fbf8f61e4108ac101b1#diff-596e854a5ce1037de4805394a39d5bfede55ea0bL20",
         "old_file": "homeassistant/util/temperature.py",
         "old_line": "",
@@ -1996,15 +1942,6 @@
         "new_line": 10,
         "new_file": "homeassistant/helpers/location.py",
         "new_code": "def has_location(state: State) -> bool:"
-    },
-    {
-        "url": "https://github.com/apache/incubator-superset/commit/9fc37ea9f1ff032dea923012613d4e7189ada178#diff-21a22639d74ea9f7f2959f0b77b88699860e1ae0L24",
-        "old_file": "superset/sql_validators/__init__.py",
-        "old_line": 24,
-        "old_code": "def get_validator_by_name(name: str) -> Optional[base.BaseSQLValidator]:",
-        "new_line": 23,
-        "new_file": "superset/sql_validators/__init__.py",
-        "new_code": "def get_validator_by_name(name: str) -> Optional[Type[base.BaseSQLValidator]]:"
     },
     {
         "url": "https://github.com/apache/incubator-superset/commit/0a3b1212442d306673e619cafc2ca65285fcbfec#diff-8ac1b4977e700201b25bcac3c7f7b499f198742dL443",
@@ -2115,6 +2052,15 @@
         "new_code": "    def convert_dttm(cls, target_type: str, dttm: datetime) -> Optional[str]:"
     },
     {
+        "url": "https://github.com/apache/incubator-superset/commit/e4904144846afb7d8d0433fdc7ca97c49b41d0b4#diff-94cc28fbf43176e1184948c0c20504c0e2fcf1f4L25",
+        "old_file": "tests/load_examples_test.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": 25,
+        "new_file": "tests/load_examples_test.py",
+        "new_code": "    def setUp(self) -> None:"
+    },
+    {
         "url": "https://github.com/home-assistant/core/commit/cc99d266b7b7cacca9102bb4a0c153f3ce24d4d5#diff-b70b6a00c1adf412e8debe1cc55dfa3a6360398eL217",
         "old_file": "homeassistant/components/fan/mqtt.py",
         "old_line": 217,
@@ -2176,15 +2122,6 @@
         "new_line": "",
         "new_file": "homeassistant/components/fan/mqtt.py",
         "new_code": ""
-    },
-    {
-        "url": "https://github.com/apache/incubator-superset/commit/e4904144846afb7d8d0433fdc7ca97c49b41d0b4#diff-94cc28fbf43176e1184948c0c20504c0e2fcf1f4L25",
-        "old_file": "tests/load_examples_test.py",
-        "old_line": "",
-        "old_code": "",
-        "new_line": 25,
-        "new_file": "tests/load_examples_test.py",
-        "new_code": "    def setUp(self) -> None:"
     },
     {
         "url": "https://github.com/apache/incubator-superset/commit/df2ee5cbcb8bc6e5cd310b9b9015509db744a256#diff-0d910568b4542083fd3f5ef918822f2d25e62cbaL96",
@@ -2295,15 +2232,6 @@
         "new_code": "def _extract_limit_from_query(statement: TokenList) -> Optional[int]:"
     },
     {
-        "url": "https://github.com/home-assistant/core/commit/d9ae7ceb0c39263926b115fc188e976dad385b7b#diff-c7ed397d798b53339e7afa5d040a27db4b84110cL66",
-        "old_file": "homeassistant/components/switch/tellstick.py",
-        "old_line": "",
-        "old_code": "",
-        "new_line": 66,
-        "new_file": "homeassistant/components/switch/tellstick.py",
-        "new_code": "    def force_update(self) -> bool:"
-    },
-    {
         "url": "https://github.com/apache/incubator-superset/commit/3d9181d27047f919109701ef5007654c494614c4#diff-f8af3a90ec8c49f35e3c81a1c16c8fcb3b3d5f45L412",
         "old_file": "superset/views/base.py",
         "old_line": "",
@@ -2347,6 +2275,15 @@
         "new_line": 159,
         "new_file": "superset/common/query_context.py",
         "new_code": "    def cache_key(self, query_obj: QueryObject, **kwargs) -> Optional[str]:"
+    },
+    {
+        "url": "https://github.com/home-assistant/core/commit/d9ae7ceb0c39263926b115fc188e976dad385b7b#diff-c7ed397d798b53339e7afa5d040a27db4b84110cL66",
+        "old_file": "homeassistant/components/switch/tellstick.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": 66,
+        "new_file": "homeassistant/components/switch/tellstick.py",
+        "new_code": "    def force_update(self) -> bool:"
     },
     {
         "url": "https://github.com/apache/incubator-superset/commit/74158694c567ec26706fd3cf8128aed2cb625291#diff-501ad73cb72cbff156bd07250b5f05e5fa07be92L433",
@@ -2484,24 +2421,6 @@
         "new_code": "    def test_queryview_admin_can_access_all_queries(self) -> None:"
     },
     {
-        "url": "https://github.com/home-assistant/core/commit/1d8a1df2c497912262ac7a2fa03e10294c3b959c#diff-fcbc0e304f5116165f3b9f1aace51d5c73da7155L66",
-        "old_file": "homeassistant/components/switch/tellstick.py",
-        "old_line": 66,
-        "old_code": "    def force_update(self) -> bool:",
-        "new_line": "",
-        "new_file": "homeassistant/components/switch/tellstick.py",
-        "new_code": ""
-    },
-    {
-        "url": "https://github.com/home-assistant/core/commit/1d8a1df2c497912262ac7a2fa03e10294c3b959c#diff-fcbc0e304f5116165f3b9f1aace51d5c73da7155L56",
-        "old_file": "homeassistant/components/switch/tellstick.py",
-        "old_line": "",
-        "old_code": "",
-        "new_line": 56,
-        "new_file": "homeassistant/components/switch/tellstick.py",
-        "new_code": "    def force_update(self) -> bool:"
-    },
-    {
         "url": "https://github.com/apache/incubator-superset/commit/161d211c07398a14992cf79784b566b7b9f1fb39#diff-11c492c025effc82ecd61813bea3eb030ddab8a7L60",
         "old_file": "superset/result_set.py",
         "old_line": "",
@@ -2518,15 +2437,6 @@
         "new_line": 64,
         "new_file": "superset/result_set.py",
         "new_code": "def stringify_values(array: np.ndarray) -> np.ndarray:"
-    },
-    {
-        "url": "https://github.com/home-assistant/core/commit/97cc76b43e0156d02b723f4e0a24509f946e668a#diff-93606ded969d526ccf0ffdcc95d8cfceb45ab694L56",
-        "old_file": "homeassistant/components/switch/tellstick.py",
-        "old_line": 56,
-        "old_code": "    def force_update(self) -> bool:",
-        "new_line": "",
-        "new_file": "homeassistant/components/switch/tellstick.py",
-        "new_code": ""
     },
     {
         "url": "https://github.com/apache/incubator-superset/commit/f993bdc7efcbfe293a62140bf604ed888dddabbd#diff-038d7144d50da35b9ac7636e70248677a3ad5dc6L125",
@@ -2673,24 +2583,6 @@
         "new_code": "    def get_rls_ids(self, table: \"BaseDatasource\") -> List[int]:"
     },
     {
-        "url": "https://github.com/home-assistant/core/commit/074f9315d7f0d20837ed19d1846a295120ed63c9#diff-c46e5885d531c71249fd785fbfbbcc4a5ac7a44cL35",
-        "old_file": "homeassistant/components/fan/wink.py",
-        "old_line": 35,
-        "old_code": "    def set_drection(self: ToggleEntity, direction: str) -> None:",
-        "new_line": "",
-        "new_file": "homeassistant/components/fan/wink.py",
-        "new_code": ""
-    },
-    {
-        "url": "https://github.com/home-assistant/core/commit/074f9315d7f0d20837ed19d1846a295120ed63c9#diff-c46e5885d531c71249fd785fbfbbcc4a5ac7a44cL35",
-        "old_file": "homeassistant/components/fan/wink.py",
-        "old_line": "",
-        "old_code": "",
-        "new_line": 35,
-        "new_file": "homeassistant/components/fan/wink.py",
-        "new_code": "    def set_direction(self: ToggleEntity, direction: str) -> None:"
-    },
-    {
         "url": "https://github.com/apache/incubator-superset/commit/4e1fa95035f7fb8464669967a0b768fe4b1edbed#diff-5a566daff2a551cef587d214b27803ba823b9f61L355",
         "old_file": "superset/db_engine_specs/base.py",
         "old_line": 355,
@@ -2725,6 +2617,24 @@
         "new_line": 220,
         "new_file": "superset/sql_parse.py",
         "new_code": "    def set_or_update_query_limit(self, new_limit: int) -> str:"
+    },
+    {
+        "url": "https://github.com/home-assistant/core/commit/1d8a1df2c497912262ac7a2fa03e10294c3b959c#diff-fcbc0e304f5116165f3b9f1aace51d5c73da7155L66",
+        "old_file": "homeassistant/components/switch/tellstick.py",
+        "old_line": 66,
+        "old_code": "    def force_update(self) -> bool:",
+        "new_line": "",
+        "new_file": "homeassistant/components/switch/tellstick.py",
+        "new_code": ""
+    },
+    {
+        "url": "https://github.com/home-assistant/core/commit/1d8a1df2c497912262ac7a2fa03e10294c3b959c#diff-fcbc0e304f5116165f3b9f1aace51d5c73da7155L56",
+        "old_file": "homeassistant/components/switch/tellstick.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": 56,
+        "new_file": "homeassistant/components/switch/tellstick.py",
+        "new_code": "    def force_update(self) -> bool:"
     },
     {
         "url": "https://github.com/apache/incubator-superset/commit/7a91498cf1a9e56d4b3d7b3805076137525ea277#diff-aad3caecec0d8e86a9e355422f9c5e7521c9e9b0L177",
@@ -2763,51 +2673,6 @@
         "new_code": "    def epoch_ms_to_dttm(cls) -> str:"
     },
     {
-        "url": "https://github.com/home-assistant/core/commit/80a794e587f9f63f28afea741f97e36a7ca8e427#diff-d2a2c556f741cd06a39eb4a4df192aad7d218969L35",
-        "old_file": "homeassistant/components/fan/wink.py",
-        "old_line": 35,
-        "old_code": "    def set_direction(self: ToggleEntity, direction: str) -> None:",
-        "new_line": "",
-        "new_file": "homeassistant/components/fan/wink.py",
-        "new_code": ""
-    },
-    {
-        "url": "https://github.com/home-assistant/core/commit/80a794e587f9f63f28afea741f97e36a7ca8e427#diff-d2a2c556f741cd06a39eb4a4df192aad7d218969L39",
-        "old_file": "homeassistant/components/fan/wink.py",
-        "old_line": 39,
-        "old_code": "    def set_speed(self: ToggleEntity, speed: str) -> None:",
-        "new_line": "",
-        "new_file": "homeassistant/components/fan/wink.py",
-        "new_code": ""
-    },
-    {
-        "url": "https://github.com/home-assistant/core/commit/80a794e587f9f63f28afea741f97e36a7ca8e427#diff-d2a2c556f741cd06a39eb4a4df192aad7d218969L43",
-        "old_file": "homeassistant/components/fan/wink.py",
-        "old_line": 43,
-        "old_code": "    def turn_on(self: ToggleEntity, speed: str=None, **kwargs) -> None:",
-        "new_line": "",
-        "new_file": "homeassistant/components/fan/wink.py",
-        "new_code": ""
-    },
-    {
-        "url": "https://github.com/home-assistant/core/commit/80a794e587f9f63f28afea741f97e36a7ca8e427#diff-d2a2c556f741cd06a39eb4a4df192aad7d218969L47",
-        "old_file": "homeassistant/components/fan/wink.py",
-        "old_line": 47,
-        "old_code": "    def turn_off(self: ToggleEntity, **kwargs) -> None:",
-        "new_line": "",
-        "new_file": "homeassistant/components/fan/wink.py",
-        "new_code": ""
-    },
-    {
-        "url": "https://github.com/home-assistant/core/commit/80a794e587f9f63f28afea741f97e36a7ca8e427#diff-d2a2c556f741cd06a39eb4a4df192aad7d218969L78",
-        "old_file": "homeassistant/components/fan/wink.py",
-        "old_line": 78,
-        "old_code": "    def speed_list(self: ToggleEntity) -> list:",
-        "new_line": "",
-        "new_file": "homeassistant/components/fan/wink.py",
-        "new_code": ""
-    },
-    {
         "url": "https://github.com/apache/incubator-superset/commit/ef2ebbd570524ffede72011803a76eacf1203370#diff-3ec7989294f10d635c841e905f67e369c9cfdc16L253",
         "old_file": "superset/db_engine_specs/base.py",
         "old_line": 253,
@@ -2833,6 +2698,15 @@
         "new_line": 948,
         "new_file": "superset/db_engine_specs/base.py",
         "new_code": "    def mutate_db_for_connection_test(database: \"Database\") -> None:"
+    },
+    {
+        "url": "https://github.com/home-assistant/core/commit/97cc76b43e0156d02b723f4e0a24509f946e668a#diff-93606ded969d526ccf0ffdcc95d8cfceb45ab694L56",
+        "old_file": "homeassistant/components/switch/tellstick.py",
+        "old_line": 56,
+        "old_code": "    def force_update(self) -> bool:",
+        "new_line": "",
+        "new_file": "homeassistant/components/switch/tellstick.py",
+        "new_code": ""
     },
     {
         "url": "https://github.com/apache/incubator-superset/commit/f51ab59748a72e57dc3f57084ecb8532e139f30d#diff-fc3f729abba94e0ec317a7135b3628e570b27b1bL51",
@@ -3555,6 +3429,24 @@
         "new_code": "def validate_python_date_format(value: str) -> None:"
     },
     {
+        "url": "https://github.com/home-assistant/core/commit/074f9315d7f0d20837ed19d1846a295120ed63c9#diff-c46e5885d531c71249fd785fbfbbcc4a5ac7a44cL35",
+        "old_file": "homeassistant/components/fan/wink.py",
+        "old_line": 35,
+        "old_code": "    def set_drection(self: ToggleEntity, direction: str) -> None:",
+        "new_line": "",
+        "new_file": "homeassistant/components/fan/wink.py",
+        "new_code": ""
+    },
+    {
+        "url": "https://github.com/home-assistant/core/commit/074f9315d7f0d20837ed19d1846a295120ed63c9#diff-c46e5885d531c71249fd785fbfbbcc4a5ac7a44cL35",
+        "old_file": "homeassistant/components/fan/wink.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": 35,
+        "new_file": "homeassistant/components/fan/wink.py",
+        "new_code": "    def set_direction(self: ToggleEntity, direction: str) -> None:"
+    },
+    {
         "url": "https://github.com/apache/incubator-superset/commit/4be827544eeb3966b353df90fd26a0086144d508#diff-87d7d054788904b3387a0811d50f52c099c979d1L148",
         "old_file": "superset/views/base.py",
         "old_line": "",
@@ -3616,6 +3508,51 @@
         "new_line": 89,
         "new_file": "superset/db_engine_specs/mysql.py",
         "new_code": "    def _extract_error_message(cls, ex: Exception) -> str:"
+    },
+    {
+        "url": "https://github.com/home-assistant/core/commit/80a794e587f9f63f28afea741f97e36a7ca8e427#diff-d2a2c556f741cd06a39eb4a4df192aad7d218969L35",
+        "old_file": "homeassistant/components/fan/wink.py",
+        "old_line": 35,
+        "old_code": "    def set_direction(self: ToggleEntity, direction: str) -> None:",
+        "new_line": "",
+        "new_file": "homeassistant/components/fan/wink.py",
+        "new_code": ""
+    },
+    {
+        "url": "https://github.com/home-assistant/core/commit/80a794e587f9f63f28afea741f97e36a7ca8e427#diff-d2a2c556f741cd06a39eb4a4df192aad7d218969L39",
+        "old_file": "homeassistant/components/fan/wink.py",
+        "old_line": 39,
+        "old_code": "    def set_speed(self: ToggleEntity, speed: str) -> None:",
+        "new_line": "",
+        "new_file": "homeassistant/components/fan/wink.py",
+        "new_code": ""
+    },
+    {
+        "url": "https://github.com/home-assistant/core/commit/80a794e587f9f63f28afea741f97e36a7ca8e427#diff-d2a2c556f741cd06a39eb4a4df192aad7d218969L43",
+        "old_file": "homeassistant/components/fan/wink.py",
+        "old_line": 43,
+        "old_code": "    def turn_on(self: ToggleEntity, speed: str=None, **kwargs) -> None:",
+        "new_line": "",
+        "new_file": "homeassistant/components/fan/wink.py",
+        "new_code": ""
+    },
+    {
+        "url": "https://github.com/home-assistant/core/commit/80a794e587f9f63f28afea741f97e36a7ca8e427#diff-d2a2c556f741cd06a39eb4a4df192aad7d218969L47",
+        "old_file": "homeassistant/components/fan/wink.py",
+        "old_line": 47,
+        "old_code": "    def turn_off(self: ToggleEntity, **kwargs) -> None:",
+        "new_line": "",
+        "new_file": "homeassistant/components/fan/wink.py",
+        "new_code": ""
+    },
+    {
+        "url": "https://github.com/home-assistant/core/commit/80a794e587f9f63f28afea741f97e36a7ca8e427#diff-d2a2c556f741cd06a39eb4a4df192aad7d218969L78",
+        "old_file": "homeassistant/components/fan/wink.py",
+        "old_line": 78,
+        "old_code": "    def speed_list(self: ToggleEntity) -> list:",
+        "new_line": "",
+        "new_file": "homeassistant/components/fan/wink.py",
+        "new_code": ""
     },
     {
         "url": "https://github.com/apache/incubator-superset/commit/0610c489bbc3f77ff473cb47cf1072980c6afadd#diff-731f28bb0d0f73390f85902254b36437fe94289aL362",
@@ -4599,87 +4536,6 @@
         "new_code": "    def to_url(self, value: Any) -> str:"
     },
     {
-        "url": "https://github.com/home-assistant/core/commit/401309c3b2dbcb0d4423bc9a2b12aad1ba8e5b44#diff-d06b0a4473847b3da03e93a3b1d614ed06fd49e4L28",
-        "old_file": "homeassistant/components/fan/demo.py",
-        "old_line": "",
-        "old_code": "",
-        "new_line": 28,
-        "new_file": "homeassistant/components/fan/demo.py",
-        "new_code": "    def __init__(self, hass, name: str, supported_features: int) -> None:"
-    },
-    {
-        "url": "https://github.com/home-assistant/core/commit/401309c3b2dbcb0d4423bc9a2b12aad1ba8e5b44#diff-d06b0a4473847b3da03e93a3b1d614ed06fd49e4L53",
-        "old_file": "homeassistant/components/fan/demo.py",
-        "old_line": "",
-        "old_code": "",
-        "new_line": 53,
-        "new_file": "homeassistant/components/fan/demo.py",
-        "new_code": "    def speed(self) -> str:"
-    },
-    {
-        "url": "https://github.com/home-assistant/core/commit/401309c3b2dbcb0d4423bc9a2b12aad1ba8e5b44#diff-d06b0a4473847b3da03e93a3b1d614ed06fd49e4L58",
-        "old_file": "homeassistant/components/fan/demo.py",
-        "old_line": "",
-        "old_code": "",
-        "new_line": 58,
-        "new_file": "homeassistant/components/fan/demo.py",
-        "new_code": "    def speed_list(self) -> list:"
-    },
-    {
-        "url": "https://github.com/home-assistant/core/commit/401309c3b2dbcb0d4423bc9a2b12aad1ba8e5b44#diff-d06b0a4473847b3da03e93a3b1d614ed06fd49e4L62",
-        "old_file": "homeassistant/components/fan/demo.py",
-        "old_line": "",
-        "old_code": "",
-        "new_line": 62,
-        "new_file": "homeassistant/components/fan/demo.py",
-        "new_code": "    def turn_on(self, speed: str=None) -> None:"
-    },
-    {
-        "url": "https://github.com/home-assistant/core/commit/401309c3b2dbcb0d4423bc9a2b12aad1ba8e5b44#diff-d06b0a4473847b3da03e93a3b1d614ed06fd49e4L68",
-        "old_file": "homeassistant/components/fan/demo.py",
-        "old_line": "",
-        "old_code": "",
-        "new_line": 68,
-        "new_file": "homeassistant/components/fan/demo.py",
-        "new_code": "    def turn_off(self) -> None:"
-    },
-    {
-        "url": "https://github.com/home-assistant/core/commit/401309c3b2dbcb0d4423bc9a2b12aad1ba8e5b44#diff-d06b0a4473847b3da03e93a3b1d614ed06fd49e4L73",
-        "old_file": "homeassistant/components/fan/demo.py",
-        "old_line": "",
-        "old_code": "",
-        "new_line": 73,
-        "new_file": "homeassistant/components/fan/demo.py",
-        "new_code": "    def set_speed(self, speed: str) -> None:"
-    },
-    {
-        "url": "https://github.com/home-assistant/core/commit/401309c3b2dbcb0d4423bc9a2b12aad1ba8e5b44#diff-d06b0a4473847b3da03e93a3b1d614ed06fd49e4L78",
-        "old_file": "homeassistant/components/fan/demo.py",
-        "old_line": "",
-        "old_code": "",
-        "new_line": 78,
-        "new_file": "homeassistant/components/fan/demo.py",
-        "new_code": "    def set_direction(self, direction: str) -> None:"
-    },
-    {
-        "url": "https://github.com/home-assistant/core/commit/401309c3b2dbcb0d4423bc9a2b12aad1ba8e5b44#diff-d06b0a4473847b3da03e93a3b1d614ed06fd49e4L83",
-        "old_file": "homeassistant/components/fan/demo.py",
-        "old_line": "",
-        "old_code": "",
-        "new_line": 83,
-        "new_file": "homeassistant/components/fan/demo.py",
-        "new_code": "    def oscillate(self, oscillating: bool) -> None:"
-    },
-    {
-        "url": "https://github.com/home-assistant/core/commit/401309c3b2dbcb0d4423bc9a2b12aad1ba8e5b44#diff-d06b0a4473847b3da03e93a3b1d614ed06fd49e4L89",
-        "old_file": "homeassistant/components/fan/demo.py",
-        "old_line": "",
-        "old_code": "",
-        "new_line": 89,
-        "new_file": "homeassistant/components/fan/demo.py",
-        "new_code": "    def current_direction(self) -> str:"
-    },
-    {
         "url": "https://github.com/apache/incubator-superset/commit/244677cf5e0ecb7c767455e96655af6c18cc58bc#diff-052692e3ec82058f92179f6e5159d4558afc7338L52",
         "old_file": "superset/app.py",
         "old_line": "",
@@ -4833,6 +4689,240 @@
         "new_code": "    def __init__(self, prefix: str = \"superset\") -> None:"
     },
     {
+        "url": "https://github.com/apache/incubator-superset/commit/63e0188f45134c25267d183f5d7391577f9a6d63#diff-9e677ee0006cf369f613daa0de4ae6f76d935b4fL38",
+        "old_file": "superset/sql_validators/base.py",
+        "old_line": 38,
+        "old_code": "    def to_dict(self) -> Dict:",
+        "new_line": 40,
+        "new_file": "superset/sql_validators/base.py",
+        "new_code": "    def to_dict(self) -> Dict[str, Any]:"
+    },
+    {
+        "url": "https://github.com/apache/incubator-superset/commit/63e0188f45134c25267d183f5d7391577f9a6d63#diff-9e677ee0006cf369f613daa0de4ae6f76d935b4fL38",
+        "old_file": "superset/views/api.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": 38,
+        "new_file": "superset/views/api.py",
+        "new_code": "    def query(self) -> FlaskResponse:"
+    },
+    {
+        "url": "https://github.com/apache/incubator-superset/commit/63e0188f45134c25267d183f5d7391577f9a6d63#diff-9e677ee0006cf369f613daa0de4ae6f76d935b4fL56",
+        "old_file": "superset/views/api.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": 56,
+        "new_file": "superset/views/api.py",
+        "new_code": "    def query_form_data(self) -> FlaskResponse:"
+    },
+    {
+        "url": "https://github.com/apache/incubator-superset/commit/63e0188f45134c25267d183f5d7391577f9a6d63#diff-9e677ee0006cf369f613daa0de4ae6f76d935b4fL25",
+        "old_file": "superset/views/base_schemas.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": 25,
+        "new_file": "superset/views/base_schemas.py",
+        "new_code": "def validate_owner(value: int) -> None:"
+    },
+    {
+        "url": "https://github.com/apache/incubator-superset/commit/63e0188f45134c25267d183f5d7391577f9a6d63#diff-9e677ee0006cf369f613daa0de4ae6f76d935b4fL47",
+        "old_file": "superset/views/base_schemas.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": 47,
+        "new_file": "superset/views/base_schemas.py",
+        "new_code": "    def __init__(self, **kwargs: Any) -> None:"
+    },
+    {
+        "url": "https://github.com/apache/incubator-superset/commit/63e0188f45134c25267d183f5d7391577f9a6d63#diff-9e677ee0006cf369f613daa0de4ae6f76d935b4fL102",
+        "old_file": "superset/views/base_schemas.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": 102,
+        "new_file": "superset/views/base_schemas.py",
+        "new_code": "    def pre_load(self, data: Dict[Any, Any]) -> None:"
+    },
+    {
+        "url": "https://github.com/apache/incubator-superset/commit/63e0188f45134c25267d183f5d7391577f9a6d63#diff-9e677ee0006cf369f613daa0de4ae6f76d935b4fL108",
+        "old_file": "superset/views/base_schemas.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": 108,
+        "new_file": "superset/views/base_schemas.py",
+        "new_code": "    def set_owners(instance: Model, owners: List[int]) -> None:"
+    },
+    {
+        "url": "https://github.com/apache/incubator-superset/commit/63e0188f45134c25267d183f5d7391577f9a6d63#diff-9e677ee0006cf369f613daa0de4ae6f76d935b4fL42",
+        "old_file": "superset/views/filters.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": 42,
+        "new_file": "superset/views/filters.py",
+        "new_code": "    def apply(self, query: Query, value: Optional[Any]) -> Query:"
+    },
+    {
+        "url": "https://github.com/apache/incubator-superset/commit/63e0188f45134c25267d183f5d7391577f9a6d63#diff-9e677ee0006cf369f613daa0de4ae6f76d935b4fL54",
+        "old_file": "superset/views/schedules.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": 54,
+        "new_file": "superset/views/schedules.py",
+        "new_code": "    def schedule_type(self) -> str:"
+    },
+    {
+        "url": "https://github.com/apache/incubator-superset/commit/63e0188f45134c25267d183f5d7391577f9a6d63#diff-9e677ee0006cf369f613daa0de4ae6f76d935b4fL58",
+        "old_file": "superset/views/schedules.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": 58,
+        "new_file": "superset/views/schedules.py",
+        "new_code": "    def schedule_type_model(self) -> Type:"
+    },
+    {
+        "url": "https://github.com/apache/incubator-superset/commit/63e0188f45134c25267d183f5d7391577f9a6d63#diff-9e677ee0006cf369f613daa0de4ae6f76d935b4fL97",
+        "old_file": "superset/views/schedules.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": 97,
+        "new_file": "superset/views/schedules.py",
+        "new_code": "    def process_form(self, form: Form, is_created: bool) -> None:"
+    },
+    {
+        "url": "https://github.com/apache/incubator-superset/commit/63e0188f45134c25267d183f5d7391577f9a6d63#diff-9e677ee0006cf369f613daa0de4ae6f76d935b4fL105",
+        "old_file": "superset/views/schedules.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": 105,
+        "new_file": "superset/views/schedules.py",
+        "new_code": "    def pre_add(self, item: \"EmailScheduleView\") -> None:"
+    },
+    {
+        "url": "https://github.com/apache/incubator-superset/commit/63e0188f45134c25267d183f5d7391577f9a6d63#diff-9e677ee0006cf369f613daa0de4ae6f76d935b4fL116",
+        "old_file": "superset/views/schedules.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": 116,
+        "new_file": "superset/views/schedules.py",
+        "new_code": "    def pre_update(self, item: \"EmailScheduleView\") -> None:"
+    },
+    {
+        "url": "https://github.com/apache/incubator-superset/commit/63e0188f45134c25267d183f5d7391577f9a6d63#diff-9e677ee0006cf369f613daa0de4ae6f76d935b4fL119",
+        "old_file": "superset/views/schedules.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": 119,
+        "new_file": "superset/views/schedules.py",
+        "new_code": "    def post_add(self, item: \"EmailScheduleView\") -> None:"
+    },
+    {
+        "url": "https://github.com/apache/incubator-superset/commit/63e0188f45134c25267d183f5d7391577f9a6d63#diff-9e677ee0006cf369f613daa0de4ae6f76d935b4fL132",
+        "old_file": "superset/views/schedules.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": 132,
+        "new_file": "superset/views/schedules.py",
+        "new_code": "    def post_update(self, item: \"EmailScheduleView\") -> None:"
+    },
+    {
+        "url": "https://github.com/apache/incubator-superset/commit/63e0188f45134c25267d183f5d7391577f9a6d63#diff-9e677ee0006cf369f613daa0de4ae6f76d935b4fL137",
+        "old_file": "superset/views/schedules.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": 137,
+        "new_file": "superset/views/schedules.py",
+        "new_code": "    def fetch_schedules(self, item_id: int) -> FlaskResponse:"
+    },
+    {
+        "url": "https://github.com/apache/incubator-superset/commit/63e0188f45134c25267d183f5d7391577f9a6d63#diff-9e677ee0006cf369f613daa0de4ae6f76d935b4fL124",
+        "old_file": "superset/views/sql_lab.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": 124,
+        "new_file": "superset/views/sql_lab.py",
+        "new_code": "    def pre_add(self, item: \"SavedQueryView\") -> None:"
+    },
+    {
+        "url": "https://github.com/apache/incubator-superset/commit/63e0188f45134c25267d183f5d7391577f9a6d63#diff-9e677ee0006cf369f613daa0de4ae6f76d935b4fL127",
+        "old_file": "superset/views/sql_lab.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": 127,
+        "new_file": "superset/views/sql_lab.py",
+        "new_code": "    def pre_update(self, item: \"SavedQueryView\") -> None:"
+    },
+    {
+        "url": "https://github.com/apache/incubator-superset/commit/63e0188f45134c25267d183f5d7391577f9a6d63#diff-9e677ee0006cf369f613daa0de4ae6f76d935b4fL132",
+        "old_file": "superset/views/sql_lab.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": 132,
+        "new_file": "superset/views/sql_lab.py",
+        "new_code": "    def show(self, pk: int) -> FlaskResponse:"
+    },
+    {
+        "url": "https://github.com/apache/incubator-superset/commit/63e0188f45134c25267d183f5d7391577f9a6d63#diff-9e677ee0006cf369f613daa0de4ae6f76d935b4fL176",
+        "old_file": "superset/views/sql_lab.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": 176,
+        "new_file": "superset/views/sql_lab.py",
+        "new_code": "def _get_owner_id(tab_state_id: int) -> int:"
+    },
+    {
+        "url": "https://github.com/apache/incubator-superset/commit/63e0188f45134c25267d183f5d7391577f9a6d63#diff-9e677ee0006cf369f613daa0de4ae6f76d935b4fL183",
+        "old_file": "superset/views/sql_lab.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": 183,
+        "new_file": "superset/views/sql_lab.py",
+        "new_code": "    def post(self) -> FlaskResponse:  # pylint: disable=no-self-use"
+    },
+    {
+        "url": "https://github.com/apache/incubator-superset/commit/63e0188f45134c25267d183f5d7391577f9a6d63#diff-9e677ee0006cf369f613daa0de4ae6f76d935b4fL205",
+        "old_file": "superset/views/sql_lab.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": 205,
+        "new_file": "superset/views/sql_lab.py",
+        "new_code": "    def delete(self, tab_state_id: int) -> FlaskResponse:  # pylint: disable=no-self-use"
+    },
+    {
+        "url": "https://github.com/apache/incubator-superset/commit/63e0188f45134c25267d183f5d7391577f9a6d63#diff-9e677ee0006cf369f613daa0de4ae6f76d935b4fL220",
+        "old_file": "superset/views/sql_lab.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": 220,
+        "new_file": "superset/views/sql_lab.py",
+        "new_code": "    def get(self, tab_state_id: int) -> FlaskResponse:  # pylint: disable=no-self-use"
+    },
+    {
+        "url": "https://github.com/apache/incubator-superset/commit/63e0188f45134c25267d183f5d7391577f9a6d63#diff-9e677ee0006cf369f613daa0de4ae6f76d935b4fL39",
+        "old_file": "superset/views/tags.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": 39,
+        "new_file": "superset/views/tags.py",
+        "new_code": "def process_template(content: str) -> str:"
+    },
+    {
+        "url": "https://github.com/apache/incubator-superset/commit/63e0188f45134c25267d183f5d7391577f9a6d63#diff-9e677ee0006cf369f613daa0de4ae6f76d935b4fL52",
+        "old_file": "superset/views/tags.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": 52,
+        "new_file": "superset/views/tags.py",
+        "new_code": "    def suggestions(self) -> FlaskResponse:  # pylint: disable=no-self-use"
+    },
+    {
+        "url": "https://github.com/apache/incubator-superset/commit/63e0188f45134c25267d183f5d7391577f9a6d63#diff-9e677ee0006cf369f613daa0de4ae6f76d935b4fL48",
+        "old_file": "superset/views/utils.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": 48,
+        "new_file": "superset/views/utils.py",
+        "new_code": "def bootstrap_user_data(user: User, include_perms: bool = False) -> Dict[str, Any]:"
+    },
+    {
         "url": "https://github.com/tensorflow/models/commit/23c87aaa5a1d930f4f9ca927c8c3577056c4f656#diff-0324146683e1ebe2ad9417c01e314834503c7185L80",
         "old_file": "official/modeling/optimization/lr_schedule.py",
         "old_line": "",
@@ -4840,6 +4930,87 @@
         "new_line": 80,
         "new_file": "official/modeling/optimization/lr_schedule.py",
         "new_code": "  def get_config(self) -> Mapping[str, Any]:"
+    },
+    {
+        "url": "https://github.com/home-assistant/core/commit/401309c3b2dbcb0d4423bc9a2b12aad1ba8e5b44#diff-d06b0a4473847b3da03e93a3b1d614ed06fd49e4L28",
+        "old_file": "homeassistant/components/fan/demo.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": 28,
+        "new_file": "homeassistant/components/fan/demo.py",
+        "new_code": "    def __init__(self, hass, name: str, supported_features: int) -> None:"
+    },
+    {
+        "url": "https://github.com/home-assistant/core/commit/401309c3b2dbcb0d4423bc9a2b12aad1ba8e5b44#diff-d06b0a4473847b3da03e93a3b1d614ed06fd49e4L53",
+        "old_file": "homeassistant/components/fan/demo.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": 53,
+        "new_file": "homeassistant/components/fan/demo.py",
+        "new_code": "    def speed(self) -> str:"
+    },
+    {
+        "url": "https://github.com/home-assistant/core/commit/401309c3b2dbcb0d4423bc9a2b12aad1ba8e5b44#diff-d06b0a4473847b3da03e93a3b1d614ed06fd49e4L58",
+        "old_file": "homeassistant/components/fan/demo.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": 58,
+        "new_file": "homeassistant/components/fan/demo.py",
+        "new_code": "    def speed_list(self) -> list:"
+    },
+    {
+        "url": "https://github.com/home-assistant/core/commit/401309c3b2dbcb0d4423bc9a2b12aad1ba8e5b44#diff-d06b0a4473847b3da03e93a3b1d614ed06fd49e4L62",
+        "old_file": "homeassistant/components/fan/demo.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": 62,
+        "new_file": "homeassistant/components/fan/demo.py",
+        "new_code": "    def turn_on(self, speed: str=None) -> None:"
+    },
+    {
+        "url": "https://github.com/home-assistant/core/commit/401309c3b2dbcb0d4423bc9a2b12aad1ba8e5b44#diff-d06b0a4473847b3da03e93a3b1d614ed06fd49e4L68",
+        "old_file": "homeassistant/components/fan/demo.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": 68,
+        "new_file": "homeassistant/components/fan/demo.py",
+        "new_code": "    def turn_off(self) -> None:"
+    },
+    {
+        "url": "https://github.com/home-assistant/core/commit/401309c3b2dbcb0d4423bc9a2b12aad1ba8e5b44#diff-d06b0a4473847b3da03e93a3b1d614ed06fd49e4L73",
+        "old_file": "homeassistant/components/fan/demo.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": 73,
+        "new_file": "homeassistant/components/fan/demo.py",
+        "new_code": "    def set_speed(self, speed: str) -> None:"
+    },
+    {
+        "url": "https://github.com/home-assistant/core/commit/401309c3b2dbcb0d4423bc9a2b12aad1ba8e5b44#diff-d06b0a4473847b3da03e93a3b1d614ed06fd49e4L78",
+        "old_file": "homeassistant/components/fan/demo.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": 78,
+        "new_file": "homeassistant/components/fan/demo.py",
+        "new_code": "    def set_direction(self, direction: str) -> None:"
+    },
+    {
+        "url": "https://github.com/home-assistant/core/commit/401309c3b2dbcb0d4423bc9a2b12aad1ba8e5b44#diff-d06b0a4473847b3da03e93a3b1d614ed06fd49e4L83",
+        "old_file": "homeassistant/components/fan/demo.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": 83,
+        "new_file": "homeassistant/components/fan/demo.py",
+        "new_code": "    def oscillate(self, oscillating: bool) -> None:"
+    },
+    {
+        "url": "https://github.com/home-assistant/core/commit/401309c3b2dbcb0d4423bc9a2b12aad1ba8e5b44#diff-d06b0a4473847b3da03e93a3b1d614ed06fd49e4L89",
+        "old_file": "homeassistant/components/fan/demo.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": 89,
+        "new_file": "homeassistant/components/fan/demo.py",
+        "new_code": "    def current_direction(self) -> str:"
     },
     {
         "url": "https://github.com/home-assistant/core/commit/62c1b542edf2ff24baf1749c57293af94c8413e5#diff-bfa7d5e1704c6acca428c6120d309aaf53942f35L53",
@@ -15039,15 +15210,6 @@
         "new_code": "    def test_set_hvac_mode(self) -> None:"
     },
     {
-        "url": "https://github.com/python/cpython/commit/6919427e9462d05f402faa5f846f43e08347cebe#diff-a3c243075507e50dbfa0aadb841a2c9d46692c95L89",
-        "old_file": "Lib/importlib/abc.py",
-        "old_line": "",
-        "old_code": "",
-        "new_line": 89,
-        "new_file": "Lib/importlib/abc.py",
-        "new_code": "    def get_filename(self, fullname:str) -> str:"
-    },
-    {
         "url": "https://github.com/home-assistant/core/commit/4de97abc3aa83188666336ce0a015a5bab75bc8f#diff-d4382d9685934c280dbcef560ef168d0c51b120bL72",
         "old_file": "tests/components/seventeentrack/test_sensor.py",
         "old_line": "",
@@ -15361,15 +15523,6 @@
         "new_line": 422,
         "new_file": "tests/helpers/test_entity_component.py",
         "new_code": "    def async_loop_exception_handler(_, _2) -> None:"
-    },
-    {
-        "url": "https://github.com/python/cpython/commit/b89ee8eae8a20d893644064552ea65cc5217c96c#diff-77725f62e1b03009203c8f1127a71902b6453d65L135",
-        "old_file": "Lib/importlib/abc.py",
-        "old_line": "",
-        "old_code": "",
-        "new_line": 135,
-        "new_file": "Lib/importlib/abc.py",
-        "new_code": "    def write_bytecode(self, fullname:str, bytecode:bytes) -> bool:"
     },
     {
         "url": "https://github.com/home-assistant/core/commit/c2556d90ea7629941a834a3fd969e41ba0bdcd1c#diff-20ec25548bb799691a032583a06375511ea9631eL65",
@@ -15975,105 +16128,6 @@
         "new_code": "    def async_domains(self) -> List[str]:"
     },
     {
-        "url": "https://github.com/python/cpython/commit/f23e3744412ac8943bddaace3dc0e85522518319#diff-8627d412b4f14b9793d017850f8f66a90c932c49L13",
-        "old_file": "Lib/importlib/abc.py",
-        "old_line": 13,
-        "old_code": "    def load_module(self, fullname:str) -> types.ModuleType:",
-        "new_line": "",
-        "new_file": "Lib/importlib/abc.py",
-        "new_code": ""
-    },
-    {
-        "url": "https://github.com/python/cpython/commit/f23e3744412ac8943bddaace3dc0e85522518319#diff-8627d412b4f14b9793d017850f8f66a90c932c49L23",
-        "old_file": "Lib/importlib/abc.py",
-        "old_line": 23,
-        "old_code": "    def find_module(self, fullname:str, path:[str]=None) -> Loader:",
-        "new_line": "",
-        "new_file": "Lib/importlib/abc.py",
-        "new_code": ""
-    },
-    {
-        "url": "https://github.com/python/cpython/commit/f23e3744412ac8943bddaace3dc0e85522518319#diff-8627d412b4f14b9793d017850f8f66a90c932c49L42",
-        "old_file": "Lib/importlib/abc.py",
-        "old_line": 42,
-        "old_code": "    def get_data(self, path:str) -> bytes:",
-        "new_line": "",
-        "new_file": "Lib/importlib/abc.py",
-        "new_code": ""
-    },
-    {
-        "url": "https://github.com/python/cpython/commit/f23e3744412ac8943bddaace3dc0e85522518319#diff-8627d412b4f14b9793d017850f8f66a90c932c49L58",
-        "old_file": "Lib/importlib/abc.py",
-        "old_line": 58,
-        "old_code": "    def is_package(self, fullname:str) -> bool:",
-        "new_line": "",
-        "new_file": "Lib/importlib/abc.py",
-        "new_code": ""
-    },
-    {
-        "url": "https://github.com/python/cpython/commit/f23e3744412ac8943bddaace3dc0e85522518319#diff-8627d412b4f14b9793d017850f8f66a90c932c49L64",
-        "old_file": "Lib/importlib/abc.py",
-        "old_line": 64,
-        "old_code": "    def get_code(self, fullname:str) -> types.CodeType:",
-        "new_line": "",
-        "new_file": "Lib/importlib/abc.py",
-        "new_code": ""
-    },
-    {
-        "url": "https://github.com/python/cpython/commit/f23e3744412ac8943bddaace3dc0e85522518319#diff-8627d412b4f14b9793d017850f8f66a90c932c49L70",
-        "old_file": "Lib/importlib/abc.py",
-        "old_line": 70,
-        "old_code": "    def get_source(self, fullname:str) -> str:",
-        "new_line": "",
-        "new_file": "Lib/importlib/abc.py",
-        "new_code": ""
-    },
-    {
-        "url": "https://github.com/python/cpython/commit/f23e3744412ac8943bddaace3dc0e85522518319#diff-8627d412b4f14b9793d017850f8f66a90c932c49L89",
-        "old_file": "Lib/importlib/abc.py",
-        "old_line": 89,
-        "old_code": "    def get_filename(self, fullname:str) -> str:",
-        "new_line": "",
-        "new_file": "Lib/importlib/abc.py",
-        "new_code": ""
-    },
-    {
-        "url": "https://github.com/python/cpython/commit/f23e3744412ac8943bddaace3dc0e85522518319#diff-8627d412b4f14b9793d017850f8f66a90c932c49L106",
-        "old_file": "Lib/importlib/abc.py",
-        "old_line": 106,
-        "old_code": "    def source_path(self, fullname:str) -> object:",
-        "new_line": "",
-        "new_file": "Lib/importlib/abc.py",
-        "new_code": ""
-    },
-    {
-        "url": "https://github.com/python/cpython/commit/f23e3744412ac8943bddaace3dc0e85522518319#diff-8627d412b4f14b9793d017850f8f66a90c932c49L123",
-        "old_file": "Lib/importlib/abc.py",
-        "old_line": 123,
-        "old_code": "    def source_mtime(self, fullname:str) -> int:",
-        "new_line": "",
-        "new_file": "Lib/importlib/abc.py",
-        "new_code": ""
-    },
-    {
-        "url": "https://github.com/python/cpython/commit/f23e3744412ac8943bddaace3dc0e85522518319#diff-8627d412b4f14b9793d017850f8f66a90c932c49L129",
-        "old_file": "Lib/importlib/abc.py",
-        "old_line": 129,
-        "old_code": "    def bytecode_path(self, fullname:str) -> object:",
-        "new_line": "",
-        "new_file": "Lib/importlib/abc.py",
-        "new_code": ""
-    },
-    {
-        "url": "https://github.com/python/cpython/commit/f23e3744412ac8943bddaace3dc0e85522518319#diff-8627d412b4f14b9793d017850f8f66a90c932c49L135",
-        "old_file": "Lib/importlib/abc.py",
-        "old_line": 135,
-        "old_code": "    def write_bytecode(self, fullname:str, bytecode:bytes) -> bool:",
-        "new_line": "",
-        "new_file": "Lib/importlib/abc.py",
-        "new_code": ""
-    },
-    {
         "url": "https://github.com/home-assistant/core/commit/65cf5a6ef5cf877666e24fb365978b6577e6d81e#diff-c445a9d148903ae3a06dba1f54e1c4511efef7c0L381",
         "old_file": "homeassistant/config_entries.py",
         "old_line": "",
@@ -16315,6 +16369,15 @@
         "new_line": 323,
         "new_file": "homeassistant/components/yeelight/light.py",
         "new_code": "    def name(self) -> str:"
+    },
+    {
+        "url": "https://github.com/scikit-learn/scikit-learn/commit/cd81de1ccc9773af119dc290c25cef34029a7c47#diff-5f9b6b21e15dc5ae3f6f845f23507782ccd88aaeL87",
+        "old_file": "maint_tools/test_docstrings.py",
+        "old_line": 87,
+        "old_code": "def repr_errors(res, estimator=None, method: Optional[str] = None) -> str:",
+        "new_line": "",
+        "new_file": "maint_tools/test_docstrings.py",
+        "new_code": ""
     },
     {
         "url": "https://github.com/home-assistant/core/commit/f167914951c93f26f9f4305380150166215cccbd#diff-3bc5df33cec2c0b91480a44b4e7a5ca9bec9a2a7L55",
@@ -18457,15 +18520,6 @@
         "new_line": 66,
         "new_file": "homeassistant/components/homematicip_cloud/weather.py",
         "new_code": "    def __init__(self, hap: HomematicipHAP, device) -> None:"
-    },
-    {
-        "url": "https://github.com/scikit-learn/scikit-learn/commit/cd81de1ccc9773af119dc290c25cef34029a7c47#diff-5f9b6b21e15dc5ae3f6f845f23507782ccd88aaeL87",
-        "old_file": "maint_tools/test_docstrings.py",
-        "old_line": 87,
-        "old_code": "def repr_errors(res, estimator=None, method: Optional[str] = None) -> str:",
-        "new_line": "",
-        "new_file": "maint_tools/test_docstrings.py",
-        "new_code": ""
     },
     {
         "url": "https://github.com/home-assistant/core/commit/dbe366933f6be943887d365ec7128498054a7316#diff-6d86262457098b9e1092120ab53a60b2eee1e5c7L32",
@@ -33271,311 +33325,5 @@
         "new_line": 101,
         "new_file": "homeassistant/components/tile/device_tracker.py",
         "new_code": "    def longitude(self) -> float:"
-    },
-    {
-        "url": "https://github.com/python/cpython/commit/24ffe705c30e36c82940d75fd1454256634d0b3c#diff-48ee579367e42c39e3cbad79b036ddacb83a4633L86",
-        "old_file": "Lib/test/test_peg_generator/test_c_parser.py",
-        "old_line": "",
-        "old_code": "",
-        "new_line": 86,
-        "new_file": "Lib/test/test_peg_generator/test_c_parser.py",
-        "new_code": "    def test_c_parser(self) -> None:"
-    },
-    {
-        "url": "https://github.com/python/cpython/commit/24ffe705c30e36c82940d75fd1454256634d0b3c#diff-48ee579367e42c39e3cbad79b036ddacb83a4633L127",
-        "old_file": "Lib/test/test_peg_generator/test_c_parser.py",
-        "old_line": "",
-        "old_code": "",
-        "new_line": 127,
-        "new_file": "Lib/test/test_peg_generator/test_c_parser.py",
-        "new_code": "    def test_lookahead(self) -> None:"
-    },
-    {
-        "url": "https://github.com/python/cpython/commit/24ffe705c30e36c82940d75fd1454256634d0b3c#diff-48ee579367e42c39e3cbad79b036ddacb83a4633L139",
-        "old_file": "Lib/test/test_peg_generator/test_c_parser.py",
-        "old_line": "",
-        "old_code": "",
-        "new_line": 139,
-        "new_file": "Lib/test/test_peg_generator/test_c_parser.py",
-        "new_code": "    def test_negative_lookahead(self) -> None:"
-    },
-    {
-        "url": "https://github.com/python/cpython/commit/24ffe705c30e36c82940d75fd1454256634d0b3c#diff-48ee579367e42c39e3cbad79b036ddacb83a4633L151",
-        "old_file": "Lib/test/test_peg_generator/test_c_parser.py",
-        "old_line": "",
-        "old_code": "",
-        "new_line": 151,
-        "new_file": "Lib/test/test_peg_generator/test_c_parser.py",
-        "new_code": "    def test_cut(self) -> None:"
-    },
-    {
-        "url": "https://github.com/python/cpython/commit/24ffe705c30e36c82940d75fd1454256634d0b3c#diff-48ee579367e42c39e3cbad79b036ddacb83a4633L167",
-        "old_file": "Lib/test/test_peg_generator/test_c_parser.py",
-        "old_line": "",
-        "old_code": "",
-        "new_line": 167,
-        "new_file": "Lib/test/test_peg_generator/test_c_parser.py",
-        "new_code": "    def test_gather(self) -> None:"
-    },
-    {
-        "url": "https://github.com/python/cpython/commit/24ffe705c30e36c82940d75fd1454256634d0b3c#diff-48ee579367e42c39e3cbad79b036ddacb83a4633L179",
-        "old_file": "Lib/test/test_peg_generator/test_c_parser.py",
-        "old_line": "",
-        "old_code": "",
-        "new_line": 179,
-        "new_file": "Lib/test/test_peg_generator/test_c_parser.py",
-        "new_code": "    def test_left_recursion(self) -> None:"
-    },
-    {
-        "url": "https://github.com/python/cpython/commit/24ffe705c30e36c82940d75fd1454256634d0b3c#diff-48ee579367e42c39e3cbad79b036ddacb83a4633L191",
-        "old_file": "Lib/test/test_peg_generator/test_c_parser.py",
-        "old_line": "",
-        "old_code": "",
-        "new_line": 191,
-        "new_file": "Lib/test/test_peg_generator/test_c_parser.py",
-        "new_code": "    def test_advanced_left_recursive(self) -> None:"
-    },
-    {
-        "url": "https://github.com/python/cpython/commit/24ffe705c30e36c82940d75fd1454256634d0b3c#diff-48ee579367e42c39e3cbad79b036ddacb83a4633L202",
-        "old_file": "Lib/test/test_peg_generator/test_c_parser.py",
-        "old_line": "",
-        "old_code": "",
-        "new_line": 202,
-        "new_file": "Lib/test/test_peg_generator/test_c_parser.py",
-        "new_code": "    def test_mutually_left_recursive(self) -> None:"
-    },
-    {
-        "url": "https://github.com/python/cpython/commit/24ffe705c30e36c82940d75fd1454256634d0b3c#diff-48ee579367e42c39e3cbad79b036ddacb83a4633L214",
-        "old_file": "Lib/test/test_peg_generator/test_c_parser.py",
-        "old_line": "",
-        "old_code": "",
-        "new_line": 214,
-        "new_file": "Lib/test/test_peg_generator/test_c_parser.py",
-        "new_code": "    def test_nasty_mutually_left_recursive(self) -> None:"
-    },
-    {
-        "url": "https://github.com/python/cpython/commit/24ffe705c30e36c82940d75fd1454256634d0b3c#diff-48ee579367e42c39e3cbad79b036ddacb83a4633L227",
-        "old_file": "Lib/test/test_peg_generator/test_c_parser.py",
-        "old_line": "",
-        "old_code": "",
-        "new_line": 227,
-        "new_file": "Lib/test/test_peg_generator/test_c_parser.py",
-        "new_code": "    def test_return_stmt_noexpr_action(self) -> None:"
-    },
-    {
-        "url": "https://github.com/python/cpython/commit/24ffe705c30e36c82940d75fd1454256634d0b3c#diff-48ee579367e42c39e3cbad79b036ddacb83a4633L242",
-        "old_file": "Lib/test/test_peg_generator/test_c_parser.py",
-        "old_line": "",
-        "old_code": "",
-        "new_line": 242,
-        "new_file": "Lib/test/test_peg_generator/test_c_parser.py",
-        "new_code": "    def test_gather_action_ast(self) -> None:"
-    },
-    {
-        "url": "https://github.com/python/cpython/commit/24ffe705c30e36c82940d75fd1454256634d0b3c#diff-48ee579367e42c39e3cbad79b036ddacb83a4633L253",
-        "old_file": "Lib/test/test_peg_generator/test_c_parser.py",
-        "old_line": "",
-        "old_code": "",
-        "new_line": 253,
-        "new_file": "Lib/test/test_peg_generator/test_c_parser.py",
-        "new_code": "    def test_pass_stmt_action(self) -> None:"
-    },
-    {
-        "url": "https://github.com/python/cpython/commit/24ffe705c30e36c82940d75fd1454256634d0b3c#diff-48ee579367e42c39e3cbad79b036ddacb83a4633L268",
-        "old_file": "Lib/test/test_peg_generator/test_c_parser.py",
-        "old_line": "",
-        "old_code": "",
-        "new_line": 268,
-        "new_file": "Lib/test/test_peg_generator/test_c_parser.py",
-        "new_code": "    def test_if_stmt_action(self) -> None:"
-    },
-    {
-        "url": "https://github.com/python/cpython/commit/24ffe705c30e36c82940d75fd1454256634d0b3c#diff-48ee579367e42c39e3cbad79b036ddacb83a4633L295",
-        "old_file": "Lib/test/test_peg_generator/test_c_parser.py",
-        "old_line": "",
-        "old_code": "",
-        "new_line": 295,
-        "new_file": "Lib/test/test_peg_generator/test_c_parser.py",
-        "new_code": "    def test_same_name_different_types(self) -> None:"
-    },
-    {
-        "url": "https://github.com/python/cpython/commit/24ffe705c30e36c82940d75fd1454256634d0b3c#diff-48ee579367e42c39e3cbad79b036ddacb83a4633L315",
-        "old_file": "Lib/test/test_peg_generator/test_c_parser.py",
-        "old_line": "",
-        "old_code": "",
-        "new_line": 315,
-        "new_file": "Lib/test/test_peg_generator/test_c_parser.py",
-        "new_code": "    def test_with_stmt_with_paren(self) -> None:"
-    },
-    {
-        "url": "https://github.com/python/cpython/commit/24ffe705c30e36c82940d75fd1454256634d0b3c#diff-48ee579367e42c39e3cbad79b036ddacb83a4633L344",
-        "old_file": "Lib/test/test_peg_generator/test_c_parser.py",
-        "old_line": "",
-        "old_code": "",
-        "new_line": 344,
-        "new_file": "Lib/test/test_peg_generator/test_c_parser.py",
-        "new_code": "    def test_ternary_operator(self) -> None:"
-    },
-    {
-        "url": "https://github.com/python/cpython/commit/24ffe705c30e36c82940d75fd1454256634d0b3c#diff-48ee579367e42c39e3cbad79b036ddacb83a4633L362",
-        "old_file": "Lib/test/test_peg_generator/test_c_parser.py",
-        "old_line": "",
-        "old_code": "",
-        "new_line": 362,
-        "new_file": "Lib/test/test_peg_generator/test_c_parser.py",
-        "new_code": "    def test_syntax_error_for_string(self) -> None:"
-    },
-    {
-        "url": "https://github.com/python/cpython/commit/24ffe705c30e36c82940d75fd1454256634d0b3c#diff-48ee579367e42c39e3cbad79b036ddacb83a4633L378",
-        "old_file": "Lib/test/test_peg_generator/test_c_parser.py",
-        "old_line": "",
-        "old_code": "",
-        "new_line": 378,
-        "new_file": "Lib/test/test_peg_generator/test_c_parser.py",
-        "new_code": "    def test_headers_and_trailer(self) -> None:"
-    },
-    {
-        "url": "https://github.com/python/cpython/commit/24ffe705c30e36c82940d75fd1454256634d0b3c#diff-48ee579367e42c39e3cbad79b036ddacb83a4633L393",
-        "old_file": "Lib/test/test_peg_generator/test_c_parser.py",
-        "old_line": "",
-        "old_code": "",
-        "new_line": 393,
-        "new_file": "Lib/test/test_peg_generator/test_c_parser.py",
-        "new_code": "    def test_error_in_rules(self) -> None:"
-    },
-    {
-        "url": "https://github.com/python/cpython/commit/5b9f4988c94f47fa35e84f154a7b5aa17bc04722#diff-71c1181de4b2f9daa54d94ae408d9996cc0c0082L21",
-        "old_file": "Tools/peg_generator/pegen/build.py",
-        "old_line": "",
-        "old_code": "",
-        "new_line": 21,
-        "new_file": "Tools/peg_generator/pegen/build.py",
-        "new_code": "def get_extra_flags(compiler_flags: str, compiler_py_flags_nodist: str) -> List[str]:"
-    },
-    {
-        "url": "https://github.com/python/cpython/commit/4db245ee9ddbe6c53d375de59a35ff59dea2a8e0#diff-2e35df01593f5df9e8d9bc6a7d1162b12c99a580L124",
-        "old_file": "Tools/peg_generator/pegen/parser_generator.py",
-        "old_line": 124,
-        "old_code": "def dedupe(name: str, names: List[str]) -> str:",
-        "new_line": "",
-        "new_file": "Tools/peg_generator/pegen/parser_generator.py",
-        "new_code": ""
-    },
-    {
-        "url": "https://github.com/python/cpython/commit/4db245ee9ddbe6c53d375de59a35ff59dea2a8e0#diff-2e35df01593f5df9e8d9bc6a7d1162b12c99a580L54",
-        "old_file": "Tools/peg_generator/pegen/parser_generator.py",
-        "old_line": "",
-        "old_code": "",
-        "new_line": 54,
-        "new_file": "Tools/peg_generator/pegen/parser_generator.py",
-        "new_code": "    def local_variable_context(self) -> Iterator[None]:"
-    },
-    {
-        "url": "https://github.com/python/cpython/commit/4db245ee9ddbe6c53d375de59a35ff59dea2a8e0#diff-2e35df01593f5df9e8d9bc6a7d1162b12c99a580L60",
-        "old_file": "Tools/peg_generator/pegen/parser_generator.py",
-        "old_line": "",
-        "old_code": "",
-        "new_line": 60,
-        "new_file": "Tools/peg_generator/pegen/parser_generator.py",
-        "new_code": "    def local_variable_names(self) -> List[str]:"
-    },
-    {
-        "url": "https://github.com/python/cpython/commit/4db245ee9ddbe6c53d375de59a35ff59dea2a8e0#diff-2e35df01593f5df9e8d9bc6a7d1162b12c99a580L133",
-        "old_file": "Tools/peg_generator/pegen/parser_generator.py",
-        "old_line": "",
-        "old_code": "",
-        "new_line": 133,
-        "new_file": "Tools/peg_generator/pegen/parser_generator.py",
-        "new_code": "    def dedupe(self, name: str) -> str:"
-    },
-    {
-        "url": "https://github.com/python/cpython/commit/4db245ee9ddbe6c53d375de59a35ff59dea2a8e0#diff-2e35df01593f5df9e8d9bc6a7d1162b12c99a580L53",
-        "old_file": "Tools/peg_generator/pegen/parser_generator.py",
-        "old_line": 53,
-        "old_code": "    def generate(self, filename: str) -> None:",
-        "new_line": "",
-        "new_file": "Tools/peg_generator/pegen/parser_generator.py",
-        "new_code": ""
-    },
-    {
-        "url": "https://github.com/python/cpython/commit/7ba08ff7b41911f972d0750e068a2270e0dbd68f#diff-9a67420fe4d4fa625c8628fb47c56fcec5cc622fL115",
-        "old_file": "Tools/peg_generator/pegen/build.py",
-        "old_line": 115,
-        "old_code": "def generate_token_definitions(tokens: IO[str]) -> Tuple[Dict[str, int], Set[str]]:",
-        "new_line": 117,
-        "new_file": "Tools/peg_generator/pegen/build.py",
-        "new_code": "def generate_token_definitions(tokens: IO[str]) -> TokenDefinitions:"
-    },
-    {
-        "url": "https://github.com/python/cpython/commit/ac7a92cc0a821699df48bc2e30a02c25d6338f78#diff-80826908a90a4970c4a40bee7277f1cc79458e43L30",
-        "old_file": "Tools/peg_generator/pegen/parser_generator.py",
-        "old_line": "",
-        "old_code": "",
-        "new_line": 30,
-        "new_file": "Tools/peg_generator/pegen/parser_generator.py",
-        "new_code": "    def visit_NamedItem(self, node: NameLeaf) -> None:"
-    },
-    {
-        "url": "https://github.com/python/cpython/commit/d10fef35c6ce8a3193b974be7e8c8304b1146153#diff-5a89c73b68142ca20275e0ed78e3576a1a19aeaaL60",
-        "old_file": "Tools/peg_generator/pegen/parser_generator.py",
-        "old_line": "",
-        "old_code": "",
-        "new_line": 60,
-        "new_file": "Tools/peg_generator/pegen/parser_generator.py",
-        "new_code": "    def validate_rule_names(self) -> None:"
-    },
-    {
-        "url": "https://github.com/python/cpython/commit/d10fef35c6ce8a3193b974be7e8c8304b1146153#diff-5a89c73b68142ca20275e0ed78e3576a1a19aeaaL30",
-        "old_file": "Tools/peg_generator/pegen/parser_generator.py",
-        "old_line": 30,
-        "old_code": "    def visit_NamedItem(self, node: NameLeaf) -> None:",
-        "new_line": 30,
-        "new_file": "Tools/peg_generator/pegen/parser_generator.py",
-        "new_code": "    def visit_NamedItem(self, node: NamedItem) -> None:"
-    },
-    {
-        "url": "https://github.com/python/cpython/commit/9645930b5bc1833ef495891d22052d1ba65ab7ea#diff-a08159b89eb8444dd4f438aae66c03f05dbc52a6L57",
-        "old_file": "Tools/peg_generator/scripts/test_pypi_packages.py",
-        "old_line": 57,
-        "old_code": "def run_tests(dirname: str, tree: int, extension: Any) -> int:",
-        "new_line": "",
-        "new_file": "Tools/peg_generator/scripts/test_pypi_packages.py",
-        "new_code": ""
-    },
-    {
-        "url": "https://github.com/python/cpython/commit/b45af1a5691e83b86321fc52d173f66cf891ce5f#diff-cfa966e448295ee07f39185e9dc0dc8ddd674ff9L409",
-        "old_file": "Lib/test/test_peg_generator/test_c_parser.py",
-        "old_line": "",
-        "old_code": "",
-        "new_line": 409,
-        "new_file": "Lib/test/test_peg_generator/test_c_parser.py",
-        "new_code": "    def test_no_soft_keywords(self) -> None:"
-    },
-    {
-        "url": "https://github.com/python/cpython/commit/b45af1a5691e83b86321fc52d173f66cf891ce5f#diff-cfa966e448295ee07f39185e9dc0dc8ddd674ff9L418",
-        "old_file": "Lib/test/test_peg_generator/test_c_parser.py",
-        "old_line": "",
-        "old_code": "",
-        "new_line": 418,
-        "new_file": "Lib/test/test_peg_generator/test_c_parser.py",
-        "new_code": "    def test_soft_keywords(self) -> None:"
-    },
-    {
-        "url": "https://github.com/python/cpython/commit/b45af1a5691e83b86321fc52d173f66cf891ce5f#diff-cfa966e448295ee07f39185e9dc0dc8ddd674ff9L427",
-        "old_file": "Lib/test/test_peg_generator/test_c_parser.py",
-        "old_line": "",
-        "old_code": "",
-        "new_line": 427,
-        "new_file": "Lib/test/test_peg_generator/test_c_parser.py",
-        "new_code": "    def test_soft_keywords_parse(self) -> None:"
-    },
-    {
-        "url": "https://github.com/python/cpython/commit/404b23b85b17c84e022779f31fc89cb0ed0d37e8#diff-9fe9e34735a4f6117b11203f0d017f0ffccb1cf7L439",
-        "old_file": "Lib/test/test_peg_generator/test_c_parser.py",
-        "old_line": "",
-        "old_code": "",
-        "new_line": 439,
-        "new_file": "Lib/test/test_peg_generator/test_c_parser.py",
-        "new_code": "    def test_soft_keywords_lookahead(self) -> None:"
     }
 ]

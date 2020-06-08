@@ -110,7 +110,7 @@ def search_key_value_in_snippet(file, list_of_strings):
     return False
 
 
-def TypeAnnotationExtraction(repo_path, commit, patch, url, statistics, lock, logging):
+def TypeAnnotationExtraction(repo_path, repo_name, commit, patch, url, statistics, lock, logging):
     # command = "git --git-dir " + str(repo_path) + '/.git show ' + str(commit.hex) + ":" + str(patch.delta.old_file.path)
     # os.system(command)
     code_changes = []
@@ -118,7 +118,7 @@ def TypeAnnotationExtraction(repo_path, commit, patch, url, statistics, lock, lo
     type_annotation_removed_this_commit = 0
 
     old_out = subprocess.Popen(
-        ["git", "--git-dir", str(repo_path) + '/.git', 'show',
+        ["git", "--git-dir", str(repo_path + repo_name) + '/.git', 'show',
          str(commit.hex + '^') + ":" + str(patch.delta.old_file.path)],
         stdout=subprocess.PIPE,
         stderr=subprocess.STDOUT)
@@ -129,7 +129,7 @@ def TypeAnnotationExtraction(repo_path, commit, patch, url, statistics, lock, lo
 
     old_param_types, old_return_types = extract_from_snippet(str(old_stdout))
 
-    new_out = subprocess.Popen(["git", "--git-dir", str(repo_path) + '/.git', 'show',
+    new_out = subprocess.Popen(["git", "--git-dir", str(repo_path + repo_name) + '/.git', 'show',
                                 str(commit.hex) + ":" + str(patch.delta.new_file.path)],
                                stdout=subprocess.PIPE,
                                stderr=subprocess.STDOUT)
@@ -163,6 +163,7 @@ def TypeAnnotationExtraction(repo_path, commit, patch, url, statistics, lock, lo
                         code_changes.append(temp)
 
                         lock.acquire()
+                        statistics.number_type_annotations_per_repo[repo_name] += 1
                         statistics.total_typeAnnotation_codeChanges += 1
                         statistics.modify_existing_types += 1
 
@@ -194,6 +195,7 @@ def TypeAnnotationExtraction(repo_path, commit, patch, url, statistics, lock, lo
                     code_changes.append(temp)
 
                     lock.acquire()
+                    statistics.number_type_annotations_per_repo[repo_name] += 1
                     statistics.total_typeAnnotation_codeChanges += 1
                     statistics.remove_types += 1
                     type_annotation_removed_this_commit += 1
@@ -219,6 +221,7 @@ def TypeAnnotationExtraction(repo_path, commit, patch, url, statistics, lock, lo
                     code_changes.append(temp)
 
                     lock.acquire()
+                    statistics.number_type_annotations_per_repo[repo_name] += 1
                     statistics.total_typeAnnotation_codeChanges += 1
                     statistics.insert_types += 1
                     type_annotation_added_this_commit += 1
@@ -252,6 +255,7 @@ def TypeAnnotationExtraction(repo_path, commit, patch, url, statistics, lock, lo
                         code_changes.append(temp)
 
                         lock.acquire()
+                        statistics.number_type_annotations_per_repo[repo_name] += 1
                         statistics.total_typeAnnotation_codeChanges += 1
                         statistics.modify_existing_types += 1
 
@@ -282,6 +286,7 @@ def TypeAnnotationExtraction(repo_path, commit, patch, url, statistics, lock, lo
                     code_changes.append(temp)
 
                     lock.acquire()
+                    statistics.number_type_annotations_per_repo[repo_name] += 1
                     statistics.total_typeAnnotation_codeChanges += 1
                     statistics.remove_types += 1
                     type_annotation_removed_this_commit += 1
@@ -306,6 +311,7 @@ def TypeAnnotationExtraction(repo_path, commit, patch, url, statistics, lock, lo
                     code_changes.append(temp)
 
                     lock.acquire()
+                    statistics.number_type_annotations_per_repo[repo_name] += 1
                     statistics.total_typeAnnotation_codeChanges += 1
                     statistics.insert_types += 1
                     type_annotation_added_this_commit += 1

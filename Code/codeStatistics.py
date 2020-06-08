@@ -74,12 +74,17 @@ class CodeStatistics:
         #self.typeAnnotation_removed_per_commit = 0
         self.list_typeAnnotation_removed_per_commit = []
 
-        # [RQ6]: Relation of properties of projects vs. properties of type changes
+        # [RQ5]: Relation of properties of projects vs. properties of type changes
         # E.g., nb of stars/developers/overall commits vs. nb of added annotations
-        self.RQ6 = 'Relation of properties of projects vs. properties of type changes.'
+        self.RQ5 = 'Relation of properties of projects vs. properties of type changes.'
         # self.repoStruct = namedtuple("repoStruct", "name n_stars n_commit n_annotations")
         # self.repoList = []
         self.matrix_commits_stars_annotations = np.array([[0, 0, 0]])
+
+        # [RQ6]: Which are the top 10 repository with the highest number of type annotations
+        self.RQ6 = 'Which are the top 10 repository with the highest number of type annotations.'
+        # TODO: extract top 10 from the dictionary
+        self.number_type_annotations_per_repo = {}
 
     #################################################
     #################METHODS#########################
@@ -159,7 +164,7 @@ class CodeStatistics:
             round(self.total_typeAnnotation_codeChanges / self.commits_with_typeChanges, 2)) + ' Type annotations ' \
                                                                                                'changes per commit '
 
-    # [RQ6]: Relation of properties of projects vs. properties of type changes
+    # [RQ5]: Relation of properties of projects vs. properties of type changes
     # E.g., nb of stars/developers/overall commits vs. nb of added annotations
     def addRepo(self, name, n_commits, n_annotations):
         input_file = open(config.REPO_LIST, 'r')
@@ -169,5 +174,5 @@ class CodeStatistics:
             if item.get('name') == name:
                 self.matrix_commits_stars_annotations = \
                     np.append(self.matrix_commits_stars_annotations,
-                              np.array([[n_commits, item.get('stars'), n_annotations]]), axis=0)
+                              np.array([[n_commits, item.get('stargazers_count'), n_annotations]]), axis=0)
                 break

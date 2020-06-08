@@ -13,25 +13,25 @@ def write_results(statistics, code_changes):
 
 
 def myplot(statistics):
-    """
-    cartesian_graph_xy(config.ROOT_DIR + "/Resources/Output/plot_relation_stars_annotations",
+
+    scatter_plot_xy(config.ROOT_DIR + "/Resources/Output/RQ5_stars",
                                          [row[1] for row in statistics.matrix_commits_stars_annotations],
                        [row[2] for row in statistics.matrix_commits_stars_annotations],
-                       'GitHub Stars', 'Annotations Changes')"""
+                       'GitHub Stars', 'Annotations Changes')
 
-    cartesian_plot_xy(config.ROOT_DIR + "/Resources/Output/plot_relation_commits_annotations",
+    scatter_plot_xy(config.ROOT_DIR + "/Resources/Output/RQ5_commits",
                       [row[0] for row in statistics.matrix_commits_stars_annotations],
                       [row[2] for row in statistics.matrix_commits_stars_annotations],
                       '# Commits', '# Annotations Changes')
 
 
     #RQ4.1
-    histogram_plot_xy(config.ROOT_DIR + "/Resources/Output/RQ4_1",
+    histogram_plot_xy2(config.ROOT_DIR + "/Resources/Output/RQ4_1",
                       statistics.list_typeAnnotation_added_per_commit,
                       'Type Annotations Added per Commit')
 
     # RQ4.2
-    histogram_plot_xy(config.ROOT_DIR + "/Resources/Output/RQ4_2",
+    histogram_plot_xy2(config.ROOT_DIR + "/Resources/Output/RQ4_2",
                       statistics.list_typeAnnotation_removed_per_commit,
                       'Type Annotations Removed per Commit', 'Are types removed along with other changes around this '
                                                              'code or in commits that only add types?')
@@ -40,3 +40,4 @@ def myplot(statistics):
     statistics.matrix_commits_stars_annotations = "See the plots."
     statistics.list_typeAnnotation_added_per_commit = "See the plot RQ4_1."
     statistics.list_typeAnnotation_removed_per_commit = "See the plot RQ4_2."
+

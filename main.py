@@ -48,7 +48,7 @@ if __name__ == "__main__":
         for thread in threads:
             thread.join()
 
-    if (statistics.total_typeAnnotation_codeChanges > 0):
+    if statistics.total_typeAnnotation_codeChanges > 0:
         # Statistics computation
         statistics.statistics_computation()
     else:
