@@ -124,24 +124,6 @@ def bar_plot_xy(outputFilePath, x, y, x_label, y_label, title=None, color='blue'
 
 
 def histogram_plot_xy(outputFilePath, x, x_label, title=None):
-    sns.set(color_codes=True)
-
-    plt.xlabel(x_label, fontsize=18, fontweight='bold', color='black', horizontalalignment='center')
-
-    if title is not None:
-        plt.title(title)
-
-    # TODO: remove float axis
-    sns_plot = sns.distplot(x, bins=20, kde=False, rug=True)
-
-    fig = sns_plot.get_figure()
-
-    fig.savefig(outputFilePath, bbox_inches='tight')
-
-    # fig.figure()
-
-
-def histogram_plot_xy2(outputFilePath, x, x_label, title=None):
     plt.xlabel(x_label, fontsize=18, fontweight='bold', color='black', horizontalalignment='center')
 
     if title is not None:

@@ -118,6 +118,7 @@ def TypeAnnotationExtraction(repo_path, repo_name, commit, patch, url, statistic
     code_changes_new = []
     type_annotation_added_this_commit = 0
     type_annotation_removed_this_commit = 0
+    type_annotation_changed_this_commit = 0
 
     old_out = subprocess.Popen(
         ["git", "--git-dir", str(repo_path + repo_name) + '/.git', 'show',
@@ -168,20 +169,15 @@ def TypeAnnotationExtraction(repo_path, repo_name, commit, patch, url, statistic
                         statistics.number_type_annotations_per_repo[repo_name] += 1
                         statistics.total_typeAnnotation_codeChanges += 1
                         statistics.modify_existing_types += 1
+                        type_annotation_changed_this_commit += 1
 
-                        if old_return_types[key] not in statistics.typeRemoved_dict:
-                            statistics.typeRemoved_dict[old_return_types[key]] = 1
+                        if old_return_types[key] not in statistics.typeChanged_dict:
+                            statistics.typeChanged_dict[str(old_return_types[key] + ' -> ' + new_return_types[key])] = 1
                         else:
-                            statistics.typeRemoved_dict[old_return_types[key]] += 1
-                        statistics.total_removed += 1
-                        statistics.functionReturnsType_removed += 1
+                            statistics.typeChanged_dict[str(old_return_types[key] + ' -> ' + new_return_types[key])] += 1
+                        statistics.total_changed += 1
+                        statistics.functionReturnsType_changed += 1
 
-                        if new_return_types[key] not in statistics.typeAdded_dict:
-                            statistics.typeAdded_dict[new_return_types[key]] = 1
-                        else:
-                            statistics.typeAdded_dict[new_return_types[key]] += 1
-                        statistics.total_added += 1
-                        statistics.functionReturnsType_added += 1
                         lock.release()
 
             # Remove type annotation
@@ -260,20 +256,15 @@ def TypeAnnotationExtraction(repo_path, repo_name, commit, patch, url, statistic
                         statistics.number_type_annotations_per_repo[repo_name] += 1
                         statistics.total_typeAnnotation_codeChanges += 1
                         statistics.modify_existing_types += 1
+                        type_annotation_changed_this_commit += 1
 
-                        if old_param_types[key] not in statistics.typeRemoved_dict:
-                            statistics.typeRemoved_dict[old_param_types[key]] = 1
+                        if old_param_types[key] not in statistics.typeChanged_dict:
+                            statistics.typeRemoved_dict[old_param_types[key] + ' -> ' + new_param_types[key]] = 1
                         else:
-                            statistics.typeRemoved_dict[old_param_types[key]] += 1
-                        statistics.total_removed += 1
-                        statistics.functionArgsType_removed += 1
+                            statistics.typeRemoved_dict[old_param_types[key] + ' -> ' + new_param_types[key]] += 1
+                        statistics.total_changed += 1
+                        statistics.functionArgsType_changed += 1
 
-                        if new_param_types[key] not in statistics.typeAdded_dict:
-                            statistics.typeAdded_dict[new_param_types[key]] = 1
-                        else:
-                            statistics.typeAdded_dict[new_param_types[key]] += 1
-                        statistics.total_added += 1
-                        statistics.functionArgsType_added += 1
                         lock.release()
 
             # Remove type annotation
@@ -335,6 +326,9 @@ def TypeAnnotationExtraction(repo_path, repo_name, commit, patch, url, statistic
 
     if type_annotation_removed_this_commit > 0:
         statistics.list_typeAnnotation_removed_per_commit.append(type_annotation_removed_this_commit)
+
+    if type_annotation_changed_this_commit > 0:
+        statistics.list_typeAnnotation_changed_per_commit.append(type_annotation_changed_this_commit)
 
     if len(code_changes_new) > 0:
         statistics.commits_with_typeChanges += 1

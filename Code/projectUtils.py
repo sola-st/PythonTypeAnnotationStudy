@@ -13,31 +13,35 @@ def write_results(statistics, code_changes):
 
 
 def myplot(statistics):
-
     scatter_plot_xy(config.ROOT_DIR + "/Resources/Output/RQ5_stars",
-                                         [row[1] for row in statistics.matrix_commits_stars_annotations],
-                       [row[2] for row in statistics.matrix_commits_stars_annotations],
-                       'GitHub Stars', 'Annotations Changes')
+                    [row[1] for row in statistics.matrix_commits_stars_annotations],
+                    [row[2] for row in statistics.matrix_commits_stars_annotations],
+                    'GitHub Stars', 'Annotations Changes')
 
     scatter_plot_xy(config.ROOT_DIR + "/Resources/Output/RQ5_commits",
-                      [row[0] for row in statistics.matrix_commits_stars_annotations],
-                      [row[2] for row in statistics.matrix_commits_stars_annotations],
-                      '# Commits', '# Annotations Changes')
+                    [row[0] for row in statistics.matrix_commits_stars_annotations],
+                    [row[2] for row in statistics.matrix_commits_stars_annotations],
+                    '# Commits', '# Annotations Changes')
 
-
-    #RQ4.1
-    histogram_plot_xy2(config.ROOT_DIR + "/Resources/Output/RQ4_1",
+    # RQ4.1
+    histogram_plot_xy(config.ROOT_DIR + "/Resources/Output/RQ4_1",
                       statistics.list_typeAnnotation_added_per_commit,
                       'Type Annotations Added per Commit')
 
     # RQ4.2
-    histogram_plot_xy2(config.ROOT_DIR + "/Resources/Output/RQ4_2",
+    histogram_plot_xy(config.ROOT_DIR + "/Resources/Output/RQ4_2",
                       statistics.list_typeAnnotation_removed_per_commit,
                       'Type Annotations Removed per Commit', 'Are types removed along with other changes around this '
+                                                             'code or in commits that only add types?')
+
+    # RQ4.3
+    histogram_plot_xy(config.ROOT_DIR + "/Resources/Output/RQ4_3",
+                      statistics.list_typeAnnotation_changed_per_commit,
+                      'Type Annotations Changed per Commit', 'Are types changed along with other changes around this '
                                                              'code or in commits that only add types?')
 
     # Variables are cleaned to have a better output
     statistics.matrix_commits_stars_annotations = "See the plots."
     statistics.list_typeAnnotation_added_per_commit = "See the plot RQ4_1."
     statistics.list_typeAnnotation_removed_per_commit = "See the plot RQ4_2."
-
+    statistics.list_typeAnnotation_changed_per_commit = "See the plot RQ4_3."

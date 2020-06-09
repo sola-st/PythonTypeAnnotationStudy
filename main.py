@@ -1,5 +1,4 @@
 import os
-import threading
 import time
 import multiprocessing
 from Code import gitUtils
