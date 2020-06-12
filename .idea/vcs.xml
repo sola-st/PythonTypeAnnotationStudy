@@ -55,6 +55,7 @@
     <mapping directory="$PROJECT_DIR$/GitHub/thefuck" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/you-get" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/youtube-dl" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/httpie" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/incubator-superset" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/youtube-dl" vcs="Git" />
   </component>

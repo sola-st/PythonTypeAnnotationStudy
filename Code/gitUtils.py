@@ -6,7 +6,8 @@ import pygit2 as git
 from pygit2 import GIT_SORT_TOPOLOGICAL, GIT_SORT_REVERSE
 
 import config
-from Code.codeChangeExtraction import TypeAnnotationExtraction
+from Code.codeChangeExtraction import TypeAnnotationExtraction, type_annotation_in_last_version, \
+    TypeAnnotationExtractionFirstCommit
 
 
 def repo_cloning(filenameInput: str, pathOutput: str) -> None:
@@ -53,7 +54,7 @@ def query_repo_get_changes(repo_name, file_extension, statistics, code_changes, 
 
     # Go through each commit starting from the most recent commit
     for commit in repo.walk(last_commit, GIT_SORT_TOPOLOGICAL | GIT_SORT_REVERSE):
-        #    print(str(commit.hex))
+        #print(str(commit.hex))
 
         lock.acquire()
         statistics.total_commits += 1
@@ -62,12 +63,34 @@ def query_repo_get_changes(repo_name, file_extension, statistics, code_changes, 
 
         num_parents = len(
             commit.parents)  # Do not want to include merges for now, hence we check if the number of parents is 'one'
-        if num_parents == 1:  # and commit_message_contains_query(commit.message, query_terms):
-            # Diff between the current commit and its parent
-
-            diff = repo.diff(commit.hex + '^', commit.hex)
-
+        if num_parents >= 0:  # and commit_message_contains_query(commit.message, query_terms):
+        # Diff between the current commit and its parent
             threads: list = []
+            if num_parents == 1:
+                diff = repo.diff(commit.hex + '^', commit.hex)
+            else:
+                diff = repo.diff(commit.hex)
+                for patch in diff:
+                    if str(patch.delta.old_file.path)[-3:] != file_extension or \
+                            str(patch.delta.new_file.path)[-3:] != file_extension:
+                        continue
+                    thread = threading.Thread(target=TypeAnnotationExtractionFirstCommit,
+                                              args=(config.ROOT_DIR + "/GitHub/", repo_name, commit, patch,
+                                                    remote_url + '/commit/' + commit.hex + '#diff-' + diff.patchid.hex + 'L',
+                                                    statistics, lock, logging, tot_this_repo_commit_with_annotations,
+                                                    commit_with_annotations_this_repo, at_least_one_type_change,
+                                                    code_changes))
+                    threads.append(thread)
+
+                for thread in threads:
+                    thread.start()
+
+                for thread in threads:
+                    thread.join()
+
+                continue
+
+            #threads: list = []
             for patch in diff:
                 if str(patch.delta.old_file.path)[-3:] != file_extension or \
                         str(patch.delta.new_file.path)[-3:] != file_extension:
@@ -86,6 +109,8 @@ def query_repo_get_changes(repo_name, file_extension, statistics, code_changes, 
 
             for thread in threads:
                 thread.join()
+
+    type_annotation_in_last_version(repo_name, statistics, lock)
 
     lock.acquire()
     statistics.addRepo(repo_name, tot_this_repo_commit, statistics.number_type_annotations_per_repo[repo_name])

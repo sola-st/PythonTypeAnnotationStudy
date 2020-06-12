@@ -1,5 +1,8 @@
 import os
+import pathlib
 import subprocess
+
+import config
 from Code.codeChange import CodeChange
 from Code.parsers import TypeCollector
 import libcst as cst
@@ -31,7 +34,6 @@ def extract_from_file(file_path: str):
     with open(file_path, 'r') as file:
         src = file.read()
 
-    print(src)
     # Parse file to AST
     ast = cst.parse_module(src)
 
@@ -174,7 +176,8 @@ def TypeAnnotationExtraction(repo_path, repo_name, commit, patch, url, statistic
                         if old_return_types[key] not in statistics.typeChanged_dict:
                             statistics.typeChanged_dict[str(old_return_types[key] + ' -> ' + new_return_types[key])] = 1
                         else:
-                            statistics.typeChanged_dict[str(old_return_types[key] + ' -> ' + new_return_types[key])] += 1
+                            statistics.typeChanged_dict[
+                                str(old_return_types[key] + ' -> ' + new_return_types[key])] += 1
                         statistics.total_changed += 1
                         statistics.functionReturnsType_changed += 1
 
@@ -317,7 +320,7 @@ def TypeAnnotationExtraction(repo_path, repo_name, commit, patch, url, statistic
                     statistics.functionArgsType_added += 1
                     lock.release()
     except:
-        # logging.warning('Repository', repo_path, 'commit', commit, 'with old line', str(old_stdout))
+        # print('Repository', repo_path, 'commit', commit, 'with old line', str(old_stdout))
         pass
 
     lock.acquire()
@@ -339,3 +342,145 @@ def TypeAnnotationExtraction(repo_path, repo_name, commit, patch, url, statistic
         code_changes += code_changes_new
 
     lock.release()
+
+
+def TypeAnnotationExtractionFirstCommit(repo_path, repo_name, commit, patch, url, statistics, lock, logging,
+                                        tot_this_repo_commit_with_annotations,
+                                        commit_with_annotations_this_repo, at_least_one_type_change, code_changes):
+    # command = "git --git-dir " + str(repo_path) + '/.git show ' + str(commit.hex) + ":" + str(patch.delta.old_file.path)
+    # os.system(command)
+    code_changes_new = []
+    type_annotation_added_this_commit = 0
+    type_annotation_removed_this_commit = 0
+    type_annotation_changed_this_commit = 0
+
+    new_out = subprocess.Popen(["git", "--git-dir", str(repo_path + repo_name) + '/.git', 'show',
+                                str(commit.hex) + ":" + str(patch.delta.new_file.path)],
+                               stdout=subprocess.PIPE,
+                               stderr=subprocess.STDOUT)
+    new_stdout, new_stderr = new_out.communicate()
+
+    if "fatal" in str(new_stdout):
+        return
+
+    new_param_types, new_return_types = extract_from_snippet(str(new_stdout))
+
+    try:
+
+        ################################################################
+        ########  RETURN TYPE ANNOTATIONS                          #####
+        ################################################################
+
+        # Insert type annotation
+        for key in new_return_types:
+            new_line, new_code = search_key_value_in_snippet(str(new_stdout)[2:-1].replace("\\n", os.linesep),
+                                                             [key, new_return_types[key]])
+            temp = CodeChange(url + str(new_line), str(patch.delta.old_file.path), '', '',
+                              str(patch.delta.new_file.path),
+                              new_line, new_code)
+
+            if temp not in code_changes_new:
+                code_changes_new.append(temp)
+
+                lock.acquire()
+                statistics.number_type_annotations_per_repo[repo_name] += 1
+                statistics.total_typeAnnotation_codeChanges += 1
+                statistics.insert_types += 1
+                type_annotation_added_this_commit += 1
+
+                if new_return_types[key] not in statistics.typeAdded_dict:
+                    statistics.typeAdded_dict[new_return_types[key]] = 1
+                else:
+                    statistics.typeAdded_dict[new_return_types[key]] += 1
+                statistics.total_added += 1
+                statistics.functionReturnsType_added += 1
+                lock.release()
+
+        ################################################################
+        ########  ARGUMENTS TYPE ANNOTATIONS                       #####
+        ################################################################
+
+        # Insert type annotation
+        for key in new_param_types:
+            new_line, new_code = search_key_value_in_snippet(str(new_stdout)[2:-1].replace("\\n", os.linesep),
+                                                             [key, new_param_types[key]])
+            temp = CodeChange(url + str(new_line), str(patch.delta.old_file.path), '', '',
+                              str(patch.delta.new_file.path),
+                              new_line, new_code)
+
+            if temp not in code_changes_new:
+                code_changes_new.append(temp)
+
+                lock.acquire()
+                statistics.number_type_annotations_per_repo[repo_name] += 1
+                statistics.total_typeAnnotation_codeChanges += 1
+                statistics.insert_types += 1
+                type_annotation_added_this_commit += 1
+
+                if new_param_types[key] not in statistics.typeAdded_dict:
+                    statistics.typeAdded_dict[new_param_types[key]] = 1
+                else:
+                    statistics.typeAdded_dict[new_param_types[key]] += 1
+                statistics.total_added += 1
+                statistics.functionArgsType_added += 1
+                lock.release()
+    except:
+        # print('Repository', repo_path, 'commit', commit, 'with old line', str(old_stdout))
+        pass
+
+    lock.acquire()
+    if type_annotation_added_this_commit > 0:
+        statistics.list_typeAnnotation_added_per_commit.append(type_annotation_added_this_commit)
+
+    if type_annotation_removed_this_commit > 0:
+        statistics.list_typeAnnotation_removed_per_commit.append(type_annotation_removed_this_commit)
+
+    if type_annotation_changed_this_commit > 0:
+        statistics.list_typeAnnotation_changed_per_commit.append(type_annotation_changed_this_commit)
+
+    if len(code_changes_new) > 0:
+        statistics.commits_with_typeChanges += 1
+        tot_this_repo_commit_with_annotations[0] += 1
+        commit_with_annotations_this_repo[0] += 1
+        at_least_one_type_change[0] += 1
+
+        code_changes += code_changes_new
+
+    lock.release()
+
+
+# [RQ7]: How many of all types are annotated in the last verison of the code?
+def type_annotation_in_last_version(repo_name, statistics, lock):
+
+
+    for filepath in pathlib.Path(config.ROOT_DIR + "/GitHub/" + repo_name).glob('**/*'):
+        temp = []
+        if str(filepath).endswith(".py"):
+            try:
+                param_types, return_types = extract_from_file(str(filepath))
+
+                if (not param_types) and (not return_types):
+                    continue
+
+                for key in param_types:
+                    if str(key) not in temp:
+                        temp.append(str(key))
+
+                for key in return_types:
+                    if str(key)  not in temp:
+                        temp.append(str(key))
+
+                lock.acquire()
+                if repo_name not in statistics.typeLastProjectVersion_dict:
+                    statistics.typeLastProjectVersion_dict[repo_name] = len(temp)
+                else:
+                    statistics.typeLastProjectVersion_dict[repo_name] += len(temp)
+                statistics.typeLastProjectVersion_total += len(temp)
+
+                  #  statistics.typeLastProjectVersion_dict[repo_name] += len(param_types)
+                  #  statistics.typeLastProjectVersion_total += len(param_types)
+
+                lock.release()
+
+            except:
+                pass

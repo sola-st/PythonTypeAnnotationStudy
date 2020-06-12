@@ -41,7 +41,7 @@ def myplot(statistics):
                                                              'code or in commits that only add types?')
 
     # Variables are cleaned to have a better output
-    statistics.matrix_commits_stars_annotations = "See the plots."
+    statistics.matrix_commits_stars_annotations = "See the plots RQ5_commits and RQ5_stars."
     statistics.list_typeAnnotation_added_per_commit = "See the plot RQ4_1."
     statistics.list_typeAnnotation_removed_per_commit = "See the plot RQ4_2."
     statistics.list_typeAnnotation_changed_per_commit = "See the plot RQ4_3."

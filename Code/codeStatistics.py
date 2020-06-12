@@ -15,7 +15,7 @@ class CodeStatistics:
         self.machine = {'OS': platform.platform(), 'CPU': platform.processor(), 'CORES': multiprocessing.cpu_count()}
         self.total_repositories = 0
         self.total_commits = 0
-        self.s1 = "------------------------------------------------------------------------"
+        self.s0 = "------------------------------------------------------------------------"
 
         # [RQ0]: How many types are used?
         self.RQ0 = 'How many types are used?'
@@ -24,7 +24,7 @@ class CodeStatistics:
         self.commits_with_typeChanges = 0
         self.percentage_commits_with_typeChanges = ''
         self.total_typeAnnotation_codeChanges = 0
-        self.s2 = "------------------------------------------------------------------------"
+        self.s1 = "------------------------------------------------------------------------"
 
         # [RQ1]: Are type annotation inserted, removed and changed?
         self.RQ1 = 'Are type annotation inserted, removed and changed?'
@@ -35,7 +35,7 @@ class CodeStatistics:
         self.modify_existing_types = 0
         self.percentage_modify_existing_types = ''
 
-        self.s3 = "------------------------------------------------------------------------"
+        self.s2 = "------------------------------------------------------------------------"
         # [RQ2.1]: What types are added (generic, numeric, ...)?
         self.RQ2_1 = 'What types are added (generic, numeric, ...)?'
         self.genericType_added = 0
@@ -74,7 +74,7 @@ class CodeStatistics:
         self.RQ2_5 = 'What types are changed (primitives, built-in classes, application-specific classes)?'
         self.total_changed = 0
         self.typeChanged_dict = {}
-        self.s4 = "------------------------------------------------------------------------"
+        self.s3 = "------------------------------------------------------------------------"
 
         # [RQ3.1]: Where are types added (function args, function returns, variables, fields)?
         self.RQ3_1 = 'Where are types added (function args, function returns, variables, fields)?'
@@ -97,7 +97,7 @@ class CodeStatistics:
         self.functionReturnsType_changed = 0
         self.variableType_changed = 0
         self.fieldType_changed = 0
-        self.s5 = "------------------------------------------------------------------------"
+        self.s4 = "------------------------------------------------------------------------"
 
         # TODO: [RQ3.2]: variable types and field type
 
@@ -115,17 +115,24 @@ class CodeStatistics:
         self.RQ4_3 = 'Are types changed along with other changes around this code or in commits that only add types?'
         self.typeAnnotation_changed_per_commit = 0
         self.list_typeAnnotation_changed_per_commit = []
-        self.s6 = "------------------------------------------------------------------------"
+        self.s5 = "------------------------------------------------------------------------"
 
         # [RQ5]: Relation of properties of projects vs. properties of type changes
         # E.g., nb of stars/developers/overall commits vs. nb of added annotations
         self.RQ5 = 'Relation of properties of projects vs. properties of type changes.'
         self.matrix_commits_stars_annotations = np.array([[0, 0, 0]])
-        self.s7 = "------------------------------------------------------------------------"
+        self.s6 = "------------------------------------------------------------------------"
 
         # [RQ6]: Which are the top 10 repository with the highest number of type annotations
         self.RQ6 = 'Which are the top 10 repository with the highest number of type annotations.'
         self.number_type_annotations_per_repo = {}
+        self.s7 = "------------------------------------------------------------------------"
+
+        # [RQ7]: How many of all types are annotated in the last verison of the code?
+        self.RQ6 = 'How many of all types are annotated in the last verison of the code?'
+        self.typeLastProjectVersion_total = 0
+        self.typeLastProjectVersion_percentage = 0
+        self.typeLastProjectVersion_dict = {}
 
     #################################################
     #################METHODS#########################
@@ -140,13 +147,13 @@ class CodeStatistics:
         self.what_types_added()
 
         # [RQ2.2]: What are the top 5 types added?
-        self.typeAdded_dict = sort_dictionary(self.typeAdded_dict)[:2]
+        self.typeAdded_dict = sort_dictionary(self.typeAdded_dict)[:5]
 
         # [RQ2.3]: What types are removed (primitives, built-in classes, application-specific classes)?
         self.what_types_removed()
 
         # [RQ2.4]: What are the top 5 types removed?
-        self.typeRemoved_dict = sort_dictionary(self.typeRemoved_dict)[:2]
+        self.typeRemoved_dict = sort_dictionary(self.typeRemoved_dict)[:5]
 
         # [RQ2.5]: What are the types changed?
         self.typeChanged_dict = sort_dictionary(self.typeChanged_dict)
@@ -155,7 +162,12 @@ class CodeStatistics:
         self.rate_annotation_commit()
 
         # [RQ6]: Which are the top 10 repository with the highest number of type annotations
-        self.number_type_annotations_per_repo = sort_dictionary(self.number_type_annotations_per_repo)[:3]
+        self.number_type_annotations_per_repo = sort_dictionary(self.number_type_annotations_per_repo)[:10]
+
+        # [RQ7]: How many of all types are annotated in the last verison of the code?
+        if self.total_typeAnnotation_codeChanges > 0:
+            self.typeLastProjectVersion_percentage = str(
+                round(self.typeLastProjectVersion_total / self.total_typeAnnotation_codeChanges * 100, 2)) + ' %'
 
     # [RQ1]: Are type annotation inserted, removed and changed?
     def percentage_computation(self):
@@ -270,15 +282,16 @@ class CodeStatistics:
     def rate_annotation_commit(self):
         self.typeAnnotation_added_per_commit = str(
             round(self.total_added / self.commits_with_typeChanges, 2)) + ' Type annotations ' \
-                                                                                               'changes per commit '
+                                                                          'changes per commit '
 
         self.typeAnnotation_removed_per_commit = str(
             round(self.total_removed / self.commits_with_typeChanges, 2)) + ' Type annotations ' \
-                                                                                               'changes per commit '
+                                                                            'changes per commit '
 
         self.typeAnnotation_changed_per_commit = str(
             round(self.total_changed / self.commits_with_typeChanges, 2)) + ' Type annotations ' \
-                                                                                               'changes per commit '
+                                                                            'changes per commit '
+
     # [RQ5]: Relation of properties of projects vs. properties of type changes
     # E.g., nb of stars/developers/overall commits vs. nb of added annotations
     def addRepo(self, name, n_commits, n_annotations):
@@ -287,6 +300,14 @@ class CodeStatistics:
 
         for item in json_decode:
             if item.get('name') == name:
+                self.number_type_annotations_per_repo[item.get('html_url')] = self.number_type_annotations_per_repo[
+                    name]
+                del self.number_type_annotations_per_repo[name]
+
+                if name in self.typeLastProjectVersion_dict:
+                    self.typeLastProjectVersion_dict[item.get('html_url')] = self.typeLastProjectVersion_dict[name]
+                    del self.typeLastProjectVersion_dict[name]
+
                 self.matrix_commits_stars_annotations = \
                     np.append(self.matrix_commits_stars_annotations,
                               np.array([[n_commits, item.get('stargazers_count'), n_annotations]]), axis=0)
