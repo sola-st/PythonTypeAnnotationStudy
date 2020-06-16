@@ -55,6 +55,12 @@ def query_repo_get_changes(repo_name, file_extension, statistics, code_changes, 
     # Go through each commit starting from the most recent commit
     for commit in repo.walk(last_commit, GIT_SORT_TOPOLOGICAL | GIT_SORT_REVERSE):
         #print(str(commit.hex))
+        tot_line_inserted = 0
+        tot_line_removed = 0
+        typeannotation_line_inserted = [0]
+        typeannotation_line_removed = [0]
+        typeannotation_line_changed = [0]
+        old_len = len(code_changes)
 
         lock.acquire()
         statistics.total_commits += 1
@@ -66,9 +72,12 @@ def query_repo_get_changes(repo_name, file_extension, statistics, code_changes, 
         if num_parents >= 0:  # and commit_message_contains_query(commit.message, query_terms):
         # Diff between the current commit and its parent
             threads: list = []
+            diff = []
             if num_parents == 1:
                 diff = repo.diff(commit.hex + '^', commit.hex)
-            else:
+                tot_line_removed += diff.stats.deletions
+                tot_line_inserted += diff.stats.insertions
+            elif num_parents == 0:
                 diff = repo.diff(commit.hex)
                 for patch in diff:
                     if str(patch.delta.old_file.path)[-3:] != file_extension or \
@@ -77,9 +86,9 @@ def query_repo_get_changes(repo_name, file_extension, statistics, code_changes, 
                     thread = threading.Thread(target=TypeAnnotationExtractionFirstCommit,
                                               args=(config.ROOT_DIR + "/GitHub/", repo_name, commit, patch,
                                                     remote_url + '/commit/' + commit.hex + '#diff-' + diff.patchid.hex + 'L',
-                                                    statistics, lock, logging, tot_this_repo_commit_with_annotations,
-                                                    commit_with_annotations_this_repo, at_least_one_type_change,
-                                                    code_changes))
+                                                    statistics, lock, logging, at_least_one_type_change,
+                                                    code_changes, typeannotation_line_inserted,
+                                                    typeannotation_line_removed, typeannotation_line_changed))
                     threads.append(thread)
 
                 for thread in threads:
@@ -99,9 +108,9 @@ def query_repo_get_changes(repo_name, file_extension, statistics, code_changes, 
                 thread = threading.Thread(target=TypeAnnotationExtraction,
                                           args=(config.ROOT_DIR + "/GitHub/", repo_name, commit, patch,
                                                 remote_url + '/commit/' + commit.hex + '#diff-' + diff.patchid.hex + 'L',
-                                                statistics, lock, logging, tot_this_repo_commit_with_annotations,
-                                                commit_with_annotations_this_repo, at_least_one_type_change,
-                                                code_changes))
+                                                statistics, lock, logging, at_least_one_type_change,
+                                                code_changes, typeannotation_line_inserted,
+                                                typeannotation_line_removed, typeannotation_line_changed))
                 threads.append(thread)
 
             for thread in threads:
@@ -110,6 +119,24 @@ def query_repo_get_changes(repo_name, file_extension, statistics, code_changes, 
             for thread in threads:
                 thread.join()
 
+        lock.acquire()
+        if typeannotation_line_inserted[0] - typeannotation_line_changed[0] > 0:
+            statistics.list_typeAnnotation_added_per_commit.append( typeannotation_line_inserted[0] - typeannotation_line_changed[0])
+        if typeannotation_line_removed[0] - typeannotation_line_changed[0] > 0:
+            statistics.list_typeAnnotation_removed_per_commit.append(typeannotation_line_removed[0] - typeannotation_line_changed[0])
+
+        if typeannotation_line_changed[0] > 0:
+            statistics.list_typeAnnotation_changed_per_commit.append(typeannotation_line_changed[0])
+
+        if tot_line_inserted + tot_line_removed > 0 and typeannotation_line_inserted[0] + typeannotation_line_removed[0] > 0:
+            percentile_total_edits = ((typeannotation_line_inserted[0] + typeannotation_line_removed[0])/
+                                            (tot_line_inserted + tot_line_removed)* 100)
+            statistics.annotation_related_edits_vs_all_commit.append(percentile_total_edits)
+
+        if len(code_changes) > old_len:
+            statistics.commits_with_typeChanges += 1
+            commit_with_annotations_this_repo[0] += 1
+        lock.release()
     type_annotation_in_last_version(repo_name, statistics, lock)
 
     lock.acquire()

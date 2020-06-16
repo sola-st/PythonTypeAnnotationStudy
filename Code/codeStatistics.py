@@ -129,10 +129,15 @@ class CodeStatistics:
         self.s7 = "------------------------------------------------------------------------"
 
         # [RQ7]: How many of all types are annotated in the last verison of the code?
-        self.RQ6 = 'How many of all types are annotated in the last verison of the code?'
+        self.RQ7 = 'How many of all types are annotated in the last verison of the code?'
         self.typeLastProjectVersion_total = 0
         self.typeLastProjectVersion_percentage = 0
         self.typeLastProjectVersion_dict = {}
+
+        # [RQ8]: Computation percentage of annotation-related edits to all edits per each commit
+        self.RQ8 = 'Computation percentage of annotation-related edits to all edits per each commit'
+        self.annotation_related_edits_vs_all_commit = []
+
 
     #################################################
     #################METHODS#########################
