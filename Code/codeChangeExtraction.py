@@ -182,7 +182,7 @@ def TypeAnnotationExtraction(repo_path, repo_name, commit, patch, url, statistic
                     statistics.modify_existing_types += 1
                     type_annotation_changed_this_commit += 1
 
-                    if old_return_types[key].lower() not in statistics.typeChanged_dict:
+                    if str(old_return_types[key] + ' -> ' + new_return_types[key]).lower() not in statistics.typeChanged_dict:
                         statistics.typeChanged_dict[str(old_return_types[key] + ' -> ' + new_return_types[key]).lower()] = 1
                     else:
                         statistics.typeChanged_dict[
@@ -274,10 +274,10 @@ def TypeAnnotationExtraction(repo_path, repo_name, commit, patch, url, statistic
                     statistics.modify_existing_types += 1
                     type_annotation_changed_this_commit += 1
 
-                    if old_param_types[key].lower() not in statistics.typeChanged_dict:
-                        statistics.typeRemoved_dict[str(old_param_types[key] + ' -> ' + new_param_types[key]).lower()] = 1
+                    if str(old_param_types[key] + ' -> ' + new_param_types[key]).lower() not in statistics.typeChanged_dict:
+                        statistics.typeChanged_dict[str(old_param_types[key] + ' -> ' + new_param_types[key]).lower()] = 1
                     else:
-                        statistics.typeRemoved_dict[str(old_param_types[key] + ' -> ' + new_param_types[key]).lower()] += 1
+                        statistics.typeChanged_dict[str(old_param_types[key] + ' -> ' + new_param_types[key]).lower()] += 1
                     statistics.total_changed += 1
                     statistics.functionArgsType_changed += 1
 
@@ -366,7 +366,7 @@ def TypeAnnotationExtraction(repo_path, repo_name, commit, patch, url, statistic
                     statistics.modify_existing_types += 1
                     type_annotation_changed_this_commit += 1
 
-                    if old_variable_types[key].lower() not in statistics.typeChanged_dict:
+                    if str(old_variable_types[key] + ' -> ' + new_variable_types[key]).lower() not in statistics.typeChanged_dict:
                         statistics.typeChanged_dict[
                             str(old_variable_types[key] + ' -> ' + new_variable_types[key]).lower()] = 1
                     else:
