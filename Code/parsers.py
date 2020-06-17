@@ -13,8 +13,9 @@ class TypeCollector(cst.CSTVisitor):
         # stack for storing the canonical name of the current function
         self.stack: List[Tuple[str, ...]] = []
 
-        self.return_types: Dict[Tuple[str, ...],  str] = {}
-        self.param_annotations: Dict[Tuple[str, ...],  str] = {}
+        self.return_types: Dict[Tuple[str, ...], str] = {}
+        self.param_annotations: Dict[Tuple[str, ...], str] = {}
+        self.variable_annotations: Dict[Tuple[str, ...], str] = {}
 
         # Parse state for descenting into annotations
         self.in_annotation: bool = False
@@ -24,21 +25,27 @@ class TypeCollector(cst.CSTVisitor):
         self.last_annotation: str = None
 
     def visit_Annotation(self, node):
-        if not self.in_variable_annotation:
-            self.in_annotation = True
-            self.annotation_parts = []
-            self.last_annotation = None
-            # print(cst.tool.dump(node))
+
+        # if not self.in_variable_annotation:
+        self.in_annotation = True
+        self.annotation_parts = []
+        self.last_annotation = None
+        # print(cst.tool.dump(node))
 
     def visit_Param(self, node):
         self.annotation_parts = []
         self.last_annotation = None
 
     def visit_AnnAssign(self, node):
-        self.in_variable_annotation = True
+        self.stack.append(node.target.value)
 
     def leave_AnnAssign(self, node):
-        self.in_variable_annotation = False
+
+        if len(self.annotation_parts) > 0:
+            self.variable_annotations[(*self.stack, node.value.value)] = \
+                self.last_annotation
+
+        self.stack.pop()
 
     def visit_Name(self, node):
         if self.in_annotation:
@@ -89,11 +96,13 @@ class TypeCollector(cst.CSTVisitor):
             self.annotation_parts.append("...")
 
     def leave_Annotation(self, node):
-        if not self.in_variable_annotation:
-            self.in_annotation = False
-            self.last_annotation = ''.join(self.annotation_parts).\
-                replace('][', ',').\
-                replace(',]', ']')
+        if node.annotation.value == 'float':
+            i = 0
+        # if not self.in_variable_annotation:
+        self.in_annotation = False
+        self.last_annotation = ''.join(self.annotation_parts). \
+            replace('][', ','). \
+            replace(',]', ']')
 
     def visit_ClassDef(self, node: cst.ClassDef):
         self.stack.append(node.name.value)

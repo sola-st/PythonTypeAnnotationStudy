@@ -64,7 +64,6 @@ class CodeStatistics:
         self.newType_removed = 0
         self.total_removed = 0
         self.newType_removed = 0
-        self.total_removed = 0
 
         # [RQ2.4]: What are the top 5 types removed?
         self.RQ2_4 = 'What are the top 5 types removed?'
@@ -76,27 +75,24 @@ class CodeStatistics:
         self.typeChanged_dict = {}
         self.s3 = "------------------------------------------------------------------------"
 
-        # [RQ3.1]: Where are types added (function args, function returns, variables, fields)?
-        self.RQ3_1 = 'Where are types added (function args, function returns, variables, fields)?'
+        # [RQ3.1]: Where are types added (function args, function returns, variables)?
+        self.RQ3_1 = 'Where are types added (function args, function returns, variables)?'
         self.functionArgsType_added = 0
         self.functionReturnsType_added = 0
         self.variableType_added = 0
-        self.fieldType_added = 0
         # TODO: [RQ3.1]: variable types and field type
 
-        # [RQ3.2]: Where are types removed (function args, function returns, variables, fields)?
-        self.RQ3_2 = 'Where are types removed (function args, function returns, variables, fields)?'
+        # [RQ3.2]: Where are types removed (function args, function returns, variables)?
+        self.RQ3_2 = 'Where are types removed (function args, function returns, variables)?'
         self.functionArgsType_removed = 0
         self.functionReturnsType_removed = 0
         self.variableType_removed = 0
-        self.fieldType_removed = 0
 
-        # [RQ3.3]: Where are types changed (function args, function returns, variables, fields)?
-        self.RQ3_3 = 'Where are types changed (function args, function returns, variables, fields)?'
+        # [RQ3.3]: Where are types changed (function args, function returns, variables)?
+        self.RQ3_3 = 'Where are types changed (function args, function returns, variables?'
         self.functionArgsType_changed = 0
         self.functionReturnsType_changed = 0
         self.variableType_changed = 0
-        self.fieldType_changed = 0
         self.s4 = "------------------------------------------------------------------------"
 
         # TODO: [RQ3.2]: variable types and field type
@@ -198,7 +194,7 @@ class CodeStatistics:
     textSequenceType_list = ['str']
     binarySequenceType_list = ['bytes', 'bytearray', 'memoryview']
     setTypes_list = ['set', 'frozenset']
-    mappingTypes_list = ['dict']
+    mappingType_list = ['dict']
 
     def what_types_added(self):
 
@@ -214,7 +210,7 @@ class CodeStatistics:
 
         # Sequence types
         for type in self.typeAdded_dict.keys():
-            if type in self.sequenceType_list:
+            if any(x in type for x in self.sequenceType_list) and '->' not in type:
                 self.sequenceType_added += self.typeAdded_dict[type]
 
         # Text types
@@ -224,17 +220,17 @@ class CodeStatistics:
 
         # Binary Sequence types
         for type in self.typeAdded_dict.keys():
-            if type in self.binarySequenceType_list:
+            if any(x in type for x in self.binarySequenceType_list) and '->' not in type:
                 self.binarySequenceType_added += self.typeAdded_dict[type]
 
         # Set types
         for type in self.typeAdded_dict.keys():
-            if type in self.setTypes_list:
+            if any(x in type for x in self.setTypes_list) and '->' not in type:
                 self.setTypes_added += self.typeAdded_dict[type]
 
         # Mapping types
         for type in self.typeAdded_dict.keys():
-            if type in self.mappingTypes_list:
+            if any(x in type for x in self.mappingType_list) and '->' not in type:
                 self.mappingTypes_added += self.typeAdded_dict[type]
 
         self.newType_added = self.total_added - self.genericType_added - self.numericType_added - self.sequenceType_added \
@@ -256,7 +252,7 @@ class CodeStatistics:
 
         # Sequence types
         for type in self.typeRemoved_dict.keys():
-            if type in self.sequenceType_list:
+            if any(x in type for x in self.sequenceType_list) and '->' not in type:
                 self.sequenceType_removed += self.typeRemoved_dict[type]
 
         # Text types
@@ -266,17 +262,17 @@ class CodeStatistics:
 
         # Binary Sequence types
         for type in self.typeRemoved_dict.keys():
-            if type in self.binarySequenceType_list:
+            if any(x in type for x in self.binarySequenceType_list) and '->' not in type:
                 self.binarySequenceType_removed += self.typeRemoved_dict[type]
 
         # Set types
         for type in self.typeRemoved_dict.keys():
-            if type in self.setTypes_list:
+            if any(x in type for x in self.setTypes_list) and '->' not in type:
                 self.setTypes_removed += self.typeRemoved_dict[type]
 
         # Mapping types
         for type in self.typeRemoved_dict.keys():
-            if type in self.mappingTypes_list:
+            if any(x in type for x in self.mappingType_list) and '->' not in type:
                 self.mappingTypes_removed += self.typeRemoved_dict[type]
 
         self.newType_removed = self.total_removed - self.genericType_removed - self.numericType_removed - self.sequenceType_removed \

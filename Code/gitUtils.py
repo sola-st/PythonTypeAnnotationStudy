@@ -97,6 +97,27 @@ def query_repo_get_changes(repo_name, file_extension, statistics, code_changes, 
                 for thread in threads:
                     thread.join()
 
+                lock.acquire()
+                if typeannotation_line_inserted[0] - typeannotation_line_changed[0] > 0:
+                    statistics.list_typeAnnotation_added_per_commit.append(
+                        typeannotation_line_inserted[0] - typeannotation_line_changed[0])
+                if typeannotation_line_removed[0] - typeannotation_line_changed[0] > 0:
+                    statistics.list_typeAnnotation_removed_per_commit.append(
+                        typeannotation_line_removed[0] - typeannotation_line_changed[0])
+
+                if typeannotation_line_changed[0] > 0:
+                    statistics.list_typeAnnotation_changed_per_commit.append(typeannotation_line_changed[0])
+
+                if tot_line_inserted + tot_line_removed > 0 and typeannotation_line_inserted[0] + \
+                        typeannotation_line_removed[0] > 0:
+                    percentile_total_edits = ((typeannotation_line_inserted[0] + typeannotation_line_removed[0]) /
+                                              (tot_line_inserted + tot_line_removed) * 100)
+                    statistics.annotation_related_edits_vs_all_commit.append(percentile_total_edits)
+
+                if len(code_changes) > old_len:
+                    statistics.commits_with_typeChanges += 1
+                    commit_with_annotations_this_repo[0] += 1
+                lock.release()
                 continue
 
             #threads: list = []
