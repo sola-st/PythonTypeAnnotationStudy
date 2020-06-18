@@ -37,15 +37,20 @@ class TypeCollector(cst.CSTVisitor):
         self.last_annotation = None
 
     def visit_AnnAssign(self, node):
-        self.stack.append(node.target.value)
+        try:
+            self.stack.append(node.target.value)
+        except:
+            return
 
     def leave_AnnAssign(self, node):
+        try:
+            if len(self.annotation_parts) > 0:
+                self.variable_annotations[(*self.stack, node.value.value)] = \
+                    self.last_annotation
 
-        if len(self.annotation_parts) > 0:
-            self.variable_annotations[(*self.stack, node.value.value)] = \
-                self.last_annotation
-
-        self.stack.pop()
+            self.stack.pop()
+        except:
+            return
 
     def visit_Name(self, node):
         if self.in_annotation:

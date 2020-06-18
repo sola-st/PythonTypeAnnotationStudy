@@ -42,7 +42,11 @@ def query_repo_get_changes(repo_name, file_extension, statistics, code_changes, 
     print("[Working]", repo_name)
     lock.release()
 
-    repo = git.Repository(config.ROOT_DIR + "/GitHub/" + repo_name)
+    try:
+        repo = git.Repository(config.ROOT_DIR + "/GitHub/" + repo_name)
+    except:
+        return
+
     remote_url = None
     for r in repo.remotes:
         remote_url = r.url.split('.git')[0]
@@ -75,6 +79,7 @@ def query_repo_get_changes(repo_name, file_extension, statistics, code_changes, 
             diff = []
             if num_parents == 1:
                 diff = repo.diff(commit.hex + '^', commit.hex)
+
                 tot_line_removed += diff.stats.deletions
                 tot_line_inserted += diff.stats.insertions
             elif num_parents == 0:

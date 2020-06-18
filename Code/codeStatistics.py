@@ -1,7 +1,6 @@
 import json
 import multiprocessing
 import platform
-import re
 import numpy as np
 import config
 from Code.lucaUtils import sort_dictionary
@@ -69,8 +68,8 @@ class CodeStatistics:
         self.RQ2_4 = 'What are the top 5 types removed?'
         self.typeRemoved_dict = {}
 
-        # [RQ2.5]: What types are changed?
-        self.RQ2_5 = 'What types are changed (primitives, built-in classes, application-specific classes)?'
+        # [RQ2.5]: What types are the top 10 changed?
+        self.RQ2_5 = 'What types are the top 10 changed (primitives, built-in classes, application-specific classes)?'
         self.total_changed = 0
         self.typeChanged_dict = {}
         self.s3 = "------------------------------------------------------------------------"
@@ -156,8 +155,8 @@ class CodeStatistics:
         # [RQ2.4]: What are the top 5 types removed?
         self.typeRemoved_dict = sort_dictionary(self.typeRemoved_dict)[:5]
 
-        # [RQ2.5]: What are the types changed?
-        self.typeChanged_dict = sort_dictionary(self.typeChanged_dict)
+        # [RQ2.5]: What are the top 10 types changed?
+        self.typeChanged_dict = sort_dictionary(self.typeChanged_dict)[:10]
 
         # [RQ4]: Are many types added at once or rather a few types here and there?
         self.rate_annotation_commit()
@@ -170,6 +169,7 @@ class CodeStatistics:
             self.typeLastProjectVersion_percentage = str(
                 round(self.typeLastProjectVersion_total / self.total_typeAnnotation_codeChanges * 100, 2)) + ' %'
 
+        self.typeLastProjectVersion_dict = sort_dictionary(self.typeLastProjectVersion_dict)
     # [RQ1]: Are type annotation inserted, removed and changed?
     def percentage_computation(self):
         self.total_typeAnnotation_codeChanges = self.insert_types + self.remove_types + self.modify_existing_types

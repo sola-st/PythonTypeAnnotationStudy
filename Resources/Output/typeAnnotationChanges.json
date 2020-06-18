@@ -1,191 +1,3557 @@
 [
     {
-        "url": "https://github.com/lucaresearch/pythontest/commit/00c67803bc1cb08f9757c6d61ce94745bdb9024c#diff-8189ed327725483b732a165836a0155fbe56348fL ",
-        "old_file": "main.py",
+        "url": "https://github.com/jakubroztocil/httpie/commit/ced9212c1f0e537bd3baf0471547f5109e87ed71#diff-54579736ab1cd8a8c8d9dc0d413f00104fbba99bL ",
+        "old_file": "httpie/context.py",
         "old_line": "",
         "old_code": "",
         "new_line": " ",
-        "new_file": "main.py",
+        "new_file": "httpie/context.py",
         "new_code": " "
     },
     {
-        "url": "https://github.com/lucaresearch/pythontest/commit/00c67803bc1cb08f9757c6d61ce94745bdb9024c#diff-8189ed327725483b732a165836a0155fbe56348fL ",
-        "old_file": "main.py",
-        "old_line": "",
-        "old_code": "",
-        "new_line": " ",
-        "new_file": "main.py",
-        "new_code": " "
-    },
-    {
-        "url": "https://github.com/lucaresearch/pythontest/commit/00c67803bc1cb08f9757c6d61ce94745bdb9024c#diff-8189ed327725483b732a165836a0155fbe56348fL ",
-        "old_file": "main.py",
-        "old_line": "",
-        "old_code": "",
-        "new_line": " ",
-        "new_file": "main.py",
-        "new_code": " "
-    },
-    {
-        "url": "https://github.com/lucaresearch/pythontest/commit/00c67803bc1cb08f9757c6d61ce94745bdb9024c#diff-8189ed327725483b732a165836a0155fbe56348fL ",
-        "old_file": "main.py",
-        "old_line": "",
-        "old_code": "",
-        "new_line": " ",
-        "new_file": "main.py",
-        "new_code": " "
-    },
-    {
-        "url": "https://github.com/lucaresearch/pythontest/commit/00c67803bc1cb08f9757c6d61ce94745bdb9024c#diff-8189ed327725483b732a165836a0155fbe56348fL ",
-        "old_file": "main.py",
-        "old_line": "",
-        "old_code": "",
-        "new_line": " ",
-        "new_file": "main.py",
-        "new_code": " "
-    },
-    {
-        "url": "https://github.com/lucaresearch/pythontest/commit/00c67803bc1cb08f9757c6d61ce94745bdb9024c#diff-8189ed327725483b732a165836a0155fbe56348fL ",
-        "old_file": "main.py",
-        "old_line": "",
-        "old_code": "",
-        "new_line": " ",
-        "new_file": "main.py",
-        "new_code": " "
-    },
-    {
-        "url": "https://github.com/lucaresearch/pythontest/commit/00c67803bc1cb08f9757c6d61ce94745bdb9024c#diff-8189ed327725483b732a165836a0155fbe56348fL ",
-        "old_file": "main.py",
-        "old_line": "",
-        "old_code": "",
-        "new_line": " ",
-        "new_file": "main.py",
-        "new_code": " "
-    },
-    {
-        "url": "https://github.com/lucaresearch/pythontest/commit/00c67803bc1cb08f9757c6d61ce94745bdb9024c#diff-8189ed327725483b732a165836a0155fbe56348fL ",
-        "old_file": "main.py",
-        "old_line": "",
-        "old_code": "",
-        "new_line": " ",
-        "new_file": "main.py",
-        "new_code": " "
-    },
-    {
-        "url": "https://github.com/lucaresearch/pythontest/commit/8f60755881865733528c1391c1102c2165bdb022#diff-5b3247aeaa94c9a1e743fcd7915093f3ce145adbL ",
-        "old_file": "main.py",
-        "old_line": " ",
-        "old_code": " ",
-        "new_line": " ",
-        "new_file": "main.py",
-        "new_code": " "
-    },
-    {
-        "url": "https://github.com/lucaresearch/pythontest/commit/8f60755881865733528c1391c1102c2165bdb022#diff-5b3247aeaa94c9a1e743fcd7915093f3ce145adbL ",
-        "old_file": "main.py",
-        "old_line": " ",
-        "old_code": " ",
-        "new_line": " ",
-        "new_file": "main.py",
-        "new_code": " "
-    },
-    {
-        "url": "https://github.com/lucaresearch/pythontest/commit/a5d9d2a37c383384dbace073b878212df2574a11#diff-86d8c2b93f8f9c98e0dd0d950f9f4d5b1756eaaeL ",
-        "old_file": "main.py",
-        "old_line": " ",
-        "old_code": " ",
-        "new_line": " ",
-        "new_file": "main.py",
-        "new_code": " "
-    },
-    {
-        "url": "https://github.com/lucaresearch/pythontest/commit/a5d9d2a37c383384dbace073b878212df2574a11#diff-86d8c2b93f8f9c98e0dd0d950f9f4d5b1756eaaeL ",
-        "old_file": "main.py",
-        "old_line": " ",
-        "old_code": " ",
-        "new_line": " ",
-        "new_file": "main.py",
-        "new_code": " "
-    },
-    {
-        "url": "https://github.com/lucaresearch/pythontest/commit/4f0460f5b5dc4786c3539b3381f0e0ac32d97622#diff-285267cc26b84fc713f32e383289f25004168ff3L ",
-        "old_file": "main.py",
-        "old_line": " ",
-        "old_code": " ",
-        "new_line": " ",
-        "new_file": "main.py",
-        "new_code": " "
-    },
-    {
-        "url": "https://github.com/lucaresearch/pythontest/commit/99a4d6882a843eab615de95e6ea2585e3cb8b2a6#diff-ebe5f47148bc5542acdc2fe6751f232cf8b174a2L ",
-        "old_file": "main.py",
+        "url": "https://github.com/jakubroztocil/httpie/commit/9bd8b4e8f75eb475073358856bb9748dee2bce21#diff-650ad92e6e83dc278736579a06e154aa7701ae6eL ",
+        "old_file": "httpie/context.py",
         "old_line": " ",
         "old_code": " ",
         "new_line": "",
-        "new_file": "main.py",
+        "new_file": "httpie/context.py",
         "new_code": ""
     },
     {
-        "url": "https://github.com/lucaresearch/pythontest/commit/99a4d6882a843eab615de95e6ea2585e3cb8b2a6#diff-ebe5f47148bc5542acdc2fe6751f232cf8b174a2L ",
-        "old_file": "main.py",
+        "url": "https://github.com/jakubroztocil/httpie/commit/9bd8b4e8f75eb475073358856bb9748dee2bce21#diff-650ad92e6e83dc278736579a06e154aa7701ae6eL ",
+        "old_file": "httpie/context.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/context.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/0f654388fc49c0ab7af4c45c7b5294117c435074#diff-0e540bf04a7536e2a15b5395373b99dacf09e493L ",
+        "old_file": "httpie/models.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/models.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/0f654388fc49c0ab7af4c45c7b5294117c435074#diff-0e540bf04a7536e2a15b5395373b99dacf09e493L ",
+        "old_file": "httpie/models.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/models.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/0f654388fc49c0ab7af4c45c7b5294117c435074#diff-0e540bf04a7536e2a15b5395373b99dacf09e493L ",
+        "old_file": "httpie/models.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/models.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/0f654388fc49c0ab7af4c45c7b5294117c435074#diff-0e540bf04a7536e2a15b5395373b99dacf09e493L ",
+        "old_file": "httpie/models.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/models.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/0f654388fc49c0ab7af4c45c7b5294117c435074#diff-0e540bf04a7536e2a15b5395373b99dacf09e493L ",
+        "old_file": "httpie/models.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/models.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/0f654388fc49c0ab7af4c45c7b5294117c435074#diff-0e540bf04a7536e2a15b5395373b99dacf09e493L ",
+        "old_file": "httpie/models.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/models.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/0f654388fc49c0ab7af4c45c7b5294117c435074#diff-0e540bf04a7536e2a15b5395373b99dacf09e493L ",
+        "old_file": "httpie/models.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/models.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/0f654388fc49c0ab7af4c45c7b5294117c435074#diff-0e540bf04a7536e2a15b5395373b99dacf09e493L ",
+        "old_file": "httpie/models.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/models.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/0f654388fc49c0ab7af4c45c7b5294117c435074#diff-0e540bf04a7536e2a15b5395373b99dacf09e493L ",
+        "old_file": "httpie/config.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/config.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/0f654388fc49c0ab7af4c45c7b5294117c435074#diff-0e540bf04a7536e2a15b5395373b99dacf09e493L ",
+        "old_file": "httpie/config.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/config.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/0f654388fc49c0ab7af4c45c7b5294117c435074#diff-0e540bf04a7536e2a15b5395373b99dacf09e493L ",
+        "old_file": "httpie/config.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/config.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/0f654388fc49c0ab7af4c45c7b5294117c435074#diff-0e540bf04a7536e2a15b5395373b99dacf09e493L ",
+        "old_file": "httpie/config.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/config.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/0f654388fc49c0ab7af4c45c7b5294117c435074#diff-0e540bf04a7536e2a15b5395373b99dacf09e493L ",
+        "old_file": "httpie/config.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/config.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/0f654388fc49c0ab7af4c45c7b5294117c435074#diff-0e540bf04a7536e2a15b5395373b99dacf09e493L ",
+        "old_file": "httpie/config.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/config.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/0f654388fc49c0ab7af4c45c7b5294117c435074#diff-0e540bf04a7536e2a15b5395373b99dacf09e493L ",
+        "old_file": "httpie/core.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/core.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/0f654388fc49c0ab7af4c45c7b5294117c435074#diff-0e540bf04a7536e2a15b5395373b99dacf09e493L ",
+        "old_file": "httpie/core.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/core.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/0f654388fc49c0ab7af4c45c7b5294117c435074#diff-0e540bf04a7536e2a15b5395373b99dacf09e493L ",
+        "old_file": "httpie/core.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/core.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/0f654388fc49c0ab7af4c45c7b5294117c435074#diff-0e540bf04a7536e2a15b5395373b99dacf09e493L ",
+        "old_file": "httpie/core.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/core.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/0f654388fc49c0ab7af4c45c7b5294117c435074#diff-0e540bf04a7536e2a15b5395373b99dacf09e493L ",
+        "old_file": "httpie/core.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/core.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/0f654388fc49c0ab7af4c45c7b5294117c435074#diff-0e540bf04a7536e2a15b5395373b99dacf09e493L ",
+        "old_file": "httpie/core.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/core.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/0f654388fc49c0ab7af4c45c7b5294117c435074#diff-0e540bf04a7536e2a15b5395373b99dacf09e493L ",
+        "old_file": "httpie/core.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/core.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/0f654388fc49c0ab7af4c45c7b5294117c435074#diff-0e540bf04a7536e2a15b5395373b99dacf09e493L ",
+        "old_file": "httpie/core.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/core.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/0f654388fc49c0ab7af4c45c7b5294117c435074#diff-0e540bf04a7536e2a15b5395373b99dacf09e493L ",
+        "old_file": "httpie/core.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/core.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/0f654388fc49c0ab7af4c45c7b5294117c435074#diff-0e540bf04a7536e2a15b5395373b99dacf09e493L ",
+        "old_file": "httpie/core.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/core.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/0f654388fc49c0ab7af4c45c7b5294117c435074#diff-0e540bf04a7536e2a15b5395373b99dacf09e493L ",
+        "old_file": "httpie/core.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/core.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/0f654388fc49c0ab7af4c45c7b5294117c435074#diff-0e540bf04a7536e2a15b5395373b99dacf09e493L ",
+        "old_file": "httpie/core.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/core.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/0f654388fc49c0ab7af4c45c7b5294117c435074#diff-0e540bf04a7536e2a15b5395373b99dacf09e493L ",
+        "old_file": "httpie/context.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/context.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/0f654388fc49c0ab7af4c45c7b5294117c435074#diff-0e540bf04a7536e2a15b5395373b99dacf09e493L ",
+        "old_file": "httpie/context.py",
         "old_line": " ",
         "old_code": " ",
         "new_line": "",
-        "new_file": "main.py",
+        "new_file": "httpie/context.py",
         "new_code": ""
     },
     {
-        "url": "https://github.com/lucaresearch/pythontest/commit/01d078e80fde3052845b5018c3407ee2daeaf7c1#diff-6eead058c2e33d804090871a2b72788032f8e6b2L ",
-        "old_file": "main.py",
+        "url": "https://github.com/jakubroztocil/httpie/commit/0f654388fc49c0ab7af4c45c7b5294117c435074#diff-0e540bf04a7536e2a15b5395373b99dacf09e493L ",
+        "old_file": "httpie/context.py",
         "old_line": "",
         "old_code": "",
         "new_line": " ",
-        "new_file": "main.py",
+        "new_file": "httpie/context.py",
         "new_code": " "
     },
     {
-        "url": "https://github.com/lucaresearch/pythontest/commit/01d078e80fde3052845b5018c3407ee2daeaf7c1#diff-6eead058c2e33d804090871a2b72788032f8e6b2L ",
-        "old_file": "main.py",
+        "url": "https://github.com/jakubroztocil/httpie/commit/0f654388fc49c0ab7af4c45c7b5294117c435074#diff-0e540bf04a7536e2a15b5395373b99dacf09e493L ",
+        "old_file": "httpie/context.py",
         "old_line": "",
         "old_code": "",
         "new_line": " ",
-        "new_file": "main.py",
+        "new_file": "httpie/context.py",
         "new_code": " "
     },
     {
-        "url": "https://github.com/lucaresearch/pythontest/commit/490d665aded0ca2c8e3199047f75a77bda8f277d#diff-2c0423254d36aa57d5a1e37f11420e4d9fe5aed8L ",
-        "old_file": "main.py",
+        "url": "https://github.com/jakubroztocil/httpie/commit/0f654388fc49c0ab7af4c45c7b5294117c435074#diff-0e540bf04a7536e2a15b5395373b99dacf09e493L ",
+        "old_file": "httpie/context.py",
         "old_line": "",
         "old_code": "",
         "new_line": " ",
-        "new_file": "main.py",
+        "new_file": "httpie/context.py",
         "new_code": " "
     },
     {
-        "url": "https://github.com/lucaresearch/pythontest/commit/490d665aded0ca2c8e3199047f75a77bda8f277d#diff-2c0423254d36aa57d5a1e37f11420e4d9fe5aed8L ",
-        "old_file": "main.py",
+        "url": "https://github.com/jakubroztocil/httpie/commit/0f654388fc49c0ab7af4c45c7b5294117c435074#diff-0e540bf04a7536e2a15b5395373b99dacf09e493L ",
+        "old_file": "httpie/context.py",
         "old_line": "",
         "old_code": "",
         "new_line": " ",
-        "new_file": "main.py",
+        "new_file": "httpie/context.py",
         "new_code": " "
     },
     {
-        "url": "https://github.com/lucaresearch/pythontest/commit/cd4820492aa38a244ecbdc68070877d851819548#diff-35ba36f39d48b9570531f330f7a802af45af25d9L ",
-        "old_file": "main.py",
-        "old_line": " ",
-        "old_code": " ",
+        "url": "https://github.com/jakubroztocil/httpie/commit/0f654388fc49c0ab7af4c45c7b5294117c435074#diff-0e540bf04a7536e2a15b5395373b99dacf09e493L ",
+        "old_file": "httpie/context.py",
+        "old_line": "",
+        "old_code": "",
         "new_line": " ",
-        "new_file": "main.py",
+        "new_file": "httpie/context.py",
         "new_code": " "
     },
     {
-        "url": "https://github.com/lucaresearch/pythontest/commit/cd4820492aa38a244ecbdc68070877d851819548#diff-35ba36f39d48b9570531f330f7a802af45af25d9L ",
-        "old_file": "main.py",
+        "url": "https://github.com/jakubroztocil/httpie/commit/0f654388fc49c0ab7af4c45c7b5294117c435074#diff-0e540bf04a7536e2a15b5395373b99dacf09e493L ",
+        "old_file": "httpie/context.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/context.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/0f654388fc49c0ab7af4c45c7b5294117c435074#diff-0e540bf04a7536e2a15b5395373b99dacf09e493L ",
+        "old_file": "httpie/context.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/context.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/0f654388fc49c0ab7af4c45c7b5294117c435074#diff-0e540bf04a7536e2a15b5395373b99dacf09e493L ",
+        "old_file": "tests/utils.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "tests/utils.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/0f654388fc49c0ab7af4c45c7b5294117c435074#diff-0e540bf04a7536e2a15b5395373b99dacf09e493L ",
+        "old_file": "tests/utils.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "tests/utils.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/0f654388fc49c0ab7af4c45c7b5294117c435074#diff-0e540bf04a7536e2a15b5395373b99dacf09e493L ",
+        "old_file": "tests/utils.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "tests/utils.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/0f654388fc49c0ab7af4c45c7b5294117c435074#diff-0e540bf04a7536e2a15b5395373b99dacf09e493L ",
+        "old_file": "tests/utils.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "tests/utils.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/0f654388fc49c0ab7af4c45c7b5294117c435074#diff-0e540bf04a7536e2a15b5395373b99dacf09e493L ",
+        "old_file": "tests/utils.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "tests/utils.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/0f654388fc49c0ab7af4c45c7b5294117c435074#diff-0e540bf04a7536e2a15b5395373b99dacf09e493L ",
+        "old_file": "tests/utils.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "tests/utils.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/0f654388fc49c0ab7af4c45c7b5294117c435074#diff-0e540bf04a7536e2a15b5395373b99dacf09e493L ",
+        "old_file": "httpie/sessions.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/sessions.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/0f654388fc49c0ab7af4c45c7b5294117c435074#diff-0e540bf04a7536e2a15b5395373b99dacf09e493L ",
+        "old_file": "httpie/sessions.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/sessions.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/0f654388fc49c0ab7af4c45c7b5294117c435074#diff-0e540bf04a7536e2a15b5395373b99dacf09e493L ",
+        "old_file": "httpie/sessions.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/sessions.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/0f654388fc49c0ab7af4c45c7b5294117c435074#diff-0e540bf04a7536e2a15b5395373b99dacf09e493L ",
+        "old_file": "httpie/sessions.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/sessions.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/0f654388fc49c0ab7af4c45c7b5294117c435074#diff-0e540bf04a7536e2a15b5395373b99dacf09e493L ",
+        "old_file": "httpie/sessions.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/sessions.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/0f654388fc49c0ab7af4c45c7b5294117c435074#diff-0e540bf04a7536e2a15b5395373b99dacf09e493L ",
+        "old_file": "httpie/sessions.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/sessions.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/0f654388fc49c0ab7af4c45c7b5294117c435074#diff-0e540bf04a7536e2a15b5395373b99dacf09e493L ",
+        "old_file": "httpie/sessions.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/sessions.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/0f654388fc49c0ab7af4c45c7b5294117c435074#diff-0e540bf04a7536e2a15b5395373b99dacf09e493L ",
+        "old_file": "httpie/sessions.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/sessions.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/0f654388fc49c0ab7af4c45c7b5294117c435074#diff-0e540bf04a7536e2a15b5395373b99dacf09e493L ",
+        "old_file": "httpie/sessions.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/sessions.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/0f654388fc49c0ab7af4c45c7b5294117c435074#diff-0e540bf04a7536e2a15b5395373b99dacf09e493L ",
+        "old_file": "httpie/sessions.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/sessions.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/0f654388fc49c0ab7af4c45c7b5294117c435074#diff-0e540bf04a7536e2a15b5395373b99dacf09e493L ",
+        "old_file": "httpie/sessions.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/sessions.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/0f654388fc49c0ab7af4c45c7b5294117c435074#diff-0e540bf04a7536e2a15b5395373b99dacf09e493L ",
+        "old_file": "httpie/sessions.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/sessions.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/0f654388fc49c0ab7af4c45c7b5294117c435074#diff-0e540bf04a7536e2a15b5395373b99dacf09e493L ",
+        "old_file": "httpie/downloads.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/downloads.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/0f654388fc49c0ab7af4c45c7b5294117c435074#diff-0e540bf04a7536e2a15b5395373b99dacf09e493L ",
+        "old_file": "httpie/downloads.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/downloads.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/0f654388fc49c0ab7af4c45c7b5294117c435074#diff-0e540bf04a7536e2a15b5395373b99dacf09e493L ",
+        "old_file": "httpie/downloads.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/downloads.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/0f654388fc49c0ab7af4c45c7b5294117c435074#diff-0e540bf04a7536e2a15b5395373b99dacf09e493L ",
+        "old_file": "httpie/downloads.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/downloads.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/0f654388fc49c0ab7af4c45c7b5294117c435074#diff-0e540bf04a7536e2a15b5395373b99dacf09e493L ",
+        "old_file": "httpie/downloads.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/downloads.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/0f654388fc49c0ab7af4c45c7b5294117c435074#diff-0e540bf04a7536e2a15b5395373b99dacf09e493L ",
+        "old_file": "httpie/downloads.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/downloads.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/0f654388fc49c0ab7af4c45c7b5294117c435074#diff-0e540bf04a7536e2a15b5395373b99dacf09e493L ",
+        "old_file": "httpie/downloads.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/downloads.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/0f654388fc49c0ab7af4c45c7b5294117c435074#diff-0e540bf04a7536e2a15b5395373b99dacf09e493L ",
+        "old_file": "httpie/downloads.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/downloads.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/0f654388fc49c0ab7af4c45c7b5294117c435074#diff-0e540bf04a7536e2a15b5395373b99dacf09e493L ",
+        "old_file": "httpie/downloads.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/downloads.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/0f654388fc49c0ab7af4c45c7b5294117c435074#diff-0e540bf04a7536e2a15b5395373b99dacf09e493L ",
+        "old_file": "httpie/downloads.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/downloads.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/0f654388fc49c0ab7af4c45c7b5294117c435074#diff-0e540bf04a7536e2a15b5395373b99dacf09e493L ",
+        "old_file": "httpie/downloads.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/downloads.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/0f654388fc49c0ab7af4c45c7b5294117c435074#diff-0e540bf04a7536e2a15b5395373b99dacf09e493L ",
+        "old_file": "httpie/downloads.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/downloads.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/0f654388fc49c0ab7af4c45c7b5294117c435074#diff-0e540bf04a7536e2a15b5395373b99dacf09e493L ",
+        "old_file": "httpie/downloads.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/downloads.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/0f654388fc49c0ab7af4c45c7b5294117c435074#diff-0e540bf04a7536e2a15b5395373b99dacf09e493L ",
+        "old_file": "httpie/downloads.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/downloads.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/0f654388fc49c0ab7af4c45c7b5294117c435074#diff-0e540bf04a7536e2a15b5395373b99dacf09e493L ",
+        "old_file": "httpie/downloads.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/downloads.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/0f654388fc49c0ab7af4c45c7b5294117c435074#diff-0e540bf04a7536e2a15b5395373b99dacf09e493L ",
+        "old_file": "httpie/downloads.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/downloads.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/0f654388fc49c0ab7af4c45c7b5294117c435074#diff-0e540bf04a7536e2a15b5395373b99dacf09e493L ",
+        "old_file": "httpie/downloads.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/downloads.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/0f654388fc49c0ab7af4c45c7b5294117c435074#diff-0e540bf04a7536e2a15b5395373b99dacf09e493L ",
+        "old_file": "httpie/downloads.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/downloads.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/0f654388fc49c0ab7af4c45c7b5294117c435074#diff-0e540bf04a7536e2a15b5395373b99dacf09e493L ",
+        "old_file": "httpie/downloads.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/downloads.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/0f654388fc49c0ab7af4c45c7b5294117c435074#diff-0e540bf04a7536e2a15b5395373b99dacf09e493L ",
+        "old_file": "httpie/downloads.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/downloads.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/0f654388fc49c0ab7af4c45c7b5294117c435074#diff-0e540bf04a7536e2a15b5395373b99dacf09e493L ",
+        "old_file": "httpie/downloads.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/downloads.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/0f654388fc49c0ab7af4c45c7b5294117c435074#diff-0e540bf04a7536e2a15b5395373b99dacf09e493L ",
+        "old_file": "httpie/downloads.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/downloads.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/0f654388fc49c0ab7af4c45c7b5294117c435074#diff-0e540bf04a7536e2a15b5395373b99dacf09e493L ",
+        "old_file": "httpie/downloads.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/downloads.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/0f654388fc49c0ab7af4c45c7b5294117c435074#diff-0e540bf04a7536e2a15b5395373b99dacf09e493L ",
+        "old_file": "httpie/downloads.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/downloads.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/0f654388fc49c0ab7af4c45c7b5294117c435074#diff-0e540bf04a7536e2a15b5395373b99dacf09e493L ",
+        "old_file": "httpie/downloads.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/downloads.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/0f654388fc49c0ab7af4c45c7b5294117c435074#diff-0e540bf04a7536e2a15b5395373b99dacf09e493L ",
+        "old_file": "httpie/downloads.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/downloads.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/0f654388fc49c0ab7af4c45c7b5294117c435074#diff-0e540bf04a7536e2a15b5395373b99dacf09e493L ",
+        "old_file": "httpie/downloads.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/downloads.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/0f654388fc49c0ab7af4c45c7b5294117c435074#diff-0e540bf04a7536e2a15b5395373b99dacf09e493L ",
+        "old_file": "httpie/downloads.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/downloads.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/0f654388fc49c0ab7af4c45c7b5294117c435074#diff-0e540bf04a7536e2a15b5395373b99dacf09e493L ",
+        "old_file": "httpie/downloads.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/downloads.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/0f654388fc49c0ab7af4c45c7b5294117c435074#diff-0e540bf04a7536e2a15b5395373b99dacf09e493L ",
+        "old_file": "httpie/input.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/input.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/0f654388fc49c0ab7af4c45c7b5294117c435074#diff-0e540bf04a7536e2a15b5395373b99dacf09e493L ",
+        "old_file": "httpie/input.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/input.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/aba3b1ec0108197f747b9266c7a622cb16e34fdc#diff-d1444c63c88768720a694c8ba0d8bf64657df66aL ",
+        "old_file": "httpie/context.py",
         "old_line": " ",
         "old_code": " ",
         "new_line": "",
-        "new_file": "main.py",
+        "new_file": "httpie/context.py",
         "new_code": ""
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/aba3b1ec0108197f747b9266c7a622cb16e34fdc#diff-d1444c63c88768720a694c8ba0d8bf64657df66aL ",
+        "old_file": "httpie/context.py",
+        "old_line": " ",
+        "old_code": " ",
+        "new_line": "",
+        "new_file": "httpie/context.py",
+        "new_code": ""
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/aba3b1ec0108197f747b9266c7a622cb16e34fdc#diff-d1444c63c88768720a694c8ba0d8bf64657df66aL ",
+        "old_file": "httpie/context.py",
+        "old_line": " ",
+        "old_code": " ",
+        "new_line": "",
+        "new_file": "httpie/context.py",
+        "new_code": ""
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/aba3b1ec0108197f747b9266c7a622cb16e34fdc#diff-d1444c63c88768720a694c8ba0d8bf64657df66aL ",
+        "old_file": "httpie/context.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/context.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/aba3b1ec0108197f747b9266c7a622cb16e34fdc#diff-d1444c63c88768720a694c8ba0d8bf64657df66aL ",
+        "old_file": "httpie/context.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/context.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/aba3b1ec0108197f747b9266c7a622cb16e34fdc#diff-d1444c63c88768720a694c8ba0d8bf64657df66aL ",
+        "old_file": "httpie/context.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/context.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/aba3b1ec0108197f747b9266c7a622cb16e34fdc#diff-d1444c63c88768720a694c8ba0d8bf64657df66aL ",
+        "old_file": "httpie/cli/requestitems.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/cli/requestitems.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/aba3b1ec0108197f747b9266c7a622cb16e34fdc#diff-d1444c63c88768720a694c8ba0d8bf64657df66aL ",
+        "old_file": "httpie/cli/requestitems.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/cli/requestitems.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/aba3b1ec0108197f747b9266c7a622cb16e34fdc#diff-d1444c63c88768720a694c8ba0d8bf64657df66aL ",
+        "old_file": "httpie/cli/requestitems.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/cli/requestitems.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/aba3b1ec0108197f747b9266c7a622cb16e34fdc#diff-d1444c63c88768720a694c8ba0d8bf64657df66aL ",
+        "old_file": "httpie/cli/requestitems.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/cli/requestitems.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/aba3b1ec0108197f747b9266c7a622cb16e34fdc#diff-d1444c63c88768720a694c8ba0d8bf64657df66aL ",
+        "old_file": "httpie/cli/requestitems.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/cli/requestitems.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/aba3b1ec0108197f747b9266c7a622cb16e34fdc#diff-d1444c63c88768720a694c8ba0d8bf64657df66aL ",
+        "old_file": "httpie/cli/requestitems.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/cli/requestitems.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/aba3b1ec0108197f747b9266c7a622cb16e34fdc#diff-d1444c63c88768720a694c8ba0d8bf64657df66aL ",
+        "old_file": "httpie/cli/requestitems.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/cli/requestitems.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/aba3b1ec0108197f747b9266c7a622cb16e34fdc#diff-d1444c63c88768720a694c8ba0d8bf64657df66aL ",
+        "old_file": "httpie/cli/requestitems.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/cli/requestitems.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/aba3b1ec0108197f747b9266c7a622cb16e34fdc#diff-d1444c63c88768720a694c8ba0d8bf64657df66aL ",
+        "old_file": "httpie/cli/requestitems.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/cli/requestitems.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/aba3b1ec0108197f747b9266c7a622cb16e34fdc#diff-d1444c63c88768720a694c8ba0d8bf64657df66aL ",
+        "old_file": "httpie/cli/requestitems.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/cli/requestitems.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/aba3b1ec0108197f747b9266c7a622cb16e34fdc#diff-d1444c63c88768720a694c8ba0d8bf64657df66aL ",
+        "old_file": "httpie/cli/requestitems.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/cli/requestitems.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/aba3b1ec0108197f747b9266c7a622cb16e34fdc#diff-d1444c63c88768720a694c8ba0d8bf64657df66aL ",
+        "old_file": "httpie/cli/requestitems.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/cli/requestitems.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/aba3b1ec0108197f747b9266c7a622cb16e34fdc#diff-d1444c63c88768720a694c8ba0d8bf64657df66aL ",
+        "old_file": "httpie/cli/requestitems.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/cli/requestitems.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/aba3b1ec0108197f747b9266c7a622cb16e34fdc#diff-d1444c63c88768720a694c8ba0d8bf64657df66aL ",
+        "old_file": "httpie/cli/requestitems.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/cli/requestitems.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/aba3b1ec0108197f747b9266c7a622cb16e34fdc#diff-d1444c63c88768720a694c8ba0d8bf64657df66aL ",
+        "old_file": "httpie/cli/requestitems.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/cli/requestitems.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/aba3b1ec0108197f747b9266c7a622cb16e34fdc#diff-d1444c63c88768720a694c8ba0d8bf64657df66aL ",
+        "old_file": "httpie/cli/requestitems.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/cli/requestitems.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/aba3b1ec0108197f747b9266c7a622cb16e34fdc#diff-d1444c63c88768720a694c8ba0d8bf64657df66aL ",
+        "old_file": "httpie/cli/requestitems.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/cli/requestitems.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/aba3b1ec0108197f747b9266c7a622cb16e34fdc#diff-d1444c63c88768720a694c8ba0d8bf64657df66aL ",
+        "old_file": "httpie/cli/requestitems.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/cli/requestitems.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/aba3b1ec0108197f747b9266c7a622cb16e34fdc#diff-d1444c63c88768720a694c8ba0d8bf64657df66aL ",
+        "old_file": "httpie/cli/requestitems.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/cli/requestitems.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/aba3b1ec0108197f747b9266c7a622cb16e34fdc#diff-d1444c63c88768720a694c8ba0d8bf64657df66aL ",
+        "old_file": "httpie/cli/requestitems.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/cli/requestitems.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/aba3b1ec0108197f747b9266c7a622cb16e34fdc#diff-d1444c63c88768720a694c8ba0d8bf64657df66aL ",
+        "old_file": "httpie/cli/requestitems.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/cli/requestitems.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/aba3b1ec0108197f747b9266c7a622cb16e34fdc#diff-d1444c63c88768720a694c8ba0d8bf64657df66aL ",
+        "old_file": "httpie/cli/requestitems.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/cli/requestitems.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/aba3b1ec0108197f747b9266c7a622cb16e34fdc#diff-d1444c63c88768720a694c8ba0d8bf64657df66aL ",
+        "old_file": "httpie/cli/requestitems.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/cli/requestitems.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/aba3b1ec0108197f747b9266c7a622cb16e34fdc#diff-d1444c63c88768720a694c8ba0d8bf64657df66aL ",
+        "old_file": "httpie/cli/argparser.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/cli/argparser.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/aba3b1ec0108197f747b9266c7a622cb16e34fdc#diff-d1444c63c88768720a694c8ba0d8bf64657df66aL ",
+        "old_file": "httpie/cli/argparser.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/cli/argparser.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/aba3b1ec0108197f747b9266c7a622cb16e34fdc#diff-d1444c63c88768720a694c8ba0d8bf64657df66aL ",
+        "old_file": "httpie/input.py",
+        "old_line": " ",
+        "old_code": " ",
+        "new_line": "",
+        "new_file": "httpie/input.py",
+        "new_code": ""
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/aba3b1ec0108197f747b9266c7a622cb16e34fdc#diff-d1444c63c88768720a694c8ba0d8bf64657df66aL ",
+        "old_file": "httpie/input.py",
+        "old_line": " ",
+        "old_code": " ",
+        "new_line": "",
+        "new_file": "httpie/input.py",
+        "new_code": ""
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/aba3b1ec0108197f747b9266c7a622cb16e34fdc#diff-d1444c63c88768720a694c8ba0d8bf64657df66aL ",
+        "old_file": "httpie/sessions.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/sessions.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/224519e0e251cee5ecefeebff0b593363137accf#diff-7880412f590de45196adb9d3dd4da1617f47290cL ",
+        "old_file": "httpie/client.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/client.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/224519e0e251cee5ecefeebff0b593363137accf#diff-7880412f590de45196adb9d3dd4da1617f47290cL ",
+        "old_file": "httpie/client.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/client.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/224519e0e251cee5ecefeebff0b593363137accf#diff-7880412f590de45196adb9d3dd4da1617f47290cL ",
+        "old_file": "httpie/client.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/client.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/224519e0e251cee5ecefeebff0b593363137accf#diff-7880412f590de45196adb9d3dd4da1617f47290cL ",
+        "old_file": "httpie/client.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/client.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/224519e0e251cee5ecefeebff0b593363137accf#diff-7880412f590de45196adb9d3dd4da1617f47290cL ",
+        "old_file": "httpie/client.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/client.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/224519e0e251cee5ecefeebff0b593363137accf#diff-7880412f590de45196adb9d3dd4da1617f47290cL ",
+        "old_file": "httpie/client.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/client.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/224519e0e251cee5ecefeebff0b593363137accf#diff-7880412f590de45196adb9d3dd4da1617f47290cL ",
+        "old_file": "httpie/client.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/client.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/224519e0e251cee5ecefeebff0b593363137accf#diff-7880412f590de45196adb9d3dd4da1617f47290cL ",
+        "old_file": "httpie/client.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/client.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/224519e0e251cee5ecefeebff0b593363137accf#diff-7880412f590de45196adb9d3dd4da1617f47290cL ",
+        "old_file": "httpie/client.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/client.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/224519e0e251cee5ecefeebff0b593363137accf#diff-7880412f590de45196adb9d3dd4da1617f47290cL ",
+        "old_file": "httpie/client.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/client.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/224519e0e251cee5ecefeebff0b593363137accf#diff-7880412f590de45196adb9d3dd4da1617f47290cL ",
+        "old_file": "httpie/client.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/client.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/224519e0e251cee5ecefeebff0b593363137accf#diff-7880412f590de45196adb9d3dd4da1617f47290cL ",
+        "old_file": "httpie/client.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/client.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/224519e0e251cee5ecefeebff0b593363137accf#diff-7880412f590de45196adb9d3dd4da1617f47290cL ",
+        "old_file": "httpie/client.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/client.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/224519e0e251cee5ecefeebff0b593363137accf#diff-7880412f590de45196adb9d3dd4da1617f47290cL ",
+        "old_file": "httpie/client.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/client.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/224519e0e251cee5ecefeebff0b593363137accf#diff-7880412f590de45196adb9d3dd4da1617f47290cL ",
+        "old_file": "httpie/client.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/client.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/224519e0e251cee5ecefeebff0b593363137accf#diff-7880412f590de45196adb9d3dd4da1617f47290cL ",
+        "old_file": "httpie/client.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/client.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/9da5c41704fbdfcb9eb626441d328d62ce19a3fa#diff-e674090b7fda91766901fdd74038cca13fa20767L ",
+        "old_file": "httpie/utils.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/utils.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/9da5c41704fbdfcb9eb626441d328d62ce19a3fa#diff-e674090b7fda91766901fdd74038cca13fa20767L ",
+        "old_file": "httpie/utils.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/utils.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/9da5c41704fbdfcb9eb626441d328d62ce19a3fa#diff-e674090b7fda91766901fdd74038cca13fa20767L ",
+        "old_file": "httpie/context.py",
+        "old_line": " ",
+        "old_code": " ",
+        "new_line": "",
+        "new_file": "httpie/context.py",
+        "new_code": ""
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/9da5c41704fbdfcb9eb626441d328d62ce19a3fa#diff-e674090b7fda91766901fdd74038cca13fa20767L ",
+        "old_file": "httpie/context.py",
+        "old_line": " ",
+        "old_code": " ",
+        "new_line": "",
+        "new_file": "httpie/context.py",
+        "new_code": ""
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/9da5c41704fbdfcb9eb626441d328d62ce19a3fa#diff-e674090b7fda91766901fdd74038cca13fa20767L ",
+        "old_file": "httpie/context.py",
+        "old_line": " ",
+        "old_code": " ",
+        "new_line": "",
+        "new_file": "httpie/context.py",
+        "new_code": ""
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/9da5c41704fbdfcb9eb626441d328d62ce19a3fa#diff-e674090b7fda91766901fdd74038cca13fa20767L ",
+        "old_file": "httpie/context.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/context.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/9da5c41704fbdfcb9eb626441d328d62ce19a3fa#diff-e674090b7fda91766901fdd74038cca13fa20767L ",
+        "old_file": "httpie/context.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/context.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/9da5c41704fbdfcb9eb626441d328d62ce19a3fa#diff-e674090b7fda91766901fdd74038cca13fa20767L ",
+        "old_file": "httpie/context.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/context.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/e8ef5a783f2541c3fec3a45c80083a99a2fd6af4#diff-df32ada0fe5639aadfb9b2b9ad9a20d46e1d62d5L ",
+        "old_file": "httpie/output/streams.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/output/streams.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/e8ef5a783f2541c3fec3a45c80083a99a2fd6af4#diff-df32ada0fe5639aadfb9b2b9ad9a20d46e1d62d5L ",
+        "old_file": "httpie/output/streams.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/output/streams.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/e8ef5a783f2541c3fec3a45c80083a99a2fd6af4#diff-df32ada0fe5639aadfb9b2b9ad9a20d46e1d62d5L ",
+        "old_file": "httpie/output/streams.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/output/streams.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/e8ef5a783f2541c3fec3a45c80083a99a2fd6af4#diff-df32ada0fe5639aadfb9b2b9ad9a20d46e1d62d5L ",
+        "old_file": "httpie/output/streams.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/output/streams.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/e8ef5a783f2541c3fec3a45c80083a99a2fd6af4#diff-df32ada0fe5639aadfb9b2b9ad9a20d46e1d62d5L ",
+        "old_file": "httpie/output/streams.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/output/streams.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/e8ef5a783f2541c3fec3a45c80083a99a2fd6af4#diff-df32ada0fe5639aadfb9b2b9ad9a20d46e1d62d5L ",
+        "old_file": "httpie/output/streams.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/output/streams.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/e8ef5a783f2541c3fec3a45c80083a99a2fd6af4#diff-df32ada0fe5639aadfb9b2b9ad9a20d46e1d62d5L ",
+        "old_file": "httpie/output/streams.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/output/streams.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/e8ef5a783f2541c3fec3a45c80083a99a2fd6af4#diff-df32ada0fe5639aadfb9b2b9ad9a20d46e1d62d5L ",
+        "old_file": "httpie/output/streams.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/output/streams.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/e8ef5a783f2541c3fec3a45c80083a99a2fd6af4#diff-df32ada0fe5639aadfb9b2b9ad9a20d46e1d62d5L ",
+        "old_file": "httpie/output/streams.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/output/streams.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/e8ef5a783f2541c3fec3a45c80083a99a2fd6af4#diff-df32ada0fe5639aadfb9b2b9ad9a20d46e1d62d5L ",
+        "old_file": "httpie/output/streams.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/output/streams.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/e8ef5a783f2541c3fec3a45c80083a99a2fd6af4#diff-df32ada0fe5639aadfb9b2b9ad9a20d46e1d62d5L ",
+        "old_file": "httpie/output/streams.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/output/streams.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/e8ef5a783f2541c3fec3a45c80083a99a2fd6af4#diff-df32ada0fe5639aadfb9b2b9ad9a20d46e1d62d5L ",
+        "old_file": "httpie/output/streams.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/output/streams.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/e8ef5a783f2541c3fec3a45c80083a99a2fd6af4#diff-df32ada0fe5639aadfb9b2b9ad9a20d46e1d62d5L ",
+        "old_file": "httpie/output/streams.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/output/streams.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/e8ef5a783f2541c3fec3a45c80083a99a2fd6af4#diff-df32ada0fe5639aadfb9b2b9ad9a20d46e1d62d5L ",
+        "old_file": "httpie/output/streams.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/output/streams.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/e8ef5a783f2541c3fec3a45c80083a99a2fd6af4#diff-df32ada0fe5639aadfb9b2b9ad9a20d46e1d62d5L ",
+        "old_file": "httpie/output/streams.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/output/streams.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/e8ef5a783f2541c3fec3a45c80083a99a2fd6af4#diff-df32ada0fe5639aadfb9b2b9ad9a20d46e1d62d5L ",
+        "old_file": "httpie/output/streams.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/output/streams.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/e8ef5a783f2541c3fec3a45c80083a99a2fd6af4#diff-df32ada0fe5639aadfb9b2b9ad9a20d46e1d62d5L ",
+        "old_file": "httpie/output/streams.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/output/streams.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/e8ef5a783f2541c3fec3a45c80083a99a2fd6af4#diff-df32ada0fe5639aadfb9b2b9ad9a20d46e1d62d5L ",
+        "old_file": "httpie/output/streams.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/output/streams.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/e8ef5a783f2541c3fec3a45c80083a99a2fd6af4#diff-df32ada0fe5639aadfb9b2b9ad9a20d46e1d62d5L ",
+        "old_file": "httpie/output/streams.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/output/streams.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/e8ef5a783f2541c3fec3a45c80083a99a2fd6af4#diff-df32ada0fe5639aadfb9b2b9ad9a20d46e1d62d5L ",
+        "old_file": "httpie/output/streams.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/output/streams.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/e8ef5a783f2541c3fec3a45c80083a99a2fd6af4#diff-df32ada0fe5639aadfb9b2b9ad9a20d46e1d62d5L ",
+        "old_file": "httpie/output/streams.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/output/streams.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/e8ef5a783f2541c3fec3a45c80083a99a2fd6af4#diff-df32ada0fe5639aadfb9b2b9ad9a20d46e1d62d5L ",
+        "old_file": "httpie/output/streams.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/output/streams.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/e8ef5a783f2541c3fec3a45c80083a99a2fd6af4#diff-df32ada0fe5639aadfb9b2b9ad9a20d46e1d62d5L ",
+        "old_file": "httpie/output/streams.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/output/streams.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/e8ef5a783f2541c3fec3a45c80083a99a2fd6af4#diff-df32ada0fe5639aadfb9b2b9ad9a20d46e1d62d5L ",
+        "old_file": "httpie/output/streams.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/output/streams.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/e8ef5a783f2541c3fec3a45c80083a99a2fd6af4#diff-df32ada0fe5639aadfb9b2b9ad9a20d46e1d62d5L ",
+        "old_file": "httpie/output/streams.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/output/streams.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/e8ef5a783f2541c3fec3a45c80083a99a2fd6af4#diff-df32ada0fe5639aadfb9b2b9ad9a20d46e1d62d5L ",
+        "old_file": "httpie/output/streams.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/output/streams.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/e8ef5a783f2541c3fec3a45c80083a99a2fd6af4#diff-df32ada0fe5639aadfb9b2b9ad9a20d46e1d62d5L ",
+        "old_file": "httpie/output/streams.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/output/streams.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/b947d4826a3ee7a39992c9f88a433156c154507b#diff-aeeceddac9e636824c3f1e030d7a856bea75189fL ",
+        "old_file": "httpie/plugins/builtin.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/plugins/builtin.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/b947d4826a3ee7a39992c9f88a433156c154507b#diff-aeeceddac9e636824c3f1e030d7a856bea75189fL ",
+        "old_file": "httpie/plugins/builtin.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/plugins/builtin.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/b947d4826a3ee7a39992c9f88a433156c154507b#diff-aeeceddac9e636824c3f1e030d7a856bea75189fL ",
+        "old_file": "httpie/plugins/builtin.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/plugins/builtin.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/b947d4826a3ee7a39992c9f88a433156c154507b#diff-aeeceddac9e636824c3f1e030d7a856bea75189fL ",
+        "old_file": "httpie/plugins/builtin.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/plugins/builtin.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/b947d4826a3ee7a39992c9f88a433156c154507b#diff-aeeceddac9e636824c3f1e030d7a856bea75189fL ",
+        "old_file": "httpie/plugins/builtin.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/plugins/builtin.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/b947d4826a3ee7a39992c9f88a433156c154507b#diff-aeeceddac9e636824c3f1e030d7a856bea75189fL ",
+        "old_file": "httpie/plugins/builtin.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/plugins/builtin.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/b947d4826a3ee7a39992c9f88a433156c154507b#diff-aeeceddac9e636824c3f1e030d7a856bea75189fL ",
+        "old_file": "httpie/plugins/builtin.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/plugins/builtin.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/b947d4826a3ee7a39992c9f88a433156c154507b#diff-aeeceddac9e636824c3f1e030d7a856bea75189fL ",
+        "old_file": "httpie/plugins/builtin.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/plugins/builtin.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/b947d4826a3ee7a39992c9f88a433156c154507b#diff-aeeceddac9e636824c3f1e030d7a856bea75189fL ",
+        "old_file": "httpie/plugins/builtin.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/plugins/builtin.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/b947d4826a3ee7a39992c9f88a433156c154507b#diff-aeeceddac9e636824c3f1e030d7a856bea75189fL ",
+        "old_file": "httpie/plugins/builtin.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/plugins/builtin.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/b947d4826a3ee7a39992c9f88a433156c154507b#diff-aeeceddac9e636824c3f1e030d7a856bea75189fL ",
+        "old_file": "httpie/plugins/builtin.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/plugins/builtin.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/b947d4826a3ee7a39992c9f88a433156c154507b#diff-aeeceddac9e636824c3f1e030d7a856bea75189fL ",
+        "old_file": "httpie/plugins/base.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/plugins/base.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/b947d4826a3ee7a39992c9f88a433156c154507b#diff-aeeceddac9e636824c3f1e030d7a856bea75189fL ",
+        "old_file": "httpie/plugins/base.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/plugins/base.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/b947d4826a3ee7a39992c9f88a433156c154507b#diff-aeeceddac9e636824c3f1e030d7a856bea75189fL ",
+        "old_file": "httpie/plugins/base.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/plugins/base.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/b947d4826a3ee7a39992c9f88a433156c154507b#diff-aeeceddac9e636824c3f1e030d7a856bea75189fL ",
+        "old_file": "httpie/plugins/base.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/plugins/base.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/b947d4826a3ee7a39992c9f88a433156c154507b#diff-aeeceddac9e636824c3f1e030d7a856bea75189fL ",
+        "old_file": "httpie/plugins/base.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/plugins/base.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/b947d4826a3ee7a39992c9f88a433156c154507b#diff-aeeceddac9e636824c3f1e030d7a856bea75189fL ",
+        "old_file": "httpie/output/processing.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/output/processing.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/b947d4826a3ee7a39992c9f88a433156c154507b#diff-aeeceddac9e636824c3f1e030d7a856bea75189fL ",
+        "old_file": "httpie/output/processing.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/output/processing.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/b947d4826a3ee7a39992c9f88a433156c154507b#diff-aeeceddac9e636824c3f1e030d7a856bea75189fL ",
+        "old_file": "httpie/output/processing.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/output/processing.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/b947d4826a3ee7a39992c9f88a433156c154507b#diff-aeeceddac9e636824c3f1e030d7a856bea75189fL ",
+        "old_file": "httpie/plugins/manager.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/plugins/manager.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/b947d4826a3ee7a39992c9f88a433156c154507b#diff-aeeceddac9e636824c3f1e030d7a856bea75189fL ",
+        "old_file": "httpie/plugins/manager.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/plugins/manager.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/b947d4826a3ee7a39992c9f88a433156c154507b#diff-aeeceddac9e636824c3f1e030d7a856bea75189fL ",
+        "old_file": "httpie/plugins/manager.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/plugins/manager.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/b947d4826a3ee7a39992c9f88a433156c154507b#diff-aeeceddac9e636824c3f1e030d7a856bea75189fL ",
+        "old_file": "httpie/plugins/manager.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/plugins/manager.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/b947d4826a3ee7a39992c9f88a433156c154507b#diff-aeeceddac9e636824c3f1e030d7a856bea75189fL ",
+        "old_file": "httpie/plugins/manager.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/plugins/manager.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/b947d4826a3ee7a39992c9f88a433156c154507b#diff-aeeceddac9e636824c3f1e030d7a856bea75189fL ",
+        "old_file": "httpie/plugins/manager.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/plugins/manager.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/b947d4826a3ee7a39992c9f88a433156c154507b#diff-aeeceddac9e636824c3f1e030d7a856bea75189fL ",
+        "old_file": "httpie/plugins/manager.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/plugins/manager.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/b947d4826a3ee7a39992c9f88a433156c154507b#diff-aeeceddac9e636824c3f1e030d7a856bea75189fL ",
+        "old_file": "httpie/plugins/manager.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/plugins/manager.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/b947d4826a3ee7a39992c9f88a433156c154507b#diff-aeeceddac9e636824c3f1e030d7a856bea75189fL ",
+        "old_file": "httpie/plugins/manager.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/plugins/manager.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/d603502960dc2725bfb472c516eb0741f00dc54f#diff-ffcf275f366a12c7a2817c45148fd411376daf2cL ",
+        "old_file": "httpie/plugins/manager.py",
+        "old_line": " ",
+        "old_code": " ",
+        "new_line": " ",
+        "new_file": "httpie/plugins/manager.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/30624e66ec06e19687e83350687945d34af3215c#diff-6f7ef386f4eb7286c9642ede5908d64486e7dcbaL ",
+        "old_file": "httpie/output/formatters/json.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/output/formatters/json.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/30624e66ec06e19687e83350687945d34af3215c#diff-6f7ef386f4eb7286c9642ede5908d64486e7dcbaL ",
+        "old_file": "httpie/output/formatters/json.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/output/formatters/json.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/30624e66ec06e19687e83350687945d34af3215c#diff-6f7ef386f4eb7286c9642ede5908d64486e7dcbaL ",
+        "old_file": "httpie/output/formatters/json.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/output/formatters/json.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/30624e66ec06e19687e83350687945d34af3215c#diff-6f7ef386f4eb7286c9642ede5908d64486e7dcbaL ",
+        "old_file": "httpie/output/formatters/headers.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/output/formatters/headers.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/30624e66ec06e19687e83350687945d34af3215c#diff-6f7ef386f4eb7286c9642ede5908d64486e7dcbaL ",
+        "old_file": "httpie/output/processing.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/output/processing.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/30624e66ec06e19687e83350687945d34af3215c#diff-6f7ef386f4eb7286c9642ede5908d64486e7dcbaL ",
+        "old_file": "httpie/output/processing.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/output/processing.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/30624e66ec06e19687e83350687945d34af3215c#diff-6f7ef386f4eb7286c9642ede5908d64486e7dcbaL ",
+        "old_file": "httpie/output/processing.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/output/processing.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/30624e66ec06e19687e83350687945d34af3215c#diff-6f7ef386f4eb7286c9642ede5908d64486e7dcbaL ",
+        "old_file": "httpie/output/processing.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/output/processing.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/30624e66ec06e19687e83350687945d34af3215c#diff-6f7ef386f4eb7286c9642ede5908d64486e7dcbaL ",
+        "old_file": "httpie/output/processing.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/output/processing.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/30624e66ec06e19687e83350687945d34af3215c#diff-6f7ef386f4eb7286c9642ede5908d64486e7dcbaL ",
+        "old_file": "httpie/output/formatters/colors.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/output/formatters/colors.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/30624e66ec06e19687e83350687945d34af3215c#diff-6f7ef386f4eb7286c9642ede5908d64486e7dcbaL ",
+        "old_file": "httpie/output/formatters/colors.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/output/formatters/colors.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/30624e66ec06e19687e83350687945d34af3215c#diff-6f7ef386f4eb7286c9642ede5908d64486e7dcbaL ",
+        "old_file": "httpie/output/formatters/colors.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/output/formatters/colors.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/30624e66ec06e19687e83350687945d34af3215c#diff-6f7ef386f4eb7286c9642ede5908d64486e7dcbaL ",
+        "old_file": "httpie/output/formatters/colors.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/output/formatters/colors.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/30624e66ec06e19687e83350687945d34af3215c#diff-6f7ef386f4eb7286c9642ede5908d64486e7dcbaL ",
+        "old_file": "httpie/output/formatters/colors.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/output/formatters/colors.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/30624e66ec06e19687e83350687945d34af3215c#diff-6f7ef386f4eb7286c9642ede5908d64486e7dcbaL ",
+        "old_file": "httpie/output/formatters/colors.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/output/formatters/colors.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/30624e66ec06e19687e83350687945d34af3215c#diff-6f7ef386f4eb7286c9642ede5908d64486e7dcbaL ",
+        "old_file": "httpie/output/formatters/colors.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/output/formatters/colors.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/30624e66ec06e19687e83350687945d34af3215c#diff-6f7ef386f4eb7286c9642ede5908d64486e7dcbaL ",
+        "old_file": "httpie/output/formatters/colors.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/output/formatters/colors.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/30624e66ec06e19687e83350687945d34af3215c#diff-6f7ef386f4eb7286c9642ede5908d64486e7dcbaL ",
+        "old_file": "httpie/output/formatters/colors.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/output/formatters/colors.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/30624e66ec06e19687e83350687945d34af3215c#diff-6f7ef386f4eb7286c9642ede5908d64486e7dcbaL ",
+        "old_file": "httpie/output/formatters/colors.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/output/formatters/colors.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/30624e66ec06e19687e83350687945d34af3215c#diff-6f7ef386f4eb7286c9642ede5908d64486e7dcbaL ",
+        "old_file": "httpie/output/formatters/colors.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/output/formatters/colors.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/30624e66ec06e19687e83350687945d34af3215c#diff-6f7ef386f4eb7286c9642ede5908d64486e7dcbaL ",
+        "old_file": "httpie/output/formatters/colors.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/output/formatters/colors.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/30624e66ec06e19687e83350687945d34af3215c#diff-6f7ef386f4eb7286c9642ede5908d64486e7dcbaL ",
+        "old_file": "httpie/output/formatters/colors.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/output/formatters/colors.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/4dffac7a25e9c1098df553138114319a9fbf0531#diff-c4d2ab082a4f312db254e4a2b31a5b9fef85307bL ",
+        "old_file": "httpie/client.py",
+        "old_line": " ",
+        "old_code": " ",
+        "new_line": "",
+        "new_file": "httpie/client.py",
+        "new_code": ""
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/4dffac7a25e9c1098df553138114319a9fbf0531#diff-c4d2ab082a4f312db254e4a2b31a5b9fef85307bL ",
+        "old_file": "httpie/client.py",
+        "old_line": " ",
+        "old_code": " ",
+        "new_line": "",
+        "new_file": "httpie/client.py",
+        "new_code": ""
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/4dffac7a25e9c1098df553138114319a9fbf0531#diff-c4d2ab082a4f312db254e4a2b31a5b9fef85307bL ",
+        "old_file": "httpie/client.py",
+        "old_line": " ",
+        "old_code": " ",
+        "new_line": "",
+        "new_file": "httpie/client.py",
+        "new_code": ""
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/4dffac7a25e9c1098df553138114319a9fbf0531#diff-c4d2ab082a4f312db254e4a2b31a5b9fef85307bL ",
+        "old_file": "httpie/client.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/client.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/4dffac7a25e9c1098df553138114319a9fbf0531#diff-c4d2ab082a4f312db254e4a2b31a5b9fef85307bL ",
+        "old_file": "httpie/client.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/client.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/4dffac7a25e9c1098df553138114319a9fbf0531#diff-c4d2ab082a4f312db254e4a2b31a5b9fef85307bL ",
+        "old_file": "httpie/client.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/client.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/4dffac7a25e9c1098df553138114319a9fbf0531#diff-c4d2ab082a4f312db254e4a2b31a5b9fef85307bL ",
+        "old_file": "httpie/client.py",
+        "old_line": " ",
+        "old_code": " ",
+        "new_line": "",
+        "new_file": "httpie/client.py",
+        "new_code": ""
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/4dffac7a25e9c1098df553138114319a9fbf0531#diff-c4d2ab082a4f312db254e4a2b31a5b9fef85307bL ",
+        "old_file": "httpie/client.py",
+        "old_line": " ",
+        "old_code": " ",
+        "new_line": "",
+        "new_file": "httpie/client.py",
+        "new_code": ""
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/4dffac7a25e9c1098df553138114319a9fbf0531#diff-c4d2ab082a4f312db254e4a2b31a5b9fef85307bL ",
+        "old_file": "httpie/client.py",
+        "old_line": " ",
+        "old_code": " ",
+        "new_line": "",
+        "new_file": "httpie/client.py",
+        "new_code": ""
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/4dffac7a25e9c1098df553138114319a9fbf0531#diff-c4d2ab082a4f312db254e4a2b31a5b9fef85307bL ",
+        "old_file": "httpie/client.py",
+        "old_line": " ",
+        "old_code": " ",
+        "new_line": "",
+        "new_file": "httpie/client.py",
+        "new_code": ""
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/4dffac7a25e9c1098df553138114319a9fbf0531#diff-c4d2ab082a4f312db254e4a2b31a5b9fef85307bL ",
+        "old_file": "httpie/client.py",
+        "old_line": " ",
+        "old_code": " ",
+        "new_line": "",
+        "new_file": "httpie/client.py",
+        "new_code": ""
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/4dffac7a25e9c1098df553138114319a9fbf0531#diff-c4d2ab082a4f312db254e4a2b31a5b9fef85307bL ",
+        "old_file": "httpie/client.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/client.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/4dffac7a25e9c1098df553138114319a9fbf0531#diff-c4d2ab082a4f312db254e4a2b31a5b9fef85307bL ",
+        "old_file": "httpie/client.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/client.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/4dffac7a25e9c1098df553138114319a9fbf0531#diff-c4d2ab082a4f312db254e4a2b31a5b9fef85307bL ",
+        "old_file": "httpie/client.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/client.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/4dffac7a25e9c1098df553138114319a9fbf0531#diff-c4d2ab082a4f312db254e4a2b31a5b9fef85307bL ",
+        "old_file": "httpie/client.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/client.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/4dffac7a25e9c1098df553138114319a9fbf0531#diff-c4d2ab082a4f312db254e4a2b31a5b9fef85307bL ",
+        "old_file": "httpie/client.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/client.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/bd3208cf248a587fe3af6f485310383a76ef37a4#diff-9726122554170fd99eb7bd80d8eb33da86d36592L ",
+        "old_file": "httpie/plugins/manager.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/plugins/manager.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/45e8e4e4ea001d80d76c202ccfa1aec06e71b809#diff-1704b02fd096d5c7a9c94d23696c3aa2313a277cL ",
+        "old_file": "httpie/sessions.py",
+        "old_line": " ",
+        "old_code": " ",
+        "new_line": " ",
+        "new_file": "httpie/sessions.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/45e8e4e4ea001d80d76c202ccfa1aec06e71b809#diff-1704b02fd096d5c7a9c94d23696c3aa2313a277cL ",
+        "old_file": "httpie/sessions.py",
+        "old_line": " ",
+        "old_code": " ",
+        "new_line": " ",
+        "new_file": "httpie/sessions.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/45e8e4e4ea001d80d76c202ccfa1aec06e71b809#diff-1704b02fd096d5c7a9c94d23696c3aa2313a277cL ",
+        "old_file": "httpie/client.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/client.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/c946b3d34fcd0b0931ac6d172d38b648fa4dc14e#diff-4a9ee2038aa548dff2c5a21c91663d9e076d3defL ",
+        "old_file": "httpie/output/formatters/colors.py",
+        "old_line": " ",
+        "old_code": " ",
+        "new_line": " ",
+        "new_file": "httpie/output/formatters/colors.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/c946b3d34fcd0b0931ac6d172d38b648fa4dc14e#diff-4a9ee2038aa548dff2c5a21c91663d9e076d3defL ",
+        "old_file": "httpie/output/formatters/colors.py",
+        "old_line": " ",
+        "old_code": " ",
+        "new_line": " ",
+        "new_file": "httpie/output/formatters/colors.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/bece3c77bb51ecc55dcc4008375dc29ccd91575c#diff-a7e7a47cdb9c675e3fc782c6485635502307c4d1L ",
+        "old_file": "httpie/output/writer.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/output/writer.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/bece3c77bb51ecc55dcc4008375dc29ccd91575c#diff-a7e7a47cdb9c675e3fc782c6485635502307c4d1L ",
+        "old_file": "httpie/output/writer.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/output/writer.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/bece3c77bb51ecc55dcc4008375dc29ccd91575c#diff-a7e7a47cdb9c675e3fc782c6485635502307c4d1L ",
+        "old_file": "httpie/output/writer.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/output/writer.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/bece3c77bb51ecc55dcc4008375dc29ccd91575c#diff-a7e7a47cdb9c675e3fc782c6485635502307c4d1L ",
+        "old_file": "httpie/output/writer.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/output/writer.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/bece3c77bb51ecc55dcc4008375dc29ccd91575c#diff-a7e7a47cdb9c675e3fc782c6485635502307c4d1L ",
+        "old_file": "httpie/output/writer.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/output/writer.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/bece3c77bb51ecc55dcc4008375dc29ccd91575c#diff-a7e7a47cdb9c675e3fc782c6485635502307c4d1L ",
+        "old_file": "httpie/output/writer.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/output/writer.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/bece3c77bb51ecc55dcc4008375dc29ccd91575c#diff-a7e7a47cdb9c675e3fc782c6485635502307c4d1L ",
+        "old_file": "httpie/output/writer.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/output/writer.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/bece3c77bb51ecc55dcc4008375dc29ccd91575c#diff-a7e7a47cdb9c675e3fc782c6485635502307c4d1L ",
+        "old_file": "httpie/output/writer.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/output/writer.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/bece3c77bb51ecc55dcc4008375dc29ccd91575c#diff-a7e7a47cdb9c675e3fc782c6485635502307c4d1L ",
+        "old_file": "httpie/output/writer.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/output/writer.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/bece3c77bb51ecc55dcc4008375dc29ccd91575c#diff-a7e7a47cdb9c675e3fc782c6485635502307c4d1L ",
+        "old_file": "httpie/output/writer.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/output/writer.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/bece3c77bb51ecc55dcc4008375dc29ccd91575c#diff-a7e7a47cdb9c675e3fc782c6485635502307c4d1L ",
+        "old_file": "httpie/output/writer.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/output/writer.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/bece3c77bb51ecc55dcc4008375dc29ccd91575c#diff-a7e7a47cdb9c675e3fc782c6485635502307c4d1L ",
+        "old_file": "httpie/output/writer.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/output/writer.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/bece3c77bb51ecc55dcc4008375dc29ccd91575c#diff-a7e7a47cdb9c675e3fc782c6485635502307c4d1L ",
+        "old_file": "httpie/output/writer.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/output/writer.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/bece3c77bb51ecc55dcc4008375dc29ccd91575c#diff-a7e7a47cdb9c675e3fc782c6485635502307c4d1L ",
+        "old_file": "httpie/output/writer.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/output/writer.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/bece3c77bb51ecc55dcc4008375dc29ccd91575c#diff-a7e7a47cdb9c675e3fc782c6485635502307c4d1L ",
+        "old_file": "httpie/output/writer.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/output/writer.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/bece3c77bb51ecc55dcc4008375dc29ccd91575c#diff-a7e7a47cdb9c675e3fc782c6485635502307c4d1L ",
+        "old_file": "httpie/output/writer.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/output/writer.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/bece3c77bb51ecc55dcc4008375dc29ccd91575c#diff-a7e7a47cdb9c675e3fc782c6485635502307c4d1L ",
+        "old_file": "httpie/client.py",
+        "old_line": " ",
+        "old_code": " ",
+        "new_line": "",
+        "new_file": "httpie/client.py",
+        "new_code": ""
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/bece3c77bb51ecc55dcc4008375dc29ccd91575c#diff-a7e7a47cdb9c675e3fc782c6485635502307c4d1L ",
+        "old_file": "httpie/client.py",
+        "old_line": " ",
+        "old_code": " ",
+        "new_line": "",
+        "new_file": "httpie/client.py",
+        "new_code": ""
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/bece3c77bb51ecc55dcc4008375dc29ccd91575c#diff-a7e7a47cdb9c675e3fc782c6485635502307c4d1L ",
+        "old_file": "httpie/client.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/client.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/bece3c77bb51ecc55dcc4008375dc29ccd91575c#diff-a7e7a47cdb9c675e3fc782c6485635502307c4d1L ",
+        "old_file": "httpie/client.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/client.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/bece3c77bb51ecc55dcc4008375dc29ccd91575c#diff-a7e7a47cdb9c675e3fc782c6485635502307c4d1L ",
+        "old_file": "httpie/client.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/client.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/bece3c77bb51ecc55dcc4008375dc29ccd91575c#diff-a7e7a47cdb9c675e3fc782c6485635502307c4d1L ",
+        "old_file": "httpie/client.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/client.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/bece3c77bb51ecc55dcc4008375dc29ccd91575c#diff-a7e7a47cdb9c675e3fc782c6485635502307c4d1L ",
+        "old_file": "httpie/client.py",
+        "old_line": " ",
+        "old_code": " ",
+        "new_line": "",
+        "new_file": "httpie/client.py",
+        "new_code": ""
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/bece3c77bb51ecc55dcc4008375dc29ccd91575c#diff-a7e7a47cdb9c675e3fc782c6485635502307c4d1L ",
+        "old_file": "httpie/client.py",
+        "old_line": " ",
+        "old_code": " ",
+        "new_line": "",
+        "new_file": "httpie/client.py",
+        "new_code": ""
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/bece3c77bb51ecc55dcc4008375dc29ccd91575c#diff-a7e7a47cdb9c675e3fc782c6485635502307c4d1L ",
+        "old_file": "httpie/client.py",
+        "old_line": " ",
+        "old_code": " ",
+        "new_line": "",
+        "new_file": "httpie/client.py",
+        "new_code": ""
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/bece3c77bb51ecc55dcc4008375dc29ccd91575c#diff-a7e7a47cdb9c675e3fc782c6485635502307c4d1L ",
+        "old_file": "httpie/client.py",
+        "old_line": " ",
+        "old_code": " ",
+        "new_line": "",
+        "new_file": "httpie/client.py",
+        "new_code": ""
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/bece3c77bb51ecc55dcc4008375dc29ccd91575c#diff-a7e7a47cdb9c675e3fc782c6485635502307c4d1L ",
+        "old_file": "httpie/client.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/client.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/bece3c77bb51ecc55dcc4008375dc29ccd91575c#diff-a7e7a47cdb9c675e3fc782c6485635502307c4d1L ",
+        "old_file": "httpie/client.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/client.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/bece3c77bb51ecc55dcc4008375dc29ccd91575c#diff-a7e7a47cdb9c675e3fc782c6485635502307c4d1L ",
+        "old_file": "httpie/client.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/client.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/bece3c77bb51ecc55dcc4008375dc29ccd91575c#diff-a7e7a47cdb9c675e3fc782c6485635502307c4d1L ",
+        "old_file": "httpie/client.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/client.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/bece3c77bb51ecc55dcc4008375dc29ccd91575c#diff-a7e7a47cdb9c675e3fc782c6485635502307c4d1L ",
+        "old_file": "httpie/client.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/client.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/bece3c77bb51ecc55dcc4008375dc29ccd91575c#diff-a7e7a47cdb9c675e3fc782c6485635502307c4d1L ",
+        "old_file": "httpie/client.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/client.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/bece3c77bb51ecc55dcc4008375dc29ccd91575c#diff-a7e7a47cdb9c675e3fc782c6485635502307c4d1L ",
+        "old_file": "httpie/sessions.py",
+        "old_line": " ",
+        "old_code": " ",
+        "new_line": "",
+        "new_file": "httpie/sessions.py",
+        "new_code": ""
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/bece3c77bb51ecc55dcc4008375dc29ccd91575c#diff-a7e7a47cdb9c675e3fc782c6485635502307c4d1L ",
+        "old_file": "httpie/sessions.py",
+        "old_line": " ",
+        "old_code": " ",
+        "new_line": "",
+        "new_file": "httpie/sessions.py",
+        "new_code": ""
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/bece3c77bb51ecc55dcc4008375dc29ccd91575c#diff-a7e7a47cdb9c675e3fc782c6485635502307c4d1L ",
+        "old_file": "httpie/sessions.py",
+        "old_line": " ",
+        "old_code": " ",
+        "new_line": "",
+        "new_file": "httpie/sessions.py",
+        "new_code": ""
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/bece3c77bb51ecc55dcc4008375dc29ccd91575c#diff-a7e7a47cdb9c675e3fc782c6485635502307c4d1L ",
+        "old_file": "httpie/sessions.py",
+        "old_line": " ",
+        "old_code": " ",
+        "new_line": "",
+        "new_file": "httpie/sessions.py",
+        "new_code": ""
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/bece3c77bb51ecc55dcc4008375dc29ccd91575c#diff-a7e7a47cdb9c675e3fc782c6485635502307c4d1L ",
+        "old_file": "httpie/sessions.py",
+        "old_line": " ",
+        "old_code": " ",
+        "new_line": "",
+        "new_file": "httpie/sessions.py",
+        "new_code": ""
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/bece3c77bb51ecc55dcc4008375dc29ccd91575c#diff-a7e7a47cdb9c675e3fc782c6485635502307c4d1L ",
+        "old_file": "httpie/sessions.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/sessions.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/bece3c77bb51ecc55dcc4008375dc29ccd91575c#diff-a7e7a47cdb9c675e3fc782c6485635502307c4d1L ",
+        "old_file": "httpie/sessions.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/sessions.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/bece3c77bb51ecc55dcc4008375dc29ccd91575c#diff-a7e7a47cdb9c675e3fc782c6485635502307c4d1L ",
+        "old_file": "httpie/sessions.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/sessions.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/bece3c77bb51ecc55dcc4008375dc29ccd91575c#diff-a7e7a47cdb9c675e3fc782c6485635502307c4d1L ",
+        "old_file": "httpie/sessions.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/sessions.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/bece3c77bb51ecc55dcc4008375dc29ccd91575c#diff-a7e7a47cdb9c675e3fc782c6485635502307c4d1L ",
+        "old_file": "httpie/output/streams.py",
+        "old_line": " ",
+        "old_code": " ",
+        "new_line": "",
+        "new_file": "httpie/output/streams.py",
+        "new_code": ""
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/bece3c77bb51ecc55dcc4008375dc29ccd91575c#diff-a7e7a47cdb9c675e3fc782c6485635502307c4d1L ",
+        "old_file": "httpie/output/streams.py",
+        "old_line": " ",
+        "old_code": " ",
+        "new_line": "",
+        "new_file": "httpie/output/streams.py",
+        "new_code": ""
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/bece3c77bb51ecc55dcc4008375dc29ccd91575c#diff-a7e7a47cdb9c675e3fc782c6485635502307c4d1L ",
+        "old_file": "httpie/output/streams.py",
+        "old_line": " ",
+        "old_code": " ",
+        "new_line": "",
+        "new_file": "httpie/output/streams.py",
+        "new_code": ""
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/bece3c77bb51ecc55dcc4008375dc29ccd91575c#diff-a7e7a47cdb9c675e3fc782c6485635502307c4d1L ",
+        "old_file": "httpie/output/streams.py",
+        "old_line": " ",
+        "old_code": " ",
+        "new_line": "",
+        "new_file": "httpie/output/streams.py",
+        "new_code": ""
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/bece3c77bb51ecc55dcc4008375dc29ccd91575c#diff-a7e7a47cdb9c675e3fc782c6485635502307c4d1L ",
+        "old_file": "httpie/output/streams.py",
+        "old_line": " ",
+        "old_code": " ",
+        "new_line": "",
+        "new_file": "httpie/output/streams.py",
+        "new_code": ""
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/bece3c77bb51ecc55dcc4008375dc29ccd91575c#diff-a7e7a47cdb9c675e3fc782c6485635502307c4d1L ",
+        "old_file": "httpie/output/streams.py",
+        "old_line": " ",
+        "old_code": " ",
+        "new_line": "",
+        "new_file": "httpie/output/streams.py",
+        "new_code": ""
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/bece3c77bb51ecc55dcc4008375dc29ccd91575c#diff-a7e7a47cdb9c675e3fc782c6485635502307c4d1L ",
+        "old_file": "httpie/output/streams.py",
+        "old_line": " ",
+        "old_code": " ",
+        "new_line": "",
+        "new_file": "httpie/output/streams.py",
+        "new_code": ""
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/bece3c77bb51ecc55dcc4008375dc29ccd91575c#diff-a7e7a47cdb9c675e3fc782c6485635502307c4d1L ",
+        "old_file": "httpie/output/streams.py",
+        "old_line": " ",
+        "old_code": " ",
+        "new_line": "",
+        "new_file": "httpie/output/streams.py",
+        "new_code": ""
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/bece3c77bb51ecc55dcc4008375dc29ccd91575c#diff-a7e7a47cdb9c675e3fc782c6485635502307c4d1L ",
+        "old_file": "httpie/output/streams.py",
+        "old_line": " ",
+        "old_code": " ",
+        "new_line": "",
+        "new_file": "httpie/output/streams.py",
+        "new_code": ""
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/bece3c77bb51ecc55dcc4008375dc29ccd91575c#diff-a7e7a47cdb9c675e3fc782c6485635502307c4d1L ",
+        "old_file": "httpie/output/streams.py",
+        "old_line": " ",
+        "old_code": " ",
+        "new_line": "",
+        "new_file": "httpie/output/streams.py",
+        "new_code": ""
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/bece3c77bb51ecc55dcc4008375dc29ccd91575c#diff-a7e7a47cdb9c675e3fc782c6485635502307c4d1L ",
+        "old_file": "httpie/output/streams.py",
+        "old_line": " ",
+        "old_code": " ",
+        "new_line": "",
+        "new_file": "httpie/output/streams.py",
+        "new_code": ""
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/bece3c77bb51ecc55dcc4008375dc29ccd91575c#diff-a7e7a47cdb9c675e3fc782c6485635502307c4d1L ",
+        "old_file": "httpie/output/streams.py",
+        "old_line": " ",
+        "old_code": " ",
+        "new_line": "",
+        "new_file": "httpie/output/streams.py",
+        "new_code": ""
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/bece3c77bb51ecc55dcc4008375dc29ccd91575c#diff-a7e7a47cdb9c675e3fc782c6485635502307c4d1L ",
+        "old_file": "httpie/output/streams.py",
+        "old_line": " ",
+        "old_code": " ",
+        "new_line": "",
+        "new_file": "httpie/output/streams.py",
+        "new_code": ""
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/bece3c77bb51ecc55dcc4008375dc29ccd91575c#diff-a7e7a47cdb9c675e3fc782c6485635502307c4d1L ",
+        "old_file": "httpie/core.py",
+        "old_line": " ",
+        "old_code": " ",
+        "new_line": "",
+        "new_file": "httpie/core.py",
+        "new_code": ""
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/bece3c77bb51ecc55dcc4008375dc29ccd91575c#diff-a7e7a47cdb9c675e3fc782c6485635502307c4d1L ",
+        "old_file": "httpie/core.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/core.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/bece3c77bb51ecc55dcc4008375dc29ccd91575c#diff-a7e7a47cdb9c675e3fc782c6485635502307c4d1L ",
+        "old_file": "httpie/core.py",
+        "old_line": " ",
+        "old_code": " ",
+        "new_line": "",
+        "new_file": "httpie/core.py",
+        "new_code": ""
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/bece3c77bb51ecc55dcc4008375dc29ccd91575c#diff-a7e7a47cdb9c675e3fc782c6485635502307c4d1L ",
+        "old_file": "httpie/core.py",
+        "old_line": " ",
+        "old_code": " ",
+        "new_line": "",
+        "new_file": "httpie/core.py",
+        "new_code": ""
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/bece3c77bb51ecc55dcc4008375dc29ccd91575c#diff-a7e7a47cdb9c675e3fc782c6485635502307c4d1L ",
+        "old_file": "httpie/core.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/core.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/bece3c77bb51ecc55dcc4008375dc29ccd91575c#diff-a7e7a47cdb9c675e3fc782c6485635502307c4d1L ",
+        "old_file": "httpie/core.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/core.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/bece3c77bb51ecc55dcc4008375dc29ccd91575c#diff-a7e7a47cdb9c675e3fc782c6485635502307c4d1L ",
+        "old_file": "httpie/downloads.py",
+        "old_line": " ",
+        "old_code": " ",
+        "new_line": " ",
+        "new_file": "httpie/downloads.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/bece3c77bb51ecc55dcc4008375dc29ccd91575c#diff-a7e7a47cdb9c675e3fc782c6485635502307c4d1L ",
+        "old_file": "httpie/downloads.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/downloads.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/bece3c77bb51ecc55dcc4008375dc29ccd91575c#diff-a7e7a47cdb9c675e3fc782c6485635502307c4d1L ",
+        "old_file": "httpie/downloads.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/downloads.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/c8fd4c2d6eb34145754d5e3f1e81752cb426d041#diff-a4b2e7de5e16a84e88da8ce214ee682a95b72d78L ",
+        "old_file": "httpie/client.py",
+        "old_line": " ",
+        "old_code": " ",
+        "new_line": "",
+        "new_file": "httpie/client.py",
+        "new_code": ""
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/c8fd4c2d6eb34145754d5e3f1e81752cb426d041#diff-a4b2e7de5e16a84e88da8ce214ee682a95b72d78L ",
+        "old_file": "httpie/client.py",
+        "old_line": " ",
+        "old_code": " ",
+        "new_line": "",
+        "new_file": "httpie/client.py",
+        "new_code": ""
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/c8fd4c2d6eb34145754d5e3f1e81752cb426d041#diff-a4b2e7de5e16a84e88da8ce214ee682a95b72d78L ",
+        "old_file": "httpie/client.py",
+        "old_line": " ",
+        "old_code": " ",
+        "new_line": "",
+        "new_file": "httpie/client.py",
+        "new_code": ""
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/c8fd4c2d6eb34145754d5e3f1e81752cb426d041#diff-a4b2e7de5e16a84e88da8ce214ee682a95b72d78L ",
+        "old_file": "httpie/client.py",
+        "old_line": " ",
+        "old_code": " ",
+        "new_line": "",
+        "new_file": "httpie/client.py",
+        "new_code": ""
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/c8fd4c2d6eb34145754d5e3f1e81752cb426d041#diff-a4b2e7de5e16a84e88da8ce214ee682a95b72d78L ",
+        "old_file": "httpie/client.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/client.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/c8fd4c2d6eb34145754d5e3f1e81752cb426d041#diff-a4b2e7de5e16a84e88da8ce214ee682a95b72d78L ",
+        "old_file": "httpie/client.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/client.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/374c371ef1537fa9313b275998f2b276f4581358#diff-67e566dd23d15b1759666c2cad562c67965db499L ",
+        "old_file": "httpie/status.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/status.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/374c371ef1537fa9313b275998f2b276f4581358#diff-67e566dd23d15b1759666c2cad562c67965db499L ",
+        "old_file": "httpie/status.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/status.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/374c371ef1537fa9313b275998f2b276f4581358#diff-67e566dd23d15b1759666c2cad562c67965db499L ",
+        "old_file": "httpie/core.py",
+        "old_line": " ",
+        "old_code": " ",
+        "new_line": "",
+        "new_file": "httpie/core.py",
+        "new_code": ""
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/374c371ef1537fa9313b275998f2b276f4581358#diff-67e566dd23d15b1759666c2cad562c67965db499L ",
+        "old_file": "httpie/core.py",
+        "old_line": " ",
+        "old_code": " ",
+        "new_line": "",
+        "new_file": "httpie/core.py",
+        "new_code": ""
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/37fa67cd3c3ea6b248209cca9e31702ab63c98c1#diff-9ad4c491db0db9d42ca70f12ae1fad38d9bd73d6L ",
+        "old_file": "httpie/cli/argtypes.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/cli/argtypes.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/37fa67cd3c3ea6b248209cca9e31702ab63c98c1#diff-9ad4c491db0db9d42ca70f12ae1fad38d9bd73d6L ",
+        "old_file": "httpie/cli/argtypes.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/cli/argtypes.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/37fa67cd3c3ea6b248209cca9e31702ab63c98c1#diff-9ad4c491db0db9d42ca70f12ae1fad38d9bd73d6L ",
+        "old_file": "httpie/cli/argtypes.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/cli/argtypes.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/37fa67cd3c3ea6b248209cca9e31702ab63c98c1#diff-9ad4c491db0db9d42ca70f12ae1fad38d9bd73d6L ",
+        "old_file": "httpie/cli/requestitems.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/cli/requestitems.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/a42b275ae2d71d9042831cc219ae95f462b0b0c1#diff-ce6290debbf0d9fa2d3e4c9ecdfc9a181aab6d98L ",
+        "old_file": "httpie/cli/argtypes.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/cli/argtypes.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/a42b275ae2d71d9042831cc219ae95f462b0b0c1#diff-ce6290debbf0d9fa2d3e4c9ecdfc9a181aab6d98L ",
+        "old_file": "httpie/cli/argtypes.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/cli/argtypes.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/a42b275ae2d71d9042831cc219ae95f462b0b0c1#diff-ce6290debbf0d9fa2d3e4c9ecdfc9a181aab6d98L ",
+        "old_file": "httpie/cli/argtypes.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/cli/argtypes.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/a42b275ae2d71d9042831cc219ae95f462b0b0c1#diff-ce6290debbf0d9fa2d3e4c9ecdfc9a181aab6d98L ",
+        "old_file": "httpie/cli/argtypes.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/cli/argtypes.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/a42b275ae2d71d9042831cc219ae95f462b0b0c1#diff-ce6290debbf0d9fa2d3e4c9ecdfc9a181aab6d98L ",
+        "old_file": "httpie/cli/argtypes.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/cli/argtypes.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/a42b275ae2d71d9042831cc219ae95f462b0b0c1#diff-ce6290debbf0d9fa2d3e4c9ecdfc9a181aab6d98L ",
+        "old_file": "httpie/cli/argtypes.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/cli/argtypes.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/a42b275ae2d71d9042831cc219ae95f462b0b0c1#diff-ce6290debbf0d9fa2d3e4c9ecdfc9a181aab6d98L ",
+        "old_file": "httpie/cli/argtypes.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/cli/argtypes.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/a42b275ae2d71d9042831cc219ae95f462b0b0c1#diff-ce6290debbf0d9fa2d3e4c9ecdfc9a181aab6d98L ",
+        "old_file": "httpie/cli/argtypes.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/cli/argtypes.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/a42b275ae2d71d9042831cc219ae95f462b0b0c1#diff-ce6290debbf0d9fa2d3e4c9ecdfc9a181aab6d98L ",
+        "old_file": "httpie/cli/argtypes.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/cli/argtypes.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/a42b275ae2d71d9042831cc219ae95f462b0b0c1#diff-ce6290debbf0d9fa2d3e4c9ecdfc9a181aab6d98L ",
+        "old_file": "httpie/cli/argtypes.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/cli/argtypes.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/a42b275ae2d71d9042831cc219ae95f462b0b0c1#diff-ce6290debbf0d9fa2d3e4c9ecdfc9a181aab6d98L ",
+        "old_file": "httpie/cli/argtypes.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/cli/argtypes.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/f202f338a47d7e2a7e14bb7b14e5c934356ad66e#diff-a30ec9d8b5f72b609322d89e60a8c63f62039bd3L ",
+        "old_file": "httpie/context.py",
+        "old_line": " ",
+        "old_code": " ",
+        "new_line": "",
+        "new_file": "httpie/context.py",
+        "new_code": ""
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/f202f338a47d7e2a7e14bb7b14e5c934356ad66e#diff-a30ec9d8b5f72b609322d89e60a8c63f62039bd3L ",
+        "old_file": "httpie/context.py",
+        "old_line": " ",
+        "old_code": " ",
+        "new_line": "",
+        "new_file": "httpie/context.py",
+        "new_code": ""
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/f202f338a47d7e2a7e14bb7b14e5c934356ad66e#diff-a30ec9d8b5f72b609322d89e60a8c63f62039bd3L ",
+        "old_file": "httpie/context.py",
+        "old_line": " ",
+        "old_code": " ",
+        "new_line": "",
+        "new_file": "httpie/context.py",
+        "new_code": ""
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/f202f338a47d7e2a7e14bb7b14e5c934356ad66e#diff-a30ec9d8b5f72b609322d89e60a8c63f62039bd3L ",
+        "old_file": "httpie/context.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/context.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/f202f338a47d7e2a7e14bb7b14e5c934356ad66e#diff-a30ec9d8b5f72b609322d89e60a8c63f62039bd3L ",
+        "old_file": "httpie/context.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/context.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/f202f338a47d7e2a7e14bb7b14e5c934356ad66e#diff-a30ec9d8b5f72b609322d89e60a8c63f62039bd3L ",
+        "old_file": "httpie/context.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/context.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/f202f338a47d7e2a7e14bb7b14e5c934356ad66e#diff-a30ec9d8b5f72b609322d89e60a8c63f62039bd3L ",
+        "old_file": "httpie/context.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/context.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/f202f338a47d7e2a7e14bb7b14e5c934356ad66e#diff-a30ec9d8b5f72b609322d89e60a8c63f62039bd3L ",
+        "old_file": "httpie/context.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/context.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/f202f338a47d7e2a7e14bb7b14e5c934356ad66e#diff-a30ec9d8b5f72b609322d89e60a8c63f62039bd3L ",
+        "old_file": "httpie/sessions.py",
+        "old_line": " ",
+        "old_code": " ",
+        "new_line": "",
+        "new_file": "httpie/sessions.py",
+        "new_code": ""
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/f202f338a47d7e2a7e14bb7b14e5c934356ad66e#diff-a30ec9d8b5f72b609322d89e60a8c63f62039bd3L ",
+        "old_file": "httpie/config.py",
+        "old_line": " ",
+        "old_code": " ",
+        "new_line": "",
+        "new_file": "httpie/config.py",
+        "new_code": ""
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/f202f338a47d7e2a7e14bb7b14e5c934356ad66e#diff-a30ec9d8b5f72b609322d89e60a8c63f62039bd3L ",
+        "old_file": "httpie/config.py",
+        "old_line": " ",
+        "old_code": " ",
+        "new_line": "",
+        "new_file": "httpie/config.py",
+        "new_code": ""
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/f202f338a47d7e2a7e14bb7b14e5c934356ad66e#diff-a30ec9d8b5f72b609322d89e60a8c63f62039bd3L ",
+        "old_file": "httpie/config.py",
+        "old_line": " ",
+        "old_code": " ",
+        "new_line": "",
+        "new_file": "httpie/config.py",
+        "new_code": ""
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/f202f338a47d7e2a7e14bb7b14e5c934356ad66e#diff-a30ec9d8b5f72b609322d89e60a8c63f62039bd3L ",
+        "old_file": "httpie/config.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/config.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/f202f338a47d7e2a7e14bb7b14e5c934356ad66e#diff-a30ec9d8b5f72b609322d89e60a8c63f62039bd3L ",
+        "old_file": "httpie/core.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/core.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/f202f338a47d7e2a7e14bb7b14e5c934356ad66e#diff-a30ec9d8b5f72b609322d89e60a8c63f62039bd3L ",
+        "old_file": "httpie/core.py",
+        "old_line": " ",
+        "old_code": " ",
+        "new_line": "",
+        "new_file": "httpie/core.py",
+        "new_code": ""
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/f202f338a47d7e2a7e14bb7b14e5c934356ad66e#diff-a30ec9d8b5f72b609322d89e60a8c63f62039bd3L ",
+        "old_file": "httpie/core.py",
+        "old_line": " ",
+        "old_code": " ",
+        "new_line": "",
+        "new_file": "httpie/core.py",
+        "new_code": ""
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/f202f338a47d7e2a7e14bb7b14e5c934356ad66e#diff-a30ec9d8b5f72b609322d89e60a8c63f62039bd3L ",
+        "old_file": "tests/utils.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "tests/utils.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/f202f338a47d7e2a7e14bb7b14e5c934356ad66e#diff-a30ec9d8b5f72b609322d89e60a8c63f62039bd3L ",
+        "old_file": "tests/utils.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "tests/utils.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/4b524e6a8c644283857787929947588e40a3b3ff#diff-b3473d3a81465d80b9ef5838235a4d9989aab785L ",
+        "old_file": "httpie/cli/requestitems.py",
+        "old_line": " ",
+        "old_code": " ",
+        "new_line": "",
+        "new_file": "httpie/cli/requestitems.py",
+        "new_code": ""
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/3a6ac7d1265a38ed006d568088ddc829ca66d43a#diff-72cca67c7f4799852d00e92f9995dcadb7710686L ",
+        "old_file": "httpie/context.py",
+        "old_line": " ",
+        "old_code": " ",
+        "new_line": "",
+        "new_file": "httpie/context.py",
+        "new_code": ""
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/3a6ac7d1265a38ed006d568088ddc829ca66d43a#diff-72cca67c7f4799852d00e92f9995dcadb7710686L ",
+        "old_file": "httpie/context.py",
+        "old_line": " ",
+        "old_code": " ",
+        "new_line": "",
+        "new_file": "httpie/context.py",
+        "new_code": ""
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/3a6ac7d1265a38ed006d568088ddc829ca66d43a#diff-72cca67c7f4799852d00e92f9995dcadb7710686L ",
+        "old_file": "httpie/context.py",
+        "old_line": " ",
+        "old_code": " ",
+        "new_line": "",
+        "new_file": "httpie/context.py",
+        "new_code": ""
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/3a6ac7d1265a38ed006d568088ddc829ca66d43a#diff-72cca67c7f4799852d00e92f9995dcadb7710686L ",
+        "old_file": "httpie/context.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/context.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/3a6ac7d1265a38ed006d568088ddc829ca66d43a#diff-72cca67c7f4799852d00e92f9995dcadb7710686L ",
+        "old_file": "httpie/context.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/context.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/3a6ac7d1265a38ed006d568088ddc829ca66d43a#diff-72cca67c7f4799852d00e92f9995dcadb7710686L ",
+        "old_file": "httpie/context.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/context.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/684a4708d7eaecdf06a132da2633d06834bb08a3#diff-1979cad6acc9059abecf17914d94ca0083a4d5f2L ",
+        "old_file": "httpie/client.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/client.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/684a4708d7eaecdf06a132da2633d06834bb08a3#diff-1979cad6acc9059abecf17914d94ca0083a4d5f2L ",
+        "old_file": "httpie/client.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/client.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/684a4708d7eaecdf06a132da2633d06834bb08a3#diff-1979cad6acc9059abecf17914d94ca0083a4d5f2L ",
+        "old_file": "httpie/client.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/client.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/5af0874ed302e9ef79cec97836529ccf353e53f7#diff-cac911f5f17742882cfd4c042889dd5891712c3aL ",
+        "old_file": "httpie/config.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/config.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/3e20ade6457eea46345b89994c0f9391dd9fd04a#diff-e2ec1013a116e45eed056ffb925a4ca0b522d08bL ",
+        "old_file": "tests/test_config.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "tests/test_config.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/3e20ade6457eea46345b89994c0f9391dd9fd04a#diff-e2ec1013a116e45eed056ffb925a4ca0b522d08bL ",
+        "old_file": "tests/test_config.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "tests/test_config.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/3e20ade6457eea46345b89994c0f9391dd9fd04a#diff-e2ec1013a116e45eed056ffb925a4ca0b522d08bL ",
+        "old_file": "tests/test_config.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "tests/test_config.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/3e20ade6457eea46345b89994c0f9391dd9fd04a#diff-e2ec1013a116e45eed056ffb925a4ca0b522d08bL ",
+        "old_file": "tests/test_config.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "tests/test_config.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/3e20ade6457eea46345b89994c0f9391dd9fd04a#diff-e2ec1013a116e45eed056ffb925a4ca0b522d08bL ",
+        "old_file": "tests/test_config.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "tests/test_config.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/3e20ade6457eea46345b89994c0f9391dd9fd04a#diff-e2ec1013a116e45eed056ffb925a4ca0b522d08bL ",
+        "old_file": "tests/test_config.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "tests/test_config.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/3e20ade6457eea46345b89994c0f9391dd9fd04a#diff-e2ec1013a116e45eed056ffb925a4ca0b522d08bL ",
+        "old_file": "tests/test_config.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "tests/test_config.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/3e20ade6457eea46345b89994c0f9391dd9fd04a#diff-e2ec1013a116e45eed056ffb925a4ca0b522d08bL ",
+        "old_file": "tests/test_config.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "tests/test_config.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/3e20ade6457eea46345b89994c0f9391dd9fd04a#diff-e2ec1013a116e45eed056ffb925a4ca0b522d08bL ",
+        "old_file": "tests/test_config.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "tests/test_config.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/d62d6a77d1c00dfa4052adc85ebcb109e84c2e2c#diff-fba300a8d4004d578c845724d28efabc900935cbL ",
+        "old_file": "httpie/ssl.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/ssl.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/d62d6a77d1c00dfa4052adc85ebcb109e84c2e2c#diff-fba300a8d4004d578c845724d28efabc900935cbL ",
+        "old_file": "httpie/ssl.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/ssl.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/d62d6a77d1c00dfa4052adc85ebcb109e84c2e2c#diff-fba300a8d4004d578c845724d28efabc900935cbL ",
+        "old_file": "httpie/ssl.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/ssl.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/d62d6a77d1c00dfa4052adc85ebcb109e84c2e2c#diff-fba300a8d4004d578c845724d28efabc900935cbL ",
+        "old_file": "httpie/client.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/client.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/a53505f26edcc9c2534a07aedc3858588506d285#diff-e5f2dc47a8664fda54476abf1a336e8352b715abL ",
+        "old_file": "httpie/ssl.py",
+        "old_line": " ",
+        "old_code": " ",
+        "new_line": "",
+        "new_file": "httpie/ssl.py",
+        "new_code": ""
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/4c4efff56ad9b0df356fafa3267c2f39135f17c8#diff-261f96b1e364861052f3422a6e09d7053e74c446L ",
+        "old_file": "httpie/ssl.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/ssl.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/4c4efff56ad9b0df356fafa3267c2f39135f17c8#diff-261f96b1e364861052f3422a6e09d7053e74c446L ",
+        "old_file": "httpie/client.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/client.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/27d57ce77356de8bedb73b7f957df862234b8a0d#diff-a7c3cc39e722167a4891cff153cd2ffda31698c5L ",
+        "old_file": "httpie/ssl.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/ssl.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/27d57ce77356de8bedb73b7f957df862234b8a0d#diff-a7c3cc39e722167a4891cff153cd2ffda31698c5L ",
+        "old_file": "httpie/ssl.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/ssl.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/27d57ce77356de8bedb73b7f957df862234b8a0d#diff-a7c3cc39e722167a4891cff153cd2ffda31698c5L ",
+        "old_file": "httpie/ssl.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/ssl.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/27d57ce77356de8bedb73b7f957df862234b8a0d#diff-a7c3cc39e722167a4891cff153cd2ffda31698c5L ",
+        "old_file": "httpie/ssl.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/ssl.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/c2a0cef76e0613de028d5ff982bd862206439a0f#diff-3b2de1fe06a91253c2f9416b3fd1a4da1f851345L ",
+        "old_file": "httpie/cli/argtypes.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/cli/argtypes.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/c2a0cef76e0613de028d5ff982bd862206439a0f#diff-3b2de1fe06a91253c2f9416b3fd1a4da1f851345L ",
+        "old_file": "httpie/cli/argtypes.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/cli/argtypes.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/c2a0cef76e0613de028d5ff982bd862206439a0f#diff-3b2de1fe06a91253c2f9416b3fd1a4da1f851345L ",
+        "old_file": "httpie/cli/argtypes.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/cli/argtypes.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/c2a0cef76e0613de028d5ff982bd862206439a0f#diff-3b2de1fe06a91253c2f9416b3fd1a4da1f851345L ",
+        "old_file": "tests/test_output.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "tests/test_output.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/c2a0cef76e0613de028d5ff982bd862206439a0f#diff-3b2de1fe06a91253c2f9416b3fd1a4da1f851345L ",
+        "old_file": "tests/test_output.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "tests/test_output.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/9c68d7dd8721705be257791dc1a3c36dc31dbc8b#diff-b4972c3b9451b41c49e8f764201832b442094ddbL ",
+        "old_file": "httpie/utils.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/utils.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/9c68d7dd8721705be257791dc1a3c36dc31dbc8b#diff-b4972c3b9451b41c49e8f764201832b442094ddbL ",
+        "old_file": "httpie/utils.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/utils.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/9c68d7dd8721705be257791dc1a3c36dc31dbc8b#diff-b4972c3b9451b41c49e8f764201832b442094ddbL ",
+        "old_file": "httpie/utils.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/utils.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/9c68d7dd8721705be257791dc1a3c36dc31dbc8b#diff-b4972c3b9451b41c49e8f764201832b442094ddbL ",
+        "old_file": "httpie/sessions.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/sessions.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/37200eb055040762593fcde0e864da984c111a70#diff-2ed095a846de256a6a710fb738a1a6a4e2a1aa0dL ",
+        "old_file": "httpie/utils.py",
+        "old_line": " ",
+        "old_code": " ",
+        "new_line": "",
+        "new_file": "httpie/utils.py",
+        "new_code": ""
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/37200eb055040762593fcde0e864da984c111a70#diff-2ed095a846de256a6a710fb738a1a6a4e2a1aa0dL ",
+        "old_file": "httpie/utils.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/utils.py",
+        "new_code": " "
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/37200eb055040762593fcde0e864da984c111a70#diff-2ed095a846de256a6a710fb738a1a6a4e2a1aa0dL ",
+        "old_file": "httpie/utils.py",
+        "old_line": " ",
+        "old_code": " ",
+        "new_line": "",
+        "new_file": "httpie/utils.py",
+        "new_code": ""
+    },
+    {
+        "url": "https://github.com/jakubroztocil/httpie/commit/37200eb055040762593fcde0e864da984c111a70#diff-2ed095a846de256a6a710fb738a1a6a4e2a1aa0dL ",
+        "old_file": "httpie/utils.py",
+        "old_line": "",
+        "old_code": "",
+        "new_line": " ",
+        "new_file": "httpie/utils.py",
+        "new_code": " "
     }
 ]
