@@ -52,12 +52,19 @@ if __name__ == "__main__":
         for repository in dirlist:
             print(i, '/', len(dirlist))
             i += 1
-            gitUtils.query_repo_get_changes(repository,
-                                            '.py', statistics, code_changes, lock, logging)
+            try:
+                gitUtils.query_repo_get_changes(repository,
+                                                '.py', statistics, code_changes, lock, logging)
+            except:
+                print('Error in repository:', repository)
+                continue
 
     if statistics.total_typeAnnotation_codeChanges > 0:
         # Statistics computation
-        statistics.statistics_computation()
+        try:
+            statistics.statistics_computation()
+        except:
+            print("Error during statistics computation")
     else:
         print('No type annotation code changes found')
         exit()
@@ -70,7 +77,10 @@ if __name__ == "__main__":
     statistics.execution_time = "{:0>2}:{:0>2}:{:05.2f}".format(int(hours), int(minutes), seconds)
 
     # Write results in files
-    myplot(statistics)
-    write_results(statistics, code_changes)
+    try:
+        myplot(statistics)
+        write_results(statistics, code_changes)
+    except:
+        print("Error writing results in files.")
 
     print("\nProgram ends successfully in " + "{:0>2}:{:0>2}:{:05.2f}".format(int(hours), int(minutes), seconds))

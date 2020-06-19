@@ -12,12 +12,12 @@ def extract_from_snippet(string):
 
     # Parse file to AST
     try:
-        #str_file = string[2:-1].replace("\\n", os.linesep).replace("\\t", "    ").replace("= \\'", "= '").replace("\\\\", "\\")
-        #ast = cst.parse_module(string[2:-1].replace("\\n", os.linesep).replace("\\t", "    "))
+        # str_file = string[2:-1].replace("\\n", os.linesep).replace("\\t", "    ").replace("= \\'", "= '").replace("\\\\", "\\")
+        # ast = cst.parse_module(string[2:-1].replace("\\n", os.linesep).replace("\\t", "    "))
         ast = cst.parse_module(string)
     except Exception as e:
-            #print('Failed to upload to ftp: ' + str(e))
-            return {}, {}, {}
+        # print('Failed to upload to ftp: ' + str(e))
+        return {}, {}, {}
 
     # Collect types
     type_collector = TypeCollector()
@@ -140,7 +140,11 @@ def TypeAnnotationExtraction(repo_path, repo_name, commit, patch, url, statistic
     if "fatal" in str(old_stdout):
         old_param_types = old_return_types = old_variable_types = {}
     else:
-        old_param_types, old_return_types, old_variable_types = extract_from_snippet(str(old_stdout.decode('utf-8')))
+        try:
+            old_param_types, old_return_types, old_variable_types = extract_from_snippet(
+                str(old_stdout.decode('utf-8')))
+        except:
+            return
 
     new_out = subprocess.Popen(["git", "--git-dir", str(repo_path + repo_name) + '/.git', 'show',
                                 str(commit.hex) + ":" + str(patch.delta.new_file.path)],
@@ -151,7 +155,10 @@ def TypeAnnotationExtraction(repo_path, repo_name, commit, patch, url, statistic
     if "fatal" in str(new_stdout):
         new_param_types = new_return_types = new_variable_types = {}
     else:
-        new_param_types, new_return_types, new_variable_types = extract_from_snippet(str(new_stdout.decode('utf-8')))
+        try:
+            new_param_types, new_return_types, new_variable_types = extract_from_snippet(str(new_stdout.decode('utf-8')))
+        except:
+            return
 
     try:
         old_line = old_code = new_line = new_code = ' '
