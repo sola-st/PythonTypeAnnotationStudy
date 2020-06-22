@@ -625,7 +625,7 @@ def TypeAnnotationExtractionFirstCommit(repo_path, repo_name, commit, patch, url
     lock.release()
 
 
-# [RQ7]: How many of all types are annotated in the last verison of the code?
+# [RQ7]: How many of all types are annotated in the last version of the code?
 def type_annotation_in_last_version(repo_name, statistics, lock):
     for filepath in pathlib.Path(config.ROOT_DIR + "/GitHub/" + repo_name).glob('**/*'):
         temp = []

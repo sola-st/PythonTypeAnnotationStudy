@@ -123,8 +123,8 @@ class CodeStatistics:
         self.number_type_annotations_per_repo = {}
         self.s7 = "------------------------------------------------------------------------"
 
-        # [RQ7]: How many of all types are annotated in the last verison of the code?
-        self.RQ7 = 'How many of all types are annotated in the last verison of the code?'
+        # [RQ7]: How many of all types are annotated in the last version of the code?
+        self.RQ7 = 'How many of all types are annotated in the last version of the code?'
         self.typeLastProjectVersion_total = 0
         self.typeLastProjectVersion_percentage = 0
         self.typeLastProjectVersion_dict = {}
