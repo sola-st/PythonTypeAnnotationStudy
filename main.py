@@ -1,4 +1,5 @@
 import os
+import threading
 import time
 import multiprocessing
 from Code import gitUtils
@@ -34,12 +35,14 @@ if __name__ == "__main__":
                                             '.py', statistics, code_changes, lock, logging)
 
     else:
-        """
+
         threads: list = []
+        pointer = [1]
+        dirlist_len = len(dirlist)
         for repository in dirlist:
             thread = threading.Thread(target=gitUtils.query_repo_get_changes,
                                       args=(repository, '.py', statistics,
-                                            code_changes, lock, logging))
+                                            code_changes, lock, logging, pointer, dirlist_len))
             threads.append(thread)
 
         for thread in threads:
@@ -47,6 +50,7 @@ if __name__ == "__main__":
 
         for thread in threads:
             thread.join()
+
         """
         i = 1
         for repository in dirlist:
@@ -54,11 +58,11 @@ if __name__ == "__main__":
             i += 1
             try:
                 gitUtils.query_repo_get_changes(repository,
-                                                '.py', statistics, code_changes, lock, logging)
+                                                '.py', statistics, code_changes, lock, logging, pointer, dirlist_len)
             except:
                 print('Error in repository:', repository)
                 continue
-
+        """
     if statistics.total_typeAnnotation_codeChanges > 0:
         # Statistics computation
         try:
