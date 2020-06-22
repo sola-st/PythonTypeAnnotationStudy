@@ -27,12 +27,11 @@ if __name__ == "__main__":
     lock = multiprocessing.Lock()
 
     if config.TEST:
-        listOfStrings1 = [config.ROOT_DIR + "/GitHub/pythontest"] * 1
 
-        for repo in listOfStrings1:
-            print("\nWorking on pythontest")
-            gitUtils.query_repo_get_changes("pythontest",
-                                            '.py', statistics, code_changes, lock, logging)
+
+        print("\nWorking on pythontest")
+        gitUtils.query_repo_get_changes("pythontest",
+                                        '.py', statistics, code_changes, lock, logging, [1], 1)
 
     else:
 
@@ -84,7 +83,8 @@ if __name__ == "__main__":
     try:
         myplot(statistics)
         write_results(statistics, code_changes)
-    except:
-        print("Error writing results in files.")
+    except Exception as e:
+        print('Error writing results in files: ' + str(e))
+
 
     print("\nProgram ends successfully in " + "{:0>2}:{:0>2}:{:05.2f}".format(int(hours), int(minutes), seconds))

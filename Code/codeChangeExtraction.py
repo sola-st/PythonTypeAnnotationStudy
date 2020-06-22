@@ -122,7 +122,8 @@ def search_key_value_in_snippet(file, list_of_strings):
 
 def TypeAnnotationExtraction(repo_path, repo_name, commit, patch, url, statistics, lock, logging,
                              at_least_one_type_change, code_changes,
-                             typeannotation_line_inserted, typeannotation_line_removed, typeannotation_line_changed):
+                             typeannotation_line_inserted, typeannotation_line_removed, typeannotation_line_changed,
+                             list_line_added, list_line_removed):
     # command = "git --git-dir " + str(repo_path) + '/.git show ' + str(commit.hex) + ":" + str(patch.delta.old_file.path)
     # os.system(command)
     code_changes_new = []
@@ -199,6 +200,8 @@ def TypeAnnotationExtraction(repo_path, repo_name, commit, patch, url, statistic
                             str(old_return_types[key] + ' -> ' + new_return_types[key]).lower()] += 1
                     statistics.total_changed += 1
                     statistics.functionReturnsType_changed += 1
+                    list_line_added.add(key)
+                    list_line_removed.add(key)
 
                     lock.release()
 
@@ -227,6 +230,7 @@ def TypeAnnotationExtraction(repo_path, repo_name, commit, patch, url, statistic
                     statistics.typeRemoved_dict[old_return_types[key].lower()] += 1
                 statistics.total_removed += 1
                 statistics.functionReturnsType_removed += 1
+                list_line_removed.add(key)
                 lock.release()
 
         # Insert type annotation
@@ -255,6 +259,8 @@ def TypeAnnotationExtraction(repo_path, repo_name, commit, patch, url, statistic
                     statistics.typeAdded_dict[new_return_types[key].lower()] += 1
                 statistics.total_added += 1
                 statistics.functionReturnsType_added += 1
+
+                list_line_added.add(key)
                 lock.release()
 
         ################################################################
@@ -294,6 +300,9 @@ def TypeAnnotationExtraction(repo_path, repo_name, commit, patch, url, statistic
                     statistics.total_changed += 1
                     statistics.functionArgsType_changed += 1
 
+                    list_line_added.add(key)
+                    list_line_removed.add(key)
+
                     lock.release()
 
             # Remove type annotation
@@ -320,6 +329,8 @@ def TypeAnnotationExtraction(repo_path, repo_name, commit, patch, url, statistic
                     statistics.typeRemoved_dict[old_param_types[key].lower()] += 1
                 statistics.total_removed += 1
                 statistics.functionArgsType_removed += 1
+
+                list_line_removed.add(key)
                 lock.release()
 
         # Insert type annotation
@@ -348,6 +359,8 @@ def TypeAnnotationExtraction(repo_path, repo_name, commit, patch, url, statistic
                     statistics.typeAdded_dict[new_param_types[key].lower()] += 1
                 statistics.total_added += 1
                 statistics.functionArgsType_added += 1
+
+                list_line_added.add(key)
                 lock.release()
 
         ################################################################
@@ -389,6 +402,9 @@ def TypeAnnotationExtraction(repo_path, repo_name, commit, patch, url, statistic
                     statistics.total_changed += 1
                     statistics.variableType_changed += 1
 
+                    list_line_added.add(key)
+                    list_line_removed.add(key)
+
                     lock.release()
 
             # Remove type annotation
@@ -417,6 +433,8 @@ def TypeAnnotationExtraction(repo_path, repo_name, commit, patch, url, statistic
                     statistics.typeRemoved_dict[old_variable_types[key].lower()] += 1
                 statistics.total_removed += 1
                 statistics.variableType_removed += 1
+
+                list_line_removed.add(key)
                 lock.release()
 
         # Insert type annotation
@@ -446,6 +464,8 @@ def TypeAnnotationExtraction(repo_path, repo_name, commit, patch, url, statistic
                     statistics.typeAdded_dict[new_variable_types[key].lower()] += 1
                 statistics.total_added += 1
                 statistics.variableType_added += 1
+
+                list_line_added.add(key)
                 lock.release()
     except:
         # print('Repository', repo_path, 'commit', commit, 'with old line', str(old_stdout))
@@ -480,7 +500,7 @@ def TypeAnnotationExtraction(repo_path, repo_name, commit, patch, url, statistic
 def TypeAnnotationExtractionFirstCommit(repo_path, repo_name, commit, patch, url, statistics, lock, logging,
                                         at_least_one_type_change, code_changes,
                                         typeannotation_line_inserted, typeannotation_line_removed,
-                                        typeannotation_line_changed):
+                                        typeannotation_line_changed, list_line_added):
     # command = "git --git-dir " + str(repo_path) + '/.git show ' + str(commit.hex) + ":" + str(patch.delta.old_file.path)
     # os.system(command)
     code_changes_new = []
@@ -533,6 +553,7 @@ def TypeAnnotationExtractionFirstCommit(repo_path, repo_name, commit, patch, url
                 statistics.typeAdded_dict[new_return_types[key].lower()] += 1
             statistics.total_added += 1
             statistics.functionReturnsType_added += 1
+            list_line_added.add(key)
             lock.release()
 
         ################################################################
@@ -564,6 +585,7 @@ def TypeAnnotationExtractionFirstCommit(repo_path, repo_name, commit, patch, url
                 statistics.typeAdded_dict[new_param_types[key].lower()] += 1
             statistics.total_added += 1
             statistics.functionArgsType_added += 1
+            list_line_added.add(key)
             lock.release()
 
             ################################################################
@@ -594,6 +616,7 @@ def TypeAnnotationExtractionFirstCommit(repo_path, repo_name, commit, patch, url
                     statistics.typeAdded_dict[new_variable_types[key].lower()] += 1
                 statistics.total_added += 1
                 statistics.variableType_added += 1
+                list_line_added.add(key)
                 lock.release()
     except:
         # print('Repository', repo_path, 'commit', commit, 'with old line', str(old_stdout))
@@ -637,16 +660,16 @@ def type_annotation_in_last_version(repo_name, statistics, lock):
                     continue
 
                 for key in param_types:
-                    if str(key) not in temp:
-                        temp.append(str(key))
+                    #if str(key) not in temp:
+                    temp.append(str(key))
 
                 for key in return_types:
-                    if str(key) not in temp:
-                        temp.append(str(key))
+                    #if str(key) not in temp:
+                    temp.append(str(key))
 
                 for key in variable_types:
-                    if str(key) not in temp:
-                        temp.append(str(key))
+                   # if str(key) not in temp:
+                    temp.append(str(key))
 
                 lock.acquire()
                 if repo_name not in statistics.typeLastProjectVersion_dict:

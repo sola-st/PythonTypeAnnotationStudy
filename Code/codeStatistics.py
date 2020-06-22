@@ -133,6 +133,14 @@ class CodeStatistics:
         self.RQ8 = 'Computation percentage of annotation-related edits to all edits per each commit'
         self.annotation_related_edits_vs_all_commit = []
 
+        # [RQ9]: Total number of annotations over time, across all projects
+        self.RQ9 = 'Total number of annotations over time, across all projects'
+        self.typeAnnotation_year_analysis = {}
+
+        # [RQ10]: Total number of annotation-relate commit over time, across all projects
+        self.RQ10 = 'Total number of annotation-relate commit over time, across all projects'
+        self.typeAnnotation_commit_annotation_year_analysis = {}
+        self.typeAnnotation_commit_not_annotation_year_analysis = {}
 
     #################################################
     #################METHODS#########################
@@ -170,6 +178,8 @@ class CodeStatistics:
                 round(self.typeLastProjectVersion_total / self.total_typeAnnotation_codeChanges * 100, 2)) + ' %'
 
         self.typeLastProjectVersion_dict = sort_dictionary(self.typeLastProjectVersion_dict)
+
+
     # [RQ1]: Are type annotation inserted, removed and changed?
     def percentage_computation(self):
         self.total_typeAnnotation_codeChanges = self.insert_types + self.remove_types + self.modify_existing_types

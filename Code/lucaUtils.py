@@ -7,10 +7,7 @@ Last update: June-2020
 import json
 import matplotlib.pyplot as plt
 import matplotlib.style as style
-from scipy.interpolate import make_interp_spline, BSpline
-from scipy.interpolate import splrep, splev
-import numpy as np
-import seaborn as sns
+import numpy
 
 """
 Sorting algorithms
@@ -82,6 +79,8 @@ def cartesian_plot_xy(outputFilePath, x, y, x_label, y_label, title=None, color=
     if xlim is not None:
         axes.set_xlim([0, xlim])
 
+    plt.yscale('log')
+
     # use the plot function
     plt.plot(x, y, marker='', color=color, linewidth=2)
 
@@ -109,11 +108,44 @@ def bar_plot_xy(outputFilePath, x, y, x_label, y_label, title=None, color='blue'
     if xlim is not None:
         axes.set_xlim([0, xlim])
 
+    plt.yscale('log')
+
     plt.ylabel(y_label, fontsize=10, fontweight='bold', color='black')
     plt.xlabel(x_label, fontsize=10, fontweight='bold', color='black', horizontalalignment='center')
 
-    y_pos = np.arange(len(x))
-    plt.bar(y_pos, y, color=(0.2, 0.4, 0.6, 0.6))
+    # y_pos = np.arange(len(x))
+    plt.bar(x, y, color=(0.2, 0.4, 0.6, 0.6))
+
+    if title is not None:
+        plt.title(title)
+
+    plt.savefig(outputFilePath, bbox_inches='tight')
+
+    plt.figure()
+
+
+def bar_plot_double_xy(outputFilePath, x, y1, y2, x_label, y_label, title=None, color1='blue', color2='red', xlim=None,
+                       ylim=None):
+    style.use('seaborn-paper')  # sets the size of the charts
+
+    plt.rc('xtick', labelsize=18)
+    plt.rc('ytick', labelsize=18)
+
+    axes = plt.gca()
+    if ylim is not None:
+        axes.set_ylim([0, ylim])
+
+    if xlim is not None:
+        axes.set_xlim([0, xlim])
+
+    plt.yscale('log')
+
+    plt.ylabel(y_label, fontsize=10, fontweight='bold', color='black')
+    plt.xlabel(x_label, fontsize=10, fontweight='bold', color='black', horizontalalignment='center')
+
+    plt.bar(numpy.array(x) - 0.2, numpy.array(y1), width=0.4, align='center', color= color1, label='Commit with annotations')
+    plt.bar(numpy.array(x) + 0.2, numpy.array(y2), width=0.4, align='center', color= color2, label='Commit without annotations')
+    plt.legend(loc='upper right')
 
     if title is not None:
         plt.title(title)
@@ -133,7 +165,9 @@ def histogram_plot_xy(outputFilePath, x, x_label, title=None):
     if title is not None:
         plt.title(title)
 
-    plt.hist(x, bins='auto', range = [0, max(x)])
+    plt.yscale('log')
+
+    plt.hist(x, bins='auto', range=[0, max(x)])
 
     plt.savefig(outputFilePath, bbox_inches='tight')
 
@@ -152,6 +186,8 @@ def scatter_plot_xy(outputFilePath, x, y, x_label, y_label, title=None, color='b
 
     if xlim is not None:
         axes.set_xlim([0, xlim])
+
+    plt.yscale('log')
 
     # use the plot function
     plt.scatter(x, y)
@@ -179,6 +215,8 @@ def histogram_2d_plot_xy(outputFilePath, x, y, x_label, y_label, title=None, col
 
     if xlim is not None:
         axes.set_xlim([0, xlim])
+
+    plt.yscale('log')
 
     # use the plot function
     plt.hist2d(x, y, bins=100)

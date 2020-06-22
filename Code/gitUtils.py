@@ -1,6 +1,6 @@
 import json
 import os
-import threading
+import time
 
 import pygit2 as git
 from pygit2 import GIT_SORT_TOPOLOGICAL, GIT_SORT_REVERSE
@@ -31,8 +31,9 @@ def repo_cloning(filenameInput: str, pathOutput: str) -> None:
 
 
 def query_repo_get_changes(repo_name, file_extension, statistics, code_changes, lock, logging, pointer, dirlist_len):
+    start = time.time()
     tot_this_repo_commit = 0
-    #tot_this_repo_commit_with_annotations = [0]
+    # tot_this_repo_commit_with_annotations = [0]
     commit_with_annotations_this_repo = [0]
     at_least_one_type_change = [0]
 
@@ -58,12 +59,16 @@ def query_repo_get_changes(repo_name, file_extension, statistics, code_changes, 
 
     # Go through each commit starting from the most recent commit
     for commit in repo.walk(last_commit, GIT_SORT_TOPOLOGICAL | GIT_SORT_REVERSE):
-        #print(str(commit.hex))
+        # print(str(commit.hex))
+        commit_year = time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(commit.commit_time))[:4]
+
         tot_line_inserted = 0
         tot_line_removed = 0
         typeannotation_line_inserted = [0]
         typeannotation_line_removed = [0]
         typeannotation_line_changed = [0]
+        list_line_added = set()
+        list_line_removed = set()
         old_len = len(code_changes)
 
         lock.acquire()
@@ -76,7 +81,7 @@ def query_repo_get_changes(repo_name, file_extension, statistics, code_changes, 
             commit.parents)  # Do not want to include merges for now, hence we check if the number of parents is 'one'
         if num_parents >= 0:  # and commit_message_contains_query(commit.message, query_terms):
             # Diff between the current commit and its parent
-            #threads: list = []
+            # threads: list = []
             diff = []
             if num_parents == 1:
                 diff = repo.diff(commit.hex + '^', commit.hex)
@@ -85,6 +90,7 @@ def query_repo_get_changes(repo_name, file_extension, statistics, code_changes, 
                 tot_line_inserted += diff.stats.insertions
             elif num_parents == 0:
                 diff = repo.diff(commit.hex)
+                tot_line_inserted += diff.stats.insertions
                 for patch in diff:
                     if str(patch.delta.old_file.path)[-3:] != file_extension or \
                             str(patch.delta.new_file.path)[-3:] != file_extension:
@@ -108,8 +114,7 @@ def query_repo_get_changes(repo_name, file_extension, statistics, code_changes, 
                                                         remote_url + '/commit/' + commit.hex + '#diff-' + diff.patchid.hex + 'L',
                                                         statistics, lock, logging, at_least_one_type_change,
                                                         code_changes, typeannotation_line_inserted,
-                                                        typeannotation_line_removed, typeannotation_line_changed)
-
+                                                        typeannotation_line_removed, typeannotation_line_changed, list_line_added)
 
                 if typeannotation_line_inserted[0] - typeannotation_line_changed[0] > 0:
                     lock.acquire()
@@ -129,15 +134,38 @@ def query_repo_get_changes(repo_name, file_extension, statistics, code_changes, 
                         typeannotation_line_removed[0] > 0:
                     percentile_total_edits = ((typeannotation_line_inserted[0] + typeannotation_line_removed[0]) /
                                               (tot_line_inserted + tot_line_removed) * 100)
-                    lock.acquire()
-                    statistics.annotation_related_edits_vs_all_commit.append(percentile_total_edits)
-                    lock.release()
+
+                    if percentile_total_edits < 100:
+                        lock.acquire()
+                        statistics.annotation_related_edits_vs_all_commit.append(percentile_total_edits)
+                        lock.release()
+
                 if len(code_changes) > old_len:
                     lock.acquire()
                     statistics.commits_with_typeChanges += 1
+
+                    # RQ10
+                    if commit_year not in statistics.typeAnnotation_commit_annotation_year_analysis:
+                        statistics.typeAnnotation_commit_annotation_year_analysis[commit_year] = 1
+                    else:
+                        statistics.typeAnnotation_commit_annotation_year_analysis[commit_year] += 1
+
+                    if commit_year not in statistics.typeAnnotation_commit_not_annotation_year_analysis:
+                        statistics.typeAnnotation_commit_not_annotation_year_analysis[commit_year] = 0
+
+                    # RQ9
+                    if commit_year not in statistics.typeAnnotation_year_analysis:
+                        statistics.typeAnnotation_year_analysis[commit_year] = len(code_changes) - old_len
+                    else:
+                        statistics.typeAnnotation_year_analysis[commit_year] += len(code_changes) - old_len
                     lock.release()
 
                     commit_with_annotations_this_repo[0] += 1
+
+                else:
+                    if commit_year in statistics.typeAnnotation_commit_not_annotation_year_analysis:
+                        statistics.typeAnnotation_commit_not_annotation_year_analysis[commit_year] += 1
+
                 continue
 
             # threads: list = []
@@ -161,11 +189,10 @@ def query_repo_get_changes(repo_name, file_extension, statistics, code_changes, 
                 thread.join()
             """
                 TypeAnnotationExtraction(config.ROOT_DIR + "/GitHub/", repo_name, commit, patch,
-                                                        remote_url + '/commit/' + commit.hex + '#diff-' + diff.patchid.hex + 'L',
-                                                        statistics, lock, logging, at_least_one_type_change,
-                                                        code_changes, typeannotation_line_inserted,
-                                                        typeannotation_line_removed, typeannotation_line_changed)
-
+                                         remote_url + '/commit/' + commit.hex + '#diff-' + diff.patchid.hex + 'L',
+                                         statistics, lock, logging, at_least_one_type_change,
+                                         code_changes, typeannotation_line_inserted,
+                                         typeannotation_line_removed, typeannotation_line_changed, list_line_added, list_line_removed)
 
         if typeannotation_line_inserted[0] - typeannotation_line_changed[0] > 0:
             lock.acquire()
@@ -185,19 +212,37 @@ def query_repo_get_changes(repo_name, file_extension, statistics, code_changes, 
 
         if tot_line_inserted + tot_line_removed > 0 and typeannotation_line_inserted[0] + typeannotation_line_removed[
             0] > 0:
-            percentile_total_edits = ((typeannotation_line_inserted[0] + typeannotation_line_removed[0]) /
+            percentile_total_edits = ((len(list_line_added) + len(list_line_removed)) /
                                       (tot_line_inserted + tot_line_removed) * 100)
-            lock.acquire()
-            statistics.annotation_related_edits_vs_all_commit.append(percentile_total_edits)
-            lock.release()
+
+            if percentile_total_edits < 100:
+                lock.acquire()
+                statistics.annotation_related_edits_vs_all_commit.append(percentile_total_edits)
+                lock.release()
 
         if len(code_changes) > old_len:
             lock.acquire()
             statistics.commits_with_typeChanges += 1
+
+            # RQ10
+            if commit_year not in statistics.typeAnnotation_commit_annotation_year_analysis:
+                statistics.typeAnnotation_commit_annotation_year_analysis[commit_year] = 1
+            else:
+                statistics.typeAnnotation_commit_annotation_year_analysis[commit_year] += 1
+
+            if commit_year not in statistics.typeAnnotation_commit_not_annotation_year_analysis:
+                statistics.typeAnnotation_commit_not_annotation_year_analysis[commit_year] = 0
+
+            #RQ9
+            if commit_year not in statistics.typeAnnotation_year_analysis:
+                statistics.typeAnnotation_year_analysis[commit_year] = len(code_changes) - old_len
+            else:
+                statistics.typeAnnotation_year_analysis[commit_year] += len(code_changes) - old_len
             lock.release()
             commit_with_annotations_this_repo[0] += 1
-
-
+        else:
+            if commit_year in statistics.typeAnnotation_commit_not_annotation_year_analysis:
+                statistics.typeAnnotation_commit_not_annotation_year_analysis[commit_year] += 1
 
     type_annotation_in_last_version(repo_name, statistics, lock)
 
@@ -209,7 +254,12 @@ def query_repo_get_changes(repo_name, file_extension, statistics, code_changes, 
     print(pointer[0], '/', dirlist_len)
     pointer[0] += 1
 
+    # Computational time
+    end = time.time()
+    hours, rem = divmod(end - start, 3600)
+    minutes, seconds = divmod(rem, 60)
+
     print("[Finished]", repo_name, "with", commit_with_annotations_this_repo, '/', tot_this_repo_commit,
-          "commits with Type annotations.")
+          "commits with Type annotations", "in ", "{:0>2}:{:0>2}:{:05.2f}".format(int(hours), int(minutes), seconds))
 
     lock.release()
