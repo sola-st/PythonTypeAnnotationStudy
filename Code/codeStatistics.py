@@ -1,9 +1,11 @@
 import json
 import multiprocessing
 import platform
+from collections import Counter
+
 import numpy as np
 import config
-from Code.lucaUtils import sort_dictionary
+from Code.lucaUtils import sort_dictionary, merge_dictionaries
 
 
 class CodeStatistics:
@@ -37,7 +39,8 @@ class CodeStatistics:
         self.s2 = "------------------------------------------------------------------------"
         # [RQ2.1]: What types are added (generic, numeric, ...)?
         self.RQ2_1 = 'What types are added (generic, numeric, ...)?'
-        self.genericType_added = 0
+        self.anyType_added = 0
+        self.noneType_added = 0
         self.numericType_added = 0
         self.binarySequenceType_added = 0
         self.textSequenceType_added = 0
@@ -53,7 +56,8 @@ class CodeStatistics:
 
         # [RQ2.3]: What types are removed (generic, numeric, ...)?
         self.RQ2_3 = 'What types are removed (generic, numeric, ...)?'
-        self.genericType_removed = 0
+        self.anyType_removed = 0
+        self.noneType_removed = 0
         self.numericType_removed = 0
         self.binarySequenceType_removed = 0
         self.textSequenceType_removed = 0
@@ -79,7 +83,6 @@ class CodeStatistics:
         self.functionArgsType_added = 0
         self.functionReturnsType_added = 0
         self.variableType_added = 0
-        # TODO: [RQ3.1]: variable types and field type
 
         # [RQ3.2]: Where are types removed (function args, function returns, variables)?
         self.RQ3_2 = 'Where are types removed (function args, function returns, variables)?'
@@ -93,8 +96,6 @@ class CodeStatistics:
         self.functionReturnsType_changed = 0
         self.variableType_changed = 0
         self.s4 = "------------------------------------------------------------------------"
-
-        # TODO: [RQ3.2]: variable types and field type
 
         # [RQ4.1]: Are many types added at once or rather a few types here and there?
         self.RQ4_1 = 'Are types added along with other changes around this code or in commits that only add types?'
@@ -137,8 +138,8 @@ class CodeStatistics:
         self.RQ9 = 'Total number of annotations over time, across all projects'
         self.typeAnnotation_year_analysis = {}
 
-        # [RQ10]: Total number of annotation-relate commit over time, across all projects
-        self.RQ10 = 'Total number of annotation-relate commit over time, across all projects'
+        # [RQ10]: Total number of annotation-related commit over time, across all projects
+        self.RQ10 = 'Total number of annotation-related commit over time, across all projects'
         self.typeAnnotation_commit_annotation_year_analysis = {}
         self.typeAnnotation_commit_not_annotation_year_analysis = {}
 
@@ -175,10 +176,9 @@ class CodeStatistics:
         # [RQ7]: How many of all types are annotated in the last verison of the code?
         if self.total_typeAnnotation_codeChanges > 0:
             self.typeLastProjectVersion_percentage = str(
-                round(self.typeLastProjectVersion_total / self.total_typeAnnotation_codeChanges * 100, 2)) + ' %'
+                round(self.typeLastProjectVersion_total / self.insert_types * 100, 2)) + ' %'
 
         self.typeLastProjectVersion_dict = sort_dictionary(self.typeLastProjectVersion_dict)
-
 
     # [RQ1]: Are type annotation inserted, removed and changed?
     def percentage_computation(self):
@@ -198,7 +198,8 @@ class CodeStatistics:
     # [RQ2.1]: What types are added (generic, numeric, ...)?
 
     # https://docs.python.org/3/library/stdtypes.html
-    genericType_list = ['none', 'any']
+    anyType_list = ['any']
+    noneType_list = ['none']
     numericType_list = ['int', 'float', 'complex']
     sequenceType_list = ['list', 'tuple', 'range']
     textSequenceType_list = ['str']
@@ -208,10 +209,15 @@ class CodeStatistics:
 
     def what_types_added(self):
 
-        # Generic types
+        # Any types
         for type in self.typeAdded_dict.keys():
-            if type in self.genericType_list:
-                self.genericType_added += self.typeAdded_dict[type]
+            if type in self.anyType_list:
+                self.anyType_added += self.typeAdded_dict[type]
+
+        # None types
+        for type in self.typeAdded_dict.keys():
+            if type in self.noneType_list:
+                self.noneType_added += self.typeAdded_dict[type]
 
         # Numeric types
         for type in self.typeAdded_dict.keys():
@@ -243,17 +249,23 @@ class CodeStatistics:
             if any(x in type for x in self.mappingType_list) and '->' not in type:
                 self.mappingTypes_added += self.typeAdded_dict[type]
 
-        self.newType_added = self.total_added - self.genericType_added - self.numericType_added - self.sequenceType_added \
+        self.newType_added = self.total_added - self.anyType_added - self.noneType_added - self.numericType_added - self.sequenceType_added \
                              - self.textSequenceType_added - self.binarySequenceType_added \
                              - self.setTypes_added - self.mappingTypes_added
 
     # [RQ2.2]: What types are removed (generic, numeric, ...)?
     def what_types_removed(self):
 
-        # Generic types
+        # Any types
         for type in self.typeRemoved_dict.keys():
-            if type in self.genericType_list:
-                self.genericType_removed += self.typeRemoved_dict[type]
+            if type in self.anyType_list:
+                self.anyType_removed += self.typeRemoved_dict[type]
+
+        # None types
+        for type in self.typeRemoved_dict.keys():
+            if type in self.noneType_list:
+                self.noneType_removed += self.typeRemoved_dict[type]
+
 
         # Numeric types
         for type in self.typeRemoved_dict.keys():
@@ -285,7 +297,7 @@ class CodeStatistics:
             if any(x in type for x in self.mappingType_list) and '->' not in type:
                 self.mappingTypes_removed += self.typeRemoved_dict[type]
 
-        self.newType_removed = self.total_removed - self.genericType_removed - self.numericType_removed - self.sequenceType_removed \
+        self.newType_removed = self.total_removed - self.anyType_removed - self.noneType_removed - self.numericType_removed - self.sequenceType_removed \
                                - self.textSequenceType_removed - self.binarySequenceType_removed \
                                - self.setTypes_removed - self.mappingTypes_removed
 
@@ -323,3 +335,106 @@ class CodeStatistics:
                     np.append(self.matrix_commits_stars_annotations,
                               np.array([[n_commits, item.get('stargazers_count'), n_annotations]]), axis=0)
                 break
+
+    def merge_results(self, thread_statistics):
+
+        for stat in thread_statistics:
+            self.total_repositories += stat.total_repositories
+            self.total_commits += stat.total_commits
+
+            # RQ0
+            self.repo_with_types_changes += stat.repo_with_types_changes
+            self.commits_with_typeChanges += stat.commits_with_typeChanges
+            self.total_typeAnnotation_codeChanges += stat.total_typeAnnotation_codeChanges
+
+            # RQ1
+            self.insert_types += stat.insert_types
+            self.remove_types += stat.remove_types
+            self.modify_existing_types += stat.modify_existing_types
+
+            # RQ2.1
+            self.anyType_added += stat.anyType_added
+            self.noneType_added += stat.noneType_added
+            self.numericType_added += stat.numericType_added
+            self.binarySequenceType_added += stat.binarySequenceType_added
+            self.textSequenceType_added += stat.textSequenceType_added
+            self.mappingTypes_added += stat.mappingTypes_added
+            self.setTypes_added += stat.setTypes_added
+            self.sequenceType_added += stat.sequenceType_added
+            self.newType_added += stat.newType_added
+            self.total_added += stat.total_added
+
+            # RQ2.2
+            self.typeAdded_dict = merge_dictionaries([self.typeAdded_dict, stat.typeAdded_dict])
+
+            # RQ2.3
+            self.anyType_removed += stat.anyType_removed
+            self.noneType_removed += stat.noneType_removed
+            self.numericType_removed += stat.numericType_removed
+            self.binarySequenceType_removed += stat.binarySequenceType_removed
+            self.textSequenceType_removed += stat.textSequenceType_removed
+            self.mappingTypes_removed += stat.mappingTypes_removed
+            self.setTypes_removed += stat.setTypes_removed
+            self.sequenceType_removed += stat.sequenceType_removed
+            self.newType_removed += stat.newType_removed
+            self.total_removed += stat.total_removed
+
+            # RQ2.4
+            self.typeRemoved_dict = merge_dictionaries([self.typeRemoved_dict, stat.typeRemoved_dict])
+
+            # RQ2.5
+            self.total_changed += stat.total_changed
+            self.typeChanged_dict = merge_dictionaries([self.typeChanged_dict, stat.typeChanged_dict])
+
+            # RQ 3.1
+            self.functionArgsType_added += stat.functionArgsType_added
+            self.functionReturnsType_added += stat.functionReturnsType_added
+            self.variableType_added += stat.variableType_added
+
+            # RQ 3.2
+            self.functionArgsType_removed += stat.functionArgsType_removed
+            self.functionReturnsType_removed += stat.functionReturnsType_removed
+            self.variableType_removed += stat.variableType_removed
+
+            # RQ 3.3
+            self.functionArgsType_changed += stat.functionArgsType_changed
+            self.functionReturnsType_changed += stat.functionReturnsType_changed
+            self.variableType_changed += stat.variableType_changed
+
+            # RQ 4.1
+            self.typeAnnotation_added_per_commit += stat.typeAnnotation_added_per_commit
+            self.list_typeAnnotation_added_per_commit += stat.list_typeAnnotation_added_per_commit
+
+            # RQ 4.2
+            self.typeAnnotation_removed_per_commit += stat.typeAnnotation_removed_per_commit
+            self.list_typeAnnotation_removed_per_commit += stat.list_typeAnnotation_removed_per_commit
+
+            # RQ 4.3
+            self.typeAnnotation_changed_per_commit += stat.typeAnnotation_changed_per_commit
+            self.list_typeAnnotation_changed_per_commit += stat.list_typeAnnotation_changed_per_commit
+
+            # RQ 5
+            self.matrix_commits_stars_annotations = np.concatenate((self.matrix_commits_stars_annotations,
+                                                                   stat.matrix_commits_stars_annotations), axis=0)
+
+            # RQ 6
+            self.number_type_annotations_per_repo = merge_dictionaries([self.number_type_annotations_per_repo, stat.number_type_annotations_per_repo])
+
+            # RQ 7
+            self.typeLastProjectVersion_total += stat.typeLastProjectVersion_total
+            self.typeLastProjectVersion_dict = merge_dictionaries(
+                [self.typeLastProjectVersion_dict, stat.typeLastProjectVersion_dict])
+
+            # RQ 8
+            self.annotation_related_edits_vs_all_commit += stat.annotation_related_edits_vs_all_commit
+
+            # RQ 9
+            self.typeAnnotation_year_analysis = merge_dictionaries(
+                [self.typeAnnotation_year_analysis, stat.typeAnnotation_year_analysis])
+
+            # RQ 10
+            self.typeAnnotation_commit_annotation_year_analysis = merge_dictionaries(
+                [self.typeAnnotation_commit_annotation_year_analysis, stat.typeAnnotation_commit_annotation_year_analysis])
+
+            self.typeAnnotation_commit_not_annotation_year_analysis = merge_dictionaries(
+                [self.typeAnnotation_commit_not_annotation_year_analysis, stat.typeAnnotation_commit_not_annotation_year_analysis])

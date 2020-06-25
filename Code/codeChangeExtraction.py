@@ -120,7 +120,7 @@ def search_key_value_in_snippet(file, list_of_strings):
 """
 
 
-def TypeAnnotationExtraction(repo_path, repo_name, commit, patch, url, statistics, lock, logging,
+def TypeAnnotationExtraction(repo_path, repo_name, commit, patch, url, statistics,# lock, logging,
                              at_least_one_type_change, code_changes,
                              typeannotation_line_inserted, typeannotation_line_removed, typeannotation_line_changed,
                              list_line_added, list_line_removed):
@@ -185,7 +185,7 @@ def TypeAnnotationExtraction(repo_path, repo_name, commit, patch, url, statistic
                     # if temp not in code_changes_new:
                     code_changes_new.append(temp)
 
-                    lock.acquire()
+                    #lock.acquire()
                     statistics.number_type_annotations_per_repo[repo_name] += 1
                     statistics.total_typeAnnotation_codeChanges += 1
                     statistics.modify_existing_types += 1
@@ -203,7 +203,7 @@ def TypeAnnotationExtraction(repo_path, repo_name, commit, patch, url, statistic
                     list_line_added.add(key)
                     list_line_removed.add(key)
 
-                    lock.release()
+                    #lock.release()
 
             # Remove type annotation
             else:
@@ -218,7 +218,7 @@ def TypeAnnotationExtraction(repo_path, repo_name, commit, patch, url, statistic
                 # if temp not in code_changes_new:
                 code_changes_new.append(temp)
 
-                lock.acquire()
+                #lock.acquire()
                 statistics.number_type_annotations_per_repo[repo_name] += 1
                 statistics.total_typeAnnotation_codeChanges += 1
                 statistics.remove_types += 1
@@ -231,7 +231,7 @@ def TypeAnnotationExtraction(repo_path, repo_name, commit, patch, url, statistic
                 statistics.total_removed += 1
                 statistics.functionReturnsType_removed += 1
                 list_line_removed.add(key)
-                lock.release()
+                #lock.release()
 
         # Insert type annotation
         for key in new_return_types:
@@ -247,7 +247,7 @@ def TypeAnnotationExtraction(repo_path, repo_name, commit, patch, url, statistic
                 # if temp not in code_changes_new:
                 code_changes_new.append(temp)
 
-                lock.acquire()
+                #lock.acquire()
                 statistics.number_type_annotations_per_repo[repo_name] += 1
                 statistics.total_typeAnnotation_codeChanges += 1
                 statistics.insert_types += 1
@@ -261,7 +261,7 @@ def TypeAnnotationExtraction(repo_path, repo_name, commit, patch, url, statistic
                 statistics.functionReturnsType_added += 1
 
                 list_line_added.add(key)
-                lock.release()
+                #lock.release()
 
         ################################################################
         ########  ARGUMENTS TYPE ANNOTATIONS                       #####
@@ -284,7 +284,7 @@ def TypeAnnotationExtraction(repo_path, repo_name, commit, patch, url, statistic
                     # if temp not in code_changes_new:
                     code_changes_new.append(temp)
 
-                    lock.acquire()
+                    #lock.acquire()
                     statistics.number_type_annotations_per_repo[repo_name] += 1
                     statistics.total_typeAnnotation_codeChanges += 1
                     statistics.modify_existing_types += 1
@@ -303,7 +303,7 @@ def TypeAnnotationExtraction(repo_path, repo_name, commit, patch, url, statistic
                     list_line_added.add(key)
                     list_line_removed.add(key)
 
-                    lock.release()
+                    #lock.release()
 
             # Remove type annotation
             else:
@@ -318,7 +318,7 @@ def TypeAnnotationExtraction(repo_path, repo_name, commit, patch, url, statistic
                 # if temp not in code_changes_new:
                 code_changes_new.append(temp)
 
-                lock.acquire()
+                #lock.acquire()
                 statistics.number_type_annotations_per_repo[repo_name] += 1
                 statistics.total_typeAnnotation_codeChanges += 1
                 statistics.remove_types += 1
@@ -331,7 +331,7 @@ def TypeAnnotationExtraction(repo_path, repo_name, commit, patch, url, statistic
                 statistics.functionArgsType_removed += 1
 
                 list_line_removed.add(key)
-                lock.release()
+                #lock.release()
 
         # Insert type annotation
         for key in new_param_types:
@@ -347,7 +347,7 @@ def TypeAnnotationExtraction(repo_path, repo_name, commit, patch, url, statistic
                 # if temp not in code_changes_new:
                 code_changes_new.append(temp)
 
-                lock.acquire()
+                #lock.acquire()
                 statistics.number_type_annotations_per_repo[repo_name] += 1
                 statistics.total_typeAnnotation_codeChanges += 1
                 statistics.insert_types += 1
@@ -361,7 +361,7 @@ def TypeAnnotationExtraction(repo_path, repo_name, commit, patch, url, statistic
                 statistics.functionArgsType_added += 1
 
                 list_line_added.add(key)
-                lock.release()
+                #lock.release()
 
         ################################################################
         ########  VARIABLE TYPE ANNOTATIONS                        #####
@@ -386,7 +386,7 @@ def TypeAnnotationExtraction(repo_path, repo_name, commit, patch, url, statistic
                     # if temp not in code_changes_new:
                     code_changes_new.append(temp)
 
-                    lock.acquire()
+                    #lock.acquire()
                     statistics.number_type_annotations_per_repo[repo_name] += 1
                     statistics.total_typeAnnotation_codeChanges += 1
                     statistics.modify_existing_types += 1
@@ -405,7 +405,7 @@ def TypeAnnotationExtraction(repo_path, repo_name, commit, patch, url, statistic
                     list_line_added.add(key)
                     list_line_removed.add(key)
 
-                    lock.release()
+                    #lock.release()
 
             # Remove type annotation
             else:
@@ -421,7 +421,7 @@ def TypeAnnotationExtraction(repo_path, repo_name, commit, patch, url, statistic
                 # if temp not in code_changes_new:
                 code_changes_new.append(temp)
 
-                lock.acquire()
+                #lock.acquire()
                 statistics.number_type_annotations_per_repo[repo_name] += 1
                 statistics.total_typeAnnotation_codeChanges += 1
                 statistics.remove_types += 1
@@ -435,7 +435,7 @@ def TypeAnnotationExtraction(repo_path, repo_name, commit, patch, url, statistic
                 statistics.variableType_removed += 1
 
                 list_line_removed.add(key)
-                lock.release()
+                #lock.release()
 
         # Insert type annotation
         for key in new_variable_types:
@@ -452,7 +452,7 @@ def TypeAnnotationExtraction(repo_path, repo_name, commit, patch, url, statistic
                 # if temp not in code_changes_new:
                 code_changes_new.append(temp)
 
-                lock.acquire()
+                #lock.acquire()
                 statistics.number_type_annotations_per_repo[repo_name] += 1
                 statistics.total_typeAnnotation_codeChanges += 1
                 statistics.insert_types += 1
@@ -466,12 +466,12 @@ def TypeAnnotationExtraction(repo_path, repo_name, commit, patch, url, statistic
                 statistics.variableType_added += 1
 
                 list_line_added.add(key)
-                lock.release()
+                #lock.release()
     except:
         # print('Repository', repo_path, 'commit', commit, 'with old line', str(old_stdout))
         pass
 
-    lock.acquire()
+    #lock.acquire()
     if type_annotation_added_this_commit > 0:
         # statistics.list_typeAnnotation_added_per_commit.append(type_annotation_added_this_commit)
         typeannotation_line_inserted[0] += type_annotation_added_this_commit
@@ -494,10 +494,10 @@ def TypeAnnotationExtraction(repo_path, repo_name, commit, patch, url, statistic
 
         code_changes += code_changes_new
 
-    lock.release()
+    #lock.release()
 
 
-def TypeAnnotationExtractionFirstCommit(repo_path, repo_name, commit, patch, url, statistics, lock, logging,
+def TypeAnnotationExtractionFirstCommit(repo_path, repo_name, commit, patch, url, statistics,# lock, logging,
                                         at_least_one_type_change, code_changes,
                                         typeannotation_line_inserted, typeannotation_line_removed,
                                         typeannotation_line_changed, list_line_added):
@@ -541,7 +541,7 @@ def TypeAnnotationExtractionFirstCommit(repo_path, repo_name, commit, patch, url
             # if temp not in code_changes_new:
             code_changes_new.append(temp)
 
-            lock.acquire()
+            #lock.acquire()
             statistics.number_type_annotations_per_repo[repo_name] += 1
             statistics.total_typeAnnotation_codeChanges += 1
             statistics.insert_types += 1
@@ -554,7 +554,7 @@ def TypeAnnotationExtractionFirstCommit(repo_path, repo_name, commit, patch, url
             statistics.total_added += 1
             statistics.functionReturnsType_added += 1
             list_line_added.add(key)
-            lock.release()
+            #lock.release()
 
         ################################################################
         ########  ARGUMENTS TYPE ANNOTATIONS                       #####
@@ -573,7 +573,7 @@ def TypeAnnotationExtractionFirstCommit(repo_path, repo_name, commit, patch, url
             # if temp not in code_changes_new:
             code_changes_new.append(temp)
 
-            lock.acquire()
+            #lock.acquire()
             statistics.number_type_annotations_per_repo[repo_name] += 1
             statistics.total_typeAnnotation_codeChanges += 1
             statistics.insert_types += 1
@@ -586,7 +586,7 @@ def TypeAnnotationExtractionFirstCommit(repo_path, repo_name, commit, patch, url
             statistics.total_added += 1
             statistics.functionArgsType_added += 1
             list_line_added.add(key)
-            lock.release()
+            #lock.release()
 
             ################################################################
             ########  VARIABLE TYPE ANNOTATIONS                        #####
@@ -604,7 +604,7 @@ def TypeAnnotationExtractionFirstCommit(repo_path, repo_name, commit, patch, url
                 # if temp not in code_changes_new:
                 code_changes_new.append(temp)
 
-                lock.acquire()
+                #lock.acquire()
                 statistics.number_type_annotations_per_repo[repo_name] += 1
                 statistics.total_typeAnnotation_codeChanges += 1
                 statistics.insert_types += 1
@@ -617,12 +617,12 @@ def TypeAnnotationExtractionFirstCommit(repo_path, repo_name, commit, patch, url
                 statistics.total_added += 1
                 statistics.variableType_added += 1
                 list_line_added.add(key)
-                lock.release()
+                #lock.release()
     except:
         # print('Repository', repo_path, 'commit', commit, 'with old line', str(old_stdout))
         pass
 
-    lock.acquire()
+    #lock.acquire()
     if type_annotation_added_this_commit > 0:
         # statistics.list_typeAnnotation_added_per_commit.append(type_annotation_added_this_commit)
         typeannotation_line_inserted[0] += type_annotation_added_this_commit
@@ -645,18 +645,18 @@ def TypeAnnotationExtractionFirstCommit(repo_path, repo_name, commit, patch, url
 
         code_changes += code_changes_new
 
-    lock.release()
+    #lock.release()
 
 
 # [RQ7]: How many of all types are annotated in the last version of the code?
-def type_annotation_in_last_version(repo_name, statistics, lock):
+def type_annotation_in_last_version(repo_name, statistics):#, lock):
     for filepath in pathlib.Path(config.ROOT_DIR + "/GitHub/" + repo_name).glob('**/*'):
         temp = []
         if str(filepath).endswith(".py"):
             try:
                 param_types, return_types, variable_types = extract_from_file(str(filepath))
 
-                if (not param_types) and (not return_types):
+                if (not param_types) and (not return_types) and (not variable_types):
                     continue
 
                 for key in param_types:
@@ -671,7 +671,7 @@ def type_annotation_in_last_version(repo_name, statistics, lock):
                    # if str(key) not in temp:
                     temp.append(str(key))
 
-                lock.acquire()
+                #lock.acquire()
                 if repo_name not in statistics.typeLastProjectVersion_dict:
                     statistics.typeLastProjectVersion_dict[repo_name] = len(temp)
                 else:
@@ -681,7 +681,7 @@ def type_annotation_in_last_version(repo_name, statistics, lock):
                 #  statistics.typeLastProjectVersion_dict[repo_name] += len(param_types)
                 #  statistics.typeLastProjectVersion_total += len(param_types)
 
-                lock.release()
+                #lock.release()
 
             except:
                 pass

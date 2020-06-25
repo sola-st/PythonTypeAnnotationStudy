@@ -1,10 +1,13 @@
 """
 Author: Luca Di Grazia
 My personal library with useful Python methods.
-Last update: June-2020
+Tested on Python 3.7
+Last update: July-2020
 """
 
 import json
+from collections import Counter
+
 import matplotlib.pyplot as plt
 import matplotlib.style as style
 import numpy
@@ -39,6 +42,9 @@ Data conversion and manipulation
 def convert_list_in_list_of_dicts(data: list) -> list:
     return [temp.__dict__ for temp in data]
 
+# Merge a list of dictionaries
+def merge_dictionaries(input):
+    return sum((Counter(dict(z)) for z in input), Counter())
 
 """
 Methods for writing files.
@@ -155,7 +161,7 @@ def bar_plot_double_xy(outputFilePath, x, y1, y2, x_label, y_label, title=None, 
     plt.figure()
 
 
-def histogram_plot_xy(outputFilePath, x, x_label, title=None):
+def histogram_plot_xy(outputFilePath, x, x_label, xscale, yscale, title=None):
     plt.xlabel(x_label, fontsize=18, fontweight='bold', color='black', horizontalalignment='center')
 
     if len(x) == 0:
@@ -165,7 +171,10 @@ def histogram_plot_xy(outputFilePath, x, x_label, title=None):
     if title is not None:
         plt.title(title)
 
-    plt.yscale('log')
+    plt.yscale(yscale)
+
+    if xscale == 'log':
+        plt.xscale(xscale)
 
     plt.hist(x, bins='auto', range=[0, max(x)])
 
@@ -174,7 +183,7 @@ def histogram_plot_xy(outputFilePath, x, x_label, title=None):
     plt.figure()
 
 
-def scatter_plot_xy(outputFilePath, x, y, x_label, y_label, title=None, color='blue', xlim=None, ylim=None):
+def scatter_plot_xy(outputFilePath, x, y, x_label, y_label, xscale, yscale, title=None, color='blue', xlim=None, ylim=None):
     style.use('seaborn-paper')  # sets the size of the charts
 
     plt.rc('xtick', labelsize=18)
@@ -187,7 +196,8 @@ def scatter_plot_xy(outputFilePath, x, y, x_label, y_label, title=None, color='b
     if xlim is not None:
         axes.set_xlim([0, xlim])
 
-    plt.yscale('log')
+    plt.yscale(yscale)
+    plt.xscale(xscale)
 
     # use the plot function
     plt.scatter(x, y)

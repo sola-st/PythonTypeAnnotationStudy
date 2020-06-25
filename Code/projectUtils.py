@@ -13,39 +13,40 @@ def write_results(statistics, code_changes):
 
 
 def myplot(statistics):
+    # RQ5
     scatter_plot_xy(config.ROOT_DIR + "/Resources/Output/RQ5_stars",
                     [row[1] for row in statistics.matrix_commits_stars_annotations],
                     [row[2] for row in statistics.matrix_commits_stars_annotations],
-                    'GitHub Stars', 'Annotations Changes')
+                    'GitHub Stars', 'Annotations Changes', 'log', 'log')
 
     scatter_plot_xy(config.ROOT_DIR + "/Resources/Output/RQ5_commits",
                     [row[0] for row in statistics.matrix_commits_stars_annotations],
                     [row[2] for row in statistics.matrix_commits_stars_annotations],
-                    '# Commits', '# Annotations Changes')
+                    '# Commits', '# Annotations Changes', 'log', 'log')
 
     # RQ4.1
     histogram_plot_xy(config.ROOT_DIR + "/Resources/Output/RQ4_1",
                       statistics.list_typeAnnotation_added_per_commit,
-                      'Type Annotations Added per Commit')
+                      'Type Annotations Added per Commit', 'log', 'log' )
 
     # RQ4.2
     histogram_plot_xy(config.ROOT_DIR + "/Resources/Output/RQ4_2",
                       statistics.list_typeAnnotation_removed_per_commit,
-                      'Type Annotations Removed per Commit',
+                      'Type Annotations Removed per Commit', 'log', 'log',
                       'Are types removed along with other changes around this code or in commits that only add types?'
                       )
 
     # RQ4.3
     histogram_plot_xy(config.ROOT_DIR + "/Resources/Output/RQ4_3",
                       statistics.list_typeAnnotation_changed_per_commit,
-                      'Type Annotations Changed per Commit',
+                      'Type Annotations Changed per Commit',  'linear', 'log',
                       'Are types changed along with other changes around this '
                       'code or in commits that only add types?')
 
     # RQ8
     histogram_plot_xy(config.ROOT_DIR + "/Resources/Output/RQ8",
                       statistics.annotation_related_edits_vs_all_commit,
-                      'Percentage of annotation-related edits to all edits per commit')
+                      'Percentage of annotation-related edits to all edits per commit', 'linear', 'log')
 
     # RQ9
     bar_plot_xy(config.ROOT_DIR + "/Resources/Output/RQ9", [int(k) for k in statistics.typeAnnotation_year_analysis.keys()],
