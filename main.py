@@ -53,7 +53,7 @@ if __name__ == "__main__":
             thread_statistics.append(CodeStatistics())
             thread = threading.Thread(target=gitUtils.query_repo_get_changes,
                                       args=(repository, '.py', thread_statistics[-1],
-                                            code_changes, #lock, logging,
+                                            code_changes, # lock, logging,
                                             pointer, dirlist_len))
             threads.append(thread)
 

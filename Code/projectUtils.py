@@ -27,12 +27,12 @@ def myplot(statistics):
     # RQ4.1
     histogram_plot_xy(config.ROOT_DIR + "/Resources/Output/RQ4_1",
                       statistics.list_typeAnnotation_added_per_commit,
-                      'Type Annotations Added per Commit', 'log', 'log' )
+                      'Type Annotations Added per Commit', 'linear', 'log' )
 
     # RQ4.2
     histogram_plot_xy(config.ROOT_DIR + "/Resources/Output/RQ4_2",
                       statistics.list_typeAnnotation_removed_per_commit,
-                      'Type Annotations Removed per Commit', 'log', 'log',
+                      'Type Annotations Removed per Commit', 'linear', 'log',
                       'Are types removed along with other changes around this code or in commits that only add types?'
                       )
 
@@ -43,10 +43,15 @@ def myplot(statistics):
                       'Are types changed along with other changes around this '
                       'code or in commits that only add types?')
 
-    # RQ8
-    histogram_plot_xy(config.ROOT_DIR + "/Resources/Output/RQ8",
-                      statistics.annotation_related_edits_vs_all_commit,
-                      'Percentage of annotation-related edits to all edits per commit', 'linear', 'log')
+    # RQ8.1
+    histogram_plot_xy(config.ROOT_DIR + "/Resources/Output/RQ8.1",
+                      statistics.annotation_related_insertion_edits_vs_all_commit,
+                      'Percentage of annotation-related insertions to all edits per commit', 'linear', 'log')
+
+    # RQ8.2
+    histogram_plot_xy(config.ROOT_DIR + "/Resources/Output/RQ8.2",
+                      statistics.annotation_related_deletion_edits_vs_all_commit,
+                      'Percentage of annotation-related deletions to all edits per commit', 'linear', 'log')
 
     # RQ9
     bar_plot_xy(config.ROOT_DIR + "/Resources/Output/RQ9", [int(k) for k in statistics.typeAnnotation_year_analysis.keys()],
@@ -65,7 +70,8 @@ def myplot(statistics):
     statistics.list_typeAnnotation_added_per_commit = "See the plot RQ4_1."
     statistics.list_typeAnnotation_removed_per_commit = "See the plot RQ4_2."
     statistics.list_typeAnnotation_changed_per_commit = "See the plot RQ4_3."
-    statistics.annotation_related_edits_vs_all_commit = "See the plot RQ8."
+    statistics.annotation_related_insertion_edits_vs_all_commit = "See the plot RQ8.1."
+    statistics.annotation_related_deletion_edits_vs_all_commit = "See the plot RQ8.2."
     statistics.typeAnnotation_year_analysis = "See the plot RQ9."
     statistics.typeAnnotation_commit_annotation_year_analysis = "See the plot RQ10."
     statistics.typeAnnotation_commit_not_annotation_year_analysis = "See the plot RQ10."

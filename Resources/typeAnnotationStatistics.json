@@ -1,0 +1,205 @@
+[
+    {
+        "execution_time": "00:04:39.63",
+        "machine": {
+            "OS": "Linux-5.3.0-59-generic-x86_64-with-Ubuntu-19.10-eoan",
+            "CPU": "x86_64",
+            "CORES": 8
+        },
+        "total_repositories": 4,
+        "total_commits": 1885,
+        "s0": "------------------------------------------------------------------------",
+        "RQ0": "How many types are used?",
+        "repo_with_types_changes": 2,
+        "percentage_repo_with_typeChanges": "50.0 %",
+        "commits_with_typeChanges": 54,
+        "percentage_commits_with_typeChanges": "2.86 %",
+        "total_typeAnnotation_codeChanges": 424,
+        "s1": "------------------------------------------------------------------------",
+        "RQ1": "Are type annotation inserted, removed and changed?",
+        "insert_types": 339,
+        "percentage_insert_types": "80.0 %",
+        "remove_types": 72,
+        "percentage_remove_types": "17.0 %",
+        "modify_existing_types": 13,
+        "percentage_modify_existing_types": "3.1 %",
+        "s2": "------------------------------------------------------------------------",
+        "RQ2_1": "What types are added (generic, numeric, ...)?",
+        "genericType_added": 6,
+        "numericType_added": 19,
+        "binarySequenceType_added": 21,
+        "textSequenceType_added": 90,
+        "mappingTypes_added": 27,
+        "setTypes_added": 0,
+        "sequenceType_added": 24,
+        "newType_added": 152,
+        "total_added": 339,
+        "RQ2_2": "What are the top 5 types added?",
+        "typeAdded_dict": [
+            [
+                "str",
+                90
+            ],
+            [
+                "argparse.namespace",
+                18
+            ],
+            [
+                "path",
+                16
+            ],
+            [
+                "bool",
+                16
+            ],
+            [
+                "int",
+                15
+            ]
+        ],
+        "RQ2_3": "What types are removed (generic, numeric, ...)?",
+        "genericType_removed": 2,
+        "numericType_removed": 7,
+        "binarySequenceType_removed": 2,
+        "textSequenceType_removed": 5,
+        "mappingTypes_removed": 6,
+        "setTypes_removed": 0,
+        "sequenceType_removed": 4,
+        "newType_removed": 46,
+        "total_removed": 72,
+        "RQ2_4": "What are the top 5 types removed?",
+        "typeRemoved_dict": [
+            [
+                "io",
+                8
+            ],
+            [
+                "argparse.namespace",
+                8
+            ],
+            [
+                "int",
+                6
+            ],
+            [
+                "optional[io]",
+                6
+            ],
+            [
+                "path",
+                6
+            ]
+        ],
+        "RQ2_5": "What types are the top 10 changed (primitives, built-in classes, application-specific classes)?",
+        "total_changed": 13,
+        "typeChanged_dict": [
+            [
+                "none -> int",
+                2
+            ],
+            [
+                "dict -> requestheadersdict",
+                2
+            ],
+            [
+                "type[pygments.lexerlexer..lexer] -> optional[type[lexer]]",
+                2
+            ],
+            [
+                "int -> str",
+                1
+            ],
+            [
+                "none -> str",
+                1
+            ],
+            [
+                "list[str] -> tuple[str]",
+                1
+            ],
+            [
+                "int -> float",
+                1
+            ],
+            [
+                "int -> complex",
+                1
+            ],
+            [
+                "baseplugin -> type[baseplugin]",
+                1
+            ],
+            [
+                "str -> optional[str]",
+                1
+            ]
+        ],
+        "s3": "------------------------------------------------------------------------",
+        "RQ3_1": "Where are types added (function args, function returns, variables)?",
+        "functionArgsType_added": 194,
+        "functionReturnsType_added": 115,
+        "variableType_added": 30,
+        "RQ3_2": "Where are types removed (function args, function returns, variables)?",
+        "functionArgsType_removed": 38,
+        "functionReturnsType_removed": 18,
+        "variableType_removed": 16,
+        "RQ3_3": "Where are types changed (function args, function returns, variables?",
+        "functionArgsType_changed": 4,
+        "functionReturnsType_changed": 8,
+        "variableType_changed": 1,
+        "s4": "------------------------------------------------------------------------",
+        "RQ4_1": "Are types added along with other changes around this code or in commits that only add types?",
+        "typeAnnotation_added_per_commit": "6.28 Type annotations changes per commit ",
+        "list_typeAnnotation_added_per_commit": "See the plot RQ4_1.",
+        "RQ4_2": "Are types removed along with other changes around this code or in commits that only add types?",
+        "typeAnnotation_removed_per_commit": "1.33 Type annotations changes per commit ",
+        "list_typeAnnotation_removed_per_commit": "See the plot RQ4_2.",
+        "RQ4_3": "Are types changed along with other changes around this code or in commits that only add types?",
+        "typeAnnotation_changed_per_commit": "0.24 Type annotations changes per commit ",
+        "list_typeAnnotation_changed_per_commit": "See the plot RQ4_3.",
+        "s5": "------------------------------------------------------------------------",
+        "RQ5": "Relation of properties of projects vs. properties of type changes.",
+        "matrix_commits_stars_annotations": "See the plots RQ5_commits and RQ5_stars.",
+        "s6": "------------------------------------------------------------------------",
+        "RQ6": "Which are the top 10 repository with the highest number of type annotations.",
+        "number_type_annotations_per_repo": [
+            [
+                "https://github.com/jakubroztocil/httpie",
+                395
+            ],
+            [
+                "pythontest",
+                29
+            ],
+            [
+                "https://github.com/donnemartin/data-science-ipython-notebooks",
+                0
+            ],
+            [
+                "https://github.com/google-research/bert",
+                0
+            ]
+        ],
+        "s7": "------------------------------------------------------------------------",
+        "RQ7": "How many of all types are annotated in the last version of the code?",
+        "typeLastProjectVersion_total": 267,
+        "typeLastProjectVersion_percentage": "78.76 %",
+        "typeLastProjectVersion_dict": [
+            [
+                "https://github.com/jakubroztocil/httpie",
+                255
+            ],
+            [
+                "pythontest",
+                12
+            ]
+        ],
+        "RQ8": "Computation percentage of annotation-related edits to all edits per each commit",
+        "annotation_related_edits_vs_all_commit": "See the plot RQ8.",
+        "RQ9": "Total number of annotations over time, across all projects",
+        "typeAnnotation_year_analysis": "See the plot RQ9.",
+        "RQ10": "Total number of annotation-related commit over time, across all projects",
+        "typeAnnotation_commit_annotation_year_analysis": "See the plot RQ10.",
+        "typeAnnotation_commit_not_annotation_year_analysis": "See the plot RQ10."
+    }
+]

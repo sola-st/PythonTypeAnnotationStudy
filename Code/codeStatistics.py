@@ -132,7 +132,8 @@ class CodeStatistics:
 
         # [RQ8]: Computation percentage of annotation-related edits to all edits per each commit
         self.RQ8 = 'Computation percentage of annotation-related edits to all edits per each commit'
-        self.annotation_related_edits_vs_all_commit = []
+        self.annotation_related_insertion_edits_vs_all_commit = []
+        self.annotation_related_deletion_edits_vs_all_commit = []
 
         # [RQ9]: Total number of annotations over time, across all projects
         self.RQ9 = 'Total number of annotations over time, across all projects'
@@ -426,7 +427,8 @@ class CodeStatistics:
                 [self.typeLastProjectVersion_dict, stat.typeLastProjectVersion_dict])
 
             # RQ 8
-            self.annotation_related_edits_vs_all_commit += stat.annotation_related_edits_vs_all_commit
+            self.annotation_related_insertion_edits_vs_all_commit += stat.annotation_related_insertion_edits_vs_all_commit
+            self.annotation_related_deletion_edits_vs_all_commit += stat.annotation_related_deletion_edits_vs_all_commit
 
             # RQ 9
             self.typeAnnotation_year_analysis = merge_dictionaries(
