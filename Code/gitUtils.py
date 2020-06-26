@@ -61,12 +61,8 @@ def query_repo_get_changes(repo_name, file_extension, statistics, code_changes, 
         for l in repo.head.log():
             last_commit = l.oid_new
 
-        iii = 0
         # Go through each commit starting from the most recent commit
         for commit in repo.walk(last_commit, GIT_SORT_TOPOLOGICAL | GIT_SORT_REVERSE):
-            if iii > 1500:
-                return
-            iii += 1
                 # print(str(commit.hex))
 
             # start = time.time()

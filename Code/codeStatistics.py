@@ -426,8 +426,10 @@ class CodeStatistics:
             self.typeLastProjectVersion_dict = merge_dictionaries(
                 [self.typeLastProjectVersion_dict, stat.typeLastProjectVersion_dict])
 
-            # RQ 8
+            # RQ 8.1
             self.annotation_related_insertion_edits_vs_all_commit += stat.annotation_related_insertion_edits_vs_all_commit
+
+            # RQ 8.2
             self.annotation_related_deletion_edits_vs_all_commit += stat.annotation_related_deletion_edits_vs_all_commit
 
             # RQ 9
