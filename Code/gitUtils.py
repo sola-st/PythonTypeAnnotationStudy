@@ -68,8 +68,8 @@ def query_repo_get_changes(repo_name, file_extension, statistics, code_changes, 
                 iii = 0
             # start = time.time()
             commit_year = time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(commit.commit_time))[:4]
-            if commit_year != '2020':
-                continue
+            #if commit_year != '2020':
+            #    continue
 
             tot_line_inserted = 0
             tot_line_removed = 0
@@ -125,7 +125,7 @@ def query_repo_get_changes(repo_name, file_extension, statistics, code_changes, 
                                                             at_least_one_type_change,
                                                             code_changes, typeannotation_line_inserted,
                                                             typeannotation_line_removed, typeannotation_line_changed,
-                                                            list_line_added)
+                                                            list_line_added, commit_year)
 
                     # RQ 4.1
                     try:
@@ -246,7 +246,7 @@ def query_repo_get_changes(repo_name, file_extension, statistics, code_changes, 
                                              at_least_one_type_change,
                                              code_changes, typeannotation_line_inserted,
                                              typeannotation_line_removed, typeannotation_line_changed, list_line_added,
-                                             list_line_removed)
+                                             list_line_removed, commit_year)
 
             # RQ 4.1
             try:

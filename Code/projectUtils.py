@@ -44,12 +44,12 @@ def myplot(statistics):
                       'code or in commits that only add types?')
 
     # RQ8.1
-    histogram_plot_xy(config.ROOT_DIR + "/Resources/Output/RQ8.1",
+    histogram_plot_xy(config.ROOT_DIR + "/Resources/Output/RQ8_1",
                       statistics.annotation_related_insertion_edits_vs_all_commit,
                       'Percentage of annotation-related insertions to all edits per commit', 'linear', 'log')
 
     # RQ8.2
-    histogram_plot_xy(config.ROOT_DIR + "/Resources/Output/RQ8.2",
+    histogram_plot_xy(config.ROOT_DIR + "/Resources/Output/RQ8_2",
                       statistics.annotation_related_deletion_edits_vs_all_commit,
                       'Percentage of annotation-related deletions to all edits per commit', 'linear', 'log')
 
@@ -70,8 +70,8 @@ def myplot(statistics):
     statistics.list_typeAnnotation_added_per_commit = "See the plot RQ4_1."
     statistics.list_typeAnnotation_removed_per_commit = "See the plot RQ4_2."
     statistics.list_typeAnnotation_changed_per_commit = "See the plot RQ4_3."
-    statistics.annotation_related_insertion_edits_vs_all_commit = "See the plot RQ8.1."
-    statistics.annotation_related_deletion_edits_vs_all_commit = "See the plot RQ8.2."
+    statistics.annotation_related_insertion_edits_vs_all_commit = "See the plot RQ8_1."
+    statistics.annotation_related_deletion_edits_vs_all_commit = "See the plot RQ8_2."
     statistics.typeAnnotation_year_analysis = "See the plot RQ9."
     statistics.typeAnnotation_commit_annotation_year_analysis = "See the plot RQ10."
     statistics.typeAnnotation_commit_not_annotation_year_analysis = "See the plot RQ10."

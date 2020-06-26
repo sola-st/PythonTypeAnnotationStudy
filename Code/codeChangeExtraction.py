@@ -123,7 +123,7 @@ def search_key_value_in_snippet(file, list_of_strings):
 def TypeAnnotationExtraction(repo_path, repo_name, commit, patch, url, statistics,# lock, logging,
                              at_least_one_type_change, code_changes,
                              typeannotation_line_inserted, typeannotation_line_removed, typeannotation_line_changed,
-                             list_line_added, list_line_removed):
+                             list_line_added, list_line_removed, commit_year):
     # command = "git --git-dir " + str(repo_path) + '/.git show ' + str(commit.hex) + ":" + str(patch.delta.old_file.path)
     # os.system(command)
     code_changes_new = []
@@ -178,9 +178,9 @@ def TypeAnnotationExtraction(repo_path, repo_name, commit, patch, url, statistic
                                                                      [key, new_return_types[key]])
                     """
 
-                    temp = CodeChange(url + str(old_line), str(patch.delta.old_file.path), old_line, old_code,
+                    temp = CodeChange(url + str(old_line), commit_year, str(patch.delta.old_file.path), old_line, str(old_return_types[key]),
                                       str(patch.delta.new_file.path),
-                                      new_line, new_code)
+                                      new_line, str(new_return_types[key]))
 
                     # if temp not in code_changes_new:
                     code_changes_new.append(temp)
@@ -211,7 +211,7 @@ def TypeAnnotationExtraction(repo_path, repo_name, commit, patch, url, statistic
                 old_line, old_code = search_key_value_in_snippet(str(old_stdout)[2:-1].replace("\\n", os.linesep),
                                                                  [key, old_return_types[key]])
                 """
-                temp = CodeChange(url + str(old_line), str(patch.delta.old_file.path), old_line, old_code,
+                temp = CodeChange(url + str(old_line), commit_year, str(patch.delta.old_file.path), old_line, str(old_return_types[key]),
                                   str(patch.delta.new_file.path),
                                   '', '')
 
@@ -240,9 +240,9 @@ def TypeAnnotationExtraction(repo_path, repo_name, commit, patch, url, statistic
                 new_line, new_code = search_key_value_in_snippet(str(new_stdout)[2:-1].replace("\\n", os.linesep),
                                                                  [key, new_return_types[key]])
                 """
-                temp = CodeChange(url + str(new_line), str(patch.delta.old_file.path), '', '',
+                temp = CodeChange(url + str(new_line), commit_year, str(patch.delta.old_file.path), '', '',
                                   str(patch.delta.new_file.path),
-                                  new_line, new_code)
+                                  new_line, str(new_return_types[key]))
 
                 # if temp not in code_changes_new:
                 code_changes_new.append(temp)
@@ -277,9 +277,9 @@ def TypeAnnotationExtraction(repo_path, repo_name, commit, patch, url, statistic
                     new_line, new_code = search_key_value_in_snippet(str(new_stdout)[2:-1].replace("\\n", os.linesep),
                                                                      [key, new_param_types[key]])
                     """
-                    temp = CodeChange(url + str(old_line), str(patch.delta.old_file.path), old_line, old_code,
+                    temp = CodeChange(url + str(old_line), commit_year, str(patch.delta.old_file.path), old_line, str(old_param_types[key]),
                                       str(patch.delta.new_file.path),
-                                      new_line, new_code)
+                                      new_line, str(new_param_types[key]))
 
                     # if temp not in code_changes_new:
                     code_changes_new.append(temp)
@@ -311,7 +311,7 @@ def TypeAnnotationExtraction(repo_path, repo_name, commit, patch, url, statistic
                 old_line, old_code = search_key_value_in_snippet(str(old_stdout)[2:-1].replace("\\n", os.linesep),
                                                                  [key, old_param_types[key]])
                 """
-                temp = CodeChange(url + str(old_line), str(patch.delta.old_file.path), old_line, old_code,
+                temp = CodeChange(url + str(old_line), commit_year, str(patch.delta.old_file.path), old_line, str(old_param_types[key]),
                                   str(patch.delta.new_file.path),
                                   '', '')
 
@@ -340,9 +340,9 @@ def TypeAnnotationExtraction(repo_path, repo_name, commit, patch, url, statistic
                 new_line, new_code = search_key_value_in_snippet(str(new_stdout)[2:-1].replace("\\n", os.linesep),
                                                                  [key, new_param_types[key]])
                 """
-                temp = CodeChange(url + str(new_line), str(patch.delta.old_file.path), '', '',
+                temp = CodeChange(url + str(new_line), commit_year, str(patch.delta.old_file.path), '', '',
                                   str(patch.delta.new_file.path),
-                                  new_line, new_code)
+                                  new_line, str(new_param_types[key]))
 
                 # if temp not in code_changes_new:
                 code_changes_new.append(temp)
@@ -379,9 +379,9 @@ def TypeAnnotationExtraction(repo_path, repo_name, commit, patch, url, statistic
                         str(new_stdout)[2:-1].replace("\\n", os.linesep),
                         [key, new_variable_types[key]])
                     """
-                    temp = CodeChange(url + str(old_line), str(patch.delta.old_file.path), old_line, old_code,
+                    temp = CodeChange(url + str(old_line), commit_year, str(patch.delta.old_file.path), old_line, str(old_variable_types[key]),
                                       str(patch.delta.new_file.path),
-                                      new_line, new_code)
+                                      new_line, str(new_variable_types[key]))
 
                     # if temp not in code_changes_new:
                     code_changes_new.append(temp)
@@ -415,7 +415,7 @@ def TypeAnnotationExtraction(repo_path, repo_name, commit, patch, url, statistic
                     [key, old_variable_types[key]])
                 """
                 if key in old_variable_types:
-                    temp = CodeChange(url + str(old_line), str(patch.delta.old_file.path), old_line, old_code,
+                    temp = CodeChange(url + str(old_line), commit_year, str(patch.delta.old_file.path), old_line, str(old_variable_types[key]),
                                       str(patch.delta.new_file.path),
                                       '', '')
 
@@ -446,9 +446,9 @@ def TypeAnnotationExtraction(repo_path, repo_name, commit, patch, url, statistic
                     str(new_stdout)[2:-1].replace("\\n", os.linesep),
                     [key, new_variable_types[key]])
                     """
-                temp = CodeChange(url + str(new_line), str(patch.delta.old_file.path), '', '',
+                temp = CodeChange(url + str(new_line),commit_year, str(patch.delta.old_file.path), '', '',
                                   str(patch.delta.new_file.path),
-                                  new_line, new_code)
+                                  new_line, str(new_variable_types[key]))
 
                 # if temp not in code_changes_new:
                 code_changes_new.append(temp)
@@ -501,7 +501,7 @@ def TypeAnnotationExtraction(repo_path, repo_name, commit, patch, url, statistic
 def TypeAnnotationExtractionFirstCommit(repo_path, repo_name, commit, patch, url, statistics,# lock, logging,
                                         at_least_one_type_change, code_changes,
                                         typeannotation_line_inserted, typeannotation_line_removed,
-                                        typeannotation_line_changed, list_line_added):
+                                        typeannotation_line_changed, list_line_added, commit_year):
     # command = "git --git-dir " + str(repo_path) + '/.git show ' + str(commit.hex) + ":" + str(patch.delta.old_file.path)
     # os.system(command)
     code_changes_new = []
@@ -535,9 +535,9 @@ def TypeAnnotationExtractionFirstCommit(repo_path, repo_name, commit, patch, url
             new_line, new_code = search_key_value_in_snippet(str(new_stdout)[2:-1].replace("\\n", os.linesep),
                                                              [key, new_return_types[key]])
                                                              """
-            temp = CodeChange(url + str(new_line), str(patch.delta.old_file.path), '', '',
+            temp = CodeChange(url + str(new_line), commit_year, str(patch.delta.old_file.path), '', '',
                               str(patch.delta.new_file.path),
-                              new_line, new_code)
+                              new_line, str(new_return_types[key]))
 
             # if temp not in code_changes_new:
             code_changes_new.append(temp)
@@ -567,9 +567,9 @@ def TypeAnnotationExtractionFirstCommit(repo_path, repo_name, commit, patch, url
             new_line, new_code = search_key_value_in_snippet(str(new_stdout)[2:-1].replace("\\n", os.linesep),
                                                              [key, new_param_types[key]])
                                                              """
-            temp = CodeChange(url + str(new_line), str(patch.delta.old_file.path), '', '',
+            temp = CodeChange(url + str(new_line), commit_year, str(patch.delta.old_file.path), '', '',
                               str(patch.delta.new_file.path),
-                              new_line, new_code)
+                              new_line, str(new_param_types[key]))
 
             # if temp not in code_changes_new:
             code_changes_new.append(temp)
@@ -598,9 +598,9 @@ def TypeAnnotationExtractionFirstCommit(repo_path, repo_name, commit, patch, url
                 # new_line, new_code = search_key_value_in_snippet(
                 #    str(new_stdout)[2:-1].replace("\\n", os.linesep),
                 #    [key, new_variable_types[key]])
-                temp = CodeChange(url + str(new_line), str(patch.delta.old_file.path), '', '',
+                temp = CodeChange(url + str(new_line), commit_year, str(patch.delta.old_file.path), '', '',
                                   str(patch.delta.new_file.path),
-                                  new_line, new_code)
+                                  new_line, str(new_variable_types[key]))
 
                 # if temp not in code_changes_new:
                 code_changes_new.append(temp)
