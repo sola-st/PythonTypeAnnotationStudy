@@ -414,28 +414,29 @@ def TypeAnnotationExtraction(repo_path, repo_name, commit, patch, url, statistic
                     str(old_stdout)[2:-1].replace("\\n", os.linesep),
                     [key, old_variable_types[key]])
                 """
-                temp = CodeChange(url + str(old_line), str(patch.delta.old_file.path), old_line, old_code,
-                                  str(patch.delta.new_file.path),
-                                  '', '')
+                if key in old_variable_types:
+                    temp = CodeChange(url + str(old_line), str(patch.delta.old_file.path), old_line, old_code,
+                                      str(patch.delta.new_file.path),
+                                      '', '')
 
-                # if temp not in code_changes_new:
-                code_changes_new.append(temp)
+                    # if temp not in code_changes_new:
+                    code_changes_new.append(temp)
 
-                #lock.acquire()
-                statistics.number_type_annotations_per_repo[repo_name] += 1
-                statistics.total_typeAnnotation_codeChanges += 1
-                statistics.remove_types += 1
-                type_annotation_removed_this_commit += 1
+                    #lock.acquire()
+                    statistics.number_type_annotations_per_repo[repo_name] += 1
+                    statistics.total_typeAnnotation_codeChanges += 1
+                    statistics.remove_types += 1
+                    type_annotation_removed_this_commit += 1
 
-                if old_variable_types[key].lower() not in statistics.typeRemoved_dict:
-                    statistics.typeRemoved_dict[old_variable_types[key].lower()] = 1
-                else:
-                    statistics.typeRemoved_dict[old_variable_types[key].lower()] += 1
-                statistics.total_removed += 1
-                statistics.variableType_removed += 1
+                    if old_variable_types[key].lower() not in statistics.typeRemoved_dict:
+                        statistics.typeRemoved_dict[old_variable_types[key].lower()] = 1
+                    else:
+                        statistics.typeRemoved_dict[old_variable_types[key].lower()] += 1
+                    statistics.total_removed += 1
+                    statistics.variableType_removed += 1
 
-                list_line_removed.add(key)
-                #lock.release()
+                    list_line_removed.add(key)
+                    #lock.release()
 
         # Insert type annotation
         for key in new_variable_types:

@@ -64,9 +64,12 @@ def query_repo_get_changes(repo_name, file_extension, statistics, code_changes, 
         # Go through each commit starting from the most recent commit
         for commit in repo.walk(last_commit, GIT_SORT_TOPOLOGICAL | GIT_SORT_REVERSE):
                 # print(str(commit.hex))
-
+            if commit.hex == '3a6ac7d1265a38ed006d568088ddc829ca66d43a':
+                iii = 0
             # start = time.time()
             commit_year = time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(commit.commit_time))[:4]
+            if commit_year != '2020':
+                continue
 
             tot_line_inserted = 0
             tot_line_removed = 0
@@ -127,10 +130,11 @@ def query_repo_get_changes(repo_name, file_extension, statistics, code_changes, 
                     # RQ 4.1
                     try:
                         if typeannotation_line_inserted[0] - typeannotation_line_changed[0] > 0:
+                            percentile = (typeannotation_line_inserted[0] - typeannotation_line_changed[0]) / (
+                                        tot_line_inserted - typeannotation_line_changed[0]) * 100
                             # lock.acquire()
-                            statistics.list_typeAnnotation_added_per_commit.append(
-                                ((typeannotation_line_inserted[0] - typeannotation_line_changed[
-                                    0]) / tot_line_inserted - typeannotation_line_changed[0]) * 100)
+                            if percentile < 100:
+                                statistics.list_typeAnnotation_added_per_commit.append(percentile)
                             # lock.release()
                     except:
                         pass
@@ -139,9 +143,12 @@ def query_repo_get_changes(repo_name, file_extension, statistics, code_changes, 
                     try:
                         if typeannotation_line_removed[0] - typeannotation_line_changed[0] > 0:
                             # lock.acquire()
-                            statistics.list_typeAnnotation_removed_per_commit.append(
-                                ((typeannotation_line_removed[0] - typeannotation_line_changed[
-                                    0]) / tot_line_removed - typeannotation_line_changed[0]) * 100)
+
+                            percentile = (typeannotation_line_removed[0] - typeannotation_line_changed[0]) / (
+                                        tot_line_removed - typeannotation_line_changed[0]) * 100
+                            if percentile < 100:
+                                statistics.list_typeAnnotation_removed_per_commit.append(percentile)
+
                             # lock.release()
                     except:
                         pass
@@ -149,11 +156,12 @@ def query_repo_get_changes(repo_name, file_extension, statistics, code_changes, 
                     # RQ 4.3
                     try:
                         if typeannotation_line_changed[0] > 0:
+                            percentile = (typeannotation_line_changed[0]) / (
+                                        tot_line_removed + tot_line_inserted - typeannotation_line_removed[0] -
+                                        typeannotation_line_inserted[0]) * 100
                             # lock.acquire()
-                            statistics.list_typeAnnotation_changed_per_commit.append(((typeannotation_line_changed[
-                                0]) / tot_line_removed + tot_line_inserted - typeannotation_line_removed[0] -
-                                                                                      typeannotation_line_inserted[
-                                                                                          0]) * 100)
+                            if percentile < 100:
+                                statistics.list_typeAnnotation_changed_per_commit.append(percentile)
                             # lock.release()
                     except:
                         pass
@@ -165,13 +173,12 @@ def query_repo_get_changes(repo_name, file_extension, statistics, code_changes, 
 
                             if percentile_total_edits_inserted < 100:
                                 # lock.acquire()
-                                statistics.annotation_related_edits_vs_all_commit.append(
+                                statistics.annotation_related_insertion_edits_vs_all_commit.append(
                                     percentile_total_edits_inserted)
                                 # lock.release()
                     except:
                         pass
 
-                    # RQ 8.2
                     try:
                         if len(list_line_removed) > 0:
                             percentile_total_edits_removed = (len(list_line_removed) /
@@ -179,7 +186,8 @@ def query_repo_get_changes(repo_name, file_extension, statistics, code_changes, 
 
                             if percentile_total_edits_removed < 100:
                                 # lock.acquire()
-                                statistics.annotation_related_edits_vs_all_commit.append(percentile_total_edits_removed)
+                                statistics.annotation_related_deletion_edits_vs_all_commit.append(
+                                    percentile_total_edits_removed)
                                 # lock.release()
                     except:
                         pass
@@ -243,9 +251,10 @@ def query_repo_get_changes(repo_name, file_extension, statistics, code_changes, 
             # RQ 4.1
             try:
                 if typeannotation_line_inserted[0] - typeannotation_line_changed[0] > 0:
+                    percentile = (typeannotation_line_inserted[0] - typeannotation_line_changed[0])/(tot_line_inserted- typeannotation_line_changed[0])*100
                     #lock.acquire()
-                    statistics.list_typeAnnotation_added_per_commit.append(
-                        ((typeannotation_line_inserted[0] - typeannotation_line_changed[0])/tot_line_inserted- typeannotation_line_changed[0])*100)
+                    if percentile < 100:
+                        statistics.list_typeAnnotation_added_per_commit.append(percentile)
                     #lock.release()
             except:
                 pass
@@ -254,8 +263,11 @@ def query_repo_get_changes(repo_name, file_extension, statistics, code_changes, 
             try:
                 if typeannotation_line_removed[0] - typeannotation_line_changed[0] > 0:
                     #lock.acquire()
-                    statistics.list_typeAnnotation_removed_per_commit.append(
-                        ((typeannotation_line_removed[0] - typeannotation_line_changed[0])/tot_line_removed- typeannotation_line_changed[0])*100)
+
+                    percentile = (typeannotation_line_removed[0] - typeannotation_line_changed[0])/(tot_line_removed- typeannotation_line_changed[0])*100
+                    if percentile < 100:
+                        statistics.list_typeAnnotation_removed_per_commit.append(percentile)
+
                     #lock.release()
             except:
                 pass
@@ -263,8 +275,10 @@ def query_repo_get_changes(repo_name, file_extension, statistics, code_changes, 
             # RQ 4.3
             try:
                 if typeannotation_line_changed[0] > 0:
+                    percentile = (typeannotation_line_changed[0])/(tot_line_removed + tot_line_inserted - typeannotation_line_removed[0]-typeannotation_line_inserted[0] )*100
                     #lock.acquire()
-                    statistics.list_typeAnnotation_changed_per_commit.append(((typeannotation_line_changed[0])/tot_line_removed + tot_line_inserted - typeannotation_line_removed[0]-typeannotation_line_inserted[0] )*100)
+                    if percentile < 100:
+                        statistics.list_typeAnnotation_changed_per_commit.append(percentile)
                     #lock.release()
             except:
                 pass
@@ -276,7 +290,7 @@ def query_repo_get_changes(repo_name, file_extension, statistics, code_changes, 
 
                     if percentile_total_edits_inserted < 100:
                         #lock.acquire()
-                        statistics.annotation_related_edits_vs_all_commit.append(percentile_total_edits_inserted)
+                        statistics.annotation_related_insertion_edits_vs_all_commit.append(percentile_total_edits_inserted)
                         #lock.release()
             except:
                 pass
@@ -288,7 +302,7 @@ def query_repo_get_changes(repo_name, file_extension, statistics, code_changes, 
 
                     if percentile_total_edits_removed < 100:
                         # lock.acquire()
-                        statistics.annotation_related_edits_vs_all_commit.append(percentile_total_edits_removed)
+                        statistics.annotation_related_deletion_edits_vs_all_commit.append(percentile_total_edits_removed)
                         # lock.release()
             except:
                 pass
