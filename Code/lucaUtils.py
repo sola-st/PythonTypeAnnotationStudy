@@ -161,8 +161,9 @@ def bar_plot_double_xy(outputFilePath, x, y1, y2, x_label, y_label, title=None, 
     plt.figure()
 
 
-def histogram_plot_xy(outputFilePath, x, x_label, xscale, yscale, title=None):
+def histogram_plot_xy(outputFilePath, x, x_label, y_label, xscale, yscale, title=None):
     plt.xlabel(x_label, fontsize=18, fontweight='bold', color='black', horizontalalignment='center')
+    plt.ylabel(y_label, fontsize=18, fontweight='bold', color='black', horizontalalignment='center')
 
     if len(x) == 0:
         print('[Empty x]', title)
