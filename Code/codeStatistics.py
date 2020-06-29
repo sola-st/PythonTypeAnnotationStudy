@@ -20,6 +20,7 @@ class CodeStatistics:
 
         # [RQ0]: How many types are used?
         self.RQ0 = 'How many types are used?'
+        self.code_changes: list = []
         self.repo_with_types_changes = 0
         self.percentage_repo_with_typeChanges = ''
         self.commits_with_typeChanges = 0
@@ -332,18 +333,21 @@ class CodeStatistics:
                     self.typeLastProjectVersion_dict[item.get('html_url')] = self.typeLastProjectVersion_dict[name]
                     del self.typeLastProjectVersion_dict[name]
 
+                n_stars = item.get('stargazers_count')
+
                 self.matrix_commits_stars_annotations = \
                     np.append(self.matrix_commits_stars_annotations,
-                              np.array([[n_commits, item.get('stargazers_count'), n_annotations]]), axis=0)
+                              np.array([[n_commits, n_stars, n_annotations]]), axis=0)
                 break
 
-    def merge_results(self, thread_statistics):
+    def merge_results(self, thread_statistics, code_changes):
 
         for stat in thread_statistics:
             self.total_repositories += stat.total_repositories
             self.total_commits += stat.total_commits
 
             # RQ0
+            code_changes += stat.code_changes
             self.repo_with_types_changes += stat.repo_with_types_changes
             self.commits_with_typeChanges += stat.commits_with_typeChanges
             self.total_typeAnnotation_codeChanges += stat.total_typeAnnotation_codeChanges

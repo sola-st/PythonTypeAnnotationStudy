@@ -30,7 +30,7 @@ def repo_cloning(filenameInput: str, pathOutput: str) -> None:
             git.clone_repository(link, pathOutput + '/' + out)
 
 
-def query_repo_get_changes(repo_name, file_extension, statistics, code_changes, pointer, dirlist_len):
+def query_repo_get_changes(repo_name, file_extension, statistics, pointer, dirlist_len):
     start = time.time()
     tot_this_repo_commit = 0
     # tot_this_repo_commit_with_annotations = [0]
@@ -68,8 +68,8 @@ def query_repo_get_changes(repo_name, file_extension, statistics, code_changes, 
                 iii = 0
             # start = time.time()
             commit_year = time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(commit.commit_time))[:4]
-            #if commit_year != '2020':
-            #    continue
+           # if commit_year != '2012' and commit_year != '2020':
+           #     continue
 
             tot_line_inserted = 0
             tot_line_removed = 0
@@ -78,7 +78,7 @@ def query_repo_get_changes(repo_name, file_extension, statistics, code_changes, 
             typeannotation_line_changed = [0]
             list_line_added = set()
             list_line_removed = set()
-            old_len = len(code_changes)
+            old_len = len(statistics.code_changes)
 
             #lock.acquire()
             statistics.total_commits += 1
@@ -123,7 +123,7 @@ def query_repo_get_changes(repo_name, file_extension, statistics, code_changes, 
                                                             remote_url + '/commit/' + commit.hex + '#diff-' + diff.patchid.hex + 'L',
                                                             statistics,# lock, logging,
                                                             at_least_one_type_change,
-                                                            code_changes, typeannotation_line_inserted,
+                                                            statistics.code_changes, typeannotation_line_inserted,
                                                             typeannotation_line_removed, typeannotation_line_changed,
                                                             list_line_added, commit_year)
 
@@ -179,6 +179,7 @@ def query_repo_get_changes(repo_name, file_extension, statistics, code_changes, 
                     except:
                         pass
 
+                    # RQ 8.2
                     try:
                         if len(list_line_removed) > 0:
                             percentile_total_edits_removed = (len(list_line_removed) /
@@ -192,7 +193,7 @@ def query_repo_get_changes(repo_name, file_extension, statistics, code_changes, 
                     except:
                         pass
 
-                    if len(code_changes) > old_len:
+                    if len(statistics.code_changes) > old_len:
                         #lock.acquire()
                         statistics.commits_with_typeChanges += 1
 
@@ -207,9 +208,9 @@ def query_repo_get_changes(repo_name, file_extension, statistics, code_changes, 
 
                         # RQ9
                         if commit_year not in statistics.typeAnnotation_year_analysis:
-                            statistics.typeAnnotation_year_analysis[commit_year] = len(code_changes) - old_len
+                            statistics.typeAnnotation_year_analysis[commit_year] = len(statistics.code_changes) - old_len
                         else:
-                            statistics.typeAnnotation_year_analysis[commit_year] += len(code_changes) - old_len
+                            statistics.typeAnnotation_year_analysis[commit_year] += len(statistics.code_changes) - old_len
                         #lock.release()
 
                         commit_with_annotations_this_repo[0] += 1
@@ -244,7 +245,7 @@ def query_repo_get_changes(repo_name, file_extension, statistics, code_changes, 
                                              remote_url + '/commit/' + commit.hex + '#diff-' + diff.patchid.hex + 'L',
                                              statistics,# lock, logging,
                                              at_least_one_type_change,
-                                             code_changes, typeannotation_line_inserted,
+                                             statistics.code_changes, typeannotation_line_inserted,
                                              typeannotation_line_removed, typeannotation_line_changed, list_line_added,
                                              list_line_removed, commit_year)
 
@@ -307,7 +308,7 @@ def query_repo_get_changes(repo_name, file_extension, statistics, code_changes, 
             except:
                 pass
 
-            if len(code_changes) > old_len:
+            if len(statistics.code_changes) > old_len:
                 #lock.acquire()
                 statistics.commits_with_typeChanges += 1
 
@@ -320,11 +321,12 @@ def query_repo_get_changes(repo_name, file_extension, statistics, code_changes, 
                 if commit_year not in statistics.typeAnnotation_commit_not_annotation_year_analysis:
                     statistics.typeAnnotation_commit_not_annotation_year_analysis[commit_year] = 0
 
+
                 # RQ9
                 if commit_year not in statistics.typeAnnotation_year_analysis:
-                    statistics.typeAnnotation_year_analysis[commit_year] = len(code_changes) - old_len
+                    statistics.typeAnnotation_year_analysis[commit_year] = len(statistics.code_changes) - old_len
                 else:
-                    statistics.typeAnnotation_year_analysis[commit_year] += len(code_changes) - old_len
+                    statistics.typeAnnotation_year_analysis[commit_year] += len(statistics.code_changes) - old_len
                 #lock.release()
                 commit_with_annotations_this_repo[0] += 1
             else:

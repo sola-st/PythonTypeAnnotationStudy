@@ -131,6 +131,7 @@ def TypeAnnotationExtraction(repo_path, repo_name, commit, patch, url, statistic
     type_annotation_removed_this_commit = 0
     type_annotation_changed_this_commit = 0
 
+
     old_out = subprocess.Popen(
         ["git", "--git-dir", str(repo_path + repo_name) + '/.git', 'show',
          str(commit.hex + '^') + ":" + str(patch.delta.old_file.path)],

@@ -197,8 +197,8 @@ def scatter_plot_xy(outputFilePath, x, y, x_label, y_label, xscale, yscale, titl
     if xlim is not None:
         axes.set_xlim([0, xlim])
 
-    plt.yscale(yscale)
-    plt.xscale(xscale)
+    #plt.yscale(yscale)
+    #plt.xscale(xscale)
 
     # use the plot function
     plt.scatter(x, y)

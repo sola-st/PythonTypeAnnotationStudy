@@ -1,6 +1,7 @@
 import os
 import pstats
 import threading
+from multiprocessing import Pool, cpu_count
 import time
 import multiprocessing
 from Code import gitUtils
@@ -22,13 +23,14 @@ if __name__ == "__main__":
     dirlist: list = [item for item in os.listdir(config.ROOT_DIR + "/GitHub") if
                      os.path.isdir(os.path.join(config.ROOT_DIR + "/GitHub", item))]
 
-    code_changes: list = []
 
     statistics_final: CodeStatistics = CodeStatistics()
 
-    lock = multiprocessing.Lock()
 
-    thread_statistics = []
+
+    #lock = multiprocessing.Lock()
+
+    process_statistics = []
 
     if config.TEST:
         profile = cProfile.Profile()
@@ -45,23 +47,28 @@ if __name__ == "__main__":
         #profile = cProfile.Profile()
         #profile.enable()
 
-        threads: list = []
+        process_list: list = []
         pointer = [1]
         dirlist_len = len(dirlist)
 
         for repository in dirlist:
-            thread_statistics.append(CodeStatistics())
-            thread = threading.Thread(target=gitUtils.query_repo_get_changes,
-                                      args=(repository, '.py', thread_statistics[-1],
-                                            code_changes, # lock, logging,
+            process_statistics.append(CodeStatistics())
+            p = multiprocessing.Process(target=gitUtils.query_repo_get_changes,
+                                      args=(repository, '.py', process_statistics[-1],
+                                            #code_changes, # lock, logging,
                                             pointer, dirlist_len))
-            threads.append(thread)
+            process_list.append(p)
 
-        for thread in threads:
-            thread.start()
+        with Pool(cpu_count()) as p:
+            print(p.map(gitUtils.query_repo_get_changes, [repository, '.py', process_statistics[-1],
+                                            #code_changes, # lock, logging,
+                                            pointer, dirlist_len]))
 
-        for thread in threads:
-            thread.join()
+        for p in process_list:
+            p.start()
+
+        for p in process_list:
+            p.join()
 
         #profile.disable()
         #ps = pstats.Stats(profile).sort_stats('cumulative')
@@ -79,7 +86,10 @@ if __name__ == "__main__":
                 print('Error in repository:', repository)
                 continue
         """
-    statistics_final.merge_results(thread_statistics)
+
+    code_changes: list = []
+
+    statistics_final.merge_results(thread_statistics, code_changes)
 
     if statistics_final.total_typeAnnotation_codeChanges > 0:
         # Statistics computation
