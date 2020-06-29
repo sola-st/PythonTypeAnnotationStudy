@@ -1,6 +1,5 @@
 import os
 import pstats
-import threading
 from multiprocessing import Pool, cpu_count
 import time
 import multiprocessing
@@ -54,15 +53,10 @@ if __name__ == "__main__":
         for repository in dirlist:
             process_statistics.append(CodeStatistics())
             p = multiprocessing.Process(target=gitUtils.query_repo_get_changes,
-                                      args=(repository, '.py', process_statistics[-1],
+                                      args=(repository, '.py', process_statistics[-1]
                                             #code_changes, # lock, logging,
-                                            pointer, dirlist_len))
+                                            ))#pointer, dirlist_len))
             process_list.append(p)
-
-        with Pool(cpu_count()) as p:
-            print(p.map(gitUtils.query_repo_get_changes, [repository, '.py', process_statistics[-1],
-                                            #code_changes, # lock, logging,
-                                            pointer, dirlist_len]))
 
         for p in process_list:
             p.start()

@@ -30,7 +30,7 @@ def repo_cloning(filenameInput: str, pathOutput: str) -> None:
             git.clone_repository(link, pathOutput + '/' + out)
 
 
-def query_repo_get_changes(repo_name, file_extension, statistics, pointer, dirlist_len):
+def query_repo_get_changes(repo_name, file_extension, statistics):#, pointer, dirlist_len):
     start = time.time()
     tot_this_repo_commit = 0
     # tot_this_repo_commit_with_annotations = [0]
@@ -346,9 +346,10 @@ def query_repo_get_changes(repo_name, file_extension, statistics, pointer, dirli
     if at_least_one_type_change[0] > 0:
         statistics.repo_with_types_changes += 1
 
+    """
     print(pointer[0], '/', dirlist_len)
     pointer[0] += 1
-
+    """
     # Computational time
     end = time.time()
     hours, rem = divmod(end - start, 3600)
