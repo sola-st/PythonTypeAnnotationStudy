@@ -340,9 +340,10 @@ class CodeStatistics:
                               np.array([[n_commits, n_stars, n_annotations]]), axis=0)
                 break
 
-    def merge_results(self, thread_statistics, code_changes):
+    def merge_results(self, process_statistics, code_changes):
 
-        for stat in thread_statistics:
+        for stat in process_statistics:
+
             self.total_repositories += stat.total_repositories
             self.total_commits += stat.total_commits
 

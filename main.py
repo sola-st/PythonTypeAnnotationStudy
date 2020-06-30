@@ -9,10 +9,11 @@ from Code.codeStatistics import CodeStatistics
 from Code.projectUtils import *
 from config import REPO_LIST
 import cProfile
+from tqdm import tqdm
 
 if __name__ == "__main__":
-    logging.basicConfig(filename=config.ROOT_DIR + "/Resources/Output/app.log", filemode='w',
-                        format='%(name)s - %(levelname)s - %(message)s')
+   # logging.basicConfig(filename=config.ROOT_DIR + "/Resources/Output/app.log", filemode='w',
+   #                     format='%(name)s - %(levelname)s - %(message)s')
 
     if config.CLONING:
         gitUtils.repo_cloning(REPO_LIST, config.ROOT_DIR + "/GitHub")
@@ -30,6 +31,7 @@ if __name__ == "__main__":
     #lock = multiprocessing.Lock()
 
     process_statistics = []
+
 
     if config.TEST:
         profile = cProfile.Profile()
@@ -50,10 +52,11 @@ if __name__ == "__main__":
         pointer = [1]
         dirlist_len = len(dirlist)
 
+        """
         for repository in dirlist:
-            process_statistics.append(CodeStatistics())
+            #process_statistics.append(CodeStatistics())
             p = multiprocessing.Process(target=gitUtils.query_repo_get_changes,
-                                      args=(repository, '.py', process_statistics[-1]
+                                      args=(repository, process_queue#, process_statistics[-1]
                                             #code_changes, # lock, logging,
                                             ))#pointer, dirlist_len))
             process_list.append(p)
@@ -62,7 +65,11 @@ if __name__ == "__main__":
             p.start()
 
         for p in process_list:
-            p.join()
+            p.join()"""
+
+
+        with Pool(multiprocessing.cpu_count()) as p:
+            process_statistics += p.imap_unordered(gitUtils.query_repo_get_changes, dirlist)
 
         #profile.disable()
         #ps = pstats.Stats(profile).sort_stats('cumulative')
@@ -83,7 +90,7 @@ if __name__ == "__main__":
 
     code_changes: list = []
 
-    statistics_final.merge_results(thread_statistics, code_changes)
+    statistics_final.merge_results(process_statistics, code_changes)
 
     if statistics_final.total_typeAnnotation_codeChanges > 0:
         # Statistics computation
