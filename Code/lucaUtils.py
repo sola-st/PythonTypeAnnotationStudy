@@ -6,6 +6,8 @@ Last update: July-2020
 """
 
 import json
+import os
+import shutil
 from collections import Counter
 
 import matplotlib.pyplot as plt
@@ -47,7 +49,7 @@ def merge_dictionaries(input):
     return sum((Counter(dict(z)) for z in input), Counter())
 
 """
-Methods for writing files.
+Methods for working on files.
 """
 
 
@@ -65,6 +67,18 @@ def write_in_json(outputFilePath: str, data: list) -> None:
     with open(outputFilePath, "w") as f:
         f.write(json_file)
     f.close()
+
+def delete_all_files_in_folder(folder):
+
+    for filename in os.listdir(folder):
+        file_path = os.path.join(folder, filename)
+        try:
+            if os.path.isfile(file_path) or os.path.islink(file_path):
+                os.unlink(file_path)
+            elif os.path.isdir(file_path):
+                shutil.rmtree(file_path)
+        except Exception as e:
+            print('Failed to delete %s. Reason: %s' % (file_path, e))
 
 
 """
@@ -111,13 +125,15 @@ def bar_plot_xy(outputFilePath, x, y, x_label, y_label, title=None, color='blue'
     if ylim is not None:
         axes.set_ylim([0, ylim])
 
-    if xlim is not None:
-        axes.set_xlim([0, xlim])
+    #if xlim is not None:
+    #    axes.set_xlim([0, xlim])
 
     plt.yscale('log')
 
     plt.ylabel(y_label, fontsize=10, fontweight='bold', color='black')
     plt.xlabel(x_label, fontsize=10, fontweight='bold', color='black', horizontalalignment='center')
+
+    plt.setp(axes.get_xticklabels(), rotation=30, horizontalalignment='right')
 
     # y_pos = np.arange(len(x))
     plt.bar(x, y, color=(0.2, 0.4, 0.6, 0.6))

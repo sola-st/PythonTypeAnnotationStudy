@@ -1,10 +1,8 @@
 import json
 import os
 import time
-
 import pygit2 as git
 from pygit2 import GIT_SORT_TOPOLOGICAL, GIT_SORT_REVERSE
-
 import config
 from Code.codeChangeExtraction import TypeAnnotationExtraction, type_annotation_in_last_version, \
     TypeAnnotationExtractionFirstCommit
@@ -48,22 +46,21 @@ def query_repo_get_changes(repo_name):  # statistics, pointer, dirlist_len):
 
     type_annotation_in_last_version(repo_name, statistics)
 
+    try:
+        repo = git.Repository(config.ROOT_DIR + "/GitHub/" + repo_name)
+    except:
+        return
+
+    remote_url = None
+    for r in repo.remotes:
+        remote_url = r.url.split('.git')[0]
+
+    last_commit = None
+
+    for l in repo.head.log():
+        last_commit = l.oid_new
+
     if statistics.typeLastProjectVersion_total > 0:
-
-        try:
-            repo = git.Repository(config.ROOT_DIR + "/GitHub/" + repo_name)
-        except:
-            return
-
-        remote_url = None
-        for r in repo.remotes:
-            remote_url = r.url.split('.git')[0]
-
-        last_commit = None
-
-        for l in repo.head.log():
-            last_commit = l.oid_new
-
         # Go through each commit starting from the most recent commit
         for commit in repo.walk(last_commit, GIT_SORT_TOPOLOGICAL | GIT_SORT_REVERSE):
             # print(str(commit.hex))
@@ -169,7 +166,7 @@ def query_repo_get_changes(repo_name):  # statistics, pointer, dirlist_len):
                     except:
                         pass
 
-                    # RQ 8.1
+                    # RQ 4.4
                     try:
                         if len(list_line_added) > 0:
                             percentile_total_edits_inserted = ((len(list_line_added)) / (tot_line_inserted) * 100)
@@ -182,7 +179,7 @@ def query_repo_get_changes(repo_name):  # statistics, pointer, dirlist_len):
                     except:
                         pass
 
-                    # RQ 8.2
+                    # RQ 4.5
                     try:
                         if len(list_line_removed) > 0:
                             percentile_total_edits_removed = (len(list_line_removed) /
@@ -200,7 +197,7 @@ def query_repo_get_changes(repo_name):  # statistics, pointer, dirlist_len):
                         # lock.acquire()
                         statistics.commits_with_typeChanges += 1
 
-                        # RQ10
+                        # RQ9
                         if commit_year not in statistics.typeAnnotation_commit_annotation_year_analysis:
                             statistics.typeAnnotation_commit_annotation_year_analysis[commit_year] = 1
                         else:
@@ -209,7 +206,7 @@ def query_repo_get_changes(repo_name):  # statistics, pointer, dirlist_len):
                         if commit_year not in statistics.typeAnnotation_commit_not_annotation_year_analysis:
                             statistics.typeAnnotation_commit_not_annotation_year_analysis[commit_year] = 0
 
-                        # RQ9
+                        # RQ8
                         if commit_year not in statistics.typeAnnotation_year_analysis:
                             statistics.typeAnnotation_year_analysis[commit_year] = len(
                                 statistics.code_changes) - old_len
@@ -293,7 +290,7 @@ def query_repo_get_changes(repo_name):  # statistics, pointer, dirlist_len):
             except:
                 pass
 
-            # RQ 8.1
+            # RQ 4.4
             try:
                 if len(list_line_added) > 0:
                     percentile_total_edits_inserted = ((len(list_line_added)) / (tot_line_inserted) * 100)
@@ -306,6 +303,7 @@ def query_repo_get_changes(repo_name):  # statistics, pointer, dirlist_len):
             except:
                 pass
 
+            # RQ 4.5
             try:
                 if len(list_line_removed) > 0:
                     percentile_total_edits_removed = (len(list_line_removed) /
@@ -323,7 +321,7 @@ def query_repo_get_changes(repo_name):  # statistics, pointer, dirlist_len):
                 # lock.acquire()
                 statistics.commits_with_typeChanges += 1
 
-                # RQ10
+                # RQ9
                 if commit_year not in statistics.typeAnnotation_commit_annotation_year_analysis:
                     statistics.typeAnnotation_commit_annotation_year_analysis[commit_year] = 1
                 else:
@@ -332,7 +330,7 @@ def query_repo_get_changes(repo_name):  # statistics, pointer, dirlist_len):
                 if commit_year not in statistics.typeAnnotation_commit_not_annotation_year_analysis:
                     statistics.typeAnnotation_commit_not_annotation_year_analysis[commit_year] = 0
 
-                # RQ9
+                # RQ8
                 if commit_year not in statistics.typeAnnotation_year_analysis:
                     statistics.typeAnnotation_year_analysis[commit_year] = len(statistics.code_changes) - old_len
                 else:
@@ -350,6 +348,12 @@ def query_repo_get_changes(repo_name):  # statistics, pointer, dirlist_len):
             if seconds > 1.0:
                 print(str(commit.hex), "ends successfully in" , "{:0>2}:{:0>2}:{:05.2f}".format(int(hours), int(minutes), seconds))
             """
+    else:
+        # Go through each commit starting from the most recent commit
+        for _ in repo.walk(last_commit, GIT_SORT_TOPOLOGICAL | GIT_SORT_REVERSE):
+
+            statistics.total_commits += 1
+            tot_this_repo_commit += 1
 
     # lock.acquire()
     statistics.addRepo(repo_name, tot_this_repo_commit, statistics.number_type_annotations_per_repo[repo_name])

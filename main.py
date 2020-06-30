@@ -1,19 +1,13 @@
-import os
 import pstats
-from multiprocessing import Pool, cpu_count
 import time
 import multiprocessing
-from Code import gitUtils
-import logging
+from Code import gitUtils, lucaUtils
 from Code.codeStatistics import CodeStatistics
 from Code.projectUtils import *
 from config import REPO_LIST
 import cProfile
-from tqdm import tqdm
 
 if __name__ == "__main__":
-   # logging.basicConfig(filename=config.ROOT_DIR + "/Resources/Output/app.log", filemode='w',
-   #                     format='%(name)s - %(levelname)s - %(message)s')
 
     if config.CLONING:
         gitUtils.repo_cloning(REPO_LIST, config.ROOT_DIR + "/GitHub")
@@ -23,12 +17,7 @@ if __name__ == "__main__":
     dirlist: list = [item for item in os.listdir(config.ROOT_DIR + "/GitHub") if
                      os.path.isdir(os.path.join(config.ROOT_DIR + "/GitHub", item))]
 
-
     statistics_final: CodeStatistics = CodeStatistics()
-
-
-
-    #lock = multiprocessing.Lock()
 
     process_statistics = []
 
@@ -38,55 +27,15 @@ if __name__ == "__main__":
         profile.enable()
 
         print("\nWorking on TEST CONFIGURATION")
-        gitUtils.query_repo_get_changes("mypy",
-                                        '.py', statistics, code_changes, lock, logging, [1], 1)
+        process_statistics += gitUtils.query_repo_get_changes("mypy")
 
         profile.disable()
         ps = pstats.Stats(profile).sort_stats('cumulative')
         ps.print_stats()
     else:
-        #profile = cProfile.Profile()
-        #profile.enable()
 
-        process_list: list = []
-        pointer = [1]
-        dirlist_len = len(dirlist)
-
-        """
-        for repository in dirlist:
-            #process_statistics.append(CodeStatistics())
-            p = multiprocessing.Process(target=gitUtils.query_repo_get_changes,
-                                      args=(repository, process_queue#, process_statistics[-1]
-                                            #code_changes, # lock, logging,
-                                            ))#pointer, dirlist_len))
-            process_list.append(p)
-
-        for p in process_list:
-            p.start()
-
-        for p in process_list:
-            p.join()"""
-
-
-        with Pool(multiprocessing.cpu_count()) as p:
+        with multiprocessing.Pool(multiprocessing.cpu_count()) as p:
             process_statistics += p.imap_unordered(gitUtils.query_repo_get_changes, dirlist)
-
-        #profile.disable()
-        #ps = pstats.Stats(profile).sort_stats('cumulative')
-        #ps.print_stats()
-
-        """
-        i = 1
-        for repository in dirlist:
-            print(i, '/', len(dirlist))
-            i += 1
-            try:
-                gitUtils.query_repo_get_changes(repository,
-                                                '.py', statistics, code_changes, lock, logging, pointer, dirlist_len)
-            except:
-                print('Error in repository:', repository)
-                continue
-        """
 
     code_changes: list = []
 
@@ -111,6 +60,10 @@ if __name__ == "__main__":
 
     # Write results in files
     try:
+        # Remove old files
+        lucaUtils.delete_all_files_in_folder(config.ROOT_DIR + '/Resources/Output/')
+
+        # Compute new files
         myplot(statistics_final)
         write_results(statistics_final, code_changes)
     except Exception as e:

@@ -74,7 +74,7 @@ class CodeStatistics:
         self.typeRemoved_dict = {}
 
         # [RQ2.5]: What types are the top 10 changed?
-        self.RQ2_5 = 'What types are the top 10 changed (primitives, built-in classes, application-specific classes)?'
+        self.RQ2_5 = 'What types are the top 10 changed ?'
         self.total_changed = 0
         self.typeChanged_dict = {}
         self.s3 = "------------------------------------------------------------------------"
@@ -112,6 +112,12 @@ class CodeStatistics:
         self.RQ4_3 = 'Are types changed along with other changes around this code or in commits that only add types?'
         self.typeAnnotation_changed_per_commit = 0
         self.list_typeAnnotation_changed_per_commit = []
+
+        # [RQ4.4]: Computation percentage of annotation-related insertion to all edits per each commit
+        self.annotation_related_insertion_edits_vs_all_commit = []
+
+        # [RQ4.5]: Computation percentage of annotation-related deletions to all edits per each commit
+        self.annotation_related_deletion_edits_vs_all_commit = []
         self.s5 = "------------------------------------------------------------------------"
 
         # [RQ5]: Relation of properties of projects vs. properties of type changes
@@ -132,16 +138,16 @@ class CodeStatistics:
         self.typeLastProjectVersion_dict = {}
 
         # [RQ8]: Computation percentage of annotation-related edits to all edits per each commit
-        self.RQ8 = 'Computation percentage of annotation-related edits to all edits per each commit'
-        self.annotation_related_insertion_edits_vs_all_commit = []
-        self.annotation_related_deletion_edits_vs_all_commit = []
+       # self.RQ8 = 'Computation percentage of annotation-related edits to all edits per each commit'
+        #self.annotation_related_insertion_edits_vs_all_commit = []
+        #self.annotation_related_deletion_edits_vs_all_commit = []
 
-        # [RQ9]: Total number of annotations over time, across all projects
-        self.RQ9 = 'Total number of annotations over time, across all projects'
+        # [RQ8]: Total number of annotations over time, across all projects
+        self.RQ8 = 'Total number of annotations over time, across all projects'
         self.typeAnnotation_year_analysis = {}
 
-        # [RQ10]: Total number of annotation-related commit over time, across all projects
-        self.RQ10 = 'Total number of annotation-related commit over time, across all projects'
+        # [RQ9]: Total number of annotation-related commit over time, across all projects
+        self.RQ9 = 'Total number of annotation-related commit over time, across all projects'
         self.typeAnnotation_commit_annotation_year_analysis = {}
         self.typeAnnotation_commit_not_annotation_year_analysis = {}
 
@@ -419,6 +425,12 @@ class CodeStatistics:
             self.typeAnnotation_changed_per_commit += stat.typeAnnotation_changed_per_commit
             self.list_typeAnnotation_changed_per_commit += stat.list_typeAnnotation_changed_per_commit
 
+            # RQ 4.4
+            self.annotation_related_insertion_edits_vs_all_commit += stat.annotation_related_insertion_edits_vs_all_commit
+
+            # RQ 4.5
+            self.annotation_related_deletion_edits_vs_all_commit += stat.annotation_related_deletion_edits_vs_all_commit
+
             # RQ 5
             self.matrix_commits_stars_annotations = np.concatenate((self.matrix_commits_stars_annotations,
                                                                    stat.matrix_commits_stars_annotations), axis=0)
@@ -431,17 +443,11 @@ class CodeStatistics:
             self.typeLastProjectVersion_dict = merge_dictionaries(
                 [self.typeLastProjectVersion_dict, stat.typeLastProjectVersion_dict])
 
-            # RQ 8.1
-            self.annotation_related_insertion_edits_vs_all_commit += stat.annotation_related_insertion_edits_vs_all_commit
-
-            # RQ 8.2
-            self.annotation_related_deletion_edits_vs_all_commit += stat.annotation_related_deletion_edits_vs_all_commit
-
-            # RQ 9
+            # RQ 8
             self.typeAnnotation_year_analysis = merge_dictionaries(
                 [self.typeAnnotation_year_analysis, stat.typeAnnotation_year_analysis])
 
-            # RQ 10
+            # RQ 9
             self.typeAnnotation_commit_annotation_year_analysis = merge_dictionaries(
                 [self.typeAnnotation_commit_annotation_year_analysis, stat.typeAnnotation_commit_annotation_year_analysis])
 
