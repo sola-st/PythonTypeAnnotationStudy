@@ -63,13 +63,13 @@ def query_repo_get_changes(repo_name):  # statistics, pointer, dirlist_len):
     if statistics.typeLastProjectVersion_total > 0:
         # Go through each commit starting from the most recent commit
         for commit in repo.walk(last_commit, GIT_SORT_TOPOLOGICAL | GIT_SORT_REVERSE):
-            # print(str(commit.hex))
-            #if commit.hex == '3a6ac7d1265a38ed006d568088ddc829ca66d43a':
-            #    iii = 0
+            #print(str(commit.hex))
+            if commit.hex == '997f283e9904f4e471f292be95a75735ee151d07':
+                iii = 0
             # start = time.time()
             commit_year = time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(commit.commit_time))[:4]
-           # if commit_year != '2020':
-           #     continue
+            #if commit_year != '2020':
+            #    continue
 
             tot_line_inserted = 0
             tot_line_removed = 0

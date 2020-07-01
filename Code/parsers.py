@@ -123,6 +123,8 @@ class TypeCollector(cst.CSTVisitor):
             self.return_types[tuple(self.stack)] = \
                 self.last_annotation
 
+        self.annotation_parts = []
+        self.last_annotation = None
         self.stack.pop()
 
     def leave_Param(self, node: cst.Param):
