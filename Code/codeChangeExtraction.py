@@ -12,13 +12,13 @@ def extract_from_snippet(string):
         return {}, {}, {}
 
     # Parse file to AST
-    try:
+    #try:
         # str_file = string[2:-1].replace("\\n", os.linesep).replace("\\t", "    ").replace("= \\'", "= '").replace("\\\\", "\\")
         # ast = cst.parse_module(string[2:-1].replace("\\n", os.linesep).replace("\\t", "    "))
-        ast = cst.parse_module(string)
-    except Exception as e:
+    ast = cst.parse_module(string)
+   # except Exception as e:
         # print('Failed to upload to ftp: ' + str(e))
-        return {}, {}, {}
+       # return {}, {}, {}
 
     # Collect types
     type_collector = TypeCollector()
