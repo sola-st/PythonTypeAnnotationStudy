@@ -64,12 +64,12 @@ def query_repo_get_changes(repo_name):  # statistics, pointer, dirlist_len):
         # Go through each commit starting from the most recent commit
         for commit in repo.walk(last_commit, GIT_SORT_TOPOLOGICAL | GIT_SORT_REVERSE):
             #print(str(commit.hex))
-            if commit.hex == '997f283e9904f4e471f292be95a75735ee151d07':
+            if commit.hex == '102e651741e89a5fe925406253b60883f569a94c':
                 iii = 0
             # start = time.time()
             commit_year = time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(commit.commit_time))[:4]
-            #if commit_year != '2020':
-            #   continue
+            if commit_year != '2019':
+               continue
 
             tot_line_inserted = 0
             tot_line_removed = 0
@@ -161,8 +161,7 @@ def query_repo_get_changes(repo_name):  # statistics, pointer, dirlist_len):
                     try:
                         if typeannotation_line_changed[0] > 0:
                             percentile = (typeannotation_line_changed[0]) / (
-                                    tot_line_removed + tot_line_inserted - typeannotation_line_removed[0] -
-                                    typeannotation_line_inserted[0]) * 100
+                                    tot_line_removed + tot_line_inserted - typeannotation_line_changed[0]) * 100
                             # lock.acquire()
                             if percentile <= 100:
                                 statistics.list_typeAnnotation_changed_per_commit.append(percentile)
@@ -293,8 +292,7 @@ def query_repo_get_changes(repo_name):  # statistics, pointer, dirlist_len):
             try:
                 if typeannotation_line_changed[0] > 0:
                     percentile = (typeannotation_line_changed[0]) / (
-                                tot_line_removed + tot_line_inserted - typeannotation_line_removed[0] -
-                                typeannotation_line_inserted[0]) * 100
+                                tot_line_removed + tot_line_inserted - typeannotation_line_changed[0]) * 100
                     # lock.acquire()
                     if percentile <= 100:
                         statistics.list_typeAnnotation_changed_per_commit.append(percentile)
