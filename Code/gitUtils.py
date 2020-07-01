@@ -69,7 +69,7 @@ def query_repo_get_changes(repo_name):  # statistics, pointer, dirlist_len):
             # start = time.time()
             commit_year = time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(commit.commit_time))[:4]
             #if commit_year != '2020':
-            #    continue
+            #   continue
 
             tot_line_inserted = 0
             tot_line_removed = 0
@@ -133,8 +133,10 @@ def query_repo_get_changes(repo_name):  # statistics, pointer, dirlist_len):
                             percentile = (typeannotation_line_inserted[0] - typeannotation_line_changed[0]) / (
                                     tot_line_inserted - typeannotation_line_changed[0]) * 100
                             # lock.acquire()
-                            if percentile < 1000:
+                            if percentile <= 100:
                                 statistics.list_typeAnnotation_added_per_commit.append(percentile)
+                            else:
+                                print(repo_name, commit_year, str(commit.hex))
                             # lock.release()
                     except:
                         pass
@@ -146,8 +148,10 @@ def query_repo_get_changes(repo_name):  # statistics, pointer, dirlist_len):
 
                             percentile = (typeannotation_line_removed[0] - typeannotation_line_changed[0]) / (
                                     tot_line_removed - typeannotation_line_changed[0]) * 100
-                            if percentile < 1000:
+                            if percentile <= 100:
                                 statistics.list_typeAnnotation_removed_per_commit.append(percentile)
+                            else:
+                                print(repo_name, commit_year, str(commit.hex))
 
                             # lock.release()
                     except:
@@ -160,7 +164,7 @@ def query_repo_get_changes(repo_name):  # statistics, pointer, dirlist_len):
                                     tot_line_removed + tot_line_inserted - typeannotation_line_removed[0] -
                                     typeannotation_line_inserted[0]) * 100
                             # lock.acquire()
-                            if percentile < 1000:
+                            if percentile <= 100:
                                 statistics.list_typeAnnotation_changed_per_commit.append(percentile)
                             # lock.release()
                     except:
@@ -171,11 +175,13 @@ def query_repo_get_changes(repo_name):  # statistics, pointer, dirlist_len):
                         if len(list_line_added) > 0:
                             percentile_total_edits_inserted = ((len(list_line_added)) / (tot_line_inserted) * 100)
 
-                            if percentile_total_edits_inserted < 1000:
+                            if percentile_total_edits_inserted <= 100:
                                 # lock.acquire()
                                 statistics.annotation_related_insertion_edits_vs_all_commit.append(
                                     percentile_total_edits_inserted)
                                 # lock.release()
+                            else:
+                                print(repo_name, commit_year, str(commit.hex))
                     except:
                         pass
 
@@ -185,10 +191,12 @@ def query_repo_get_changes(repo_name):  # statistics, pointer, dirlist_len):
                             percentile_total_edits_removed = (len(list_line_removed) /
                                                               (tot_line_removed) * 100)
 
-                            if percentile_total_edits_removed < 1000:
+                            if percentile_total_edits_removed <= 100:
                                 # lock.acquire()
                                 statistics.annotation_related_deletion_edits_vs_all_commit.append(
                                     percentile_total_edits_removed)
+                            else:
+                                print(repo_name, commit_year, str(commit.hex))
                                 # lock.release()
                     except:
                         pass
@@ -257,7 +265,7 @@ def query_repo_get_changes(repo_name):  # statistics, pointer, dirlist_len):
                     percentile = (typeannotation_line_inserted[0] - typeannotation_line_changed[0]) / (
                                 tot_line_inserted - typeannotation_line_changed[0]) * 100
                     # lock.acquire()
-                    if percentile < 100:
+                    if percentile <= 100:
                         statistics.list_typeAnnotation_added_per_commit.append(percentile)
                     else:
                         print(repo_name, commit_year,str(commit.hex))
@@ -272,7 +280,7 @@ def query_repo_get_changes(repo_name):  # statistics, pointer, dirlist_len):
 
                     percentile = (typeannotation_line_removed[0] - typeannotation_line_changed[0]) / (
                                 tot_line_removed - typeannotation_line_changed[0]) * 100
-                    if percentile < 100:
+                    if percentile <= 100:
                         statistics.list_typeAnnotation_removed_per_commit.append(percentile)
                     else:
                         print(repo_name, commit_year,str(commit.hex))
@@ -288,8 +296,10 @@ def query_repo_get_changes(repo_name):  # statistics, pointer, dirlist_len):
                                 tot_line_removed + tot_line_inserted - typeannotation_line_removed[0] -
                                 typeannotation_line_inserted[0]) * 100
                     # lock.acquire()
-                    if percentile < 1000:
+                    if percentile <= 100:
                         statistics.list_typeAnnotation_changed_per_commit.append(percentile)
+                    else:
+                        print(repo_name, commit_year,str(commit.hex))
                     # lock.release()
             except:
                 pass
@@ -299,11 +309,13 @@ def query_repo_get_changes(repo_name):  # statistics, pointer, dirlist_len):
                 if len(list_line_added) > 0:
                     percentile_total_edits_inserted = ((len(list_line_added)) / (tot_line_inserted) * 100)
 
-                    if percentile_total_edits_inserted < 1000:
+                    if percentile_total_edits_inserted <= 100:
                         # lock.acquire()
                         statistics.annotation_related_insertion_edits_vs_all_commit.append(
                             percentile_total_edits_inserted)
                         # lock.release()
+                    else:
+                        print(repo_name, commit_year,str(commit.hex))
             except:
                 pass
 
@@ -313,10 +325,12 @@ def query_repo_get_changes(repo_name):  # statistics, pointer, dirlist_len):
                     percentile_total_edits_removed = (len(list_line_removed) /
                                                       (tot_line_removed) * 100)
 
-                    if percentile_total_edits_removed < 1000:
+                    if percentile_total_edits_removed <= 100:
                         # lock.acquire()
                         statistics.annotation_related_deletion_edits_vs_all_commit.append(
                             percentile_total_edits_removed)
+                    else:
+                        print(repo_name, commit_year, str(commit.hex))
                         # lock.release()
             except:
                 pass
