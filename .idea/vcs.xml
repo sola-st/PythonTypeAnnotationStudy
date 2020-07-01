@@ -6,6 +6,7 @@
     <mapping directory="$PROJECT_DIR$/GitHub/12306" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/CppCoreGuidelines" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/HanLP" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/GitHub/HandLP" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/HelloGitHub" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/ItChat" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/ML-From-Scratch" vcs="Git" />

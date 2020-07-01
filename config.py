@@ -3,6 +3,6 @@ import os
 ROOT_DIR = os.path.dirname(os.path.abspath(__file__))
 
 TEST = False
-CLONING = False
+CLONING = True
 
-REPO_LIST = ROOT_DIR + '/Resources/Input/repositoriesTOP30.json'
+REPO_LIST = ROOT_DIR + '/Resources/Input/repositoriesTOP50.json'
