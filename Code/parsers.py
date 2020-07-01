@@ -45,9 +45,9 @@ class TypeCollector(cst.CSTVisitor):
     def leave_AnnAssign(self, node):
         try:
             if len(self.annotation_parts) > 0:
-                self.variable_annotations[(*self.stack, node.value.value)] = \
+                #self.variable_annotations[(*self.stack, node.value.value)] = self.last_annotation
+                self.variable_annotations[(*self.stack,)] = \
                     self.last_annotation
-
             self.stack.pop()
         except:
             return
