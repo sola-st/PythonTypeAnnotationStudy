@@ -67,11 +67,11 @@ def query_repo_get_changes(repo_name):  # statistics, pointer, dirlist_len):
         # Go through each commit starting from the most recent commit
         for commit in repo.walk(last_commit, GIT_SORT_TOPOLOGICAL | GIT_SORT_REVERSE):
             #print(str(commit.hex))
-            #if commit.hex == 'fbbb38af3a70b7bfd05b384c0e5027a9cb9b36ab':
-            #    iii = 0
+            #if commit.hex != '3d542ba9f01c923a928ec8f2806a85d1ed166062':
+            #    continue
             # start = time.time()
             commit_year = time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(commit.commit_time))[:4]
-            #if commit_year != '2020':
+            #if commit_year != '2019':
             #   continue
 
             tot_line_inserted = 0
@@ -79,8 +79,8 @@ def query_repo_get_changes(repo_name):  # statistics, pointer, dirlist_len):
             typeannotation_line_inserted = [0]
             typeannotation_line_removed = [0]
             typeannotation_line_changed = [0]
-            list_line_added = set()
-            list_line_removed = set()
+            list_line_added = [0]
+            list_line_removed = [0]
             old_len = len(statistics.code_changes)
 
             # lock.acquire()
@@ -168,14 +168,16 @@ def query_repo_get_changes(repo_name):  # statistics, pointer, dirlist_len):
                             # lock.acquire()
                             if percentile <= 100:
                                 statistics.list_typeAnnotation_changed_per_commit.append(percentile)
+                            else:
+                                print(repo_name, commit_year, str(commit.hex))
                             # lock.release()
                     except:
                         pass
 
                     # RQ 4.4
                     try:
-                        if len(list_line_added) > 0:
-                            percentile_total_edits_inserted = ((len(list_line_added)) / (tot_line_inserted) * 100)
+                        if list_line_added[0] > 0:
+                            percentile_total_edits_inserted = ((list_line_added[0]) / (tot_line_inserted) * 100)
 
                             if percentile_total_edits_inserted <= 100:
                                 # lock.acquire()
@@ -189,8 +191,8 @@ def query_repo_get_changes(repo_name):  # statistics, pointer, dirlist_len):
 
                     # RQ 4.5
                     try:
-                        if len(list_line_removed) > 0:
-                            percentile_total_edits_removed = (len(list_line_removed) /
+                        if list_line_removed[0] > 0:
+                            percentile_total_edits_removed = (list_line_removed[0] /
                                                               (tot_line_removed) * 100)
 
                             if percentile_total_edits_removed <= 100:
@@ -307,8 +309,8 @@ def query_repo_get_changes(repo_name):  # statistics, pointer, dirlist_len):
 
             # RQ 4.4
             try:
-                if len(list_line_added) > 0:
-                    percentile_total_edits_inserted = ((len(list_line_added)) / (tot_line_inserted) * 100)
+                if list_line_added[0] > 0:
+                    percentile_total_edits_inserted = ((list_line_added[0]) / (tot_line_inserted) * 100)
 
                     if percentile_total_edits_inserted <= 100:
                         # lock.acquire()
@@ -322,8 +324,8 @@ def query_repo_get_changes(repo_name):  # statistics, pointer, dirlist_len):
 
             # RQ 4.5
             try:
-                if len(list_line_removed) > 0:
-                    percentile_total_edits_removed = (len(list_line_removed) /
+                if list_line_removed[0] > 0:
+                    percentile_total_edits_removed = (list_line_removed[0] /
                                                       (tot_line_removed) * 100)
 
                     if percentile_total_edits_removed <= 100:

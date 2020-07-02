@@ -48,6 +48,7 @@
     <mapping directory="$PROJECT_DIR$/GitHub/gym" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/hosts" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/httpie" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/GitHub/imagededup" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/incubator-superset" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/interactive-coding-challenges" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/interview_internal_reference" vcs="Git" />

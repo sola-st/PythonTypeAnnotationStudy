@@ -101,27 +101,28 @@ def search_key_value_in_snippet(file, list_of_strings):
     line_number = 0
 
     try:
+        if len(list_of_strings[0]) > 1:
+            strr = list_of_strings[0][-1]
+        else:
+            strr = "".join(list_of_strings[0])
+
+        str2 = "".join(list_of_strings[1])
+
         # Read all lines in the file one by one
         for line in file.splitlines():
             line_number += 1
             # TODO: Add regex for edge cases
-            if len(list_of_strings[0]) > 1:
-                strr = list_of_strings[0][1]
-            else:
-                strr = "".join(list_of_strings[0])
-
-            str2 = "".join(list_of_strings[1])
 
             l = line
-            if strr in line and "".join(list_of_strings[1]) in line.replace(" ", "") and '->' in l:
+            if strr in line and "".join(list_of_strings[1]) in line.replace(" ", "") and (':' in l or '->' in l):
                 # If any string is found in line, then append that line along with line number in list
                 return line_number, l.rstrip()
     except Exception as e:
-        print('Error: ' + str(e))
-        pass
+        print('Error in search_key_value_in_snippet: ' + str(e))
+
 
     # Return list of tuples containing matched string, line numbers and lines where string is found
-    return " "
+    return " ", " "
 
 
 
@@ -136,6 +137,9 @@ def TypeAnnotationExtraction(repo_path, repo_name, commit, patch, url, statistic
     type_annotation_removed_this_commit = 0
     type_annotation_changed_this_commit = 0
 
+    line_type_annotation_added = []
+    line_type_annotation_removed = []
+    line_type_annotation_changed = []
 
     old_out = subprocess.Popen(
         ["git", "--git-dir", str(repo_path + repo_name) + '/.git', 'show',
@@ -177,12 +181,14 @@ def TypeAnnotationExtraction(repo_path, repo_name, commit, patch, url, statistic
         for key in old_return_types:
             if key in new_return_types:
                 if old_return_types[key] != new_return_types[key]:
-                    """
-                    old_line, old_code = search_key_value_in_snippet(str(old_stdout.decode('utf-8')),
-                                                                     [key, old_return_types[key]])
-                    new_line, new_code = search_key_value_in_snippet(str(new_stdout.decode('utf-8')),
-                                                                     [key, new_return_types[key]])
-                    """
+
+                    try:
+                        old_line, old_code = search_key_value_in_snippet(str(old_stdout.decode('utf-8')),
+                                                                         [key, old_return_types[key]])
+                        new_line, new_code = search_key_value_in_snippet(str(new_stdout.decode('utf-8')),
+                                                                         [key, new_return_types[key]])
+                    except:
+                        old_line = old_code = new_line = new_code = ' '
 
                     temp = CodeChange(url + str(old_line), commit_year, str(patch.delta.old_file.path), old_line, str(old_return_types[key]),
                                       str(patch.delta.new_file.path),
@@ -195,7 +201,8 @@ def TypeAnnotationExtraction(repo_path, repo_name, commit, patch, url, statistic
                     statistics.number_type_annotations_per_repo[repo_name] += 1
                     statistics.total_typeAnnotation_codeChanges += 1
                     statistics.modify_existing_types += 1
-                    type_annotation_changed_this_commit += 1
+                    #type_annotation_changed_this_commit += 1
+                    line_type_annotation_changed.append(new_line)
 
                     if str(old_return_types[key] + ' -> ' + new_return_types[
                         key]).lower() not in statistics.typeChanged_dict:
@@ -206,17 +213,19 @@ def TypeAnnotationExtraction(repo_path, repo_name, commit, patch, url, statistic
                             str(old_return_types[key] + ' -> ' + new_return_types[key]).lower()] += 1
                     statistics.total_changed += 1
                     statistics.functionReturnsType_changed += 1
-                    list_line_added.add(key)
-                    list_line_removed.add(key)
+                    #list_line_added.add(key)
+                    #list_line_removed.add(key)
 
                     #lock.release()
 
             # Remove type annotation
             else:
-                """
-                old_line, old_code = search_key_value_in_snippet(str(old_stdout.decode('utf-8')),
-                                                                 [key, old_return_types[key]])
-                """
+                try:
+                    old_line, old_code = search_key_value_in_snippet(str(old_stdout.decode('utf-8')),
+                                                                     [key, old_return_types[key]])
+                except:
+                    old_line = old_code = new_line = new_code = ' '
+
                 temp = CodeChange(url + str(old_line), commit_year, str(patch.delta.old_file.path), old_line, str(old_return_types[key]),
                                   str(patch.delta.new_file.path),
                                   '', '')
@@ -228,7 +237,8 @@ def TypeAnnotationExtraction(repo_path, repo_name, commit, patch, url, statistic
                 statistics.number_type_annotations_per_repo[repo_name] += 1
                 statistics.total_typeAnnotation_codeChanges += 1
                 statistics.remove_types += 1
-                type_annotation_removed_this_commit += 1
+                #type_annotation_removed_this_commit += 1
+                line_type_annotation_removed.append(old_line)
 
                 if old_return_types[key].lower() not in statistics.typeRemoved_dict:
                     statistics.typeRemoved_dict[old_return_types[key].lower()] = 1
@@ -236,16 +246,18 @@ def TypeAnnotationExtraction(repo_path, repo_name, commit, patch, url, statistic
                     statistics.typeRemoved_dict[old_return_types[key].lower()] += 1
                 statistics.total_removed += 1
                 statistics.functionReturnsType_removed += 1
-                list_line_removed.add(key)
+                #list_line_removed.add(key)
                 #lock.release()
 
         # Insert type annotation
         for key in new_return_types:
             if key not in old_return_types:
-                """
-                new_line, new_code = search_key_value_in_snippet(str(new_stdout.decode('utf-8')),
-                                                                 [key, new_return_types[key]])
-                """
+                try:
+                    new_line, new_code = search_key_value_in_snippet(str(new_stdout.decode('utf-8')),
+                                                                     [key, new_return_types[key]])
+                except:
+                    old_line = old_code = new_line = new_code = ' '
+
                 temp = CodeChange(url + str(new_line), commit_year, str(patch.delta.old_file.path), '', '',
                                   str(patch.delta.new_file.path),
                                   new_line, str(new_return_types[key]))
@@ -257,7 +269,8 @@ def TypeAnnotationExtraction(repo_path, repo_name, commit, patch, url, statistic
                 statistics.number_type_annotations_per_repo[repo_name] += 1
                 statistics.total_typeAnnotation_codeChanges += 1
                 statistics.insert_types += 1
-                type_annotation_added_this_commit += 1
+                #type_annotation_added_this_commit += 1
+                line_type_annotation_added.append(new_line)
 
                 if new_return_types[key].lower() not in statistics.typeAdded_dict:
                     statistics.typeAdded_dict[new_return_types[key].lower()] = 1
@@ -266,7 +279,7 @@ def TypeAnnotationExtraction(repo_path, repo_name, commit, patch, url, statistic
                 statistics.total_added += 1
                 statistics.functionReturnsType_added += 1
 
-                list_line_added.add(key)
+                #list_line_added.add(key)
                 #lock.release()
 
         ################################################################
@@ -277,12 +290,15 @@ def TypeAnnotationExtraction(repo_path, repo_name, commit, patch, url, statistic
         for key in old_param_types:
             if key in new_param_types:
                 if old_param_types[key] != new_param_types[key]:
-                    """
-                    old_line, old_code = search_key_value_in_snippet(str(old_stdout.decode('utf-8')),
-                                                                     [key, old_param_types[key]])
-                    new_line, new_code = search_key_value_in_snippet(str(new_stdout.decode('utf-8')),
-                                                                     [key, new_param_types[key]])
-                    """
+
+                    try:
+                        old_line, old_code = search_key_value_in_snippet(str(old_stdout.decode('utf-8')),
+                                                                         [key, old_param_types[key]])
+                        new_line, new_code = search_key_value_in_snippet(str(new_stdout.decode('utf-8')),
+                                                                         [key, new_param_types[key]])
+                    except:
+                        old_line = old_code = new_line = new_code = ' '
+
                     temp = CodeChange(url + str(old_line), commit_year, str(patch.delta.old_file.path), old_line, str(old_param_types[key]),
                                       str(patch.delta.new_file.path),
                                       new_line, str(new_param_types[key]))
@@ -294,7 +310,8 @@ def TypeAnnotationExtraction(repo_path, repo_name, commit, patch, url, statistic
                     statistics.number_type_annotations_per_repo[repo_name] += 1
                     statistics.total_typeAnnotation_codeChanges += 1
                     statistics.modify_existing_types += 1
-                    type_annotation_changed_this_commit += 1
+                    #type_annotation_changed_this_commit += 1
+                    line_type_annotation_changed.append(old_line)
 
                     if str(old_param_types[key] + ' -> ' + new_param_types[
                         key]).lower() not in statistics.typeChanged_dict:
@@ -306,17 +323,19 @@ def TypeAnnotationExtraction(repo_path, repo_name, commit, patch, url, statistic
                     statistics.total_changed += 1
                     statistics.functionArgsType_changed += 1
 
-                    list_line_added.add(key)
-                    list_line_removed.add(key)
+                    #list_line_added.add(key)
+                    #list_line_removed.add(key)
 
                     #lock.release()
 
             # Remove type annotation
             else:
-                """
-                old_line, old_code = search_key_value_in_snippet(str(old_stdout.decode('utf-8')),
-                                                                 [key, old_param_types[key]])
-                """
+                try:
+                    old_line, old_code = search_key_value_in_snippet(str(old_stdout.decode('utf-8')),
+                                                                     [key, old_param_types[key]])
+                except:
+                    old_line = old_code = new_line = new_code = ' '
+
                 temp = CodeChange(url + str(old_line), commit_year, str(patch.delta.old_file.path), old_line, str(old_param_types[key]),
                                   str(patch.delta.new_file.path),
                                   '', '')
@@ -328,7 +347,9 @@ def TypeAnnotationExtraction(repo_path, repo_name, commit, patch, url, statistic
                 statistics.number_type_annotations_per_repo[repo_name] += 1
                 statistics.total_typeAnnotation_codeChanges += 1
                 statistics.remove_types += 1
-                type_annotation_removed_this_commit += 1
+                #type_annotation_removed_this_commit += 1
+                line_type_annotation_removed.append(old_line)
+
                 if old_param_types[key].lower() not in statistics.typeRemoved_dict:
                     statistics.typeRemoved_dict[old_param_types[key].lower()] = 1
                 else:
@@ -336,16 +357,18 @@ def TypeAnnotationExtraction(repo_path, repo_name, commit, patch, url, statistic
                 statistics.total_removed += 1
                 statistics.functionArgsType_removed += 1
 
-                list_line_removed.add(key)
+                #list_line_removed.add(key)
                 #lock.release()
 
         # Insert type annotation
         for key in new_param_types:
             if key not in old_param_types:
-                """
-                new_line, new_code = search_key_value_in_snippet(str(new_stdout.decode('utf-8')),
-                                                                 [key, new_param_types[key]])
-                """
+                try:
+                    new_line, new_code = search_key_value_in_snippet(str(new_stdout.decode('utf-8')),
+                                                                     [key, new_param_types[key]])
+                except:
+                    old_line = old_code = new_line = new_code = ' '
+
                 temp = CodeChange(url + str(new_line), commit_year, str(patch.delta.old_file.path), '', '',
                                   str(patch.delta.new_file.path),
                                   new_line, str(new_param_types[key]))
@@ -357,7 +380,8 @@ def TypeAnnotationExtraction(repo_path, repo_name, commit, patch, url, statistic
                 statistics.number_type_annotations_per_repo[repo_name] += 1
                 statistics.total_typeAnnotation_codeChanges += 1
                 statistics.insert_types += 1
-                type_annotation_added_this_commit += 1
+                #type_annotation_added_this_commit += 1
+                line_type_annotation_added.append(new_line)
 
                 if new_param_types[key].lower() not in statistics.typeAdded_dict:
                     statistics.typeAdded_dict[new_param_types[key].lower()] = 1
@@ -366,7 +390,7 @@ def TypeAnnotationExtraction(repo_path, repo_name, commit, patch, url, statistic
                 statistics.total_added += 1
                 statistics.functionArgsType_added += 1
 
-                list_line_added.add(key)
+                #list_line_added.add(key)
                 #lock.release()
 
         ################################################################
@@ -377,14 +401,16 @@ def TypeAnnotationExtraction(repo_path, repo_name, commit, patch, url, statistic
         for key in old_variable_types:
             if key in new_variable_types:
                 if old_variable_types[key] != new_variable_types[key]:
-                    """
-                    old_line, old_code = search_key_value_in_snippet(
-                        str(new_stdout.decode('utf-8')),
-                        [key, old_variable_types[key]])
-                    new_line, new_code = search_key_value_in_snippet(
-                        str(new_stdout.decode('utf-8')),
-                        [key, new_variable_types[key]])
-                    """
+                    try:
+                        old_line, old_code = search_key_value_in_snippet(
+                            str(new_stdout.decode('utf-8')),
+                            [key, old_variable_types[key]])
+                        new_line, new_code = search_key_value_in_snippet(
+                            str(new_stdout.decode('utf-8')),
+                            [key, new_variable_types[key]])
+                    except:
+                        old_line = old_code = new_line = new_code = ' '
+
                     temp = CodeChange(url + str(old_line), commit_year, str(patch.delta.old_file.path), old_line, str(old_variable_types[key]),
                                       str(patch.delta.new_file.path),
                                       new_line, str(new_variable_types[key]))
@@ -396,7 +422,8 @@ def TypeAnnotationExtraction(repo_path, repo_name, commit, patch, url, statistic
                     statistics.number_type_annotations_per_repo[repo_name] += 1
                     statistics.total_typeAnnotation_codeChanges += 1
                     statistics.modify_existing_types += 1
-                    type_annotation_changed_this_commit += 1
+                    #type_annotation_changed_this_commit += 1
+                    line_type_annotation_changed.append(old_line)
 
                     if str(old_variable_types[key] + ' -> ' + new_variable_types[
                         key]).lower() not in statistics.typeChanged_dict:
@@ -408,18 +435,20 @@ def TypeAnnotationExtraction(repo_path, repo_name, commit, patch, url, statistic
                     statistics.total_changed += 1
                     statistics.variableType_changed += 1
 
-                    list_line_added.add(key)
-                    list_line_removed.add(key)
+                    #list_line_added.add(key)
+                    #list_line_removed.add(key)
 
                     #lock.release()
 
             # Remove type annotation
             else:
-                """
-                old_line, old_code = search_key_value_in_snippet(
-                    str(new_stdout.decode('utf-8')),
-                    [key, old_variable_types[key]])
-                """
+                try:
+                    old_line, old_code = search_key_value_in_snippet(
+                        str(new_stdout.decode('utf-8')),
+                        [key, old_variable_types[key]])
+                except:
+                    old_line = old_code = new_line = new_code = ' '
+
                 if key in old_variable_types:
                     temp = CodeChange(url + str(old_line), commit_year, str(patch.delta.old_file.path), old_line, str(old_variable_types[key]),
                                       str(patch.delta.new_file.path),
@@ -432,7 +461,8 @@ def TypeAnnotationExtraction(repo_path, repo_name, commit, patch, url, statistic
                     statistics.number_type_annotations_per_repo[repo_name] += 1
                     statistics.total_typeAnnotation_codeChanges += 1
                     statistics.remove_types += 1
-                    type_annotation_removed_this_commit += 1
+                    #type_annotation_removed_this_commit += 1
+                    line_type_annotation_removed.append(old_line)
 
                     if old_variable_types[key].lower() not in statistics.typeRemoved_dict:
                         statistics.typeRemoved_dict[old_variable_types[key].lower()] = 1
@@ -441,17 +471,19 @@ def TypeAnnotationExtraction(repo_path, repo_name, commit, patch, url, statistic
                     statistics.total_removed += 1
                     statistics.variableType_removed += 1
 
-                    list_line_removed.add(key)
+                    #list_line_removed.add(key)
                     #lock.release()
 
         # Insert type annotation
         for key in new_variable_types:
             if key not in old_variable_types:
-                """
-                new_line, new_code = search_key_value_in_snippet(
-                    str(new_stdout.decode('utf-8')),
-                    [key, new_variable_types[key]])
-                """
+                try:
+                    new_line, new_code = search_key_value_in_snippet(
+                        str(new_stdout.decode('utf-8')),
+                        [key, new_variable_types[key]])
+                except:
+                    old_line = old_code = new_line = new_code = ' '
+
                 temp = CodeChange(url + str(new_line),commit_year, str(patch.delta.old_file.path), '', '',
                                   str(patch.delta.new_file.path),
                                   new_line, str(new_variable_types[key]))
@@ -463,7 +495,8 @@ def TypeAnnotationExtraction(repo_path, repo_name, commit, patch, url, statistic
                 statistics.number_type_annotations_per_repo[repo_name] += 1
                 statistics.total_typeAnnotation_codeChanges += 1
                 statistics.insert_types += 1
-                type_annotation_added_this_commit += 1
+                #type_annotation_added_this_commit += 1
+                line_type_annotation_added.append(new_line)
 
                 if new_variable_types[key].lower() not in statistics.typeAdded_dict:
                     statistics.typeAdded_dict[new_variable_types[key].lower()] = 1
@@ -472,26 +505,31 @@ def TypeAnnotationExtraction(repo_path, repo_name, commit, patch, url, statistic
                 statistics.total_added += 1
                 statistics.variableType_added += 1
 
-                list_line_added.add(key)
+                #list_line_added.add(key)
                 #lock.release()
     except:
         # print('Repository', repo_path, 'commit', commit, 'with old line', str(old_stdout))
         pass
 
     #lock.acquire()
-    if type_annotation_added_this_commit > 0:
+    if len(line_type_annotation_added) > 0:
         # statistics.list_typeAnnotation_added_per_commit.append(type_annotation_added_this_commit)
-        typeannotation_line_inserted[0] += type_annotation_added_this_commit
+        typeannotation_line_inserted[0] += len(set(line_type_annotation_added))
+        list_line_added[0] += len(set(line_type_annotation_added))
 
-    if type_annotation_removed_this_commit > 0:
+    if len(line_type_annotation_removed) > 0:
         # statistics.list_typeAnnotation_removed_per_commit.append(type_annotation_removed_this_commit)
-        typeannotation_line_removed[0] += type_annotation_removed_this_commit
+        typeannotation_line_removed[0] += len(set(line_type_annotation_removed))
+        list_line_removed[0] += len(set(line_type_annotation_removed))
 
-    if type_annotation_changed_this_commit > 0:
+    if len(line_type_annotation_changed) > 0:
         # statistics.list_typeAnnotation_changed_per_commit.append(type_annotation_changed_this_commit)
-        typeannotation_line_inserted[0] += type_annotation_changed_this_commit
-        typeannotation_line_removed[0] += type_annotation_changed_this_commit
-        typeannotation_line_changed[0] += type_annotation_changed_this_commit
+        typeannotation_line_inserted[0] += len(set(line_type_annotation_changed))
+        typeannotation_line_removed[0] += len(set(line_type_annotation_changed))
+        typeannotation_line_changed[0] += len(set(line_type_annotation_changed))
+
+        list_line_added[0] += len(set(line_type_annotation_added))
+        list_line_removed[0] += len(set(line_type_annotation_removed))
 
     if len(code_changes_new) > 0:
         # statistics.commits_with_typeChanges += 1
@@ -515,6 +553,8 @@ def TypeAnnotationExtractionFirstCommit(repo_path, repo_name, commit, patch, url
     type_annotation_removed_this_commit = 0
     type_annotation_changed_this_commit = 0
 
+    line_type_annotation_added = []
+
     new_out = subprocess.Popen(["git", "--git-dir", str(repo_path + repo_name) + '/.git', 'show',
                                 str(commit.hex) + ":" + str(patch.delta.new_file.path)],
                                stdout=subprocess.PIPE,
@@ -537,10 +577,12 @@ def TypeAnnotationExtractionFirstCommit(repo_path, repo_name, commit, patch, url
 
         # Insert type annotation
         for key in new_return_types:
-            """
-            new_line, new_code = search_key_value_in_snippet(str(new_stdout.decode('utf-8')),
-                                                             [key, new_return_types[key]])
-            """
+            try:
+                new_line, new_code = search_key_value_in_snippet(str(new_stdout.decode('utf-8')),
+                                                                 [key, new_return_types[key]])
+            except:
+                old_line = old_code = new_line = new_code = ' '
+
             temp = CodeChange(url + str(new_line), commit_year, str(patch.delta.old_file.path), '', '',
                               str(patch.delta.new_file.path),
                               new_line, str(new_return_types[key]))
@@ -552,7 +594,8 @@ def TypeAnnotationExtractionFirstCommit(repo_path, repo_name, commit, patch, url
             statistics.number_type_annotations_per_repo[repo_name] += 1
             statistics.total_typeAnnotation_codeChanges += 1
             statistics.insert_types += 1
-            type_annotation_added_this_commit += 1
+            #type_annotation_added_this_commit += 1
+            line_type_annotation_added.append(new_line)
 
             if new_return_types[key].lower() not in statistics.typeAdded_dict:
                 statistics.typeAdded_dict[new_return_types[key].lower()] = 1
@@ -560,7 +603,7 @@ def TypeAnnotationExtractionFirstCommit(repo_path, repo_name, commit, patch, url
                 statistics.typeAdded_dict[new_return_types[key].lower()] += 1
             statistics.total_added += 1
             statistics.functionReturnsType_added += 1
-            list_line_added.add(key)
+            #list_line_added.add(key)
             #lock.release()
 
         ################################################################
@@ -569,10 +612,12 @@ def TypeAnnotationExtractionFirstCommit(repo_path, repo_name, commit, patch, url
 
         # Insert type annotation
         for key in new_param_types:
-            """
-            new_line, new_code = search_key_value_in_snippet(str(new_stdout.decode('utf-8')),
-                                                             [key, new_param_types[key]])
-            """
+            try:
+                new_line, new_code = search_key_value_in_snippet(str(new_stdout.decode('utf-8')),
+                                                                 [key, new_param_types[key]])
+            except:
+                old_line = old_code = new_line = new_code = ' '
+
             temp = CodeChange(url + str(new_line), commit_year, str(patch.delta.old_file.path), '', '',
                               str(patch.delta.new_file.path),
                               new_line, str(new_param_types[key]))
@@ -584,7 +629,8 @@ def TypeAnnotationExtractionFirstCommit(repo_path, repo_name, commit, patch, url
             statistics.number_type_annotations_per_repo[repo_name] += 1
             statistics.total_typeAnnotation_codeChanges += 1
             statistics.insert_types += 1
-            type_annotation_added_this_commit += 1
+            #type_annotation_added_this_commit += 1
+            line_type_annotation_added.append(new_line)
 
             if new_param_types[key].lower() not in statistics.typeAdded_dict:
                 statistics.typeAdded_dict[new_param_types[key].lower()] = 1
@@ -592,7 +638,7 @@ def TypeAnnotationExtractionFirstCommit(repo_path, repo_name, commit, patch, url
                 statistics.typeAdded_dict[new_param_types[key].lower()] += 1
             statistics.total_added += 1
             statistics.functionArgsType_added += 1
-            list_line_added.add(key)
+            #list_line_added.add(key)
             #lock.release()
 
             ################################################################
@@ -601,9 +647,10 @@ def TypeAnnotationExtractionFirstCommit(repo_path, repo_name, commit, patch, url
 
             # Insert type annotation
             for key in new_variable_types:
-                """
-                new_line, new_code = search_key_value_in_snippet(str(new_stdout.decode('utf-8')),[key, new_variable_types[key]])
-                """
+                try:
+                    new_line, new_code = search_key_value_in_snippet(str(new_stdout.decode('utf-8')),[key, new_variable_types[key]])
+                except:
+                    old_line = old_code = new_line = new_code = ' '
 
                 temp = CodeChange(url + str(new_line), commit_year, str(patch.delta.old_file.path), '', '',
                                   str(patch.delta.new_file.path),
@@ -616,7 +663,8 @@ def TypeAnnotationExtractionFirstCommit(repo_path, repo_name, commit, patch, url
                 statistics.number_type_annotations_per_repo[repo_name] += 1
                 statistics.total_typeAnnotation_codeChanges += 1
                 statistics.insert_types += 1
-                type_annotation_added_this_commit += 1
+                #type_annotation_added_this_commit += 1
+                line_type_annotation_added.append(new_line)
 
                 if new_variable_types[key].lower() not in statistics.typeAdded_dict:
                     statistics.typeAdded_dict[new_variable_types[key].lower()] = 1
@@ -624,26 +672,17 @@ def TypeAnnotationExtractionFirstCommit(repo_path, repo_name, commit, patch, url
                     statistics.typeAdded_dict[new_variable_types[key].lower()] += 1
                 statistics.total_added += 1
                 statistics.variableType_added += 1
-                list_line_added.add(key)
+                #list_line_added.add(key)
                 #lock.release()
     except:
         # print('Repository', repo_path, 'commit', commit, 'with old line', str(old_stdout))
         pass
 
     #lock.acquire()
-    if type_annotation_added_this_commit > 0:
+    if len(line_type_annotation_added) > 0:
         # statistics.list_typeAnnotation_added_per_commit.append(type_annotation_added_this_commit)
-        typeannotation_line_inserted[0] += type_annotation_added_this_commit
-
-    if type_annotation_removed_this_commit > 0:
-        # statistics.list_typeAnnotation_removed_per_commit.append(type_annotation_removed_this_commit)
-        typeannotation_line_removed[0] += type_annotation_removed_this_commit
-
-    if type_annotation_changed_this_commit > 0:
-        # statistics.list_typeAnnotation_changed_per_commit.append(type_annotation_changed_this_commit)
-        typeannotation_line_inserted[0] += type_annotation_changed_this_commit
-        typeannotation_line_removed[0] += type_annotation_changed_this_commit
-        typeannotation_line_changed[0] += type_annotation_changed_this_commit
+        typeannotation_line_inserted[0] += len(set(line_type_annotation_added))
+        list_line_added[0] += len(set(line_type_annotation_added))
 
     if len(code_changes_new) > 0:
         # statistics.commits_with_typeChanges += 1
