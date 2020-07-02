@@ -21,7 +21,7 @@ def repo_cloning(filenameInput: str, pathOutput: str) -> None:
         out = link.rsplit('/', 1)[-1].replace('.git', '')
 
         if os.path.isdir(pathOutput + '/' + out):
-            print(str(i) + ') Already cloned' + link)
+            print(str(i) + ') Already cloned', link)
             continue
 
         else:
@@ -67,12 +67,12 @@ def query_repo_get_changes(repo_name):  # statistics, pointer, dirlist_len):
         # Go through each commit starting from the most recent commit
         for commit in repo.walk(last_commit, GIT_SORT_TOPOLOGICAL | GIT_SORT_REVERSE):
             #print(str(commit.hex))
-            if commit.hex == 'fbbb38af3a70b7bfd05b384c0e5027a9cb9b36ab':
-                iii = 0
+            #if commit.hex == 'fbbb38af3a70b7bfd05b384c0e5027a9cb9b36ab':
+            #    iii = 0
             # start = time.time()
             commit_year = time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(commit.commit_time))[:4]
-            if commit_year != '2020':
-               continue
+            #if commit_year != '2020':
+            #   continue
 
             tot_line_inserted = 0
             tot_line_removed = 0

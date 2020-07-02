@@ -39,9 +39,12 @@ class TypeCollector(cst.CSTVisitor):
     def visit_AnnAssign(self, node):
         try:
             #if 'Name' not in node.target.value:
-            self.stack.append(node.target.value)
+            self.stack.append(node.target.value.value)
         except:
-            return
+            try:
+                self.stack.append(node.target.value)
+            except:
+                return
 
     def leave_AnnAssign(self, node):
         try:
