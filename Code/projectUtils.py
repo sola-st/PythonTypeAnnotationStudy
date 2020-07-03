@@ -49,16 +49,16 @@ def myplot(statistics):
                       'code or in commits that only add types?')
 
     # RQ4.4
-    histogram_plot_xy(config.ROOT_DIR + "/Resources/Output/RQ4_4",
-                      statistics.annotation_related_insertion_edits_vs_all_commit,
-                      'Percentage (%)', 'Occurrences', 'linear', 'log',
-                      'Percentage of annotation-related insertions to all edits per commit')
+    #histogram_plot_xy(config.ROOT_DIR + "/Resources/Output/RQ4_4",
+    #                  statistics.annotation_related_insertion_edits_vs_all_commit,
+    #                  'Percentage (%)', 'Occurrences', 'linear', 'log',
+    #                  'Percentage of annotation-related insertions to all edits per commit')
 
     # RQ4.5
-    histogram_plot_xy(config.ROOT_DIR + "/Resources/Output/RQ4_5",
-                      statistics.annotation_related_deletion_edits_vs_all_commit,
-                      'Percentage (%)', 'Occurrences', 'linear', 'log', 'Percentage of annotation-related deletions to '
-                                                                        'all edits per commit')
+    #histogram_plot_xy(config.ROOT_DIR + "/Resources/Output/RQ4_5",
+    #                  statistics.annotation_related_deletion_edits_vs_all_commit,
+    #                  'Percentage (%)', 'Occurrences', 'linear', 'log', 'Percentage of annotation-related deletions to '
+    #                                                                    'all edits per commit')
 
     # RQ5
     scatter_plot_xy(config.ROOT_DIR + "/Resources/Output/RQ5_stars",

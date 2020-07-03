@@ -123,7 +123,7 @@ class CodeStatistics:
         # [RQ5]: Relation of properties of projects vs. properties of type changes
         # E.g., nb of stars/developers/overall commits vs. nb of added annotations
         self.RQ5 = 'Relation of properties of projects vs. properties of type changes.'
-        self.matrix_commits_stars_annotations = np.array([[0, 0, 0]])
+        self.matrix_commits_stars_annotations = np.empty((0,3), int)
         self.s6 = "------------------------------------------------------------------------"
 
         # [RQ6]: Which are the top 10 repository with the highest number of type annotations
@@ -330,7 +330,7 @@ class CodeStatistics:
         json_decode = json.load(input_file)
 
         for item in json_decode:
-            if item.get('name') == name:
+            if item.get('full_name').replace('/','-') == name:
                 self.number_type_annotations_per_repo[item.get('html_url')] = self.number_type_annotations_per_repo[
                     name]
                 del self.number_type_annotations_per_repo[name]

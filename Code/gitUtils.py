@@ -1,5 +1,6 @@
 import json
 import os
+import re
 import time
 import pygit2 as git
 from pygit2 import GIT_SORT_TOPOLOGICAL, GIT_SORT_REVERSE
@@ -18,10 +19,13 @@ def repo_cloning(filenameInput: str, pathOutput: str) -> None:
     i = 0
     for link in article_urls:
         i += 1
-        out = link.rsplit('/', 1)[-1].replace('.git', '')
+
+        #out = link.rsplit('/', 1)[-1].replace('.git', '')
+        out = re.sub('https://github.com/', '', link).replace('/','-')
 
         if os.path.isdir(pathOutput + '/' + out):
             print(str(i) + ') Already cloned', link)
+
             continue
 
         else:
@@ -71,8 +75,8 @@ def query_repo_get_changes(repo_name):  # statistics, pointer, dirlist_len):
             #    continue
             # start = time.time()
             commit_year = time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(commit.commit_time))[:4]
-            #if commit_year != '2019':
-            #   continue
+            if int(commit_year) < 2015:
+               continue
 
             tot_line_inserted = 0
             tot_line_removed = 0
@@ -173,7 +177,7 @@ def query_repo_get_changes(repo_name):  # statistics, pointer, dirlist_len):
                             # lock.release()
                     except:
                         pass
-
+                    """
                     # RQ 4.4
                     try:
                         if list_line_added[0] > 0:
@@ -204,7 +208,7 @@ def query_repo_get_changes(repo_name):  # statistics, pointer, dirlist_len):
                                 # lock.release()
                     except:
                         pass
-
+                    """
                     if len(statistics.code_changes) > old_len:
                         # lock.acquire()
                         statistics.commits_with_typeChanges += 1
@@ -306,7 +310,7 @@ def query_repo_get_changes(repo_name):  # statistics, pointer, dirlist_len):
                     # lock.release()
             except:
                 pass
-
+            """
             # RQ 4.4
             try:
                 if list_line_added[0] > 0:
@@ -337,7 +341,7 @@ def query_repo_get_changes(repo_name):  # statistics, pointer, dirlist_len):
                         # lock.release()
             except:
                 pass
-
+            """
             if len(statistics.code_changes) > old_len:
                 # lock.acquire()
                 statistics.commits_with_typeChanges += 1
@@ -371,7 +375,10 @@ def query_repo_get_changes(repo_name):  # statistics, pointer, dirlist_len):
             """
     else:
         # Go through each commit starting from the most recent commit
-        for _ in repo.walk(last_commit, GIT_SORT_TOPOLOGICAL | GIT_SORT_REVERSE):
+        for commit in repo.walk(last_commit, GIT_SORT_TOPOLOGICAL | GIT_SORT_REVERSE):
+            commit_year = time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(commit.commit_time))[:4]
+            if int(commit_year) < 2015:
+                continue
 
             statistics.total_commits += 1
             tot_this_repo_commit += 1
