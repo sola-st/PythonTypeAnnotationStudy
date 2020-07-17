@@ -21,6 +21,7 @@ class CodeStatistics:
         # [RQ0]: How many types are used?
         self.RQ0 = 'How many types are used?'
         self.code_changes: list = []
+        self.commit_statistics: list = []
         self.repo_with_types_changes = 0
         self.percentage_repo_with_typeChanges = ''
         self.commits_with_typeChanges = 0
@@ -123,7 +124,7 @@ class CodeStatistics:
         # [RQ5]: Relation of properties of projects vs. properties of type changes
         # E.g., nb of stars/developers/overall commits vs. nb of added annotations
         self.RQ5 = 'Relation of properties of projects vs. properties of type changes.'
-        self.matrix_commits_stars_annotations = np.empty((0,3), int)
+        self.matrix_commits_stars_annotations = np.empty((0, 3), int)
         self.s6 = "------------------------------------------------------------------------"
 
         # [RQ6]: Which are the top 10 repository with the highest number of type annotations
@@ -138,9 +139,9 @@ class CodeStatistics:
         self.typeLastProjectVersion_dict = {}
 
         # [RQ8]: Computation percentage of annotation-related edits to all edits per each commit
-       # self.RQ8 = 'Computation percentage of annotation-related edits to all edits per each commit'
-        #self.annotation_related_insertion_edits_vs_all_commit = []
-        #self.annotation_related_deletion_edits_vs_all_commit = []
+        # self.RQ8 = 'Computation percentage of annotation-related edits to all edits per each commit'
+        # self.annotation_related_insertion_edits_vs_all_commit = []
+        # self.annotation_related_deletion_edits_vs_all_commit = []
 
         # [RQ8]: Total number of annotations over time, across all projects
         self.RQ8 = 'Total number of annotations over time, across all projects'
@@ -274,7 +275,6 @@ class CodeStatistics:
             if type in self.noneType_list:
                 self.noneType_removed += self.typeRemoved_dict[type]
 
-
         # Numeric types
         for type in self.typeRemoved_dict.keys():
             if type in self.numericType_list:
@@ -330,7 +330,7 @@ class CodeStatistics:
         json_decode = json.load(input_file)
 
         for item in json_decode:
-            if item.get('full_name').replace('/','-') == name:
+            if item.get('full_name').replace('/', '-') == name:
                 self.number_type_annotations_per_repo[item.get('html_url')] = self.number_type_annotations_per_repo[
                     name]
                 del self.number_type_annotations_per_repo[name]
@@ -346,15 +346,15 @@ class CodeStatistics:
                               np.array([[n_commits, n_stars, n_annotations]]), axis=0)
                 break
 
-    def merge_results(self, process_statistics, code_changes):
+    def merge_results(self, process_statistics, code_changes, commit_statistics):
 
         for stat in process_statistics:
-
             self.total_repositories += stat.total_repositories
             self.total_commits += stat.total_commits
 
             # RQ0
             code_changes += stat.code_changes
+            commit_statistics += stat.commit_statistics
             self.repo_with_types_changes += stat.repo_with_types_changes
             self.commits_with_typeChanges += stat.commits_with_typeChanges
             self.total_typeAnnotation_codeChanges += stat.total_typeAnnotation_codeChanges
@@ -433,10 +433,11 @@ class CodeStatistics:
 
             # RQ 5
             self.matrix_commits_stars_annotations = np.concatenate((self.matrix_commits_stars_annotations,
-                                                                   stat.matrix_commits_stars_annotations), axis=0)
+                                                                    stat.matrix_commits_stars_annotations), axis=0)
 
             # RQ 6
-            self.number_type_annotations_per_repo = merge_dictionaries([self.number_type_annotations_per_repo, stat.number_type_annotations_per_repo])
+            self.number_type_annotations_per_repo = merge_dictionaries(
+                [self.number_type_annotations_per_repo, stat.number_type_annotations_per_repo])
 
             # RQ 7
             self.typeLastProjectVersion_total += stat.typeLastProjectVersion_total
@@ -449,7 +450,9 @@ class CodeStatistics:
 
             # RQ 9
             self.typeAnnotation_commit_annotation_year_analysis = merge_dictionaries(
-                [self.typeAnnotation_commit_annotation_year_analysis, stat.typeAnnotation_commit_annotation_year_analysis])
+                [self.typeAnnotation_commit_annotation_year_analysis,
+                 stat.typeAnnotation_commit_annotation_year_analysis])
 
             self.typeAnnotation_commit_not_annotation_year_analysis = merge_dictionaries(
-                [self.typeAnnotation_commit_not_annotation_year_analysis, stat.typeAnnotation_commit_not_annotation_year_analysis])
+                [self.typeAnnotation_commit_not_annotation_year_analysis,
+                 stat.typeAnnotation_commit_not_annotation_year_analysis])

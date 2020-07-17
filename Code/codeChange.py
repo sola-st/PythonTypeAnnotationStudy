@@ -24,3 +24,32 @@ class CodeChange:
 
     def __hash__(self):
         return hash(self.__members())
+
+
+class CommitStatistics:
+    """CommitStatistics class"""
+
+    def __init__(self, url, commit_year, number_type_annotations_code_changes, added_per_commit_percentage, removed_per_commit_percentage, changed_per_commit_percentage, typeannotation_line_inserted, typeannotation_line_removed, typeannotation_line_changed):
+        self.url = url
+        self.commit_year = commit_year
+        self.number_type_annotations_code_changes = number_type_annotations_code_changes
+
+        self.added_per_commit_percentage = added_per_commit_percentage
+        self.removed_per_commit_percentage = removed_per_commit_percentage
+        self.changed_per_commit_percentage = changed_per_commit_percentage
+
+        self.typeannotation_line_inserted = typeannotation_line_inserted
+        self.typeannotation_line_removed = typeannotation_line_removed
+        self.typeannotation_line_changed = typeannotation_line_changed
+
+    def __members(self):
+        return self.url, self.commit_year, self.number_type_annotations_code_changes, self.added_per_commit_percentage, self.removed_per_commit_percentage, self.changed_per_commit_percentage, self.typeannotation_line_inserted, self.typeannotation_line_removed, self.typeannotation_line_changed
+
+    def __eq__(self, other):
+        if type(other) is type(self):
+            return self.__members() == other.__members()
+        else:
+            return False
+
+    def __hash__(self):
+        return hash(self.__members())

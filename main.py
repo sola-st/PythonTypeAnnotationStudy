@@ -37,8 +37,9 @@ if __name__ == "__main__":
             process_statistics += p.imap_unordered(gitUtils.query_repo_get_changes, dirlist)
 
     code_changes: list = []
+    commit_statistics: list = []
 
-    statistics_final.merge_results(process_statistics, code_changes)
+    statistics_final.merge_results(process_statistics, code_changes, commit_statistics)
 
     if statistics_final.total_typeAnnotation_codeChanges > 0:
         # Statistics computation
@@ -64,7 +65,7 @@ if __name__ == "__main__":
 
         # Compute new files
         myplot(statistics_final)
-        write_results(statistics_final, code_changes)
+        write_results(statistics_final, code_changes, commit_statistics)
     except Exception as e:
         print('Error writing results in files: ' + str(e))
 
