@@ -549,6 +549,8 @@
     <mapping directory="$PROJECT_DIR$/GitHub/qutebrowser-qutebrowser" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/r0oth3x49-udemy-dl" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/ranger-ranger" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/GitHub/rasa" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/GitHub/rasa_core" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/raspberrypi-documentation" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/ray" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/readthedocs-readthedocs.org" vcs="Git" />

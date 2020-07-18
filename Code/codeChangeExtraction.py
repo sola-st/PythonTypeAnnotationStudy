@@ -220,6 +220,17 @@ def TypeAnnotationExtraction(repo_path, repo_name, commit, patch, url, statistic
 
             # Remove type annotation
             else:
+                for key_new in new_return_types:
+                    try:
+                        new_line, new_code = search_key_value_in_snippet(str(new_stdout.decode('utf-8')),
+                                                                         [key_new, old_return_types[key]])
+
+                        if (new_line != " "):
+                            break
+                    except:
+                        old_line = old_code = new_line = new_code = ' '
+
+
                 try:
                     old_line, old_code = search_key_value_in_snippet(str(old_stdout.decode('utf-8')),
                                                                      [key, old_return_types[key]])
