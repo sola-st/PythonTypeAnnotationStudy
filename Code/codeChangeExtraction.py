@@ -173,6 +173,86 @@ def TypeAnnotationExtraction(repo_path, repo_name, commit, patch, url, statistic
 
     try:
         old_line = old_code = new_line = new_code = ' '
+
+        """
+        escape = 0
+        for key in old_param_types:
+            if escape == len(old_param_types):
+                break
+
+            if len(key) == 3:
+                key2 = tuple( key[:1] + tuple([old_param_types[key]]) + key[2:])
+
+                old_param_types[key2] = old_param_types[key]
+                del old_param_types[key]
+
+            escape += 1
+
+        escape = 0
+        for key in old_return_types:
+            if escape == len(old_return_types):
+                break
+
+            if len(key) == 3:
+                key2 = tuple( key[:1] + tuple([old_return_types[key]])  + key[2:])
+
+                old_return_types[key2] = old_return_types[key]
+                del old_return_types[key]
+
+            escape += 1
+
+        escape = 0
+        for key in old_variable_types:
+            if escape == len(old_variable_types):
+                break
+
+            if len(key) == 3:
+                key2 = tuple( key[:1] + tuple([old_variable_types[key]]) + key[2:])
+
+                old_variable_types[key2] = old_variable_types[key]
+                del old_variable_types[key]
+
+            escape += 1
+
+        escape = 0
+        for key in new_param_types:
+            if escape == len(new_param_types):
+                break
+
+            if len(key) == 3:
+                key2 = tuple(key[:1] + tuple([new_param_types[key]]) + key[2:])
+
+                new_param_types[key2] = new_param_types[key]
+                del new_param_types[key]
+
+            escape += 1
+
+        escape = 0
+        for key in new_return_types:
+            if escape == len(new_return_types):
+                break
+
+            if len(key) == 3:
+                key2 = tuple(key[:1] + tuple([new_return_types[key]]) + key[2:])
+
+                new_return_types[key2] = new_return_types[key]
+                del new_return_types[key]
+
+            escape += 1
+
+        escape = 0
+        for key in new_variable_types:
+            if escape == len(new_variable_types):
+                break
+
+            if len(key) == 3:
+                key2 = tuple(key[:1] + tuple([new_variable_types[key]]) + key[2:])
+
+                new_variable_types[key2] = new_variable_types[key]
+                del new_variable_types[key]
+
+            escape += 1
+        """
         ################################################################
         ########  RETURN TYPE ANNOTATIONS                          #####
         ################################################################
@@ -518,9 +598,9 @@ def TypeAnnotationExtraction(repo_path, repo_name, commit, patch, url, statistic
 
                 #list_line_added.add(key)
                 #lock.release()
-    except:
+    except Exception as e:
+        print('Error changeExtraction:', repo_path, commit, str(e))
         # print('Repository', repo_path, 'commit', commit, 'with old line', str(old_stdout))
-        pass
 
     #lock.acquire()
     if len(line_type_annotation_added) > 0:

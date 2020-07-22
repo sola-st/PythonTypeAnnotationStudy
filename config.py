@@ -4,6 +4,9 @@ ROOT_DIR = os.path.dirname(os.path.abspath(__file__))
 
 TEST = False
 CLONING = False
-NORMAL_PRINT = False
+NORMAL_PRINT = True
 
-REPO_LIST = ROOT_DIR + '/Resources/Input/repositoriesTOP1000.json'
+STATISTICS_COMPUTATION = True
+PLOT = False
+
+REPO_LIST = ROOT_DIR + '/Resources/Input/repositoriesTOP100.json'

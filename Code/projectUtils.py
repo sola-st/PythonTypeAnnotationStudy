@@ -1,4 +1,5 @@
 import config
+from Code.codeStatistics import CodeStatistics
 from Code.lucaUtils import *
 
 
@@ -11,7 +12,12 @@ def write_results(statistics, code_changes, commit_statistics):
     write_in_json(config.ROOT_DIR + "/Resources/Output/typeAnnotationCommitStatistics.json",
                   convert_list_in_list_of_dicts(commit_statistics))
 
-    write_in_json(config.ROOT_DIR + "/Resources/Output/typeAnnotationAllStatistics.json",
+    #  "jsonify" np.arrays
+    statistics.matrix_commits_stars_annotations = statistics.matrix_commits_stars_annotations.tolist()
+
+    # "unjsonify" the array -> np.array(from_json)
+
+    write_in_json(config.ROOT_DIR + "/Resources/Output/typeAnnotationAllStatisticsRAW.json",
                   convert_list_in_list_of_dicts([statistics]))
 
 
@@ -96,3 +102,9 @@ def myplot(statistics):
     statistics.typeAnnotation_year_analysis = "See the plot RQ8."
     statistics.typeAnnotation_commit_annotation_year_analysis = "See the plot RQ9."
     statistics.typeAnnotation_commit_not_annotation_year_analysis = "See the plot RQ9."
+
+def load_final_statistics() -> CodeStatistics:
+    with open(config.ROOT_DIR + "/Resources/Output/typeAnnotationAllStatistics.json") as fh:
+        allStatistics = json.load(fh)
+
+    print(allStatistics[0]['total_repositories'])

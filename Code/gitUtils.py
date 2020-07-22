@@ -55,7 +55,8 @@ def query_repo_get_changes(repo_name):  # statistics, pointer, dirlist_len):
         print("[Working]", repo_name)
     # lock.release()
 
-    type_annotation_in_last_version(repo_name, statistics)
+    #type_annotation_in_last_version(repo_name, statistics)
+    statistics.typeLastProjectVersion_total = 1
 
     try:
         repo = git.Repository(config.ROOT_DIR + "/GitHub/" + repo_name)
@@ -75,7 +76,7 @@ def query_repo_get_changes(repo_name):  # statistics, pointer, dirlist_len):
         # Go through each commit starting from the most recent commit
         for commit in repo.walk(last_commit, GIT_SORT_TOPOLOGICAL | GIT_SORT_REVERSE):
             # print(str(commit.hex))
-            #if commit.hex != '4e8180eb90e18a8d0b3623a8d5a3a6c0ba104ff0':
+            #if commit.hex != '2175ba8e44a61016f27101da2ddd56466006542c':
             #    continue
             # start = time.time()
             commit_year = time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(commit.commit_time))[:4]
