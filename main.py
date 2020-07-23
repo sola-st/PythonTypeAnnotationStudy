@@ -15,11 +15,11 @@ if __name__ == "__main__":
 
         start = time.time()
 
+        # List of repositories (already cloned)
         dirlist: list = [item for item in os.listdir(config.ROOT_DIR + "/GitHub") if
                          os.path.isdir(os.path.join(config.ROOT_DIR + "/GitHub", item))]
 
-        statistics_final: CodeStatistics = CodeStatistics()
-
+        # Lis tof stastics from processes to be merged
         process_statistics = []
 
         if config.TEST:
@@ -39,6 +39,9 @@ if __name__ == "__main__":
 
         code_changes: list = []
         commit_statistics: list = []
+
+        # The statistics from processes are merged
+        statistics_final: CodeStatistics = CodeStatistics()
 
         statistics_final.merge_results(process_statistics, code_changes, commit_statistics)
 
@@ -65,13 +68,13 @@ if __name__ == "__main__":
             lucaUtils.delete_all_files_in_folder(config.ROOT_DIR + '/Resources/Output/')
 
             # Compute new files
-            #myplot(statistics_final)
             write_results(statistics_final, code_changes, commit_statistics)
         except Exception as e:
             print('Error writing results in files: ' + str(e))
 
         print("\nStatics computed in " + "{:0>2}:{:0>2}:{:05.2f}".format(int(hours), int(minutes), seconds))
 
+    # Plots the results from the file Output/typeAnnotationAllStatisticsRAW.json
     if config.PLOT:
         statistics_final: CodeStatistics = load_final_statistics()
         myplot(statistics_final)

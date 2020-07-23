@@ -39,6 +39,9 @@ def chunkify(lst, n):
 Data conversion and manipulation
 """
 
+# Convert list of lists in a dictionary.
+def convert_list_in_dict(list_of_list):
+    return dict(tuple(tuple(x) for x in list_of_list))
 
 # Convert list of variable, in list of dictionaries with variable name as key .
 def convert_list_in_list_of_dicts(data: list) -> list:
