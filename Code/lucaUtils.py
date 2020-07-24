@@ -90,11 +90,6 @@ Method to build x-y graphs.
 
 
 def cartesian_plot_xy(outputFilePath, x, y, x_label, y_label, title=None, color='blue', xlim=None, ylim=None):
-    style.use('seaborn-paper')  # sets the size of the charts
-
-    plt.rc('xtick', labelsize=18)
-    plt.rc('ytick', labelsize=18)
-
     axes = plt.gca()
     if ylim is not None:
         axes.set_ylim([0, ylim])
@@ -107,8 +102,8 @@ def cartesian_plot_xy(outputFilePath, x, y, x_label, y_label, title=None, color=
     # use the plot function
     plt.plot(x, y, marker='', color=color, linewidth=2)
 
-    plt.ylabel(y_label, fontsize=10)
-    plt.xlabel(x_label, fontsize=10)
+    plt.ylabel(y_label)
+    plt.xlabel(x_label)
 
     if title is not None:
         plt.title('title')
@@ -119,11 +114,6 @@ def cartesian_plot_xy(outputFilePath, x, y, x_label, y_label, title=None, color=
 
 
 def bar_plot_xy(outputFilePath, x, y, x_label, y_label, title=None, color='blue', xlim=None, ylim=None):
-    style.use('seaborn-paper')  # sets the size of the charts
-
-    plt.rc('xtick', labelsize=18)
-    plt.rc('ytick', labelsize=18)
-
     axes = plt.gca()
     if ylim is not None:
         axes.set_ylim([0, ylim])
@@ -131,10 +121,10 @@ def bar_plot_xy(outputFilePath, x, y, x_label, y_label, title=None, color='blue'
     #if xlim is not None:
     #    axes.set_xlim([0, xlim])
 
-    plt.yscale('log')
+    # plt.yscale('log')
 
-    plt.ylabel(y_label, fontsize=10, fontweight='bold', color='black')
-    plt.xlabel(x_label, fontsize=10, fontweight='bold', color='black', horizontalalignment='center')
+    plt.ylabel(y_label)
+    plt.xlabel(x_label)
 
     plt.setp(axes.get_xticklabels(), rotation=30, horizontalalignment='right')
 
@@ -151,11 +141,6 @@ def bar_plot_xy(outputFilePath, x, y, x_label, y_label, title=None, color='blue'
 
 def bar_plot_double_xy(outputFilePath, x, y1, y2, x_label, y_label, title=None, color1='blue', color2='red', xlim=None,
                        ylim=None):
-    style.use('seaborn-paper')  # sets the size of the charts
-
-    plt.rc('xtick', labelsize=18)
-    plt.rc('ytick', labelsize=18)
-
     axes = plt.gca()
     if ylim is not None:
         axes.set_ylim([0, ylim])
@@ -165,8 +150,8 @@ def bar_plot_double_xy(outputFilePath, x, y1, y2, x_label, y_label, title=None, 
 
     plt.yscale('log')
 
-    plt.ylabel(y_label, fontsize=10, fontweight='bold', color='black')
-    plt.xlabel(x_label, fontsize=10, fontweight='bold', color='black', horizontalalignment='center')
+    plt.ylabel(y_label)
+    plt.xlabel(x_label)
 
     plt.bar(numpy.array(x) - 0.2, numpy.array(y1), width=0.4, align='center', color= color1, label='Commit with annotations')
     plt.bar(numpy.array(x) + 0.2, numpy.array(y2), width=0.4, align='center', color= color2, label='Commit without annotations')
@@ -180,9 +165,9 @@ def bar_plot_double_xy(outputFilePath, x, y1, y2, x_label, y_label, title=None, 
     plt.figure()
 
 
-def histogram_plot_xy(outputFilePath, x, x_label, y_label, xscale, yscale, title=None):
-    plt.xlabel(x_label, fontsize=18, fontweight='bold', color='black', horizontalalignment='center')
-    plt.ylabel(y_label, fontsize=18, fontweight='bold', color='black', horizontalalignment='center')
+def histogram_plot_xy(outputFilePath, x, x_label, y_label, xscale, yscale, title=None, bins='auto'):
+    plt.xlabel(x_label)
+    plt.ylabel(y_label)
 
     if len(x) == 0:
         print('[Empty x]', title)
@@ -196,7 +181,7 @@ def histogram_plot_xy(outputFilePath, x, x_label, y_label, xscale, yscale, title
     if xscale == 'log':
         plt.xscale(xscale)
 
-    plt.hist(x, bins='auto', range=[0, max(x)])
+    plt.hist(x, bins=bins, range=[0, max(x)])
 
     plt.savefig(outputFilePath, bbox_inches='tight')
 
@@ -204,11 +189,6 @@ def histogram_plot_xy(outputFilePath, x, x_label, y_label, xscale, yscale, title
 
 
 def scatter_plot_xy(outputFilePath, x, y, x_label, y_label, xscale, yscale, title=None, color='blue', xlim=None, ylim=None):
-    style.use('seaborn-paper')  # sets the size of the charts
-
-    plt.rc('xtick', labelsize=18)
-    plt.rc('ytick', labelsize=18)
-
     axes = plt.gca()
     if ylim is not None:
         axes.set_ylim([0, ylim])
@@ -222,8 +202,8 @@ def scatter_plot_xy(outputFilePath, x, y, x_label, y_label, xscale, yscale, titl
     # use the plot function
     plt.scatter(x, y)
 
-    plt.ylabel(y_label, fontsize=18)
-    plt.xlabel(x_label, fontsize=18)
+    plt.ylabel(y_label)
+    plt.xlabel(x_label)
 
     if title is not None:
         plt.title('title')
@@ -234,11 +214,6 @@ def scatter_plot_xy(outputFilePath, x, y, x_label, y_label, xscale, yscale, titl
 
 
 def histogram_2d_plot_xy(outputFilePath, x, y, x_label, y_label, title=None, color='blue', xlim=None, ylim=None):
-    style.use('seaborn-paper')  # sets the size of the charts
-
-    plt.rc('xtick', labelsize=18)
-    plt.rc('ytick', labelsize=18)
-
     axes = plt.gca()
     if ylim is not None:
         axes.set_ylim([0, ylim])
@@ -251,8 +226,8 @@ def histogram_2d_plot_xy(outputFilePath, x, y, x_label, y_label, title=None, col
     # use the plot function
     plt.hist2d(x, y, bins=100)
 
-    plt.ylabel(y_label, fontsize=18)
-    plt.xlabel(x_label, fontsize=18)
+    plt.ylabel(y_label)
+    plt.xlabel(x_label)
 
     cbar = plt.colorbar()
     cbar.ax.set_ylabel('Counts')

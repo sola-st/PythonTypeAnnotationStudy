@@ -2,6 +2,7 @@ import config
 from Code.codeStatistics import CodeStatistics
 from Code.lucaUtils import *
 import numpy as np
+import pandas as pd
 
 
 def write_results(statistics, code_changes, commit_statistics):
@@ -22,7 +23,22 @@ def write_results(statistics, code_changes, commit_statistics):
                   convert_list_in_list_of_dicts([statistics]))
 
 
+def compute_correlations(commits_stars_annotations):
+    projects = pd.DataFrame(commits_stars_annotations)
+    projects.columns = ["commits", "stars", "annotations"]
+    projects_with_annotations = projects[projects.annotations > 0]
+    print(f"Computing correlations across {len(projects)} projects, {len(projects_with_annotations)} with annotations ")
+    print(f"  All projects:")
+    print(f"    Correlation between annotations and commits: {projects['commits'].corr(projects['annotations'])}")
+    print(f"    Correlation between annotations and stars: {projects['commits'].corr(projects['stars'])}")
+    print(f"  Projects with annotations:")
+    print(f"    Correlation between annotations and commits: {projects_with_annotations['commits'].corr(projects_with_annotations['annotations'])}")
+    print(f"    Correlation between annotations and stars: {projects_with_annotations['commits'].corr(projects_with_annotations['stars'])}")
+
+
 def myplot(statistics):
+    plt.rcParams.update({'font.size': 16})
+
     # RQ2.2
     bar_plot_xy(config.ROOT_DIR + "/Resources/Output/RQ2_2",
                 statistics.typeAdded_dict.keys(),
@@ -38,25 +54,19 @@ def myplot(statistics):
                 title='What are the top 5 types removed?')
 
     # RQ4.1
-    histogram_plot_xy(config.ROOT_DIR + "/Resources/Output/RQ4_1",
+    histogram_plot_xy(config.ROOT_DIR + "/Resources/Output/perc_annotations_added_per_commit.pdf",
                       statistics.list_typeAnnotation_added_per_commit,
-                      'Percentage (%)', 'Occurrences', 'linear', 'log', 'Are types added along with other changes '
-                                                                        'around this code or in commits that only add'
-                                                                        ' types?' )
+                      'Percentage of annotation-related lines among all added lines', 'Number of commits', 'linear', 'linear', bins=100)
 
     # RQ4.2
-    histogram_plot_xy(config.ROOT_DIR + "/Resources/Output/RQ4_2",
+    histogram_plot_xy(config.ROOT_DIR + "/Resources/Output/perc_annotations_removed_per_commit.pdf",
                       statistics.list_typeAnnotation_removed_per_commit,
-                      'Percentage (%)', 'Occurrences', 'linear', 'log',
-                      'Are types removed along with other changes around this code or in commits that only add types?'
-                      )
+                      'Percentage of annotation-related lines among all removed lines', 'Number of commits', 'linear', 'linear', bins=100)
 
     # RQ4.3
-    histogram_plot_xy(config.ROOT_DIR + "/Resources/Output/RQ4_3",
+    histogram_plot_xy(config.ROOT_DIR + "/Resources/Output/perc_annotations_changed_per_commit.pdf",
                       statistics.list_typeAnnotation_changed_per_commit,
-                      'Percentage (%)', 'Occurrences',  'linear', 'log',
-                      'Are types changed along with other changes around this '
-                      'code or in commits that only add types?')
+                      'Percentage of annotation-related lines among all changed lines', 'Number of commits',  'linear', 'linear', bins=100)
 
     # RQ4.4
     #histogram_plot_xy(config.ROOT_DIR + "/Resources/Output/RQ4_4",
@@ -71,6 +81,7 @@ def myplot(statistics):
     #                                                                    'all edits per commit')
 
     # RQ5
+    compute_correlations(statistics.matrix_commits_stars_annotations)
     scatter_plot_xy(config.ROOT_DIR + "/Resources/Output/RQ5_stars",
                     [row[1] for row in statistics.matrix_commits_stars_annotations],
                     [row[2] for row in statistics.matrix_commits_stars_annotations],
@@ -82,9 +93,11 @@ def myplot(statistics):
                     '# Commits', '# Annotations Changes', 'log', 'log')
 
     # RQ8
-    bar_plot_xy(config.ROOT_DIR + "/Resources/Output/RQ8", [int(k) for k in statistics.typeAnnotation_year_analysis.keys()],
-                [int(v) for v in statistics.typeAnnotation_year_analysis.values()], 'Type annotations per Year', 'Count',
-                title='Total number of annotations over time, across all projects')
+    years = [int(k) for k in statistics.typeAnnotation_year_analysis.keys()]
+    annotations_per_year = [int(v) for v in statistics.typeAnnotation_year_analysis.values()]
+    bar_plot_xy(config.ROOT_DIR + "/Resources/Output/annotationsPerYear.pdf", years,
+                annotations_per_year, '', 'Type annotations in a year',
+                ylim=int(max(annotations_per_year)*1.1))
 
     # RQ9
     bar_plot_double_xy(config.ROOT_DIR + "/Resources/Output/RQ9",
