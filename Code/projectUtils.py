@@ -100,11 +100,11 @@ def myplot(statistics):
                 ylim=int(max(annotations_per_year)*1.1))
 
     # RQ9
-    bar_plot_double_xy(config.ROOT_DIR + "/Resources/Output/RQ9",
-                       [int(k) for k in statistics.typeAnnotation_commit_annotation_year_analysis.keys()],
-                       [int(v) for v in statistics.typeAnnotation_commit_annotation_year_analysis.values()],
-                       [int(v) for v in statistics.typeAnnotation_commit_not_annotation_year_analysis.values()], 'Annotation-relate commit',
-                'Count', title='Total number of annotation-relate commit over time, across all project')
+    bar_plot_double_xy(config.ROOT_DIR + "/Resources/Output/type_commits_vs_all_commits.pdf",
+                       x=[int(k) for k in statistics.typeAnnotation_commit_annotation_year_analysis.keys()],
+                       y1=[int(v) for v in statistics.typeAnnotation_commit_annotation_year_analysis.values()],
+                       y2=[int(v) for v in statistics.typeAnnotation_commit_not_annotation_year_analysis.values()],
+                y_label='Number of commits')
 
     # Variables are cleaned to have a better output
     statistics.matrix_commits_stars_annotations = "See the plots RQ5_commits and RQ5_stars."

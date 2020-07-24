@@ -139,7 +139,7 @@ def bar_plot_xy(outputFilePath, x, y, x_label, y_label, title=None, color='blue'
     plt.figure()
 
 
-def bar_plot_double_xy(outputFilePath, x, y1, y2, x_label, y_label, title=None, color1='blue', color2='red', xlim=None,
+def bar_plot_double_xy(outputFilePath, x, y1, y2, x_label=None, y_label=None, title=None, color1='blue', color2='red', xlim=None,
                        ylim=None):
     axes = plt.gca()
     if ylim is not None:
@@ -148,13 +148,11 @@ def bar_plot_double_xy(outputFilePath, x, y1, y2, x_label, y_label, title=None, 
     if xlim is not None:
         axes.set_xlim([0, xlim])
 
-    plt.yscale('log')
-
     plt.ylabel(y_label)
     plt.xlabel(x_label)
 
-    plt.bar(numpy.array(x) - 0.2, numpy.array(y1), width=0.4, align='center', color= color1, label='Commit with annotations')
-    plt.bar(numpy.array(x) + 0.2, numpy.array(y2), width=0.4, align='center', color= color2, label='Commit without annotations')
+    plt.bar(numpy.array(x) - 0.2, numpy.array(y1), width=0.4, align='center', color= color1, label='Commits with annotations')
+    plt.bar(numpy.array(x) + 0.2, numpy.array(y2), width=0.4, align='center', color= color2, label='Commits without annotations')
     plt.legend(loc='upper right')
 
     if title is not None:
