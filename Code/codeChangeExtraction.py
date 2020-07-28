@@ -20,9 +20,13 @@ def extract_from_snippet(string):
         # print('Failed to upload to ftp: ' + str(e))
        # return {}, {}, {}
 
+    # Pre-compute scopes
+    wrapper = cst.metadata.MetadataWrapper(ast)
+    scopes = set(wrapper.resolve(cst.metadata.ScopeProvider).values())
+
     # Collect types
     type_collector = TypeCollector()
-    ast.visit(type_collector)
+    wrapper.visit(type_collector)
 
     param_types = type_collector.param_annotations
     return_types = type_collector.return_types
@@ -43,9 +47,13 @@ def extract_from_file(file_path: str):
     except:
         return {}, {}, {}
 
+    # Pre-compute scopes
+    wrapper = cst.metadata.MetadataWrapper(ast)
+    scopes = set(wrapper.resolve(cst.metadata.ScopeProvider).values())
+
     # Collect types
     type_collector = TypeCollector()
-    ast.visit(type_collector)
+    wrapper.visit(type_collector)
 
     param_types = type_collector.param_annotations
     return_types = type_collector.return_types

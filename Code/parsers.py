@@ -1,4 +1,4 @@
-from typing import Dict, List, Optional, Union, TYPE_CHECKING, Tuple
+from typing import Dict, List, Optional, Union, TYPE_CHECKING, Tuple, Set
 
 import libcst as cst
 import sys
@@ -10,19 +10,23 @@ class TypeCollector(cst.CSTVisitor):
     '''
 
     def __init__(self):
+
         # stack for storing the canonical name of the current function
         self.stack: List[Tuple[str, ...]] = []
 
         self.return_types: Dict[Tuple[str, ...], str] = {}
         self.param_annotations: Dict[Tuple[str, ...], str] = {}
         self.variable_annotations: Dict[Tuple[str, ...], str] = {}
+        self.non_return_types: Dict[Tuple[str, ...], str] = {}
+        self.non_param_annotations: Dict[Tuple[str, ...], str] = {}
+        self.names_with_type: Set[cst.Name] = set()
 
         # Parse state for descenting into annotations
         self.in_annotation: bool = False
         self.in_attribute: bool = False
         self.in_variable_annotation: bool = False
         self.annotation_parts: List[str] = []
-        self.last_annotation: str = None
+        self.last_annotation: Optional[str] = None
 
     def visit_Annotation(self, node):
 
@@ -38,7 +42,7 @@ class TypeCollector(cst.CSTVisitor):
 
     def visit_AnnAssign(self, node):
         try:
-            #if 'Name' not in node.target.value:
+            # if 'Name' not in node.target.value:
             self.stack.append(node.target.value.value)
         except:
             try:
@@ -52,6 +56,9 @@ class TypeCollector(cst.CSTVisitor):
                 #self.variable_annotations[(*self.stack, node.value.value)] = self.last_annotation
                 self.variable_annotations[(*self.stack,)] = \
                     self.last_annotation
+
+                if isinstance(node.target, cst.Name):
+                    self.names_with_type.add(node.target)
             self.stack.pop()
         except:
             return
@@ -126,6 +133,8 @@ class TypeCollector(cst.CSTVisitor):
         if len(self.annotation_parts) > 0:
             self.return_types[tuple(self.stack)] = \
                 self.last_annotation
+        else:
+            self.non_return_types[tuple(self.stack)] = None
 
         self.annotation_parts = []
         self.last_annotation = None
@@ -135,6 +144,8 @@ class TypeCollector(cst.CSTVisitor):
         if len(self.annotation_parts) > 0:
             self.param_annotations[(*self.stack, node.name.value)] = \
                 self.last_annotation
+        else:
+            self.non_param_annotations[(*self.stack, node.name.value)] = None
 
         self.annotation_parts = []
         self.last_annotation = None
