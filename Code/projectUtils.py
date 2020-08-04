@@ -54,19 +54,19 @@ def myplot(statistics):
                 title='What are the top 5 types removed?')
 
     # RQ4.1
-    histogram_plot_xy(config.ROOT_DIR + "/Resources/Output/perc_annotations_added_per_commit.pdf",
-                      statistics.list_typeAnnotation_added_per_commit,
-                      'Percentage of annotation-related lines among all added lines', 'Number of commits', 'linear', 'linear', bins=100)
+    #histogram_plot_xy(config.ROOT_DIR + "/Resources/Output/perc_annotations_added_per_commit.pdf",
+    #                  statistics.list_typeAnnotation_added_per_commit,
+    #                  'Percentage of annotation-related lines among all added lines', 'Number of commits', 'linear', 'linear', bins=100)
 
     # RQ4.2
-    histogram_plot_xy(config.ROOT_DIR + "/Resources/Output/perc_annotations_removed_per_commit.pdf",
-                      statistics.list_typeAnnotation_removed_per_commit,
-                      'Percentage of annotation-related lines among all removed lines', 'Number of commits', 'linear', 'linear', bins=100)
+    #histogram_plot_xy(config.ROOT_DIR + "/Resources/Output/perc_annotations_removed_per_commit.pdf",
+    #                  statistics.list_typeAnnotation_removed_per_commit,
+    #                  'Percentage of annotation-related lines among all removed lines', 'Number of commits', 'linear', 'linear', bins=100)
 
-    # RQ4.3
-    histogram_plot_xy(config.ROOT_DIR + "/Resources/Output/perc_annotations_changed_per_commit.pdf",
+    # RQ4
+    histogram_plot_xy(config.ROOT_DIR + "/Resources/Output/RQ4_perc_annotations_lines_per_commit.pdf",
                       statistics.list_typeAnnotation_changed_per_commit,
-                      'Percentage of annotation-related lines among all changed lines', 'Number of commits',  'linear', 'linear', bins=100)
+                      'Percentage of annotation-related lines among all inserted, removed and changed lines', 'Number of commits',  'linear', 'linear', bins=100)
 
     # RQ4.4
     #histogram_plot_xy(config.ROOT_DIR + "/Resources/Output/RQ4_4",

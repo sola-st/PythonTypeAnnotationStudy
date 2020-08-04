@@ -109,7 +109,7 @@ class CodeStatistics:
         self.typeAnnotation_removed_per_commit = 0
         self.list_typeAnnotation_removed_per_commit = []
 
-        # [RQ4.3]: Are many types changed at once or rather a few types here and there?
+        # [RQ4]: Are many types changed at once or rather a few types here and there?
         self.RQ4_3 = 'Are types changed along with other changes around this code or in commits that only add types?'
         self.typeAnnotation_changed_per_commit = 0
         self.list_typeAnnotation_changed_per_commit = []

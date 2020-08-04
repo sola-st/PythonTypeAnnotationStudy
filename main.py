@@ -8,10 +8,10 @@ from config import REPO_LIST
 import cProfile
 
 if __name__ == "__main__":
+    if config.CLONING:
+        gitUtils.repo_cloning(REPO_LIST, config.ROOT_DIR + "/GitHub")
 
     if config.STATISTICS_COMPUTATION:
-        if config.CLONING:
-            gitUtils.repo_cloning(REPO_LIST, config.ROOT_DIR + "/GitHub")
 
         start = time.time()
 
