@@ -77,7 +77,7 @@ def query_repo_get_changes(repo_name):  # statistics, pointer, dirlist_len):
         for commit in repo.walk(last_commit, GIT_SORT_TOPOLOGICAL | GIT_SORT_REVERSE):
             # print(str(commit.hex))
             if commit.hex != 'a88fa535495229bec89e90bf086343cc17735ab4':
-                continue
+               continue
             # start = time.time()
             commit_year = time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(commit.commit_time))[:4]
             if int(commit_year) < 2015:

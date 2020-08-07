@@ -5,6 +5,7 @@ import config
 from Code.codeChange import CodeChange
 from Code.parsers import TypeCollector
 import libcst as cst
+import copy
 
 
 def extract_from_snippet(string):
@@ -137,24 +138,46 @@ def search_line_number_param(file, dict):
     # Get line from the file along with line numbers, which contains any string from the list
 
     try:
-        key_list = dict.keys()
+        key_list = copy.deepcopy(list(dict.keys()))
+        # l = key_list[:]
+        # l2 = copy.deepcopy(key_list)
+        line_number = 0
+        class_visited = set()
+        method_visited = set()
 
-        for key in key_list:
-            line_number = 0
-            found = True
-            for line in file.splitlines():
-                line_number += 1
+        for line in file.splitlines():
+            line_number = line_number + 1
+            if line_number == 147:
+                xxx = 0
+                xxx = 2
 
-                test = key[-2]
-                if test in line:
-                    found = True
+            method_temp = ""
+            list_temp = []
+            for key in key_list:
+                regex_temp = (re.escape(key[-1]) + "\s*:\s*" + re.escape(dict[key])).replace("[\\]", "[(.*?)\\]")
 
-                if re.search(re.escape(key[-1]) + "\s*:\s*" + re.escape(dict[key]), line) and found:
+                key_temp = ""
+
+                if len(key) > 2:
+                    key_temp = key[-3]
+                    if re.search("class\s*" + re.escape(key_temp) + "\s*:\s*", line):
+                        class_visited.add(key[-3])
+
+                    if re.search("def\s*" + re.escape(key[-2]) + "\s*", line):
+                        method_visited.add(key[-2])
+                        method_temp = key[-2]
+
+                if re.search(regex_temp,
+                             line.replace(" ", "")) and key_temp in class_visited and key[-2] is method_temp:
                     key2 = tuple(tuple([line_number]) + key[2:])
                     dict[key2] = dict[key]
                     del dict[key]
+                    # key_list.remove(tuple(key))
+                    list_temp.append(key)
+                    # break
 
-                    break
+            for key_temp in list_temp:
+                key_list.remove(tuple(key_temp))
 
     except Exception as e:
 
@@ -167,12 +190,7 @@ def TypeAnnotationExtraction(repo_path, repo_name, commit, patch, url, statistic
                              at_least_one_type_change, code_changes,
                              typeannotation_line_inserted, typeannotation_line_removed, typeannotation_line_changed,
                              list_line_added, list_line_removed, commit_year):
-    # command = "git --git-dir " + str(repo_path) + '/.git show ' + str(commit.hex) + ":" + str(patch.delta.old_file.path)
-    # os.system(command)
     code_changes_new = []
-    type_annotation_added_this_commit = 0
-    type_annotation_removed_this_commit = 0
-    type_annotation_changed_this_commit = 0
 
     line_type_annotation_added = []
     line_type_annotation_removed = []
@@ -194,8 +212,6 @@ def TypeAnnotationExtraction(repo_path, repo_name, commit, patch, url, statistic
         except:
             return
 
-    search_line_number_param(str(old_stdout.decode('utf-8')), old_param_types)
-
     new_out = subprocess.Popen(["git", "--git-dir", str(repo_path + repo_name) + '/.git', 'show',
                                 str(commit.hex) + ":" + str(patch.delta.new_file.path)],
                                stdout=subprocess.PIPE,
@@ -214,85 +230,19 @@ def TypeAnnotationExtraction(repo_path, repo_name, commit, patch, url, statistic
     try:
         old_line = old_code = new_line = new_code = ' '
 
-        """
-        escape = 0
-        for key in old_param_types:
-            if escape == len(old_param_types):
-                break
+        pre_trasform = len(old_param_types)
+        search_line_number_param(str(old_stdout.decode('utf-8')), old_param_types)
 
-            if len(key) == 3:
-                key2 = tuple( key[:1] + tuple([old_param_types[key]]) + key[2:])
+        if pre_trasform != len(old_param_types):
+            print("Different size dict old_param_types", repo_path, commit)
 
-                old_param_types[key2] = old_param_types[key]
-                del old_param_types[key]
+        pre_trasform = len(new_param_types)
+        search_line_number_param(str(new_stdout.decode('utf-8')), new_param_types)
 
-            escape += 1
+        if pre_trasform != len(new_param_types):
+            print("Different size dict new_param_types", repo_path, commit)
 
-        escape = 0
-        for key in old_return_types:
-            if escape == len(old_return_types):
-                break
 
-            if len(key) == 3:
-                key2 = tuple( key[:1] + tuple([old_return_types[key]])  + key[2:])
-
-                old_return_types[key2] = old_return_types[key]
-                del old_return_types[key]
-
-            escape += 1
-
-        escape = 0
-        for key in old_variable_types:
-            if escape == len(old_variable_types):
-                break
-
-            if len(key) == 3:
-                key2 = tuple( key[:1] + tuple([old_variable_types[key]]) + key[2:])
-
-                old_variable_types[key2] = old_variable_types[key]
-                del old_variable_types[key]
-
-            escape += 1
-
-        escape = 0
-        for key in new_param_types:
-            if escape == len(new_param_types):
-                break
-
-            if len(key) == 3:
-                key2 = tuple(key[:1] + tuple([new_param_types[key]]) + key[2:])
-
-                new_param_types[key2] = new_param_types[key]
-                del new_param_types[key]
-
-            escape += 1
-
-        escape = 0
-        for key in new_return_types:
-            if escape == len(new_return_types):
-                break
-
-            if len(key) == 3:
-                key2 = tuple(key[:1] + tuple([new_return_types[key]]) + key[2:])
-
-                new_return_types[key2] = new_return_types[key]
-                del new_return_types[key]
-
-            escape += 1
-
-        escape = 0
-        for key in new_variable_types:
-            if escape == len(new_variable_types):
-                break
-
-            if len(key) == 3:
-                key2 = tuple(key[:1] + tuple([new_variable_types[key]]) + key[2:])
-
-                new_variable_types[key2] = new_variable_types[key]
-                del new_variable_types[key]
-
-            escape += 1
-        """
         ################################################################
         ########  RETURN TYPE ANNOTATIONS                          #####
         ################################################################
