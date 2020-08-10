@@ -2,7 +2,6 @@ import pstats
 import time
 import multiprocessing
 from Code import gitUtils, lucaUtils
-from Code.codeStatistics import CodeStatistics
 from Code.projectUtils import *
 from config import REPO_LIST
 import cProfile
