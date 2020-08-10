@@ -22,7 +22,6 @@ def write_results(statistics, code_changes, commit_statistics):
     write_in_json(config.ROOT_DIR + "/Resources/Output/typeAnnotationAllStatisticsRAW.json",
                   convert_list_in_list_of_dicts([statistics]))
 
-
 def compute_correlations(commits_stars_annotations):
     projects = pd.DataFrame(commits_stars_annotations)
     projects.columns = ["commits", "stars", "annotations"]
@@ -34,7 +33,6 @@ def compute_correlations(commits_stars_annotations):
     print(f"  Projects with annotations:")
     print(f"    Correlation between annotations and commits: {projects_with_annotations['commits'].corr(projects_with_annotations['annotations'])}")
     print(f"    Correlation between annotations and stars: {projects_with_annotations['commits'].corr(projects_with_annotations['stars'])}")
-
 
 def myplot(statistics):
     plt.rcParams.update({'font.size': 16})

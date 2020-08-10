@@ -189,19 +189,20 @@ def search_line_number_return(file, dict):
 
         for line in file.splitlines():
             line_number = line_number + 1
-            if line_number == 69:
+            if line_number == 93:
                 xxx = 0
                 xxx = 2
 
             list_temp = []
             for key in key_list:
-                regex_temp = (re.escape("->") + "\s*" + re.escape(dict[key])).replace("[\\]", "[(.*?)\\]")
+                annotation_regex = re.sub(r'\[(.*?)\]', '[(.*?)\\]', re.escape(dict[key]))
+                regex_temp = (re.escape("->") + "\s*" + annotation_regex)
 
                 key_temp = ""
 
                 if len(key) == 2:
                     key_temp = key[-2]
-                    if re.search("class\s*" + re.escape(key_temp) + "\s*:\s*", line):
+                    if re.search("class\s*" + re.escape(key_temp) + "\(.*?\):\s*", line):
                         class_visited.add(key[-2])
 
                     if re.search("def\s*" + re.escape(key[-1]), line):
@@ -681,9 +682,9 @@ def TypeAnnotationExtraction(repo_path, repo_name, commit, patch, url, statistic
 
 
 def TypeAnnotationExtractionNew(repo_path, repo_name, commit, patch, url, statistics,  # lock, logging,
-                             at_least_one_type_change, code_changes,
-                             typeannotation_line_inserted, typeannotation_line_removed, typeannotation_line_changed,
-                             list_line_added, list_line_removed, commit_year):
+                                at_least_one_type_change, code_changes,
+                                typeannotation_line_inserted, typeannotation_line_removed, typeannotation_line_changed,
+                                list_line_added, list_line_removed, commit_year):
     code_changes_new = []
 
     line_type_annotation_added = []
@@ -748,8 +749,6 @@ def TypeAnnotationExtractionNew(repo_path, repo_name, commit, patch, url, statis
         if pre_trasform != len(new_return_types):
             print("Different size dict old_return_types", repo_path, commit)
 
-
-
         ################################################################
         ########  RETURN TYPE ANNOTATIONS                          #####
         ################################################################
@@ -760,12 +759,16 @@ def TypeAnnotationExtractionNew(repo_path, repo_name, commit, patch, url, statis
                 if old_return_types[key] != new_return_types[key]:
 
                     try:
-                        old_line, old_code = search_key_value_in_snippet(str(old_stdout.decode('utf-8')),
-                                                                         [key, old_return_types[key]])
-                        new_line, new_code = search_key_value_in_snippet(str(new_stdout.decode('utf-8')),
-                                                                         [key, new_return_types[key]])
+                        old_line, old_code, new_line, new_code = key[-2]
+
                     except:
-                        old_line = old_code = new_line = new_code = ' '
+                        try:
+                            old_line, old_code = search_key_value_in_snippet(str(old_stdout.decode('utf-8')),
+                                                                             [key, old_return_types[key]])
+                            new_line, new_code = search_key_value_in_snippet(str(new_stdout.decode('utf-8')),
+                                                                             [key, new_return_types[key]])
+                        except:
+                            old_line = old_code = new_line = new_code = ''
 
                     temp = CodeChange(url + str(old_line), commit_year, str(patch.delta.old_file.path), old_line,
                                       str(old_return_types[key]),
@@ -798,21 +801,15 @@ def TypeAnnotationExtractionNew(repo_path, repo_name, commit, patch, url, statis
 
             # Remove type annotation
             else:
-                for key_new in new_return_types:
-                    try:
-                        new_line, new_code = search_key_value_in_snippet(str(new_stdout.decode('utf-8')),
-                                                                         [key_new, old_return_types[key]])
-
-                        if (new_line != " "):
-                            break
-                    except:
-                        old_line = old_code = new_line = new_code = ' '
 
                 try:
-                    old_line, old_code = search_key_value_in_snippet(str(old_stdout.decode('utf-8')),
-                                                                     [key, old_return_types[key]])
+                    old_line, old_code, new_line, new_code = key[-2]
                 except:
-                    old_line = old_code = new_line = new_code = ' '
+                    try:
+                        old_line, old_code = search_key_value_in_snippet(str(old_stdout.decode('utf-8')),
+                                                                         [key, old_return_types[key]])
+                    except:
+                        old_line = old_code = new_line = new_code = ''
 
                 temp = CodeChange(url + str(old_line), commit_year, str(patch.delta.old_file.path), old_line,
                                   str(old_return_types[key]),
@@ -842,10 +839,13 @@ def TypeAnnotationExtractionNew(repo_path, repo_name, commit, patch, url, statis
         for key in new_return_types:
             if key not in old_return_types:
                 try:
-                    new_line, new_code = search_key_value_in_snippet(str(new_stdout.decode('utf-8')),
-                                                                     [key, new_return_types[key]])
+                    old_line, old_code, new_line, new_code = key[-2]
                 except:
-                    old_line = old_code = new_line = new_code = ' '
+                    try:
+                        new_line, new_code = search_key_value_in_snippet(str(new_stdout.decode('utf-8')),
+                                                                         [key, new_return_types[key]])
+                    except:
+                        old_line = old_code = new_line = new_code = ''
 
                 temp = CodeChange(url + str(new_line), commit_year, str(patch.delta.old_file.path), '', '',
                                   str(patch.delta.new_file.path),
@@ -881,12 +881,15 @@ def TypeAnnotationExtractionNew(repo_path, repo_name, commit, patch, url, statis
                 if old_param_types[key] != new_param_types[key]:
 
                     try:
-                        old_line, old_code = search_key_value_in_snippet(str(old_stdout.decode('utf-8')),
-                                                                         [key, old_param_types[key]])
-                        new_line, new_code = search_key_value_in_snippet(str(new_stdout.decode('utf-8')),
-                                                                         [key, new_param_types[key]])
+                        old_line, old_code, new_line, new_code = key[-2]
                     except:
-                        old_line = old_code = new_line = new_code = ' '
+                        try:
+                            old_line, old_code = search_key_value_in_snippet(str(old_stdout.decode('utf-8')),
+                                                                             [key, old_return_types[key]])
+                            new_line, new_code = search_key_value_in_snippet(str(new_stdout.decode('utf-8')),
+                                                                             [key, new_return_types[key]])
+                        except:
+                            old_line = old_code = new_line = new_code = ''
 
                     temp = CodeChange(url + str(old_line), commit_year, str(patch.delta.old_file.path), old_line,
                                       str(old_param_types[key]),
@@ -921,10 +924,13 @@ def TypeAnnotationExtractionNew(repo_path, repo_name, commit, patch, url, statis
             # Remove type annotation
             else:
                 try:
-                    old_line, old_code = search_key_value_in_snippet(str(old_stdout.decode('utf-8')),
-                                                                     [key, old_param_types[key]])
+                    old_line, old_code, new_line, new_code = key[-2]
                 except:
-                    old_line = old_code = new_line = new_code = ' '
+                    try:
+                        old_line, old_code = search_key_value_in_snippet(str(old_stdout.decode('utf-8')),
+                                                                         [key, old_return_types[key]])
+                    except:
+                        old_line = old_code = new_line = new_code = ''
 
                 temp = CodeChange(url + str(old_line), commit_year, str(patch.delta.old_file.path), old_line,
                                   str(old_param_types[key]),
@@ -955,10 +961,13 @@ def TypeAnnotationExtractionNew(repo_path, repo_name, commit, patch, url, statis
         for key in new_param_types:
             if key not in old_param_types:
                 try:
-                    new_line, new_code = search_key_value_in_snippet(str(new_stdout.decode('utf-8')),
-                                                                     [key, new_param_types[key]])
+                    old_line, old_code, new_line, new_code = key[-2]
                 except:
-                    old_line = old_code = new_line = new_code = ' '
+                    try:
+                        new_line, new_code = search_key_value_in_snippet(str(new_stdout.decode('utf-8')),
+                                                                         [key, new_return_types[key]])
+                    except:
+                        old_line = old_code = new_line = new_code = ''
 
                 temp = CodeChange(url + str(new_line), commit_year, str(patch.delta.old_file.path), '', '',
                                   str(patch.delta.new_file.path),

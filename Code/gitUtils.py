@@ -7,7 +7,7 @@ from pygit2 import GIT_SORT_TOPOLOGICAL, GIT_SORT_REVERSE
 import config
 from Code.codeChange import CommitStatistics
 from Code.codeChangeExtraction import TypeAnnotationExtraction, type_annotation_in_last_version, \
-    TypeAnnotationExtractionFirstCommit
+    TypeAnnotationExtractionFirstCommit, TypeAnnotationExtractionNew
 from Code.codeStatistics import CodeStatistics
 
 
@@ -76,9 +76,9 @@ def query_repo_get_changes(repo_name):  # statistics, pointer, dirlist_len):
         # Go through each commit starting from the most recent commit
         for commit in repo.walk(last_commit, GIT_SORT_TOPOLOGICAL | GIT_SORT_REVERSE):
             # print(str(commit.hex))
-            #if commit.hex != '5754e33a75cd50e558a64694cd40c133001e0e45': #6e1a31c3dfc4c574d8bbd61f768e35a2edd9b378
-            #   continue
-            # start = time.time()
+            if commit.hex != 'c946b3d34fcd0b0931ac6d172d38b648fa4dc14e': #6e1a31c3dfc4c574d8bbd61f768e35a2edd9b378
+               continue
+            start = time.time()
             commit_year = time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(commit.commit_time))[:4]
             if int(commit_year) < 2015:
                 continue
@@ -284,7 +284,7 @@ def query_repo_get_changes(repo_name):  # statistics, pointer, dirlist_len):
                 for thread in threads:
                     thread.join()
                 """
-                    TypeAnnotationExtraction(config.ROOT_DIR + "/GitHub/", repo_name, commit, patch,
+                    TypeAnnotationExtractionNew(config.ROOT_DIR + "/GitHub/", repo_name, commit, patch,
                                              remote_url + '/commit/' + commit.hex + '#diff-' + diff.patchid.hex + 'L',
                                              statistics,  # lock, logging,
                                              at_least_one_type_change,
