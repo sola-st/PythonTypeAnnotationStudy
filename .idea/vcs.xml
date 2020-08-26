@@ -12,9 +12,14 @@
     <mapping directory="$PROJECT_DIR$/GitHub/1adrianb-face-alignment" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/3b1b-manim" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/521xueweihan-HelloGitHub" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/GitHub/Activiti-Activiti" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/AiLearning" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/AlessandroZ-LaZagne" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/GitHub/Alluxio-alluxio" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/GitHub/AsyncHttpClient-async-http-client" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/GitHub/Atmosphere-atmosphere" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/Avik-Jain-100-Days-Of-ML-Code" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/GitHub/Bukkit-Bukkit" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/CorentinJ-Real-Time-Voice-Cloning" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/CppCoreGuidelines" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/CyC2018-CS-Notes" vcs="Git" />
@@ -25,8 +30,10 @@
     <mapping directory="$PROJECT_DIR$/GitHub/Dman95-SASM" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/Dod-o-Statistical-Learning-Method_Code" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/Eloston-ungoogled-chromium" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/GitHub/EnterpriseQualityCoding-FizzBuzzEnterpriseEdition" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/FeatureLabs-featuretools" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/GoogleCloudPlatform-python-docs-samples" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/GitHub/Graylog2-graylog2-server" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/Guake-guake" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/HIPS-autograd" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/HanLP" vcs="Git" />
@@ -37,6 +44,10 @@
     <mapping directory="$PROJECT_DIR$/GitHub/HypothesisWorks-hypothesis" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/ItChat" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/Jack-Cherish-python-spider" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/GitHub/JakeWharton-ActionBarSherlock" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/GitHub/JakeWharton-DiskLruCache" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/GitHub/JakeWharton-NineOldAndroids" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/GitHub/JakeWharton-ViewPagerIndicator" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/JakeWharton-butterknife" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/JakeWharton-pidcat" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/Kaggle-kaggle-api" vcs="Git" />
@@ -57,8 +68,10 @@
     <mapping directory="$PROJECT_DIR$/GitHub/MorvanZhou-tutorials" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/MrGemy95-Tensorflow-Project-Template" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/MrS0m30n3-youtube-dl-gui" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/GitHub/MyCATApache-Mycat-Server" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/MycroftAI-mycroft-core" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/NLP-progress" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/GitHub/NLPchina-ansj_seg" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/NTMC-Community-MatchZoo" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/NVIDIA-FastPhotoStyle" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/NVIDIA-apex" vcs="Git" />
@@ -66,6 +79,7 @@
     <mapping directory="$PROJECT_DIR$/GitHub/NVlabs-SPADE" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/NVlabs-stylegan" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/NVlabs-stylegan2" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/GitHub/NanoHttpd-nanohttpd" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/NationalSecurityAgency-ghidra" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/Netflix-security_monkey" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/NicolasHug-Surprise" vcs="Git" />
@@ -116,6 +130,7 @@
     <mapping directory="$PROJECT_DIR$/GitHub/TheAlgorithms-Java" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/TheAlgorithms-Python" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/Theano-Theano" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/GitHub/Trinea-android-common" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/USArmyResearchLab-Dshell" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/Uberi-speech_recognition" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/WenDesi-lihang_book_algorithm" vcs="Git" />
@@ -137,10 +152,14 @@
     <mapping directory="$PROJECT_DIR$/GitHub/alexjc-neural-enhance" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/algo" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/algorithms" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/GitHub/alibaba-DataX" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/alibaba-arthas" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/GitHub/alibaba-canal" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/alibaba-druid" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/GitHub/alibaba-dubbo" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/alibaba-easyexcel" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/alibaba-fastjson" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/GitHub/alibaba-jstorm" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/alibaba-spring-cloud-alibaba" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/alicevision-meshroom" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/alievk-avatarify" vcs="Git" />
@@ -155,11 +174,18 @@
     <mapping directory="$PROJECT_DIR$/GitHub/anishathalye-neural-style" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/ansible" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/ansible-ansible" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/GitHub/antlr-antlr4" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/apache-airflow" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/GitHub/apache-camel" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/apache-dubbo" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/GitHub/apache-flink" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/GitHub/apache-hadoop" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/GitHub/apache-hbase" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/GitHub/apache-hive" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/apache-incubator-superset" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/apache-incubator-tvm" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/apache-kafka" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/GitHub/apache-storm" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/apachecn-AiLearning" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/apachecn-awesome-algorithm" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/apenwarr-sshuttle" vcs="Git" />
@@ -180,6 +206,7 @@
     <mapping directory="$PROJECT_DIR$/GitHub/awesome-python" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/awesome-scala" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/aws-aws-cli" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/GitHub/aws-aws-sdk-java" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/awslabs-aws-sam-cli" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/awslabs-aws-shell" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/axi0mX-ipwndfu" vcs="Git" />
@@ -187,6 +214,7 @@
     <mapping directory="$PROJECT_DIR$/GitHub/aziz-PlainTasks" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/b-ryan-powerline-shell" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/baowenbo-DAIN" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/GitHub/bauerca-drag-sort-listview" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/beets" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/belluzj-fantasque-sans" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/bert" vcs="Git" />
@@ -198,6 +226,8 @@
     <mapping directory="$PROJECT_DIR$/GitHub/black" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/bokeh-bokeh" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/bregman-arie-devops-exercises" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/GitHub/brettwooldridge-HikariCP" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/GitHub/brianfrankcooper-YCSB" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/brython-dev-brython" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/buildbot-buildbot" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/bumptech-glide" vcs="Git" />
@@ -210,18 +240,22 @@
     <mapping directory="$PROJECT_DIR$/GitHub/certbot-certbot" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/chainer-chainer" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/cheat.sh" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/GitHub/checkstyle-checkstyle" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/chineseocr-chineseocr" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/chiphuyen-stanford-tensorflow-tutorials" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/chisel" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/GitHub/chrisbanes-Android-PullToRefresh" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/chrisbanes-PhotoView" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/chriskiehl-Gooey" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/chrissimpkins-codeface" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/chubin-cheat.sh" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/chubin-wttr.in" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/chyroc-WechatSogou" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/GitHub/clojure-clojure" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/cloudera-hue" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/cloudflare-flan" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/cloudtools-troposphere" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/GitHub/code4craft-webmagic" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/codelucas-newspaper" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/coleifer-peewee" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/commonmark-commonmark-spec" vcs="Git" />
@@ -236,15 +270,18 @@
     <mapping directory="$PROJECT_DIR$/GitHub/cpython" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/crazyguitar-pysheeet" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/crossoverJie-JCSprout" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/GitHub/cucumber-cucumber-jvm" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/cupy-cupy" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/cython-cython" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/d2l-ai-d2l-zh" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/d2l-zh" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/dabeaz-course-practical-python" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/dabeaz-curio" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/GitHub/dangdangdotcom-elastic-job" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/darknessomi-musicbox" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/dash" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/data-science-ipython-notebooks" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/GitHub/databricks-learning-spark" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/david-gpu-srez" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/davidhalter-jedi" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/davidsandberg-facenet" vcs="Git" />
@@ -252,6 +289,7 @@
     <mapping directory="$PROJECT_DIR$/GitHub/dbcli-pgcli" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/ddbourgin-numpy-ml" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/deepfakes-faceswap" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/GitHub/deeplearning4j-deeplearning4j" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/deepmind-graph_nets" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/deepmind-learning-to-learn" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/deepmind-sonnet" vcs="Git" />
@@ -283,10 +321,14 @@
     <mapping directory="$PROJECT_DIR$/GitHub/drathier-stack-overflow-import" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/drduh-macOS-Security-and-Privacy-Guide" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/dropbox-pyston" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/GitHub/dropwizard-dropwizard" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/GitHub/dropwizard-metrics" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/GitHub/druid-io-druid" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/dwyl-english-words" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/dxa4481-truffleHog" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/dylanaraps-pywal" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/eastlakeside-interpy-zh" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/GitHub/eclipse-vert.x" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/ecthros-uncaptcha2" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/edgedb-edgedb" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/edx-edx-platform" vcs="Git" />
@@ -301,6 +343,7 @@
     <mapping directory="$PROJECT_DIR$/GitHub/eriklindernoren-ML-From-Scratch" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/eriklindernoren-PyTorch-YOLOv3" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/espressif-esptool" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/GitHub/essentials-Essentials" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/eternnoir-pyTelegramBotAPI" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/eudicots-Cactus" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/eugenp-tutorials" vcs="Git" />
@@ -312,6 +355,7 @@
     <mapping directory="$PROJECT_DIR$/GitHub/facebook-PathPicker" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/facebook-chisel" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/facebook-codemod" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/GitHub/facebook-presto" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/facebook-prophet" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/facebookarchive-augmented-traffic-control" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/facebookarchive-huxley" vcs="Git" />
@@ -342,16 +386,21 @@
     <mapping directory="$PROJECT_DIR$/GitHub/fxsjy-jieba" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/gaubert-gmvault" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/geekcomputers-Python" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/GitHub/gephi-gephi" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/getpelican-pelican" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/getsentry-sentry" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/gevent-gevent" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/glances" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/gnemoug-distribute_crawler" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/google-ExoPlayer" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/GitHub/google-auto" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/GitHub/google-closure-compiler" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/google-clusterfuzz" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/google-diff-match-patch" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/google-grr" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/google-gson" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/GitHub/google-guava" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/GitHub/google-guice" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/google-jax" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/google-python-fire" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/google-research-bert" vcs="Git" />
@@ -372,6 +421,7 @@
     <mapping directory="$PROJECT_DIR$/GitHub/halo-dev-halo" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/hankcs-HanLP" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/hanxiao-bert-as-service" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/GitHub/hazelcast-hazelcast" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/hellerve-programming-talks" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/hhatto-autopep8" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/hindupuravinash-the-gan-zoo" vcs="Git" />
@@ -414,17 +464,23 @@
     <mapping directory="$PROJECT_DIR$/GitHub/jarun-googler" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/jasperproject-jasper-client" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/jaungiers-LSTM-Neural-Network-for-Time-Series-Prediction" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/GitHub/javaee-samples-javaee7-samples" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/jazzband-django-debug-toolbar" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/jazzband-pip-tools" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/jeffkaufman-icdiff" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/jenkinsci-jenkins" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/GitHub/jersey-jersey" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/GitHub/jfeinstein10-SlidingMenu" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/GitHub/jfinal-jfinal" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/jhao104-proxy_pool" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/GitHub/jhy-jsoup" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/jiaaro-pydub" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/jieba" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/jindongwang-transferlearning" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/jinfagang-tensorflow_poems" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/jmcarp-robobrowser" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/joelgrus-data-science-from-scratch" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/GitHub/joelittlejohn-jsonschema2pojo" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/joeyespo-grip" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/jofpin-trape" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/joke2k-faker" vcs="Git" />
@@ -433,6 +489,7 @@
     <mapping directory="$PROJECT_DIR$/GitHub/jpadilla-pyjwt" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/jrnl-org-jrnl" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/jrosebr1-imutils" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/GitHub/junit-team-junit" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/junyanz-pytorch-CycleGAN-and-pix2pix" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/jupyter" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/jupyter-docker-stacks" vcs="Git" />
@@ -440,6 +497,7 @@
     <mapping directory="$PROJECT_DIR$/GitHub/jupyterhub-jupyterhub" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/jwyang-faster-rcnn.pytorch" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/karpathy-neuraltalk" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/GitHub/kbastani-spring-cloud-microservice-example" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/kdn251-interviews" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/kennethreitz-archive-records" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/keon-algorithms" vcs="Git" />
@@ -449,6 +507,7 @@
     <mapping directory="$PROJECT_DIR$/GitHub/kivy" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/kivy-kivy" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/kivy-python-for-android" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/GitHub/knightliao-disconf" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/kon9chunkit-GitHub-Chinese-Top-Charts" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/kootenpv-whereami" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/kovidgoyal-calibre" vcs="Git" />
@@ -464,6 +523,7 @@
     <mapping directory="$PROJECT_DIR$/GitHub/lengstrom-fast-style-transfer" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/lennylxx-ipv6-hosts" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/lenve-vhr" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/GitHub/liaohuqiu-android-Ultra-Pull-To-Refresh" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/libgdx-libgdx" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/likedan-Awesome-CoreML-Models" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/lining0806-PythonSpiderNotes" vcs="Git" />
@@ -499,6 +559,7 @@
     <mapping directory="$PROJECT_DIR$/GitHub/matterport-Mask_RCNN" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/maurosoria-dirsearch" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/maxbbraun-trump2cash" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/GitHub/mcxiaoke-android-volley" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/mementum-backtrader" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/meolu-walle-web" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/mher-flower" vcs="Git" />
@@ -520,6 +581,7 @@
     <mapping directory="$PROJECT_DIR$/GitHub/models" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/modin-project-modin" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/mstamy2-PyPDF2" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/GitHub/mybatis-mybatis-3" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/mypy" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/mzucker-noteshrink" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/n1nj4sec-pupy" vcs="Git" />
@@ -527,13 +589,16 @@
     <mapping directory="$PROJECT_DIR$/GitHub/nate-parrott-Flashlight" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/navdeep-G-samplemod" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/navdeep-G-setup.py" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/GitHub/naver-pinpoint" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/nbedos-termtosvg" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/GitHub/neo4j-neo4j" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/netty-netty" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/networkx-networkx" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/neural-networks-and-deep-learning" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/newsapps-beeswithmachineguns" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/nficano-pytube" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/nginx-proxy-nginx-proxy" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/GitHub/nhaarman-ListViewAnimations" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/nicolargo-glances" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/nl8590687-ASRT_SpeechRecognition" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/nltk-nltk" vcs="Git" />
@@ -549,6 +614,8 @@
     <mapping directory="$PROJECT_DIR$/GitHub/openai-baselines" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/openai-gym" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/openai-spinningup" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/GitHub/openhab-openhab" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/GitHub/openmrs-openmrs-core" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/orakaro-rainbowstream" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/pallets-click" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/pallets-flask" vcs="Git" />
@@ -558,10 +625,12 @@
     <mapping directory="$PROJECT_DIR$/GitHub/pandas-dev-pandas" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/paralax-awesome-honeypots" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/paramiko-paramiko" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/GitHub/pardom-ActiveAndroid" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/pavelgonchar-colornet" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/pelican" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/pennersr-django-allauth" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/persepolisdm-persepolis" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/GitHub/perwendel-spark" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/pgcli" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/pipenv" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/pjialin-py12306" vcs="Git" />
@@ -577,6 +646,7 @@
     <mapping directory="$PROJECT_DIR$/GitHub/psf-requests-html" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/public-apis" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/public-apis-public-apis" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/GitHub/pxb1988-dex2jar" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/pyca-cryptography" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/pyecharts-pyecharts" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/pymc-devs-pymc3" vcs="Git" />
@@ -618,6 +688,7 @@
     <mapping directory="$PROJECT_DIR$/GitHub/rkern-line_profiler" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/rmax-scrapy-redis" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/robinhood-faust" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/GitHub/roboguice-roboguice" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/robotframework-robotframework" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/rougier-numpy-100" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/routersploit" vcs="Git" />
@@ -642,6 +713,7 @@
     <mapping directory="$PROJECT_DIR$/GitHub/scrapinghub-portia" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/scrapy" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/scrapy-scrapy" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/GitHub/scribejava-scribejava" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/scwang90-SmartRefreshLayout" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/seata-seata" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/sebastianruder-NLP-progress" vcs="Git" />
@@ -673,21 +745,33 @@
     <mapping directory="$PROJECT_DIR$/GitHub/spotify-luigi" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/spring-projects-spring-boot" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/spring-projects-spring-framework" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/GitHub/spring-projects-spring-mvc-showcase" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/GitHub/spring-projects-spring-petclinic" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/GitHub/spring-projects-spring-security-oauth" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/GitHub/springside-springside4" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/spyder-ide-spyder" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/spyoungtech-grequests" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/sqlmap" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/sqlmapproject-sqlmap" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/GitHub/square-dagger" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/GitHub/square-javapoet" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/GitHub/square-okhttp" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/GitHub/square-okio" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/GitHub/square-otto" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/square-picasso" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/square-retrofit" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/sshuttle-sshuttle" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/sshwsfc-xadmin" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/stanford-tensorflow-tutorials" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/GitHub/stanfordnlp-CoreNLP" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/stanfordnlp-stanza" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/statsmodels-statsmodels" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/stephenmcd-mezzanine" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/stewartmcgown-uds" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/streamlink-streamlink" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/stylegan" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/GitHub/swagger-api-swagger-codegen" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/GitHub/swagger-api-swagger-core" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/swisskyrepo-PayloadsAllTheThings" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/system-design-primer" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/taigaio-taiga-back" vcs="Git" />
@@ -707,6 +791,7 @@
     <mapping directory="$PROJECT_DIR$/GitHub/tgalal-yowsup" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/thefuck" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/theskumar-python-dotenv" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/GitHub/thinkaurelius-titan" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/thtrieu-darkflow" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/thumbor-thumbor" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/tiangolo-fastapi" vcs="Git" />
@@ -747,6 +832,7 @@
     <mapping directory="$PROJECT_DIR$/GitHub/webpy-webpy" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/wifiphisher" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/wifiphisher-wifiphisher" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/GitHub/wildfly-wildfly" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/willmcgugan-rich" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/wireservice-csvkit" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/wiseodd-generative-models" vcs="Git" />
@@ -756,9 +842,11 @@
     <mapping directory="$PROJECT_DIR$/GitHub/wtfpython" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/wuyouzhuguli-SpringAll" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/xchaoinfo-fuck-login" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/GitHub/xetorthio-jedis" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/xingyizhou-CenterNet" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/xkcoding-spring-boot-demo" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/yahoo-open_nsfw" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/GitHub/yasserg-crawler4j" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/ycm-core-YouCompleteMe" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/yenchenlin-DeepLearningFlappyBird" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/ymcui-Chinese-BERT-wwm" vcs="Git" />
@@ -768,6 +856,7 @@
     <mapping directory="$PROJECT_DIR$/GitHub/yuanxiaosc-DeepNude-an-Image-to-Image-technology" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/yunjey-pytorch-tutorial" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/yunjey-stargan" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/GitHub/yusuke-twitter4j" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/yzhao062-pyod" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/zalando-connexion" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/zalando-patroni" vcs="Git" />

@@ -226,6 +226,7 @@ def search_line_number_return(file, dict):
     return
 
 
+
 def TypeAnnotationExtraction(repo_path, repo_name, commit, patch, url, statistics,  # lock, logging,
                              at_least_one_type_change, code_changes,
                              typeannotation_line_inserted, typeannotation_line_removed, typeannotation_line_changed,

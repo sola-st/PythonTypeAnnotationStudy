@@ -1,7 +1,10 @@
+import csv
 import json
 import os
 import re
 import time
+from collections import defaultdict
+
 import pygit2 as git
 from pygit2 import GIT_SORT_TOPOLOGICAL, GIT_SORT_REVERSE
 import config
@@ -38,6 +41,39 @@ def repo_cloning(filenameInput: str, pathOutput: str) -> None:
                 continue
 
 
+def repo_cloning_csv( pathOutput: str) -> None:
+    columns = defaultdict(list)  # each value in each column is appended to a list
+
+    with open(config.ROOT_DIR + '/Resources/Input/topJavaMavenProjects.csv') as f:
+        reader = csv.DictReader(f)  # read rows into a dictionary format
+        for row in reader:  # read a row as {column1: value1, column2: value2,...}
+            for (k, v) in row.items():  # go over each column name and value
+                columns[k].append(v)  # append the value into the appropriate list
+                # based on column name k
+
+    print(columns['repository_url'])
+
+    i = 0
+    for link in columns['repository_url']:
+        i += 1
+
+        # out = link.rsplit('/', 1)[-1].replace('.git', '')
+        out = re.sub('https://github.com/', '', link).replace('/', '-')
+
+        if os.path.isdir(pathOutput + '/' + out):
+            print(str(i) + ') Already cloned', link)
+
+            continue
+
+        else:
+            print(str(i) + ') Cloning ' + link)
+            try:
+                git.clone_repository(link, pathOutput + '/' + out)
+            except Exception as e:
+                print('[Error] cloning repository:', str(e))
+                continue
+
+
 def query_repo_get_changes(repo_name):  # statistics, pointer, dirlist_len):
     start = time.time()
     file_extension = '.py'
@@ -55,7 +91,7 @@ def query_repo_get_changes(repo_name):  # statistics, pointer, dirlist_len):
         print("[Working]", repo_name)
     # lock.release()
 
-    #type_annotation_in_last_version(repo_name, statistics)
+    # type_annotation_in_last_version(repo_name, statistics)
     statistics.typeLastProjectVersion_total = 1
 
     try:
@@ -76,12 +112,12 @@ def query_repo_get_changes(repo_name):  # statistics, pointer, dirlist_len):
         # Go through each commit starting from the most recent commit
         for commit in repo.walk(last_commit, GIT_SORT_TOPOLOGICAL | GIT_SORT_REVERSE):
             # print(str(commit.hex))
-            if commit.hex != 'c946b3d34fcd0b0931ac6d172d38b648fa4dc14e': #6e1a31c3dfc4c574d8bbd61f768e35a2edd9b378
-               continue
+            #if commit.hex != 'c946b3d34fcd0b0931ac6d172d38b648fa4dc14e':  # 6e1a31c3dfc4c574d8bbd61f768e35a2edd9b378
+             #   continue
             start = time.time()
             commit_year = time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(commit.commit_time))[:4]
-            if int(commit_year) < 2015:
-                continue
+            #if int(commit_year) < 2015:
+             #   continue
 
             tot_line_inserted = 0
             tot_line_removed = 0
@@ -97,6 +133,8 @@ def query_repo_get_changes(repo_name):  # statistics, pointer, dirlist_len):
             # lock.release()
 
             tot_this_repo_commit += 1
+
+            continue
 
             num_parents = len(
                 commit.parents)  # Do not want to include merges for now, hence we check if the number of parents is 'one'
@@ -145,8 +183,10 @@ def query_repo_get_changes(repo_name):  # statistics, pointer, dirlist_len):
                     # RQ 4.1
                     try:
                         if typeannotation_line_inserted[0] - typeannotation_line_changed[0] > 0:
-                            added_per_commit_percentage = (typeannotation_line_inserted[0] - typeannotation_line_changed[0]) / (
-                                    tot_line_inserted - typeannotation_line_changed[0]) * 100
+                            added_per_commit_percentage = (typeannotation_line_inserted[0] -
+                                                           typeannotation_line_changed[0]) / (
+                                                                  tot_line_inserted - typeannotation_line_changed[
+                                                              0]) * 100
                             # lock.acquire()
                             if added_per_commit_percentage <= 100:
                                 statistics.list_typeAnnotation_changed_per_commit.append(added_per_commit_percentage)
@@ -161,8 +201,10 @@ def query_repo_get_changes(repo_name):  # statistics, pointer, dirlist_len):
                         if typeannotation_line_removed[0] - typeannotation_line_changed[0] > 0:
                             # lock.acquire()
 
-                            removed_per_commit_percentage = (typeannotation_line_removed[0] - typeannotation_line_changed[0]) / (
-                                    tot_line_removed - typeannotation_line_changed[0]) * 100
+                            removed_per_commit_percentage = (typeannotation_line_removed[0] -
+                                                             typeannotation_line_changed[0]) / (
+                                                                    tot_line_removed - typeannotation_line_changed[
+                                                                0]) * 100
                             if removed_per_commit_percentage <= 100:
                                 statistics.list_typeAnnotation_changed_per_commit.append(removed_per_commit_percentage)
                             else:
@@ -221,18 +263,20 @@ def query_repo_get_changes(repo_name):  # statistics, pointer, dirlist_len):
                         # lock.acquire()
                         statistics.commits_with_typeChanges += 1
 
-                        if added_per_commit_percentage <= 100 and removed_per_commit_percentage <= 100 and changed_per_commit_percentage <=100:
+                        if added_per_commit_percentage <= 100 and removed_per_commit_percentage <= 100 and changed_per_commit_percentage <= 100:
                             try:
                                 temp = CommitStatistics(str(remote_url + '/commit/' + commit.hex),
-                                                                                 str(commit_year),
-                                                                                 str(len(
-                                                                                     statistics.code_changes) - old_len),
-                                                                                 str(round(added_per_commit_percentage,1))+ ' %',
-                                                                                 str(round(removed_per_commit_percentage,1))+ ' %',
-                                                                                 str(round(changed_per_commit_percentage,1))+ ' %',
-                                                                                 str(typeannotation_line_inserted[0] - typeannotation_line_changed[0]),
-                                                                                 str(typeannotation_line_removed[0] - typeannotation_line_changed[0]),
-                                                                                 str(typeannotation_line_changed[0]))
+                                                        str(commit_year),
+                                                        str(len(
+                                                            statistics.code_changes) - old_len),
+                                                        str(round(added_per_commit_percentage, 1)) + ' %',
+                                                        str(round(removed_per_commit_percentage, 1)) + ' %',
+                                                        str(round(changed_per_commit_percentage, 1)) + ' %',
+                                                        str(typeannotation_line_inserted[0] -
+                                                            typeannotation_line_changed[0]),
+                                                        str(typeannotation_line_removed[0] -
+                                                            typeannotation_line_changed[0]),
+                                                        str(typeannotation_line_changed[0]))
 
                                 statistics.commit_statistics.append(temp)
                             except Exception as e:
@@ -285,12 +329,13 @@ def query_repo_get_changes(repo_name):  # statistics, pointer, dirlist_len):
                     thread.join()
                 """
                     TypeAnnotationExtractionNew(config.ROOT_DIR + "/GitHub/", repo_name, commit, patch,
-                                             remote_url + '/commit/' + commit.hex + '#diff-' + diff.patchid.hex + 'L',
-                                             statistics,  # lock, logging,
-                                             at_least_one_type_change,
-                                             statistics.code_changes, typeannotation_line_inserted,
-                                             typeannotation_line_removed, typeannotation_line_changed, list_line_added,
-                                             list_line_removed, commit_year)
+                                                remote_url + '/commit/' + commit.hex + '#diff-' + diff.patchid.hex + 'L',
+                                                statistics,  # lock, logging,
+                                                at_least_one_type_change,
+                                                statistics.code_changes, typeannotation_line_inserted,
+                                                typeannotation_line_removed, typeannotation_line_changed,
+                                                list_line_added,
+                                                list_line_removed, commit_year)
 
             added_per_commit_percentage = 0
             removed_per_commit_percentage = 0
@@ -314,8 +359,9 @@ def query_repo_get_changes(repo_name):  # statistics, pointer, dirlist_len):
                 if typeannotation_line_removed[0] - typeannotation_line_changed[0] > 0:
                     # lock.acquire()
 
-                    removed_per_commit_percentage = (typeannotation_line_removed[0] - typeannotation_line_changed[0]) / (
-                            tot_line_removed - typeannotation_line_changed[0]) * 100
+                    removed_per_commit_percentage = (typeannotation_line_removed[0] - typeannotation_line_changed[
+                        0]) / (
+                                                            tot_line_removed - typeannotation_line_changed[0]) * 100
                     if removed_per_commit_percentage <= 100:
                         statistics.list_typeAnnotation_changed_per_commit.append(removed_per_commit_percentage)
                     else:
@@ -377,13 +423,13 @@ def query_repo_get_changes(repo_name):  # statistics, pointer, dirlist_len):
                 if added_per_commit_percentage <= 100 and removed_per_commit_percentage <= 100 and changed_per_commit_percentage <= 100:
                     try:
                         temp = CommitStatistics(str(remote_url + '/commit/' + commit.hex), str(commit_year),
-                                                                         str(len(statistics.code_changes) - old_len),
-                                                                         str(round(added_per_commit_percentage,1))+ ' %',
-                                                                         str(round(removed_per_commit_percentage,1))+ ' %',
-                                                                         str(round(changed_per_commit_percentage,1))+ ' %',
-                                                                         str(typeannotation_line_inserted[0]- typeannotation_line_changed[0]),
-                                                                         str(typeannotation_line_removed[0]- typeannotation_line_changed[0]),
-                                                                         str(typeannotation_line_changed[0]))
+                                                str(len(statistics.code_changes) - old_len),
+                                                str(round(added_per_commit_percentage, 1)) + ' %',
+                                                str(round(removed_per_commit_percentage, 1)) + ' %',
+                                                str(round(changed_per_commit_percentage, 1)) + ' %',
+                                                str(typeannotation_line_inserted[0] - typeannotation_line_changed[0]),
+                                                str(typeannotation_line_removed[0] - typeannotation_line_changed[0]),
+                                                str(typeannotation_line_changed[0]))
                         statistics.commit_statistics.append(temp)
                     except Exception as e:
                         print('Error appending commit stat: ' + str(e))
@@ -447,7 +493,8 @@ def query_repo_get_changes(repo_name):  # statistics, pointer, dirlist_len):
 
     if config.NORMAL_PRINT:
         print("[Finished]", repo_name, "with", commit_with_annotations_this_repo, '/', tot_this_repo_commit,
-              "commits with Type annotations", "in ", "{:0>2}:{:0>2}:{:05.2f}".format(int(hours), int(minutes), seconds))
+              "commits with Type annotations", "in ",
+              "{:0>2}:{:0>2}:{:05.2f}".format(int(hours), int(minutes), seconds))
 
     # lock.release()
     return statistics

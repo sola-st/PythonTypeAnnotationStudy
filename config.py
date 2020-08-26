@@ -7,6 +7,6 @@ CLONING = False
 NORMAL_PRINT = True
 
 STATISTICS_COMPUTATION = True
-PLOT = True
+PLOT = False
 
-REPO_LIST = ROOT_DIR + '/Resources/Input/repositoriesTOP1000.json'
+REPO_LIST = ROOT_DIR + '/Resources/Input/repositoriesTOP100.json'
