@@ -160,7 +160,7 @@ def search_line_number_param(file, dict):
                         class_visited.add(key[-3])
 
                     if re.search("def\s*" + re.escape(key[-2]) + "\s*", line):
-                        #     method_visited.add(key[-2])
+                        # method_visited.add(key[-2])
                         method_temp = key[-2]
 
                 if re.search(regex_temp,

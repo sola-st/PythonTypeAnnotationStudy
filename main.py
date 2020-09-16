@@ -2,13 +2,11 @@ import pstats
 import time
 import multiprocessing
 from Code import gitUtils, lucaUtils
-from Code.gitUtils import repo_cloning_csv
 from Code.projectUtils import *
 from config import REPO_LIST
 import cProfile
 
 if __name__ == "__main__":
-
 
     #repo_cloning_csv(config.ROOT_DIR + "/GitHub")
 
@@ -23,7 +21,7 @@ if __name__ == "__main__":
         dirlist: list = [item for item in os.listdir(config.ROOT_DIR + "/GitHub") if
                          os.path.isdir(os.path.join(config.ROOT_DIR + "/GitHub", item))]
 
-        # Lis tof stastics from processes to be merged
+        # List of statistics from processes to be merged
         process_statistics = []
 
         if config.TEST:
