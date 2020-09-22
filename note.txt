@@ -1,0 +1,11 @@
+Notes:
+coala-coala 2018 1f1b2d0068a45ab338732cec41d2b8d3b7df0396
+deepmipt-DeepPavlov 2017 0ca5335b86cc2e5161f7da236b042eaf698ec3f6
+dcos-dcos 2018 2d51ea0f3921afc7830bdc8f611b1c93523fd7c8
+sphinx-doc-sphinx 2020 ecae46027a3e33cf75c2d1eaecaf6f602d149b23
+ReactiveX-RxPY 2019 c7a7a91e1ddb23e8fbe7446ac14c7c40971788a2
+ReactiveX-RxPY 2019 c7a7a91e1ddb23e8fbe7446ac14c7c40971788a2
+ReactiveX-RxPY 2019 e7923085ca6694bcbf0392834c4bacfb2201b3f9
+ReactiveX-RxPY 2019 e7923085ca6694bcbf0392834c4bacfb2201b3f9
+timothycrosley-isort 2020 b0d1f58c7f71b0d1ec7e4279335bac6ed0aca5d0
+timothycrosley-isort 2020 227c3675f3bd72b063d68c7d4ef56d56e447b1b3

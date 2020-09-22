@@ -255,6 +255,7 @@
     <mapping directory="$PROJECT_DIR$/GitHub/cloudera-hue" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/cloudflare-flan" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/cloudtools-troposphere" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/GitHub/coala-coala" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/code4craft-webmagic" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/codelucas-newspaper" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/coleifer-peewee" vcs="Git" />
@@ -431,6 +432,7 @@
     <mapping directory="$PROJECT_DIR$/GitHub/hosts" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/houtianze-bypy" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/httpie" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/GitHub/httpie-httpie" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/httpie2" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/hugapi-hug" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/huge-success-sanic" vcs="Git" />
