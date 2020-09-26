@@ -10,7 +10,7 @@ from pygit2 import GIT_SORT_TOPOLOGICAL, GIT_SORT_REVERSE
 import config
 from Code.codeChange import CommitStatistics
 from Code.codeChangeExtraction import TypeAnnotationExtraction, type_annotation_in_last_version, \
-    TypeAnnotationExtractionFirstCommit, TypeAnnotationExtractionNew
+    TypeAnnotationExtractionFirstCommit, TypeAnnotationExtractionNew, TypeAnnotationExtractionNewNew
 from Code.codeStatistics import CodeStatistics
 
 
@@ -140,8 +140,10 @@ def query_repo_get_changes(repo_name):  # statistics, pointer, dirlist_len):
                 # Diff between the current commit and its parent
                 # threads: list = []
                 diff = []
+
                 if num_parents == 1:
                     diff = repo.diff(commit.hex + '^', commit.hex)
+
 
                     tot_line_removed += diff.stats.deletions
                     tot_line_inserted += diff.stats.insertions
@@ -326,7 +328,7 @@ def query_repo_get_changes(repo_name):  # statistics, pointer, dirlist_len):
                 for thread in threads:
                     thread.join()
                 """
-                    TypeAnnotationExtraction(config.ROOT_DIR + "/GitHub/", repo_name, commit, patch,
+                    TypeAnnotationExtractionNew(config.ROOT_DIR + "/GitHub/", repo_name, commit, patch,
                                                 remote_url + '/commit/' + commit.hex + '#diff-' + diff.patchid.hex + 'L',
                                                 statistics,  # lock, logging,
                                                 at_least_one_type_change,

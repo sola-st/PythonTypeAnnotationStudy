@@ -9,14 +9,19 @@ import copy
 
 
 def extract_from_snippet(string):
+
     if len(string) == 0:
         return {}, {}, {}
+
 
     # Parse file to AST
     # try:
     # str_file = string[2:-1].replace("\\n", os.linesep).replace("\\t", "    ").replace("= \\'", "= '").replace("\\\\", "\\")
     # ast = cst.parse_module(string[2:-1].replace("\\n", os.linesep).replace("\\t", "    "))
+
     ast = cst.parse_module(string)
+
+
     # except Exception as e:
     # print('Failed to upload to ftp: ' + str(e))
     # return {}, {}, {}
@@ -135,6 +140,51 @@ def search_key_value_in_snippet(file, list_of_strings) -> int:
 
 
 def search_line_number_param(file, dict):
+    try:
+        key_list = copy.deepcopy(list(dict.keys()))
+        line_number = 0
+        class_visited = set()
+        method_visited = set()
+        method_temp = ""
+
+        for line in file.splitlines():
+            line_number = line_number + 1
+            if line_number == 147:
+                xxx = 0
+                xxx = 2
+
+            list_temp = []
+            for key in key_list:
+                regex_temp = (re.escape(key[-1]) + "\s*:\s*" + re.escape(dict[key])).replace("[\\]", "[(.*?)\\]")
+
+                key_temp = ""
+
+                if len(key) > 2:
+                    key_temp = key[-3]
+                    if re.search("class\s*" + re.escape(key_temp) + "\s*:\s*", line):
+                        class_visited.add(key[-3])
+
+                    if re.search("def\s*" + re.escape(key[-2]) + "\s*", line):
+                        # method_visited.add(key[-2])
+                        method_temp = key[-2]
+
+                if re.search(regex_temp,
+                             line.replace(" ", "")) and key_temp in class_visited and key[-2] == method_temp:
+                    key2 = tuple(tuple([line_number]) + key[2:])
+                    dict[key2] = dict[key]
+                    del dict[key]
+                    list_temp.append(key)
+
+            for key_temp in list_temp:
+                key_list.remove(tuple(key_temp))
+
+    except Exception as e:
+
+        print('Error in search_key_value_in_snippet: ' + str(e))
+
+    return
+
+def search_line_number_param_new(file, dict):
     try:
         key_list = copy.deepcopy(list(dict.keys()))
         line_number = 0
@@ -682,6 +732,19 @@ def TypeAnnotationExtraction(repo_path, repo_name, commit, patch, url, statistic
     # lock.release()
 
 
+def hunk_extraction(hunk):
+    old_hunk = ""
+    new_hunk = ""
+
+    for line_data in hunk.lines:
+        if line_data.old_lineno > 0:
+            old_hunk += line_data.content
+
+        if line_data.new_lineno > 0:
+            new_hunk += line_data.content
+
+    return old_hunk, new_hunk
+
 def TypeAnnotationExtractionNewNew(repo_path, repo_name, commit, patch, url, statistics,  # lock, logging,
                              at_least_one_type_change, code_changes,
                              typeannotation_line_inserted, typeannotation_line_removed, typeannotation_line_changed,
@@ -691,6 +754,12 @@ def TypeAnnotationExtractionNewNew(repo_path, repo_name, commit, patch, url, sta
     line_type_annotation_added = []
     line_type_annotation_removed = []
     line_type_annotation_changed = []
+
+    for hunk in patch.hunks:
+        old_hunk, new_hunk = hunk_extraction(hunk)
+        old_param_types, old_return_types, old_variable_types = extract_from_snippet(
+            old_hunk)
+
 
     old_out = subprocess.Popen(
         ["git", "--git-dir", str(repo_path + repo_name) + '/.git', 'show',
@@ -1180,6 +1249,7 @@ def TypeAnnotationExtractionNew(repo_path, repo_name, commit, patch, url, statis
 
     try:
         old_line = old_code = new_line = new_code = ' '
+
 
         pre_trasform = len(old_param_types)
         search_line_number_param(str(old_stdout.decode('utf-8')), old_param_types)

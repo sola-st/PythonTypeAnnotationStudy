@@ -1,8 +1,6 @@
 import json
 import multiprocessing
 import platform
-from collections import Counter
-
 import numpy as np
 import config
 from Code.lucaUtils import sort_dictionary, merge_dictionaries
