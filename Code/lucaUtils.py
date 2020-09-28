@@ -4,10 +4,13 @@ My personal library with useful Python methods.
 Tested on Python 3.7
 Last update: July-2020
 """
-
+import difflib
 import json
 import os
 import shutil
+import sys
+
+from io import StringIO
 from collections import Counter
 
 import matplotlib.pyplot as plt
@@ -39,17 +42,21 @@ def chunkify(lst, n):
 Data conversion and manipulation
 """
 
+
 # Convert list of lists in a dictionary.
 def convert_list_in_dict(list_of_list):
     return dict(tuple(tuple(x) for x in list_of_list))
+
 
 # Convert list of variable, in list of dictionaries with variable name as key .
 def convert_list_in_list_of_dicts(data: list) -> list:
     return [temp.__dict__ for temp in data]
 
+
 # Merge a list of dictionaries
 def merge_dictionaries(input):
     return sum((Counter(dict(z)) for z in input), Counter())
+
 
 """
 Methods for working on files.
@@ -71,8 +78,8 @@ def write_in_json(outputFilePath: str, data: list) -> None:
         f.write(json_file)
     f.close()
 
-def delete_all_files_in_folder(folder):
 
+def delete_all_files_in_folder(folder):
     for filename in os.listdir(folder):
         file_path = os.path.join(folder, filename)
         try:
@@ -118,7 +125,7 @@ def bar_plot_xy(outputFilePath, x, y, x_label, y_label, title=None, color='blue'
     if ylim is not None:
         axes.set_ylim([0, ylim])
 
-    #if xlim is not None:
+    # if xlim is not None:
     #    axes.set_xlim([0, xlim])
 
     # plt.yscale('log')
@@ -139,7 +146,8 @@ def bar_plot_xy(outputFilePath, x, y, x_label, y_label, title=None, color='blue'
     plt.figure()
 
 
-def bar_plot_double_xy(outputFilePath, x, y1, y2, x_label=None, y_label=None, title=None, color1='blue', color2='red', xlim=None,
+def bar_plot_double_xy(outputFilePath, x, y1, y2, x_label=None, y_label=None, title=None, color1='blue', color2='red',
+                       xlim=None,
                        ylim=None):
     axes = plt.gca()
     if ylim is not None:
@@ -151,8 +159,10 @@ def bar_plot_double_xy(outputFilePath, x, y1, y2, x_label=None, y_label=None, ti
     plt.ylabel(y_label)
     plt.xlabel(x_label)
 
-    plt.bar(numpy.array(x) - 0.2, numpy.array(y1), width=0.4, align='center', color= color1, label='Commits with annotations')
-    plt.bar(numpy.array(x) + 0.2, numpy.array(y2), width=0.4, align='center', color= color2, label='Commits without annotations')
+    plt.bar(numpy.array(x) - 0.2, numpy.array(y1), width=0.4, align='center', color=color1,
+            label='Commits with annotations')
+    plt.bar(numpy.array(x) + 0.2, numpy.array(y2), width=0.4, align='center', color=color2,
+            label='Commits without annotations')
     plt.legend(loc='upper right')
 
     if title is not None:
@@ -186,7 +196,8 @@ def histogram_plot_xy(outputFilePath, x, x_label, y_label, xscale, yscale, title
     plt.figure()
 
 
-def scatter_plot_xy(outputFilePath, x, y, x_label, y_label, xscale, yscale, title=None, color='blue', xlim=None, ylim=None):
+def scatter_plot_xy(outputFilePath, x, y, x_label, y_label, xscale, yscale, title=None, color='blue', xlim=None,
+                    ylim=None):
     axes = plt.gca()
     if ylim is not None:
         axes.set_ylim([0, ylim])
@@ -194,8 +205,8 @@ def scatter_plot_xy(outputFilePath, x, y, x_label, y_label, xscale, yscale, titl
     if xlim is not None:
         axes.set_xlim([0, xlim])
 
-    #plt.yscale(yscale)
-    #plt.xscale(xscale)
+    # plt.yscale(yscale)
+    # plt.xscale(xscale)
 
     # use the plot function
     plt.scatter(x, y)
@@ -236,3 +247,26 @@ def histogram_2d_plot_xy(outputFilePath, x, y, x_label, y_label, title=None, col
     plt.savefig(outputFilePath, bbox_inches='tight')
 
     plt.figure()
+
+
+# Diff
+def dif_wr(d):
+    for i, line in enumerate(d):
+        sys.stdout.write('{} {}\n'.format(i + 1, line))
+
+def map_diff_number_lines():
+    file1 = """User1 fdsfds
+    User2 US
+    User3 US"""
+
+    file2 = """User1 US
+    User2 US
+    User3 NG"""
+
+    dif2 = difflib.unified_diff(StringIO(file1).readlines(),
+                                StringIO(file2).readlines(),
+                                fromfile='File_1.txt',
+                                tofile='File_2.txt',
+                                n=0,
+                                lineterm="")
+    dif_wr(dif2)
