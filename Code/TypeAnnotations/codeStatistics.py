@@ -3,7 +3,7 @@ import multiprocessing
 import platform
 import numpy as np
 import config
-from Code.lucaUtils import sort_dictionary, merge_dictionaries
+from Code.TypeAnnotations.lucaUtils import sort_dictionary, merge_dictionaries
 
 
 class CodeStatistics:

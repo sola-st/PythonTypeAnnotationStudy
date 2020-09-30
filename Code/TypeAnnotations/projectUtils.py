@@ -1,6 +1,6 @@
 import config
-from Code.codeStatistics import CodeStatistics
-from Code.lucaUtils import *
+from Code.TypeAnnotations.codeStatistics import CodeStatistics
+from Code.TypeAnnotations.lucaUtils import *
 import numpy as np
 import pandas as pd
 
@@ -38,14 +38,14 @@ def myplot(statistics):
     plt.rcParams.update({'font.size': 16})
 
     # RQ2.2
-    bar_plot_xy(config.ROOT_DIR + "/Resources/Output/RQ2_2",
+    bar_plot_xy(config.ROOT_DIR + "/Resources/Output/TopAdded.pdf",
                 statistics.typeAdded_dict.keys(),
                 statistics.typeAdded_dict.values(), 'Top types added',
                 'Occurrences',
                 title='What are the top 5 types added?')
 
     # RQ2.4
-    bar_plot_xy(config.ROOT_DIR + "/Resources/Output/RQ2_4",
+    bar_plot_xy(config.ROOT_DIR + "/Resources/Output/TopRemoved.pdf",
                 statistics.typeRemoved_dict.keys(),
                 statistics.typeRemoved_dict.values(), 'Top types removed',
                 'Occurrences',
@@ -102,7 +102,7 @@ def myplot(statistics):
                        x=[int(k) for k in statistics.typeAnnotation_commit_annotation_year_analysis.keys()],
                        y1=[int(v) for v in statistics.typeAnnotation_commit_annotation_year_analysis.values()],
                        y2=[int(v) for v in statistics.typeAnnotation_commit_not_annotation_year_analysis.values()],
-                y_label='Number of commits')
+                       y_label='Number of commits')
 
     # Variables are cleaned to have a better output
     statistics.matrix_commits_stars_annotations = "See the plots RQ5_commits and RQ5_stars."

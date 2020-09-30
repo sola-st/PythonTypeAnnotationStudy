@@ -2,7 +2,7 @@ import re
 import pathlib
 import subprocess
 import config
-from Code.codeChange import CodeChange
+from Code.TypeAnnotations.codeChange import CodeChange
 from Code.parsers import TypeCollector
 import libcst as cst
 import copy

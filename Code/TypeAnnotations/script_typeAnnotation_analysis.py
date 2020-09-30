@@ -1,12 +1,12 @@
 import pstats
 import time
 import multiprocessing
-from Code import gitUtils, lucaUtils
-from Code.projectUtils import *
+from Code.TypeAnnotations import gitUtils, lucaUtils
+from Code.TypeAnnotations.projectUtils import *
 from config import REPO_LIST
 import cProfile
 
-if __name__ == "__main__":
+def typeAnnotation_analisis():
 
     #repo_cloning_csv(config.ROOT_DIR + "/GitHub")
 
@@ -82,3 +82,8 @@ if __name__ == "__main__":
         myplot(statistics_final)
 
     print("\nProgram ends successfully")
+
+if __name__ == "__main__":
+    # Script configuration file in Code/TypeAnnotations/config.py
+
+    typeAnnotation_analisis()

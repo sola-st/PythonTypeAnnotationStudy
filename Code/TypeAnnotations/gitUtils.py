@@ -8,10 +8,9 @@ from collections import defaultdict
 import pygit2 as git
 from pygit2 import GIT_SORT_TOPOLOGICAL, GIT_SORT_REVERSE
 import config
-from Code.codeChange import CommitStatistics
-from Code.codeChangeExtraction import TypeAnnotationExtraction, type_annotation_in_last_version, \
-    TypeAnnotationExtractionFirstCommit, TypeAnnotationExtractionNew, TypeAnnotationExtractionNewNew
-from Code.codeStatistics import CodeStatistics
+from Code.TypeAnnotations.codeChange import CommitStatistics
+from Code.TypeAnnotations.codeChangeExtraction import TypeAnnotationExtractionFirstCommit, TypeAnnotationExtractionNew
+from Code.TypeAnnotations.codeStatistics import CodeStatistics
 
 
 def repo_cloning(filenameInput: str, pathOutput: str) -> None:
