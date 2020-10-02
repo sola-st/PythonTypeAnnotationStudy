@@ -1,7 +1,7 @@
 from typing import Dict, List, Optional, Union, TYPE_CHECKING, Tuple, Set
 
 import libcst as cst
-import sys
+from libcst.metadata import PositionProvider
 
 
 class TypeCollector(cst.CSTVisitor):
@@ -12,6 +12,7 @@ class TypeCollector(cst.CSTVisitor):
     def __init__(self):
 
         # stack for storing the canonical name of the current function
+        self.wrapper = None
         self.stack: List[Tuple[str, ...]] = []
 
         self.return_types: Dict[Tuple[str, ...], str] = {}
@@ -53,7 +54,7 @@ class TypeCollector(cst.CSTVisitor):
     def leave_AnnAssign(self, node):
         try:
             if len(self.annotation_parts) > 0:
-                #self.variable_annotations[(*self.stack, node.value.value)] = self.last_annotation
+                # self.variable_annotations[(*self.stack, node.value.value)] = self.last_annotation
                 self.variable_annotations[(*self.stack,)] = \
                     self.last_annotation
 
@@ -142,10 +143,44 @@ class TypeCollector(cst.CSTVisitor):
 
     def leave_Param(self, node: cst.Param):
         if len(self.annotation_parts) > 0:
-            self.param_annotations[(*self.stack, node.name.value)] = \
+          #  METADATA_DEPENDENCIES = ( PositionProvider,)
+          #  pos = METADATA_DEPENDENCIES.get_metadata(PositionProvider, node).start
+          #  result = ParamPrinter().visit_Name(self, node)
+          result = node.visit(ParamPrinter())
+          self.param_annotations[(*self.stack, node.name.value)] = \
                 self.last_annotation
         else:
             self.non_param_annotations[(*self.stack, node.name.value)] = None
 
         self.annotation_parts = []
         self.last_annotation = None
+
+
+class IsParamProvider(cst.BatchableMetadataProvider[bool]):
+    """
+    Marks Name nodes found as a parameter to a function.
+    """
+
+    def __init__(self) -> None:
+        super().__init__()
+        self.is_param = False
+
+    def visit_Param(self, node: cst.Param) -> None:
+        # Mark the child Name node as a parameter
+        self.set_metadata(node.name, True)
+
+    def visit_Name(self, node: cst.Name) -> None:
+        # Mark all other Name nodes as not parameters
+        if not self.get_metadata(type(self), node, False):
+            self.set_metadata(node, False)
+
+
+class ParamPrinter(cst.CSTVisitor):
+    METADATA_DEPENDENCIES = (IsParamProvider, PositionProvider,)
+
+    def visit_Name(self, node: cst.Name) -> None:
+        # Only print out names that are parameters
+        if self.get_metadata(IsParamProvider, node):
+            pos = self.get_metadata(PositionProvider, node).start
+            print(f"{node.value} found at line {pos.line}, column {pos.column}")
+            #return pos.line

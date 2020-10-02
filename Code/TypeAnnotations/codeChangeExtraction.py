@@ -32,6 +32,7 @@ def extract_from_snippet(string):
 
     # Collect types
     type_collector = TypeCollector()
+    type_collector.wrapper = wrapper
     wrapper.visit(type_collector)
 
     param_types = type_collector.param_annotations
