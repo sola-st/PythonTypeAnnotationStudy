@@ -9,7 +9,8 @@ import pygit2 as git
 from pygit2 import GIT_SORT_TOPOLOGICAL, GIT_SORT_REVERSE
 import config
 from Code.TypeAnnotations.codeChange import CommitStatistics
-from Code.TypeAnnotations.codeChangeExtraction import TypeAnnotationExtractionFirstCommit, TypeAnnotationExtractionNew
+from Code.TypeAnnotations.codeChangeExtraction import TypeAnnotationExtractionFirstCommit, TypeAnnotationExtractionNew, \
+    TypeAnnotationExtractionLast
 from Code.TypeAnnotations.codeStatistics import CodeStatistics
 
 
@@ -327,7 +328,7 @@ def query_repo_get_changes(repo_name):  # statistics, pointer, dirlist_len):
                 for thread in threads:
                     thread.join()
                 """
-                    TypeAnnotationExtractionNew(config.ROOT_DIR + "/GitHub/", repo_name, commit, patch,
+                    TypeAnnotationExtractionLast(config.ROOT_DIR + "/GitHub/", repo_name, commit, patch,
                                                 remote_url + '/commit/' + commit.hex + '#diff-' + diff.patchid.hex + 'L',
                                                 statistics,  # lock, logging,
                                                 at_least_one_type_change,

@@ -143,11 +143,12 @@ class TypeCollector(cst.CSTVisitor):
 
     def leave_Param(self, node: cst.Param):
         if len(self.annotation_parts) > 0:
-          #  METADATA_DEPENDENCIES = ( PositionProvider,)
-          #  pos = METADATA_DEPENDENCIES.get_metadata(PositionProvider, node).start
+            METADATA_DEPENDENCIES = ( PositionProvider,)
+            pos = METADATA_DEPENDENCIES.get_metadata(PositionProvider, node).start
           #  result = ParamPrinter().visit_Name(self, node)
-          result = node.visit(ParamPrinter())
-          self.param_annotations[(*self.stack, node.name.value)] = \
+          #result = node.visit(ParamPrinter())
+
+            self.param_annotations[(*self.stack, node.name.value)] = \
                 self.last_annotation
         else:
             self.non_param_annotations[(*self.stack, node.name.value)] = None
