@@ -50,14 +50,13 @@ def extract_from_snippet_new(string_old, string_new):
     if len(string_old) == 0:
         return {}, {}, {}
 
-    # Parse file to AST
-    # try:
-    # str_file = string[2:-1].replace("\\n", os.linesep).replace("\\t", "    ").replace("= \\'", "= '").replace("\\\\", "\\")
-    # ast = cst.parse_module(string[2:-1].replace("\\n", os.linesep).replace("\\t", "    "))
+    string_old = "from typing import Any\n" + "def process_something(arguments: Any, func:int, f2:str, fooo)-> int:\n " \
+                                              "  pass\nx:List[int] = []\ny:List[int] = []\nx = 0 "
 
-    string_old = "from typing import Any\n" + "def process_something(arguments: Any, func:int, fooo) -> None:\n   pass\nx:List[int] = []"
+    #string_old = "from typing import Any\n"
 
-    string_new = "from typing import Any\n" + "def process_something(arguments: Any, func, fooo: complex) -> Any:\n   pass\nx = []"
+    string_new = "from typing import Any\n" + "def process_something(arguments: Any, func, f2:float, fooo: " \
+                                              "complex):\n   pass\nx = []\ny:Tuple[int] = []\nx:float = 0 "
 
     ast_old = cst.parse_module(string_old)
     wrapper_old = cst.metadata.MetadataWrapper(ast_old)
@@ -68,6 +67,9 @@ def extract_from_snippet_new(string_old, string_new):
     wrapper_new = cst.metadata.MetadataWrapper(ast_new)
     positions_new = wrapper_new.resolve(PositionProvider)
     node_list_new = []
+
+    node_var_list_old = []
+    node_var_list_new = []
 
     # For the old file
     for node, pos in positions_old.items():
@@ -92,7 +94,8 @@ def extract_from_snippet_new(string_old, string_new):
                 if hasattr(node, 'body'):
                     for variable in node.body:
                         if hasattr(variable, 'annotation'):
-                            pass
+                            node_var_list_old.append(node)
+                            #pass
                             # node_list_old.append(node)
                             # if hasattr(variable.annotation, 'annotation'):
                             #     if hasattr(variable.annotation.annotation, 'value'):
@@ -125,7 +128,8 @@ def extract_from_snippet_new(string_old, string_new):
                 if hasattr(node, 'body'):
                     for variable in node.body:
                         if hasattr(variable, 'annotation'):
-                            pass
+                            node_var_list_new.append(node)
+                            #pass
                             #node_list_new.append(node)
                             # if hasattr(variable.annotation, 'annotation'):
                             #     if hasattr(variable.annotation.annotation, 'value'):
@@ -134,7 +138,7 @@ def extract_from_snippet_new(string_old, string_new):
                             #         else:
                             #             print('[VAR] ', variable.annotation.annotation.value, '->', pos)
 
-    return node_list_old, node_list_new
+    return node_list_old, node_list_new, node_var_list_old, node_var_list_new
 
 
 def extract_from_file(file_path: str):
@@ -1790,50 +1794,75 @@ def TypeAnnotationExtractionLast(repo_path, repo_name, commit, patch, url, stati
 
     if "fatal" in str(new_stdout):
         node_list_new = []
+        node_var_list_new = []
     elif "fatal" in str(old_stdout):
         node_list_old = []
+        node_var_list_old = []
     else:
         try:
-            node_list_old, node_list_new = extract_from_snippet_new( str(old_stdout.decode('utf-8-sig')),
+            node_list_old, node_list_new, node_var_list_old, node_var_list_new = extract_from_snippet_new( str(old_stdout.decode('utf-8-sig')),
                 str(new_stdout.decode('utf-8-sig')))
         except:
             return
 
     try:
 
+        #########################################################################
+        #### RETURN AND ARGUMEN TYPE Annotations                  ###############
+        #########################################################################
         flag_arg_insertion = True
 
         for element_old in node_list_old:
+            if len(node_list_new) == 0:
+                for element_old in node_list_old:
+                    if hasattr(element_old, 'params'):
+                        if hasattr(element_old.params, 'params'):
+                            for parameter_old in element_old.params.params:
+                                if hasattr(parameter_old.annotation, 'annotation'):
+                                    if hasattr(parameter_old.annotation.annotation, 'value'):
+                                        print('[ARG][REMOVED] ', parameter_old.annotation.annotation.value)
+                if hasattr(element_old, 'returns') :
+                    if hasattr(element_old.returns, 'annotation') :
+                        if hasattr(element_old.returns, 'annotation'):
+                            if hasattr(element_old.returns.annotation, 'value'):
+                                print('[RETURN][REMOVED] ', element_old.returns.annotation.value)
+
             for element_new in node_list_new:
                 if element_old.name.value == element_new.name.value:
                     if hasattr(element_old, 'params') or hasattr(element_old, 'returns')\
                             and hasattr(element_new, 'params') or hasattr(element_new, 'returns'):
                         if hasattr(element_old.params, 'params') and hasattr(element_new.params, 'params'):
-                            for parameter_old in element_old.params.params:
-                                for parameter_new in element_new.params.params:
-                                     if hasattr(parameter_old, 'annotation') and hasattr(parameter_new, 'annotation'):
-                                         if hasattr(parameter_old.annotation, 'annotation') and hasattr(parameter_new.annotation, 'annotation'):
-                                             if hasattr(parameter_old.annotation.annotation, 'value') and hasattr(parameter_new.annotation.annotation, 'value'):
-                                                 if hasattr(parameter_old.annotation.annotation.value, 'value') and hasattr(parameter_new.annotation.annotation.value, 'value'):
-                                                    if parameter_old.annotation.annotation.value.value != parameter_new.annotation.annotation.value.value:
-                                                        print('[ARG][CHANGE1] ', parameter_old.annotation.annotation.value.value, ' -> ', parameter_new.annotation.annotation.value.value)
-                                                    else:
-                                                        element_new.params.params = tuple(list(element_new.params.params).remove(parameter_new))
+                            list_param_old = list(element_old.params.params)
+                            list_param_new = list(element_new.params.params)
+                            for parameter_old in list_param_old:
+                                i = -1
+                                for parameter_new in list_param_new:
+                                     i += 1
+                                     if parameter_old.name.value == parameter_new.name.value:
+                                         if hasattr(parameter_old, 'annotation') and hasattr(parameter_new, 'annotation'):
+                                             if hasattr(parameter_old.annotation, 'annotation') and hasattr(parameter_new.annotation, 'annotation'):
+                                                 if hasattr(parameter_old.annotation.annotation, 'value') and hasattr(parameter_new.annotation.annotation, 'value'):
+                                                     if hasattr(parameter_old.annotation.annotation.value, 'value') and hasattr(parameter_new.annotation.annotation.value, 'value'):
+                                                        if parameter_old.annotation.annotation.value.value != parameter_new.annotation.annotation.value.value:
+                                                            print('[ARG][CHANGE1] ', parameter_old.annotation.annotation.value.value, ' -> ', parameter_new.annotation.annotation.value.value)
+                                                        else:
+                                                            del list_param_new[i]
 
-                                                    flag_arg_insertion = False
-                                                    break
+                                                        flag_arg_insertion = False
+                                                        break
 
-                                                 else:
-                                                    if parameter_old.annotation.annotation.value != parameter_new.annotation.annotation.value:
-                                                        print('[ARG][CHANGE2] ', parameter_old.annotation.annotation.value, ' -> ', parameter_new.annotation.annotation.value)
-                                                    else:
-                                                        element_new.params.params = tuple(list(element_new.params.params).remove(parameter_new))
+                                                     else:
+                                                        if parameter_old.annotation.annotation.value != parameter_new.annotation.annotation.value:
+                                                            print('[ARG][CHANGE2] ', parameter_old.annotation.annotation.value, ' -> ', parameter_new.annotation.annotation.value)
+                                                        else:
+                                                            del list_param_new[i]
 
-                                                    flag_arg_insertion = False
-                                                    break
+                                                        flag_arg_insertion = False
+                                                        break
                                 if flag_arg_insertion:
                                     if hasattr(parameter_old.annotation, 'annotation'):
-                                        print('[ARG][INSERTED] ', parameter_old.annotation.annotation.value)
+                                        if hasattr(parameter_old.annotation.annotation, 'value'):
+                                            print('[ARG][REMOVED] ', parameter_old.annotation.annotation.value)
                                 flag_arg_insertion = True
                         #if flag_arg_insertion:
                         #    for parameter_old in element_old.params.params:
@@ -1842,376 +1871,116 @@ def TypeAnnotationExtractionLast(repo_path, repo_name, commit, patch, url, stati
                         flag_arg_insertion = True
 
                         if hasattr(element_old, 'returns') and hasattr(element_new, 'returns'):
-                             if hasattr(element_old.returns, 'annotation') and hasattr(element_new.returns, 'annotation'):
-                                 if hasattr(element_old.returns.annotation, 'value') and hasattr(element_new.returns.annotation, 'value'):
-                                     if element_old.returns.annotation.value != element_new.returns.annotation.value :
+                            if hasattr(element_old.returns, 'annotation') and hasattr(element_new.returns, 'annotation'):
+                                if hasattr(element_old.returns.annotation, 'value') and hasattr(element_new.returns.annotation, 'value'):
+                                    if element_old.returns.annotation.value != element_new.returns.annotation.value :
                                         print('[RETURN][CHANGE] ', element_old.returns.annotation.value, ' -> ', element_new.returns.annotation.value)
+                            else:
+                                if type(element_old.returns == 'NoneType') and hasattr(element_new.returns, 'annotation'):
+                                    if hasattr(element_new.returns.annotation, 'value'):
+                                        print('[RETURN][INSERTED] ', element_new.returns.annotation.value)
+                                elif type(element_new.returns == 'NoneType') and hasattr(element_old.returns,'annotation'):
+                                    if hasattr(element_old.returns.annotation, 'value'):
+                                        print('[RETURN][REMOVED] ', element_old.returns.annotation.value)
+
+        flag_arg_insertion = True
+
+        for element_new in node_list_new:
+            if len(node_list_old) == 0:
+                for element_new in node_list_new:
+                    if hasattr(element_new, 'params'):
+                        if hasattr(element_new.params, 'params'):
+                            for parameter_new in element_new.params.params:
+                                if hasattr(parameter_new.annotation, 'annotation'):
+                                    if hasattr(parameter_new.annotation.annotation, 'value'):
+                                        print('[ARG][INSERTED] ', parameter_new.annotation.annotation.value)
+
+                if hasattr(element_new, 'returns'):
+                    if hasattr(element_new.returns, 'annotation'):
+                        if hasattr(element_new.returns, 'annotation'):
+                            if hasattr(element_new.returns.annotation, 'value'):
+                                print('[RETURN][INSERTED] ', element_new.returns.annotation.value)
+
+            for element_old in node_list_old:
+                if element_old.name.value == element_new.name.value:
+                    if hasattr(element_old, 'params') or hasattr(element_old, 'returns') \
+                            and hasattr(element_new, 'params') or hasattr(element_new, 'returns'):
+                        if hasattr(element_old.params, 'params') and hasattr(element_new.params, 'params'):
+                            list_param_old = list(element_old.params.params)
+                            list_param_new = list(element_new.params.params)
+                            for parameter_new in list_param_new:
+                                i = -1
+                                for parameter_old in list_param_old:
+                                    i += 1
+                                    if parameter_old.name.value == parameter_new.name.value:
+                                        if hasattr(parameter_old, 'annotation') and hasattr(parameter_new,
+                                                                                            'annotation'):
+                                            if hasattr(parameter_old.annotation, 'annotation') and hasattr(
+                                                    parameter_new.annotation, 'annotation'):
+                                                if hasattr(parameter_old.annotation.annotation, 'value') and hasattr(
+                                                        parameter_new.annotation.annotation, 'value'):
+                                                    if hasattr(parameter_old.annotation.annotation.value,
+                                                               'value') and hasattr(
+                                                            parameter_new.annotation.annotation.value, 'value'):
+                                                        if parameter_old.annotation.annotation.value.value != parameter_new.annotation.annotation.value.value:
+                                                            pass
+                                                        else:
+                                                            del list_param_old[i]
+
+                                                        flag_arg_insertion = False
+                                                        break
+
+                                                    else:
+                                                        if parameter_old.annotation.annotation.value != parameter_new.annotation.annotation.value:
+                                                            pass
+                                                        else:
+                                                            del list_param_old[i]
+
+                                                        flag_arg_insertion = False
+                                                        break
+                                if flag_arg_insertion:
+                                    if hasattr(parameter_new.annotation, 'annotation'):
+                                        print('[ARG][INSERTED] ', parameter_new.annotation.annotation.value)
+                                flag_arg_insertion = True
+
+        #########################################################################
+        ####              VARIABLE TYPE Annotations               ###############
+        #########################################################################
+
+        flag_var = True
+
+        for var_old_element in node_var_list_old:
+            for var_new_element in node_var_list_new:
+
+                if hasattr(var_old_element, 'body') and hasattr(var_new_element, 'body'):
+                    list_var_old = list(var_old_element.body)
+                    list_var_new = list(var_new_element.body)
+                    for variable_old in list_var_old:
+                        for variable_new in list_var_new:
+                            if variable_old.target.value == variable_new.target.value:
+                                if hasattr(variable_old, 'annotation') and hasattr(variable_new, 'annotation'):
+                                    if hasattr(variable_old.annotation, 'annotation') and hasattr(variable_new.annotation, 'annotation'):
+                                         if hasattr(variable_old.annotation.annotation, 'value') and hasattr(variable_new.annotation.annotation, 'value'):
+                                            if hasattr(variable_old.annotation.annotation.value, 'value') and hasattr(variable_new.annotation.annotation.value, 'value') :
+                                                 print('[VAR][CHANGE] ', variable_old.annotation.annotation.value.value, ' -> ', variable_new.annotation.annotation.value.value )
+                                            else:
+                                                 print('[VAR][CHANGE2] ', variable_old.annotation.annotation.value, ' -> ', variable_new.annotation.annotation.value )
+
+                                            flag_var = False
+                                            break
+
+                        if flag_var:
+                            if hasattr(variable_old.annotation, 'annotation'):
+                                if hasattr(variable_old.annotation.annotation, 'value'):
+                                    if hasattr(variable_old.annotation.annotation.value, 'value'):
+                                        print('[VAR][REMOVED] ', variable_old.annotation.annotation.value.value)
+                        flag_var = True
+
+        print('ok', commit.hex, '\n\n')
 
 
-        print('ok')
-
-
-
-        ################################################################
-        ########  RETURN TYPE ANNOTATIONS                          #####
-        ################################################################
-
-        # Modify existing type annotation
-        for key in old_return_types:
-            if key in new_return_types:
-                if old_return_types[key] != new_return_types[key]:
-
-                    try:
-                        old_line, old_code, new_line, new_code = key[-2]
-
-                    except:
-                        try:
-                            old_line, old_code = search_key_value_in_snippet(str(old_stdout.decode('utf-8')),
-                                                                             [key, old_return_types[key]])
-                            new_line, new_code = search_key_value_in_snippet(str(new_stdout.decode('utf-8')),
-                                                                             [key, new_return_types[key]])
-                        except:
-                            old_line = old_code = new_line = new_code = ''
-
-                    temp = CodeChange(url + str(old_line), commit_year, str(patch.delta.old_file.path), old_line,
-                                      str(old_return_types[key]),
-                                      str(patch.delta.new_file.path),
-                                      new_line, str(new_return_types[key]))
-
-                    # if temp not in code_changes_new:
-                    code_changes_new.append(temp)
-
-                    # lock.acquire()
-                    statistics.number_type_annotations_per_repo[repo_name] += 1
-                    statistics.total_typeAnnotation_codeChanges += 1
-                    statistics.modify_existing_types += 1
-                    # type_annotation_changed_this_commit += 1
-                    line_type_annotation_changed.append(new_line)
-
-                    if str(old_return_types[key] + ' -> ' + new_return_types[
-                        key]).lower() not in statistics.typeChanged_dict:
-                        statistics.typeChanged_dict[
-                            str(old_return_types[key] + ' -> ' + new_return_types[key]).lower()] = 1
-                    else:
-                        statistics.typeChanged_dict[
-                            str(old_return_types[key] + ' -> ' + new_return_types[key]).lower()] += 1
-                    statistics.total_changed += 1
-                    statistics.functionReturnsType_changed += 1
-                    # list_line_added.add(key)
-                    # list_line_removed.add(key)
-
-                    # lock.release()
-
-            # Remove type annotation
-            else:
-
-                try:
-                    old_line, old_code, new_line, new_code = key[-2]
-                except:
-                    try:
-                        old_line, old_code = search_key_value_in_snippet(str(old_stdout.decode('utf-8')),
-                                                                         [key, old_return_types[key]])
-                    except:
-                        old_line = old_code = new_line = new_code = ''
-
-                temp = CodeChange(url + str(old_line), commit_year, str(patch.delta.old_file.path), old_line,
-                                  str(old_return_types[key]),
-                                  str(patch.delta.new_file.path),
-                                  '', '')
-
-                # if temp not in code_changes_new:
-                code_changes_new.append(temp)
-
-                # lock.acquire()
-                statistics.number_type_annotations_per_repo[repo_name] += 1
-                statistics.total_typeAnnotation_codeChanges += 1
-                statistics.remove_types += 1
-                # type_annotation_removed_this_commit += 1
-                line_type_annotation_removed.append(old_line)
-
-                if old_return_types[key].lower() not in statistics.typeRemoved_dict:
-                    statistics.typeRemoved_dict[old_return_types[key].lower()] = 1
-                else:
-                    statistics.typeRemoved_dict[old_return_types[key].lower()] += 1
-                statistics.total_removed += 1
-                statistics.functionReturnsType_removed += 1
-                # list_line_removed.add(key)
-                # lock.release()
-
-        # Insert type annotation
-        for key in new_return_types:
-            if key not in old_return_types:
-                try:
-                    old_line, old_code, new_line, new_code = key[-2]
-                except:
-                    try:
-                        new_line, new_code = search_key_value_in_snippet(str(new_stdout.decode('utf-8')),
-                                                                         [key, new_return_types[key]])
-                    except:
-                        old_line = old_code = new_line = new_code = ''
-
-                temp = CodeChange(url + str(new_line), commit_year, str(patch.delta.old_file.path), '', '',
-                                  str(patch.delta.new_file.path),
-                                  new_line, str(new_return_types[key]))
-
-                # if temp not in code_changes_new:
-                code_changes_new.append(temp)
-
-                # lock.acquire()
-                statistics.number_type_annotations_per_repo[repo_name] += 1
-                statistics.total_typeAnnotation_codeChanges += 1
-                statistics.insert_types += 1
-                # type_annotation_added_this_commit += 1
-                line_type_annotation_added.append(new_line)
-
-                if new_return_types[key].lower() not in statistics.typeAdded_dict:
-                    statistics.typeAdded_dict[new_return_types[key].lower()] = 1
-                else:
-                    statistics.typeAdded_dict[new_return_types[key].lower()] += 1
-                statistics.total_added += 1
-                statistics.functionReturnsType_added += 1
-
-                # list_line_added.add(key)
-                # lock.release()
-
-        ################################################################
-        ########  ARGUMENTS TYPE ANNOTATIONS                       #####
-        ################################################################
-
-        # Modify existing type annotation
-        for key in old_param_types:
-            if key in new_param_types:
-                if old_param_types[key] != new_param_types[key]:
-
-                    try:
-                        old_line, old_code, new_line, new_code = key[-2]
-                    except:
-                        try:
-                            old_line, old_code = search_key_value_in_snippet(str(old_stdout.decode('utf-8')),
-                                                                             [key, old_return_types[key]])
-                            new_line, new_code = search_key_value_in_snippet(str(new_stdout.decode('utf-8')),
-                                                                             [key, new_return_types[key]])
-                        except:
-                            old_line = old_code = new_line = new_code = ''
-
-                    temp = CodeChange(url + str(old_line), commit_year, str(patch.delta.old_file.path), old_line,
-                                      str(old_param_types[key]),
-                                      str(patch.delta.new_file.path),
-                                      new_line, str(new_param_types[key]))
-
-                    # if temp not in code_changes_new:
-                    code_changes_new.append(temp)
-
-                    # lock.acquire()
-                    statistics.number_type_annotations_per_repo[repo_name] += 1
-                    statistics.total_typeAnnotation_codeChanges += 1
-                    statistics.modify_existing_types += 1
-                    # type_annotation_changed_this_commit += 1
-                    line_type_annotation_changed.append(old_line)
-
-                    if str(old_param_types[key] + ' -> ' + new_param_types[
-                        key]).lower() not in statistics.typeChanged_dict:
-                        statistics.typeChanged_dict[
-                            str(old_param_types[key] + ' -> ' + new_param_types[key]).lower()] = 1
-                    else:
-                        statistics.typeChanged_dict[
-                            str(old_param_types[key] + ' -> ' + new_param_types[key]).lower()] += 1
-                    statistics.total_changed += 1
-                    statistics.functionArgsType_changed += 1
-
-                    # list_line_added.add(key)
-                    # list_line_removed.add(key)
-
-                    # lock.release()
-
-            # Remove type annotation
-            else:
-                try:
-                    old_line, old_code, new_line, new_code = key[-2]
-                except:
-                    try:
-                        old_line, old_code = search_key_value_in_snippet(str(old_stdout.decode('utf-8')),
-                                                                         [key, old_return_types[key]])
-                    except:
-                        old_line = old_code = new_line = new_code = ''
-
-                temp = CodeChange(url + str(old_line), commit_year, str(patch.delta.old_file.path), old_line,
-                                  str(old_param_types[key]),
-                                  str(patch.delta.new_file.path),
-                                  '', '')
-
-                # if temp not in code_changes_new:
-                code_changes_new.append(temp)
-
-                # lock.acquire()
-                statistics.number_type_annotations_per_repo[repo_name] += 1
-                statistics.total_typeAnnotation_codeChanges += 1
-                statistics.remove_types += 1
-                # type_annotation_removed_this_commit += 1
-                line_type_annotation_removed.append(old_line)
-
-                if old_param_types[key].lower() not in statistics.typeRemoved_dict:
-                    statistics.typeRemoved_dict[old_param_types[key].lower()] = 1
-                else:
-                    statistics.typeRemoved_dict[old_param_types[key].lower()] += 1
-                statistics.total_removed += 1
-                statistics.functionArgsType_removed += 1
-
-                # list_line_removed.add(key)
-                # lock.release()
-
-        # Insert type annotation
-        for key in new_param_types:
-            if key not in old_param_types:
-                try:
-                    old_line, old_code, new_line, new_code = key[-2]
-                except:
-                    try:
-                        new_line, new_code = search_key_value_in_snippet(str(new_stdout.decode('utf-8')),
-                                                                         [key, new_return_types[key]])
-                    except:
-                        old_line = old_code = new_line = new_code = ''
-
-                temp = CodeChange(url + str(new_line), commit_year, str(patch.delta.old_file.path), '', '',
-                                  str(patch.delta.new_file.path),
-                                  new_line, str(new_param_types[key]))
-
-                # if temp not in code_changes_new:
-                code_changes_new.append(temp)
-
-                # lock.acquire()
-                statistics.number_type_annotations_per_repo[repo_name] += 1
-                statistics.total_typeAnnotation_codeChanges += 1
-                statistics.insert_types += 1
-                # type_annotation_added_this_commit += 1
-                line_type_annotation_added.append(new_line)
-
-                if new_param_types[key].lower() not in statistics.typeAdded_dict:
-                    statistics.typeAdded_dict[new_param_types[key].lower()] = 1
-                else:
-                    statistics.typeAdded_dict[new_param_types[key].lower()] += 1
-                statistics.total_added += 1
-                statistics.functionArgsType_added += 1
-
-                # list_line_added.add(key)
-                # lock.release()
-
-        ################################################################
-        ########  VARIABLE TYPE ANNOTATIONS                        #####
-        ################################################################
-
-        # Modify existing type annotation
-        for key in old_variable_types:
-            if key in new_variable_types:
-                if old_variable_types[key] != new_variable_types[key]:
-                    try:
-                        old_line, old_code = search_key_value_in_snippet(
-                            str(new_stdout.decode('utf-8')),
-                            [key, old_variable_types[key]])
-                        new_line, new_code = search_key_value_in_snippet(
-                            str(new_stdout.decode('utf-8')),
-                            [key, new_variable_types[key]])
-                    except:
-                        old_line = old_code = new_line = new_code = ' '
-
-                    temp = CodeChange(url + str(old_line), commit_year, str(patch.delta.old_file.path), old_line,
-                                      str(old_variable_types[key]),
-                                      str(patch.delta.new_file.path),
-                                      new_line, str(new_variable_types[key]))
-
-                    # if temp not in code_changes_new:
-                    code_changes_new.append(temp)
-
-                    # lock.acquire()
-                    statistics.number_type_annotations_per_repo[repo_name] += 1
-                    statistics.total_typeAnnotation_codeChanges += 1
-                    statistics.modify_existing_types += 1
-                    # type_annotation_changed_this_commit += 1
-                    line_type_annotation_changed.append(old_line)
-
-                    if str(old_variable_types[key] + ' -> ' + new_variable_types[
-                        key]).lower() not in statistics.typeChanged_dict:
-                        statistics.typeChanged_dict[
-                            str(old_variable_types[key] + ' -> ' + new_variable_types[key]).lower()] = 1
-                    else:
-                        statistics.typeChanged_dict[
-                            str(old_variable_types[key] + ' -> ' + new_variable_types[key]).lower()] += 1
-                    statistics.total_changed += 1
-                    statistics.variableType_changed += 1
-
-                    # list_line_added.add(key)
-                    # list_line_removed.add(key)
-
-                    # lock.release()
-
-            # Remove type annotation
-            else:
-                try:
-                    old_line, old_code = search_key_value_in_snippet(
-                        str(new_stdout.decode('utf-8')),
-                        [key, old_variable_types[key]])
-                except:
-                    old_line = old_code = new_line = new_code = ' '
-
-                if key in old_variable_types:
-                    temp = CodeChange(url + str(old_line), commit_year, str(patch.delta.old_file.path), old_line,
-                                      str(old_variable_types[key]),
-                                      str(patch.delta.new_file.path),
-                                      '', '')
-
-                    # if temp not in code_changes_new:
-                    code_changes_new.append(temp)
-
-                    # lock.acquire()
-                    statistics.number_type_annotations_per_repo[repo_name] += 1
-                    statistics.total_typeAnnotation_codeChanges += 1
-                    statistics.remove_types += 1
-                    # type_annotation_removed_this_commit += 1
-                    line_type_annotation_removed.append(old_line)
-
-                    if old_variable_types[key].lower() not in statistics.typeRemoved_dict:
-                        statistics.typeRemoved_dict[old_variable_types[key].lower()] = 1
-                    else:
-                        statistics.typeRemoved_dict[old_variable_types[key].lower()] += 1
-                    statistics.total_removed += 1
-                    statistics.variableType_removed += 1
-
-                    # list_line_removed.add(key)
-                    # lock.release()
-
-        # Insert type annotation
-        for key in new_variable_types:
-            if key not in old_variable_types:
-                try:
-                    new_line, new_code = search_key_value_in_snippet(
-                        str(new_stdout.decode('utf-8')),
-                        [key, new_variable_types[key]])
-                except:
-                    old_line = old_code = new_line = new_code = ' '
-
-                temp = CodeChange(url + str(new_line), commit_year, str(patch.delta.old_file.path), '', '',
-                                  str(patch.delta.new_file.path),
-                                  new_line, str(new_variable_types[key]))
-
-                # if temp not in code_changes_new:
-                code_changes_new.append(temp)
-
-                # lock.acquire()
-                statistics.number_type_annotations_per_repo[repo_name] += 1
-                statistics.total_typeAnnotation_codeChanges += 1
-                statistics.insert_types += 1
-                # type_annotation_added_this_commit += 1
-                line_type_annotation_added.append(new_line)
-
-                if new_variable_types[key].lower() not in statistics.typeAdded_dict:
-                    statistics.typeAdded_dict[new_variable_types[key].lower()] = 1
-                else:
-                    statistics.typeAdded_dict[new_variable_types[key].lower()] += 1
-                statistics.total_added += 1
-                statistics.variableType_added += 1
-
-                # list_line_added.add(key)
-                # lock.release()
+
+
     except Exception as e:
         print('Error changeExtraction:', repo_path, commit, str(e))
         # print('Repository', repo_path, 'commit', commit, 'with old line', str(old_stdout))
