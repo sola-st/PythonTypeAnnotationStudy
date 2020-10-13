@@ -48,13 +48,11 @@ def extract_from_snippet_new(string_old, string_new):
     if len(string_old) == 0:
         return {}, {}, {}
 
-    string_old = "from typing import Any\n" + "def process_something(arguments: Any, func:int, f2:str, fooo)-> int:\n " \
-                                              "  pass\nx:List[int] = []\ny:List[int] = []\nx = 0 "
+    # string_old = "from typing import Any\n" + "def process_something(arguments: Any, func:int, f2:str, fooo)-> int:\n " \
+    #  "  pass\nx:List[int] = []\ny:List[int] = []\nx = 0 "
 
-    # string_old = "from typing import Any\n"
-
-    string_new = "from typing import Any\n" + "def process_something(arguments: Any, func, f2:float, fooo: " \
-                                              "complex):\n   pass\nx = []\ny:Tuple[int] = []\nx:float = 0 "
+    # string_new = "from typing import Any\n" + "def process_something(arguments: Any, func, f2:float, fooo: " \
+    # "complex):\n   pass\nx = []\ny:Tuple[int] = []\nx:float = 0 "
 
     ast_old = cst.parse_module(string_old)
     wrapper_old = cst.metadata.MetadataWrapper(ast_old)
@@ -140,131 +138,138 @@ def extract_from_snippet_new(string_old, string_new):
 
 
 def extract_from_snippet_new_new(string_old, string_new):
-    if len(string_old) == 0:
-        return {}, {}, {}
+    #if len(string_old) == 0:
+     #   return {}, {}, {}
 
-    string_old = "from typing import Any\n" + "def process_something(arguments: Any, func:int, f2:str, fooo)-> int:\n " \
-                                              "  pass\nx:List[int] = []\ny:List[int] = []\nx = 0 "
+    # string_old = "from typing import Any\n" + "def process_something(arguments: Any, func:int, f2:str, fooo)-> int:\n " \
+    #                                          "  pass\nx:List[int] = []\ny:List[int] = []\nx = 0 "
 
-    # string_old = "from typing import Any\n"
+    # string_new = "from typing import Any\n" + "def process_something(arguments: Any, func, f2:float, fooo: " \
+    #                                         "complex):\n   pass\nx = []\ny:Tuple[int] = []\nx:float = 0 "
 
-    string_new = "from typing import Any\n" + "def process_something(arguments: Any, func, f2:float, fooo: " \
-                                              "complex):\n   pass\nx = []\ny:Tuple[int] = []\nx:float = 0 "
+    if "fatal: Path" in str(string_new) and "does not exist in" in str(string_new):
+        node_list_new = []
+        #new_stdout = 'Import Any'
+      #  node_var_list_new = []
+    if "fatal: Path" in str(string_old) and "does not exist in" in str(string_old):
+        #old_stdout = 'Import Any'
+        node_list_old = []
+      #  node_var_list_old = []
+    #else:
 
-    ast_old = cst.parse_module(string_old)
-    wrapper_old = cst.metadata.MetadataWrapper(ast_old)
-    positions_old = wrapper_old.resolve(PositionProvider)
+    node_list_new = []
     node_list_old = []
 
-    ast_new = cst.parse_module(string_new)
-    wrapper_new = cst.metadata.MetadataWrapper(ast_new)
-    positions_new = wrapper_new.resolve(PositionProvider)
-    node_list_new = []
+    if not("fatal: Path" in str(string_old) and "does not exist in" in str(string_old)):
+        ast_old = cst.parse_module(string_old)
+        wrapper_old = cst.metadata.MetadataWrapper(ast_old)
+        positions_old = wrapper_old.resolve(PositionProvider)
 
-    node_var_list_old = []
-    node_var_list_new = []
 
-    # For the old file
-    for node, pos in positions_old.items():
-        if 'FunctionDef' in type(node).__name__:
-            if hasattr(node, 'params') or hasattr(node, 'returns'):
-                if hasattr(node.params, 'params'):
-                    # node_list_old.append(node)
-                    for parameter in node.params.params:
-                        if hasattr(parameter, 'annotation'):
-                            if hasattr(parameter.annotation, 'annotation'):
-                                if hasattr(parameter.annotation.annotation, 'value'):
-                                    if hasattr(parameter.annotation.annotation.value, 'value'):
-                                        print('[ARG] ', parameter.annotation.annotation.value.value, '->', pos)
-                                        annotation_node = SingleDiffChange('argument','old', parameter.name.value,
-                                                                           parameter.annotation.annotation.value.value,
-                                                                           pos.start.line)
-                                        node_list_old.append(annotation_node)
-                                    else:
-                                        print('[ARG2] ', parameter.annotation.annotation.value, '->', pos)
-                                        annotation_node = SingleDiffChange('argument','old', parameter.name.value,
-                                                                           parameter.annotation.annotation.value,
-                                                                           pos.start.line)
-                                        node_list_old.append(annotation_node)
+        # For the old file
+        for node, pos in positions_old.items():
+            if 'FunctionDef' in type(node).__name__:
+                if hasattr(node, 'params') or hasattr(node, 'returns'):
+                    if hasattr(node.params, 'params'):
+                        # node_list_old.append(node)
+                        for parameter in node.params.params:
+                            if hasattr(parameter, 'annotation'):
+                                if hasattr(parameter.annotation, 'annotation'):
+                                    if hasattr(parameter.annotation.annotation, 'value'):
+                                        if hasattr(parameter.annotation.annotation.value, 'value'):
+                                            # print('[ARG] ', parameter.annotation.annotation.value.value, '->', pos)
+                                            annotation_node = SingleDiffChange('argument', 'old', parameter.name.value,
+                                                                               parameter.annotation.annotation.value.value,
+                                                                               pos.start.line)
+                                            node_list_old.append(annotation_node)
+                                        else:
+                                            # print('[ARG2] ', parameter.annotation.annotation.value, '->', pos)
+                                            annotation_node = SingleDiffChange('argument', 'old', parameter.name.value,
+                                                                               parameter.annotation.annotation.value,
+                                                                               pos.start.line)
+                                            node_list_old.append(annotation_node)
 
-                if hasattr(node, 'returns'):
-                    if hasattr(node.returns, 'annotation'):
-                        if hasattr(node.returns.annotation, 'value'):
-                            print('[RETURN] ', node.returns.annotation.value, '->', pos)
-                            annotation_node = SingleDiffChange('return','old', node.name.value,
-                                                               node.returns.annotation.value, pos.start.line)
-                            node_list_old.append(annotation_node)
-        else:
-            if 'SimpleStatementLine' in type(node).__name__:
-                if hasattr(node, 'body'):
-                    for variable in node.body:
-                        if hasattr(variable, 'annotation'):
-                            if hasattr(variable.annotation, 'annotation'):
-                                if hasattr(variable.annotation.annotation, 'value'):
-                                    if hasattr(variable.annotation.annotation.value, 'value'):
-                                        print('[VAR] ', variable.annotation.annotation.value.value, '->', pos)
-                                        annotation_node = SingleDiffChange('variable','old', variable.target.value,
-                                                                           variable.annotation.annotation.value.value,
-                                                                           pos.start.line)
-                                        node_var_list_old.append(annotation_node)
-                                    else:
-                                        print('[VAR2] ', variable.annotation.annotation.value, '->', pos)
-                                        annotation_node = SingleDiffChange('variable','old', variable.target.value,
-                                                                           variable.annotation.annotation.value,
-                                                                           pos.start.line)
-                                        node_var_list_old.append(annotation_node)
+                    if hasattr(node, 'returns'):
+                        if hasattr(node.returns, 'annotation'):
+                            if hasattr(node.returns.annotation, 'value'):
+                                # print('[RETURN] ', node.returns.annotation.value, '->', pos)
+                                annotation_node = SingleDiffChange('return', 'old', node.name.value,
+                                                                   node.returns.annotation.value, pos.start.line)
+                                node_list_old.append(annotation_node)
+            else:
+                if 'SimpleStatementLine' in type(node).__name__:
+                    if hasattr(node, 'body'):
+                        for variable in node.body:
+                            if hasattr(variable, 'annotation'):
+                                if hasattr(variable.annotation, 'annotation'):
+                                    if hasattr(variable.annotation.annotation, 'value'):
+                                        if hasattr(variable.annotation.annotation.value, 'value'):
+                                            # print('[VAR] ', variable.annotation.annotation.value.value, '->', pos)
+                                            annotation_node = SingleDiffChange('variable', 'old', variable.target.value,
+                                                                               variable.annotation.annotation.value.value,
+                                                                               pos.start.line)
+                                            node_list_old.append(annotation_node)
+                                        else:
+                                            # print('[VAR2] ', variable.annotation.annotation.value, '->', pos)
+                                            annotation_node = SingleDiffChange('variable', 'old', variable.target.value,
+                                                                               variable.annotation.annotation.value,
+                                                                               pos.start.line)
+                                            node_list_old.append(annotation_node)
 
-    print(' ')
-    # For the new file
-    for node, pos in positions_new.items():
-        if 'FunctionDef' in type(node).__name__:
-            if hasattr(node, 'params') or hasattr(node, 'returns'):
-                if hasattr(node.params, 'params'):
-                    node_list_new.append(node)
-                    for parameter in node.params.params:
-                        if hasattr(parameter, 'annotation'):
-                            if hasattr(parameter.annotation, 'annotation'):
-                                if hasattr(parameter.annotation.annotation, 'value'):
-                                    if hasattr(parameter.annotation.annotation.value, 'value'):
-                                        print('[ARG] ', parameter.annotation.annotation.value.value, '->', pos)
-                                        annotation_node = SingleDiffChange('argument','new', parameter.name.value,
-                                                                           parameter.annotation.annotation.value.value,
-                                                                           pos.start.line)
-                                        node_list_new.append(annotation_node)
-                                    else:
-                                        print('[ARG2] ', parameter.annotation.annotation.value, '->', pos)
-                                        annotation_node = SingleDiffChange('argument','new', parameter.name.value,
-                                                                           parameter.annotation.annotation.value,
-                                                                           pos.start.line)
-                                        node_list_new.append(annotation_node)
-                if hasattr(node, 'returns'):
-                    if hasattr(node.returns, 'annotation'):
-                        if hasattr(node.returns.annotation, 'value'):
-                            print('[RETURN] ', node.returns.annotation.value, '->', pos)
-                            annotation_node = SingleDiffChange('return','new', node.name.value,
-                                                               node.returns.annotation.value, pos.start.line)
-                            node_list_new.append(annotation_node)
-        else:
-            if 'SimpleStatementLine' in type(node).__name__:
-                if hasattr(node, 'body'):
-                    for variable in node.body:
-                        if hasattr(variable, 'annotation'):
-                            if hasattr(variable.annotation, 'annotation'):
-                                if hasattr(variable.annotation.annotation, 'value'):
-                                    if hasattr(variable.annotation.annotation.value, 'value'):
-                                        print('[VAR] ', variable.annotation.annotation.value.value, '->', pos)
-                                        annotation_node = SingleDiffChange('variable','new', variable.target.value,
-                                                                           variable.annotation.annotation.value.value,
-                                                                           pos.start.line)
-                                        node_var_list_new.append(annotation_node)
-                                    else:
-                                        print('[VAR2] ', variable.annotation.annotation.value, '->', pos)
-                                        annotation_node = SingleDiffChange('variable','new', variable.target.value,
-                                                                           variable.annotation.annotation.value,
-                                                                           pos.start.line)
-                                        node_var_list_new.append(annotation_node)
+    if not ("fatal: Path" in str(string_old) and "does not exist in" in str(string_old)):
+        ast_new = cst.parse_module(string_new)
+        wrapper_new = cst.metadata.MetadataWrapper(ast_new)
+        positions_new = wrapper_new.resolve(PositionProvider)
 
-    return node_list_old, node_list_new, node_var_list_old, node_var_list_new
+        # For the new file
+        for node, pos in positions_new.items():
+            if 'FunctionDef' in type(node).__name__:
+                if hasattr(node, 'params') or hasattr(node, 'returns'):
+                    if hasattr(node.params, 'params'):
+                        for parameter in node.params.params:
+                            if hasattr(parameter, 'annotation'):
+                                if hasattr(parameter.annotation, 'annotation'):
+                                    if hasattr(parameter.annotation.annotation, 'value'):
+                                        if hasattr(parameter.annotation.annotation.value, 'value'):
+                                            # print('[ARG] ', parameter.annotation.annotation.value.value, '->', pos)
+                                            annotation_node = SingleDiffChange('argument', 'new', parameter.name.value,
+                                                                               parameter.annotation.annotation.value.value,
+                                                                               pos.start.line)
+                                            node_list_new.append(annotation_node)
+                                        else:
+                                            # print('[ARG2] ', parameter.annotation.annotation.value, '->', pos)
+                                            annotation_node = SingleDiffChange('argument', 'new', parameter.name.value,
+                                                                               parameter.annotation.annotation.value,
+                                                                               pos.start.line)
+                                            node_list_new.append(annotation_node)
+                    if hasattr(node, 'returns'):
+                        if hasattr(node.returns, 'annotation'):
+                            if hasattr(node.returns.annotation, 'value'):
+                                # print('[RETURN] ', node.returns.annotation.value, '->', pos)
+                                annotation_node = SingleDiffChange('return', 'new', node.name.value,
+                                                                   node.returns.annotation.value, pos.start.line)
+                                node_list_new.append(annotation_node)
+            else:
+                if 'SimpleStatementLine' in type(node).__name__:
+                    if hasattr(node, 'body'):
+                        for variable in node.body:
+                            if hasattr(variable, 'annotation'):
+                                if hasattr(variable.annotation, 'annotation'):
+                                    if hasattr(variable.annotation.annotation, 'value'):
+                                        if hasattr(variable.annotation.annotation.value, 'value'):
+                                            # print('[VAR] ', variable.annotation.annotation.value.value, '->', pos)
+                                            annotation_node = SingleDiffChange('variable', 'new', variable.target.value,
+                                                                               variable.annotation.annotation.value.value,
+                                                                               pos.start.line)
+                                            node_list_new.append(annotation_node)
+                                        else:
+                                            # print('[VAR2] ', variable.annotation.annotation.value, '->', pos)
+                                            annotation_node = SingleDiffChange('variable', 'new', variable.target.value,
+                                                                               variable.annotation.annotation.value,
+                                                                               pos.start.line)
+                                            node_list_new.append(annotation_node)
+
+    return node_list_old, node_list_new
 
 
 def extract_from_file(file_path: str):
@@ -1917,210 +1922,67 @@ def TypeAnnotationExtractionLast(repo_path, repo_name, commit, patch, url, stati
                                stderr=subprocess.STDOUT)
     new_stdout, new_stderr = new_out.communicate()
 
-    if "fatal" in str(new_stdout):
+    if "b\"fatal: Path" in str(new_stdout):
         node_list_new = []
-        node_var_list_new = []
-    elif "fatal" in str(old_stdout):
+        #new_stdout = 'Import Any'
+      #  node_var_list_new = []
+    if "b\"fatal: Path" in str(old_stdout):
+        #old_stdout = 'Import Any'
         node_list_old = []
-        node_var_list_old = []
-    else:
-        try:
-            node_list_old, node_list_new, node_var_list_old, node_var_list_new = extract_from_snippet_new_new(
-                str(old_stdout.decode('utf-8-sig')),
-                str(new_stdout.decode('utf-8-sig')))
-        except Exception as e:
-            print(str(e))
+      #  node_var_list_old = []
+    #else:
+    try:
+        node_list_old, node_list_new, node_var_list_old, node_var_list_new = extract_from_snippet_new_new(
+            str(old_stdout.decode('utf-8-sig')),
+            str(new_stdout.decode('utf-8-sig')))
+    except Exception as e:
+        print(str(e))
+        return
 
     try:
 
         #########################################################################
         #### RETURN AND ARGUMEN TYPE Annotations                  ###############
         #########################################################################
-        flag_arg_insertion = True
 
-        for element_old in node_list_old:
-            if len(node_list_new) == 0:
-                for element_old in node_list_old:
-                    if hasattr(element_old, 'params'):
-                        if hasattr(element_old.params, 'params'):
-                            for parameter_old in element_old.params.params:
-                                if hasattr(parameter_old.annotation, 'annotation'):
-                                    if hasattr(parameter_old.annotation.annotation, 'value'):
-                                        print('[ARG][REMOVED] ', parameter_old.annotation.annotation.value)
-                if hasattr(element_old, 'returns'):
-                    if hasattr(element_old.returns, 'annotation'):
-                        if hasattr(element_old.returns, 'annotation'):
-                            if hasattr(element_old.returns.annotation, 'value'):
-                                print('[RETURN][REMOVED] ', element_old.returns.annotation.value)
+        if commit.hex == 'cd4820492aa38a244ecbdc68070877d851819548':
+            print('ok', commit.hex, '\n\n')
 
-            for element_new in node_list_new:
-                if element_old.name.value == element_new.name.value:
-                    if hasattr(element_old, 'params') or hasattr(element_old, 'returns') \
-                            and hasattr(element_new, 'params') or hasattr(element_new, 'returns'):
-                        if hasattr(element_old.params, 'params') and hasattr(element_new.params, 'params'):
-                            list_param_old = list(element_old.params.params)
-                            list_param_new = list(element_new.params.params)
-                            for parameter_old in list_param_old:
-                                i = -1
-                                for parameter_new in list_param_new:
-                                    i += 1
-                                    if parameter_old.name.value == parameter_new.name.value:
-                                        if hasattr(parameter_old, 'annotation') and hasattr(parameter_new,
-                                                                                            'annotation'):
-                                            if hasattr(parameter_old.annotation, 'annotation') and hasattr(
-                                                    parameter_new.annotation, 'annotation'):
-                                                if hasattr(parameter_old.annotation.annotation, 'value') and hasattr(
-                                                        parameter_new.annotation.annotation, 'value'):
-                                                    if hasattr(parameter_old.annotation.annotation.value,
-                                                               'value') and hasattr(
-                                                            parameter_new.annotation.annotation.value, 'value'):
-                                                        if parameter_old.annotation.annotation.value.value != parameter_new.annotation.annotation.value.value:
-                                                            print('[ARG][CHANGE1] ',
-                                                                  parameter_old.annotation.annotation.value.value,
-                                                                  ' -> ',
-                                                                  parameter_new.annotation.annotation.value.value)
-                                                        else:
-                                                            del list_param_new[i]
 
-                                                        flag_arg_insertion = False
-                                                        break
+        for hunk in patch.hunks:
+            for annotation_old in node_list_old:
+                if annotation_old.line not in range(hunk.old_start, hunk.old_start + hunk.old_lines):
+                    continue
+                j = -1
+                flag_insert = True
+                for annotation_new in node_list_new:
+                    j += 1
+                    if annotation_new.line not in range(hunk.new_start, hunk.new_start + hunk.new_lines):
+                        continue
 
-                                                    else:
-                                                        if parameter_old.annotation.annotation.value != parameter_new.annotation.annotation.value:
-                                                            print('[ARG][CHANGE2] ',
-                                                                  parameter_old.annotation.annotation.value, ' -> ',
-                                                                  parameter_new.annotation.annotation.value)
-                                                        else:
-                                                            del list_param_new[i]
+                    if annotation_old.type == annotation_new.type and annotation_old.variable == annotation_new.variable:
+                        if annotation_old.annotation == annotation_new.annotation:
+                            del node_list_new[j]
+                            flag_insert = False
+                            break
+                        else:
+                            print('[CHANGED]', annotation_old.type, annotation_old.annotation, ' -> ',
+                                  annotation_new.annotation)
+                            del node_list_new[j]
+                            flag_insert = False
+                            break
 
-                                                        flag_arg_insertion = False
-                                                        break
-                                if flag_arg_insertion:
-                                    if hasattr(parameter_old.annotation, 'annotation'):
-                                        if hasattr(parameter_old.annotation.annotation, 'value'):
-                                            print('[ARG][REMOVED] ', parameter_old.annotation.annotation.value)
-                                flag_arg_insertion = True
-                        # if flag_arg_insertion:
-                        #    for parameter_old in element_old.params.params:
-                        #        if hasattr(parameter_old.annotation, 'annotation'):
-                        #            print('[ARG][INSERTED] ', parameter_old.annotation.annotation.value)
-                        flag_arg_insertion = True
+                if flag_insert:
+                    print('[REMOVED]', annotation_old.type, annotation_old.annotation)
+                    flag_insert = True
 
-                        if hasattr(element_old, 'returns') and hasattr(element_new, 'returns'):
-                            if hasattr(element_old.returns, 'annotation') and hasattr(element_new.returns,
-                                                                                      'annotation'):
-                                if hasattr(element_old.returns.annotation, 'value') and hasattr(
-                                        element_new.returns.annotation, 'value'):
-                                    if element_old.returns.annotation.value != element_new.returns.annotation.value:
-                                        print('[RETURN][CHANGE] ', element_old.returns.annotation.value, ' -> ',
-                                              element_new.returns.annotation.value)
-                            else:
-                                if type(element_old.returns == 'NoneType') and hasattr(element_new.returns,
-                                                                                       'annotation'):
-                                    if hasattr(element_new.returns.annotation, 'value'):
-                                        print('[RETURN][INSERTED] ', element_new.returns.annotation.value)
-                                elif type(element_new.returns == 'NoneType') and hasattr(element_old.returns,
-                                                                                         'annotation'):
-                                    if hasattr(element_old.returns.annotation, 'value'):
-                                        print('[RETURN][REMOVED] ', element_old.returns.annotation.value)
-
-        flag_arg_insertion = True
-
-        for element_new in node_list_new:
-            if len(node_list_old) == 0:
-                for element_new in node_list_new:
-                    if hasattr(element_new, 'params'):
-                        if hasattr(element_new.params, 'params'):
-                            for parameter_new in element_new.params.params:
-                                if hasattr(parameter_new.annotation, 'annotation'):
-                                    if hasattr(parameter_new.annotation.annotation, 'value'):
-                                        print('[ARG][INSERTED] ', parameter_new.annotation.annotation.value)
-
-                if hasattr(element_new, 'returns'):
-                    if hasattr(element_new.returns, 'annotation'):
-                        if hasattr(element_new.returns, 'annotation'):
-                            if hasattr(element_new.returns.annotation, 'value'):
-                                print('[RETURN][INSERTED] ', element_new.returns.annotation.value)
-
-            for element_old in node_list_old:
-                if element_old.name.value == element_new.name.value:
-                    if hasattr(element_old, 'params') or hasattr(element_old, 'returns') \
-                            and hasattr(element_new, 'params') or hasattr(element_new, 'returns'):
-                        if hasattr(element_old.params, 'params') and hasattr(element_new.params, 'params'):
-                            list_param_old = list(element_old.params.params)
-                            list_param_new = list(element_new.params.params)
-                            for parameter_new in list_param_new:
-                                i = -1
-                                for parameter_old in list_param_old:
-                                    i += 1
-                                    if parameter_old.name.value == parameter_new.name.value:
-                                        if hasattr(parameter_old, 'annotation') and hasattr(parameter_new,
-                                                                                            'annotation'):
-                                            if hasattr(parameter_old.annotation, 'annotation') and hasattr(
-                                                    parameter_new.annotation, 'annotation'):
-                                                if hasattr(parameter_old.annotation.annotation, 'value') and hasattr(
-                                                        parameter_new.annotation.annotation, 'value'):
-                                                    if hasattr(parameter_old.annotation.annotation.value,
-                                                               'value') and hasattr(
-                                                        parameter_new.annotation.annotation.value, 'value'):
-                                                        if parameter_old.annotation.annotation.value.value != parameter_new.annotation.annotation.value.value:
-                                                            pass
-                                                        else:
-                                                            del list_param_old[i]
-
-                                                        flag_arg_insertion = False
-                                                        break
-
-                                                    else:
-                                                        if parameter_old.annotation.annotation.value != parameter_new.annotation.annotation.value:
-                                                            pass
-                                                        else:
-                                                            del list_param_old[i]
-
-                                                        flag_arg_insertion = False
-                                                        break
-                                if flag_arg_insertion:
-                                    if hasattr(parameter_new.annotation, 'annotation'):
-                                        print('[ARG][INSERTED] ', parameter_new.annotation.annotation.value)
-                                flag_arg_insertion = True
+            for remained in node_list_new:
+                if remained.line in range(hunk.new_start, hunk.new_start + hunk.new_lines):
+                    print('[INSERTED]', remained.type, remained.annotation)
 
         #########################################################################
         ####              VARIABLE TYPE Annotations               ###############
         #########################################################################
-
-        flag_var = True
-
-        for var_old_element in node_var_list_old:
-            for var_new_element in node_var_list_new:
-
-                if hasattr(var_old_element, 'body') and hasattr(var_new_element, 'body'):
-                    list_var_old = list(var_old_element.body)
-                    list_var_new = list(var_new_element.body)
-                    for variable_old in list_var_old:
-                        for variable_new in list_var_new:
-                            if variable_old.target.value == variable_new.target.value:
-                                if hasattr(variable_old, 'annotation') and hasattr(variable_new, 'annotation'):
-                                    if hasattr(variable_old.annotation, 'annotation') and hasattr(
-                                            variable_new.annotation, 'annotation'):
-                                        if hasattr(variable_old.annotation.annotation, 'value') and hasattr(
-                                                variable_new.annotation.annotation, 'value'):
-                                            if hasattr(variable_old.annotation.annotation.value, 'value') and hasattr(
-                                                    variable_new.annotation.annotation.value, 'value'):
-                                                print('[VAR][CHANGE] ', variable_old.annotation.annotation.value.value,
-                                                      ' -> ', variable_new.annotation.annotation.value.value)
-                                            else:
-                                                print('[VAR][CHANGE2] ', variable_old.annotation.annotation.value,
-                                                      ' -> ', variable_new.annotation.annotation.value)
-
-                                            flag_var = False
-                                            break
-
-                        if flag_var:
-                            if hasattr(variable_old.annotation, 'annotation'):
-                                if hasattr(variable_old.annotation.annotation, 'value'):
-                                    if hasattr(variable_old.annotation.annotation.value, 'value'):
-                                        print('[VAR][REMOVED] ', variable_old.annotation.annotation.value.value)
-                        flag_var = True
 
         print('ok', commit.hex, '\n\n')
 
@@ -2242,7 +2104,7 @@ def TypeAnnotationExtractionLastold(repo_path, repo_name, commit, patch, url, st
                                                         parameter_new.annotation.annotation, 'value'):
                                                     if hasattr(parameter_old.annotation.annotation.value,
                                                                'value') and hasattr(
-                                                            parameter_new.annotation.annotation.value, 'value'):
+                                                        parameter_new.annotation.annotation.value, 'value'):
                                                         if parameter_old.annotation.annotation.value.value != parameter_new.annotation.annotation.value.value:
                                                             print('[ARG][CHANGE1] ',
                                                                   parameter_old.annotation.annotation.value.value,
