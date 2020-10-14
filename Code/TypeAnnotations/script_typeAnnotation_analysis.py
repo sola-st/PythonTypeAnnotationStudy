@@ -74,7 +74,7 @@ def typeAnnotation_analisis():
         except Exception as e:
             print('Error writing results in files: ' + str(e))
 
-        print("\nStatics computed in " + "{:0>2}:{:0>2}:{:05.2f}".format(int(hours), int(minutes), seconds))
+        print("\nStatistics computed in " + "{:0>2}:{:0>2}:{:05.2f}".format(int(hours), int(minutes), seconds))
 
     # Plots the results from the file Output/typeAnnotationAllStatisticsRAW.json
     if config.PLOT:

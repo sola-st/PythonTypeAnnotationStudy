@@ -4,7 +4,7 @@ ROOT_DIR = os.path.dirname(os.path.abspath(__file__))
 
 
 # Variable to configure Code/TypeAnnotations/script_typeAnnotation_analysis.py
-TEST = True
+TEST = False
 CLONING = False
 NORMAL_PRINT = True
 

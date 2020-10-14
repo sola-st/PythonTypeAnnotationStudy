@@ -147,7 +147,7 @@ def query_repo_get_changes(repo_name):  # statistics, pointer, dirlist_len):
 
                     tot_line_removed += diff.stats.deletions
                     tot_line_inserted += diff.stats.insertions
-                elif num_parents == 0:
+                elif num_parents == -1: # First commit
                     diff = repo.diff(commit.hex)
                     tot_line_inserted += diff.stats.insertions
                     for patch in diff:

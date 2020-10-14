@@ -138,8 +138,8 @@ def extract_from_snippet_new(string_old, string_new):
 
 
 def extract_from_snippet_new_new(string_old, string_new):
-    #if len(string_old) == 0:
-     #   return {}, {}, {}
+    # if len(string_old) == 0:
+    #   return {}, {}, {}
 
     # string_old = "from typing import Any\n" + "def process_something(arguments: Any, func:int, f2:str, fooo)-> int:\n " \
     #                                          "  pass\nx:List[int] = []\ny:List[int] = []\nx = 0 "
@@ -147,24 +147,13 @@ def extract_from_snippet_new_new(string_old, string_new):
     # string_new = "from typing import Any\n" + "def process_something(arguments: Any, func, f2:float, fooo: " \
     #                                         "complex):\n   pass\nx = []\ny:Tuple[int] = []\nx:float = 0 "
 
-    if "fatal: Path" in str(string_new) and "does not exist in" in str(string_new):
-        node_list_new = []
-        #new_stdout = 'Import Any'
-      #  node_var_list_new = []
-    if "fatal: Path" in str(string_old) and "does not exist in" in str(string_old):
-        #old_stdout = 'Import Any'
-        node_list_old = []
-      #  node_var_list_old = []
-    #else:
-
     node_list_new = []
     node_list_old = []
 
-    if not("fatal: Path" in str(string_old) and "does not exist in" in str(string_old)):
+    if not ("fatal: Path" in str(string_old) and "does not exist in" in str(string_old)):
         ast_old = cst.parse_module(string_old)
         wrapper_old = cst.metadata.MetadataWrapper(ast_old)
         positions_old = wrapper_old.resolve(PositionProvider)
-
 
         # For the old file
         for node, pos in positions_old.items():
@@ -216,7 +205,7 @@ def extract_from_snippet_new_new(string_old, string_new):
                                                                                pos.start.line)
                                             node_list_old.append(annotation_node)
 
-    if not ("fatal: Path" in str(string_old) and "does not exist in" in str(string_old)):
+    if not ("fatal: Path" in str(string_new) and "does not exist in" in str(string_new)):
         ast_new = cst.parse_module(string_new)
         wrapper_new = cst.metadata.MetadataWrapper(ast_new)
         positions_new = wrapper_new.resolve(PositionProvider)
@@ -1922,17 +1911,8 @@ def TypeAnnotationExtractionLast(repo_path, repo_name, commit, patch, url, stati
                                stderr=subprocess.STDOUT)
     new_stdout, new_stderr = new_out.communicate()
 
-    if "b\"fatal: Path" in str(new_stdout):
-        node_list_new = []
-        #new_stdout = 'Import Any'
-      #  node_var_list_new = []
-    if "b\"fatal: Path" in str(old_stdout):
-        #old_stdout = 'Import Any'
-        node_list_old = []
-      #  node_var_list_old = []
-    #else:
     try:
-        node_list_old, node_list_new, node_var_list_old, node_var_list_new = extract_from_snippet_new_new(
+        node_list_old, node_list_new = extract_from_snippet_new_new(
             str(old_stdout.decode('utf-8-sig')),
             str(new_stdout.decode('utf-8-sig')))
     except Exception as e:
@@ -1944,10 +1924,6 @@ def TypeAnnotationExtractionLast(repo_path, repo_name, commit, patch, url, stati
         #########################################################################
         #### RETURN AND ARGUMEN TYPE Annotations                  ###############
         #########################################################################
-
-        if commit.hex == 'cd4820492aa38a244ecbdc68070877d851819548':
-            print('ok', commit.hex, '\n\n')
-
 
         for hunk in patch.hunks:
             for annotation_old in node_list_old:
@@ -1966,34 +1942,116 @@ def TypeAnnotationExtractionLast(repo_path, repo_name, commit, patch, url, stati
                             flag_insert = False
                             break
                         else:
-                            print('[CHANGED]', annotation_old.type, annotation_old.annotation, ' -> ',
-                                  annotation_new.annotation)
+                            #print('[CHANGED]', annotation_old.type, annotation_old.annotation, ' -> ',annotation_new.annotation)
+
+                            temp = CodeChange(url + str(annotation_old.line), commit_year, annotation_old.type, '[CHANGED]',
+                                              str(patch.delta.old_file.path),
+                                              annotation_old.annotation,
+                                              str(annotation_old.line),
+                                              str(patch.delta.new_file.path),
+                                              annotation_new.annotation,
+                                              str(annotation_new.line))
+
+                            code_changes_new.append(temp)
+
+                            statistics.number_type_annotations_per_repo[repo_name] += 1
+                            statistics.total_typeAnnotation_codeChanges += 1
+                            statistics.modify_existing_types += 1
+
+                            line_type_annotation_changed.append(str(annotation_old.line))
+
+                            if (annotation_old.annotation + ' -> ' + annotation_new.annotation).lower() not in statistics.typeChanged_dict:
+                                statistics.typeChanged_dict[
+                                    str(annotation_old.annotation + ' -> ' + annotation_new.annotation).lower()] = 1
+                            else:
+                                statistics.typeChanged_dict[str(str(
+                                    annotation_old.annotation + ' -> ' + annotation_new.annotation).lower()).lower()] += 1
+                            statistics.total_changed += 1
+
+                            if annotation_old.type == 'return':
+                                statistics.functionReturnsType_changed += 1
+                            elif annotation_old.type == 'argument':
+                                statistics.functionArgsType_changed += 1
+                            elif annotation_old.type == 'variable':
+                                statistics.variableType_changed += 1
+
                             del node_list_new[j]
                             flag_insert = False
                             break
 
                 if flag_insert:
-                    print('[REMOVED]', annotation_old.type, annotation_old.annotation)
+                    #print('[REMOVED]', annotation_old.type, annotation_old.annotation)
+
+                    temp = CodeChange(url + str(annotation_old.line), commit_year,annotation_old.type, '[REMOVED]',
+                                      str(patch.delta.old_file.path),
+                                      annotation_old.annotation,
+                                      str(annotation_old.line),
+                                      ' ',
+                                      ' ',
+                                      ' ')
+
+                    code_changes_new.append(temp)
+
+                    statistics.number_type_annotations_per_repo[repo_name] += 1
+                    statistics.total_typeAnnotation_codeChanges += 1
+                    statistics.remove_types += 1
+
+                    line_type_annotation_removed.append(str(annotation_old.line))
+
+                    if annotation_old.annotation.lower() not in statistics.typeRemoved_dict:
+                        statistics.typeRemoved_dict[annotation_old.annotation.lower()] = 1
+                    else:
+                        statistics.typeRemoved_dict[annotation_old.annotation.lower()] += 1
+
+                    statistics.total_removed += 1
+
+                    if annotation_old.type == 'return':
+                        statistics.functionReturnsType_removed += 1
+                    elif annotation_old.type == 'argument':
+                        statistics.functionArgsType_removed += 1
+                    elif annotation_old.type == 'variable':
+                        statistics.variableType_removed += 1
+
                     flag_insert = True
 
             for remained in node_list_new:
                 if remained.line in range(hunk.new_start, hunk.new_start + hunk.new_lines):
-                    print('[INSERTED]', remained.type, remained.annotation)
+                    #print('[INSERTED]', remained.type, remained.annotation)
+                    temp = CodeChange(url+ str(remained.line), commit_year, remained.type, '[INSERTED]',
+                                      ' ',
+                                      ' ',
+                                      ' ',
+                                      str(patch.delta.new_file.path),
+                                      remained.annotation,
+                                      str(remained.line))
 
-        #########################################################################
-        ####              VARIABLE TYPE Annotations               ###############
-        #########################################################################
+                    code_changes_new.append(temp)
 
-        print('ok', commit.hex, '\n\n')
+                    statistics.number_type_annotations_per_repo[repo_name] += 1
+                    statistics.total_typeAnnotation_codeChanges += 1
+                    statistics.insert_types += 1
+                    # type_annotation_added_this_commit += 1
+                    line_type_annotation_added.append(str(remained.line))
 
+                    if remained.annotation.lower() not in statistics.typeAdded_dict:
+                        statistics.typeAdded_dict[remained.annotation.lower()] = 1
+                    else:
+                        statistics.typeAdded_dict[remained.annotation.lower()] += 1
 
+                    statistics.total_added += 1
 
+                    if remained.type == 'return':
+                        statistics.functionReturnsType_added += 1
+                    elif remained.type == 'argument':
+                        statistics.functionArgsType_added += 1
+                    elif remained.type == 'variable':
+                        statistics.variableType_added += 1
+
+        #print('ok', commit.hex, '\n\n')
 
     except Exception as e:
-        print('Error changeExtraction:', repo_path, commit, str(e))
-        # print('Repository', repo_path, 'commit', commit, 'with old line', str(old_stdout))
+        print('[Error changeExtraction]', repo_path, commit, str(e))
 
-    # lock.acquire()
     if len(line_type_annotation_added) > 0:
         # statistics.list_typeAnnotation_added_per_commit.append(type_annotation_added_this_commit)
         typeannotation_line_inserted[0] += len(set(line_type_annotation_added))
@@ -2021,7 +2079,6 @@ def TypeAnnotationExtractionLast(repo_path, repo_name, commit, patch, url, stati
 
         code_changes += code_changes_new
 
-    # lock.release()
 
 
 def TypeAnnotationExtractionLastold(repo_path, repo_name, commit, patch, url, statistics,  # lock, logging,

@@ -1,20 +1,22 @@
 class CodeChange:
     """Code change class"""
 
-    def __init__(self, url, commit_year, old_file, old_line, old_code, new_file, new_line, new_code):
+    def __init__(self, url, commit_year,  where, type, old_file, old_annotation, old_line,  new_file, new_annotation, new_line):
         self.url = url
         self.commit_year = commit_year
+        self.type = type
+        self.where = where
 
         self.old_file = old_file
+        self.old_annotation = old_annotation
         self.old_line = old_line
-        self.old_code = old_code
 
-        self.new_line = new_line
         self.new_file = new_file
-        self.new_code = new_code
+        self.new_annotation = new_annotation
+        self.new_line = new_line
 
     def __members(self):
-        return self.url, self.commit_year, self.old_file, self.old_line, self.old_code, self.new_file, self.new_line, self.new_code
+        return self.url, self.commit_year, self.old_file, self.where, self.old_annotation, self.type, self.new_file, self.new_annotation, self.new_line
 
     def __eq__(self, other):
         if type(other) is type(self):
