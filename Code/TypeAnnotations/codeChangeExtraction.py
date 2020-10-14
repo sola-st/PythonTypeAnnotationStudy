@@ -7,6 +7,7 @@ from Code.parsers import TypeCollector
 import libcst as cst
 import copy
 from libcst.metadata import PositionProvider
+import hashlib
 
 
 def extract_from_snippet(string):
@@ -1916,16 +1917,17 @@ def TypeAnnotationExtractionLast(repo_path, repo_name, commit, patch, url, stati
             str(old_stdout.decode('utf-8-sig')),
             str(new_stdout.decode('utf-8-sig')))
     except Exception as e:
-        print(str(e))
+        #print(str(e))
         return
 
     try:
-
+        # diff-b10564ab7d2c520cdd0243874879fb0a782862c3c902ab535faabe57d5a505e1L9
         #########################################################################
-        #### RETURN AND ARGUMEN TYPE Annotations                  ###############
+        #### TYPE Annotations                  ###############
         #########################################################################
 
         for hunk in patch.hunks:
+            #result77 = hashlib.md5("main.py".encode('utf-8')).hexdigest()
             for annotation_old in node_list_old:
                 if annotation_old.line not in range(hunk.old_start, hunk.old_start + hunk.old_lines):
                     continue
@@ -1943,13 +1945,18 @@ def TypeAnnotationExtractionLast(repo_path, repo_name, commit, patch, url, stati
                             break
                         else:
                             #print('[CHANGED]', annotation_old.type, annotation_old.annotation, ' -> ',annotation_new.annotation)
+                            if hasattr(annotation_old.annotation, 'value'):
+                                annotation_old.annotation = str(annotation_old.annotation.value)
 
-                            temp = CodeChange(url + str(annotation_old.line), commit_year, annotation_old.type, '[CHANGED]',
+                            if hasattr(annotation_new.annotation, 'value'):
+                                annotation_new.annotation = str(annotation_new.annotation.value)
+
+                            temp = CodeChange(url + 'L' + str(annotation_old.line), str(commit_year), str(annotation_old.type), '[CHANGED]',
                                               str(patch.delta.old_file.path),
-                                              annotation_old.annotation,
+                                              str(annotation_old.annotation),
                                               str(annotation_old.line),
                                               str(patch.delta.new_file.path),
-                                              annotation_new.annotation,
+                                              str(annotation_new.annotation),
                                               str(annotation_new.line))
 
                             code_changes_new.append(temp)
@@ -1982,9 +1989,13 @@ def TypeAnnotationExtractionLast(repo_path, repo_name, commit, patch, url, stati
                 if flag_insert:
                     #print('[REMOVED]', annotation_old.type, annotation_old.annotation)
 
-                    temp = CodeChange(url + str(annotation_old.line), commit_year,annotation_old.type, '[REMOVED]',
+                    if hasattr(annotation_old.annotation, 'value'):
+                        annotation_old.annotation = str(annotation_old.annotation.value)
+
+
+                    temp = CodeChange(url + 'L' + str(annotation_old.line), str(commit_year), str(annotation_old.type), '[REMOVED]',
                                       str(patch.delta.old_file.path),
-                                      annotation_old.annotation,
+                                      str(annotation_old.annotation),
                                       str(annotation_old.line),
                                       ' ',
                                       ' ',
@@ -2017,12 +2028,15 @@ def TypeAnnotationExtractionLast(repo_path, repo_name, commit, patch, url, stati
             for remained in node_list_new:
                 if remained.line in range(hunk.new_start, hunk.new_start + hunk.new_lines):
                     #print('[INSERTED]', remained.type, remained.annotation)
-                    temp = CodeChange(url+ str(remained.line), commit_year, remained.type, '[INSERTED]',
+                    if hasattr(remained.annotation, 'value'):
+                        remained.annotation = str(remained.annotation.value)
+
+                    temp = CodeChange(url+ 'R' + str(remained.line), str(commit_year), str(remained.type), '[INSERTED]',
                                       ' ',
                                       ' ',
                                       ' ',
                                       str(patch.delta.new_file.path),
-                                      remained.annotation,
+                                      str(remained.annotation),
                                       str(remained.line))
 
                     code_changes_new.append(temp)
@@ -2050,7 +2064,7 @@ def TypeAnnotationExtractionLast(repo_path, repo_name, commit, patch, url, stati
         #print('ok', commit.hex, '\n\n')
 
     except Exception as e:
-        print('[Error changeExtraction]', repo_path, commit, str(e))
+        print('[Error changeExtraction]', repo_path, commit.hex, str(e))
 
     if len(line_type_annotation_added) > 0:
         # statistics.list_typeAnnotation_added_per_commit.append(type_annotation_added_this_commit)

@@ -116,8 +116,8 @@ def query_repo_get_changes(repo_name):  # statistics, pointer, dirlist_len):
             #    continue
             start = time.time()
             commit_year = time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(commit.commit_time))[:4]
-            #if int(commit_year) < 2015:
-             #   continue
+            #if int(commit_year) < 2020:
+            #    continue
 
             tot_line_inserted = 0
             tot_line_removed = 0
@@ -329,7 +329,7 @@ def query_repo_get_changes(repo_name):  # statistics, pointer, dirlist_len):
                     thread.join()
                 """
                     TypeAnnotationExtractionLast(config.ROOT_DIR + "/GitHub/", repo_name, commit, patch,
-                                                remote_url + '/commit/' + commit.hex + '#diff-' + diff.patchid.hex + 'L',
+                                                remote_url + '/commit/' + commit.hex + '#diff-' + diff.patchid.hex,
                                                 statistics,  # lock, logging,
                                                 at_least_one_type_change,
                                                 statistics.code_changes, typeannotation_line_inserted,
