@@ -1926,6 +1926,9 @@ def TypeAnnotationExtractionLast(repo_path, repo_name, commit, patch, url, stati
         #### TYPE Annotations                  ###############
         #########################################################################
 
+        #if commit.hex == 'a34b3d9d87fdfdf5695d8e4278277fd74374abcf':
+        #    print('a34b3d9d87fdfdf5695d8e4278277fd74374abcf')
+
         for hunk in patch.hunks:
             #result77 = hashlib.md5("main.py".encode('utf-8')).hexdigest()
             for annotation_old in node_list_old:
@@ -1939,52 +1942,53 @@ def TypeAnnotationExtractionLast(repo_path, repo_name, commit, patch, url, stati
                         continue
 
                     if annotation_old.type == annotation_new.type and annotation_old.variable == annotation_new.variable:
+
+                        #print('[CHANGED]', annotation_old.type, annotation_old.annotation, ' -> ',annotation_new.annotation)
+                        if hasattr(annotation_old.annotation, 'value'):
+                            annotation_old.annotation = str(annotation_old.annotation.value)
+
+                        if hasattr(annotation_new.annotation, 'value'):
+                            annotation_new.annotation = str(annotation_new.annotation.value)
+
                         if annotation_old.annotation == annotation_new.annotation:
                             del node_list_new[j]
                             flag_insert = False
                             break
+
+                        temp = CodeChange(url + 'L' + str(annotation_old.line), str(commit_year), str(annotation_old.type), '[CHANGED]',
+                                          str(patch.delta.old_file.path),
+                                          str(annotation_old.annotation),
+                                          str(annotation_old.line),
+                                          str(patch.delta.new_file.path),
+                                          str(annotation_new.annotation),
+                                          str(annotation_new.line))
+
+                        code_changes_new.append(temp)
+
+                        statistics.number_type_annotations_per_repo[repo_name] += 1
+                        statistics.total_typeAnnotation_codeChanges += 1
+                        statistics.modify_existing_types += 1
+
+                        line_type_annotation_changed.append(str(annotation_old.line))
+
+                        if (annotation_old.annotation + ' -> ' + annotation_new.annotation).lower() not in statistics.typeChanged_dict:
+                            statistics.typeChanged_dict[
+                                str(annotation_old.annotation + ' -> ' + annotation_new.annotation).lower()] = 1
                         else:
-                            #print('[CHANGED]', annotation_old.type, annotation_old.annotation, ' -> ',annotation_new.annotation)
-                            if hasattr(annotation_old.annotation, 'value'):
-                                annotation_old.annotation = str(annotation_old.annotation.value)
+                            statistics.typeChanged_dict[str(str(
+                                annotation_old.annotation + ' -> ' + annotation_new.annotation).lower()).lower()] += 1
+                        statistics.total_changed += 1
 
-                            if hasattr(annotation_new.annotation, 'value'):
-                                annotation_new.annotation = str(annotation_new.annotation.value)
+                        if annotation_old.type == 'return':
+                            statistics.functionReturnsType_changed += 1
+                        elif annotation_old.type == 'argument':
+                            statistics.functionArgsType_changed += 1
+                        elif annotation_old.type == 'variable':
+                            statistics.variableType_changed += 1
 
-                            temp = CodeChange(url + 'L' + str(annotation_old.line), str(commit_year), str(annotation_old.type), '[CHANGED]',
-                                              str(patch.delta.old_file.path),
-                                              str(annotation_old.annotation),
-                                              str(annotation_old.line),
-                                              str(patch.delta.new_file.path),
-                                              str(annotation_new.annotation),
-                                              str(annotation_new.line))
-
-                            code_changes_new.append(temp)
-
-                            statistics.number_type_annotations_per_repo[repo_name] += 1
-                            statistics.total_typeAnnotation_codeChanges += 1
-                            statistics.modify_existing_types += 1
-
-                            line_type_annotation_changed.append(str(annotation_old.line))
-
-                            if (annotation_old.annotation + ' -> ' + annotation_new.annotation).lower() not in statistics.typeChanged_dict:
-                                statistics.typeChanged_dict[
-                                    str(annotation_old.annotation + ' -> ' + annotation_new.annotation).lower()] = 1
-                            else:
-                                statistics.typeChanged_dict[str(str(
-                                    annotation_old.annotation + ' -> ' + annotation_new.annotation).lower()).lower()] += 1
-                            statistics.total_changed += 1
-
-                            if annotation_old.type == 'return':
-                                statistics.functionReturnsType_changed += 1
-                            elif annotation_old.type == 'argument':
-                                statistics.functionArgsType_changed += 1
-                            elif annotation_old.type == 'variable':
-                                statistics.variableType_changed += 1
-
-                            del node_list_new[j]
-                            flag_insert = False
-                            break
+                        del node_list_new[j]
+                        flag_insert = False
+                        break
 
                 if flag_insert:
                     #print('[REMOVED]', annotation_old.type, annotation_old.annotation)
