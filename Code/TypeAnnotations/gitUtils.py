@@ -14,26 +14,26 @@ from Code.TypeAnnotations.codeChangeExtraction import TypeAnnotationExtractionFi
 from Code.TypeAnnotations.codeStatistics import CodeStatistics
 
 
-def repo_cloning(filenameInput: str, pathOutput: str) -> None:
+def repo_cloning(filenameInput: str, pathOutput: str, count: int) -> None:
     with open(filenameInput) as fh:
         articles = json.load(fh)
 
     article_urls = [article['html_url'] for article in articles]
 
-    i = 0
+    #i = 0
     for link in article_urls:
-        i += 1
+        count[0] += 1
 
         # out = link.rsplit('/', 1)[-1].replace('.git', '')
         out = re.sub('https://github.com/', '', link).replace('/', '-')
 
         if os.path.isdir(pathOutput + '/' + out):
-            print(str(i) + ') Already cloned', link)
+            print(str(count) + ' Already cloned', link)
 
             continue
 
         else:
-            print(str(i) + ') Cloning ' + link)
+            print(str(count) + ' Cloning ' + link)
             try:
                 git.clone_repository(link, pathOutput + '/' + out)
             except Exception as e:

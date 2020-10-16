@@ -324,25 +324,28 @@ class CodeStatistics:
     # [RQ5]: Relation of properties of projects vs. properties of type changes
     # E.g., nb of stars/developers/overall commits vs. nb of added annotations
     def addRepo(self, name, n_commits, n_annotations):
-        input_file = open(config.REPO_LIST, 'r')
-        json_decode = json.load(input_file)
+        i = 0
+        while i < 10:
+            input_file = open(config.ROOT_DIR + "/Resources/Input/Top1000_Python201"+str(i)+"_Complete.json", 'r')
+            i+=1
+            json_decode = json.load(input_file)
 
-        for item in json_decode:
-            if item.get('full_name').replace('/', '-') == name:
-                self.number_type_annotations_per_repo[item.get('html_url')] = self.number_type_annotations_per_repo[
-                    name]
-                del self.number_type_annotations_per_repo[name]
+            for item in json_decode:
+                if item.get('full_name').replace('/', '-') == name:
+                    self.number_type_annotations_per_repo[item.get('html_url')] = self.number_type_annotations_per_repo[
+                        name]
+                    del self.number_type_annotations_per_repo[name]
 
-                if name in self.typeLastProjectVersion_dict:
-                    self.typeLastProjectVersion_dict[item.get('html_url')] = self.typeLastProjectVersion_dict[name]
-                    del self.typeLastProjectVersion_dict[name]
+                    if name in self.typeLastProjectVersion_dict:
+                        self.typeLastProjectVersion_dict[item.get('html_url')] = self.typeLastProjectVersion_dict[name]
+                        del self.typeLastProjectVersion_dict[name]
 
-                n_stars = item.get('stargazers_count')
+                    n_stars = item.get('stargazers_count')
 
-                self.matrix_commits_stars_annotations = \
-                    np.append(self.matrix_commits_stars_annotations,
-                              np.array([[n_commits, n_stars, n_annotations]]), axis=0)
-                break
+                    self.matrix_commits_stars_annotations = \
+                        np.append(self.matrix_commits_stars_annotations,
+                                  np.array([[n_commits, n_stars, n_annotations]]), axis=0)
+                    return
 
     def merge_results(self, process_statistics, code_changes, commit_statistics):
 

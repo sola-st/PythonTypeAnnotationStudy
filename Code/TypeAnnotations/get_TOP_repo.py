@@ -26,7 +26,7 @@ def get_TOP_repo():
 
     # GitHub APIs has the limit of 100 repositories per page
     while (i <= pages):
-        repo_stars_api = 'https://api.github.com/search/repositories?q=language:python&sort=stars&order=desc&per_page=100&page=' + str(i)
+        repo_stars_api = 'https://api.github.com/search/repositories?q=created:"2010-01-01..2010-12-31"language:python&sort=stars&order=desc&per_page=100&page=' + str(i)
         i += 1
 
         # get repos of api, return repos list
@@ -37,11 +37,11 @@ def get_TOP_repo():
         repos_list += repos_dict['items']
 
     # Repositories JSON with all information: stars, authors ...
-    write_in_json(os.path.dirname(os.path.abspath(__file__)) + "/Top" + str(100*pages) + "_Python_Complete.json",
+    write_in_json(os.path.dirname(os.path.abspath(__file__)) + "/Top" + str(100*pages) + "_Python2010_Complete.json",
                   repos_list)
 
     # Repositories JSON with only the link ...
-    with open(os.path.dirname(os.path.abspath(__file__)) + "/Top" + str(100*pages) + "_Python_Complete.json") as fh:
+    with open(os.path.dirname(os.path.abspath(__file__)) + "/Top" + str(100*pages) + "_Python2019_Complete.json") as fh:
         articles = json.load(fh)
 
     article_urls = [article['html_url'] for article in articles]

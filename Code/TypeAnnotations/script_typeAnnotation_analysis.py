@@ -2,16 +2,21 @@ import pstats
 import time
 import multiprocessing
 from Code.TypeAnnotations import gitUtils, lucaUtils
+from Code.TypeAnnotations.get_TOP_repo import get_TOP_repo
 from Code.TypeAnnotations.projectUtils import *
-from config import REPO_LIST
 import cProfile
 
 def typeAnnotation_analisis():
 
     #repo_cloning_csv(config.ROOT_DIR + "/GitHub")
 
+    #get_TOP_repo()
+
     if config.CLONING:
-        gitUtils.repo_cloning(REPO_LIST, config.ROOT_DIR + "/GitHub")
+        i = 0
+        j = [0]
+        while i < 10:
+            gitUtils.repo_cloning(config.ROOT_DIR + "/Resources/Input/Top1000_Python201"+str(i)+"_Complete.json", config.ROOT_DIR + "/GitHub", j)
 
     if config.STATISTICS_COMPUTATION:
 
@@ -29,7 +34,7 @@ def typeAnnotation_analisis():
             profile.enable()
 
             print("\nWorking on TEST CONFIGURATION")
-            process_statistics += gitUtils.query_repo_get_changes("httpie-httpie")
+            process_statistics += gitUtils.query_repo_get_changes("pythontest")
 
             profile.disable()
             ps = pstats.Stats(profile).sort_stats('cumulative')
