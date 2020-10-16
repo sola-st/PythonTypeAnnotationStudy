@@ -26,7 +26,7 @@ This question helps understand how type annotation-related code changes affect t
 _Type Annotations_:
 
 RQ1, RQ2 and RQ3 are computed simultaneously. 
-The script to start the computation is ./Code/script_typeAnnotation_analysis.py
+The script to start the computation is ./script_typeAnnotation_analysis.py
 Python files for this computation:
 * Code/TypeAnnotations/codeChange.py -> code change class
 * Code/TypeAnnotations/codeChangeExtraction.py -> Type Annotation analysis of a commit
