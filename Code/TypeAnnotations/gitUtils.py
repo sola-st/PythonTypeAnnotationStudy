@@ -91,8 +91,10 @@ def query_repo_get_changes(repo_name):  # statistics, pointer, dirlist_len):
         print("[Working]", repo_name)
     # lock.release()
 
-    type_annotation_in_last_version(repo_name, statistics)
-    #statistics.typeLastProjectVersion_total = 1
+    if not config.TEST:
+        type_annotation_in_last_version(repo_name, statistics)
+    else:
+        statistics.typeLastProjectVersion_total = 1
 
     try:
         repo = git.Repository(config.ROOT_DIR + "/GitHub/" + repo_name)
@@ -112,8 +114,8 @@ def query_repo_get_changes(repo_name):  # statistics, pointer, dirlist_len):
         # Go through each commit starting from the most recent commit
         for commit in repo.walk(last_commit, GIT_SORT_TOPOLOGICAL | GIT_SORT_REVERSE):
             # print(str(commit.hex))
-            #if commit.hex != 'a34b3d9d87fdfdf5695d8e4278277fd74374abcf':  # 6e1a31c3dfc4c574d8bbd61f768e35a2edd9b378
-            #    continue
+            if commit.hex != 'b947d4826a3ee7a39992c9f88a433156c154507b':  # 6e1a31c3dfc4c574d8bbd61f768e35a2edd9b378
+                continue
             start = time.time()
             commit_year = time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(commit.commit_time))[:4]
             if int(commit_year) < 2015:
@@ -191,7 +193,7 @@ def query_repo_get_changes(repo_name):  # statistics, pointer, dirlist_len):
                             if added_per_commit_percentage <= 100:
                                 statistics.list_typeAnnotation_changed_per_commit.append(added_per_commit_percentage)
                             else:
-                                print(repo_name, commit_year, str(commit.hex))
+                                print(">100%", repo_name, commit_year, str(commit.hex))
                             # lock.release()
                     except:
                         pass
@@ -208,7 +210,7 @@ def query_repo_get_changes(repo_name):  # statistics, pointer, dirlist_len):
                             if removed_per_commit_percentage <= 100:
                                 statistics.list_typeAnnotation_changed_per_commit.append(removed_per_commit_percentage)
                             else:
-                                print(repo_name, commit_year, str(commit.hex))
+                                print(">100%",repo_name, commit_year, str(commit.hex))
 
                             # lock.release()
                     except:
@@ -223,7 +225,7 @@ def query_repo_get_changes(repo_name):  # statistics, pointer, dirlist_len):
                             if changed_per_commit_percentage <= 100:
                                 statistics.list_typeAnnotation_changed_per_commit.append(changed_per_commit_percentage)
                             else:
-                                print(repo_name, commit_year, str(commit.hex))
+                                print(">100%",repo_name, commit_year, str(commit.hex))
                             # lock.release()
                     except:
                         pass
