@@ -10,7 +10,7 @@ from pygit2 import GIT_SORT_TOPOLOGICAL, GIT_SORT_REVERSE
 import config
 from Code.TypeAnnotations.codeChange import CommitStatistics
 from Code.TypeAnnotations.codeChangeExtraction import TypeAnnotationExtractionFirstCommit, TypeAnnotationExtractionNew, \
-    TypeAnnotationExtractionLast
+    TypeAnnotationExtractionLast, type_annotation_in_last_version
 from Code.TypeAnnotations.codeStatistics import CodeStatistics
 
 
@@ -91,8 +91,8 @@ def query_repo_get_changes(repo_name):  # statistics, pointer, dirlist_len):
         print("[Working]", repo_name)
     # lock.release()
 
-    # type_annotation_in_last_version(repo_name, statistics)
-    statistics.typeLastProjectVersion_total = 1
+    type_annotation_in_last_version(repo_name, statistics)
+    #statistics.typeLastProjectVersion_total = 1
 
     try:
         repo = git.Repository(config.ROOT_DIR + "/GitHub/" + repo_name)
@@ -116,8 +116,8 @@ def query_repo_get_changes(repo_name):  # statistics, pointer, dirlist_len):
             #    continue
             start = time.time()
             commit_year = time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(commit.commit_time))[:4]
-            #if int(commit_year) != 2019:
-            #    continue
+            if int(commit_year) < 2015:
+                continue
 
             tot_line_inserted = 0
             tot_line_removed = 0
@@ -310,9 +310,13 @@ def query_repo_get_changes(repo_name):  # statistics, pointer, dirlist_len):
 
                 # threads: list = []
                 for patch in diff:
-                    if str(patch.delta.old_file.path)[-3:] != file_extension or \
-                            str(patch.delta.new_file.path)[-3:] != file_extension:
-                        continue
+                    try:
+                        if str(patch.delta.old_file.path)[-3:] != file_extension or \
+                                str(patch.delta.new_file.path)[-3:] != file_extension:
+                            continue
+                    except Exception as e:
+                        return
+
                     """
                     thread = threading.Thread(target=TypeAnnotationExtraction,
                                               args=(config.ROOT_DIR + "/GitHub/", repo_name, commit, patch,
