@@ -515,6 +515,7 @@ def extract_from_snippet_new_new_new(string_old, string_new):
                                                                                variable.annotation.annotation.value.value + brackets,
                                                                                pos.start.line)
                                             node_list_old.append(annotation_node)
+                                            brackets = ""
                                         else:
                                             # print('[VAR2] ', variable.annotation.annotation.value, '->', pos)
                                             annotation_node = SingleDiffChange('variable', 'new', variable.target.value,
@@ -596,6 +597,7 @@ def extract_from_snippet_new_new_new(string_old, string_new):
                                                                                variable.annotation.annotation.value.value + brackets,
                                                                                pos.start.line)
                                             node_list_new.append(annotation_node)
+                                            brackets = ""
                                         else:
                                             # print('[VAR2] ', variable.annotation.annotation.value, '->', pos)
                                             annotation_node = SingleDiffChange('variable', 'new', variable.target.value,
@@ -604,6 +606,213 @@ def extract_from_snippet_new_new_new(string_old, string_new):
                                             node_list_new.append(annotation_node)
 
     return node_list_old, node_list_new
+
+
+def extract_from_snippet_new_new_new_new(string_old, string_new):
+    # if len(string_old) == 0:
+    #   return {}, {}, {}
+
+    # string_old = "from typing import Any\n" + "def process_something(arguments: Any, func:int, f2:str, fooo)-> int:\n " \
+    #                                          "  pass\nx:List[int] = []\ny:List[int] = []\nx = 0 "
+
+    # string_new = "from typing import Any\n" + "def process_something(arguments: Any, func, f2:float, fooo: " \
+    #                                         "complex):\n   pass\nx = []\ny:Tuple[int] = []\nx:float = 0 "
+
+    node_list_new = []
+    node_list_old = []
+
+    annotation_list_new = []
+    annotation_list_old = []
+
+    brackets = ""
+
+    if not ("fatal: Path" in str(string_old) and "does not exist in" in str(string_old)):
+        ast_old = cst.parse_module(string_old)
+        wrapper_old = cst.metadata.MetadataWrapper(ast_old)
+        positions_old = wrapper_old.resolve(PositionProvider)
+
+        # For the old file
+        for node, pos in positions_old.items():
+            if 'Param' in type(node).__name__:
+                if hasattr(node, 'annotation'):
+                    if hasattr(node.annotation, 'annotation'):
+                        if hasattr(node.annotation.annotation, 'value'):
+                            if hasattr(node.annotation.annotation.value, 'value'):
+                                if node.annotation.annotation.value.value.lower() in ['list', 'tuple',
+                                                                                      'range']:
+                                    brackets = collection_type_annotation_recursive(
+                                        node.annotation.annotation.slice).replace("][", ",")
+
+                                # print('[ARG] ', parameter.annotation.annotation.value.value, '->', pos)
+                                annotation_node = SingleDiffChange('argument', 'new', node.name.value,
+                                                                   node.annotation.annotation.value.value + brackets,
+                                                                   pos.start.line)
+                                node_list_old.append(annotation_node)
+                                brackets = ""
+                            else:
+                                # print('[ARG2] ', parameter.annotation.annotation.value, '->', pos)
+                                annotation_node = SingleDiffChange('argument', 'new', node.name.value,
+                                                                   node.annotation.annotation.value,
+                                                                   pos.start.line)
+                                node_list_old.append(annotation_node)
+
+
+            # Return annotation, es. def foo() -> str:
+            elif 'Annotation' in type(node).__name__:
+                if hasattr(node, 'annotation'):
+                    if hasattr(node.annotation, 'value'):
+                        if hasattr(node.annotation.value, 'value'):
+                            if node.annotation.value.value.lower() in ['list', 'tuple',
+                                                                               'range']:
+                                brackets = collection_type_annotation_recursive(
+                                    node.annotation.slice).replace("][", ",")
+
+                        # print('[RETURN] ', node.returns.annotation.value, '->', pos)
+                        if hasattr(node.annotation.value, 'value') and 'Name' in type(
+                                node.annotation.value).__name__:
+                            annotation_node = SingleDiffChange('return', 'old', "",
+                                                               node.annotation.value.value + brackets,
+                                                               pos.start.line)
+                        else:
+                            annotation_node = SingleDiffChange('return', 'old', "",
+                                                               node.annotation.value + brackets,
+                                                               pos.start.line)
+
+                        annotation_list_old.append(annotation_node)
+                        brackets = ""
+
+            # Variable Annotation, es. x:int = 5
+            else:
+                if 'SimpleStatementLine' in type(node).__name__:
+                    if hasattr(node, 'body'):
+                        for variable in node.body:
+                            if hasattr(variable, 'annotation'):
+                                if hasattr(variable.annotation, 'annotation'):
+                                    if hasattr(variable.annotation.annotation, 'value'):
+                                        if hasattr(variable.annotation.annotation.value, 'value'):
+                                            if variable.annotation.annotation.value.value.lower() in ['list', 'tuple',
+                                                                                                      'range']:
+                                                brackets = collection_type_annotation_recursive(
+                                                    variable.annotation.annotation.slice).replace("][", ",")
+
+                                            # print('[VAR] ', variable.annotation.annotation.value.value, '->', pos)
+                                            annotation_node = SingleDiffChange('variable', 'new', variable.target.value,
+                                                                               variable.annotation.annotation.value.value + brackets,
+                                                                               pos.start.line)
+                                            node_list_old.append(annotation_node)
+                                            brackets = ""
+                                        else:
+                                            # print('[VAR2] ', variable.annotation.annotation.value, '->', pos)
+                                            annotation_node = SingleDiffChange('variable', 'new', variable.target.value,
+                                                                               variable.annotation.annotation.value,
+                                                                               pos.start.line)
+                                            node_list_old.append(annotation_node)
+
+    # For the new file
+    if not ("fatal: Path" in str(string_new) and "does not exist in" in str(string_new)):
+        ast_new = cst.parse_module(string_new)
+        wrapper_new = cst.metadata.MetadataWrapper(ast_new)
+        positions_new = wrapper_new.resolve(PositionProvider)
+
+        for node, pos in positions_new.items():
+            if 'Param' in type(node).__name__:
+                if hasattr(node, 'annotation'):
+                    if hasattr(node.annotation, 'annotation'):
+                        if hasattr(node.annotation.annotation, 'value'):
+                            if hasattr(node.annotation.annotation.value, 'value'):
+                                if node.annotation.annotation.value.value.lower() in ['list', 'tuple',
+                                                                                      'range']:
+                                    brackets = collection_type_annotation_recursive(
+                                        node.annotation.annotation.slice).replace("][", ",")
+
+                                # print('[ARG] ', parameter.annotation.annotation.value.value, '->', pos)
+                                annotation_node = SingleDiffChange('argument', 'new', node.name.value,
+                                                                   node.annotation.annotation.value.value + brackets,
+                                                                   pos.start.line)
+                                node_list_new.append(annotation_node)
+                                brackets = ""
+                            else:
+                                # print('[ARG2] ', parameter.annotation.annotation.value, '->', pos)
+                                annotation_node = SingleDiffChange('argument', 'new', node.name.value,
+                                                                   node.annotation.annotation.value,
+                                                                   pos.start.line)
+                                node_list_new.append(annotation_node)
+
+            # Return annotation, es. def foo() -> str:
+            elif 'Annotation' in type(node).__name__:
+                if hasattr(node, 'annotation'):
+                    if hasattr(node.annotation, 'value'):
+                        if hasattr(node.annotation.value, 'value'):
+                            if node.annotation.value.value.lower() in ['list', 'tuple',
+                                                                               'range']:
+                                brackets = collection_type_annotation_recursive(
+                                    node.annotation.slice).replace("][", ",")
+
+                        # print('[RETURN] ', node.returns.annotation.value, '->', pos)
+                        if hasattr(node.annotation.value, 'value') and 'Name' in type(
+                                node.annotation.value).__name__:
+                            annotation_node = SingleDiffChange('return', 'new', "",
+                                                               node.annotation.value.value + brackets,
+                                                               pos.start.line)
+                        else:
+                            annotation_node = SingleDiffChange('return', 'new', "",
+                                                               node.annotation.value + brackets,
+                                                               pos.start.line)
+
+                        annotation_list_new.append(annotation_node)
+                        brackets = ""
+
+            # Variable Annotation, es. x:int = 5
+            else:
+                if 'SimpleStatementLine' in type(node).__name__:
+                    if hasattr(node, 'body'):
+                        for variable in node.body:
+                            if hasattr(variable, 'annotation'):
+                                if hasattr(variable.annotation, 'annotation'):
+                                    if hasattr(variable.annotation.annotation, 'value'):
+                                        if hasattr(variable.annotation.annotation.value, 'value'):
+                                            if variable.annotation.annotation.value.value.lower() in ['list', 'tuple',
+                                                                                                      'range']:
+                                                brackets = collection_type_annotation_recursive(
+                                                    variable.annotation.annotation.slice).replace("][", ",")
+
+                                            # print('[VAR] ', variable.annotation.annotation.value.value, '->', pos)
+                                            annotation_node = SingleDiffChange('variable', 'new', variable.target.value,
+                                                                               variable.annotation.annotation.value.value + brackets,
+                                                                               pos.start.line)
+                                            node_list_new.append(annotation_node)
+                                            brackets = ""
+                                        else:
+                                            # print('[VAR2] ', variable.annotation.annotation.value, '->', pos)
+                                            annotation_node = SingleDiffChange('variable', 'new', variable.target.value,
+                                                                               variable.annotation.annotation.value,
+                                                                               pos.start.line)
+                                            node_list_new.append(annotation_node)
+
+    size_old = len(annotation_list_old)
+    size_new = len(annotation_list_new)
+
+    for node in node_list_old:
+        j = -1
+        for node_return in annotation_list_old:
+            j += 1
+            if node.annotation == node_return.annotation and node.line == node_return.line:
+                del annotation_list_old[j]
+                break
+
+    for node in node_list_new:
+        j = -1
+        for node_return in annotation_list_new:
+            j += 1
+            if node.annotation == node_return.annotation and node.line == node_return.line:
+                del annotation_list_new[j]
+                break
+
+    if size_old == (len(node_list_old) + len(annotation_list_old)) and size_new == (len(node_list_new) + len(annotation_list_new)):
+        return node_list_old + annotation_list_old, node_list_new + annotation_list_new
+    else:
+        return extract_from_snippet_new_new_new(string_old, string_new)
+
 
 
 def collection_type_annotation_recursive(slice) -> str:
@@ -2294,7 +2503,7 @@ def TypeAnnotationExtractionLast(repo_path, repo_name, commit, patch, url, stati
 
     try:
         print(url)
-        node_list_old, node_list_new = extract_from_snippet_new_new_new(
+        node_list_old, node_list_new = extract_from_snippet_new_new_new_new(
             str(old_stdout.decode('utf-8-sig')),
             str(new_stdout.decode('utf-8-sig')))
     except Exception as e:
