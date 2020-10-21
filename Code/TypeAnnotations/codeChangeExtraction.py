@@ -200,7 +200,8 @@ def extract_from_snippet_new_new(string_old, string_new):
                                         else:
                                             # print('[ARG2] ', parameter.annotation.annotation.value, '->', pos)
                                             if hasattr(parameter.annotation.annotation, 'value'):
-                                                annotation_node = SingleDiffChange('argument', 'old', parameter.name.value,
+                                                annotation_node = SingleDiffChange('argument', 'old',
+                                                                                   parameter.name.value,
                                                                                    parameter.annotation.annotation.value,
                                                                                    pos.start.line)
                                                 node_list_old.append(annotation_node)
@@ -252,7 +253,7 @@ def extract_from_snippet_new_new(string_old, string_new):
                                     if hasattr(variable.annotation.annotation, 'value'):
                                         if hasattr(variable.annotation.annotation.value, 'value'):
                                             if variable.annotation.annotation.value.value.lower() in ['list', 'tuple',
-                                                                                                       'range']:
+                                                                                                      'range']:
                                                 brackets = "["
                                                 for child_type in variable.annotation.annotation.children:
                                                     if 'SubscriptElement' in type(child_type).__name__:
@@ -280,7 +281,8 @@ def extract_from_snippet_new_new(string_old, string_new):
                                         else:
                                             # print('[VAR2] ', variable.annotation.annotation.value, '->', pos)
                                             if hasattr(variable.annotation.annotation, 'value'):
-                                                annotation_node = SingleDiffChange('variable', 'old', variable.target.value,
+                                                annotation_node = SingleDiffChange('variable', 'old',
+                                                                                   variable.target.value,
                                                                                    variable.annotation.annotation.value,
                                                                                    pos.start.line)
                                                 node_list_old.append(annotation_node)
@@ -312,7 +314,8 @@ def extract_from_snippet_new_new(string_old, string_new):
 
                                                             if hasattr(child_annotation, 'value'):
                                                                 if hasattr(child_annotation.value, 'value'):
-                                                                    if 'Name' in type(child_annotation.value.value).__name__:
+                                                                    if 'Name' in type(
+                                                                            child_annotation.value.value).__name__:
                                                                         brackets += child_annotation.value.value.value
                                                                     else:
                                                                         brackets += child_annotation.value.value
@@ -346,7 +349,7 @@ def extract_from_snippet_new_new(string_old, string_new):
                                         temp_type_check = temp_type_check.value
 
                                     if node.returns.annotation.value.value.lower() in ['list', 'tuple',
-                                                                                               'range']:
+                                                                                       'range']:
                                         brackets = "["
                                         for child_type in node.returns.annotation.children:
                                             if 'SubscriptElement' in type(child_type).__name__:
@@ -367,9 +370,11 @@ def extract_from_snippet_new_new(string_old, string_new):
                                         brackets += ']'
 
                                 # print('[RETURN] ', node.returns.annotation.value, '->', pos)
-                                if hasattr(node.returns.annotation.value, 'value')  and 'Name' in type(node.returns.annotation.value).__name__:
+                                if hasattr(node.returns.annotation.value, 'value') and 'Name' in type(
+                                        node.returns.annotation.value).__name__:
                                     annotation_node = SingleDiffChange('return', 'new', node.name.value,
-                                                                       node.returns.annotation.value.value + brackets, pos.start.line)
+                                                                       node.returns.annotation.value.value + brackets,
+                                                                       pos.start.line)
                                 else:
                                     annotation_node = SingleDiffChange('return', 'new', node.name.value,
                                                                        node.returns.annotation.value + brackets,
@@ -385,7 +390,7 @@ def extract_from_snippet_new_new(string_old, string_new):
                                     if hasattr(variable.annotation.annotation, 'value'):
                                         if hasattr(variable.annotation.annotation.value, 'value'):
                                             if variable.annotation.annotation.value.value.lower() in ['list', 'tuple',
-                                                                                                       'range']:
+                                                                                                      'range']:
                                                 brackets = "["
                                                 for child_type in variable.annotation.annotation.children:
                                                     if 'SubscriptElement' in type(child_type).__name__:
@@ -418,6 +423,222 @@ def extract_from_snippet_new_new(string_old, string_new):
                                             node_list_new.append(annotation_node)
 
     return node_list_old, node_list_new
+
+
+def extract_from_snippet_new_new_new(string_old, string_new):
+    # if len(string_old) == 0:
+    #   return {}, {}, {}
+
+    # string_old = "from typing import Any\n" + "def process_something(arguments: Any, func:int, f2:str, fooo)-> int:\n " \
+    #                                          "  pass\nx:List[int] = []\ny:List[int] = []\nx = 0 "
+
+    # string_new = "from typing import Any\n" + "def process_something(arguments: Any, func, f2:float, fooo: " \
+    #                                         "complex):\n   pass\nx = []\ny:Tuple[int] = []\nx:float = 0 "
+
+    node_list_new = []
+    node_list_old = []
+
+    brackets = ""
+
+    if not ("fatal: Path" in str(string_old) and "does not exist in" in str(string_old)):
+        ast_old = cst.parse_module(string_old)
+        wrapper_old = cst.metadata.MetadataWrapper(ast_old)
+        positions_old = wrapper_old.resolve(PositionProvider)
+
+        # For the old file
+        for node, pos in positions_old.items():
+            if 'Param' in type(node).__name__:
+                if hasattr(node, 'annotation'):
+                    if hasattr(node.annotation, 'annotation'):
+                        if hasattr(node.annotation.annotation, 'value'):
+                            if hasattr(node.annotation.annotation.value, 'value'):
+                                if node.annotation.annotation.value.value.lower() in ['list', 'tuple',
+                                                                                      'range']:
+                                    brackets = collection_type_annotation_recursive(
+                                        node.annotation.annotation.slice).replace("][", ",")
+
+                                # print('[ARG] ', parameter.annotation.annotation.value.value, '->', pos)
+                                annotation_node = SingleDiffChange('argument', 'new', node.name.value,
+                                                                   node.annotation.annotation.value.value + brackets,
+                                                                   pos.start.line)
+                                node_list_old.append(annotation_node)
+                                brackets = ""
+                            else:
+                                # print('[ARG2] ', parameter.annotation.annotation.value, '->', pos)
+                                annotation_node = SingleDiffChange('argument', 'new', node.name.value,
+                                                                   node.annotation.annotation.value,
+                                                                   pos.start.line)
+                                node_list_old.append(annotation_node)
+
+
+            # Return annotation, es. def foo() -> str:
+            elif 'FunctionDef' in type(node).__name__:
+                if hasattr(node, 'returns'):
+                    if hasattr(node.returns, 'annotation'):
+                        if hasattr(node.returns.annotation, 'value'):
+                            if hasattr(node.returns.annotation.value, 'value'):
+                                if node.returns.annotation.value.value.lower() in ['list', 'tuple',
+                                                                                   'range']:
+                                    brackets = collection_type_annotation_recursive(
+                                        node.returns.annotation.slice).replace("][", ",")
+
+                            # print('[RETURN] ', node.returns.annotation.value, '->', pos)
+                            if hasattr(node.returns.annotation.value, 'value') and 'Name' in type(
+                                    node.returns.annotation.value).__name__:
+                                annotation_node = SingleDiffChange('return', 'new', node.name.value,
+                                                                   node.returns.annotation.value.value + brackets,
+                                                                   pos.start.line)
+                            else:
+                                annotation_node = SingleDiffChange('return', 'new', node.name.value,
+                                                                   node.returns.annotation.value + brackets,
+                                                                   pos.start.line)
+
+                            node_list_old.append(annotation_node)
+                            brackets = ""
+
+            # Variable Annotation, es. x:int = 5
+            else:
+                if 'SimpleStatementLine' in type(node).__name__:
+                    if hasattr(node, 'body'):
+                        for variable in node.body:
+                            if hasattr(variable, 'annotation'):
+                                if hasattr(variable.annotation, 'annotation'):
+                                    if hasattr(variable.annotation.annotation, 'value'):
+                                        if hasattr(variable.annotation.annotation.value, 'value'):
+                                            if variable.annotation.annotation.value.value.lower() in ['list', 'tuple',
+                                                                                                      'range']:
+                                                brackets = collection_type_annotation_recursive(
+                                                    variable.annotation.annotation.slice).replace("][", ",")
+
+                                            # print('[VAR] ', variable.annotation.annotation.value.value, '->', pos)
+                                            annotation_node = SingleDiffChange('variable', 'new', variable.target.value,
+                                                                               variable.annotation.annotation.value.value + brackets,
+                                                                               pos.start.line)
+                                            node_list_old.append(annotation_node)
+                                        else:
+                                            # print('[VAR2] ', variable.annotation.annotation.value, '->', pos)
+                                            annotation_node = SingleDiffChange('variable', 'new', variable.target.value,
+                                                                               variable.annotation.annotation.value,
+                                                                               pos.start.line)
+                                            node_list_old.append(annotation_node)
+
+    # For the new file
+    if not ("fatal: Path" in str(string_new) and "does not exist in" in str(string_new)):
+        ast_new = cst.parse_module(string_new)
+        wrapper_new = cst.metadata.MetadataWrapper(ast_new)
+        positions_new = wrapper_new.resolve(PositionProvider)
+
+        for node, pos in positions_new.items():
+            if 'Param' in type(node).__name__:
+                if hasattr(node, 'annotation'):
+                    if hasattr(node.annotation, 'annotation'):
+                        if hasattr(node.annotation.annotation, 'value'):
+                            if hasattr(node.annotation.annotation.value, 'value'):
+                                if node.annotation.annotation.value.value.lower() in ['list', 'tuple',
+                                                                                      'range']:
+                                    brackets = collection_type_annotation_recursive(
+                                        node.annotation.annotation.slice).replace("][", ",")
+
+                                # print('[ARG] ', parameter.annotation.annotation.value.value, '->', pos)
+                                annotation_node = SingleDiffChange('argument', 'new', node.name.value,
+                                                                   node.annotation.annotation.value.value + brackets,
+                                                                   pos.start.line)
+                                node_list_new.append(annotation_node)
+                                brackets = ""
+                            else:
+                                # print('[ARG2] ', parameter.annotation.annotation.value, '->', pos)
+                                annotation_node = SingleDiffChange('argument', 'new', node.name.value,
+                                                                   node.annotation.annotation.value,
+                                                                   pos.start.line)
+                                node_list_new.append(annotation_node)
+
+            # Return annotation, es. def foo() -> str:
+            elif 'FunctionDef' in type(node).__name__:
+                if hasattr(node, 'returns'):
+                    if hasattr(node.returns, 'annotation'):
+                        if hasattr(node.returns.annotation, 'value'):
+                            if hasattr(node.returns.annotation.value, 'value'):
+                                if node.returns.annotation.value.value.lower() in ['list', 'tuple',
+                                                                                   'range']:
+                                    brackets = collection_type_annotation_recursive(
+                                        node.returns.annotation.slice).replace("][", ",")
+
+                            # print('[RETURN] ', node.returns.annotation.value, '->', pos)
+                            if hasattr(node.returns.annotation.value, 'value') and 'Name' in type(
+                                    node.returns.annotation.value).__name__:
+                                annotation_node = SingleDiffChange('return', 'new', node.name.value,
+                                                                   node.returns.annotation.value.value + brackets,
+                                                                   pos.start.line)
+                            else:
+                                annotation_node = SingleDiffChange('return', 'new', node.name.value,
+                                                                   node.returns.annotation.value + brackets,
+                                                                   pos.start.line)
+
+                            node_list_new.append(annotation_node)
+                            brackets = ""
+
+            # Variable Annotation, es. x:int = 5
+            else:
+                if 'SimpleStatementLine' in type(node).__name__:
+                    if hasattr(node, 'body'):
+                        for variable in node.body:
+                            if hasattr(variable, 'annotation'):
+                                if hasattr(variable.annotation, 'annotation'):
+                                    if hasattr(variable.annotation.annotation, 'value'):
+                                        if hasattr(variable.annotation.annotation.value, 'value'):
+                                            if variable.annotation.annotation.value.value.lower() in ['list', 'tuple',
+                                                                                                      'range']:
+                                                brackets = collection_type_annotation_recursive(
+                                                    variable.annotation.annotation.slice).replace("][", ",")
+
+                                            # print('[VAR] ', variable.annotation.annotation.value.value, '->', pos)
+                                            annotation_node = SingleDiffChange('variable', 'new', variable.target.value,
+                                                                               variable.annotation.annotation.value.value + brackets,
+                                                                               pos.start.line)
+                                            node_list_new.append(annotation_node)
+                                        else:
+                                            # print('[VAR2] ', variable.annotation.annotation.value, '->', pos)
+                                            annotation_node = SingleDiffChange('variable', 'new', variable.target.value,
+                                                                               variable.annotation.annotation.value,
+                                                                               pos.start.line)
+                                            node_list_new.append(annotation_node)
+
+    return node_list_old, node_list_new
+
+
+def collection_type_annotation_recursive(slice) -> str:
+    type_ann: str = ""
+
+    if "tuple" in type(slice).__name__:
+        for child in slice:
+            if hasattr(child, 'value'):
+                if hasattr(child.value, 'slice'):
+                    type_ann += collection_type_annotation_recursive(child.value.slice)
+                elif hasattr(child.value, 'value'):
+                    return " " + child.value.value
+            else:
+                if hasattr(child, 'slice'):
+                    type_ann += collection_type_annotation_recursive(child.slice)
+                elif hasattr(child, 'value'):
+                    if hasattr(child.value, 'slice'):
+                        type_ann += collection_type_annotation_recursive(child.value.slice)
+                elif hasattr(child.value, 'value'):
+                    return " " + child.value.value
+    else:
+        if hasattr(slice, 'slice'):
+            type_ann += collection_type_annotation_recursive(slice.slice)
+        elif hasattr(slice, 'value'):
+            if hasattr(slice.value, 'slice'):
+                type_ann += collection_type_annotation_recursive(slice.value.slice)
+            if hasattr(slice.value, 'value'):
+                if hasattr(slice.value.value, 'value'):
+                    return "[" + slice.value.value.value + type_ann + "]"
+                else:
+                    return "[" + slice.value.value + type_ann + "]"
+            else:
+                return "[" + "..." + type_ann + "]"
+
+    return " " + type_ann
 
 
 def extract_from_file(file_path: str):
@@ -2050,7 +2271,8 @@ def TypeAnnotationExtractionNew(repo_path, repo_name, commit, patch, url, statis
 def TypeAnnotationExtractionLast(repo_path, repo_name, commit, patch, url, statistics,  # lock, logging,
                                  at_least_one_type_change, code_changes,
                                  typeannotation_line_inserted, typeannotation_line_removed, typeannotation_line_changed,
-                                 list_line_added, list_line_removed, commit_year):
+                                 list_line_added, list_line_removed,
+                                 commit_year):
     code_changes_new = []
 
     line_type_annotation_added = []
@@ -2071,11 +2293,12 @@ def TypeAnnotationExtractionLast(repo_path, repo_name, commit, patch, url, stati
     new_stdout, new_stderr = new_out.communicate()
 
     try:
-        node_list_old, node_list_new = extract_from_snippet_new_new(
+        print(url)
+        node_list_old, node_list_new = extract_from_snippet_new_new_new(
             str(old_stdout.decode('utf-8-sig')),
             str(new_stdout.decode('utf-8-sig')))
     except Exception as e:
-        print(str(e), repo_path, commit.hex, str(e))
+        print(str(e), repo_path, commit.hex)
         return
 
     try:
@@ -2084,11 +2307,11 @@ def TypeAnnotationExtractionLast(repo_path, repo_name, commit, patch, url, stati
         #### TYPE Annotations                  ###############
         #########################################################################
 
-        #if commit.hex == 'a34b3d9d87fdfdf5695d8e4278277fd74374abcf':
+        # if commit.hex == 'a34b3d9d87fdfdf5695d8e4278277fd74374abcf':
         #    print('a34b3d9d87fdfdf5695d8e4278277fd74374abcf')
 
         for hunk in patch.hunks:
-            #result77 = hashlib.md5("main.py".encode('utf-8')).hexdigest()
+            # result77 = hashlib.md5("main.py".encode('utf-8')).hexdigest()
             for annotation_old in node_list_old:
                 if annotation_old.line not in range(hunk.old_start, hunk.old_start + hunk.old_lines):
                     continue
@@ -2101,7 +2324,7 @@ def TypeAnnotationExtractionLast(repo_path, repo_name, commit, patch, url, stati
 
                     if annotation_old.type == annotation_new.type and annotation_old.variable == annotation_new.variable:
 
-                        #print('[CHANGED]', annotation_old.type, annotation_old.annotation, ' -> ',annotation_new.annotation)
+                        # print('[CHANGED]', annotation_old.type, annotation_old.annotation, ' -> ',annotation_new.annotation)
                         if hasattr(annotation_old.annotation, 'value'):
                             annotation_old.annotation = str(annotation_old.annotation.value)
 
@@ -2113,7 +2336,8 @@ def TypeAnnotationExtractionLast(repo_path, repo_name, commit, patch, url, stati
                             flag_insert = False
                             break
 
-                        temp = CodeChange(url + 'L' + str(annotation_old.line), str(commit_year), str(annotation_old.type), '[CHANGED]',
+                        temp = CodeChange(url + 'L' + str(annotation_old.line), str(commit_year),
+                                          str(annotation_old.type), '[CHANGED]',
                                           str(patch.delta.old_file.path),
                                           str(annotation_old.annotation),
                                           str(annotation_old.line),
@@ -2129,7 +2353,8 @@ def TypeAnnotationExtractionLast(repo_path, repo_name, commit, patch, url, stati
 
                         line_type_annotation_changed.append(str(annotation_old.line))
 
-                        if (annotation_old.annotation + ' -> ' + annotation_new.annotation).lower() not in statistics.typeChanged_dict:
+                        if (
+                                annotation_old.annotation + ' -> ' + annotation_new.annotation).lower() not in statistics.typeChanged_dict:
                             statistics.typeChanged_dict[
                                 str(annotation_old.annotation + ' -> ' + annotation_new.annotation).lower()] = 1
                         else:
@@ -2149,13 +2374,13 @@ def TypeAnnotationExtractionLast(repo_path, repo_name, commit, patch, url, stati
                         break
 
                 if flag_insert:
-                    #print('[REMOVED]', annotation_old.type, annotation_old.annotation)
+                    # print('[REMOVED]', annotation_old.type, annotation_old.annotation)
 
                     if hasattr(annotation_old.annotation, 'value'):
                         annotation_old.annotation = str(annotation_old.annotation.value)
 
-
-                    temp = CodeChange(url + 'L' + str(annotation_old.line), str(commit_year), str(annotation_old.type), '[REMOVED]',
+                    temp = CodeChange(url + 'L' + str(annotation_old.line), str(commit_year), str(annotation_old.type),
+                                      '[REMOVED]',
                                       str(patch.delta.old_file.path),
                                       str(annotation_old.annotation),
                                       str(annotation_old.line),
@@ -2189,11 +2414,12 @@ def TypeAnnotationExtractionLast(repo_path, repo_name, commit, patch, url, stati
 
             for remained in node_list_new:
                 if remained.line in range(hunk.new_start, hunk.new_start + hunk.new_lines):
-                    #print('[INSERTED]', remained.type, remained.annotation)
+                    # print('[INSERTED]', remained.type, remained.annotation)
                     if hasattr(remained.annotation, 'value'):
                         remained.annotation = str(remained.annotation.value)
 
-                    temp = CodeChange(url+ 'R' + str(remained.line), str(commit_year), str(remained.type), '[INSERTED]',
+                    temp = CodeChange(url + 'R' + str(remained.line), str(commit_year), str(remained.type),
+                                      '[INSERTED]',
                                       ' ',
                                       ' ',
                                       ' ',
@@ -2223,7 +2449,7 @@ def TypeAnnotationExtractionLast(repo_path, repo_name, commit, patch, url, stati
                     elif remained.type == 'variable':
                         statistics.variableType_added += 1
 
-        #print('ok', commit.hex, '\n\n')
+        # print('ok', commit.hex, '\n\n')
 
     except Exception as e:
         print('[Error changeExtraction]', repo_path, commit.hex, str(e))
@@ -2254,7 +2480,6 @@ def TypeAnnotationExtractionLast(repo_path, repo_name, commit, patch, url, stati
         at_least_one_type_change[0] += 1
 
         code_changes += code_changes_new
-
 
 
 def TypeAnnotationExtractionLastold(repo_path, repo_name, commit, patch, url, statistics,  # lock, logging,

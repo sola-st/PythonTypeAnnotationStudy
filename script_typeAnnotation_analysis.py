@@ -35,7 +35,7 @@ def typeAnnotation_analisis():
             profile.enable()
 
             print("\nWorking on TEST CONFIGURATION")
-            process_statistics += gitUtils.query_repo_get_changes("httpie-httpie")
+            process_statistics += gitUtils.query_repo_get_changes("lucaresearch-pythontest")
 
             profile.disable()
             ps = pstats.Stats(profile).sort_stats('cumulative')
@@ -47,6 +47,7 @@ def typeAnnotation_analisis():
 
         code_changes: list = []
         commit_statistics: list = []
+
 
         # The statistics from processes are merged
         statistics_final: CodeStatistics = CodeStatistics()
