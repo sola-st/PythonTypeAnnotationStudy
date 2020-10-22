@@ -638,21 +638,20 @@ def extract_from_snippet_new_new_new_new(string_old, string_new):
                     if hasattr(node.annotation, 'annotation'):
                         if hasattr(node.annotation.annotation, 'value'):
                             if hasattr(node.annotation.annotation.value, 'value'):
-                                if node.annotation.annotation.value.value.lower() in ['list', 'tuple',
-                                                                                      'range']:
+                                if hasattr(node.annotation.annotation, "slice"):
                                     brackets = collection_type_annotation_recursive(
                                         node.annotation.annotation.slice).replace("][", ",")
 
                                 # print('[ARG] ', parameter.annotation.annotation.value.value, '->', pos)
                                 annotation_node = SingleDiffChange('argument', 'new', node.name.value,
-                                                                   node.annotation.annotation.value.value + brackets,
+                                                                   str(node.annotation.annotation.value.value) + str(brackets),
                                                                    pos.start.line)
                                 node_list_old.append(annotation_node)
                                 brackets = ""
                             else:
                                 # print('[ARG2] ', parameter.annotation.annotation.value, '->', pos)
                                 annotation_node = SingleDiffChange('argument', 'new', node.name.value,
-                                                                   node.annotation.annotation.value,
+                                                                   str(node.annotation.annotation.value),
                                                                    pos.start.line)
                                 node_list_old.append(annotation_node)
 
@@ -662,8 +661,7 @@ def extract_from_snippet_new_new_new_new(string_old, string_new):
                 if hasattr(node, 'annotation'):
                     if hasattr(node.annotation, 'value'):
                         if hasattr(node.annotation.value, 'value'):
-                            if node.annotation.value.value.lower() in ['list', 'tuple',
-                                                                               'range']:
+                            if hasattr(node.annotation, "slice"):
                                 brackets = collection_type_annotation_recursive(
                                     node.annotation.slice).replace("][", ",")
 
@@ -671,11 +669,11 @@ def extract_from_snippet_new_new_new_new(string_old, string_new):
                         if hasattr(node.annotation.value, 'value') and 'Name' in type(
                                 node.annotation.value).__name__:
                             annotation_node = SingleDiffChange('return', 'old', "",
-                                                               node.annotation.value.value + brackets,
+                                                               str(node.annotation.value.value) + brackets,
                                                                pos.start.line)
                         else:
                             annotation_node = SingleDiffChange('return', 'old', "",
-                                                               node.annotation.value + brackets,
+                                                               str(node.annotation.value) + brackets,
                                                                pos.start.line)
 
                         annotation_list_old.append(annotation_node)
@@ -690,21 +688,20 @@ def extract_from_snippet_new_new_new_new(string_old, string_new):
                                 if hasattr(variable.annotation, 'annotation'):
                                     if hasattr(variable.annotation.annotation, 'value'):
                                         if hasattr(variable.annotation.annotation.value, 'value'):
-                                            if variable.annotation.annotation.value.value.lower() in ['list', 'tuple',
-                                                                                                      'range']:
+                                            if hasattr(variable.annotation.annotation, "slice"):
                                                 brackets = collection_type_annotation_recursive(
                                                     variable.annotation.annotation.slice).replace("][", ",")
 
                                             # print('[VAR] ', variable.annotation.annotation.value.value, '->', pos)
                                             annotation_node = SingleDiffChange('variable', 'new', variable.target.value,
-                                                                               variable.annotation.annotation.value.value + brackets,
+                                                                               str(variable.annotation.annotation.value.value) + brackets,
                                                                                pos.start.line)
                                             node_list_old.append(annotation_node)
                                             brackets = ""
                                         else:
                                             # print('[VAR2] ', variable.annotation.annotation.value, '->', pos)
                                             annotation_node = SingleDiffChange('variable', 'new', variable.target.value,
-                                                                               variable.annotation.annotation.value,
+                                                                               str(variable.annotation.annotation.value),
                                                                                pos.start.line)
                                             node_list_old.append(annotation_node)
 
@@ -720,21 +717,20 @@ def extract_from_snippet_new_new_new_new(string_old, string_new):
                     if hasattr(node.annotation, 'annotation'):
                         if hasattr(node.annotation.annotation, 'value'):
                             if hasattr(node.annotation.annotation.value, 'value'):
-                                if node.annotation.annotation.value.value.lower() in ['list', 'tuple',
-                                                                                      'range']:
+                                if hasattr(node.annotation.annotation, "slice"):
                                     brackets = collection_type_annotation_recursive(
                                         node.annotation.annotation.slice).replace("][", ",")
 
                                 # print('[ARG] ', parameter.annotation.annotation.value.value, '->', pos)
                                 annotation_node = SingleDiffChange('argument', 'new', node.name.value,
-                                                                   node.annotation.annotation.value.value + brackets,
+                                                                   str(node.annotation.annotation.value.value) + brackets,
                                                                    pos.start.line)
                                 node_list_new.append(annotation_node)
                                 brackets = ""
                             else:
                                 # print('[ARG2] ', parameter.annotation.annotation.value, '->', pos)
                                 annotation_node = SingleDiffChange('argument', 'new', node.name.value,
-                                                                   node.annotation.annotation.value,
+                                                                   str(node.annotation.annotation.value),
                                                                    pos.start.line)
                                 node_list_new.append(annotation_node)
 
@@ -743,8 +739,7 @@ def extract_from_snippet_new_new_new_new(string_old, string_new):
                 if hasattr(node, 'annotation'):
                     if hasattr(node.annotation, 'value'):
                         if hasattr(node.annotation.value, 'value'):
-                            if node.annotation.value.value.lower() in ['list', 'tuple',
-                                                                               'range']:
+                            if hasattr(node.annotation, "slice"):
                                 brackets = collection_type_annotation_recursive(
                                     node.annotation.slice).replace("][", ",")
 
@@ -752,11 +747,11 @@ def extract_from_snippet_new_new_new_new(string_old, string_new):
                         if hasattr(node.annotation.value, 'value') and 'Name' in type(
                                 node.annotation.value).__name__:
                             annotation_node = SingleDiffChange('return', 'new', "",
-                                                               node.annotation.value.value + brackets,
+                                                               str(node.annotation.value.value) + brackets,
                                                                pos.start.line)
                         else:
                             annotation_node = SingleDiffChange('return', 'new', "",
-                                                               node.annotation.value + brackets,
+                                                               str(node.annotation.value) + brackets,
                                                                pos.start.line)
 
                         annotation_list_new.append(annotation_node)
@@ -771,21 +766,20 @@ def extract_from_snippet_new_new_new_new(string_old, string_new):
                                 if hasattr(variable.annotation, 'annotation'):
                                     if hasattr(variable.annotation.annotation, 'value'):
                                         if hasattr(variable.annotation.annotation.value, 'value'):
-                                            if variable.annotation.annotation.value.value.lower() in ['list', 'tuple',
-                                                                                                      'range']:
+                                            if hasattr(variable.annotation.annotation, "slice"):
                                                 brackets = collection_type_annotation_recursive(
                                                     variable.annotation.annotation.slice).replace("][", ",")
 
                                             # print('[VAR] ', variable.annotation.annotation.value.value, '->', pos)
                                             annotation_node = SingleDiffChange('variable', 'new', variable.target.value,
-                                                                               variable.annotation.annotation.value.value + brackets,
+                                                                               str(variable.annotation.annotation.value.value) + brackets,
                                                                                pos.start.line)
                                             node_list_new.append(annotation_node)
                                             brackets = ""
                                         else:
                                             # print('[VAR2] ', variable.annotation.annotation.value, '->', pos)
                                             annotation_node = SingleDiffChange('variable', 'new', variable.target.value,
-                                                                               variable.annotation.annotation.value,
+                                                                               str(variable.annotation.annotation.value),
                                                                                pos.start.line)
                                             node_list_new.append(annotation_node)
 
@@ -841,13 +835,19 @@ def collection_type_annotation_recursive(slice) -> str:
                 type_ann += collection_type_annotation_recursive(slice.value.slice)
             if hasattr(slice.value, 'value'):
                 if hasattr(slice.value.value, 'value'):
-                    return "[" + slice.value.value.value + type_ann + "]"
+                    if hasattr(slice.value.value.value, 'value'):
+                        if hasattr(slice.value.value.value.value, 'value'):
+                            return "[" + str(slice.value.value.value.value.value) + str(type_ann) + "]"
+                        else:
+                            return "[" + str(slice.value.value.value.value) + str(type_ann) + "]"
+                    else:
+                        return "[" + str(slice.value.value.value) + str(type_ann) + "]"
                 else:
-                    return "[" + slice.value.value + type_ann + "]"
+                    return "[" + str(slice.value.value) + str(type_ann) + "]"
             else:
-                return "[" + "..." + type_ann + "]"
+                return "[" + "..." + str(type_ann) + "]"
 
-    return " " + type_ann
+    return " " + str(type_ann)
 
 
 def extract_from_file(file_path: str):
@@ -2502,7 +2502,7 @@ def TypeAnnotationExtractionLast(repo_path, repo_name, commit, patch, url, stati
     new_stdout, new_stderr = new_out.communicate()
 
     try:
-        print(url)
+        #print(url)
         node_list_old, node_list_new = extract_from_snippet_new_new_new_new(
             str(old_stdout.decode('utf-8-sig')),
             str(new_stdout.decode('utf-8-sig')))
