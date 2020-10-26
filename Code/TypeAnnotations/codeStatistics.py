@@ -350,110 +350,114 @@ class CodeStatistics:
     def merge_results(self, process_statistics, code_changes, commit_statistics):
 
         for stat in process_statistics:
-            self.total_repositories += stat.total_repositories
-            self.total_commits += stat.total_commits
+            try:
+                self.total_repositories += stat.total_repositories
+                self.total_commits += stat.total_commits
 
-            # RQ0
-            code_changes += stat.code_changes
-            commit_statistics += stat.commit_statistics
-            self.repo_with_types_changes += stat.repo_with_types_changes
-            self.commits_with_typeChanges += stat.commits_with_typeChanges
-            self.total_typeAnnotation_codeChanges += stat.total_typeAnnotation_codeChanges
+                # RQ0
+                code_changes += stat.code_changes
+                commit_statistics += stat.commit_statistics
+                self.repo_with_types_changes += stat.repo_with_types_changes
+                self.commits_with_typeChanges += stat.commits_with_typeChanges
+                self.total_typeAnnotation_codeChanges += stat.total_typeAnnotation_codeChanges
 
-            # RQ1
-            self.insert_types += stat.insert_types
-            self.remove_types += stat.remove_types
-            self.modify_existing_types += stat.modify_existing_types
+                # RQ1
+                self.insert_types += stat.insert_types
+                self.remove_types += stat.remove_types
+                self.modify_existing_types += stat.modify_existing_types
 
-            # RQ2.1
-            self.anyType_added += stat.anyType_added
-            self.noneType_added += stat.noneType_added
-            self.numericType_added += stat.numericType_added
-            self.binarySequenceType_added += stat.binarySequenceType_added
-            self.textSequenceType_added += stat.textSequenceType_added
-            self.mappingTypes_added += stat.mappingTypes_added
-            self.setTypes_added += stat.setTypes_added
-            self.sequenceType_added += stat.sequenceType_added
-            self.newType_added += stat.newType_added
-            self.total_added += stat.total_added
+                # RQ2.1
+                self.anyType_added += stat.anyType_added
+                self.noneType_added += stat.noneType_added
+                self.numericType_added += stat.numericType_added
+                self.binarySequenceType_added += stat.binarySequenceType_added
+                self.textSequenceType_added += stat.textSequenceType_added
+                self.mappingTypes_added += stat.mappingTypes_added
+                self.setTypes_added += stat.setTypes_added
+                self.sequenceType_added += stat.sequenceType_added
+                self.newType_added += stat.newType_added
+                self.total_added += stat.total_added
 
-            # RQ2.2
-            self.typeAdded_dict = merge_dictionaries([self.typeAdded_dict, stat.typeAdded_dict])
+                # RQ2.2
+                self.typeAdded_dict = merge_dictionaries([self.typeAdded_dict, stat.typeAdded_dict])
 
-            # RQ2.3
-            self.anyType_removed += stat.anyType_removed
-            self.noneType_removed += stat.noneType_removed
-            self.numericType_removed += stat.numericType_removed
-            self.binarySequenceType_removed += stat.binarySequenceType_removed
-            self.textSequenceType_removed += stat.textSequenceType_removed
-            self.mappingTypes_removed += stat.mappingTypes_removed
-            self.setTypes_removed += stat.setTypes_removed
-            self.sequenceType_removed += stat.sequenceType_removed
-            self.newType_removed += stat.newType_removed
-            self.total_removed += stat.total_removed
+                # RQ2.3
+                self.anyType_removed += stat.anyType_removed
+                self.noneType_removed += stat.noneType_removed
+                self.numericType_removed += stat.numericType_removed
+                self.binarySequenceType_removed += stat.binarySequenceType_removed
+                self.textSequenceType_removed += stat.textSequenceType_removed
+                self.mappingTypes_removed += stat.mappingTypes_removed
+                self.setTypes_removed += stat.setTypes_removed
+                self.sequenceType_removed += stat.sequenceType_removed
+                self.newType_removed += stat.newType_removed
+                self.total_removed += stat.total_removed
 
-            # RQ2.4
-            self.typeRemoved_dict = merge_dictionaries([self.typeRemoved_dict, stat.typeRemoved_dict])
+                # RQ2.4
+                self.typeRemoved_dict = merge_dictionaries([self.typeRemoved_dict, stat.typeRemoved_dict])
 
-            # RQ2.5
-            self.total_changed += stat.total_changed
-            self.typeChanged_dict = merge_dictionaries([self.typeChanged_dict, stat.typeChanged_dict])
+                # RQ2.5
+                self.total_changed += stat.total_changed
+                self.typeChanged_dict = merge_dictionaries([self.typeChanged_dict, stat.typeChanged_dict])
 
-            # RQ 3.1
-            self.functionArgsType_added += stat.functionArgsType_added
-            self.functionReturnsType_added += stat.functionReturnsType_added
-            self.variableType_added += stat.variableType_added
+                # RQ 3.1
+                self.functionArgsType_added += stat.functionArgsType_added
+                self.functionReturnsType_added += stat.functionReturnsType_added
+                self.variableType_added += stat.variableType_added
 
-            # RQ 3.2
-            self.functionArgsType_removed += stat.functionArgsType_removed
-            self.functionReturnsType_removed += stat.functionReturnsType_removed
-            self.variableType_removed += stat.variableType_removed
+                # RQ 3.2
+                self.functionArgsType_removed += stat.functionArgsType_removed
+                self.functionReturnsType_removed += stat.functionReturnsType_removed
+                self.variableType_removed += stat.variableType_removed
 
-            # RQ 3.3
-            self.functionArgsType_changed += stat.functionArgsType_changed
-            self.functionReturnsType_changed += stat.functionReturnsType_changed
-            self.variableType_changed += stat.variableType_changed
+                # RQ 3.3
+                self.functionArgsType_changed += stat.functionArgsType_changed
+                self.functionReturnsType_changed += stat.functionReturnsType_changed
+                self.variableType_changed += stat.variableType_changed
 
-            # RQ 4.1
-            self.typeAnnotation_added_per_commit += stat.typeAnnotation_added_per_commit
-            self.list_typeAnnotation_added_per_commit += stat.list_typeAnnotation_added_per_commit
+                # RQ 4.1
+                self.typeAnnotation_added_per_commit += stat.typeAnnotation_added_per_commit
+                self.list_typeAnnotation_added_per_commit += stat.list_typeAnnotation_added_per_commit
 
-            # RQ 4.2
-            self.typeAnnotation_removed_per_commit += stat.typeAnnotation_removed_per_commit
-            self.list_typeAnnotation_removed_per_commit += stat.list_typeAnnotation_removed_per_commit
+                # RQ 4.2
+                self.typeAnnotation_removed_per_commit += stat.typeAnnotation_removed_per_commit
+                self.list_typeAnnotation_removed_per_commit += stat.list_typeAnnotation_removed_per_commit
 
-            # RQ 4.3
-            self.typeAnnotation_changed_per_commit += stat.typeAnnotation_changed_per_commit
-            self.list_typeAnnotation_changed_per_commit += stat.list_typeAnnotation_changed_per_commit
+                # RQ 4.3
+                self.typeAnnotation_changed_per_commit += stat.typeAnnotation_changed_per_commit
+                self.list_typeAnnotation_changed_per_commit += stat.list_typeAnnotation_changed_per_commit
 
-            # RQ 4.4
-            self.annotation_related_insertion_edits_vs_all_commit += stat.annotation_related_insertion_edits_vs_all_commit
+                # RQ 4.4
+                self.annotation_related_insertion_edits_vs_all_commit += stat.annotation_related_insertion_edits_vs_all_commit
 
-            # RQ 4.5
-            self.annotation_related_deletion_edits_vs_all_commit += stat.annotation_related_deletion_edits_vs_all_commit
+                # RQ 4.5
+                self.annotation_related_deletion_edits_vs_all_commit += stat.annotation_related_deletion_edits_vs_all_commit
 
-            # RQ 5
-            self.matrix_commits_stars_annotations = np.concatenate((self.matrix_commits_stars_annotations,
-                                                                    stat.matrix_commits_stars_annotations), axis=0)
+                # RQ 5
+                self.matrix_commits_stars_annotations = np.concatenate((self.matrix_commits_stars_annotations,
+                                                                        stat.matrix_commits_stars_annotations), axis=0)
 
-            # RQ 6
-            self.number_type_annotations_per_repo = merge_dictionaries(
-                [self.number_type_annotations_per_repo, stat.number_type_annotations_per_repo])
+                # RQ 6
+                self.number_type_annotations_per_repo = merge_dictionaries(
+                    [self.number_type_annotations_per_repo, stat.number_type_annotations_per_repo])
 
-            # RQ 7
-            self.typeLastProjectVersion_total += stat.typeLastProjectVersion_total
-            self.typeLastProjectVersion_dict = merge_dictionaries(
-                [self.typeLastProjectVersion_dict, stat.typeLastProjectVersion_dict])
+                # RQ 7
+                self.typeLastProjectVersion_total += stat.typeLastProjectVersion_total
+                self.typeLastProjectVersion_dict = merge_dictionaries(
+                    [self.typeLastProjectVersion_dict, stat.typeLastProjectVersion_dict])
 
-            # RQ 8
-            self.typeAnnotation_year_analysis = merge_dictionaries(
-                [self.typeAnnotation_year_analysis, stat.typeAnnotation_year_analysis])
+                # RQ 8
+                self.typeAnnotation_year_analysis = merge_dictionaries(
+                    [self.typeAnnotation_year_analysis, stat.typeAnnotation_year_analysis])
 
-            # RQ 9
-            self.typeAnnotation_commit_annotation_year_analysis = merge_dictionaries(
-                [self.typeAnnotation_commit_annotation_year_analysis,
-                 stat.typeAnnotation_commit_annotation_year_analysis])
+                # RQ 9
+                self.typeAnnotation_commit_annotation_year_analysis = merge_dictionaries(
+                    [self.typeAnnotation_commit_annotation_year_analysis,
+                     stat.typeAnnotation_commit_annotation_year_analysis])
 
-            self.typeAnnotation_commit_not_annotation_year_analysis = merge_dictionaries(
-                [self.typeAnnotation_commit_not_annotation_year_analysis,
-                 stat.typeAnnotation_commit_not_annotation_year_analysis])
+                self.typeAnnotation_commit_not_annotation_year_analysis = merge_dictionaries(
+                    [self.typeAnnotation_commit_not_annotation_year_analysis,
+                     stat.typeAnnotation_commit_not_annotation_year_analysis])
+            except Exception as e:
+                print('[Merging Error]', str(e))
+                continue
