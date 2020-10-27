@@ -133,7 +133,8 @@ class CodeStatistics:
         # [RQ7]: How many of all types are annotated in the last version of the code?
         self.RQ7 = 'How many of all types are annotated in the last version of the code?'
         self.typeLastProjectVersion_total = 0
-        self.typeLastProjectVersion_percentage = 0
+        self.typeLastProjectVersion_average = 0
+        self.typeLastProjectVersion_percentage = []
         self.typeLastProjectVersion_dict = {}
 
         # [RQ8]: Computation percentage of annotation-related edits to all edits per each commit
@@ -182,8 +183,10 @@ class CodeStatistics:
 
         # [RQ7]: How many of all types are annotated in the last verison of the code?
         if self.total_typeAnnotation_codeChanges > 0:
-            self.typeLastProjectVersion_percentage = str(
-                round(self.typeLastProjectVersion_total / self.insert_types * 100, 2)) + ' %'
+            self.typeLastProjectVersion_average = sum(self.typeLastProjectVersion_percentage) / len(self.typeLastProjectVersion_percentage)
+
+         #   self.typeLastProjectVersion_percentage.append(
+          #      round(self.typeLastProjectVersion_total / self.insert_types * 100, 2))
 
         self.typeLastProjectVersion_dict = sort_dictionary(self.typeLastProjectVersion_dict)
 
@@ -443,6 +446,7 @@ class CodeStatistics:
 
                 # RQ 7
                 self.typeLastProjectVersion_total += stat.typeLastProjectVersion_total
+                self.typeLastProjectVersion_percentage += stat.typeLastProjectVersion_percentage
                 self.typeLastProjectVersion_dict = merge_dictionaries(
                     [self.typeLastProjectVersion_dict, stat.typeLastProjectVersion_dict])
 

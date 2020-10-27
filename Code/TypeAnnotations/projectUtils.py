@@ -79,7 +79,11 @@ def myplot(statistics):
     #                                                                    'all edits per commit')
 
     # RQ5
-    compute_correlations(statistics.matrix_commits_stars_annotations)
+    try:
+        compute_correlations(statistics.matrix_commits_stars_annotations)
+    except Exception as e:
+        print('[Correlation]', str(e))
+
     scatter_plot_xy(config.ROOT_DIR + "/Resources/Output/RQ5_stars",
                     [row[1] for row in statistics.matrix_commits_stars_annotations],
                     [row[2] for row in statistics.matrix_commits_stars_annotations],

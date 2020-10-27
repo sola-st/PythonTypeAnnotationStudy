@@ -482,9 +482,17 @@ def query_repo_get_changes(repo_name):  # statistics, pointer, dirlist_len):
         # New plot with avg time ...
 
         # lock.acquire()
+
         statistics.addRepo(repo_name, tot_this_repo_commit, statistics.number_type_annotations_per_repo[repo_name])
         if at_least_one_type_change[0] > 0:
             statistics.repo_with_types_changes += 1
+
+        try:
+            if statistics.total_typeAnnotation_codeChanges > 0:
+                statistics.typeLastProjectVersion_percentage.append(round(statistics.typeLastProjectVersion_total / statistics.insert_types * 100, 2))
+
+        except Exception as e:
+            print(str(e))
 
         """
         print(pointer[0], '/', dirlist_len)

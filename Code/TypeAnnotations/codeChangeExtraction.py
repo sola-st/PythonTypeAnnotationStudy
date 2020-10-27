@@ -2545,7 +2545,7 @@ def TypeAnnotationExtractionLast(repo_path, repo_name, commit, patch, url, stati
             str(old_stdout.decode('utf-8-sig')),
             str(new_stdout.decode('utf-8-sig')))
     except Exception as e:
-        #print(str(e), repo_path, commit.hex)
+        # print(str(e), repo_path, commit.hex)
         return
 
     try:
