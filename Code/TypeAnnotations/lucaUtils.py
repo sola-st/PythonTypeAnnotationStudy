@@ -12,6 +12,7 @@ import sys
 
 from io import StringIO
 from collections import Counter
+from scipy.interpolate import make_interp_spline, BSpline
 
 import matplotlib.pyplot as plt
 import matplotlib.style as style
@@ -94,6 +95,37 @@ def delete_all_files_in_folder(folder):
 """
 Method to build x-y graphs.
 """
+
+def smooth_line_xy(outputFilePath, y, x_label=None, y_label=None, title=None, color1='blue', color2='red',
+                       xlim=None,
+                       ylim=None):
+
+    x = list(range(len(y)))
+
+    # Calculate the simple average of the data
+    y_mean = [numpy.mean(y)] * len(x)
+
+    fig, ax = plt.subplots()
+
+    # Plot the data
+    data_line = ax.plot(x, y, label='Data', marker='o',  color=color1)
+
+    # Plot the average line
+    mean_line = ax.plot(x, y_mean, label='Mean', linestyle='--',  color=color2)
+
+    # Make a legend
+    legend = ax.legend(loc='upper right')
+
+    plt.ylabel(y_label)
+    plt.xlabel(x_label)
+
+    if title is not None:
+        plt.title('title')
+
+    plt.savefig(outputFilePath, bbox_inches='tight')
+
+    plt.figure()
+
 
 
 def cartesian_plot_xy(outputFilePath, x, y, x_label, y_label, title=None, color='blue', xlim=None, ylim=None):

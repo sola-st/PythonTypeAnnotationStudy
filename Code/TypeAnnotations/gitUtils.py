@@ -9,7 +9,7 @@ import pygit2 as git
 from pygit2 import GIT_SORT_TOPOLOGICAL, GIT_SORT_REVERSE
 import config
 from Code.TypeAnnotations.codeChange import CommitStatistics
-from Code.TypeAnnotations.codeChangeExtraction import TypeAnnotationExtractionFirstCommit, TypeAnnotationExtractionNew, \
+from Code.TypeAnnotations.codeChangeExtraction import TypeAnnotationExtractionFirstCommit, \
     TypeAnnotationExtractionLast, type_annotation_in_last_version
 from Code.TypeAnnotations.codeStatistics import CodeStatistics
 
@@ -119,6 +119,12 @@ def query_repo_get_changes(repo_name):  # statistics, pointer, dirlist_len):
                # if commit.hex != 'b947d4826a3ee7a39992c9f88a433156c154507b':  # b86598886ea50c5259982ac18a692748bd3ba402
                 #    continue
                 commit_year = time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(commit.commit_time))[:4]
+
+                if commit_year not in statistics.commit_year_dict:
+                    statistics.commit_year_dict[str(commit_year)] = 1
+                else:
+                    statistics.commit_year_dict[str(commit_year)] += 1
+
                 if int(commit_year) < 2014:
                     continue
 
@@ -157,21 +163,7 @@ def query_repo_get_changes(repo_name):  # statistics, pointer, dirlist_len):
                             if str(patch.delta.old_file.path)[-3:] != file_extension or \
                                     str(patch.delta.new_file.path)[-3:] != file_extension:
                                 continue
-                            """
-                            thread = threading.Thread(target=TypeAnnotationExtractionFirstCommit,
-                                                      args=(config.ROOT_DIR + "/GitHub/", repo_name, commit, patch,
-                                                            remote_url + '/commit/' + commit.hex + '#diff-' + diff.patchid.hex + 'L',
-                                                            statistics, lock, logging, at_least_one_type_change,
-                                                            code_changes, typeannotation_line_inserted,
-                                                            typeannotation_line_removed, typeannotation_line_changed))
-                            threads.append(thread)
-        
-                        for thread in threads:
-                            thread.start()
-        
-                        for thread in threads:
-                            thread.join()
-                        """
+
                             TypeAnnotationExtractionFirstCommit(config.ROOT_DIR + "/GitHub/", repo_name, commit, patch,
                                                                 remote_url + '/commit/' + commit.hex + '#diff-' + diff.patchid.hex + 'L',
                                                                 statistics,  # lock, logging,
@@ -320,21 +312,7 @@ def query_repo_get_changes(repo_name):  # statistics, pointer, dirlist_len):
                         except Exception as e:
                             return
 
-                        """
-                        thread = threading.Thread(target=TypeAnnotationExtraction,
-                                                  args=(config.ROOT_DIR + "/GitHub/", repo_name, commit, patch,
-                                                        remote_url + '/commit/' + commit.hex + '#diff-' + diff.patchid.hex + 'L',
-                                                        statistics, lock, logging, at_least_one_type_change,
-                                                        code_changes, typeannotation_line_inserted,
-                                                        typeannotation_line_removed, typeannotation_line_changed))
-                        threads.append(thread)
-                    
-                    for thread in threads:
-                        thread.start()
-        
-                    for thread in threads:
-                        thread.join()
-                    """
+
                         TypeAnnotationExtractionLast(config.ROOT_DIR + "/GitHub/", repo_name, commit, patch,
                                                     remote_url + '/commit/' + commit.hex + '#diff-' + diff.patchid.hex,
                                                     statistics,  # lock, logging,
@@ -352,19 +330,18 @@ def query_repo_get_changes(repo_name):  # statistics, pointer, dirlist_len):
                     if typeannotation_line_inserted[0] - typeannotation_line_changed[0] > 0:
                         added_per_commit_percentage = (typeannotation_line_inserted[0] - typeannotation_line_changed[0]) / (
                                 tot_line_inserted - typeannotation_line_changed[0]) * 100
-                        # lock.acquire()
+
                         if added_per_commit_percentage <= 100:
                             statistics.list_typeAnnotation_changed_per_commit.append(added_per_commit_percentage)
                         else:
                             print(repo_name, commit_year, str(commit.hex))
-                        # lock.release()
+
                 except:
                     pass
 
                 # RQ 4.2
                 try:
                     if typeannotation_line_removed[0] - typeannotation_line_changed[0] > 0:
-                        # lock.acquire()
 
                         removed_per_commit_percentage = (typeannotation_line_removed[0] - typeannotation_line_changed[
                             0]) / (
@@ -374,7 +351,6 @@ def query_repo_get_changes(repo_name):  # statistics, pointer, dirlist_len):
                         else:
                             print(repo_name, commit_year, str(commit.hex))
 
-                        # lock.release()
                 except:
                     pass
 
@@ -391,38 +367,7 @@ def query_repo_get_changes(repo_name):  # statistics, pointer, dirlist_len):
                         # lock.release()
                 except:
                     pass
-                """
-                # RQ 4.4
-                try:
-                    if list_line_added[0] > 0:
-                        percentile_total_edits_inserted = ((list_line_added[0]) / (tot_line_inserted) * 100)
-    
-                        if percentile_total_edits_inserted <= 100:
-                            # lock.acquire()
-                            statistics.annotation_related_insertion_edits_vs_all_commit.append(
-                                percentile_total_edits_inserted)
-                            # lock.release()
-                        else:
-                            print(repo_name, commit_year,str(commit.hex))
-                except:
-                    pass
-    
-                # RQ 4.5
-                try:
-                    if list_line_removed[0] > 0:
-                        percentile_total_edits_removed = (list_line_removed[0] /
-                                                          (tot_line_removed) * 100)
-    
-                        if percentile_total_edits_removed <= 100:
-                            # lock.acquire()
-                            statistics.annotation_related_deletion_edits_vs_all_commit.append(
-                                percentile_total_edits_removed)
-                        else:
-                            print(repo_name, commit_year, str(commit.hex))
-                            # lock.release()
-                except:
-                    pass
-                """
+
                 if len(statistics.code_changes) > old_len:
                     # lock.acquire()
                     statistics.commits_with_typeChanges += 1
@@ -489,7 +434,7 @@ def query_repo_get_changes(repo_name):  # statistics, pointer, dirlist_len):
 
         try:
             if statistics.total_typeAnnotation_codeChanges > 0:
-                statistics.typeLastProjectVersion_percentage.append(round(statistics.typeLastProjectVersion_total / statistics.insert_types * 100, 2))
+                statistics.typeLastProjectVersion_percentage.append(round(statistics.typeLastProjectVersion_total / sum(statistics.insert_types.values()) * 100, 2))
 
         except Exception as e:
             print(str(e))

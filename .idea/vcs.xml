@@ -639,6 +639,7 @@
     <mapping directory="$PROJECT_DIR$/GitHub/pjialin-py12306" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/platformio-platformio-core" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/plotly-dash" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/GitHub/pluralsight-intro-to-python-typing" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/posativ-isso" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/postmanlabs-httpbin" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/powerline-powerline" vcs="Git" />

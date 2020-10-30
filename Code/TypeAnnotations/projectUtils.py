@@ -37,12 +37,26 @@ def compute_correlations(commits_stars_annotations):
 def myplot(statistics):
     plt.rcParams.update({'font.size': 16})
 
+    # Total number of commits in each year
+    bar_plot_xy(config.ROOT_DIR + "/Resources/Output/NumCommitsYear.pdf",
+                statistics.commit_year_dict.keys(),
+                statistics.commit_year_dict.values(), 'Year',
+                '# Commits',
+                title='Total number of commits in each year')
+
     # RQ2.2
     bar_plot_xy(config.ROOT_DIR + "/Resources/Output/TopAdded.pdf",
                 statistics.typeAdded_dict.keys(),
                 statistics.typeAdded_dict.values(), 'Top types added',
                 'Occurrences',
                 title='What are the top 5 types added?')
+
+    # RQ2.3
+    bar_plot_xy(config.ROOT_DIR + "/Resources/Output/TopChanged.pdf",
+                statistics.typeChanged_dict.keys(),
+                statistics.typeChanged_dict.values(), 'Top types changed',
+                'Occurrences',
+                title='What are the top 5 types changed?')
 
     # RQ2.4
     bar_plot_xy(config.ROOT_DIR + "/Resources/Output/TopRemoved.pdf",
@@ -108,6 +122,13 @@ def myplot(statistics):
                        y2=[int(v) for v in statistics.typeAnnotation_commit_not_annotation_year_analysis.values()],
                        y_label='Number of commits')
 
+    # Last version annotation
+    smooth_line_xy(config.ROOT_DIR + "/Resources/Output/types_last_version.pdf", statistics.typeLastProjectVersion_percentage,
+                   x_label="Repositories",
+                   y_label="% Type Annotations Last Version", title=None, color1='blue', color2='red',
+                   xlim=None,
+                   ylim=None)
+
     # Variables are cleaned to have a better output
     statistics.matrix_commits_stars_annotations = "See the plots RQ5_commits and RQ5_stars."
     statistics.list_typeAnnotation_added_per_commit = "See the plot RQ4_1."
@@ -127,6 +148,7 @@ def load_final_statistics():
 
     finalStatistics.total_repositories = allStatistics[0]['total_repositories']
     finalStatistics.total_commits = allStatistics[0]['total_commits']
+    finalStatistics.commit_year_dict = allStatistics[0]['commit_year_dict']
 
     # RQ0
     #code_changes = stat.code_changes
@@ -215,6 +237,7 @@ def load_final_statistics():
 
     # RQ 7
     finalStatistics.typeLastProjectVersion_total = allStatistics[0]['typeLastProjectVersion_total']
+    finalStatistics.typeLastProjectVersion_percentage = allStatistics[0]['typeLastProjectVersion_percentage']
     finalStatistics.typeLastProjectVersion_dict = dict(tuple(tuple(x) for x in allStatistics[0]['typeLastProjectVersion_dict']))
 
     # RQ 8

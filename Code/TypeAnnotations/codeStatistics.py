@@ -14,6 +14,7 @@ class CodeStatistics:
         self.machine = {'OS': platform.platform(), 'CPU': platform.processor(), 'CORES': multiprocessing.cpu_count()}
         self.total_repositories = 0
         self.total_commits = 0
+        self.commit_year_dict = {}
         self.s0 = "------------------------------------------------------------------------"
 
         # [RQ0]: How many types are used?
@@ -29,11 +30,11 @@ class CodeStatistics:
 
         # [RQ1]: Are type annotation inserted, removed and changed?
         self.RQ1 = 'Are type annotation inserted, removed and changed?'
-        self.insert_types = 0
+        self.insert_types = {}
         self.percentage_insert_types = ''
-        self.remove_types = 0
+        self.remove_types = {}
         self.percentage_remove_types = ''
-        self.modify_existing_types = 0
+        self.modify_existing_types = {}
         self.percentage_modify_existing_types = ''
 
         self.s2 = "------------------------------------------------------------------------"
@@ -183,27 +184,28 @@ class CodeStatistics:
 
         # [RQ7]: How many of all types are annotated in the last verison of the code?
         if self.total_typeAnnotation_codeChanges > 0:
-            self.typeLastProjectVersion_average = sum(self.typeLastProjectVersion_percentage) / len(self.typeLastProjectVersion_percentage)
+            self.typeLastProjectVersion_average = sum(self.typeLastProjectVersion_percentage) / len(
+                self.typeLastProjectVersion_percentage)
 
-         #   self.typeLastProjectVersion_percentage.append(
-          #      round(self.typeLastProjectVersion_total / self.insert_types * 100, 2))
+        #   self.typeLastProjectVersion_percentage.append(
+        #      round(self.typeLastProjectVersion_total / self.insert_types * 100, 2))
 
         self.typeLastProjectVersion_dict = sort_dictionary(self.typeLastProjectVersion_dict)
 
     # [RQ1]: Are type annotation inserted, removed and changed?
     def percentage_computation(self):
-        self.total_typeAnnotation_codeChanges = self.insert_types + self.remove_types + self.modify_existing_types
+        self.total_typeAnnotation_codeChanges = sum(self.insert_types.values()) + sum(self.remove_types.values()) + sum(self.modify_existing_types.values())
 
         self.percentage_repo_with_typeChanges = str(
             round(self.repo_with_types_changes / self.total_repositories * 100, 2)) + ' %'
         self.percentage_commits_with_typeChanges = str(
             round(self.commits_with_typeChanges / self.total_commits * 100, 2)) + ' %'
         self.percentage_insert_types = str(
-            round(self.insert_types / self.total_typeAnnotation_codeChanges * 100, 1)) + ' %'
+            round(sum(self.insert_types.values()) / self.total_typeAnnotation_codeChanges * 100, 1)) + ' %'
         self.percentage_remove_types = str(
-            round(self.remove_types / self.total_typeAnnotation_codeChanges * 100, 1)) + ' %'
+            round(sum(self.remove_types.values()) / self.total_typeAnnotation_codeChanges * 100, 1)) + ' %'
         self.percentage_modify_existing_types = str(
-            round(self.modify_existing_types / self.total_typeAnnotation_codeChanges * 100, 1)) + ' %'
+            round(sum(self.modify_existing_types.values()) / self.total_typeAnnotation_codeChanges * 100, 1)) + ' %'
 
     # [RQ2.1]: What types are added (generic, numeric, ...)?
 
@@ -329,8 +331,8 @@ class CodeStatistics:
     def addRepo(self, name, n_commits, n_annotations):
         i = 0
         while i < 10:
-            input_file = open(config.ROOT_DIR + "/Resources/Input/Top1000_Python201"+str(i)+"_Complete.json", 'r')
-            i+=1
+            input_file = open(config.ROOT_DIR + "/Resources/Input/Top1000_Python201" + str(i) + "_Complete.json", 'r')
+            i += 1
             json_decode = json.load(input_file)
 
             for item in json_decode:
@@ -363,11 +365,12 @@ class CodeStatistics:
                 self.repo_with_types_changes += stat.repo_with_types_changes
                 self.commits_with_typeChanges += stat.commits_with_typeChanges
                 self.total_typeAnnotation_codeChanges += stat.total_typeAnnotation_codeChanges
+                self.commit_year_dict = dict(merge_dictionaries([dict(self.commit_year_dict), dict(stat.commit_year_dict)]))
 
                 # RQ1
-                self.insert_types += stat.insert_types
-                self.remove_types += stat.remove_types
-                self.modify_existing_types += stat.modify_existing_types
+                self.insert_types = dict(merge_dictionaries([dict(self.insert_types), dict(stat.insert_types)]))
+                self.remove_types = dict(merge_dictionaries([dict(self.remove_types), dict(stat.remove_types)]))
+                self.modify_existing_types =  dict(merge_dictionaries([dict(self.modify_existing_types), dict(stat.modify_existing_types)]))
 
                 # RQ2.1
                 self.anyType_added += stat.anyType_added
