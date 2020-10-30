@@ -10,7 +10,7 @@ from pygit2 import GIT_SORT_TOPOLOGICAL, GIT_SORT_REVERSE
 import config
 from Code.TypeAnnotations.codeChange import CommitStatistics
 from Code.TypeAnnotations.codeChangeExtraction import TypeAnnotationExtractionFirstCommit, \
-    TypeAnnotationExtractionLast, type_annotation_in_last_version
+    TypeAnnotationExtractionLast, type_annotation_in_last_version, last_version_analysis
 from Code.TypeAnnotations.codeStatistics import CodeStatistics
 
 
@@ -74,6 +74,9 @@ def repo_cloning_csv( pathOutput: str) -> None:
                 continue
 
 
+
+
+
 def query_repo_get_changes(repo_name):  # statistics, pointer, dirlist_len):
     start = time.time()
     file_extension = '.py'
@@ -95,6 +98,7 @@ def query_repo_get_changes(repo_name):  # statistics, pointer, dirlist_len):
 
         if not config.TEST:
             type_annotation_in_last_version(repo_name, statistics)
+            #last_version_analysis(repo_name, statistics)
         else:
             statistics.typeLastProjectVersion_total = 1
 

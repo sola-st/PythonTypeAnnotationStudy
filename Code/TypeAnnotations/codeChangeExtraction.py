@@ -1535,3 +1535,13 @@ def type_annotation_in_last_version(repo_name, statistics):  # , lock):
 
             except:
                 pass
+
+def last_version_analysis(repo_name, statistics):
+    for filepath in pathlib.Path(config.ROOT_DIR + "/GitHub/" + repo_name).glob('**/*'):
+        temp = []
+        if str(filepath).endswith(".py"):
+            try:
+                pass
+
+            except:
+                pass
