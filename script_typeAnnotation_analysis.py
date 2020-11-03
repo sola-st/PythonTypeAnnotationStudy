@@ -9,7 +9,6 @@ import cProfile
 def typeAnnotation_analisis():
 
     #repo_cloning_csv(config.ROOT_DIR + "/GitHub")
-
     #get_TOP_repo()
 
     if config.CLONING:
@@ -47,7 +46,6 @@ def typeAnnotation_analisis():
 
         code_changes: list = []
         commit_statistics: list = []
-
 
         # The statistics from processes are merged
         statistics_final: CodeStatistics = CodeStatistics()

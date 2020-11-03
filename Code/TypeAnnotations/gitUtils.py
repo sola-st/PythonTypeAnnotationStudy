@@ -168,6 +168,9 @@ def query_repo_get_changes(repo_name):  # statistics, pointer, dirlist_len):
                                     str(patch.delta.new_file.path)[-3:] != file_extension:
                                 continue
 
+                            if not hasattr(diff, "patchid"):
+                                continue
+
                             TypeAnnotationExtractionFirstCommit(config.ROOT_DIR + "/GitHub/", repo_name, commit, patch,
                                                                 remote_url + '/commit/' + commit.hex + '#diff-' + diff.patchid.hex + 'L',
                                                                 statistics,  # lock, logging,
@@ -316,6 +319,8 @@ def query_repo_get_changes(repo_name):  # statistics, pointer, dirlist_len):
                         except Exception as e:
                             return
 
+                        if not hasattr(diff,"patchid"):
+                            continue
 
                         TypeAnnotationExtractionLast(config.ROOT_DIR + "/GitHub/", repo_name, commit, patch,
                                                     remote_url + '/commit/' + commit.hex + '#diff-' + diff.patchid.hex,
