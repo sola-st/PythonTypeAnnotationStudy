@@ -2,6 +2,8 @@ import csv
 import json
 import os
 import re
+import subprocess
+import sys
 import time
 from collections import defaultdict
 
@@ -322,6 +324,8 @@ def query_repo_get_changes(repo_name):  # statistics, pointer, dirlist_len):
                         if not hasattr(diff,"patchid"):
                             continue
 
+                        git_checkout(config.ROOT_DIR + "/GitHub/" + repo_name, commit.hex)
+
                         TypeAnnotationExtractionLast(config.ROOT_DIR + "/GitHub/", repo_name, commit, patch,
                                                     remote_url + '/commit/' + commit.hex + '#diff-' + diff.patchid.hex,
                                                     statistics,  # lock, logging,
@@ -470,3 +474,26 @@ def query_repo_get_changes(repo_name):  # statistics, pointer, dirlist_len):
 
     # lock.release()
     return statistics
+
+
+def git_checkout(repo_dir, commit):
+    print("\n===========================================")
+    print(f"Checking commit {commit} of {repo_dir}")
+
+    year = 2020
+
+    # go to commit
+    #subprocess.run(f"git checkout {commit}".split(" "), cwd=repo_dir)
+
+    print(f"git --work-tree={repo_dir} checkout `git rev-list -n 1 --first-parent --before=\"2020-06-01 00:00\" master`")
+
+   # p = subprocess.Popen(f"git checkout `git rev-list -n 1 --first-parent --before=\"2020-10-01 00:00\" master`".split(" "), cwd=repo_dir)
+
+    #p.wait()
+
+    os.system(f"git --work-tree={repo_dir} checkout `git rev-list -n 1 --first-parent --before=\"2020-06-01 00:00\" master`")
+
+    # get date of commit
+    #out = subprocess.check_output(
+    #    f"git show -s --format=%ci {commit}".split(" "), cwd=repo_dir)
+    # commit_date = out.decode(sys.stdout.encoding).rstrip()

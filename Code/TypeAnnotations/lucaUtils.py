@@ -24,7 +24,7 @@ Sorting algorithms
 
 
 def sort_dictionary(data: dict):
-    return sorted(data.items(), key=lambda x: x[1], reverse=True)
+    return sorted(data.items(), key=lambda x: x[1], reverse=False)
 
 
 """
@@ -120,7 +120,7 @@ def smooth_line_xy(outputFilePath, y, x_label=None, y_label=None, title=None, co
     plt.xlabel(x_label)
 
     if title is not None:
-        plt.title('title')
+        plt.title(title)
 
     plt.savefig(outputFilePath, bbox_inches='tight')
 

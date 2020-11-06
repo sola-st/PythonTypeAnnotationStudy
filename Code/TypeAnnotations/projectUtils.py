@@ -38,6 +38,12 @@ def myplot(statistics):
     plt.rcParams.update({'font.size': 16})
 
     # Total number of commits in each year
+    for key in list(statistics.commit_year_dict.keys()):
+        if int(key) < 2010:
+            del statistics.commit_year_dict[key]
+
+    statistics.commit_year_dict = dict(sort_dictionary(statistics.commit_year_dict))
+
     bar_plot_xy(config.ROOT_DIR + "/Resources/Output/NumCommitsYear.pdf",
                 statistics.commit_year_dict.keys(),
                 statistics.commit_year_dict.values(), 'Year',
@@ -98,12 +104,12 @@ def myplot(statistics):
     except Exception as e:
         print('[Correlation]', str(e))
 
-    scatter_plot_xy(config.ROOT_DIR + "/Resources/Output/RQ5_stars",
+    scatter_plot_xy(config.ROOT_DIR + "/Resources/Output/RQ5_stars.pdf",
                     [row[1] for row in statistics.matrix_commits_stars_annotations],
                     [row[2] for row in statistics.matrix_commits_stars_annotations],
                     'GitHub Stars', 'Annotations Changes', 'log', 'log')
 
-    scatter_plot_xy(config.ROOT_DIR + "/Resources/Output/RQ5_commits",
+    scatter_plot_xy(config.ROOT_DIR + "/Resources/Output/RQ5_commits.pdf",
                     [row[0] for row in statistics.matrix_commits_stars_annotations],
                     [row[2] for row in statistics.matrix_commits_stars_annotations],
                     '# Commits', '# Annotations Changes', 'log', 'log')
@@ -123,9 +129,10 @@ def myplot(statistics):
                        y_label='Number of commits')
 
     # Last version annotation
-    smooth_line_xy(config.ROOT_DIR + "/Resources/Output/types_last_version.pdf", statistics.typeLastProjectVersion_percentage,
+    smooth_line_xy(config.ROOT_DIR + "/Resources/Output/types_last_version.pdf", [x for x in statistics.typeLastProjectVersion_percentage if x <= 100],
                    x_label="Repositories",
-                   y_label="% Type Annotations Last Version", title=None, color1='blue', color2='red',
+                   y_label="% Type Annotations Last Version", title="Presence of type annotations in the last version of the repositories.",
+                   color1='blue', color2='red',
                    xlim=None,
                    ylim=None)
 
