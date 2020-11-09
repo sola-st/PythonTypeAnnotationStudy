@@ -125,11 +125,14 @@ def query_repo_get_changes(repo_name):  # statistics, pointer, dirlist_len):
                # if commit.hex != 'b947d4826a3ee7a39992c9f88a433156c154507b':  # b86598886ea50c5259982ac18a692748bd3ba402
                 #    continue
                 commit_year = time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(commit.commit_time))[:4]
+                commit_month = time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(commit.commit_time))[5:7]
 
-                if commit_year not in statistics.commit_year_dict:
-                    statistics.commit_year_dict[str(commit_year)] = 1
-                else:
-                    statistics.commit_year_dict[str(commit_year)] += 1
+                # Only before November is consider for a better comparison with 2020
+                if int(commit_month) < 11:
+                    if commit_year not in statistics.commit_year_dict:
+                        statistics.commit_year_dict[str(commit_year)] = 1
+                    else:
+                        statistics.commit_year_dict[str(commit_year)] += 1
 
                 if int(commit_year) < 2014:
                     continue

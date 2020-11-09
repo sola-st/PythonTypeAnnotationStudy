@@ -4,7 +4,7 @@ from collections import Counter
 import json
 import re
 import matplotlib.pyplot as plt
-from AnalyzeRepos import results_base_dir, projects
+from script_AnalyzeRepos import results_base_dir, projects
 import pandas as pd
 
 

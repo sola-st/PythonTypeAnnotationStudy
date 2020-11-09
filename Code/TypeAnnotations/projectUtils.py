@@ -62,7 +62,7 @@ def myplot(statistics):
                 statistics.typeChanged_dict.keys(),
                 statistics.typeChanged_dict.values(), 'Top types changed',
                 'Occurrences',
-                title='What are the top 5 types changed?')
+                title='What are the top 10 types changed?')
 
     # RQ2.4
     bar_plot_xy(config.ROOT_DIR + "/Resources/Output/TopRemoved.pdf",

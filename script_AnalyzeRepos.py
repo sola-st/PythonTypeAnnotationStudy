@@ -6,10 +6,12 @@ import re
 from collections import Counter
 import json
 from os import path, scandir
-from TypeAnnotationCounter import count_type_annotations
+from Code.TypeErrors.TypeAnnotationCounter import count_type_annotations
 
-repos_base_dir = "./data/repos/"
-results_base_dir = "./data/results/"
+import config
+
+repos_base_dir = config.ROOT_DIR + "/GitHub/"
+results_base_dir = config.ROOT_DIR + "/Resources/Output_typeErrors/"
 
 
 def find_all_projects():
@@ -221,7 +223,7 @@ def analyze_specific_commits(commits_file):
         if add_only or remove_only or change_only:
             commit_url = c["url"]
             match = re.match(commit_url_regexp, commit_url)
-            project = match.group(2)
+            project = match.group(1) + '-' + match.group(2)
             commit = match.group(3)
             repo_dir = repos_base_dir+project
             parent_commit = get_parent_commit(repo_dir, commit)
@@ -269,4 +271,4 @@ if __name__ == "__main__":
     # analyze_latest_commit(projects)  # TODO: still needed?
 
     analyze_specific_commits(
-        "data/results_luca/typeAnnotationCommitStatistics.json")
+        config.ROOT_DIR + "/Resources/Output/typeAnnotationCommitStatistics.json")

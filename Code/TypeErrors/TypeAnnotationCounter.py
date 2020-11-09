@@ -3,7 +3,7 @@
 # Tested with Python 3.7.5
 
 import typing
-from Parsers import TypeCollector
+from Code.parsers import TypeCollector
 import libcst as cst
 import pathlib
 import os
