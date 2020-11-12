@@ -288,6 +288,7 @@
     <mapping directory="$PROJECT_DIR$/GitHub/davidsandberg-facenet" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/dbcli-mycli" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/dbcli-pgcli" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/GitHub/dbrattli-OSlash" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/ddbourgin-numpy-ml" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/deepfakes-faceswap" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/deeplearning4j-deeplearning4j" vcs="Git" />

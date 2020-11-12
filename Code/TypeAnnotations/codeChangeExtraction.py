@@ -1211,12 +1211,31 @@ def TypeAnnotationExtractionLast(repo_path, repo_name, commit, patch, url, stati
 
                         line_type_annotation_changed.append(str(annotation_old.line))
 
-                        if (annotation_old.annotation + ' -> ' + annotation_new.annotation).lower() not in statistics.typeChanged_dict:
-                            statistics.typeChanged_dict[
-                                str(annotation_old.annotation + ' -> ' + annotation_new.annotation).lower()] = 1
-                        else:
-                            statistics.typeChanged_dict[str(str(
-                                annotation_old.annotation + ' -> ' + annotation_new.annotation).lower()).lower()] += 1
+                        if str(annotation_old.type) == 'argument':
+                            if (annotation_old.annotation + ' -> ' + annotation_new.annotation).lower() not in statistics.typeChanged_dict_arg:
+                                statistics.typeChanged_dict_arg[
+                                    str(annotation_old.annotation + ' -> ' + annotation_new.annotation).lower()] = 1
+                            else:
+                                statistics.typeChanged_dict_arg[str(str(
+                                    annotation_old.annotation + ' -> ' + annotation_new.annotation).lower()).lower()] += 1
+
+                        elif str(annotation_old.type) == 'return':
+                            if (annotation_old.annotation + ' -> ' + annotation_new.annotation).lower() not in statistics.typeChanged_dict_ret:
+                                statistics.typeChanged_dict_ret[
+                                    str(annotation_old.annotation + ' -> ' + annotation_new.annotation).lower()] = 1
+                            else:
+                                statistics.typeChanged_dict_ret[str(str(
+                                    annotation_old.annotation + ' -> ' + annotation_new.annotation).lower()).lower()] += 1
+
+                        elif str(annotation_old.type) == 'variable':
+                            if (annotation_old.annotation + ' -> ' + annotation_new.annotation).lower() not in statistics.typeChanged_dict_var:
+                                statistics.typeChanged_dict_var[
+                                    str(annotation_old.annotation + ' -> ' + annotation_new.annotation).lower()] = 1
+                            else:
+                                statistics.typeChanged_dict_var[str(str(
+                                    annotation_old.annotation + ' -> ' + annotation_new.annotation).lower()).lower()] += 1
+
+
                         statistics.total_changed += 1
 
                         if annotation_old.type == 'return':

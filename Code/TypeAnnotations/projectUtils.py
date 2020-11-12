@@ -57,10 +57,25 @@ def myplot(statistics):
                 'Occurrences',
                 title='What are the top 5 types added?')
 
+
     # RQ2.3
-    bar_plot_xy(config.ROOT_DIR + "/Resources/Output/TopChanged.pdf",
-                statistics.typeChanged_dict.keys(),
-                statistics.typeChanged_dict.values(), 'Top types changed',
+    bar_plot_xy(config.ROOT_DIR + "/Resources/Output/TopChanged_var.pdf",
+                statistics.typeChanged_dict_var.keys(),
+                statistics.typeChanged_dict_var.values(), 'Top types changed',
+                'Occurrences',
+                title='What are the top 10 types changed?')
+
+    # RQ2.3
+    bar_plot_xy(config.ROOT_DIR + "/Resources/Output/TopChanged_arg.pdf",
+                statistics.typeChanged_dict_arg.keys(),
+                statistics.typeChanged_dict_arg.values(), 'Top types changed',
+                'Occurrences',
+                title='What are the top 10 types changed?')
+
+    # RQ2.3
+    bar_plot_xy(config.ROOT_DIR + "/Resources/Output/TopChanged_ret.pdf",
+                statistics.typeChanged_dict_ret.keys(),
+                statistics.typeChanged_dict_ret.values(), 'Top types changed',
                 'Occurrences',
                 title='What are the top 10 types changed?')
 
@@ -84,7 +99,7 @@ def myplot(statistics):
     # RQ4
     histogram_plot_xy(config.ROOT_DIR + "/Resources/Output/RQ4_perc_annotations_lines_per_commit.pdf",
                       statistics.list_typeAnnotation_changed_per_commit,
-                      'Percentage of annotation-related lines among all inserted, removed and changed lines', 'Number of commits',  'linear', 'linear', bins=100)
+                      'Percentage of annotation-related lines among all inserted, removed and changed lines', 'Number of commits',  'linear', 'log', bins=100)
 
     # RQ4.4
     #histogram_plot_xy(config.ROOT_DIR + "/Resources/Output/RQ4_4",

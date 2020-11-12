@@ -47,7 +47,7 @@ def typeAnnotation_analisis():
         code_changes: list = []
         commit_statistics: list = []
 
-        # The statistics from processes are merged
+        # The statistics are merged from the processes
         statistics_final: CodeStatistics = CodeStatistics()
 
         statistics_final.merge_results(process_statistics, code_changes, commit_statistics)

@@ -76,7 +76,9 @@ class CodeStatistics:
         # [RQ2.5]: What types are the top 10 changed?
         self.RQ2_5 = 'What types are the top 10 changed ?'
         self.total_changed = 0
-        self.typeChanged_dict = {}
+        self.typeChanged_dict_var = {}
+        self.typeChanged_dict_arg = {}
+        self.typeChanged_dict_ret = {}
         self.s3 = "------------------------------------------------------------------------"
 
         # [RQ3.1]: Where are types added (function args, function returns, variables)?
@@ -404,7 +406,9 @@ class CodeStatistics:
 
                 # RQ2.5
                 self.total_changed += stat.total_changed
-                self.typeChanged_dict = merge_dictionaries([self.typeChanged_dict, stat.typeChanged_dict])
+                self.typeChanged_dict_arg = merge_dictionaries([self.typeChanged_dict_arg, stat.typeChanged_dict_arg])
+                self.typeChanged_dict_var = merge_dictionaries([self.typeChanged_dict_var, stat.typeChanged_dict_var])
+                self.typeChanged_dict_ret = merge_dictionaries([self.typeChanged_dict_ret, stat.typeChanged_dict_ret])
 
                 # RQ 3.1
                 self.functionArgsType_added += stat.functionArgsType_added

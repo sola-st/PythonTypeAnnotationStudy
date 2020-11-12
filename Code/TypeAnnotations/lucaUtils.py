@@ -100,7 +100,9 @@ def smooth_line_xy(outputFilePath, y, x_label=None, y_label=None, title=None, co
                        xlim=None,
                        ylim=None):
 
+    y = sorted(y)
     x = list(range(len(y)))
+
 
     # Calculate the simple average of the data
     y_mean = [numpy.mean(y)] * len(x)
@@ -108,19 +110,20 @@ def smooth_line_xy(outputFilePath, y, x_label=None, y_label=None, title=None, co
     fig, ax = plt.subplots()
 
     # Plot the data
-    data_line = ax.plot(x, y, label='Data', marker='o',  color=color1)
+    data_line = ax.plot(x, y, label='Data',  color=color1)
 
     # Plot the average line
     mean_line = ax.plot(x, y_mean, label='Mean', linestyle='--',  color=color2)
 
     # Make a legend
-    legend = ax.legend(loc='upper right')
+    legend = ax.legend(loc='upper left')
 
     plt.ylabel(y_label)
     plt.xlabel(x_label)
+    plt.xscale('log')
 
-    if title is not None:
-        plt.title(title)
+   # if title is not None:
+    #    plt.title(title)
 
     plt.savefig(outputFilePath, bbox_inches='tight')
 
@@ -191,6 +194,8 @@ def bar_plot_double_xy(outputFilePath, x, y1, y2, x_label=None, y_label=None, ti
     plt.ylabel(y_label)
     plt.xlabel(x_label)
 
+    plt.yscale('log')
+
     plt.bar(numpy.array(x) - 0.2, numpy.array(y1), width=0.4, align='center', color=color1,
             label='Commits with annotations')
     plt.bar(numpy.array(x) + 0.2, numpy.array(y2), width=0.4, align='center', color=color2,
@@ -237,8 +242,8 @@ def scatter_plot_xy(outputFilePath, x, y, x_label, y_label, xscale, yscale, titl
     if xlim is not None:
         axes.set_xlim([0, xlim])
 
-    # plt.yscale(yscale)
-    # plt.xscale(xscale)
+    plt.yscale(yscale)
+    plt.xscale(xscale)
 
     # use the plot function
     plt.scatter(x, y)

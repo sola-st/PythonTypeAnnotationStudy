@@ -266,9 +266,9 @@ def analyze_specific_commits(commits_file):
     write_results("pure_commits_vs_errors.json", result)
 
 
-if __name__ == "__main__":
+#if __name__ == "__main__":
     # analyze_histories(projects, max_commits_per_project=11)
     # analyze_latest_commit(projects)  # TODO: still needed?
 
-    analyze_specific_commits(
-        config.ROOT_DIR + "/Resources/Output/typeAnnotationCommitStatistics.json")
+analyze_specific_commits(
+    config.ROOT_DIR + "/Resources/Output/typeAnnotationCommitStatistics.json")
