@@ -14,6 +14,7 @@ from Code.TypeAnnotations.codeChange import CommitStatistics
 from Code.TypeAnnotations.codeChangeExtraction import TypeAnnotationExtractionFirstCommit, \
     TypeAnnotationExtractionLast, type_annotation_in_last_version, last_version_analysis
 from Code.TypeAnnotations.codeStatistics import CodeStatistics
+from Code.TypeErrors.TypeAnnotationCounter import count_type_annotations
 
 
 def repo_cloning(filenameInput: str, pathOutput: str, count: int) -> None:
@@ -89,6 +90,7 @@ def query_repo_get_changes(repo_name):  # statistics, pointer, dirlist_len):
         # tot_this_repo_commit_with_annotations = [0]
         commit_with_annotations_this_repo = [0]
         at_least_one_type_change = [0]
+        commit_set = set()
 
         # lock.acquire()
         statistics.number_type_annotations_per_repo[repo_name] = 0
@@ -120,12 +122,19 @@ def query_repo_get_changes(repo_name):  # statistics, pointer, dirlist_len):
 
         if statistics.typeLastProjectVersion_total > 0:
             # Go through each commit starting from the most recent commit
+            commit_temp = 'e0'
             for commit in repo.walk(last_commit, GIT_SORT_TOPOLOGICAL | GIT_SORT_REVERSE):
                 # print(str(commit.hex))
                # if commit.hex != 'b947d4826a3ee7a39992c9f88a433156c154507b':  # b86598886ea50c5259982ac18a692748bd3ba402
                 #    continue
                 commit_year = time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(commit.commit_time))[:4]
                 commit_month = time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(commit.commit_time))[5:7]
+
+                if int(commit_month) < 9:
+                    commit_temp = commit.hex
+                else:
+                    if commit_temp != 'e0':
+                        commit_set.add(commit_temp)
 
                 # Only before November is consider for a better comparison with 2020
                 if int(commit_month) < 11:
@@ -327,8 +336,6 @@ def query_repo_get_changes(repo_name):  # statistics, pointer, dirlist_len):
                         if not hasattr(diff,"patchid"):
                             continue
 
-                        git_checkout(config.ROOT_DIR + "/GitHub/" + repo_name, commit.hex)
-
                         TypeAnnotationExtractionLast(config.ROOT_DIR + "/GitHub/", repo_name, commit, patch,
                                                     remote_url + '/commit/' + commit.hex + '#diff-' + diff.patchid.hex,
                                                     statistics,  # lock, logging,
@@ -452,6 +459,8 @@ def query_repo_get_changes(repo_name):  # statistics, pointer, dirlist_len):
             if statistics.total_typeAnnotation_codeChanges > 0:
                 statistics.typeLastProjectVersion_percentage.append(round(statistics.typeLastProjectVersion_total / sum(statistics.insert_types.values()) * 100, 2))
 
+                git_checkout(config.ROOT_DIR + "/GitHub/" + repo_name, commit_set)
+
         except Exception as e:
             print(str(e))
 
@@ -479,24 +488,12 @@ def query_repo_get_changes(repo_name):  # statistics, pointer, dirlist_len):
     return statistics
 
 
-def git_checkout(repo_dir, commit):
-    print("\n===========================================")
-    print(f"Checking commit {commit} of {repo_dir}")
+def git_checkout(repo_dir, commit_set):
 
-    year = 2020
+    for commit in commit_set:
+        subprocess.run(f"git checkout {commit} --quiet".split(" "), cwd=repo_dir)
 
-    # go to commit
-    #subprocess.run(f"git checkout {commit}".split(" "), cwd=repo_dir)
+        param_types, return_types, variable_types, non_param_types, non_return_types, non_variable_types = count_type_annotations(
+           repo_dir)
 
-    print(f"git --work-tree={repo_dir} checkout `git rev-list -n 1 --first-parent --before=\"2020-06-01 00:00\" master`")
-
-   # p = subprocess.Popen(f"git checkout `git rev-list -n 1 --first-parent --before=\"2020-10-01 00:00\" master`".split(" "), cwd=repo_dir)
-
-    #p.wait()
-
-    os.system(f"git --work-tree={repo_dir} checkout `git rev-list -n 1 --first-parent --before=\"2020-06-01 00:00\" master`")
-
-    # get date of commit
-    #out = subprocess.check_output(
-    #    f"git show -s --format=%ci {commit}".split(" "), cwd=repo_dir)
-    # commit_date = out.decode(sys.stdout.encoding).rstrip()
+        print(param_types, return_types, variable_types)
