@@ -154,6 +154,20 @@ class CodeStatistics:
         self.typeAnnotation_commit_annotation_year_analysis = {}
         self.typeAnnotation_commit_not_annotation_year_analysis = {}
 
+        # RQ 10: Coverage
+        self.annotation_coverage = {'2014': [0, 0, 0, 0, 0, 0],
+                               '2015': [0, 0, 0, 0, 0, 0],
+                               '2016': [0, 0, 0, 0, 0, 0],
+                               '2017': [0, 0, 0, 0, 0, 0],
+                               '2018': [0, 0, 0, 0, 0, 0],
+                               '2019': [0, 0, 0, 0, 0, 0],
+                               '2020': [0, 0, 0, 0, 0, 0], }
+
+        #RQ11: Developers study
+        self.list_dev_dict = []
+        self.dev_dict = {}
+
+
     #################################################
     #################METHODS#########################
     #################################################
@@ -176,7 +190,10 @@ class CodeStatistics:
         self.typeRemoved_dict = sort_dictionary(self.typeRemoved_dict)[:5]
 
         # [RQ2.5]: What are the top 10 types changed?
-        self.typeChanged_dict = sort_dictionary(self.typeChanged_dict)[:10]
+        #self.typeChanged_dict = sort_dictionary(self.typeChanged_dict)[:10]
+        self.typeChanged_dict_var = sort_dictionary(self.typeChanged_dict_var)[:10]
+        self.typeChanged_dict_arg = sort_dictionary(self.typeChanged_dict_arg)[:10]
+        self.typeChanged_dict_ret = sort_dictionary(self.typeChanged_dict_ret)[:10]
 
         # [RQ4]: Are many types added at once or rather a few types here and there?
         self.rate_annotation_commit()
@@ -196,7 +213,8 @@ class CodeStatistics:
 
     # [RQ1]: Are type annotation inserted, removed and changed?
     def percentage_computation(self):
-        self.total_typeAnnotation_codeChanges = sum(self.insert_types.values()) + sum(self.remove_types.values()) + sum(self.modify_existing_types.values())
+        self.total_typeAnnotation_codeChanges = sum(self.insert_types.values()) + sum(self.remove_types.values()) + sum(
+            self.modify_existing_types.values())
 
         self.percentage_repo_with_typeChanges = str(
             round(self.repo_with_types_changes / self.total_repositories * 100, 2)) + ' %'
@@ -367,12 +385,14 @@ class CodeStatistics:
                 self.repo_with_types_changes += stat.repo_with_types_changes
                 self.commits_with_typeChanges += stat.commits_with_typeChanges
                 self.total_typeAnnotation_codeChanges += stat.total_typeAnnotation_codeChanges
-                self.commit_year_dict = dict(merge_dictionaries([dict(self.commit_year_dict), dict(stat.commit_year_dict)]))
+                self.commit_year_dict = dict(
+                    merge_dictionaries([dict(self.commit_year_dict), dict(stat.commit_year_dict)]))
 
                 # RQ1
                 self.insert_types = dict(merge_dictionaries([dict(self.insert_types), dict(stat.insert_types)]))
                 self.remove_types = dict(merge_dictionaries([dict(self.remove_types), dict(stat.remove_types)]))
-                self.modify_existing_types =  dict(merge_dictionaries([dict(self.modify_existing_types), dict(stat.modify_existing_types)]))
+                self.modify_existing_types = dict(
+                    merge_dictionaries([dict(self.modify_existing_types), dict(stat.modify_existing_types)]))
 
                 # RQ2.1
                 self.anyType_added += stat.anyType_added
@@ -469,6 +489,22 @@ class CodeStatistics:
                 self.typeAnnotation_commit_not_annotation_year_analysis = merge_dictionaries(
                     [self.typeAnnotation_commit_not_annotation_year_analysis,
                      stat.typeAnnotation_commit_not_annotation_year_analysis])
+
+                #RQ 10
+                year = 2014
+
+                while year < 2021:
+                    self.annotation_coverage[str(year)][0] += stat.annotation_coverage[str(year)][0]
+                    self.annotation_coverage[str(year)][1] += stat.annotation_coverage[str(year)][1]
+                    self.annotation_coverage[str(year)][2] += stat.annotation_coverage[str(year)][2]
+                    self.annotation_coverage[str(year)][3] += stat.annotation_coverage[str(year)][3]
+                    self.annotation_coverage[str(year)][4] += stat.annotation_coverage[str(year)][4]
+                    self.annotation_coverage[str(year)][5] += stat.annotation_coverage[str(year)][5]
+                    year += 1
+
+                # RQ 11
+                self.list_dev_dict.append(stat.dev_dict)
+
             except Exception as e:
                 print('[Merging Error]', str(e))
                 continue

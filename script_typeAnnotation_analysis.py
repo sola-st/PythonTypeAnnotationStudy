@@ -56,8 +56,8 @@ def typeAnnotation_analisis():
             # Statistics computation
             try:
                 statistics_final.statistics_computation()
-            except:
-                print("Error during statistics computation")
+            except Exception as e:
+                print("Error during statistics computation",str(e))
         else:
             print('No type annotation code changes found')
             exit()
@@ -77,7 +77,7 @@ def typeAnnotation_analisis():
             # Compute new files
             write_results(statistics_final, code_changes, commit_statistics)
         except Exception as e:
-            print('Error writing results in files: ' + str(e))
+            print('Error writing results in files:', str(e))
 
         print("\nStatistics computed in " + "{:0>2}:{:0>2}:{:05.2f}".format(int(hours), int(minutes), seconds))
 

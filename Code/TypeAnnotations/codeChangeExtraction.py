@@ -609,14 +609,6 @@ def extract_from_snippet_new_new_new(string_old, string_new):
 
 
 def extract_from_snippet_new_new_new_new(string_old, string_new):
-    # if len(string_old) == 0:
-    #   return {}, {}, {}
-
-    # string_old = "from typing import Any\n" + "def process_something(arguments: Any, func:int, f2:str, fooo)-> int:\n " \
-    #                                          "  pass\nx:List[int] = []\ny:List[int] = []\nx = 0 "
-
-    # string_new = "from typing import Any\n" + "def process_something(arguments: Any, func, f2:float, fooo: " \
-    #                                         "complex):\n   pass\nx = []\ny:Tuple[int] = []\nx:float = 0 "
 
     node_list_new = []
     node_list_old = []
@@ -1156,13 +1148,9 @@ def TypeAnnotationExtractionLast(repo_path, repo_name, commit, patch, url, stati
         return
 
     try:
-        # diff-b10564ab7d2c520cdd0243874879fb0a782862c3c902ab535faabe57d5a505e1L9
         #########################################################################
-        #### TYPE Annotations                  ###############
+        ####                    TYPE Annotations                  ###############
         #########################################################################
-
-        # if commit.hex == 'a34b3d9d87fdfdf5695d8e4278277fd74374abcf':
-        #    print('a34b3d9d87fdfdf5695d8e4278277fd74374abcf')
 
         for hunk in patch.hunks:
             # result77 = hashlib.md5("main.py".encode('utf-8')).hexdigest()
