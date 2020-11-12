@@ -88,7 +88,7 @@ def check_commit(repo_dir, commit):
         kind_to_nb[warning_kind] += 1
 
     # count type annotations
-    param_types, return_types, variable_types = count_type_annotations(
+    param_types, return_types, variable_types, _, _, _ = count_type_annotations(
         repo_dir)
 
     result = {
