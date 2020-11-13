@@ -142,7 +142,7 @@ def query_repo_get_changes(repo_name):  # statistics, pointer, dirlist_len):
                     if int(commit_year) < 2014:
                         continue
 
-                    if int(commit_month) < 9:
+                    if int(commit_month) < 11:
                         commit_temp = commit.hex
                     else:
                         if commit_temp != 'e0':
