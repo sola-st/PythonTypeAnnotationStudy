@@ -344,17 +344,22 @@ def query_repo_get_changes(repo_name):  # statistics, pointer, dirlist_len):
 def git_checkout(repo_dir, commit_set,statistics):
 
     for commit in commit_set:
-        subprocess.run(f"git checkout {commit[4:]} --quiet".split(" "), cwd=repo_dir)
+        try:
+            subprocess.run(f"git checkout {commit[4:]} --quiet".split(" "), cwd=repo_dir)
 
-        param_types, return_types, variable_types, non_param_types, non_return_types, non_variable_types = count_type_annotations(
-           repo_dir)
+            param_types, return_types, variable_types, non_param_types, non_return_types, non_variable_types = count_type_annotations(
+               repo_dir)
 
-        #print(param_types, return_types, variable_types)
+            #print(param_types, return_types, variable_types)
 
-        statistics.annotation_coverage[str(commit[:4])][0] += param_types
-        statistics.annotation_coverage[str(commit[:4])][1] += non_param_types
-        statistics.annotation_coverage[str(commit[:4])][2] += return_types
-        statistics.annotation_coverage[str(commit[:4])][3] += non_return_types
-        statistics.annotation_coverage[str(commit[:4])][4] += variable_types
-        statistics.annotation_coverage[str(commit[:4])][5] += non_variable_types
+            statistics.annotation_coverage[str(commit[:4])][0] += param_types
+            statistics.annotation_coverage[str(commit[:4])][1] += non_param_types
+            statistics.annotation_coverage[str(commit[:4])][2] += return_types
+            statistics.annotation_coverage[str(commit[:4])][3] += non_return_types
+            statistics.annotation_coverage[str(commit[:4])][4] += variable_types
+            statistics.annotation_coverage[str(commit[:4])][5] += non_variable_types
+
+        except Exception as e:
+            print(repo_dir,str(e))
+            continue
 
