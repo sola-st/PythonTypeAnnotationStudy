@@ -3,6 +3,7 @@
 import subprocess
 import sys
 import re
+import time
 from collections import Counter
 import json
 from os import path, scandir
@@ -220,8 +221,8 @@ def analyze_specific_commits(commits_file):
     index = -1
     for c in commit_stats:
         index +=1
-        if not index % 100 == 0:
-            continue
+        #if not index % 100 == 0:
+        #    continue
 
         add_only = is_add_only_commit(c)
         remove_only = is_remove_only_commit(c)
@@ -276,6 +277,14 @@ def analyze_specific_commits(commits_file):
 #if __name__ == "__main__":
     # analyze_histories(projects, max_commits_per_project=11)
     # analyze_latest_commit(projects)  # TODO: still needed?
+start = time.time()
 
 analyze_specific_commits(
     config.ROOT_DIR + "/Resources/Output/typeAnnotationCommitStatistics.json")
+
+end = time.time()
+hours, rem = divmod(end - start, 3600)
+minutes, seconds = divmod(rem, 60)
+
+print("{:0>2}:{:0>2}:{:05.2f}".format(int(hours), int(minutes), seconds))
+
