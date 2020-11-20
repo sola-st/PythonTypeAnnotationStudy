@@ -42,6 +42,7 @@
     <mapping directory="$PROJECT_DIR$/GitHub/HelloZeroNet-ZeroNet" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/Hironsan-BossSensor" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/HypothesisWorks-hypothesis" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/GitHub/Instagram-LibCST" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/ItChat" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/Jack-Cherish-python-spider" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/JakeWharton-ActionBarSherlock" vcs="Git" />

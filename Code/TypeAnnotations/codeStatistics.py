@@ -155,6 +155,7 @@ class CodeStatistics:
         self.typeAnnotation_commit_not_annotation_year_analysis = {}
 
         # RQ 10: Coverage
+        self.RQ10 = 'Type annotation coverage for each each'
         self.annotation_coverage = {'2014': [0, 0, 0, 0, 0, 0],
                                '2015': [0, 0, 0, 0, 0, 0],
                                '2016': [0, 0, 0, 0, 0, 0],
@@ -164,8 +165,10 @@ class CodeStatistics:
                                '2020': [0, 0, 0, 0, 0, 0], }
 
         #RQ11: Developers study
+        self.RQ11 = 'Developers statistics'
         self.list_dev_dict = []
         self.dev_dict = {}
+        self.list_dev_plot = []
 
 
     #################################################

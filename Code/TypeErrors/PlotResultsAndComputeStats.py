@@ -263,6 +263,10 @@ def compute_stats_on_latest(results):
         f"  Correlation between errors and annotations: {corr_annotations_errors}")
 
 
+#Pure commits: Run on all
+#Evolution of type errors vs type annotations: Run on 1/20 or 1/50
+#Store raw output of mypy for later reuse
+
 if __name__ == "__main__":
     project_to_history, latest_results = get_results()
     compute_more_columns(latest_results)

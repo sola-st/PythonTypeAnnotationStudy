@@ -96,6 +96,29 @@ def delete_all_files_in_folder(folder):
 Method to build x-y graphs.
 """
 
+def pie_chart(outputFilePath,labels,sizes):
+    # Data to plot
+    #labels = 'Python', 'C++', 'Ruby', 'Java'
+    #sizes = [215, 130, 245, 210]
+    colors = ['gold', 'yellowgreen', 'lightcoral', 'lightskyblue']
+    #explode = (0.1, 0, 0, 0)  # explode 1st slice
+
+    # Plot
+    #plt.pie(sizes, labels=labels, colors=colors,
+    #        autopct='%1.1f%%', shadow=True, startangle=140)
+
+    patches, texts = plt.pie(sizes, colors=colors, startangle=90)
+    plt.legend(patches, labels, loc="best")
+    # Set aspect ratio to be equal so that pie is drawn as a circle.
+    
+    plt.tight_layout()
+
+    plt.axis('equal')
+
+    plt.savefig(outputFilePath, bbox_inches='tight')
+
+    plt.figure()
+
 def smooth_line_xy(outputFilePath, y, x_label=None, y_label=None, title=None, color1='blue', color2='red',
                        xlim=None,
                        ylim=None):

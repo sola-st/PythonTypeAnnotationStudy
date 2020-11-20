@@ -78,8 +78,8 @@ def count_type_annotations(project_path: str):
             except Exception as e:
                 print(str(e))
             counted += 1
-            #if counted % 100 == 0:
-            #    print(f"Counted annotations in {counted} files")
+            if counted % 100 == 0:
+                print(f"Counted annotations in {counted} files")
 
     return number_param_types, number_return_types, number_variable_types, number_non_param_types, number_non_return_types, number_non_variable_types
 

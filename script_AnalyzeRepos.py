@@ -73,7 +73,9 @@ def check_commit(repo_dir, commit):
 
     # type check
     print("--- Type checking")
+    out = invoke_cmd("cp ../.pyre_configuration .", repo_dir)
     out = invoke_cmd("pyre check", repo_dir)
+
     warnings = out.split("\n")
     warnings = warnings[:-1]  # last line is empty
     print(f"Got {len(warnings)} warnings")
@@ -215,7 +217,12 @@ def analyze_specific_commits(commits_file):
     commit_url_regexp = r"https.*github\.com\/(.*)\/(.*)\/commit\/(.*)"
     skipped = 0
     used = 0
+    index = -1
     for c in commit_stats:
+        index +=1
+        if not index % 100 == 0:
+            continue
+
         add_only = is_add_only_commit(c)
         remove_only = is_remove_only_commit(c)
         change_only = is_changed_only_commit(c)

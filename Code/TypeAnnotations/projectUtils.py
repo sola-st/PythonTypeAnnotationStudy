@@ -151,6 +151,14 @@ def myplot(statistics):
                    xlim=None,
                    ylim=None)
 
+    # RQ10
+    i = 0
+    for dictionary in statistics.list_dev_plot:
+        #name, val = dictionary.items()[0]
+        #del dictionary[name]
+        i +=1
+        pie_chart(config.ROOT_DIR + f"/Resources/Output/dev_study_{i}.pdf", dictionary.keys(), dictionary.values())
+
     # Variables are cleaned to have a better output
     statistics.matrix_commits_stars_annotations = "See the plots RQ5_commits and RQ5_stars."
     statistics.list_typeAnnotation_added_per_commit = "See the plot RQ4_1."
@@ -216,7 +224,9 @@ def load_final_statistics():
 
     # RQ2.5
     finalStatistics.total_changed = allStatistics[0]['total_changed']
-    finalStatistics.typeChanged_dict = dict(tuple(tuple(x) for x in allStatistics[0]['typeChanged_dict']))
+    finalStatistics.typeChanged_dict_ret = dict(tuple(tuple(x) for x in allStatistics[0]['typeChanged_dict_ret']))
+    finalStatistics.typeChanged_dict_var = dict(tuple(tuple(x) for x in allStatistics[0]['typeChanged_dict_var']))
+    finalStatistics.typeChanged_dict_arg = dict(tuple(tuple(x) for x in allStatistics[0]['typeChanged_dict_arg']))
 
     # RQ 3.1
     finalStatistics.functionArgsType_added = allStatistics[0]['functionArgsType_added']
@@ -270,5 +280,14 @@ def load_final_statistics():
 
     finalStatistics.typeAnnotation_commit_not_annotation_year_analysis = allStatistics[0]['typeAnnotation_commit_not_annotation_year_analysis']
 
+    # RQ 10
+    finalStatistics.annotation_coverage = allStatistics[0]['annotation_coverage']
+
+    #RQ 11
+    finalStatistics.list_dev_dict = allStatistics[0]['list_dev_dict']
+
+    selected_repo_dev = ['lucaresearch-pythontest','lucaresearch-pythontest2', '']
+
+    finalStatistics.list_dev_plot = allStatistics[0]['list_dev_dict']
 
     return finalStatistics

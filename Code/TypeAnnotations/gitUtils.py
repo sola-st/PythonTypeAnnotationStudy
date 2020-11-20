@@ -9,6 +9,8 @@ from collections import defaultdict
 
 import pygit2 as git
 from pygit2 import GIT_SORT_TOPOLOGICAL, GIT_SORT_REVERSE
+from typing import List
+
 import config
 from Code.TypeAnnotations.codeChange import CommitStatistics
 from Code.TypeAnnotations.codeChangeExtraction import TypeAnnotationExtractionFirstCommit, \
@@ -17,7 +19,7 @@ from Code.TypeAnnotations.codeStatistics import CodeStatistics
 from Code.TypeErrors.TypeAnnotationCounter import count_type_annotations
 
 
-def repo_cloning(filenameInput: str, pathOutput: str, count: int) -> None:
+def repo_cloning(filenameInput: str, pathOutput: str, count: List[int]) -> None:
     with open(filenameInput) as fh:
         articles = json.load(fh)
 
