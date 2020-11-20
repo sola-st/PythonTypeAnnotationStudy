@@ -34,7 +34,7 @@ def typeAnnotation_analisis():
             profile.enable()
 
             print("\nWorking on TEST CONFIGURATION")
-            process_statistics += gitUtils.query_repo_get_changes("Instagram-LibCST")
+            process_statistics += gitUtils.query_repo_get_changes("httpie-httpie")
 
             profile.disable()
             ps = pstats.Stats(profile).sort_stats('cumulative')

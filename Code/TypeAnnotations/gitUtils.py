@@ -314,7 +314,7 @@ def query_repo_get_changes(repo_name):  # statistics, pointer, dirlist_len):
             if statistics.total_typeAnnotation_codeChanges > 0:
                 statistics.typeLastProjectVersion_percentage.append(round(statistics.typeLastProjectVersion_total / sum(statistics.insert_types.values()) * 100, 2))
 
-                git_checkout(config.ROOT_DIR + "/GitHub/" + repo_name, commit_set, statistics)
+                #git_checkout(config.ROOT_DIR + "/GitHub/" + repo_name, commit_set, statistics)
 
         except Exception as e:
             print(str(e))
@@ -362,6 +362,6 @@ def git_checkout(repo_dir, commit_set,statistics):
             statistics.annotation_coverage[str(commit[:4])][5] += non_variable_types
 
         except Exception as e:
-            print(repo_dir,str(e))
+            #print(repo_dir,str(e))
             continue
 

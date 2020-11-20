@@ -24,6 +24,10 @@ Sorting algorithms
 
 
 def sort_dictionary(data: dict):
+    return sorted(data.items(), key=lambda x: x[1], reverse=True)
+
+
+def sort_dictionary_reverse(data: dict):
     return sorted(data.items(), key=lambda x: x[1], reverse=False)
 
 
@@ -96,21 +100,22 @@ def delete_all_files_in_folder(folder):
 Method to build x-y graphs.
 """
 
-def pie_chart(outputFilePath,labels,sizes):
+
+def pie_chart(outputFilePath, labels, sizes):
     # Data to plot
-    #labels = 'Python', 'C++', 'Ruby', 'Java'
-    #sizes = [215, 130, 245, 210]
+    # labels = 'Python', 'C++', 'Ruby', 'Java'
+    # sizes = [215, 130, 245, 210]
     colors = ['gold', 'yellowgreen', 'lightcoral', 'lightskyblue']
-    #explode = (0.1, 0, 0, 0)  # explode 1st slice
+    # explode = (0.1, 0, 0, 0)  # explode 1st slice
 
     # Plot
-    #plt.pie(sizes, labels=labels, colors=colors,
+    # plt.pie(sizes, labels=labels, colors=colors,
     #        autopct='%1.1f%%', shadow=True, startangle=140)
 
     patches, texts = plt.pie(sizes, colors=colors, startangle=90)
     plt.legend(patches, labels, loc="best")
     # Set aspect ratio to be equal so that pie is drawn as a circle.
-    
+
     plt.tight_layout()
 
     plt.axis('equal')
@@ -119,13 +124,12 @@ def pie_chart(outputFilePath,labels,sizes):
 
     plt.figure()
 
-def smooth_line_xy(outputFilePath, y, x_label=None, y_label=None, title=None, color1='blue', color2='red',
-                       xlim=None,
-                       ylim=None):
 
+def smooth_line_xy(outputFilePath, y, x_label=None, y_label=None, title=None, color1='blue', color2='red',
+                   xlim=None,
+                   ylim=None):
     y = sorted(y)
     x = list(range(len(y)))
-
 
     # Calculate the simple average of the data
     y_mean = [numpy.mean(y)] * len(x)
@@ -133,10 +137,10 @@ def smooth_line_xy(outputFilePath, y, x_label=None, y_label=None, title=None, co
     fig, ax = plt.subplots()
 
     # Plot the data
-    data_line = ax.plot(x, y, label='Data',  color=color1)
+    data_line = ax.plot(x, y, label='Data', color=color1)
 
     # Plot the average line
-    mean_line = ax.plot(x, y_mean, label='Mean', linestyle='--',  color=color2)
+    mean_line = ax.plot(x, y_mean, label='Mean', linestyle='--', color=color2)
 
     # Make a legend
     legend = ax.legend(loc='upper left')
@@ -145,13 +149,12 @@ def smooth_line_xy(outputFilePath, y, x_label=None, y_label=None, title=None, co
     plt.xlabel(x_label)
     plt.xscale('log')
 
-   # if title is not None:
+    # if title is not None:
     #    plt.title(title)
 
     plt.savefig(outputFilePath, bbox_inches='tight')
 
     plt.figure()
-
 
 
 def cartesian_plot_xy(outputFilePath, x, y, x_label, y_label, title=None, color='blue', xlim=None, ylim=None):
@@ -313,6 +316,7 @@ def histogram_2d_plot_xy(outputFilePath, x, y, x_label, y_label, title=None, col
 def dif_wr(d):
     for i, line in enumerate(d):
         sys.stdout.write('{} {}\n'.format(i + 1, line))
+
 
 def map_diff_number_lines():
     file1 = """User1 fdsfds

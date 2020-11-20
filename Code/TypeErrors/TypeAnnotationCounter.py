@@ -34,7 +34,7 @@ def extract_from_file(file_path: str):
     try:
         ast = cst.parse_module(src)
     except:
-        return {}, {}, {}
+        return {}, {}, {}, {}, {}, {}
 
     # Pre-compute scopes
     wrapper = cst.metadata.MetadataWrapper(ast)
@@ -66,6 +66,7 @@ def count_type_annotations(project_path: str):
     counted = 0
     for filepath in pathlib.Path(project_path).glob('**/*'):
         if str(filepath).endswith(".py"):
+            counted += 1
             try:
                 param_types, return_types, variable_types, non_param_types, non_return_types, non_variable_types = extract_from_file(
                     str(filepath))
@@ -76,10 +77,12 @@ def count_type_annotations(project_path: str):
                 number_non_return_types += len(non_return_types)
                 number_non_variable_types += len(non_variable_types)
             except Exception as e:
-                print(str(e))
-            counted += 1
-            if counted % 100 == 0:
-                print(f"Counted annotations in {counted} files")
+                #print(str(e))
+                continue
+
+        counted += 1
+           # if counted % 100 == 0:
+            #    print(f"Counted annotations in {counted} files")
 
     return number_param_types, number_return_types, number_variable_types, number_non_param_types, number_non_return_types, number_non_variable_types
 
