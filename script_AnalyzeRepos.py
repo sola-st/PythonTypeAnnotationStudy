@@ -220,56 +220,59 @@ def analyze_specific_commits(commits_file):
     used = 0
     index = -1
     for c in commit_stats:
-        index +=1
-        #if not index % 100 == 0:
-        #    continue
+        try:
+            index +=1
+            #if not index % 100 == 0:
+            #    continue
 
-        add_only = is_add_only_commit(c)
-        remove_only = is_remove_only_commit(c)
-        change_only = is_changed_only_commit(c)
+            add_only = is_add_only_commit(c)
+            remove_only = is_remove_only_commit(c)
+            change_only = is_changed_only_commit(c)
 
-        if add_only or remove_only or change_only:
-            commit_url = c["url"]
-            match = re.match(commit_url_regexp, commit_url)
-            project = match.group(1) + '-' + match.group(2)
-            commit = match.group(3)
-            repo_dir = repos_base_dir+project
-            parent_commit = get_parent_commit(repo_dir, commit)
+            if add_only or remove_only or change_only:
+                commit_url = c["url"]
+                match = re.match(commit_url_regexp, commit_url)
+                project = match.group(1) + '-' + match.group(2)
+                commit = match.group(3)
+                repo_dir = repos_base_dir+project
+                parent_commit = get_parent_commit(repo_dir, commit)
 
-            pre_change = check_commit(repo_dir, parent_commit)
-            post_change = check_commit(repo_dir, commit)
+                pre_change = check_commit(repo_dir, parent_commit)
+                post_change = check_commit(repo_dir, commit)
 
-            # TODO: if data from Luca is correct, this shouldn't be necessary
-            if add_only and not (nb_types(pre_change) < nb_types(post_change)):
-                skipped += 1
-                continue
-            if remove_only and not (nb_types(pre_change) > nb_types(post_change)):
-                skipped += 1
-                continue
-            if change_only and not (nb_types(pre_change) == nb_types(post_change)):
-                skipped += 1
-                continue
+                # TODO: if data from Luca is correct, this shouldn't be necessary
+                if add_only and not (nb_types(pre_change) < nb_types(post_change)):
+                    skipped += 1
+                    continue
+                if remove_only and not (nb_types(pre_change) > nb_types(post_change)):
+                    skipped += 1
+                    continue
+                if change_only and not (nb_types(pre_change) == nb_types(post_change)):
+                    skipped += 1
+                    continue
 
-            # write result for this commit into overall stats
-            if add_only:
-                relevant_result = result["add_only_commits"]
-            elif remove_only:
-                relevant_result = result["remove_only_commits"]
-            else:  # change-only
-                relevant_result = result["change_only_commits"]
-            warnings_diff = post_change["nb_warnings"] - \
-                pre_change["nb_warnings"]
-            if warnings_diff == 0:
-                relevant_result["same_nb_errors"] += 1
-            elif warnings_diff > 0:
-                relevant_result["more_errors"] += 1
-            elif warnings_diff < 0:
-                relevant_result["fewer_errors"] += 1
+                # write result for this commit into overall stats
+                if add_only:
+                    relevant_result = result["add_only_commits"]
+                elif remove_only:
+                    relevant_result = result["remove_only_commits"]
+                else:  # change-only
+                    relevant_result = result["change_only_commits"]
+                warnings_diff = post_change["nb_warnings"] - \
+                    pre_change["nb_warnings"]
+                if warnings_diff == 0:
+                    relevant_result["same_nb_errors"] += 1
+                elif warnings_diff > 0:
+                    relevant_result["more_errors"] += 1
+                elif warnings_diff < 0:
+                    relevant_result["fewer_errors"] += 1
 
-            used += 1
-            if used % 10 == 0:
-                print(f"\nUsed {used}, skipped {skipped}")
-                print(f"{result}")
+                used += 1
+                if used % 10 == 0:
+                    print(f"\nUsed {used}, skipped {skipped}")
+                    print(f"{result}")
+        except Exception as e:
+            print(str(e))
 
     write_results("pure_commits_vs_errors.json", result)
 
