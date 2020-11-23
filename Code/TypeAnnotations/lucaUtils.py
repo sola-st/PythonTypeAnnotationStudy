@@ -101,7 +101,7 @@ Method to build x-y graphs.
 """
 
 
-def pie_chart(outputFilePath, labels, sizes):
+def pie_chart(outputFilePath, labels, sizes, title):
     # Data to plot
     # labels = 'Python', 'C++', 'Ruby', 'Java'
     # sizes = [215, 130, 245, 210]
@@ -122,6 +122,8 @@ def pie_chart(outputFilePath, labels, sizes):
     plt.tight_layout()
 
     plt.axis('equal')
+
+    plt.title(title)
 
     plt.savefig(outputFilePath, bbox_inches='tight')
 

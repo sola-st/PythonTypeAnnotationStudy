@@ -156,9 +156,10 @@ def myplot(statistics):
                    ylim=None)
 
     # RQ10
-    i = 0
+    i = -1
+    list_repo = ['https://github.com/python/mypy', 'https://github.com/zulip/zulip', 'https://github.com/robinhood/faust']
     for dictionary in statistics.list_dev_plot:
-        name, val = dictionary.items()[0]
+        #name, val = dictionary.items()[0]
         #del dictionary[name]
         total = sum(dictionary.values())
         dictionary = dict(sort_dictionary(dictionary)[:4])
@@ -166,7 +167,7 @@ def myplot(statistics):
         dictionary['Others']= others
         user_list = ['Dev1', 'Dev2', 'Dev3', 'Dev4', 'Others' ]
         i +=1
-        pie_chart(config.ROOT_DIR + f"/Resources/Output/dev_study_{i}.pdf", user_list, dictionary.values())
+        pie_chart(config.ROOT_DIR + f"/Resources/Output/dev_study_{i}.pdf", user_list, dictionary.values(), f'{list_repo[i]}')
 
     # Variables are cleaned to have a better output
     statistics.matrix_commits_stars_annotations = "See the plots RQ5_commits and RQ5_stars."
