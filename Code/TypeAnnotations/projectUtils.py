@@ -44,18 +44,18 @@ def myplot(statistics):
 
     statistics.commit_year_dict = dict(sort_dictionary(statistics.commit_year_dict))
 
-    bar_plot_xy(config.ROOT_DIR + "/Resources/Output/NumCommitsYear.pdf",
-                statistics.commit_year_dict.keys(),
-                statistics.commit_year_dict.values(), 'Year',
-                '# Commits',
-                title='Total number of commits in each year')
+   # bar_plot_xy(config.ROOT_DIR + "/Resources/Output/NumCommitsYear.pdf",
+    #            statistics.commit_year_dict.keys(),
+     #           statistics.commit_year_dict.values(), 'Year',
+      #          '# Commits',
+      #          title='Total number of commits in each year')
 
     # RQ2.2
-    bar_plot_xy(config.ROOT_DIR + "/Resources/Output/TopAdded.pdf",
-                statistics.typeAdded_dict.keys(),
-                statistics.typeAdded_dict.values(), 'Top types added',
-                'Occurrences',
-                title='What are the top 5 types added?')
+   # bar_plot_xy(config.ROOT_DIR + "/Resources/Output/TopAdded.pdf",
+    #            statistics.typeAdded_dict.keys(),
+     #           statistics.typeAdded_dict.values(), 'Top types added',
+      #          'Occurrences',
+       #         title='What are the top 5 types added?')
 
 
     # RQ2.3
@@ -63,28 +63,28 @@ def myplot(statistics):
                 statistics.typeChanged_dict_var.keys(),
                 statistics.typeChanged_dict_var.values(), 'Top types changed',
                 'Occurrences',
-                title='What are the top 10 types changed?')
+                title='What are the top 10 types changed in assignments?')
 
     # RQ2.3
     bar_plot_xy(config.ROOT_DIR + "/Resources/Output/TopChanged_arg.pdf",
                 statistics.typeChanged_dict_arg.keys(),
                 statistics.typeChanged_dict_arg.values(), 'Top types changed',
                 'Occurrences',
-                title='What are the top 10 types changed?')
+                title='What are the top 10 types changed in function arguments?')
 
     # RQ2.3
     bar_plot_xy(config.ROOT_DIR + "/Resources/Output/TopChanged_ret.pdf",
                 statistics.typeChanged_dict_ret.keys(),
                 statistics.typeChanged_dict_ret.values(), 'Top types changed',
                 'Occurrences',
-                title='What are the top 10 types changed?')
+                title='What are the top 10 types changed return function?')
 
     # RQ2.4
-    bar_plot_xy(config.ROOT_DIR + "/Resources/Output/TopRemoved.pdf",
-                statistics.typeRemoved_dict.keys(),
-                statistics.typeRemoved_dict.values(), 'Top types removed',
-                'Occurrences',
-                title='What are the top 5 types removed?')
+   # bar_plot_xy(config.ROOT_DIR + "/Resources/Output/TopRemoved.pdf",
+    #            statistics.typeRemoved_dict.keys(),
+     #           statistics.typeRemoved_dict.values(), 'Top types removed',
+      #          'Occurrences',
+       #         title='What are the top 5 types removed?')
 
     # RQ4.1
     #histogram_plot_xy(config.ROOT_DIR + "/Resources/Output/perc_annotations_added_per_commit.pdf",
@@ -97,9 +97,9 @@ def myplot(statistics):
     #                  'Percentage of annotation-related lines among all removed lines', 'Number of commits', 'linear', 'linear', bins=100)
 
     # RQ4
-    histogram_plot_xy(config.ROOT_DIR + "/Resources/Output/RQ4_perc_annotations_lines_per_commit.pdf",
+    histogram_plot_xy(config.ROOT_DIR + "/Resources/Output/perc_annotations_lines_per_commit.pdf",
                       statistics.list_typeAnnotation_changed_per_commit,
-                      'Percentage of annotation-related lines among all inserted, removed and changed lines', 'Number of commits',  'linear', 'log', bins=100)
+                      'Percentage of annotation-related lines among all inserted, removed and changed lines', 'Number of commits',  'linear', 'log', bins=20)
 
     # RQ4.4
     #histogram_plot_xy(config.ROOT_DIR + "/Resources/Output/RQ4_4",
@@ -117,24 +117,28 @@ def myplot(statistics):
     try:
         compute_correlations(statistics.matrix_commits_stars_annotations)
     except Exception as e:
-        print('[Correlation]', str(e))
+        print('[Correlation Error]', str(e))
 
-    scatter_plot_xy(config.ROOT_DIR + "/Resources/Output/RQ5_stars.pdf",
-                    [row[1] for row in statistics.matrix_commits_stars_annotations],
-                    [row[2] for row in statistics.matrix_commits_stars_annotations],
-                    'GitHub Stars', 'Annotations Changes', 'log', 'log')
 
-    scatter_plot_xy(config.ROOT_DIR + "/Resources/Output/RQ5_commits.pdf",
+    scatter_plot_xy(config.ROOT_DIR + "/Resources/Output/relationship_commits.pdf",
                     [row[0] for row in statistics.matrix_commits_stars_annotations],
                     [row[2] for row in statistics.matrix_commits_stars_annotations],
-                    '# Commits', '# Annotations Changes', 'log', 'log')
+                    '# Commits', '# Annotations Changes', 'linear', 'log')
+
+
+    scatter_plot_xy(config.ROOT_DIR + "/Resources/Output/relationship_stars.pdf",
+                    [row[1] for row in statistics.matrix_commits_stars_annotations],
+                    [row[2] for row in statistics.matrix_commits_stars_annotations],
+                    'GitHub Stars', 'Annotations Changes', 'linear', 'log')
+
+
 
     # RQ8
-    years = [int(k) for k in statistics.typeAnnotation_year_analysis.keys()]
-    annotations_per_year = [int(v) for v in statistics.typeAnnotation_year_analysis.values()]
-    bar_plot_xy(config.ROOT_DIR + "/Resources/Output/annotationsPerYear.pdf", years,
-                annotations_per_year, '', 'Type annotations in a year',
-                ylim=int(max(annotations_per_year)*1.1))
+    #years = [int(k) for k in statistics.typeAnnotation_year_analysis.keys()]
+    #annotations_per_year = [int(v) for v in statistics.typeAnnotation_year_analysis.values()]
+    #bar_plot_xy(config.ROOT_DIR + "/Resources/Output/annotationsPerYear.pdf", years,
+     #           annotations_per_year, '', 'Type annotations in a year',
+      #          ylim=int(max(annotations_per_year)*1.1))
 
     # RQ9
     bar_plot_double_xy(config.ROOT_DIR + "/Resources/Output/type_commits_vs_all_commits.pdf",
@@ -154,10 +158,15 @@ def myplot(statistics):
     # RQ10
     i = 0
     for dictionary in statistics.list_dev_plot:
-        #name, val = dictionary.items()[0]
+        name, val = dictionary.items()[0]
         #del dictionary[name]
+        total = sum(dictionary.values())
+        dictionary = dict(sort_dictionary(dictionary)[:4])
+        others = total - sum(dictionary.values())
+        dictionary['Others']= others
+        user_list = ['Dev1', 'Dev2', 'Dev3', 'Dev4', 'Others' ]
         i +=1
-        pie_chart(config.ROOT_DIR + f"/Resources/Output/dev_study_{i}.pdf", dictionary.keys(), dictionary.values())
+        pie_chart(config.ROOT_DIR + f"/Resources/Output/dev_study_{i}.pdf", user_list, dictionary.values())
 
     # Variables are cleaned to have a better output
     statistics.matrix_commits_stars_annotations = "See the plots RQ5_commits and RQ5_stars."

@@ -8,7 +8,7 @@ TEST = False
 CLONING = False
 NORMAL_PRINT = True
 
-STATISTICS_COMPUTATION = True
-PLOT = False
+STATISTICS_COMPUTATION = False
+PLOT = True
 
 #REPO_LIST = ROOT_DIR + '/Resources/Input/repositoriesTOP1000.json'

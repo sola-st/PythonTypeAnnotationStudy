@@ -106,13 +106,16 @@ def pie_chart(outputFilePath, labels, sizes):
     # labels = 'Python', 'C++', 'Ruby', 'Java'
     # sizes = [215, 130, 245, 210]
     colors = ['gold', 'yellowgreen', 'lightcoral', 'lightskyblue']
-    # explode = (0.1, 0, 0, 0)  # explode 1st slice
+    explode = (0.1, 0, 0, 0, 0)  # explode 1st slice
 
     # Plot
     # plt.pie(sizes, labels=labels, colors=colors,
     #        autopct='%1.1f%%', shadow=True, startangle=140)
 
-    patches, texts = plt.pie(sizes, colors=colors, startangle=90)
+    #patches, texts, more = plt.pie(sizes, startangle=90, labels= labels, autopct='%1.0f%%')
+
+    patches, texts, _  = plt.pie(sizes,  shadow=True, explode=explode, startangle=140, autopct='%1.0f%%')
+
     plt.legend(patches, labels, loc="best")
     # Set aspect ratio to be equal so that pie is drawn as a circle.
 
@@ -137,10 +140,10 @@ def smooth_line_xy(outputFilePath, y, x_label=None, y_label=None, title=None, co
     fig, ax = plt.subplots()
 
     # Plot the data
-    data_line = ax.plot(x, y, label='Data', color=color1)
+    data_line = ax.plot(x, y, label='Data')
 
     # Plot the average line
-    mean_line = ax.plot(x, y_mean, label='Mean', linestyle='--', color=color2)
+    mean_line = ax.plot(x, y_mean, label='Mean', linestyle='--')
 
     # Make a legend
     legend = ax.legend(loc='upper left')
@@ -222,11 +225,11 @@ def bar_plot_double_xy(outputFilePath, x, y1, y2, x_label=None, y_label=None, ti
 
     plt.yscale('log')
 
-    plt.bar(numpy.array(x) - 0.2, numpy.array(y1), width=0.4, align='center', color=color1,
-            label='Commits with annotations')
-    plt.bar(numpy.array(x) + 0.2, numpy.array(y2), width=0.4, align='center', color=color2,
-            label='Commits without annotations')
-    plt.legend(loc='upper right')
+    plt.bar(numpy.array(x) - 0.2, numpy.array(y1), width=0.4, align='center',
+            label='With annotations')
+    plt.bar(numpy.array(x) + 0.2, numpy.array(y2), width=0.4, align='center',
+            label='Without annotations')
+    plt.legend(loc='upper left')
 
     if title is not None:
         plt.title(title)
@@ -251,6 +254,9 @@ def histogram_plot_xy(outputFilePath, x, x_label, y_label, xscale, yscale, title
 
     if xscale == 'log':
         plt.xscale(xscale)
+
+    if yscale == 'log':
+        plt.yscale(yscale)
 
     plt.hist(x, bins=bins, range=[0, max(x)])
 
