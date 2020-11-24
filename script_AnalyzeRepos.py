@@ -222,7 +222,7 @@ def analyze_specific_commits(commits_file):
     for c in commit_stats:
         try:
             index +=1
-            if not index % 30 == 0:
+            if not index % 20 == 0:
                 continue
 
             add_only = is_add_only_commit(c)
