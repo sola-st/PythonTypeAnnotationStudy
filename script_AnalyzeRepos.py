@@ -222,8 +222,8 @@ def analyze_specific_commits(commits_file):
     for c in commit_stats:
         try:
             index +=1
-            if not index % 20 == 0:
-                continue
+            #if not index % 20 == 0:
+             #   continue
 
             add_only = is_add_only_commit(c)
             remove_only = is_remove_only_commit(c)
@@ -234,6 +234,8 @@ def analyze_specific_commits(commits_file):
                 match = re.match(commit_url_regexp, commit_url)
                 project = match.group(1) + '-' + match.group(2)
                 commit = match.group(3)
+                if commit == 'b2497386bb6a1a482f0ee1c7b69986ab40b38be7':
+                    continue
                 repo_dir = repos_base_dir+project
                 parent_commit = get_parent_commit(repo_dir, commit)
 
