@@ -63,21 +63,19 @@ def myplot(statistics):
                 statistics.typeChanged_dict_var.keys(),
                 statistics.typeChanged_dict_var.values(), 'Top types changed',
                 'Occurrences',
-                title='What are the top 10 types changed in assignments?')
+                title='What are the top 10 types changed in assignments?',ylim=1000)
 
     # RQ2.3
     bar_plot_xy(config.ROOT_DIR + "/Resources/Output/TopChanged_arg.pdf",
                 statistics.typeChanged_dict_arg.keys(),
-                statistics.typeChanged_dict_arg.values(), 'Top types changed',
-                'Occurrences',
-                title='What are the top 10 types changed in function arguments?')
+                statistics.typeChanged_dict_arg.values(), 'Top types changed in function arguments',
+                'Occurrences', ylim=1000)
 
     # RQ2.3
     bar_plot_xy(config.ROOT_DIR + "/Resources/Output/TopChanged_ret.pdf",
                 statistics.typeChanged_dict_ret.keys(),
-                statistics.typeChanged_dict_ret.values(), 'Top types changed',
-                'Occurrences',
-                title='What are the top 10 types changed return function?')
+                statistics.typeChanged_dict_ret.values(), 'Top types changed in function return',
+                'Occurrences', ylim=1000)
 
     # RQ2.4
    # bar_plot_xy(config.ROOT_DIR + "/Resources/Output/TopRemoved.pdf",
@@ -99,7 +97,7 @@ def myplot(statistics):
     # RQ4
     histogram_plot_xy(config.ROOT_DIR + "/Resources/Output/perc_annotations_lines_per_commit.pdf",
                       statistics.list_typeAnnotation_changed_per_commit,
-                      'Percentage of annotation-related lines among all inserted, removed and changed lines', 'Number of commits',  'linear', 'log', bins=20)
+                      'Percentage of annotation-related lines among\nall inserted, removed and changed lines', 'Number of commits',  'linear', 'log', bins=20)
 
     # RQ4.4
     #histogram_plot_xy(config.ROOT_DIR + "/Resources/Output/RQ4_4",
@@ -119,17 +117,23 @@ def myplot(statistics):
     except Exception as e:
         print('[Correlation Error]', str(e))
 
+    matrix = np.empty((0, 3), int)
+
+    for array in statistics.matrix_commits_stars_annotations:
+        if array[2] != 0:
+            matrix = np.append(matrix, np.array([array]),  axis=0)
+
 
     scatter_plot_xy(config.ROOT_DIR + "/Resources/Output/relationship_commits.pdf",
-                    [row[0] for row in statistics.matrix_commits_stars_annotations],
-                    [row[2] for row in statistics.matrix_commits_stars_annotations],
-                    '# Commits', '# Annotations Changes', 'linear', 'log')
+                    [row[0] for row in matrix],
+                    [row[2] for row in matrix],
+                    '# Commits', '# Annotations Changes', 'log', 'log')
 
 
     scatter_plot_xy(config.ROOT_DIR + "/Resources/Output/relationship_stars.pdf",
-                    [row[1] for row in statistics.matrix_commits_stars_annotations],
-                    [row[2] for row in statistics.matrix_commits_stars_annotations],
-                    'GitHub Stars', 'Annotations Changes', 'linear', 'log')
+                    [row[1] for row in matrix],
+                    [row[2] for row in matrix],
+                    '# GitHub Stars', '# Annotations Changes', 'log', 'log')
 
 
 
@@ -145,29 +149,84 @@ def myplot(statistics):
                        x=[int(k) for k in statistics.typeAnnotation_commit_annotation_year_analysis.keys()],
                        y1=[int(v) for v in statistics.typeAnnotation_commit_annotation_year_analysis.values()],
                        y2=[int(v) for v in statistics.typeAnnotation_commit_not_annotation_year_analysis.values()],
-                       y_label='Number of commits')
+                       y_label='Number of commits (log scale)')
 
     # Last version annotation
     smooth_line_xy(config.ROOT_DIR + "/Resources/Output/types_last_version.pdf", [x for x in statistics.typeLastProjectVersion_percentage if x <= 100],
-                   x_label="Repositories",
-                   y_label="% Type Annotations Last Version", title="Presence of type annotations in the last version of the repositories.",
+                   x_label="Repositories sorted by ordinate",
+                   y_label="% Type annotations in last version", title="Presence of type annotations in\nthe last version of the repositories.",
                    color1='blue', color2='red',
                    xlim=None,
                    ylim=None)
 
     # RQ10
-    i = -1
-    list_repo = ['https://github.com/python/mypy', 'https://github.com/zulip/zulip', 'https://github.com/robinhood/faust']
+    list_top_1_developers = []
+
     for dictionary in statistics.list_dev_plot:
-        #name, val = dictionary.items()[0]
-        #del dictionary[name]
+
         total = sum(dictionary.values())
-        dictionary = dict(sort_dictionary(dictionary)[:4])
-        others = total - sum(dictionary.values())
-        dictionary['Others']= others
-        user_list = ['Dev1', 'Dev2', 'Dev3', 'Dev4', 'Others' ]
-        i +=1
-        pie_chart(config.ROOT_DIR + f"/Resources/Output/dev_study_{i}.pdf", user_list, dictionary.values(), f'{list_repo[i]}')
+        if total == 0:
+            continue
+        dictionary = dict(sort_dictionary(dictionary)[:1])
+        for val in dictionary.values():
+            list_top_1_developers.append(float(int(val)/total*100))
+
+
+    smooth_line_xy(config.ROOT_DIR + "/Resources/Output/top_1_dev.pdf",
+                   [x for x in list_top_1_developers if x <= 100],
+                   x_label="Top developer for each\nrepository (sorted by ordinate)",
+                   y_label="% Type annotations inserted",
+                   color1='blue', color2='red',
+                   xlim=None,
+                   ylim=None)
+
+    list_top_3_developers = []
+
+    for dictionary in statistics.list_dev_plot:
+
+        total = sum(dictionary.values())
+        if total == 0:
+            continue
+        dictionary = dict(sort_dictionary(dictionary)[:3])
+
+        partial = 0
+        for val in dictionary.values():
+            partial += int(val)
+
+        list_top_3_developers.append(float(int(partial) / total * 100))
+
+    smooth_line_xy(config.ROOT_DIR + "/Resources/Output/top_3_dev.pdf",
+                   [x for x in list_top_3_developers if x <= 100],
+                   x_label="Top-3 developers for each\nrepository (sorted by ordinate)",
+                   y_label="% Type annotations inserted",
+                   color1='blue', color2='red',
+                   xlim=None,
+                   ylim=None)
+
+    list_top_5_developers = []
+
+    for dictionary in statistics.list_dev_plot:
+        if len(dictionary) < 10:
+            continue
+
+        total = sum(dictionary.values())
+        if total == 0:
+            continue
+        dictionary = dict(sort_dictionary(dictionary)[:5])
+
+        partial = 0
+        for val in dictionary.values():
+            partial += int(val)
+
+        list_top_5_developers.append(float(int(partial) / total * 100))
+
+    smooth_line_xy(config.ROOT_DIR + "/Resources/Output/top_5_dev.pdf",
+                   [x for x in list_top_5_developers if x <= 100],
+                   x_label="Top-5 developers for each\nrepository (sorted by ordinate)",
+                   y_label="% Type annotations inserted",
+                   color1='blue', color2='red',
+                   xlim=None,
+                   ylim=None)
 
     # Variables are cleaned to have a better output
     statistics.matrix_commits_stars_annotations = "See the plots RQ5_commits and RQ5_stars."

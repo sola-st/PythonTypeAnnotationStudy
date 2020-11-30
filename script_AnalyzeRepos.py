@@ -97,7 +97,7 @@ def check_commit(repo_dir, commit):
     result = {
         "commit": commit,
         "commit_date": commit_date,
-        "loc": loc,
+        "loc": loc,  # number line of code
         "nb_python_files": nb_python_files,
         "nb_param_types": param_types,
         "nb_return_types": return_types,
@@ -280,12 +280,14 @@ def analyze_specific_commits(commits_file):
 
 
 #if __name__ == "__main__":
-    # analyze_histories(projects, max_commits_per_project=11)
+    #analyze_histories(projects, max_commits_per_project=11)
     # analyze_latest_commit(projects)  # TODO: still needed?
 start = time.time()
 
-analyze_specific_commits(
-    config.ROOT_DIR + "/Resources/Output/typeAnnotationCommitStatistics.json")
+analyze_histories(projects, max_commits_per_project=11)
+
+#analyze_specific_commits(
+ #   config.ROOT_DIR + "/Resources/Output/typeAnnotationCommitStatistics.json")
 
 end = time.time()
 hours, rem = divmod(end - start, 3600)

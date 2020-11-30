@@ -4,11 +4,12 @@ from collections import Counter
 import json
 import re
 import matplotlib.pyplot as plt
+import config
 from script_AnalyzeRepos import results_base_dir, projects
 import pandas as pd
 
 
-plots_base_dir = "./data/plots/"
+plots_base_dir = config.ROOT_DIR + "/Resources/Output_typeErrors/"
 
 
 ignored_warning_kinds = [

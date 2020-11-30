@@ -16,6 +16,7 @@ from scipy.interpolate import make_interp_spline, BSpline
 
 import matplotlib.pyplot as plt
 import matplotlib.style as style
+font_size = 15
 import numpy
 
 """
@@ -133,19 +134,21 @@ def pie_chart(outputFilePath, labels, sizes, title):
 def smooth_line_xy(outputFilePath, y, x_label=None, y_label=None, title=None, color1='blue', color2='red',
                    xlim=None,
                    ylim=None):
+    plt.rcParams.update({'font.size': font_size})
     y = sorted(y)
     x = list(range(len(y)))
 
     # Calculate the simple average of the data
     y_mean = [numpy.mean(y)] * len(x)
+    print(outputFilePath, "has a mean of", y_mean[0], "with len(x)=", len(x))
 
     fig, ax = plt.subplots()
 
     # Plot the data
-    data_line = ax.plot(x, y, label='Data')
+    data_line = ax.plot(x, y, label='Repositories', color=(0.2, 0.4, 0.6, 0.6))
 
     # Plot the average line
-    mean_line = ax.plot(x, y_mean, label='Mean', linestyle='--')
+    mean_line = ax.plot(x, y_mean, label='Mean', linestyle='--', color='lightsalmon')
 
     # Make a legend
     legend = ax.legend(loc='upper left')
@@ -195,6 +198,7 @@ def bar_plot_xy(outputFilePath, x, y, x_label, y_label, title=None, color='blue'
     #    axes.set_xlim([0, xlim])
 
     # plt.yscale('log')
+    plt.rcParams.update({'font.size': font_size})
 
     plt.ylabel(y_label)
     plt.xlabel(x_label)
@@ -216,6 +220,7 @@ def bar_plot_double_xy(outputFilePath, x, y1, y2, x_label=None, y_label=None, ti
                        xlim=None,
                        ylim=None):
     axes = plt.gca()
+    plt.rcParams.update({'font.size': font_size})
     if ylim is not None:
         axes.set_ylim([0, ylim])
 
@@ -228,9 +233,9 @@ def bar_plot_double_xy(outputFilePath, x, y1, y2, x_label=None, y_label=None, ti
     plt.yscale('log')
 
     plt.bar(numpy.array(x) - 0.2, numpy.array(y1), width=0.4, align='center',
-            label='With annotations')
+            label='With annotations', color=(0.2, 0.4, 0.6, 0.6))
     plt.bar(numpy.array(x) + 0.2, numpy.array(y2), width=0.4, align='center',
-            label='Without annotations')
+            label='Without annotations', color='lightsalmon')
     plt.legend(loc='upper left')
 
     if title is not None:
@@ -244,6 +249,8 @@ def bar_plot_double_xy(outputFilePath, x, y1, y2, x_label=None, y_label=None, ti
 def histogram_plot_xy(outputFilePath, x, x_label, y_label, xscale, yscale, title=None, bins='auto'):
     plt.xlabel(x_label)
     plt.ylabel(y_label)
+
+    plt.rcParams.update({'font.size': font_size})
 
     if len(x) == 0:
         print('[Empty x]', title)
@@ -260,7 +267,7 @@ def histogram_plot_xy(outputFilePath, x, x_label, y_label, xscale, yscale, title
     if yscale == 'log':
         plt.yscale(yscale)
 
-    plt.hist(x, bins=bins, range=[0, max(x)])
+    plt.hist(x, bins=bins, range=[0, max(x)], color=(0.2, 0.4, 0.6, 0.6))
 
     plt.savefig(outputFilePath, bbox_inches='tight')
 
@@ -269,6 +276,8 @@ def histogram_plot_xy(outputFilePath, x, x_label, y_label, xscale, yscale, title
 
 def scatter_plot_xy(outputFilePath, x, y, x_label, y_label, xscale, yscale, title=None, color='blue', xlim=None,
                     ylim=None):
+    plt.rcParams.update({'font.size': font_size})
+
     axes = plt.gca()
     if ylim is not None:
         axes.set_ylim([0, ylim])
