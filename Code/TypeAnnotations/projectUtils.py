@@ -58,12 +58,6 @@ def myplot(statistics):
        #         title='What are the top 5 types added?')
 
 
-    # RQ2.3
-    bar_plot_xy(config.ROOT_DIR + "/Resources/Output/TopChanged_var.pdf",
-                statistics.typeChanged_dict_var.keys(),
-                statistics.typeChanged_dict_var.values(), 'Top types changed',
-                'Occurrences',
-                title='What are the top 10 types changed in assignments?',ylim=1000)
 
     # RQ2.3
     bar_plot_xy(config.ROOT_DIR + "/Resources/Output/TopChanged_arg.pdf",
@@ -75,6 +69,12 @@ def myplot(statistics):
     bar_plot_xy(config.ROOT_DIR + "/Resources/Output/TopChanged_ret.pdf",
                 statistics.typeChanged_dict_ret.keys(),
                 statistics.typeChanged_dict_ret.values(), 'Top types changed in function return',
+                'Occurrences', ylim=1000)
+
+    # RQ2.3
+    bar_plot_xy(config.ROOT_DIR + "/Resources/Output/TopChanged_var.pdf",
+                statistics.typeChanged_dict_var.keys(),
+                statistics.typeChanged_dict_var.values(), 'Top types changed in variable assigment',
                 'Occurrences', ylim=1000)
 
     # RQ2.4
@@ -203,30 +203,6 @@ def myplot(statistics):
                    xlim=None,
                    ylim=None)
 
-    list_top_5_developers = []
-
-    for dictionary in statistics.list_dev_plot:
-        if len(dictionary) < 10:
-            continue
-
-        total = sum(dictionary.values())
-        if total == 0:
-            continue
-        dictionary = dict(sort_dictionary(dictionary)[:5])
-
-        partial = 0
-        for val in dictionary.values():
-            partial += int(val)
-
-        list_top_5_developers.append(float(int(partial) / total * 100))
-
-    smooth_line_xy(config.ROOT_DIR + "/Resources/Output/top_5_dev.pdf",
-                   [x for x in list_top_5_developers if x <= 100],
-                   x_label="Top-5 developers for each\nrepository (sorted by ordinate)",
-                   y_label="% Type annotations inserted",
-                   color1='blue', color2='red',
-                   xlim=None,
-                   ylim=None)
 
     # Variables are cleaned to have a better output
     statistics.matrix_commits_stars_annotations = "See the plots RQ5_commits and RQ5_stars."

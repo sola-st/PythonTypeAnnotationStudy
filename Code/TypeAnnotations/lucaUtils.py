@@ -155,7 +155,7 @@ def smooth_line_xy(outputFilePath, y, x_label=None, y_label=None, title=None, co
 
     plt.ylabel(y_label)
     plt.xlabel(x_label)
-    plt.xscale('log')
+    #plt.xscale('log')
 
     # if title is not None:
     #    plt.title(title)
@@ -198,7 +198,7 @@ def bar_plot_xy(outputFilePath, x, y, x_label, y_label, title=None, color='blue'
     #    axes.set_xlim([0, xlim])
 
     # plt.yscale('log')
-    plt.rcParams.update({'font.size': font_size})
+    plt.rcParams.update({'font.size': 22})
 
     plt.ylabel(y_label)
     plt.xlabel(x_label)
