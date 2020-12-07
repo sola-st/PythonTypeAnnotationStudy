@@ -125,7 +125,7 @@ class CodeStatistics:
         # [RQ5]: Relation of properties of projects vs. properties of type changes
         # E.g., nb of stars/developers/overall commits vs. nb of added annotations
         self.RQ5 = 'Relation of properties of projects vs. properties of type changes.'
-        self.matrix_commits_stars_annotations = np.empty((0, 3), int)
+        self.matrix_commits_stars_annotations = np.empty((0, 7), int)
         self.s6 = "------------------------------------------------------------------------"
 
         # [RQ6]: Which are the top 10 repository with the highest number of type annotations
@@ -369,10 +369,12 @@ class CodeStatistics:
                         del self.typeLastProjectVersion_dict[name]
 
                     n_stars = item.get('stargazers_count')
+                    n_forks = item.get('forks_count')
+                    n_issues = item.get('open_issues')
 
                     self.matrix_commits_stars_annotations = \
                         np.append(self.matrix_commits_stars_annotations,
-                                  np.array([[n_commits, n_stars, n_annotations]]), axis=0)
+                                  np.array([[n_commits, n_stars, n_annotations, n_forks, n_issues, 0, 0]]), axis=0)
                     return
 
     def merge_results(self, process_statistics, code_changes, commit_statistics):

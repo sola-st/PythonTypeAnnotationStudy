@@ -133,6 +133,7 @@ def query_repo_get_changes(repo_name):  # statistics, pointer, dirlist_len):
                     #    continue
                     commit_year = time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(commit.commit_time))[:4]
                     commit_month = time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(commit.commit_time))[5:7]
+                    commit_day = time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(commit.commit_time))[8:10]
 
                     # Only before November is consider for a better comparison with 2020
                     if int(commit_month) < 11:
@@ -141,7 +142,7 @@ def query_repo_get_changes(repo_name):  # statistics, pointer, dirlist_len):
                         else:
                             statistics.commit_year_dict[str(commit_year)] += 1
 
-                    if int(commit_year) < 2014:
+                    if int(commit_year) < 2020:
                         continue
 
                     if int(commit_month) < 11:
@@ -201,7 +202,7 @@ def query_repo_get_changes(repo_name):  # statistics, pointer, dirlist_len):
                                                         statistics.code_changes, typeannotation_line_inserted,
                                                         typeannotation_line_removed, typeannotation_line_changed,
                                                         list_line_added,
-                                                        list_line_removed, commit_year)
+                                                        list_line_removed, commit_year, commit_month, commit_day)
 
                     added_per_commit_percentage = 0
                     removed_per_commit_percentage = 0

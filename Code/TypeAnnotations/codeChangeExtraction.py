@@ -1118,7 +1118,7 @@ def TypeAnnotationExtractionLast(repo_path, repo_name, commit, patch, url, stati
                                  at_least_one_type_change, code_changes,
                                  typeannotation_line_inserted, typeannotation_line_removed, typeannotation_line_changed,
                                  list_line_added, list_line_removed,
-                                 commit_year):
+                                 commit_year, commit_month, commit_day):
     code_changes_new = []
 
     line_type_annotation_added = []
@@ -1179,6 +1179,7 @@ def TypeAnnotationExtractionLast(repo_path, repo_name, commit, patch, url, stati
                             break
 
                         temp = CodeChange(url + 'L' + str(annotation_old.line), str(commit_year),
+                                          "",
                                           str(annotation_old.type), '[CHANGED]',
                                           str(patch.delta.old_file.path),
                                           str(annotation_old.annotation),
@@ -1243,7 +1244,9 @@ def TypeAnnotationExtractionLast(repo_path, repo_name, commit, patch, url, stati
                     if hasattr(annotation_old.annotation, 'value'):
                         annotation_old.annotation = str(annotation_old.annotation.value)
 
-                    temp = CodeChange(url + 'L' + str(annotation_old.line), str(commit_year), str(annotation_old.type),
+                    temp = CodeChange(url + 'L' + str(annotation_old.line), str(commit_year),
+                                      f"{commit_year}-{commit_month}-{commit_day}",
+                                      str(annotation_old.type),
                                       '[REMOVED]',
                                       str(patch.delta.old_file.path),
                                       str(annotation_old.annotation),
@@ -1287,7 +1290,9 @@ def TypeAnnotationExtractionLast(repo_path, repo_name, commit, patch, url, stati
                     if hasattr(remained.annotation, 'value'):
                         remained.annotation = str(remained.annotation.value)
 
-                    temp = CodeChange(url + 'R' + str(remained.line), str(commit_year), str(remained.type),
+                    temp = CodeChange(url + 'R' + str(remained.line), str(commit_year),
+                                      "",
+                                      str(remained.type),
                                       '[INSERTED]',
                                       ' ',
                                       ' ',

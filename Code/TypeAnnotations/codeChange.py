@@ -1,9 +1,10 @@
 class CodeChange:
     """Code change class"""
 
-    def __init__(self, url, commit_year,  where, type, old_file, old_annotation, old_line,  new_file, new_annotation, new_line):
+    def __init__(self, url, commit_year, creation_date,  where, type, old_file, old_annotation, old_line,  new_file, new_annotation, new_line):
         self.url = url
         self.commit_year = commit_year
+        self.creation_date = creation_date
         self.type = type
         self.where = where
 
