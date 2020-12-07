@@ -330,7 +330,14 @@ def query_repo_get_changes(repo_name):  # statistics, pointer, dirlist_len):
 
         function_size_correlation(config.ROOT_DIR + "/GitHub/" + repo_name, statistics)
 
-        statistics.addRepo(repo_name, tot_this_repo_commit, statistics.number_type_annotations_per_repo[repo_name], n_test_files, n_non_test_files, len(statistics.dev_dict_total), np.array(list(statistics.dict_funct_call_no_types.values())).mean(), np.array(list(statistics.dict_funct_call_no_types.values())).mean())
+        try:
+            fuct_no_type_avg = np.array(list(statistics.dict_funct_call_no_types.values())).mean()
+            fuct_type_avg = np.array(list(statistics.dict_funct_call_types.values())).mean()
+        except Exception as e:
+            fuct_no_type_avg = -1
+            fuct_type_avg = -1
+
+        statistics.addRepo(repo_name, tot_this_repo_commit, statistics.number_type_annotations_per_repo[repo_name], n_test_files, n_non_test_files, len(statistics.dev_dict_total), fuct_no_type_avg, fuct_type_avg)
         if at_least_one_type_change[0] > 0:
             statistics.repo_with_types_changes += 1
 
