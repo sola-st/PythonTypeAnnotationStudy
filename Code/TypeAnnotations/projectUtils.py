@@ -1,8 +1,13 @@
+import locale
+
 import config
 from Code.TypeAnnotations.codeStatistics import CodeStatistics
 from Code.TypeAnnotations.lucaUtils import *
 import numpy as np
 import pandas as pd
+from lxml import html
+from pyquery import PyQuery as pq, PyQuery
+import json, requests
 
 
 def write_results(statistics, code_changes, commit_statistics):
@@ -161,8 +166,12 @@ def myplot(statistics):
 
     # RQ10
     list_top_1_developers = []
+    list_link_repo = []
 
     for dictionary in statistics.list_dev_plot:
+        for key in dictionary:
+            if dictionary[key] == 0:
+                list_link_repo.append("https://api.github.com/repos/"+key.replace("-", "/", 1))
 
         total = sum(dictionary.values())
         if total == 0:
@@ -179,6 +188,28 @@ def myplot(statistics):
                    color1='blue', color2='red',
                    xlim=None,
                    ylim=None)
+
+    list_contributors_repo = []
+
+    for url in list_link_repo:
+        all_contributors = list()
+        page_count = 1
+        while True:
+            contributors = requests.get(url+"/contributors?page=%d" % page_count)
+            if contributors != None and contributors.status_code == 200 and len(contributors.json()) > 0:
+                all_contributors = all_contributors + contributors.json()
+            else:
+                break
+            page_count = page_count + 1
+        count = len(all_contributors)
+        if count == 0:
+            print("Zero contributors for", url)
+            break
+        list_contributors_repo.append(count)
+
+    avg = sum(list_contributors_repo) / len(list_contributors_repo)
+
+    print(f"Contributors per {len(list_contributors_repo)} repos (average): {avg}")
 
     list_top_3_developers = []
 
