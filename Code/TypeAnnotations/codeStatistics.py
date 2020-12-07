@@ -125,7 +125,9 @@ class CodeStatistics:
         # [RQ5]: Relation of properties of projects vs. properties of type changes
         # E.g., nb of stars/developers/overall commits vs. nb of added annotations
         self.RQ5 = 'Relation of properties of projects vs. properties of type changes.'
-        self.matrix_commits_stars_annotations = np.empty((0, 7), int)
+        self.matrix_commits_stars_annotations = np.empty((0, 10), int)
+        self.dict_funct_call_no_types = {}
+        self.dict_funct_call_types = {}
         self.s6 = "------------------------------------------------------------------------"
 
         # [RQ6]: Which are the top 10 repository with the highest number of type annotations
@@ -168,6 +170,7 @@ class CodeStatistics:
         self.RQ11 = 'Developers statistics'
         self.list_dev_dict = []
         self.dev_dict = {}
+        self.dev_dict_total = {}
         self.list_dev_plot = []
 
 
@@ -351,7 +354,7 @@ class CodeStatistics:
 
     # [RQ5]: Relation of properties of projects vs. properties of type changes
     # E.g., nb of stars/developers/overall commits vs. nb of added annotations
-    def addRepo(self, name, n_commits, n_annotations):
+    def addRepo(self, name, n_commits, n_annotations, n_test_files, n_non_test_files, n_dev, funct_type_avg, fuct_no_type_avg):
         i = 0
         while i < 10:
             input_file = open(config.ROOT_DIR + "/Resources/Input/Top1000_Python201" + str(i) + "_Complete.json", 'r')
@@ -374,7 +377,7 @@ class CodeStatistics:
 
                     self.matrix_commits_stars_annotations = \
                         np.append(self.matrix_commits_stars_annotations,
-                                  np.array([[n_commits, n_stars, n_annotations, n_forks, n_issues, 0, 0]]), axis=0)
+                                  np.array([[n_commits, n_stars, n_annotations, n_forks, n_issues, n_test_files, n_non_test_files, n_dev, funct_type_avg, fuct_no_type_avg]]), axis=0)
                     return
 
     def merge_results(self, process_statistics, code_changes, commit_statistics):

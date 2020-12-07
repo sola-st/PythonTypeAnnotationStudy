@@ -1,11 +1,13 @@
 import csv
 import json
 import os
+import pathlib
 import re
 import subprocess
 import sys
 import time
 from collections import defaultdict
+import numpy as np
 
 import pygit2 as git
 from pygit2 import GIT_SORT_TOPOLOGICAL, GIT_SORT_REVERSE
@@ -16,7 +18,7 @@ from Code.TypeAnnotations.codeChange import CommitStatistics
 from Code.TypeAnnotations.codeChangeExtraction import TypeAnnotationExtractionFirstCommit, \
     TypeAnnotationExtractionLast, type_annotation_in_last_version, last_version_analysis
 from Code.TypeAnnotations.codeStatistics import CodeStatistics
-from Code.TypeErrors.TypeAnnotationCounter import count_type_annotations
+from Code.TypeErrors.TypeAnnotationCounter import count_type_annotations, extract_from_file
 
 
 def repo_cloning(filenameInput: str, pathOutput: str, count: List[int]) -> None:
@@ -94,6 +96,8 @@ def query_repo_get_changes(repo_name):  # statistics, pointer, dirlist_len):
         commit_with_annotations_this_repo = [0]
         at_least_one_type_change = [0]
         commit_set = set()
+        n_test_files = 0
+        n_non_test_files = 0
 
         # lock.acquire()
         statistics.number_type_annotations_per_repo[repo_name] = 0
@@ -142,7 +146,7 @@ def query_repo_get_changes(repo_name):  # statistics, pointer, dirlist_len):
                         else:
                             statistics.commit_year_dict[str(commit_year)] += 1
 
-                    if int(commit_year) < 2020:
+                    if int(commit_year) < 2014:
                         continue
 
                     if int(commit_month) < 11:
@@ -165,6 +169,14 @@ def query_repo_get_changes(repo_name):  # statistics, pointer, dirlist_len):
                     # lock.release()
 
                     tot_this_repo_commit += 1
+
+                    try:
+                        if commit.author.email not in statistics.dev_dict_total:
+                            statistics.dev_dict_total[str(commit.author.email)] = 1
+                        else:
+                            statistics.dev_dict_total[str(commit.author.email)] += 1
+                    except:
+                        pass
 
                     num_parents = len(
                         commit.parents)  # Do not want to include merges for now, hence we check if the number of parents is 'one'
@@ -194,6 +206,15 @@ def query_repo_get_changes(repo_name):  # statistics, pointer, dirlist_len):
 
                             if not hasattr(diff,"patchid"):
                                 continue
+
+                            try:
+                                if "test" in str(patch.delta.old_file.path) != file_extension or \
+                                        "test" in str(patch.delta.new_file.path) != file_extension:
+                                    n_test_files += 1
+                                else:
+                                    n_non_test_files += 1
+                            except Exception as e:
+                                return
 
                             TypeAnnotationExtractionLast(config.ROOT_DIR + "/GitHub/", repo_name, commit, patch,
                                                         remote_url + '/commit/' + commit.hex + '#diff-' + diff.patchid.hex,
@@ -307,7 +328,9 @@ def query_repo_get_changes(repo_name):  # statistics, pointer, dirlist_len):
                 statistics.total_commits += 1
                 tot_this_repo_commit += 1
 
-        statistics.addRepo(repo_name, tot_this_repo_commit, statistics.number_type_annotations_per_repo[repo_name])
+        function_size_correlation(config.ROOT_DIR + "/GitHub/" + repo_name, statistics)
+
+        statistics.addRepo(repo_name, tot_this_repo_commit, statistics.number_type_annotations_per_repo[repo_name], n_test_files, n_non_test_files, len(statistics.dev_dict_total), np.array(list(statistics.dict_funct_call_no_types.values())).mean(), np.array(list(statistics.dict_funct_call_no_types.values())).mean())
         if at_least_one_type_change[0] > 0:
             statistics.repo_with_types_changes += 1
 
@@ -366,3 +389,46 @@ def git_checkout(repo_dir, commit_set,statistics):
             #print(repo_dir,str(e))
             continue
 
+
+def function_size_correlation(repo_dir, statistics):
+        try:
+            for filepath in pathlib.Path(repo_dir).glob('**/*'):
+                if str(filepath).endswith(".py"):
+
+                    try:
+                        param_types, return_types, variable_types, non_param_types, non_return_types, non_variable_types = extract_from_file(
+                            str(filepath))
+
+                        for key in non_return_types:
+                            statistics.dict_funct_call_no_types[key] = function_call_count(repo_dir, str(key[-1]))
+
+                        for key in return_types:
+                            statistics.dict_funct_call_types[key] = function_call_count(repo_dir, str(key[-1]))
+                    except Exception as e:
+                        print(str(e))
+                        continue
+
+        except Exception as e:
+            if len(statistics.dict_funct_call_no_types) == 0:
+                statistics.dict_funct_call_no_types['key']=0
+            if len(statistics.dict_funct_call_types) == 0:
+                statistics.dict_funct_call_types['key'] = 0
+            return
+
+def function_call_count(directory, function_name):
+
+    count = -1
+    for filename in pathlib.Path(directory).glob('**/*'):
+        try:
+            if str(filename).endswith(".py"):
+                filepath = os.path.join(directory, filename)
+
+                with open(filepath, 'r') as fp:
+                    for line in fp:
+                        # String to search for:
+                        if function_name in line:
+                            count += 1
+        except Exception as e:
+            continue
+
+    return count

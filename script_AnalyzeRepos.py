@@ -284,7 +284,7 @@ def analyze_specific_commits(commits_file):
     # analyze_latest_commit(projects)  # TODO: still needed?
 start = time.time()
 
-analyze_histories(projects, max_commits_per_project=2)
+#analyze_histories(projects, max_commits_per_project=10)
 
 #analyze_specific_commits(
  #   config.ROOT_DIR + "/Resources/Output/typeAnnotationCommitStatistics.json")
