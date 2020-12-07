@@ -19,7 +19,7 @@ def typeAnnotation_analisis():
           #  i += 1
         gitUtils.repo_cloning(config.ROOT_DIR + "/Resources/Input/repositories_TOP100_2020.json",
                               config.ROOT_DIR + "/GitHub", j)
-    
+
 
     if config.STATISTICS_COMPUTATION:
 

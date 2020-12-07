@@ -1,8 +1,6 @@
-{
-  "total_count": 1860388,
-  "incomplete_results": false,
-  "items": [
-    {
+[{
+  
+    
       "id": 237791077,
       "node_id": "MDEwOlJlcG9zaXRvcnkyMzc3OTEwNzc=",
       "name": "diagrams",
@@ -9995,4 +9993,3 @@
       "score": 1.0
     }
   ]
-}
