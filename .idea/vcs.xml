@@ -874,6 +874,57 @@
     <mapping directory="$PROJECT_DIR$/GitHub/zulip-zulip" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/zxing-zxing" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/zylo117-Yet-Another-EfficientDet-Pytorch" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/GitHub2/2020PB-police-brutality" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/GitHub2/JaidedAI-EasyOCR" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/GitHub2/MingchaoZhu-DeepLearning" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/GitHub2/NathanUA-U-2-Net" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/GitHub2/Netflix-dispatch" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/GitHub2/PaddlePaddle-PaddleOCR" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/GitHub2/PantsuDango-Dango-Translator" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/GitHub2/Pitt-CSC-Summer2021-Internships" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/GitHub2/PostHog-posthog" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/GitHub2/Shawn-Shan-fawkes" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/GitHub2/SystemErrorWang-White-box-Cartoonization" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/GitHub2/Tianxiaomo-pytorch-YOLOv4" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/GitHub2/Z4nzu-hackingtool" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/GitHub2/adamian98-pulse" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/GitHub2/alievk-avatarify" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/GitHub2/alirezamika-autoscraper" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/GitHub2/anandpawara-Real_Time_Image_Animation" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/GitHub2/aristocratos-bpytop" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/GitHub2/beurtschipper-Depix" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/GitHub2/blackjack4494-yt-dlc" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/GitHub2/connorferster-handcalcs" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/GitHub2/dabeaz-course-practical-python" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/GitHub2/facebookresearch-detr" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/GitHub2/formatc1702-WireViz" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/GitHub2/geohot-tinygrad" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/GitHub2/gnebbia-kb" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/GitHub2/httpie-httpie" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/GitHub2/huangsam-ultimate-python" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/GitHub2/huggingface-datasets" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/GitHub2/ifzhang-FairMOT" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/GitHub2/kangvcar-InfoSpider" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/GitHub2/kotartemiy-newscatcher" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/GitHub2/l1ving-youtube-dl" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/GitHub2/lyhue1991-eat_tensorflow2_in_30_days" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/GitHub2/matplotlib-cheatsheets" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/GitHub2/microsoft-Bringing-Old-Photos-Back-to-Life" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/GitHub2/microsoft-DeepSpeed" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/GitHub2/microsoft-playwright-python" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/GitHub2/mingrammer-diagrams" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/GitHub2/mxrch-GHunt" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/GitHub2/nidhaloff-igel" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/GitHub2/openai-jukebox" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/GitHub2/schenkd-nginx-ui" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/GitHub2/senguptaumd-Background-Matting" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/GitHub2/ultralytics-yolov5" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/GitHub2/vinayak-mehta-present" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/GitHub2/vt-vl-lab-3d-photo-inpainting" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/GitHub2/yogeshojha-rengine" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/GitHub2/zhanghang1989-ResNeSt" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/GitHub2/zhzyker-exphub" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/GitHub2/zylo117-Yet-Another-EfficientDet-Pytorch" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/httpie" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/incubator-superset" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/youtube-dl" vcs="Git" />

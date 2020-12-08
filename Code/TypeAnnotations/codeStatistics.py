@@ -356,8 +356,9 @@ class CodeStatistics:
     # E.g., nb of stars/developers/overall commits vs. nb of added annotations
     def addRepo(self, name, n_commits, n_annotations, n_test_files, n_non_test_files, n_dev, funct_type_avg, fuct_no_type_avg):
         i = 0
-        while i < 10:
-            input_file = open(config.ROOT_DIR + "/Resources/Input/Top1000_Python201" + str(i) + "_Complete.json", 'r')
+        while i < 1:
+            #input_file = open(config.ROOT_DIR + "/Resources/Input/Top1000_Python201" + str(i) + "_Complete.json", 'r')
+            input_file = open(config.ROOT_DIR + "/Resources/Input/repositories_TOP100_2020.json", 'r')
             i += 1
             json_decode = json.load(input_file)
 

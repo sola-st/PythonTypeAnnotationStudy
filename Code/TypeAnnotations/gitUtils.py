@@ -331,8 +331,16 @@ def query_repo_get_changes(repo_name):  # statistics, pointer, dirlist_len):
         function_size_correlation(config.ROOT_DIR + "/GitHub/" + repo_name, statistics)
 
         try:
-            fuct_no_type_avg = np.array(list(statistics.dict_funct_call_no_types.values())).mean()
-            fuct_type_avg = np.array(list(statistics.dict_funct_call_types.values())).mean()
+            if len(statistics.dict_funct_call_no_types) > 0:
+
+                fuct_no_type_avg = np.array(list(statistics.dict_funct_call_no_types.values())).mean()
+            else:
+                fuct_no_type_avg = 0
+
+            if len(statistics.dict_funct_call_types) > 0:
+                fuct_type_avg = np.array(list(statistics.dict_funct_call_types.values())).mean()
+            else:
+                fuct_type_avg = 0
         except Exception as e:
             fuct_no_type_avg = -1
             fuct_type_avg = -1
