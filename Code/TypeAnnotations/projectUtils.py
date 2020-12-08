@@ -29,7 +29,7 @@ def write_results(statistics, code_changes, commit_statistics):
 
 def compute_correlations(commits_stars_annotations):
     projects = pd.DataFrame(commits_stars_annotations)
-    projects.columns = ["commits", "stars", "annotations"]
+    projects.columns = ["commits", "stars", "annotations", "n_forks", "n_issues", "n_test_files", "n_non_test_files", "n_dev", "funct_type_avg", "fuct_no_type_avg"]
     projects_with_annotations = projects[projects.annotations > 0]
     print(f"Computing correlations across {len(projects)} projects, {len(projects_with_annotations)} with annotations ")
     print(f"  All projects:")
@@ -37,8 +37,14 @@ def compute_correlations(commits_stars_annotations):
     print(f"    Correlation between annotations and stars: {projects['commits'].corr(projects['stars'])}")
     print(f"  Projects with annotations:")
     print(f"    Correlation between annotations and commits: {projects_with_annotations['commits'].corr(projects_with_annotations['annotations'])}")
-    print(f"    Correlation between annotations and stars: {projects_with_annotations['commits'].corr(projects_with_annotations['stars'])}")
-
+    print(f"    Correlation between annotations and stars: {projects_with_annotations['annotations'].corr(projects_with_annotations['stars'])}")
+    print(f"    Correlation between annotations and n_forks: {projects_with_annotations['annotations'].corr(projects_with_annotations['n_forks'])}")
+    print(f"    Correlation between annotations and n_issues: {projects_with_annotations['annotations'].corr(projects_with_annotations['n_issues'])}")
+    print(f"    Correlation between annotations and n_test_files: {projects_with_annotations['annotations'].corr(projects_with_annotations['n_test_files'])}")
+    print(f"    Correlation between annotations and n_non_test_files: {projects_with_annotations['annotations'].corr(projects_with_annotations['n_non_test_files'])}")
+    print(f"    Correlation between annotations and n_dev: {projects_with_annotations['annotations'].corr(projects_with_annotations['n_dev'])}")
+    print(f"    Correlation between annotations and funct_type_avg: {projects_with_annotations['annotations'].corr(projects_with_annotations['funct_type_avg'])}")
+    print( f"    Correlation between annotations and fuct_no_type_avg: {projects_with_annotations['annotations'].corr(projects_with_annotations['fuct_no_type_avg'])}")
 def myplot(statistics):
     plt.rcParams.update({'font.size': 16})
 
@@ -122,7 +128,7 @@ def myplot(statistics):
     except Exception as e:
         print('[Correlation Error]', str(e))
 
-    matrix = np.empty((0, 3), int)
+    matrix = np.empty((0, 10), int)
 
     for array in statistics.matrix_commits_stars_annotations:
         if array[2] != 0:
@@ -140,7 +146,32 @@ def myplot(statistics):
                     [row[2] for row in matrix],
                     '# GitHub Stars', '# Annotations Changes', 'log', 'log')
 
+    scatter_plot_xy(config.ROOT_DIR + "/Resources/Output/relationship_forks.pdf",
+                    [row[3] for row in matrix],
+                    [row[2] for row in matrix],
+                    '# GitHub forks', '# Annotations Changes', 'log', 'log')
 
+    scatter_plot_xy(config.ROOT_DIR + "/Resources/Output/relationship_issues.pdf",
+                    [row[4] for row in matrix],
+                    [row[2] for row in matrix],
+                    '# GitHub open issues', '# Annotations Changes', 'log', 'log')
+
+    scatter_plot_xy(config.ROOT_DIR + "/Resources/Output/relationship_devs.pdf",
+                    [row[7] for row in matrix],
+                    [row[2] for row in matrix],
+                    '# Developers', '# Annotations Changes', 'log', 'log')
+
+    scatter_plot_xyz(config.ROOT_DIR + "/Resources/Output/relationship_files.pdf",
+                    [row[5] for row in matrix],
+                    [row[2] for row in matrix],
+                    [row[6] for row in matrix],
+                    '# Files', '# Annotations Changes', 'log', 'log')
+
+    scatter_plot_xyz(config.ROOT_DIR + "/Resources/Output/relationship_funct_calls.pdf",
+                    [row[8] for row in matrix],
+                    [row[2] for row in matrix],
+                    [row[9] for row in matrix],
+                    '# Function calls', '# Annotations Changes', 'log', 'log')
 
     # RQ8
     #years = [int(k) for k in statistics.typeAnnotation_year_analysis.keys()]

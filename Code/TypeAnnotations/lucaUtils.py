@@ -289,7 +289,36 @@ def scatter_plot_xy(outputFilePath, x, y, x_label, y_label, xscale, yscale, titl
     plt.xscale(xscale)
 
     # use the plot function
-    plt.scatter(x, y)
+    plt.scatter(x, y, color=(0.2, 0.4, 0.6, 0.6))
+
+    plt.ylabel(y_label)
+    plt.xlabel(x_label)
+
+    if title is not None:
+        plt.title('title')
+
+    plt.savefig(outputFilePath, bbox_inches='tight')
+
+    plt.figure()
+
+def scatter_plot_xyz(outputFilePath, x, y, z, x_label, y_label, xscale, yscale, title=None, color='blue', xlim=None,
+                    ylim=None):
+    plt.rcParams.update({'font.size': font_size})
+
+    axes = plt.gca()
+    if ylim is not None:
+        axes.set_ylim([0, ylim])
+
+    if xlim is not None:
+        axes.set_xlim([0, xlim])
+
+    plt.yscale(yscale)
+    plt.xscale(xscale)
+
+    # use the plot function
+    plt.scatter(x, y, color=(0.2, 0.4, 0.6, 0.6))
+    plt.scatter(z, y, label='Without annotations', color='lightsalmon')
+    plt.legend(loc='upper left')
 
     plt.ylabel(y_label)
     plt.xlabel(x_label)
