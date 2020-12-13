@@ -21,6 +21,8 @@ def write_results(statistics, code_changes, commit_statistics):
 
     #  "jsonify" np.arrays
     statistics.matrix_commits_stars_annotations = statistics.matrix_commits_stars_annotations.tolist()
+    statistics.matrix_files_annotations = statistics.matrix_files_annotations.tolist()
+    statistics.matrix_test_files_annotations = statistics.matrix_test_files_annotations.tolist()
 
     # "unjsonify" the array -> np.array(from_json)
 

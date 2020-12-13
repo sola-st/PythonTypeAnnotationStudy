@@ -272,9 +272,6 @@ def query_repo_get_changes(repo_name):  # statistics, pointer, dirlist_len):
                         pass
 
                     if len(statistics.code_changes) > old_len:
-
-                        statistics.matrix_files_annotations = np.append(statistics.matrix_commits_stars_annotations,
-                                      np.array([[0, n_stars, len(statistics.code_changes) - old_len]]), axis=0)
                         # lock.acquire()
                         statistics.commits_with_typeChanges += 1
 
@@ -422,6 +419,24 @@ def function_size_correlation(repo_dir, statistics):
 
                         for key in return_types:
                             statistics.dict_funct_call_types[key] = function_call_count(repo_dir, str(key[-1]))
+
+                        tot_types = len(param_types) + len(return_types) + len(variable_types)
+                        tot_non_types = len(non_return_types) + len(non_variable_types)+ len(non_param_types)
+
+                        coverage = tot_types / (tot_types + tot_non_types)
+
+                        if "test" in str(filepath):
+                            statistics.matrix_test_files_annotations = np.append(statistics.matrix_test_files_annotations,
+                                                                            np.array([[sum(
+                                                                                statistics.dict_funct_call_types.values()),
+                                                                                      coverage*100,
+                                                                                      tot_types]]),
+                                                                            axis=0)
+                        else:
+
+                            statistics.matrix_files_annotations = np.append(statistics.matrix_files_annotations,
+                                                                        np.array([[sum(statistics.dict_funct_call_types.values()),coverage*100,
+                                                                                      tot_types]]),axis=0)
                     except Exception as e:
                         print(str(e))
                         continue
