@@ -216,7 +216,7 @@ def plot_evolution_of_avg_errors_vs_annotations(project_to_history):
 
 def plot_per_project_evolution(project_to_history):
     plt.rcParams.update({'font.size': font_size})
-    plt.rcParams.update({'font.size': 16})
+    plt.rcParams.update({'font.size': 20})
     for p, h in project_to_history.items():
         annotation_evol = []
         loc_evol = []

@@ -838,7 +838,6 @@ def extract_from_snippet_new_new_new_new(string_old, string_new):
         return extract_from_snippet_new_new_new(string_old, string_new)
 
 
-
 def collection_type_annotation_recursive(slice) -> str:
     type_ann: str = ""
 
@@ -1180,6 +1179,8 @@ def TypeAnnotationExtractionLast(repo_path, repo_name, commit, patch, url, stati
 
                         temp = CodeChange(url + 'L' + str(annotation_old.line), str(commit_year),
                                           "",
+                                          "",
+                                          "0",
                                           str(annotation_old.type), '[CHANGED]',
                                           str(patch.delta.old_file.path),
                                           str(annotation_old.annotation),
@@ -1245,7 +1246,9 @@ def TypeAnnotationExtractionLast(repo_path, repo_name, commit, patch, url, stati
                         annotation_old.annotation = str(annotation_old.annotation.value)
 
                     temp = CodeChange(url + 'L' + str(annotation_old.line), str(commit_year),
+                                      "",
                                       f"{commit_year}-{commit_month}-{commit_day}",
+                                      "0",
                                       str(annotation_old.type),
                                       '[REMOVED]',
                                       str(patch.delta.old_file.path),
@@ -1291,7 +1294,9 @@ def TypeAnnotationExtractionLast(repo_path, repo_name, commit, patch, url, stati
                         remained.annotation = str(remained.annotation.value)
 
                     temp = CodeChange(url + 'R' + str(remained.line), str(commit_year),
+                                      f"{commit_year}-{commit_month}-{commit_day}",
                                       "",
+                                      "0",
                                       str(remained.type),
                                       '[INSERTED]',
                                       ' ',

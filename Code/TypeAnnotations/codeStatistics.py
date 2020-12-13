@@ -126,6 +126,8 @@ class CodeStatistics:
         # E.g., nb of stars/developers/overall commits vs. nb of added annotations
         self.RQ5 = 'Relation of properties of projects vs. properties of type changes.'
         self.matrix_commits_stars_annotations = np.empty((0, 10), int)
+        self.matrix_files_annotations = np.empty((0, 3), int)
+        self.matrix_test_files_annotations = np.empty((0, 3), int)
         self.dict_funct_call_no_types = {}
         self.dict_funct_call_types = {}
         self.s6 = "------------------------------------------------------------------------"

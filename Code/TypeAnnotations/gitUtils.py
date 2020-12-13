@@ -272,6 +272,9 @@ def query_repo_get_changes(repo_name):  # statistics, pointer, dirlist_len):
                         pass
 
                     if len(statistics.code_changes) > old_len:
+
+                        statistics.matrix_files_annotations = np.append(statistics.matrix_commits_stars_annotations,
+                                      np.array([[0, n_stars, len(statistics.code_changes) - old_len]]), axis=0)
                         # lock.acquire()
                         statistics.commits_with_typeChanges += 1
 

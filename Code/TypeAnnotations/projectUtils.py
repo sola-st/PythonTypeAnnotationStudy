@@ -37,8 +37,8 @@ def compute_correlations(commits_stars_annotations):
     print(f"    Correlation between annotations and stars: {projects['commits'].corr(projects['stars'])}")
     print(f"  Projects with annotations:")
     print(f"    Correlation between annotations and commits: {projects_with_annotations['commits'].corr(projects_with_annotations['annotations'])}")
-    print(f"    Correlation between annotations and stars: {projects_with_annotations['annotations'].corr(projects_with_annotations['stars'])}")
-    print(f"    Correlation between annotations and n_forks: {projects_with_annotations['annotations'].corr(projects_with_annotations['n_forks'])}")
+    print(f"    Correlation between annotations and stars: {projects_with_annotations['stars'].corr(projects_with_annotations['annotations'])}")
+    print(f"    Correlation between annotations and n_forks: {projects_with_annotations['n_forks'].corr(projects_with_annotations['annotations'])}")
     print(f"    Correlation between annotations and n_issues: {projects_with_annotations['annotations'].corr(projects_with_annotations['n_issues'])}")
     print(f"    Correlation between annotations and n_test_files: {projects_with_annotations['annotations'].corr(projects_with_annotations['n_test_files'])}")
     print(f"    Correlation between annotations and n_non_test_files: {projects_with_annotations['annotations'].corr(projects_with_annotations['n_non_test_files'])}")
@@ -47,6 +47,15 @@ def compute_correlations(commits_stars_annotations):
     print( f"    Correlation between annotations and fuct_no_type_avg: {projects_with_annotations['annotations'].corr(projects_with_annotations['fuct_no_type_avg'])}")
 def myplot(statistics):
     plt.rcParams.update({'font.size': 16})
+
+    smooth_line_xy_multi(config.ROOT_DIR + "/Resources/Output/elements_annotated.pdf",
+                         statistics.annotation_coverage,
+                         x_label="Year",
+                         y_label="% program elements annotated",
+                         title="Presence of type annotations in\nthe last version of the repositories.",
+                         color1='blue', color2='red',
+                         xlim=None,
+                         ylim=None)
 
     # Total number of commits in each year
     for key in list(statistics.commit_year_dict.keys()):
@@ -219,6 +228,7 @@ def myplot(statistics):
                    color1='blue', color2='red',
                    xlim=None,
                    ylim=None)
+
 
     list_contributors_repo = []
 

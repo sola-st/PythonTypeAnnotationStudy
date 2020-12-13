@@ -164,6 +164,50 @@ def smooth_line_xy(outputFilePath, y, x_label=None, y_label=None, title=None, co
 
     plt.figure()
 
+def smooth_line_xy_multi(outputFilePath, dict, x_label=None, y_label=None, title=None, color1='blue', color2='red',
+                   xlim=None,
+                   ylim=None):
+    plt.rcParams.update({'font.size': font_size})
+
+
+
+    x = []
+    ret = []
+    arg = []
+    var = []
+
+    for key in dict:
+        x.append(key)
+        arg.append(float(dict[key][0]/dict[key][1]*100))
+        ret.append(float(dict[key][2] / dict[key][3] * 100))
+        var.append(float(dict[key][4] / dict[key][5] * 100))
+
+    fig, ax = plt.subplots()
+
+    ax.set_ylim([0, 5])
+
+
+    plt.setp(ax.get_xticklabels(), rotation=30, horizontalalignment='right')
+    # Plot the data
+    data_line = ax.plot(x, arg, label='Function Arguments', color=(0.2, 0.4, 0.6, 0.6))
+    data_line = ax.plot(x, ret, label='Function Returns', color='lightsalmon')
+    data_line = ax.plot(x, var, label='Variable Assignements', color='yellowgreen')
+
+    # Make a legend
+    legend = ax.legend(loc='upper left')
+
+    plt.ylabel(y_label)
+    plt.xlabel(x_label)
+    #plt.xscale('log')
+
+    # if title is not None:
+    #    plt.title(title)
+
+    plt.savefig(outputFilePath, bbox_inches='tight')
+
+    plt.figure()
+
+
 
 def cartesian_plot_xy(outputFilePath, x, y, x_label, y_label, title=None, color='blue', xlim=None, ylim=None):
     axes = plt.gca()
@@ -316,7 +360,7 @@ def scatter_plot_xyz(outputFilePath, x, y, z, x_label, y_label, xscale, yscale, 
     plt.xscale(xscale)
 
     # use the plot function
-    plt.scatter(x, y, color=(0.2, 0.4, 0.6, 0.6))
+    plt.scatter(x, y,  label='With annotations', color=(0.2, 0.4, 0.6, 0.6))
     plt.scatter(z, y, label='Without annotations', color='lightsalmon')
     plt.legend(loc='upper left')
 
