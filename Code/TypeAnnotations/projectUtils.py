@@ -382,6 +382,8 @@ def load_final_statistics():
 
     # RQ 5
     finalStatistics.matrix_commits_stars_annotations = np.array(allStatistics[0]['matrix_commits_stars_annotations'])
+    finalStatistics.matrix_files_annotations = np.array(allStatistics[0]['matrix_files_annotations'])
+    finalStatistics.matrix_test_files_annotations = np.array(allStatistics[0]['matrix_test_files_annotations'])
 
     # RQ 6
     finalStatistics.number_type_annotations_per_repo = dict(tuple(tuple(x) for x in allStatistics[0]['number_type_annotations_per_repo']))

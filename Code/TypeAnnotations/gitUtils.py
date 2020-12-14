@@ -423,6 +423,9 @@ def function_size_correlation(repo_dir, statistics):
                         tot_types = len(param_types) + len(return_types) + len(variable_types)
                         tot_non_types = len(non_return_types) + len(non_variable_types)+ len(non_param_types)
 
+                        if tot_types + tot_non_types == 0:
+                            continue
+
                         coverage = tot_types / (tot_types + tot_non_types)
 
                         if "test" in str(filepath):

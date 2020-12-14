@@ -286,8 +286,8 @@ start = time.time()
 
 #analyze_histories(projects, max_commits_per_project=10)
 
-#analyze_specific_commits(
- #   config.ROOT_DIR + "/Resources/Output/typeAnnotationCommitStatistics.json")
+analyze_specific_commits(
+    config.ROOT_DIR + "/Resources/Output/typeAnnotationCommitStatistics.json")
 
 end = time.time()
 hours, rem = divmod(end - start, 3600)
