@@ -47,17 +47,32 @@ def compute_correlations(commits_stars_annotations):
     print(f"    Correlation between annotations and n_dev: {projects_with_annotations['annotations'].corr(projects_with_annotations['n_dev'])}")
     print(f"    Correlation between annotations and funct_type_avg: {projects_with_annotations['annotations'].corr(projects_with_annotations['funct_type_avg'])}")
     print( f"    Correlation between annotations and fuct_no_type_avg: {projects_with_annotations['annotations'].corr(projects_with_annotations['fuct_no_type_avg'])}")
+
+
+def compute_correlations2(commits_stars_annotations):
+    projects = pd.DataFrame(commits_stars_annotations)
+    projects.columns = ["funct", "cov", "annotations"]
+    projects_with_annotations = projects[projects.annotations > 0]
+    print(f"Computing correlations across {len(projects)} projects, {len(projects_with_annotations)} with annotations ")
+    print(f"  All projects:")
+    print(f" no test   Correlation between annotations and funct: {projects['funct'].corr(projects['annotations'])}")
+    print(f" no test    Correlation between cov and funct: {projects['funct'].corr(projects['cov'])}")
+    print(f"  Projects with annotations:")
+    print(f" no test    Correlation between annotations and funct: {projects_with_annotations['funct'].corr(projects_with_annotations['annotations'])}")
+    print(f" no test    Correlation between cov and funct: {projects_with_annotations['funct'].corr(projects_with_annotations['cov'])}")
+
+
 def myplot(statistics):
     plt.rcParams.update({'font.size': 16})
 
-    smooth_line_xy_multi(config.ROOT_DIR + "/Resources/Output/elements_annotated.pdf",
-                         statistics.annotation_coverage,
-                         x_label="Year",
-                         y_label="% program elements annotated",
-                         title="Presence of type annotations in\nthe last version of the repositories.",
-                         color1='blue', color2='red',
-                         xlim=None,
-                         ylim=None)
+    #smooth_line_xy_multi(config.ROOT_DIR + "/Resources/Output/elements_annotated.pdf",
+     #                    statistics.annotation_coverage,
+      #                   x_label="Year",
+       #                  y_label="% program elements annotated",
+        #                 title="Presence of type annotations in\nthe last version of the repositories.",
+         #                color1='blue', color2='red',
+          #               xlim=None,
+           #              ylim=None)
 
     # Total number of commits in each year
     for key in list(statistics.commit_year_dict.keys()):
@@ -183,6 +198,50 @@ def myplot(statistics):
                     [row[2] for row in matrix],
                     [row[9] for row in matrix],
                     '# Function calls', '# Annotations Changes', 'log', 'log')
+
+    try:
+        compute_correlations2(statistics.matrix_files_annotations)
+    except Exception as e:
+        print('[Correlation Error]', str(e))
+
+    matrix = np.empty((0, 3), int)
+
+    for array in statistics.matrix_files_annotations:
+        if array[2] != 0:
+            matrix = np.append(matrix, np.array([array]), axis=0)
+
+    scatter_plot_xy(config.ROOT_DIR + "/Resources/Output/relationship_files_coverage.pdf",
+                     [row[0] for row in matrix],
+                     [row[1] for row in matrix],
+                     '# Function calls', 'Program elements coverage', 'log', 'log')
+
+    scatter_plot_xy(config.ROOT_DIR + "/Resources/Output/relationship_tot.pdf",
+                     [row[0] for row in matrix],
+                     [row[2] for row in matrix],
+                     '# Function calls', '# Type Annotations', 'log', 'log')
+
+
+    try:
+        compute_correlations2(statistics.matrix_test_files_annotations)
+    except Exception as e:
+        print('[Correlation Error]', str(e))
+
+    matrix = np.empty((0, 3), int)
+
+    for array in statistics.matrix_test_files_annotations:
+        if array[2] != 0:
+            matrix = np.append(matrix, np.array([array]), axis=0)
+
+    scatter_plot_xy(config.ROOT_DIR + "/Resources/Output/relationship_test_files_coverage.pdf",
+                     [row[0] for row in matrix],
+                     [row[1] for row in matrix],
+                     '# Function calls', 'Program elements coverage', 'log', 'log')
+
+    scatter_plot_xy(config.ROOT_DIR + "/Resources/Output/test_relationship_tot.pdf",
+                     [row[0] for row in matrix],
+                     [row[2] for row in matrix],
+                     '# Function calls', '# Type Annotations', 'log', 'log')
+
 
     # RQ8
     #years = [int(k) for k in statistics.typeAnnotation_year_analysis.keys()]

@@ -1,6 +1,8 @@
 import re
 import pathlib
 import subprocess
+from datetime import datetime
+
 import config
 from Code.TypeAnnotations.codeChange import CodeChange, SingleDiffChange
 from Code.parsers import TypeCollector
@@ -618,7 +620,7 @@ def extract_from_snippet_new_new_new_new(string_old, string_new):
 
     brackets = ""
 
-    if not ("fatal: Path" in str(string_old) and "does not exist in" in str(string_old)):
+    if not ("fatal: " in str(string_old)):
         ast_old = cst.parse_module(string_old)
         wrapper_old = cst.metadata.MetadataWrapper(ast_old)
         positions_old = wrapper_old.resolve(PositionProvider)
@@ -721,7 +723,7 @@ def extract_from_snippet_new_new_new_new(string_old, string_new):
                                         attribute = ""
 
     # For the new file
-    if not ("fatal: Path" in str(string_new) and "does not exist in" in str(string_new)):
+    if not ("fatal: " in str(string_new)):
         ast_new = cst.parse_module(string_new)
         wrapper_new = cst.metadata.MetadataWrapper(ast_new)
         positions_new = wrapper_new.resolve(PositionProvider)
@@ -1182,6 +1184,7 @@ def TypeAnnotationExtractionLast(repo_path, repo_name, commit, patch, url, stati
                                           "",
                                           "0",
                                           str(annotation_old.type), '[CHANGED]',
+                                          annotation_old.variable,
                                           str(patch.delta.old_file.path),
                                           str(annotation_old.annotation),
                                           str(annotation_old.line),
@@ -1251,6 +1254,7 @@ def TypeAnnotationExtractionLast(repo_path, repo_name, commit, patch, url, stati
                                       "0",
                                       str(annotation_old.type),
                                       '[REMOVED]',
+                                      annotation_old.variable,
                                       str(patch.delta.old_file.path),
                                       str(annotation_old.annotation),
                                       str(annotation_old.line),
@@ -1299,6 +1303,7 @@ def TypeAnnotationExtractionLast(repo_path, repo_name, commit, patch, url, stati
                                       "0",
                                       str(remained.type),
                                       '[INSERTED]',
+                                      remained.variable,
                                       ' ',
                                       ' ',
                                       ' ',
@@ -1359,6 +1364,243 @@ def TypeAnnotationExtractionLast(repo_path, repo_name, commit, patch, url, stati
         at_least_one_type_change[0] += 1
 
         code_changes += code_changes_new
+
+def TypeAnnotationExtractionLast_life(repo_path, repo_name, commit, patch, url, statistics,  # lock, logging,
+                                 at_least_one_type_change, code_changes,
+                                 typeannotation_line_inserted, typeannotation_line_removed, typeannotation_line_changed,
+                                 list_line_added, list_line_removed,
+                                 commit_year, commit_month, commit_day):
+    code_changes_new = []
+
+    line_type_annotation_added = []
+    line_type_annotation_removed = []
+    line_type_annotation_changed = []
+
+    old_out = subprocess.Popen(
+        ["git", "--git-dir", str(repo_path + repo_name) + '/.git', 'show',
+         str(commit.hex + '^') + ":" + str(patch.delta.old_file.path)],
+        stdout=subprocess.PIPE,
+        stderr=subprocess.STDOUT)
+    old_stdout, old_stderr = old_out.communicate()
+
+    new_out = subprocess.Popen(["git", "--git-dir", str(repo_path + repo_name) + '/.git', 'show',
+                                str(commit.hex) + ":" + str(patch.delta.new_file.path)],
+                               stdout=subprocess.PIPE,
+                               stderr=subprocess.STDOUT)
+    new_stdout, new_stderr = new_out.communicate()
+
+    try:
+        #print(url)
+        node_list_old, node_list_new = extract_from_snippet_new_new_new_new(
+            str(old_stdout.decode('utf-8-sig')),
+            str(new_stdout.decode('utf-8-sig')))
+    except Exception as e:
+        # print(str(e), repo_path, commit.hex)
+        return
+
+    try:
+        #########################################################################
+        ####                    TYPE Annotations                  ###############
+        #########################################################################
+
+        for hunk in patch.hunks:
+            # result77 = hashlib.md5("main.py".encode('utf-8')).hexdigest()
+            for annotation_old in node_list_old:
+                if annotation_old.line not in range(hunk.old_start, hunk.old_start + hunk.old_lines):
+                    continue
+                j = -1
+                flag_insert = True
+                for annotation_new in node_list_new:
+                    j += 1
+                    if annotation_new.line not in range(hunk.new_start, hunk.new_start + hunk.new_lines):
+                        continue
+
+                    if annotation_old.type == annotation_new.type and annotation_old.variable == annotation_new.variable:
+
+                        # print('[CHANGED]', annotation_old.type, annotation_old.annotation, ' -> ',annotation_new.annotation)
+                        if hasattr(annotation_old.annotation, 'value'):
+                            annotation_old.annotation = str(annotation_old.annotation.value)
+
+                        if hasattr(annotation_new.annotation, 'value'):
+                            annotation_new.annotation = str(annotation_new.annotation.value)
+
+                        if annotation_old.annotation == annotation_new.annotation:
+                            del node_list_new[j]
+                            flag_insert = False
+                            break
+
+                        for elem in code_changes_new:
+                            if elem.where == annotation_new.type and elem.variable == annotation_new.variable and elem.new_line == str(annotation_new.line):
+                                elem.change_num += 1
+                                elem.old_file = str(patch.delta.old_file.path)
+                                elem.old_annotation = str(annotation_old.annotation)
+                                elem.old_line = str(annotation_old.line)
+                                elem.new_file = str(patch.delta.new_file.path)
+                                elem.new_annotation = str(annotation_new.annotation)
+                                elem.new_line = str(annotation_new.line)
+
+                        statistics.number_type_annotations_per_repo[repo_name] += 1
+                        statistics.total_typeAnnotation_codeChanges += 1
+
+                        if commit_year not in statistics.modify_existing_types:
+                            statistics.modify_existing_types[str(commit_year)] = 1
+                        else:
+                            statistics.modify_existing_types[str(commit_year)] += 1
+
+                        line_type_annotation_changed.append(str(annotation_old.line))
+
+                        if str(annotation_old.type) == 'argument':
+                            if (annotation_old.annotation + ' -> ' + annotation_new.annotation).lower() not in statistics.typeChanged_dict_arg:
+                                statistics.typeChanged_dict_arg[
+                                    str(annotation_old.annotation + ' -> ' + annotation_new.annotation).lower()] = 1
+                            else:
+                                statistics.typeChanged_dict_arg[str(str(
+                                    annotation_old.annotation + ' -> ' + annotation_new.annotation).lower()).lower()] += 1
+
+                        elif str(annotation_old.type) == 'return':
+                            if (annotation_old.annotation + ' -> ' + annotation_new.annotation).lower() not in statistics.typeChanged_dict_ret:
+                                statistics.typeChanged_dict_ret[
+                                    str(annotation_old.annotation + ' -> ' + annotation_new.annotation).lower()] = 1
+                            else:
+                                statistics.typeChanged_dict_ret[str(str(
+                                    annotation_old.annotation + ' -> ' + annotation_new.annotation).lower()).lower()] += 1
+
+                        elif str(annotation_old.type) == 'variable':
+                            if (annotation_old.annotation + ' -> ' + annotation_new.annotation).lower() not in statistics.typeChanged_dict_var:
+                                statistics.typeChanged_dict_var[
+                                    str(annotation_old.annotation + ' -> ' + annotation_new.annotation).lower()] = 1
+                            else:
+                                statistics.typeChanged_dict_var[str(str(
+                                    annotation_old.annotation + ' -> ' + annotation_new.annotation).lower()).lower()] += 1
+
+
+                        statistics.total_changed += 1
+
+                        if annotation_old.type == 'return':
+                            statistics.functionReturnsType_changed += 1
+                        elif annotation_old.type == 'argument':
+                            statistics.functionArgsType_changed += 1
+                        elif annotation_old.type == 'variable':
+                            statistics.variableType_changed += 1
+
+                        del node_list_new[j]
+                        flag_insert = False
+                        break
+
+                if flag_insert:
+                    # print('[REMOVED]', annotation_old.type, annotation_old.annotation)
+
+                    if hasattr(annotation_old.annotation, 'value'):
+                        annotation_old.annotation = str(annotation_old.annotation.value)
+
+                    for elem in code_changes:
+                        if elem.where == annotation_old.type and elem.variable == annotation_old.variable and elem.new_line == str(annotation_old.line):
+                            elem.elimination_date = f"{commit_year}-{commit_month}-{commit_day}"
+                            elem.duration = str(days_between(elem.creation_date,elem.elimination_date))
+
+                    statistics.number_type_annotations_per_repo[repo_name] += 1
+                    statistics.total_typeAnnotation_codeChanges += 1
+                    #statistics.remove_types += 1
+
+                    if commit_year not in statistics.remove_types:
+                        statistics.remove_types[commit_year] = 1
+                    else:
+                        statistics.remove_types[commit_year] += 1
+
+                    line_type_annotation_removed.append(str(annotation_old.line))
+
+                    if annotation_old.annotation.lower() not in statistics.typeRemoved_dict:
+                        statistics.typeRemoved_dict[annotation_old.annotation.lower()] = 1
+                    else:
+                        statistics.typeRemoved_dict[annotation_old.annotation.lower()] += 1
+
+                    statistics.total_removed += 1
+
+                    if annotation_old.type == 'return':
+                        statistics.functionReturnsType_removed += 1
+                    elif annotation_old.type == 'argument':
+                        statistics.functionArgsType_removed += 1
+                    elif annotation_old.type == 'variable':
+                        statistics.variableType_removed += 1
+
+                    flag_insert = True
+
+            for remained in node_list_new:
+                if remained.line in range(hunk.new_start, hunk.new_start + hunk.new_lines):
+                    # print('[INSERTED]', remained.type, remained.annotation)
+                    if hasattr(remained.annotation, 'value'):
+                        remained.annotation = str(remained.annotation.value)
+
+                    temp = CodeChange(url + 'R' + str(remained.line), str(commit_year),
+                                      f"{commit_year}-{commit_month}-{commit_day}",
+                                      "",
+                                      "0",
+                                      "0",
+                                      str(remained.type),
+                                      '[INSERTED]',
+                                      remained.variable,
+                                      ' ',
+                                      ' ',
+                                      ' ',
+                                      str(patch.delta.new_file.path),
+                                      str(remained.annotation),
+                                      str(remained.line))
+
+                    code_changes_new.append(temp)
+
+                    statistics.number_type_annotations_per_repo[repo_name] += 1
+                    statistics.total_typeAnnotation_codeChanges += 1
+                    #statistics.insert_types += 1
+
+                    if commit_year not in statistics.insert_types:
+                        statistics.insert_types[commit_year] = 1
+                    else:
+                        statistics.insert_types[commit_year] += 1
+
+                    # type_annotation_added_this_commit += 1
+                    line_type_annotation_added.append(str(remained.line))
+
+                    if remained.annotation.lower() not in statistics.typeAdded_dict:
+                        statistics.typeAdded_dict[remained.annotation.lower()] = 1
+                    else:
+                        statistics.typeAdded_dict[remained.annotation.lower()] += 1
+
+                    statistics.total_added += 1
+
+                    if remained.type == 'return':
+                        statistics.functionReturnsType_added += 1
+                    elif remained.type == 'argument':
+                        statistics.functionArgsType_added += 1
+                    elif remained.type == 'variable':
+                        statistics.variableType_added += 1
+
+        # print('ok', commit.hex, '\n\n')
+
+    except Exception as e:
+        print('[Error changeExtraction]', repo_path, commit.hex, str(e))
+
+    if len(line_type_annotation_added) > 0:
+        typeannotation_line_inserted[0] += len(set(line_type_annotation_added))
+        list_line_added[0] += len(set(line_type_annotation_added))
+
+    if len(line_type_annotation_removed) > 0:
+        typeannotation_line_removed[0] += len(set(line_type_annotation_removed))
+        list_line_removed[0] += len(set(line_type_annotation_removed))
+
+    if len(line_type_annotation_changed) > 0:
+        typeannotation_line_inserted[0] += len(set(line_type_annotation_changed))
+        typeannotation_line_removed[0] += len(set(line_type_annotation_changed))
+        typeannotation_line_changed[0] += len(set(line_type_annotation_changed))
+
+        list_line_added[0] += len(set(line_type_annotation_added))
+        list_line_removed[0] += len(set(line_type_annotation_removed))
+
+    if len(code_changes_new) > 0:
+        at_least_one_type_change[0] += 1
+
+        code_changes += code_changes_new
+
+
 
 
 def TypeAnnotationExtractionFirstCommit(repo_path, repo_name, commit, patch, url, statistics,  # lock, logging,
@@ -1562,3 +1804,9 @@ def last_version_analysis(repo_name, statistics):
 
             except:
                 pass
+
+
+def days_between(d1, d2):
+    d1 = datetime.strptime(d1, "%Y-%m-%d")
+    d2 = datetime.strptime(d2, "%Y-%m-%d")
+    return abs((d2 - d1).days)

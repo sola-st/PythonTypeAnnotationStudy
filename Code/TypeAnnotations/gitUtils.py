@@ -16,7 +16,8 @@ from typing import List
 import config
 from Code.TypeAnnotations.codeChange import CommitStatistics
 from Code.TypeAnnotations.codeChangeExtraction import TypeAnnotationExtractionFirstCommit, \
-    TypeAnnotationExtractionLast, type_annotation_in_last_version, last_version_analysis
+    TypeAnnotationExtractionLast, type_annotation_in_last_version, last_version_analysis, \
+    TypeAnnotationExtractionLast_life
 from Code.TypeAnnotations.codeStatistics import CodeStatistics
 from Code.TypeErrors.TypeAnnotationCounter import count_type_annotations, extract_from_file
 
@@ -216,7 +217,7 @@ def query_repo_get_changes(repo_name):  # statistics, pointer, dirlist_len):
                             except Exception as e:
                                 return
 
-                            TypeAnnotationExtractionLast(config.ROOT_DIR + "/GitHub/", repo_name, commit, patch,
+                            TypeAnnotationExtractionLast_life(config.ROOT_DIR + "/GitHub/", repo_name, commit, patch,
                                                         remote_url + '/commit/' + commit.hex + '#diff-' + diff.patchid.hex,
                                                         statistics,  # lock, logging,
                                                         at_least_one_type_change,

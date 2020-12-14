@@ -1,14 +1,16 @@
 class CodeChange:
     """Code change class"""
 
-    def __init__(self, url, commit_year, creation_date, elimination_date, change_num, where, type, old_file, old_annotation, old_line,  new_file, new_annotation, new_line):
+    def __init__(self, url, commit_year, creation_date, elimination_date, life_time, change_num, where, type, variable, old_file, old_annotation, old_line,  new_file, new_annotation, new_line):
         self.url = url
         self.commit_year = commit_year
         self.creation_date = creation_date
         self.elimination_date = elimination_date
+        self.life_time = life_time
         self.change_num = change_num
         self.type = type
         self.where = where
+        self.variable = variable
 
         self.old_file = old_file
         self.old_annotation = old_annotation
