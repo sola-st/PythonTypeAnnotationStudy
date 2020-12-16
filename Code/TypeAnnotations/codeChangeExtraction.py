@@ -1500,7 +1500,7 @@ def TypeAnnotationExtractionLast_life(repo_path, repo_name, commit, patch, url, 
 
                             elem.elimination_date = f"{commit_year}-{commit_month}-{commit_day}"
                             elem.duration = str(days_between(elem.creation_date,elem.elimination_date))
-                            print(elem.duration)
+                            #print(elem.duration)
 
                     statistics.number_type_annotations_per_repo[repo_name] += 1
                     statistics.total_typeAnnotation_codeChanges += 1
