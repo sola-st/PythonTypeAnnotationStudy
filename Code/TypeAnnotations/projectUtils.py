@@ -1,4 +1,5 @@
 import locale
+import statistics
 
 import config
 from Code.TypeAnnotations.codeStatistics import CodeStatistics
@@ -349,6 +350,19 @@ def myplot(statistics):
     statistics.typeAnnotation_commit_not_annotation_year_analysis = "See the plot RQ9."
 
 def load_final_statistics():
+    with open(config.ROOT_DIR + "/Resources/Output/typeAnnotationChanges.json") as fh:
+        code_changes = json.load(fh)
+
+    list_lifetime = []
+    n_changes = 0
+    for code_change in code_changes:
+        list_lifetime.append(int(code_change['life_time']))
+        n_changes += int(code_change['change_num'])
+
+    print(f"Lifetime: mean {statistics.mean(list_lifetime)}, min {min(list_lifetime)}, max {max(list_lifetime)}")
+
+    print(f"# changes:  {n_changes}")
+
     finalStatistics = CodeStatistics()
 
     with open(config.ROOT_DIR + "/Resources/Output/typeAnnotationAllStatisticsRAW.json") as fh:

@@ -17,7 +17,7 @@ def typeAnnotation_analisis():
         #while i < 10:
          #   gitUtils.repo_cloning(config.ROOT_DIR + "/Resources/Input/Top1000_Python201"+str(i)+"_Complete.json", config.ROOT_DIR + "/GitHub", j)
           #  i += 1
-        gitUtils.repo_cloning(config.ROOT_DIR + "/Resources/Input/repositories_TOP100_2020.json",
+        gitUtils.repo_cloning(config.ROOT_DIR + "/Resources/Input/repositories_TOP100_2018.json",
                               config.ROOT_DIR + "/GitHub", j)
 
 
