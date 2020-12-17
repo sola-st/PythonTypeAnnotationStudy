@@ -214,12 +214,12 @@ def myplot(statistics):
     scatter_plot_xy(config.ROOT_DIR + "/Resources/Output/relationship_files_coverage.pdf",
                      [row[0] for row in matrix],
                      [row[1] for row in matrix],
-                     '# Function calls', 'Program elements coverage', 'log', 'log')
+                     '# Function calls', 'Program elements coverage', 'linear', 'linear', xlim=120)
 
     scatter_plot_xy(config.ROOT_DIR + "/Resources/Output/relationship_tot.pdf",
                      [row[0] for row in matrix],
                      [row[2] for row in matrix],
-                     '# Function calls', '# Type Annotations', 'log', 'log')
+                     '# Function calls', '# Type Annotations', 'log', 'linear')
 
 
     try:
@@ -354,14 +354,30 @@ def load_final_statistics():
         code_changes = json.load(fh)
 
     list_lifetime = []
-    n_changes = 0
+    n_changes = []
     for code_change in code_changes:
         list_lifetime.append(int(code_change['life_time']))
-        n_changes += int(code_change['change_num'])
+        n_changes.append(int(code_change['change_num']))
 
-    print(f"Lifetime: mean {statistics.mean(list_lifetime)}, min {min(list_lifetime)}, max {max(list_lifetime)}")
 
-    print(f"# changes:  {n_changes}")
+    list_lifetime = [x for x in list_lifetime if x != -1]
+    n_changes = [x for x in n_changes if x != 0]
+
+    print(f"Lifetime: mean {statistics.mean(list_lifetime)}, min {min(list_lifetime)}, max {max(list_lifetime)}, count {len(list_lifetime)}")
+
+    print(f"# changes:  mean {statistics.mean(n_changes)}, min {min(n_changes)}, max {max(n_changes)}, count {len(n_changes)}")
+
+
+    histogram_plot_xy(config.ROOT_DIR + "/Resources/Output/lifetime.pdf",
+                      list_lifetime,
+                      'Lifetime of a type annotation (in days)',
+                      'Type annotations', 'linear', 'log', bins=20)
+
+    histogram_plot_xy(config.ROOT_DIR + "/Resources/Output/num_changes.pdf",
+                      n_changes,
+                      'Number of changes for a type annotation',
+                      'Type annotations', 'linear', 'log', bins=6)
+
 
     finalStatistics = CodeStatistics()
 

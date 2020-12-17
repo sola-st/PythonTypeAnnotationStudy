@@ -312,7 +312,7 @@ def histogram_plot_xy(outputFilePath, x, x_label, y_label, xscale, yscale, title
     if yscale == 'log':
         plt.yscale(yscale)
 
-    plt.hist(x, bins=bins, range=[0, max(x)], color=(0.2, 0.4, 0.6, 0.6))
+    plt.hist(x, bins=bins, range=[1, max(x)], color=(0.2, 0.4, 0.6, 0.6))
 
     plt.savefig(outputFilePath, bbox_inches='tight')
 
