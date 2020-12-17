@@ -1429,15 +1429,16 @@ def TypeAnnotationExtractionLast_life(repo_path, repo_name, commit, patch, url, 
                             flag_insert = False
                             break
 
-                        for elem in code_changes_new:
-                            if elem.where == annotation_new.type and elem.variable == annotation_new.variable and elem.new_line == str(annotation_new.line):
-                                elem.change_num += 1
+                        for elem in code_changes:
+                            if elem.where == annotation_old.type and elem.variable == annotation_old.variable and elem.new_line == str(annotation_old.line):
+                                elem.change_num = str(int(elem.change_num) + 1)
                                 elem.old_file = str(patch.delta.old_file.path)
                                 elem.old_annotation = str(annotation_old.annotation)
                                 elem.old_line = str(annotation_old.line)
                                 elem.new_file = str(patch.delta.new_file.path)
                                 elem.new_annotation = str(annotation_new.annotation)
                                 elem.new_line = str(annotation_new.line)
+                                elem.url_last_change = url + 'R' + str(annotation_old.line)
 
                         statistics.number_type_annotations_per_repo[repo_name] += 1
                         statistics.total_typeAnnotation_codeChanges += 1
@@ -1498,9 +1499,20 @@ def TypeAnnotationExtractionLast_life(repo_path, repo_name, commit, patch, url, 
                             if "-" in elem.elimination_date:
                                 continue
 
+                            elem.url_deletion = url + 'R' + str(annotation_old.line)
+                            elem.type = "[REMOVED]"
+
+                            elem.new_annotation = ""
+                            elem.new_file = ""
+                            elem.new_line = ""
+
+                            elem.old_annotation = annotation_old.annotation
+                            elem.old_file = str(patch.delta.old_file.path)
+                            elem.old_line = annotation_old.line
+
                             elem.elimination_date = f"{commit_year}-{commit_month}-{commit_day}"
-                            elem.duration = str(days_between(elem.creation_date,elem.elimination_date))
-                            #print(elem.duration)
+                            elem.life_time = str(days_between(elem.creation_date,elem.elimination_date))
+                            #print(elem.life_time)
 
                     statistics.number_type_annotations_per_repo[repo_name] += 1
                     statistics.total_typeAnnotation_codeChanges += 1
@@ -1535,10 +1547,13 @@ def TypeAnnotationExtractionLast_life(repo_path, repo_name, commit, patch, url, 
                     if hasattr(remained.annotation, 'value'):
                         remained.annotation = str(remained.annotation.value)
 
-                    temp = CodeChange(url + 'R' + str(remained.line), str(commit_year),
+                    temp = CodeChange(url + 'R' + str(remained.line),
+                                      "",
+                                      "",
+                                      str(commit_year),
                                       f"{commit_year}-{commit_month}-{commit_day}",
                                       "",
-                                      "0",
+                                      "-1",
                                       "0",
                                       str(remained.type),
                                       '[INSERTED]',
