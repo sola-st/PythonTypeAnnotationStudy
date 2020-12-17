@@ -75,6 +75,7 @@ def write_in_json(outputFilePath: str, data: list) -> None:
         json_file = json.dumps(data, indent=4)
     except Exception as e:
         print(e)
+        print(data)
         return
 
     if '.json' not in outputFilePath:

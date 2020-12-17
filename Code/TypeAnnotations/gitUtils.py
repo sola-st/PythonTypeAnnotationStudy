@@ -17,7 +17,7 @@ import config
 from Code.TypeAnnotations.codeChange import CommitStatistics
 from Code.TypeAnnotations.codeChangeExtraction import TypeAnnotationExtractionFirstCommit, \
     TypeAnnotationExtractionLast, type_annotation_in_last_version, last_version_analysis, \
-    TypeAnnotationExtractionLast_life
+    TypeAnnotationExtractionLast_life, extract_from_snippet
 from Code.TypeAnnotations.codeStatistics import CodeStatistics
 from Code.TypeErrors.TypeAnnotationCounter import count_type_annotations, extract_from_file
 
@@ -134,8 +134,8 @@ def query_repo_get_changes(repo_name):  # statistics, pointer, dirlist_len):
             for commit in repo.walk(last_commit, GIT_SORT_TOPOLOGICAL | GIT_SORT_REVERSE):
                 try:
                     # print(str(commit.hex))
-                   # if commit.hex != 'b947d4826a3ee7a39992c9f88a433156c154507b':  # b86598886ea50c5259982ac18a692748bd3ba402
-                    #    continue
+                    #if commit.hex != 'b86598886ea50c5259982ac18a692748bd3ba402':  # b86598886ea50c5259982ac18a692748bd3ba402
+                     #   continue
                     commit_year = time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(commit.commit_time))[:4]
                     commit_month = time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(commit.commit_time))[5:7]
                     commit_day = time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(commit.commit_time))[8:10]
@@ -421,26 +421,38 @@ def function_size_correlation(repo_dir, statistics):
                         for key in return_types:
                             statistics.dict_funct_call_types[key] = function_call_count(repo_dir, str(key[-1]))
 
-                        tot_types = len(param_types) + len(return_types) + len(variable_types)
-                        tot_non_types = len(non_return_types) + len(non_variable_types)+ len(non_param_types)
+                        with open(str(filepath), 'r') as file:
+                            src = file.read()
 
-                        if tot_types + tot_non_types == 0:
-                            continue
+                        func_list = body_fuct_extraction(src.strip())
 
-                        coverage = tot_types / (tot_types + tot_non_types)
+                        for func in func_list:
+                            func_name = ""
+                            m = re.search(r'def (.*?)\(', func)
 
-                        if "test" in str(filepath):
-                            statistics.matrix_test_files_annotations = np.append(statistics.matrix_test_files_annotations,
-                                                                            np.array([[sum(
-                                                                                statistics.dict_funct_call_types.values()),
-                                                                                      coverage*100,
-                                                                                      tot_types]]),
-                                                                            axis=0)
-                        else:
+                            if m:
+                                func_name = m.group(1)
+                            else:
+                                continue
+
+                            param_types, return_types, variable_types, non_param_types, non_return_types, non_variable_types = extract_from_snippet(
+                                str(func))
+
+                            tot_types = len(param_types) + len(return_types) + len(variable_types)
+                            tot_non_types = len(non_return_types) + len(non_variable_types) + len(non_param_types)
+
+                            if tot_types + tot_non_types == 0:
+                                continue
+
+                            coverage = tot_types / (tot_types + tot_non_types)
+
+                            fuct_count = function_call_count(repo_dir, func_name)
 
                             statistics.matrix_files_annotations = np.append(statistics.matrix_files_annotations,
-                                                                        np.array([[sum(statistics.dict_funct_call_types.values()),coverage*100,
-                                                                                      tot_types]]),axis=0)
+                                                                            np.array([[fuct_count,
+                                                                                       coverage * 100,
+                                                                                       tot_types]]), axis=0)
+
                     except Exception as e:
                         print(str(e))
                         continue
@@ -469,3 +481,61 @@ def function_call_count(directory, function_name):
             continue
 
     return count
+
+
+def body_fuct_extraction(code_string):
+    global c2
+    code_string += '\n'
+
+    func_list = []
+    func = ''
+    tab = ''
+    brackets = {'(': 0, '[': 0, '{': 0}
+    close = {')': '(', ']': '[', '}': '{'}
+    string = ''
+    tab_f = ''
+    c1 = ''
+    multiline = False
+    check = False
+    for line in code_string.split('\n'):
+        tab = re.findall(r'^\s*', line)[0]
+        if re.findall(r'^\s*def', line) and not string and not multiline:
+            func += line + '\n'
+            tab_f = tab
+            check = True
+        if func:
+            if not check:
+                if sum(brackets.values()) == 0 and not string and not multiline:
+                    if len(tab) <= len(tab_f):
+                        func_list.append(func)
+                        func = ''
+                        c1 = ''
+                        c2 = ''
+                        continue
+                func += line + '\n'
+            check = False
+        for c0 in line:
+            if c0 == '#' and not string and not multiline:
+                break
+            if c1 != '\\':
+                if c0 in ['"', "'"]:
+                    if c2 == c1 == c0 == '"' and string != "'":
+                        multiline = not multiline
+                        string = ''
+                        continue
+                    if not multiline:
+                        if c0 in string:
+                            string = ''
+                        else:
+                            if not string:
+                                string = c0
+                if not string and not multiline:
+                    if c0 in brackets:
+                        brackets[c0] += 1
+                    if c0 in close:
+                        b = close[c0]
+                        brackets[b] -= 1
+            c2 = c1
+            c1 = c0
+
+    return func_list

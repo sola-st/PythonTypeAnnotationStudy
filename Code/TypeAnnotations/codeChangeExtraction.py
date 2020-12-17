@@ -5,46 +5,44 @@ from datetime import datetime
 
 import config
 from Code.TypeAnnotations.codeChange import CodeChange, SingleDiffChange
+from Code.TypeErrors.TypeAnnotationCounter import compute_vars_without_types
 from Code.parsers import TypeCollector
 import libcst as cst
 import copy
 from libcst.metadata import PositionProvider
-import hashlib
 
 
 def extract_from_snippet(string):
-    if len(string) == 0:
-        return {}, {}, {}
+    try:
+        if len(string) == 0:
+            return {}, {}, {}, {}, {}, {}
 
-    # Parse file to AST
-    # try:
-    # str_file = string[2:-1].replace("\\n", os.linesep).replace("\\t", "    ").replace("= \\'", "= '").replace("\\\\", "\\")
-    # ast = cst.parse_module(string[2:-1].replace("\\n", os.linesep).replace("\\t", "    "))
+        # Parse file to AST
+        # try:
+        # str_file = string[2:-1].replace("\\n", os.linesep).replace("\\t", "    ").replace("= \\'", "= '").replace("\\\\", "\\")
+        # ast = cst.parse_module(string[2:-1].replace("\\n", os.linesep).replace("\\t", "    "))
 
-    string = "from typing import Any\n" + "def process_something(arguments: Any, fooo: complex) -> None:\n   pass\nx:List[int] = []"
+        ast = cst.parse_module(string)
 
-    ast = cst.parse_module(string)
+        # Pre-compute scopes
+        wrapper = cst.metadata.MetadataWrapper(ast)
+        scopes = set(wrapper.resolve(cst.metadata.ScopeProvider).values())
 
-    # except Exception as e:
-    # print('Failed to upload to ftp: ' + str(e))
-    # return {}, {}, {}
+        # Collect types
+        type_collector = TypeCollector()
+        wrapper.visit(type_collector)
 
-    # Pre-compute scopes
-    wrapper = cst.metadata.MetadataWrapper(ast)
-    scopes = set(wrapper.resolve(cst.metadata.ScopeProvider).values())
+        param_types = type_collector.param_annotations
+        return_types = type_collector.return_types
+        variable_types = type_collector.variable_annotations
 
-    # Collect types
-    type_collector = TypeCollector()
-    type_collector.wrapper = wrapper
-    wrapper.visit(type_collector)
+        non_param_types = type_collector.non_param_annotations
+        non_return_types = type_collector.non_return_types
+        non_variable_types = compute_vars_without_types(scopes, type_collector.names_with_type)
 
-    param_types = type_collector.param_annotations
-    return_types = type_collector.return_types
-    variable_types = type_collector.variable_annotations
-
-    # print(f"params: {param_types}, returns: {return_types}")
-    # return f"params: {param_types}, returns: {return_types}"
-    return param_types, return_types, variable_types
+        return param_types, return_types, variable_types, non_param_types, non_return_types, non_variable_types
+    except:
+        return {}, {}, {}, {}, {}, {}
 
 
 def extract_from_snippet_new(string_old, string_new):
@@ -1557,7 +1555,7 @@ def TypeAnnotationExtractionLast_life(repo_path, repo_name, commit, patch, url, 
                                       "0",
                                       str(remained.type),
                                       '[INSERTED]',
-                                      remained.variable,
+                                      '' if 'Name' in type(remained.variable).__name__ else remained.variable,
                                       ' ',
                                       ' ',
                                       ' ',
