@@ -134,7 +134,7 @@ def query_repo_get_changes(repo_name):  # statistics, pointer, dirlist_len):
             for commit in repo.walk(last_commit, GIT_SORT_TOPOLOGICAL | GIT_SORT_REVERSE):
                 try:
                     # print(str(commit.hex))
-                    #if commit.hex != 'b86598886ea50c5259982ac18a692748bd3ba402':  # b86598886ea50c5259982ac18a692748bd3ba402
+                    #if commit.hex != '55ce79b4e4b663795b537b21f59510ea807c3411':  # b86598886ea50c5259982ac18a692748bd3ba402
                      #   continue
                     commit_year = time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(commit.commit_time))[:4]
                     commit_month = time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(commit.commit_time))[5:7]
@@ -329,7 +329,7 @@ def query_repo_get_changes(repo_name):  # statistics, pointer, dirlist_len):
                 statistics.total_commits += 1
                 tot_this_repo_commit += 1
 
-        function_size_correlation(config.ROOT_DIR + "/GitHub/" + repo_name, statistics)
+        #function_size_correlation(config.ROOT_DIR + "/GitHub/" + repo_name, statistics)
 
         try:
             if len(statistics.dict_funct_call_no_types) > 0:
@@ -357,7 +357,7 @@ def query_repo_get_changes(repo_name):  # statistics, pointer, dirlist_len):
                 #git_checkout(config.ROOT_DIR + "/GitHub/" + repo_name, commit_set, statistics)
 
         except Exception as e:
-            print(str(e))
+            print("[GIT UTILS]", str(e))
 
         """
         print(pointer[0], '/', dirlist_len)
@@ -454,7 +454,7 @@ def function_size_correlation(repo_dir, statistics):
                                                                                        tot_types]]), axis=0)
 
                     except Exception as e:
-                        print(str(e))
+                        print("[FUNCTION SIZE]",str(e))
                         continue
 
         except Exception as e:

@@ -16,7 +16,8 @@ from scipy.interpolate import make_interp_spline, BSpline
 
 import matplotlib.pyplot as plt
 import matplotlib.style as style
-font_size = 15
+font_size = 12
+plt.rcParams.update({'font.size': font_size})
 import numpy
 
 """
@@ -74,7 +75,7 @@ def write_in_json(outputFilePath: str, data: list) -> None:
     try:
         json_file = json.dumps(data, indent=4)
     except Exception as e:
-        print(e)
+        print("write_in_json",e)
         print(data)
         return
 
@@ -295,7 +296,7 @@ def histogram_plot_xy(outputFilePath, x, x_label, y_label, xscale, yscale, title
     plt.xlabel(x_label)
     plt.ylabel(y_label)
 
-    plt.rcParams.update({'font.size': font_size})
+    plt.rcParams.update({'font.size': 18})
 
     if len(x) == 0:
         print('[Empty x]', title)

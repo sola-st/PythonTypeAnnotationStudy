@@ -17,7 +17,7 @@ def typeAnnotation_analisis():
         #while i < 10:
          #   gitUtils.repo_cloning(config.ROOT_DIR + "/Resources/Input/Top1000_Python201"+str(i)+"_Complete.json", config.ROOT_DIR + "/GitHub", j)
           #  i += 1
-        gitUtils.repo_cloning(config.ROOT_DIR + "/Resources/Input/Top1000_Python2018_Complete.json",
+        gitUtils.repo_cloning(config.ROOT_DIR + "/Resources/Input/Top1000_Python2019_Complete.json",
                               config.ROOT_DIR + "/GitHub", j)
 
 
@@ -37,7 +37,7 @@ def typeAnnotation_analisis():
             profile.enable()
 
             print("\nWorking on TEST CONFIGURATION")
-            process_statistics += gitUtils.query_repo_get_changes("httpie-httpie")
+            process_statistics += gitUtils.query_repo_get_changes("flan")
 
             profile.disable()
             ps = pstats.Stats(profile).sort_stats('cumulative')

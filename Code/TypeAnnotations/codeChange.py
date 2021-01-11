@@ -70,9 +70,10 @@ class CommitStatistics:
 class SingleDiffChange:
     """Single Diff class"""
 
-    def __init__(self, type, old_or_new, variable, annotation, line):
+    def __init__(self, type, old_or_new, filename, variable, annotation, line):
         self.type = type
         self.old_or_new = old_or_new
+        self.filename = filename
         self.variable = variable
 
         self.annotation = annotation

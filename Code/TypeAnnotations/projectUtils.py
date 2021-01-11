@@ -64,7 +64,6 @@ def compute_correlations2(commits_stars_annotations):
 
 
 def myplot(statistics):
-    plt.rcParams.update({'font.size': 16})
 
     #smooth_line_xy_multi(config.ROOT_DIR + "/Resources/Output/elements_annotated.pdf",
      #                    statistics.annotation_coverage,
