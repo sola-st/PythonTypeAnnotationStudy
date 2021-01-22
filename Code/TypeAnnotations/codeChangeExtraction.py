@@ -1438,7 +1438,7 @@ def TypeAnnotationExtractionLast_life(repo_path, repo_name, commit, patch, url, 
                                 elem.new_file = str(patch.delta.new_file.path)
                                 elem.new_annotation = str(annotation_new.annotation)
                                 elem.new_line = str(annotation_new.line)
-                                elem.url_last_change = url + 'R' + str(annotation_old.line)
+                                elem.url_last_change += url + 'R' + str(annotation_old.line)
 
                         statistics.number_type_annotations_per_repo[repo_name] += 1
                         statistics.total_typeAnnotation_codeChanges += 1

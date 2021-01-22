@@ -10,3 +10,10 @@ zulip-zulip 2018 966ca7015f61c1b5e2ce8febd33cdfd05fda400b
 qutebrowser-qutebrowser 2020 2b130a1781ce908154d8aa881945df3d5d585151
 qutebrowser-qutebrowser 2020 2b130a1781ce908154d8aa881945df3d5d585151
 
+[Finished] flairNLP-flair with [449] / 2984 commits with Type annotations in  01:13:59.84
+[Finished] modin-project-modin with [48] / 1209 commits with Type annotations in  01:55:34.16
+[Finished] PrefectHQ-prefect with [1074] / 12898 commits with Type annotations in  02:28:19.48
+[Finished] huggingface-transformers with [419] / 6146 commits with Type annotations in  03:36:18.18
+[Finished] google-jax with [305] / 6340 commits with Type annotations in  06:31:56.17
+
+
