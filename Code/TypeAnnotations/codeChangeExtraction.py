@@ -1430,7 +1430,7 @@ def TypeAnnotationExtractionLast_life(repo_path, repo_name, commit, patch, url, 
                             break
 
                         for elem in code_changes:
-                            if elem.where == annotation_old.type and elem.variable == annotation_old.variable and elem.new_line == str(annotation_old.line):
+                            if elem.where == annotation_old.type and elem.variable == annotation_old.variable:
                                 elem.change_num = str(int(elem.change_num) + 1)
                                 elem.old_file = str(patch.delta.old_file.path)
                                 elem.old_annotation = str(annotation_old.annotation)
@@ -1495,7 +1495,7 @@ def TypeAnnotationExtractionLast_life(repo_path, repo_name, commit, patch, url, 
                         annotation_old.annotation = str(annotation_old.annotation.value)
 
                     for elem in code_changes:
-                        if elem.where == annotation_old.type and elem.variable == annotation_old.variable and elem.new_line == str(annotation_old.line) and elem.new_file == annotation_old.filename:
+                        if elem.where == annotation_old.type and elem.variable == annotation_old.variable and elem.new_file == annotation_old.filename:
                             if "-" in elem.elimination_date:
                                 continue
 
