@@ -1548,6 +1548,9 @@ def TypeAnnotationExtractionLast_life(repo_path, repo_name, commit, patch, url, 
                     if hasattr(remained.annotation, 'value'):
                         remained.annotation = str(remained.annotation.value)
 
+                    if not isinstance(remained.annotation, str):
+                        continue
+
                     temp = CodeChange(url + 'R' + str(remained.line),
                                       "",
                                       "",
