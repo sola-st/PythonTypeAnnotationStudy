@@ -134,7 +134,7 @@ def query_repo_get_changes(repo_name):  # statistics, pointer, dirlist_len):
             for commit in repo.walk(last_commit, GIT_SORT_TOPOLOGICAL | GIT_SORT_REVERSE):
                 try:
                     # print(str(commit.hex))
-                    #if commit.hex != '8b150e63ee3c1dd8e8abd8f29f602c2d2c1b2ec2':  # b86598886ea50c5259982ac18a692748bd3ba402
+                    #if commit.hex != '50c35b796c3adaf9a0d0c13fbe95e270d7b1464d' and commit.hex != '0ff4d661f736f2524ede916d650b53a19389c58b':  # b86598886ea50c5259982ac18a692748bd3ba402
                      #   continue
                     commit_year = time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(commit.commit_time))[:4]
                     commit_month = time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(commit.commit_time))[5:7]

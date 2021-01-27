@@ -1399,6 +1399,12 @@ def TypeAnnotationExtractionLast_life(repo_path, repo_name, commit, patch, url, 
         return
 
     try:
+
+        #if url == 'https://github.com/wangzheng0822/algo/commit/0ff4d661f736f2524ede916d650b53a19389c58b#diff-a34b0cc1cfce610f832080ddd75fa8ce365ee239':
+         #   print("found")
+          #  print("found")
+
+
         #########################################################################
         ####                    TYPE Annotations                  ###############
         #########################################################################
@@ -1415,7 +1421,7 @@ def TypeAnnotationExtractionLast_life(repo_path, repo_name, commit, patch, url, 
                     if annotation_new.line not in range(hunk.new_start, hunk.new_start + hunk.new_lines):
                         continue
 
-                    if annotation_old.type == annotation_new.type and annotation_old.variable == annotation_new.variable:
+                    if annotation_old.type == annotation_new.type and annotation_old.variable == annotation_new.variable and annotation_old.filename == annotation_new.filename:
 
                         # print('[CHANGED]', annotation_old.type, annotation_old.annotation, ' -> ',annotation_new.annotation)
                         if hasattr(annotation_old.annotation, 'value'):
@@ -1430,7 +1436,7 @@ def TypeAnnotationExtractionLast_life(repo_path, repo_name, commit, patch, url, 
                             break
 
                         for elem in code_changes:
-                            if elem.where == annotation_old.type and elem.variable == annotation_old.variable:
+                            if elem.where == annotation_old.type and elem.variable == annotation_old.variable and elem.new_file == annotation_old.filename:
                                 elem.change_num = str(int(elem.change_num) + 1)
                                 elem.old_file = str(patch.delta.old_file.path)
                                 elem.old_annotation = str(annotation_old.annotation)
