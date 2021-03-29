@@ -93,6 +93,7 @@ def query_repo_get_changes(repo_name):  # statistics, pointer, dirlist_len):
     try:
         tot_this_repo_commit = 0
         statistics.dev_dict[repo_name] = 0
+        statistics.dev_dict_total[repo_name] = 0
         # tot_this_repo_commit_with_annotations = [0]
         commit_with_annotations_this_repo = [0]
         at_least_one_type_change = [0]

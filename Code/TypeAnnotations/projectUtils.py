@@ -494,6 +494,7 @@ def load_final_statistics():
 
     #RQ 11
     finalStatistics.list_dev_dict = allStatistics[0]['list_dev_dict']
+    finalStatistics.list_dev_dict_total = allStatistics[0]['list_dev_dict_total']
 
     selected_repo_dev = ['lucaresearch-pythontest','lucaresearch-pythontest2', '']
 

@@ -171,6 +171,7 @@ class CodeStatistics:
         #RQ11: Developers study
         self.RQ11 = 'Developers statistics'
         self.list_dev_dict = []
+        self.list_dev_dict_total = []
         self.dev_dict = {}
         self.dev_dict_total = {}
         self.list_dev_plot = []
@@ -519,6 +520,7 @@ class CodeStatistics:
 
                 # RQ 11
                 self.list_dev_dict.append(stat.dev_dict)
+                self.list_dev_dict_total.append(stat.dev_dict_total)
 
             except Exception as e:
                 print('[Merging Error]', str(e))
