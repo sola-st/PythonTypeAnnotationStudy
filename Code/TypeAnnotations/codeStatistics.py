@@ -125,7 +125,7 @@ class CodeStatistics:
         # [RQ5]: Relation of properties of projects vs. properties of type changes
         # E.g., nb of stars/developers/overall commits vs. nb of added annotations
         self.RQ5 = 'Relation of properties of projects vs. properties of type changes.'
-        self.matrix_commits_stars_annotations = np.empty((0, 10), int)
+        self.matrix_commits_stars_annotations = np.empty((0, 11), int)
         self.matrix_files_annotations = np.empty((0, 3), int)
         self.matrix_test_files_annotations = np.empty((0, 3), int)
         self.dict_funct_call_no_types = {}
@@ -358,9 +358,9 @@ class CodeStatistics:
     # E.g., nb of stars/developers/overall commits vs. nb of added annotations
     def addRepo(self, name, n_commits, n_annotations, n_test_files, n_non_test_files, n_dev, funct_type_avg, fuct_no_type_avg):
         i = 0
-        while i < 1:
-            #input_file = open(config.ROOT_DIR + "/Resources/Input/Top1000_Python201" + str(i) + "_Complete.json", 'r')
-            input_file = open(config.ROOT_DIR + "/Resources/Input/repositories_TOP100_2020.json", 'r')
+        while i < 10:
+            input_file = open(config.ROOT_DIR + "/Resources/Input/Top1000_Python201" + str(i) + "_Complete.json", 'r')
+            #input_file = open(config.ROOT_DIR + "/Resources/Input/repositories_TOP100_2020.json", 'r')
             i += 1
             json_decode = json.load(input_file)
 
@@ -377,10 +377,11 @@ class CodeStatistics:
                     n_stars = item.get('stargazers_count')
                     n_forks = item.get('forks_count')
                     n_issues = item.get('open_issues')
+                    creation_date = item.get('created_at')[:4]
 
                     self.matrix_commits_stars_annotations = \
                         np.append(self.matrix_commits_stars_annotations,
-                                  np.array([[n_commits, n_stars, n_annotations, n_forks, n_issues, n_test_files, n_non_test_files, n_dev, funct_type_avg, fuct_no_type_avg]]), axis=0)
+                                  np.array([[creation_date, n_commits, n_stars, n_annotations, n_forks, n_issues, n_test_files, n_non_test_files, n_dev, funct_type_avg, fuct_no_type_avg]]), axis=0)
                     return
 
     def merge_results(self, process_statistics, code_changes, commit_statistics):

@@ -37,7 +37,7 @@ def typeAnnotation_analisis():
             profile.enable()
 
             print("\nWorking on TEST CONFIGURATION")
-            process_statistics += gitUtils.query_repo_get_changes("algo")
+            process_statistics += gitUtils.query_repo_get_changes("lucaresearch-pythontest")
 
             profile.disable()
             ps = pstats.Stats(profile).sort_stats('cumulative')
