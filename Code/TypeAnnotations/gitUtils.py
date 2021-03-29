@@ -33,7 +33,7 @@ def repo_cloning(filenameInput: str, pathOutput: str, count: List[int]) -> None:
         count[0] += 1
 
         # out = link.rsplit('/', 1)[-1].replace('.git', '')
-        out = re.sub('https://github.com/', '', link).replace('/', '.')
+        out = re.sub('https://github.com/', '', link).replace('/', '-')
 
         if os.path.isdir(pathOutput + '/' + out):
             print(str(count) + ' Already cloned', link)
