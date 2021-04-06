@@ -141,6 +141,25 @@ def myplot(statistics):
     #                  statistics.annotation_related_insertion_edits_vs_all_commit,
     #                  'Percentage (%)', 'Occurrences', 'linear', 'log',
     #                  'Percentage of annotation-related insertions to all edits per commit')
+    list_ann = []
+    list_err = []
+
+    import json
+
+    with open(config.ROOT_DIR + '/Resources/Output/error_check_flake8.json') as f:
+        data = json.load(f)
+
+    for repo in statistics.typeLastProjectVersion_dict:
+        try:
+            list_err.append(data[repo])
+            list_ann.append( statistics.typeLastProjectVersion_dict[repo])
+        except:
+            continue
+
+    scatter_plot_xy(config.ROOT_DIR + "/Resources/Output/flak8_correlation.pdf",
+                          list_ann,
+                          list_err,
+                           '# Annotations Changes', '# Errors' ,  'log', 'linear')
 
     # RQ4.5
     #histogram_plot_xy(config.ROOT_DIR + "/Resources/Output/RQ4_5",
@@ -518,6 +537,7 @@ def load_final_statistics():
     finalStatistics.typeLastProjectVersion_total = allStatistics[0]['typeLastProjectVersion_total']
     finalStatistics.typeLastProjectVersion_percentage = allStatistics[0]['typeLastProjectVersion_percentage']
     finalStatistics.typeLastProjectVersion_dict = dict(tuple(tuple(x) for x in allStatistics[0]['typeLastProjectVersion_dict']))
+
 
     # RQ 8
     finalStatistics.typeAnnotation_year_analysis = allStatistics[0]['typeAnnotation_year_analysis']

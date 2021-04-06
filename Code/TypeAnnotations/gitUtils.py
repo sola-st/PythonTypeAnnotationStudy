@@ -1,4 +1,5 @@
 import csv
+import io
 import json
 import os
 import pathlib
@@ -19,6 +20,7 @@ from Code.TypeAnnotations.codeChangeExtraction import TypeAnnotationExtractionFi
     TypeAnnotationExtractionLast, type_annotation_in_last_version, last_version_analysis, \
     TypeAnnotationExtractionLast_life, extract_from_snippet
 from Code.TypeAnnotations.codeStatistics import CodeStatistics
+from Code.TypeAnnotations.lucaUtils import write_in_json, convert_list_in_list_of_dicts
 from Code.TypeErrors.TypeAnnotationCounter import count_type_annotations, extract_from_file
 
 
@@ -540,3 +542,35 @@ def body_fuct_extraction(code_string):
             c1 = c0
 
     return func_list
+
+
+def error_check():
+    import os
+    my_list = os.listdir(config.ROOT_DIR + '/GitHub/')
+
+    dict_new = {}
+
+    i = 0
+    for folder in my_list:
+        i += 1
+        if folder == '.pyre_configuration':
+            continue
+        print(str(i) + '\n')
+        result = subprocess.run(['flake8', config.ROOT_DIR + '/GitHub/' + folder, '--count'], stdout=subprocess.PIPE)
+
+        last = io.StringIO(result.stdout.decode('utf-8')).readlines()[-1]
+
+        result2 = subprocess.run(['git', '--git-dir='+ config.ROOT_DIR + '/GitHub/'+ folder +'/.git','config' , '--get', 'remote.origin.url'], stdout=subprocess.PIPE)
+
+        if i == 93:
+            print('ok')
+
+        last2 = io.StringIO(result2.stdout.decode('utf-8')).readlines()[-1]
+
+
+        dict_new[last2.replace('\n','')] = int(last)
+
+    print('ok')
+
+    write_in_json(config.ROOT_DIR + "/Resources/Output/error_check_flake8.json",
+                  dict_new)

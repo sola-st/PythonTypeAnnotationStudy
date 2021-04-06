@@ -134,6 +134,7 @@ class CodeStatistics:
 
         # [RQ6]: Which are the top 10 repository with the highest number of type annotations
         self.RQ6 = 'Which are the top 10 repository with the highest number of type annotations.'
+        self.RQ6 = 'Which are the top 10 repository with the highest number of type annotations.'
         self.number_type_annotations_per_repo = {}
         self.s7 = "------------------------------------------------------------------------"
 
@@ -143,6 +144,7 @@ class CodeStatistics:
         self.typeLastProjectVersion_average = 0
         self.typeLastProjectVersion_percentage = []
         self.typeLastProjectVersion_dict = {}
+        self.typeLastProjectVersion_dict_error = {}
 
         # [RQ8]: Computation percentage of annotation-related edits to all edits per each commit
         # self.RQ8 = 'Computation percentage of annotation-related edits to all edits per each commit'
