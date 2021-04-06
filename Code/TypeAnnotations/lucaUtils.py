@@ -351,6 +351,37 @@ def scatter_plot_xy(outputFilePath, x, y, x_label, y_label, xscale, yscale, titl
 
     plt.figure()
 
+def scatter_plot_xy_multi(outputFilePath, x, y, xx,yy, x_label, y_label, xscale, yscale, title=None, color='blue', xlim=None,
+                    ylim=None):
+    plt.rcParams.update({'font.size': font_size})
+
+    axes = plt.gca()
+    if ylim is not None:
+        axes.set_ylim([0, ylim])
+
+    if xlim is not None:
+        axes.set_xlim([0, xlim])
+
+    plt.yscale(yscale)
+    plt.xscale(xscale)
+
+    # use the plot function
+    plt.scatter(x, y, label='After 2017', color=(0.2, 0.4, 0.6, 0.6))
+    plt.scatter(xx, yy, label='Between 2015 and 2017', color=("lightsalmon"))
+
+    plt.legend(loc='upper left')
+
+    plt.ylabel(y_label)
+    plt.xlabel(x_label)
+
+    if title is not None:
+        plt.title('title')
+
+    plt.savefig(outputFilePath, bbox_inches='tight')
+
+    plt.figure()
+
+
 def scatter_plot_xyz(outputFilePath, x, y, z, x_label, y_label, xscale, yscale, title=None, color='blue', xlim=None,
                     ylim=None):
     plt.rcParams.update({'font.size': font_size})

@@ -219,7 +219,7 @@ def analyze_specific_commits(commits_file):
     skipped = 0
     used = 0
     index = -1
-    for c in commit_stats:
+    for c in commit_stats[:500]:
         try:
 
             add_only = is_add_only_commit(c)

@@ -149,55 +149,76 @@ def myplot(statistics):
     #                                                                    'all edits per commit')
 
     # RQ5
+    list_2018_more_ann = []
+    list_2018_more_comm = []
+    list_2015_more_ann = []
+    list_2015_more_comm = []
+
+    for array in statistics.matrix_commits_stars_annotations:
+        if int(array[3]) > 0:
+            if int(array[0]) >= 2018:
+                list_2018_more_ann.append(int(array[3]))
+                list_2018_more_comm.append(int(array[1]))
+            elif int(array[0]) >= 2015:
+                list_2015_more_ann.append(int(array[3]))
+                list_2015_more_comm.append(int(array[1]))
+
+    scatter_plot_xy_multi(config.ROOT_DIR + "/Resources/Output/recent_repositories.pdf",
+                    list_2018_more_comm,
+                    list_2018_more_ann,
+                    [x/10 for x in list_2018_more_comm],
+                    [x/10 for x in list_2018_more_ann],
+                    '# Commits', '# Annotations Changes', 'log', 'log')
+
     try:
         compute_correlations(statistics.matrix_commits_stars_annotations)
     except Exception as e:
         print('[Correlation Error]', str(e))
 
-    matrix = np.empty((0, 10), int)
+    matrix = np.empty((0, 11), int)
 
     for array in statistics.matrix_commits_stars_annotations:
         if array[2] != 0:
             matrix = np.append(matrix, np.array([array]),  axis=0)
 
 
-    scatter_plot_xy(config.ROOT_DIR + "/Resources/Output/relationship_commits.pdf",
-                    [row[0] for row in matrix],
-                    [row[2] for row in matrix],
-                    '# Commits', '# Annotations Changes', 'log', 'log')
-
-
-    scatter_plot_xy(config.ROOT_DIR + "/Resources/Output/relationship_stars.pdf",
-                    [row[1] for row in matrix],
-                    [row[2] for row in matrix],
-                    '# GitHub Stars', '# Annotations Changes', 'log', 'log')
-
-    scatter_plot_xy(config.ROOT_DIR + "/Resources/Output/relationship_forks.pdf",
-                    [row[3] for row in matrix],
-                    [row[2] for row in matrix],
-                    '# GitHub forks', '# Annotations Changes', 'log', 'log')
-
-    scatter_plot_xy(config.ROOT_DIR + "/Resources/Output/relationship_issues.pdf",
-                    [row[4] for row in matrix],
-                    [row[2] for row in matrix],
-                    '# GitHub open issues', '# Annotations Changes', 'log', 'log')
-
-    scatter_plot_xy(config.ROOT_DIR + "/Resources/Output/relationship_devs.pdf",
-                    [row[7] for row in matrix],
-                    [row[2] for row in matrix],
-                    '# Developers', '# Annotations Changes', 'log', 'log')
-
-    scatter_plot_xyz(config.ROOT_DIR + "/Resources/Output/relationship_files.pdf",
-                    [row[5] for row in matrix],
-                    [row[2] for row in matrix],
-                    [row[6] for row in matrix],
-                    '# Files', '# Annotations Changes', 'log', 'log')
-
-    scatter_plot_xyz(config.ROOT_DIR + "/Resources/Output/relationship_funct_calls.pdf",
-                    [row[8] for row in matrix],
-                    [row[2] for row in matrix],
-                    [row[9] for row in matrix],
-                    '# Function calls', '# Annotations Changes', 'log', 'log')
+    # scatter_plot_xy(config.ROOT_DIR + "/Resources/Output/relationship_commits.pdf",
+    #                 [row[1] for row in matrix],
+    #                 [row[3] for row in matrix],
+    #                 '# Commits', '# Annotations Changes', 'log', 'log')
+    #
+    #
+    # scatter_plot_xy(config.ROOT_DIR + "/Resources/Output/relationship_stars.pdf",
+    #                 [row[2] for row in matrix],
+    #                 [row[3] for row in matrix],
+    #                 '# GitHub Stars', '# Annotations Changes', 'log', 'log')
+    #
+    # scatter_plot_xy(config.ROOT_DIR + "/Resources/Output/relationship_forks.pdf",
+    #                 [row[4] for row in matrix],
+    #                 [row[3] for row in matrix],
+    #                 '# GitHub forks', '# Annotations Changes', 'log', 'log')
+    #
+    # scatter_plot_xy(config.ROOT_DIR + "/Resources/Output/relationship_issues.pdf",
+    #                 [row[5] for row in matrix],
+    #                 [row[3] for row in matrix],
+    #                 '# GitHub open issues', '# Annotations Changes', 'log', 'log')
+    #
+    # scatter_plot_xy(config.ROOT_DIR + "/Resources/Output/relationship_devs.pdf",
+    #                 [row[8] for row in matrix],
+    #                 [row[3] for row in matrix],
+    #                 '# Developers', '# Annotations Changes', 'log', 'log')
+    #
+    # scatter_plot_xyz(config.ROOT_DIR + "/Resources/Output/relationship_files.pdf",
+    #                 [row[6] for row in matrix],
+    #                 [row[3] for row in matrix],
+    #                 [row[7] for row in matrix],
+    #                 '# Files', '# Annotations Changes', 'log', 'log')
+    #
+    # scatter_plot_xyz(config.ROOT_DIR + "/Resources/Output/relationship_funct_calls.pdf",
+    #                 [row[9] for row in matrix],
+    #                 [row[3] for row in matrix],
+    #                 [row[10] for row in matrix],
+    #                 '# Function calls', '# Annotations Changes', 'log', 'log')
 
     try:
         compute_correlations2(statistics.matrix_files_annotations)
@@ -268,8 +289,10 @@ def myplot(statistics):
     # RQ10
     list_top_1_developers = []
     list_link_repo = []
+    i = -1
 
     for dictionary in statistics.list_dev_plot:
+        i += 1
         for key in dictionary:
             if dictionary[key] == 0:
                 list_link_repo.append("https://api.github.com/repos/"+key.replace("-", "/", 1))
@@ -277,9 +300,16 @@ def myplot(statistics):
         total = sum(dictionary.values())
         if total == 0:
             continue
+
+        for key in dictionary.keys():
+            dict_temp = statistics.list_dev_dict_total[i]
+            if dict_temp[key] > 0:
+                dictionary[key] = dictionary[key] / statistics.list_dev_dict_total[i][key] * 100
+
         dictionary = dict(sort_dictionary(dictionary)[:1])
-        for val in dictionary.values():
-            list_top_1_developers.append(float(int(val)/total*100))
+
+
+        list_top_1_developers.append(float(sum(dictionary.values())))
 
 
     smooth_line_xy(config.ROOT_DIR + "/Resources/Output/top_1_dev.pdf",
@@ -309,24 +339,32 @@ def myplot(statistics):
             break
         list_contributors_repo.append(count)
 
-    avg = sum(list_contributors_repo) / len(list_contributors_repo)
+#    avg = sum(list_contributors_repo) / len(list_contributors_repo)
 
-    print(f"Contributors per {len(list_contributors_repo)} repos (average): {avg}")
+ #   print(f"Contributors per {len(list_contributors_repo)} repos (average): {avg}")
 
     list_top_3_developers = []
+    i = -1
 
     for dictionary in statistics.list_dev_plot:
-
+        i += 1
         total = sum(dictionary.values())
         if total == 0:
             continue
+
+        for key in dictionary.keys():
+            dict_temp = statistics.list_dev_dict_total[i]
+            if dict_temp[key] > 0:
+                dictionary[key] = dictionary[key] / statistics.list_dev_dict_total[i][key] * 100
+
+
         dictionary = dict(sort_dictionary(dictionary)[:3])
 
-        partial = 0
-        for val in dictionary.values():
-            partial += int(val)
+        #partial = 0
+        #for val in dictionary.values():
+         #   partial += int(val)
 
-        list_top_3_developers.append(float(int(partial) / total * 100))
+        list_top_3_developers.append(float(sum(dictionary.values())/len(dictionary)))
 
     smooth_line_xy(config.ROOT_DIR + "/Resources/Output/top_3_dev.pdf",
                    [x for x in list_top_3_developers if x <= 100],
