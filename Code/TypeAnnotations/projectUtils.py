@@ -156,6 +156,9 @@ def myplot(statistics):
         except:
             continue
 
+    from scipy.stats.stats import pearsonr
+    print(pearsonr(list_err, list_ann))
+
     scatter_plot_xy(config.ROOT_DIR + "/Resources/Output/flak8_correlation.pdf",
                           list_ann,
                           list_err,
@@ -182,12 +185,21 @@ def myplot(statistics):
                 list_2015_more_ann.append(int(array[3]))
                 list_2015_more_comm.append(int(array[1]))
 
+    from scipy.stats.stats import pearsonr
+    print(pearsonr(list_2018_more_comm, list_2018_more_ann))
+    print(pearsonr([x/10 for x in list_2018_more_comm], [x/20 for x in list_2018_more_ann]))
+
     scatter_plot_xy_multi(config.ROOT_DIR + "/Resources/Output/recent_repositories.pdf",
                     list_2018_more_comm,
                     list_2018_more_ann,
                     [x/10 for x in list_2018_more_comm],
-                    [x/10 for x in list_2018_more_ann],
+                    [x/20 for x in list_2018_more_ann],
                     '# Commits', '# Annotations Changes', 'log', 'log')
+
+    scatter_plot_xy(config.ROOT_DIR + "/Resources/Output/recent_repositories2.pdf",
+                          list_2018_more_comm,
+                          list_2018_more_ann,
+                          '# Commits', '# Annotations Changes', 'log', 'log')
 
     try:
         compute_correlations(statistics.matrix_commits_stars_annotations)
