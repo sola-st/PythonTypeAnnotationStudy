@@ -149,16 +149,16 @@ def query_repo_get_changes(repo_name):  # statistics, pointer, dirlist_len):
                     commit_day = time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(commit.commit_time))[8:10]
 
                     # Only before November is consider for a better comparison with 2020
-                    if int(commit_month) < 11:
-                        if commit_year not in statistics.commit_year_dict:
-                            statistics.commit_year_dict[str(commit_year)] = 1
-                        else:
-                            statistics.commit_year_dict[str(commit_year)] += 1
+                    #if int(commit_month) <= 12:
+                    if commit_year not in statistics.commit_year_dict:
+                        statistics.commit_year_dict[str(commit_year)] = 1
+                    else:
+                        statistics.commit_year_dict[str(commit_year)] += 1
 
-                    if int(commit_year) < 2014:
+                    if 2014 > int(commit_year) > 2020:
                         continue
 
-                    if int(commit_month) < 11:
+                    if int(commit_month) < 9:
                         commit_temp = commit.hex
                     else:
                         if commit_temp != 'e0':
@@ -362,7 +362,7 @@ def query_repo_get_changes(repo_name):  # statistics, pointer, dirlist_len):
             if statistics.total_typeAnnotation_codeChanges > 0:
                 statistics.typeLastProjectVersion_percentage.append(round(statistics.typeLastProjectVersion_total / sum(statistics.insert_types.values()) * 100, 2))
 
-                #git_checkout(config.ROOT_DIR + "/GitHub/" + repo_name, commit_set, statistics)
+                git_checkout(config.ROOT_DIR + "/GitHub/" + repo_name, commit_set, statistics)
 
         except Exception as e:
             print("[GIT UTILS]", str(e))
