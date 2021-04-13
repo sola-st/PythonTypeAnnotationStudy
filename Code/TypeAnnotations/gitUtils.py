@@ -33,7 +33,7 @@ def repo_cloning(filenameInput: str, pathOutput: str, count: List[int]) -> None:
     i = 0
     for link in article_urls:
         i+=1
-        if i >5:
+        if i >50:
             print("new year")
             return
 
@@ -141,7 +141,7 @@ def query_repo_get_changes(repo_name):  # statistics, pointer, dirlist_len):
             commit_temp = 'e0'
             for commit in repo.walk(last_commit, GIT_SORT_TOPOLOGICAL | GIT_SORT_REVERSE):
                 try:
-                    # print(str(commit.hex))
+                    #print(str(commit.hex))
                     #if commit.hex != '0d2f5f328ce14fcaed450ee218d44aa0eb32fe4a' and commit.hex != '304de58f8db607913feb326e89243082e27c4c50':  # b86598886ea50c5259982ac18a692748bd3ba402
                      #   continue
                     commit_year = time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(commit.commit_time))[:4]
