@@ -209,6 +209,7 @@
     <mapping directory="$PROJECT_DIR$/GitHub/Rochester-NRT-RocAlphaGo" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/Rudrabha-Wav2Lip" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/RxPY" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/GitHub/SFTtech-openage" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/STVIR-pysot" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/STVIR.pysot" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/SecureAuthCorp-impacket" vcs="Git" />
@@ -952,6 +953,7 @@
     <mapping directory="$PROJECT_DIR$/GitHub/nubank-fklearn" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/numba-numba" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/numpy-ml" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/GitHub/numpy-numpy" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/nuno-faria-tiler" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/nvbn-thefuck" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/oarriaga-face_classification" vcs="Git" />
@@ -1205,6 +1207,7 @@
     <mapping directory="$PROJECT_DIR$/GitHub/timofurrer-maya" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/tkarras-progressive_growing_of_gans" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/tkipf-gcn" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/GitHub/toml-lang-toml" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/tonybeltramelli-pix2code" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/tornado" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/tornadoweb-tornado" vcs="Git" />
