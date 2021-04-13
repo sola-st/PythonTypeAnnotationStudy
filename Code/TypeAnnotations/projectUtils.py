@@ -230,32 +230,99 @@ def myplot(statistics):
                 list_2015_more_ann.append(int(array[3]))
                 list_2015_more_comm.append(int(array[1]))
 
-    from scipy.stats.stats import pearsonr
-    print(pearsonr(list_2018_more_comm, list_2018_more_ann))
-    print(pearsonr([x / 10 for x in list_2018_more_comm], [x / 20 for x in list_2018_more_ann]))
+        # RQ9
+        bar_plot_double_xy(config.ROOT_DIR + "/Resources/Output/type_commits_vs_all_commits.pdf",
+                           x=[int(k) for k in statistics.typeAnnotation_commit_annotation_year_analysis.keys()],
+                           y1=[int(v) for v in statistics.typeAnnotation_commit_annotation_year_analysis.values()],
+                           y2=[int(v) for v in statistics.typeAnnotation_commit_not_annotation_year_analysis.values()],
+                           y_label='Number of commits (log scale)')
 
-    scatter_plot_xy_multi(config.ROOT_DIR + "/Resources/Output/recent_repositories.pdf",
-                          list_2018_more_comm,
-                          list_2018_more_ann,
-                          [x / 10 for x in list_2018_more_comm],
-                          [x / 20 for x in list_2018_more_ann],
-                          '# Commits', '# Annotations Changes', 'log', 'log')
+        # Last version annotation
+        smooth_line_xy(config.ROOT_DIR + "/Resources/Output/types_last_version.pdf",
+                       [x for x in statistics.typeLastProjectVersion_percentage if x <= 100],
+                       x_label="Repositories sorted by ordinate",
+                       y_label="% Type annotations in last version",
+                       title="Presence of type annotations in\nthe last version of the repositories.",
+                       color1='blue', color2='red',
+                       xlim=None,
+                       ylim=None)
 
-    scatter_plot_xy(config.ROOT_DIR + "/Resources/Output/recent_repositories2.pdf",
-                    list_2018_more_comm,
-                    list_2018_more_ann,
-                    '# Commits', '# Annotations Changes', 'log', 'log')
+        # RQ10
+        list_top_1_developers = []
+        list_link_repo = []
+        i = -1
 
-    try:
-        compute_correlations(statistics.matrix_commits_stars_annotations)
-    except Exception as e:
-        print('[Correlation Error]', str(e))
+        for dictionary in statistics.list_dev_plot:
+            i += 1
+            for key in dictionary:
+                if dictionary[key] == 0:
+                    list_link_repo.append("https://api.github.com/repos/" + key.replace("-", "/", 1))
 
-    matrix = np.empty((0, 11), int)
+            total = sum(dictionary.values())
+            if total == 0:
+                continue
 
-    for array in statistics.matrix_commits_stars_annotations:
-        if array[2] != 0:
-            matrix = np.append(matrix, np.array([array]), axis=0)
+            for key in dictionary.keys():
+                dict_temp = statistics.list_dev_dict_total[i]
+                if dict_temp[key] > 0:
+                    dictionary[key] = dictionary[key] / statistics.list_dev_dict_total[i][key] * 100
+
+            dictionary = dict(sort_dictionary(dictionary)[:1])
+
+            list_top_1_developers.append(float(sum(dictionary.values())))
+
+        smooth_line_xy(config.ROOT_DIR + "/Resources/Output/top_1_dev.pdf",
+                       [x for x in list_top_1_developers if x <= 100],
+                       x_label="Top developer for each\nrepository (sorted by ordinate)",
+                       y_label="% Type annotations inserted",
+                       color1='blue', color2='red',
+                       xlim=None,
+                       ylim=None)
+
+        list_contributors_repo = []
+
+        for url in list_link_repo:
+            all_contributors = list()
+            page_count = 1
+            while True:
+                contributors = requests.get(url + "/contributors?page=%d" % page_count)
+                if contributors != None and contributors.status_code == 200 and len(contributors.json()) > 0:
+                    all_contributors = all_contributors + contributors.json()
+                else:
+                    break
+                page_count = page_count + 1
+            count = len(all_contributors)
+            if count == 0:
+                print("Zero contributors for", url)
+                break
+            list_contributors_repo.append(count)
+
+    # from scipy.stats.stats import pearsonr
+    # print(pearsonr(list_2018_more_comm, list_2018_more_ann))
+    # print(pearsonr([x / 10 for x in list_2018_more_comm], [x / 20 for x in list_2018_more_ann]))
+    #
+    # scatter_plot_xy_multi(config.ROOT_DIR + "/Resources/Output/recent_repositories.pdf",
+    #                       list_2018_more_comm,
+    #                       list_2018_more_ann,
+    #                       [x / 10 for x in list_2018_more_comm],
+    #                       [x / 20 for x in list_2018_more_ann],
+    #                       '# Commits', '# Annotations Changes', 'log', 'log')
+    #
+    # scatter_plot_xy(config.ROOT_DIR + "/Resources/Output/recent_repositories2.pdf",
+    #                 list_2018_more_comm,
+    #                 list_2018_more_ann,
+    #                 '# Commits', '# Annotations Changes', 'log', 'log')
+    #
+    # try:
+    #     compute_correlations(statistics.matrix_commits_stars_annotations)
+    # except Exception as e:
+    #     print('[Correlation Error]', str(e))
+    #
+    # matrix = np.empty((0, 11), int)
+    #
+    # for array in statistics.matrix_commits_stars_annotations:
+    #     if array[2] != 0:
+    #         matrix = np.append(matrix, np.array([array]), axis=0)
 
     # scatter_plot_xy(config.ROOT_DIR + "/Resources/Output/relationship_commits.pdf",
     #                 [row[1] for row in matrix],
@@ -295,47 +362,47 @@ def myplot(statistics):
     #                 [row[10] for row in matrix],
     #                 '# Function calls', '# Annotations Changes', 'log', 'log')
 
-    try:
-        compute_correlations2(statistics.matrix_files_annotations)
-    except Exception as e:
-        print('[Correlation Error]', str(e))
+    # try:
+    #     compute_correlations2(statistics.matrix_files_annotations)
+    # except Exception as e:
+    #     print('[Correlation Error]', str(e))
 
-    matrix = np.empty((0, 3), int)
-
-    for array in statistics.matrix_files_annotations:
-        if array[2] != 0:
-            matrix = np.append(matrix, np.array([array]), axis=0)
-
-    scatter_plot_xy(config.ROOT_DIR + "/Resources/Output/relationship_files_coverage.pdf",
-                    [row[0] for row in matrix],
-                    [row[1] for row in matrix],
-                    '# Function calls', 'Program elements coverage', 'linear', 'linear', xlim=120)
-
-    scatter_plot_xy(config.ROOT_DIR + "/Resources/Output/relationship_tot.pdf",
-                    [row[0] for row in matrix],
-                    [row[2] for row in matrix],
-                    '# Function calls', '# Type Annotations', 'log', 'linear')
-
-    try:
-        compute_correlations2(statistics.matrix_test_files_annotations)
-    except Exception as e:
-        print('[Correlation Error]', str(e))
-
-    matrix = np.empty((0, 3), int)
-
-    for array in statistics.matrix_test_files_annotations:
-        if array[2] != 0:
-            matrix = np.append(matrix, np.array([array]), axis=0)
-
-    scatter_plot_xy(config.ROOT_DIR + "/Resources/Output/relationship_test_files_coverage.pdf",
-                    [row[0] for row in matrix],
-                    [row[1] for row in matrix],
-                    '# Function calls', 'Program elements coverage', 'log', 'log')
-
-    scatter_plot_xy(config.ROOT_DIR + "/Resources/Output/test_relationship_tot.pdf",
-                    [row[0] for row in matrix],
-                    [row[2] for row in matrix],
-                    '# Function calls', '# Type Annotations', 'log', 'log')
+    # matrix = np.empty((0, 3), int)
+    #
+    # for array in statistics.matrix_files_annotations:
+    #     if array[2] != 0:
+    #         matrix = np.append(matrix, np.array([array]), axis=0)
+    #
+    # scatter_plot_xy(config.ROOT_DIR + "/Resources/Output/relationship_files_coverage.pdf",
+    #                 [row[0] for row in matrix],
+    #                 [row[1] for row in matrix],
+    #                 '# Function calls', 'Program elements coverage', 'linear', 'linear', xlim=120)
+    #
+    # scatter_plot_xy(config.ROOT_DIR + "/Resources/Output/relationship_tot.pdf",
+    #                 [row[0] for row in matrix],
+    #                 [row[2] for row in matrix],
+    #                 '# Function calls', '# Type Annotations', 'log', 'linear')
+    #
+    # try:
+    #     compute_correlations2(statistics.matrix_test_files_annotations)
+    # except Exception as e:
+    #     print('[Correlation Error]', str(e))
+    #
+    # matrix = np.empty((0, 3), int)
+    #
+    # for array in statistics.matrix_test_files_annotations:
+    #     if array[2] != 0:
+    #         matrix = np.append(matrix, np.array([array]), axis=0)
+    #
+    # scatter_plot_xy(config.ROOT_DIR + "/Resources/Output/relationship_test_files_coverage.pdf",
+    #                 [row[0] for row in matrix],
+    #                 [row[1] for row in matrix],
+    #                 '# Function calls', 'Program elements coverage', 'log', 'log')
+    #
+    # scatter_plot_xy(config.ROOT_DIR + "/Resources/Output/test_relationship_tot.pdf",
+    #                 [row[0] for row in matrix],
+    #                 [row[2] for row in matrix],
+    #                 '# Function calls', '# Type Annotations', 'log', 'log')
 
     # RQ8
     # years = [int(k) for k in statistics.typeAnnotation_year_analysis.keys()]
@@ -344,106 +411,41 @@ def myplot(statistics):
     #           annotations_per_year, '', 'Type annotations in a year',
     #          ylim=int(max(annotations_per_year)*1.1))
 
-    # RQ9
-    bar_plot_double_xy(config.ROOT_DIR + "/Resources/Output/type_commits_vs_all_commits.pdf",
-                       x=[int(k) for k in statistics.typeAnnotation_commit_annotation_year_analysis.keys()],
-                       y1=[int(v) for v in statistics.typeAnnotation_commit_annotation_year_analysis.values()],
-                       y2=[int(v) for v in statistics.typeAnnotation_commit_not_annotation_year_analysis.values()],
-                       y_label='Number of commits (log scale)')
 
-    # Last version annotation
-    smooth_line_xy(config.ROOT_DIR + "/Resources/Output/types_last_version.pdf",
-                   [x for x in statistics.typeLastProjectVersion_percentage if x <= 100],
-                   x_label="Repositories sorted by ordinate",
-                   y_label="% Type annotations in last version",
-                   title="Presence of type annotations in\nthe last version of the repositories.",
-                   color1='blue', color2='red',
-                   xlim=None,
-                   ylim=None)
-
-    # RQ10
-    list_top_1_developers = []
-    list_link_repo = []
-    i = -1
-
-    for dictionary in statistics.list_dev_plot:
-        i += 1
-        for key in dictionary:
-            if dictionary[key] == 0:
-                list_link_repo.append("https://api.github.com/repos/" + key.replace("-", "/", 1))
-
-        total = sum(dictionary.values())
-        if total == 0:
-            continue
-
-        for key in dictionary.keys():
-            dict_temp = statistics.list_dev_dict_total[i]
-            if dict_temp[key] > 0:
-                dictionary[key] = dictionary[key] / statistics.list_dev_dict_total[i][key] * 100
-
-        dictionary = dict(sort_dictionary(dictionary)[:1])
-
-        list_top_1_developers.append(float(sum(dictionary.values())))
-
-    smooth_line_xy(config.ROOT_DIR + "/Resources/Output/top_1_dev.pdf",
-                   [x for x in list_top_1_developers if x <= 100],
-                   x_label="Top developer for each\nrepository (sorted by ordinate)",
-                   y_label="% Type annotations inserted",
-                   color1='blue', color2='red',
-                   xlim=None,
-                   ylim=None)
-
-    list_contributors_repo = []
-
-    for url in list_link_repo:
-        all_contributors = list()
-        page_count = 1
-        while True:
-            contributors = requests.get(url + "/contributors?page=%d" % page_count)
-            if contributors != None and contributors.status_code == 200 and len(contributors.json()) > 0:
-                all_contributors = all_contributors + contributors.json()
-            else:
-                break
-            page_count = page_count + 1
-        count = len(all_contributors)
-        if count == 0:
-            print("Zero contributors for", url)
-            break
-        list_contributors_repo.append(count)
 
     #    avg = sum(list_contributors_repo) / len(list_contributors_repo)
 
     #   print(f"Contributors per {len(list_contributors_repo)} repos (average): {avg}")
 
-    list_top_3_developers = []
-    i = -1
-
-    for dictionary in statistics.list_dev_plot:
-        i += 1
-        total = sum(dictionary.values())
-        if total == 0:
-            continue
-
-        for key in dictionary.keys():
-            dict_temp = statistics.list_dev_dict_total[i]
-            if dict_temp[key] > 0:
-                dictionary[key] = dictionary[key] / statistics.list_dev_dict_total[i][key] * 100
-
-        dictionary = dict(sort_dictionary(dictionary)[:3])
-
-        # partial = 0
-        # for val in dictionary.values():
-        #   partial += int(val)
-
-        list_top_3_developers.append(float(sum(dictionary.values()) / len(dictionary)))
-
-    smooth_line_xy(config.ROOT_DIR + "/Resources/Output/top_3_dev.pdf",
-                   [x for x in list_top_3_developers if x <= 100],
-                   x_label="Top-3 developers for each\nrepository (sorted by ordinate)",
-                   y_label="% Type annotations inserted",
-                   color1='blue', color2='red',
-                   xlim=None,
-                   ylim=None)
+    # list_top_3_developers = []
+    # i = -1
+    #
+    # for dictionary in statistics.list_dev_plot:
+    #     i += 1
+    #     total = sum(dictionary.values())
+    #     if total == 0:
+    #         continue
+    #
+    #     for key in dictionary.keys():
+    #         dict_temp = statistics.list_dev_dict_total[i]
+    #         if dict_temp[key] > 0:
+    #             dictionary[key] = dictionary[key] / statistics.list_dev_dict_total[i][key] * 100
+    #
+    #     dictionary = dict(sort_dictionary(dictionary)[:3])
+    #
+    #     # partial = 0
+    #     # for val in dictionary.values():
+    #     #   partial += int(val)
+    #
+    #     list_top_3_developers.append(float(sum(dictionary.values()) / len(dictionary)))
+    #
+    # smooth_line_xy(config.ROOT_DIR + "/Resources/Output/top_3_dev.pdf",
+    #                [x for x in list_top_3_developers if x <= 100],
+    #                x_label="Top-3 developers for each\nrepository (sorted by ordinate)",
+    #                y_label="% Type annotations inserted",
+    #                color1='blue', color2='red',
+    #                xlim=None,
+    #                ylim=None)
 
     # Variables are cleaned to have a better output
     statistics.matrix_commits_stars_annotations = "See the plots RQ5_commits and RQ5_stars."
