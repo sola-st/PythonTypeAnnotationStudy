@@ -33,9 +33,9 @@ def repo_cloning(filenameInput: str, pathOutput: str, count: List[int]) -> None:
     i = 0
     for link in article_urls:
         i+=1
-        if i >50:
-            print("new year")
-            return
+        #if i >50:
+         #   print("new year")
+          #  return
 
         count[0] += 1
 
