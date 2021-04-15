@@ -77,14 +77,38 @@ def compute_correlations2(commits_stars_annotations):
 
 
 def myplot(statistics):
-    # smooth_line_xy_multi(config.ROOT_DIR + "/Resources/Output/elements_annotated.pdf",
-    #                    statistics.annotation_coverage,
-    #                   x_label="Year",
-    #                  y_label="% program elements annotated",
-    #                 title="Presence of type annotations in\nthe last version of the repositories.",
-    #                color1='blue', color2='red',
-    #               xlim=None,
-    #              ylim=None)
+    smooth_line_xy_multi(config.ROOT_DIR + "/Resources/Output/elements_annotated.pdf",
+                        statistics.annotation_coverage,
+                       x_label="Year",
+                      y_label="% program elements annotated",
+                     title="Presence of type annotations in\nthe last version of the repositories.",
+                    color1='blue', color2='red',
+                   xlim=None,
+                 ylim=None)
+
+    from collections import Counter
+    A = Counter(statistics.insert_types)
+    B = Counter(statistics.remove_types)
+    C = Counter(statistics.modify_existing_types)
+    merged = dict(A + B + C)
+
+    A = Counter(merged)
+    B = Counter(statistics.loc_year_edit)
+    merged2 = dict({k: A[k] / (B[k]/10000) for k in A})
+
+    merged = dict(sorted(merged.items()))
+    merged2 = dict(sorted(merged2.items()))
+
+
+    smooth_line_xy_double(config.ROOT_DIR + "/Resources/Output/annotationsPerYear.pdf",
+                          merged.keys(),
+                          merged.values(),
+                          merged2.values(),
+                          x_label="Year",
+                          y_label="Type annotations",
+                          color1='blue', color2='red',
+                          xlim=None,
+                          ylim=None)
 
     # Total number of commits in each year
     for key in list(statistics.commit_year_dict.keys()):
@@ -142,20 +166,20 @@ def myplot(statistics):
 
     # RQ2.3
     bar_plot_xy(config.ROOT_DIR + "/Resources/Output/TopChanged_arg.pdf",
-                statistics.typeChanged_dict_arg.keys(),
-                statistics.typeChanged_dict_arg.values(), 'Top types changed in function arguments',
+                list(statistics.typeChanged_dict_arg.keys())[:5],
+                list(statistics.typeChanged_dict_arg.values())[:5], 'Top types changed in function arguments',
                 'Occurrences', ylim=1000)
 
     # RQ2.3
     bar_plot_xy(config.ROOT_DIR + "/Resources/Output/TopChanged_ret.pdf",
-                statistics.typeChanged_dict_ret.keys(),
-                statistics.typeChanged_dict_ret.values(), 'Top types changed in function return',
+                list(statistics.typeChanged_dict_ret.keys())[:5],
+                list(statistics.typeChanged_dict_ret.values())[:5], 'Top types changed in function return',
                 'Occurrences', ylim=1000)
 
     # RQ2.3
     bar_plot_xy(config.ROOT_DIR + "/Resources/Output/TopChanged_var.pdf",
-                statistics.typeChanged_dict_var.keys(),
-                statistics.typeChanged_dict_var.values(), 'Top types changed in variable assigment',
+                list(statistics.typeChanged_dict_var.keys())[:5],
+                list(statistics.typeChanged_dict_var.values())[:5], 'Top types changed in variable assigment',
                 'Occurrences', ylim=1000)
 
     # RQ2.4
@@ -176,6 +200,8 @@ def myplot(statistics):
     #                  'Percentage of annotation-related lines among all removed lines', 'Number of commits', 'linear', 'linear', bins=100)
 
     # RQ4
+    print("% type annotation only commits", sum(float(i) >= 95.0 for i in statistics.list_typeAnnotation_changed_per_commit)/len(statistics.list_typeAnnotation_changed_per_commit)*100)
+
     histogram_plot_xy(config.ROOT_DIR + "/Resources/Output/perc_annotations_lines_per_commit.pdf",
                       statistics.list_typeAnnotation_changed_per_commit,
                       'Percentage of annotation-related lines among\nall inserted, removed and changed lines',
@@ -189,25 +215,25 @@ def myplot(statistics):
     list_ann = []
     list_err = []
 
-    import json
-
-    with open(config.ROOT_DIR + '/Resources/Output/error_check_flake8.json') as f:
-        data = json.load(f)
-
-    for repo in statistics.typeLastProjectVersion_dict:
-        try:
-            list_err.append(data[repo])
-            list_ann.append(statistics.typeLastProjectVersion_dict[repo])
-        except:
-            continue
-
-    from scipy.stats.stats import pearsonr
-    print(pearsonr(list_err, list_ann))
-
-    scatter_plot_xy(config.ROOT_DIR + "/Resources/Output/flak8_correlation.pdf",
-                    list_ann,
-                    list_err,
-                    '# Annotations Changes', '# Errors', 'log', 'linear')
+    # import json
+    #
+    # with open(config.ROOT_DIR + '/Resources/Output/error_check_flake8.json') as f:
+    #     data = json.load(f)
+    #
+    # for repo in statistics.typeLastProjectVersion_dict:
+    #     try:
+    #         list_err.append(data[repo])
+    #         list_ann.append(statistics.typeLastProjectVersion_dict[repo])
+    #     except:
+    #         continue
+    #
+    # from scipy.stats.stats import pearsonr
+    # print(pearsonr(list_err, list_ann))
+    #
+    # scatter_plot_xy(config.ROOT_DIR + "/Resources/Output/flak8_correlation.pdf",
+    #                 list_ann,
+    #                 list_err,
+    #                 '# Annotations Changes', '# Errors', 'log', 'linear')
 
     # RQ4.5
     # histogram_plot_xy(config.ROOT_DIR + "/Resources/Output/RQ4_5",
@@ -411,8 +437,6 @@ def myplot(statistics):
     #           annotations_per_year, '', 'Type annotations in a year',
     #          ylim=int(max(annotations_per_year)*1.1))
 
-
-
     #    avg = sum(list_contributors_repo) / len(list_contributors_repo)
 
     #   print(f"Contributors per {len(list_contributors_repo)} repos (average): {avg}")
@@ -496,6 +520,7 @@ def load_final_statistics():
     finalStatistics.total_repositories = allStatistics[0]['total_repositories']
     finalStatistics.total_commits = allStatistics[0]['total_commits']
     finalStatistics.commit_year_dict = allStatistics[0]['commit_year_dict']
+    finalStatistics.loc_year_edit = allStatistics[0]['loc_year_edit']
 
     # RQ0
     # code_changes = stat.code_changes

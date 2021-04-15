@@ -16,6 +16,7 @@ from scipy.interpolate import make_interp_spline, BSpline
 
 import matplotlib.pyplot as plt
 import matplotlib.style as style
+
 font_size = 12
 plt.rcParams.update({'font.size': font_size})
 import numpy
@@ -75,12 +76,12 @@ def write_in_json(outputFilePath: str, data: list) -> None:
     try:
         json_file = json.dumps(data, indent=4)
     except Exception as e:
-        print("write_in_json error",e)
+        print("write_in_json error", e)
 
-        with open(outputFilePath+'.txt', 'w') as f:
+        with open(outputFilePath + '.txt', 'w') as f:
             for item in data:
                 f.write("%s\n" % item)
-        #print(data)
+        # print(data)
         return
 
     if '.json' not in outputFilePath:
@@ -119,9 +120,9 @@ def pie_chart(outputFilePath, labels, sizes, title):
     # plt.pie(sizes, labels=labels, colors=colors,
     #        autopct='%1.1f%%', shadow=True, startangle=140)
 
-    #patches, texts, more = plt.pie(sizes, startangle=90, labels= labels, autopct='%1.0f%%')
+    # patches, texts, more = plt.pie(sizes, startangle=90, labels= labels, autopct='%1.0f%%')
 
-    patches, texts, _  = plt.pie(sizes,  shadow=True, explode=explode, startangle=140, autopct='%1.0f%%')
+    patches, texts, _ = plt.pie(sizes, shadow=True, explode=explode, startangle=140, autopct='%1.0f%%')
 
     plt.legend(patches, labels, loc="best")
     # Set aspect ratio to be equal so that pie is drawn as a circle.
@@ -161,7 +162,7 @@ def smooth_line_xy(outputFilePath, y, x_label=None, y_label=None, title=None, co
 
     plt.ylabel(y_label)
     plt.xlabel(x_label)
-    #plt.xscale('log')
+    # plt.xscale('log')
 
     # if title is not None:
     #    plt.title(title)
@@ -170,12 +171,11 @@ def smooth_line_xy(outputFilePath, y, x_label=None, y_label=None, title=None, co
 
     plt.figure()
 
+
 def smooth_line_xy_multi(outputFilePath, dict, x_label=None, y_label=None, title=None, color1='blue', color2='red',
-                   xlim=None,
-                   ylim=None):
+                         xlim=None,
+                         ylim=None):
     plt.rcParams.update({'font.size': font_size})
-
-
 
     x = []
     ret = []
@@ -184,14 +184,13 @@ def smooth_line_xy_multi(outputFilePath, dict, x_label=None, y_label=None, title
 
     for key in dict:
         x.append(key)
-        arg.append(float(dict[key][0]/dict[key][1]*100))
+        arg.append(float(dict[key][0] / dict[key][1] * 100))
         ret.append(float(dict[key][2] / dict[key][3] * 100))
         var.append(float(dict[key][4] / dict[key][5] * 100))
 
     fig, ax = plt.subplots()
 
     ax.set_ylim([0, 5])
-
 
     plt.setp(ax.get_xticklabels(), rotation=30, horizontalalignment='right')
     # Plot the data
@@ -204,7 +203,7 @@ def smooth_line_xy_multi(outputFilePath, dict, x_label=None, y_label=None, title
 
     plt.ylabel(y_label)
     plt.xlabel(x_label)
-    #plt.xscale('log')
+    # plt.xscale('log')
 
     # if title is not None:
     #    plt.title(title)
@@ -213,7 +212,49 @@ def smooth_line_xy_multi(outputFilePath, dict, x_label=None, y_label=None, title
 
     plt.figure()
 
+def smooth_line_xy_double(outputFilePath, x, y, yy, x_label=None, y_label=None, title=None, color1='blue', color2='red',
+                   xlim=None,
+                   ylim=None):
+    plt.rcParams.update({'font.size': 16})
 
+    # fig, ax = plt.subplots()
+    #
+    # # Plot the data
+    # data_line = ax.plot(x, y, label='Type Annotations (left)', color=(0.2, 0.4, 0.6, 0.6))
+    #
+    # # Plot the average line
+    # mean_line = ax.plot(xx, y, label='Type Annotations per 1000 LoC (right)', linestyle='--', color='lightsalmon')
+    #
+    # # Make a legend
+    # legend = ax.legend(loc='upper left')
+    #
+    # plt.ylabel(y_label)
+    # plt.xlabel(x_label)
+    # plt.xscale('log')
+
+    fig, ax1 = plt.subplots()
+
+
+    ax1.set_xlabel('Year')
+    ax1.set_ylabel('Type Annotations', color= 'black')
+    ax1.plot(x, y, label='Type Annotations (left)', marker='o', color=(0.2, 0.4, 0.6, 0.6))
+    ax1.tick_params(axis='y', color='black')
+
+    ax2 = ax1.twinx()  # instantiate a second axes that shares the same x-axis
+
+    ax2.set_ylabel('Type Annotations per 1000 LoC', color='black')  # we already handled the x-label with ax1
+    ax2.plot(x, yy, label='Type Annotations per 1000 LoC (right)', marker='X', color='lightsalmon')
+    ax2.tick_params(axis='y', color='black')
+
+    # if title is not None:
+    #    plt.title(title)
+
+    # Make a legend
+    fig.legend()
+
+    plt.savefig(outputFilePath, bbox_inches='tight')
+
+    plt.figure()
 
 def cartesian_plot_xy(outputFilePath, x, y, x_label, y_label, title=None, color='blue', xlim=None, ylim=None):
     axes = plt.gca()
@@ -351,8 +392,10 @@ def scatter_plot_xy(outputFilePath, x, y, x_label, y_label, xscale, yscale, titl
 
     plt.figure()
 
-def scatter_plot_xy_multi(outputFilePath, x, y, xx,yy, x_label, y_label, xscale, yscale, title=None, color='blue', xlim=None,
-                    ylim=None):
+
+def scatter_plot_xy_multi(outputFilePath, x, y, xx, yy, x_label, y_label, xscale, yscale, title=None, color='blue',
+                          xlim=None,
+                          ylim=None):
     plt.rcParams.update({'font.size': font_size})
 
     axes = plt.gca()
@@ -383,7 +426,7 @@ def scatter_plot_xy_multi(outputFilePath, x, y, xx,yy, x_label, y_label, xscale,
 
 
 def scatter_plot_xyz(outputFilePath, x, y, z, x_label, y_label, xscale, yscale, title=None, color='blue', xlim=None,
-                    ylim=None):
+                     ylim=None):
     plt.rcParams.update({'font.size': font_size})
 
     axes = plt.gca()
@@ -397,7 +440,7 @@ def scatter_plot_xyz(outputFilePath, x, y, z, x_label, y_label, xscale, yscale, 
     plt.xscale(xscale)
 
     # use the plot function
-    plt.scatter(x, y,  label='With annotations', color=(0.2, 0.4, 0.6, 0.6))
+    plt.scatter(x, y, label='With annotations', color=(0.2, 0.4, 0.6, 0.6))
     plt.scatter(z, y, label='Without annotations', color='lightsalmon')
     plt.legend(loc='upper left')
 
@@ -437,6 +480,8 @@ def histogram_2d_plot_xy(outputFilePath, x, y, x_label, y_label, title=None, col
     plt.savefig(outputFilePath, bbox_inches='tight')
 
     plt.figure()
+
+
 
 
 # Diff

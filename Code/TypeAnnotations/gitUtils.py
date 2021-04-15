@@ -148,6 +148,9 @@ def query_repo_get_changes(repo_name):  # statistics, pointer, dirlist_len):
                     commit_month = time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(commit.commit_time))[5:7]
                     commit_day = time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(commit.commit_time))[8:10]
 
+                    if  int(commit_year) < 2014 and int(commit_year) > 2020:
+                        continue
+
                     # Only before November is consider for a better comparison with 2020
                     #if int(commit_month) <= 12:
                     if commit_year not in statistics.commit_year_dict:
@@ -155,8 +158,6 @@ def query_repo_get_changes(repo_name):  # statistics, pointer, dirlist_len):
                     else:
                         statistics.commit_year_dict[str(commit_year)] += 1
 
-                    if 2014 > int(commit_year) > 2020:
-                        continue
 
                     if int(commit_month) < 9:
                         commit_temp = commit.hex
@@ -200,9 +201,26 @@ def query_repo_get_changes(repo_name):  # statistics, pointer, dirlist_len):
 
                             tot_line_removed += diff.stats.deletions
                             tot_line_inserted += diff.stats.insertions
+
+                            try:
+                                if commit_year not in statistics.loc_year_edit:
+                                    statistics.loc_year_edit[commit_year] = diff.stats.deletions + diff.stats.insertions
+                                else:
+                                    statistics.loc_year_edit[commit_year] += diff.stats.deletions + diff.stats.insertions
+                            except:
+                                pass
+
                         elif num_parents == 0: # First commit
                             diff = repo.diff(commit.hex)
                             tot_line_inserted += diff.stats.insertions
+
+                            try:
+                                if commit_year not in statistics.loc_year_edit:
+                                    statistics.loc_year_edit[commit_year] = diff.stats.insertions
+                                else:
+                                    statistics.loc_year_edit[commit_year] += diff.stats.insertions
+                            except:
+                                pass
 
 
                         for patch in diff:

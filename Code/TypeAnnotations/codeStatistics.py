@@ -15,6 +15,7 @@ class CodeStatistics:
         self.total_repositories = 0
         self.total_commits = 0
         self.commit_year_dict = {}
+        self.loc_year_edit = {}
         self.s0 = "------------------------------------------------------------------------"
 
         # [RQ0]: How many types are used?
@@ -403,6 +404,8 @@ class CodeStatistics:
                 self.total_typeAnnotation_codeChanges += stat.total_typeAnnotation_codeChanges
                 self.commit_year_dict = dict(
                     merge_dictionaries([dict(self.commit_year_dict), dict(stat.commit_year_dict)]))
+                self.loc_year_edit = dict(
+                    merge_dictionaries([dict(self.loc_year_edit), dict(stat.loc_year_edit)]))
 
                 # RQ1
                 self.insert_types = dict(merge_dictionaries([dict(self.insert_types), dict(stat.insert_types)]))
