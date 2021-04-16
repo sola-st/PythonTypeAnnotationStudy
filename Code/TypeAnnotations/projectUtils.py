@@ -110,29 +110,29 @@ def myplot(statistics):
                    xlim=None,
                  ylim=None)
 
-    # from collections import Counter
-    # A = Counter(statistics.insert_types)
-    # B = Counter(statistics.remove_types)
-    # C = Counter(statistics.modify_existing_types)
-    # merged = dict(A + B + C)
-    #
-    # A = Counter(merged)
-    # B = Counter(statistics.loc_year_edit)
-    # merged2 = dict({k: A[k] / (B[k]/10000) for k in A})
-    #
-    # merged = dict(sorted(merged.items()))
-    # merged2 = dict(sorted(merged2.items()))
-    #
-    #
-    # smooth_line_xy_double(config.ROOT_DIR + "/Resources/Output/annotationsPerYear.pdf",
-    #                       merged.keys(),
-    #                       merged.values(),
-    #                       merged2.values(),
-    #                       x_label="Year",
-    #                       y_label="Type annotations",
-    #                       color1='blue', color2='red',
-    #                       xlim=None,
-    #                       ylim=None)
+    from collections import Counter
+    A = Counter(statistics.insert_types)
+    B = Counter(statistics.remove_types)
+    C = Counter(statistics.modify_existing_types)
+    merged = dict(A + B + C)
+
+    A = Counter(merged)
+    B = Counter(statistics.loc_year_edit)
+    merged2 = dict({k: A[k] / (B[k]/10000) for k in A})
+
+    merged = dict(sorted(merged.items()))
+    merged2 = dict(sorted(merged2.items()))
+
+
+    smooth_line_xy_double(config.ROOT_DIR + "/Resources/Output/annotationsPerYear.pdf",
+                           merged.keys(),
+                           merged.values(),
+                           merged2.values(),
+                           x_label="Year",
+                           y_label="Type annotations",
+                           color1='blue', color2='red',
+                           xlim=None,
+                           ylim=None)
 
     # Total number of commits in each year
     for key in list(statistics.commit_year_dict.keys()):
@@ -285,6 +285,7 @@ def myplot(statistics):
         list_top_1_developers = []
         list_link_repo = []
         i = -1
+        super_total = 0
 
         for dictionary in statistics.list_dev_plot:
             i += 1
@@ -293,6 +294,7 @@ def myplot(statistics):
                     list_link_repo.append("https://api.github.com/repos/" + key.replace("-", "/", 1))
 
             total = sum(dictionary.values())
+            super_total += total
             if total == 0:
                 continue
 
@@ -308,6 +310,38 @@ def myplot(statistics):
         smooth_line_xy(config.ROOT_DIR + "/Resources/Output/top_1_dev.pdf",
                        [x for x in list_top_1_developers if x <= 100],
                        x_label="Top developer for each\nrepository (sorted by ordinate)",
+                       y_label="% Type annotations inserted",
+                       color1='blue', color2='red',
+                       xlim=None,
+                       ylim=None)
+
+        # RQ10.2
+        list_top_1_developers = []
+        list_link_repo = []
+        i = -1
+
+        for dictionary in statistics.list_dev_plot:
+            i += 1
+            for key in dictionary:
+                if dictionary[key] == 0:
+                    list_link_repo.append("https://api.github.com/repos/" + key.replace("-", "/", 1))
+
+            total = sum(dictionary.values())
+            if total == 0:
+                continue
+
+            for key in dictionary.keys():
+                dict_temp = statistics.list_dev_dict_total[i]
+                if dict_temp[key] > 0:
+                    dictionary[key] = dictionary[key] / super_total * 100
+
+            dictionary = dict(sort_dictionary(dictionary)[:1])
+
+            list_top_1_developers.append(float(sum(dictionary.values())))
+
+        smooth_line_xy(config.ROOT_DIR + "/Resources/Output/top_1_dev_overall.pdf",
+                       [x for x in list_top_1_developers if x <= 100],
+                       x_label="Top developer for each\nrepository overall commits",
                        y_label="% Type annotations inserted",
                        color1='blue', color2='red',
                        xlim=None,

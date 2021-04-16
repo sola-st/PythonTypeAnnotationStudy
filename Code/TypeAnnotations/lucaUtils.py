@@ -17,7 +17,7 @@ from scipy.interpolate import make_interp_spline, BSpline
 import matplotlib.pyplot as plt
 import matplotlib.style as style
 
-font_size = 25
+font_size = 12
 plt.rcParams.update({'font.size': font_size})
 import numpy
 
@@ -141,7 +141,8 @@ def pie_chart(outputFilePath, labels, sizes, title):
 def smooth_line_xy(outputFilePath, y, x_label=None, y_label=None, title=None, color1='blue', color2='red',
                    xlim=None,
                    ylim=None):
-    plt.rcParams.update({'font.size': font_size})
+    plt.rcdefaults()
+    plt.rcParams.update({'font.size': 15})
     y = sorted(y)
     x = list(range(len(y)))
 
@@ -340,10 +341,11 @@ def bar_plot_double_xy(outputFilePath, x, y1, y2, x_label=None, y_label=None, ti
 
 
 def histogram_plot_xy(outputFilePath, x, x_label, y_label, xscale, yscale, title=None, bins='auto'):
+    plt.rcdefaults()
+    plt.rcParams.update({'font.size': 15})
+
     plt.xlabel(x_label)
     plt.ylabel(y_label)
-
-    plt.rcParams.update({'font.size': 18})
 
     if len(x) == 0:
         print('[Empty x]', title)
