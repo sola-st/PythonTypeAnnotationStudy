@@ -193,25 +193,25 @@ class CodeStatistics:
         self.what_types_added()
 
         # [RQ2.2]: What are the top 5 types added?
-        self.typeAdded_dict = sort_dictionary(self.typeAdded_dict)[:5]
+        self.typeAdded_dict = sort_dictionary(self.typeAdded_dict)
 
         # [RQ2.3]: What types are removed (primitives, built-in classes, application-specific classes)?
         self.what_types_removed()
 
         # [RQ2.4]: What are the top 5 types removed?
-        self.typeRemoved_dict = sort_dictionary(self.typeRemoved_dict)[:5]
+        self.typeRemoved_dict = sort_dictionary(self.typeRemoved_dict)
 
         # [RQ2.5]: What are the top 10 types changed?
         #self.typeChanged_dict = sort_dictionary(self.typeChanged_dict)[:10]
-        self.typeChanged_dict_var = sort_dictionary(self.typeChanged_dict_var)[:10]
-        self.typeChanged_dict_arg = sort_dictionary(self.typeChanged_dict_arg)[:10]
-        self.typeChanged_dict_ret = sort_dictionary(self.typeChanged_dict_ret)[:10]
+        self.typeChanged_dict_var = sort_dictionary(self.typeChanged_dict_var)
+        self.typeChanged_dict_arg = sort_dictionary(self.typeChanged_dict_arg)
+        self.typeChanged_dict_ret = sort_dictionary(self.typeChanged_dict_ret)
 
         # [RQ4]: Are many types added at once or rather a few types here and there?
         self.rate_annotation_commit()
 
         # [RQ6]: Which are the top 10 repository with the highest number of type annotations
-        self.number_type_annotations_per_repo = sort_dictionary(self.number_type_annotations_per_repo)[:10]
+        self.number_type_annotations_per_repo = sort_dictionary(self.number_type_annotations_per_repo)
 
         # [RQ7]: How many of all types are annotated in the last verison of the code?
         if self.total_typeAnnotation_codeChanges > 0:
@@ -250,6 +250,9 @@ class CodeStatistics:
     binarySequenceType_list = ['bytes', 'bytearray', 'memoryview']
     setTypes_list = ['set', 'frozenset']
     mappingType_list = ['dict']
+
+    def get_full_type_list(self):
+        return self.anyType_list + self.noneType_list + self.numericType_list+ self.sequenceType_list+ self.textSequenceType_list+ self.binarySequenceType_list + self.setTypes_list + self.mappingType_list
 
     def what_types_added(self):
 

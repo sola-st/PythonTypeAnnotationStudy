@@ -17,7 +17,7 @@ from scipy.interpolate import make_interp_spline, BSpline
 import matplotlib.pyplot as plt
 import matplotlib.style as style
 
-font_size = 12
+font_size = 25
 plt.rcParams.update({'font.size': font_size})
 import numpy
 
@@ -281,6 +281,8 @@ def cartesian_plot_xy(outputFilePath, x, y, x_label, y_label, title=None, color=
 
 
 def bar_plot_xy(outputFilePath, x, y, x_label, y_label, title=None, color='blue', xlim=None, ylim=None):
+    plt.rcParams.update({'font.size': 25})
+
     axes = plt.gca()
     if ylim is not None:
         axes.set_ylim([0, ylim])
@@ -289,7 +291,7 @@ def bar_plot_xy(outputFilePath, x, y, x_label, y_label, title=None, color='blue'
     #    axes.set_xlim([0, xlim])
 
     # plt.yscale('log')
-    plt.rcParams.update({'font.size': 22})
+
 
     plt.ylabel(y_label)
     plt.xlabel(x_label)

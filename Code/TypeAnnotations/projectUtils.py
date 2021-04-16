@@ -2,6 +2,7 @@ import locale
 import statistics
 
 import config
+from Code.TypeAnnotations import codeStatistics
 from Code.TypeAnnotations.codeStatistics import CodeStatistics
 from Code.TypeAnnotations.lucaUtils import *
 import numpy as np
@@ -77,6 +78,29 @@ def compute_correlations2(commits_stars_annotations):
 
 
 def myplot(statistics):
+
+
+
+
+    # RQ2.3
+    bar_plot_xy(config.ROOT_DIR + "/Resources/Output/TopChanged_arg.pdf",
+                list(statistics.typeChanged_dict_arg.keys())[:5],
+                list(statistics.typeChanged_dict_arg.values())[:5], 'Top types changed in function arguments',
+                'Occurrences', ylim=1000)
+
+    # RQ2.3
+    bar_plot_xy(config.ROOT_DIR + "/Resources/Output/TopChanged_ret.pdf",
+                list(statistics.typeChanged_dict_ret.keys())[:5],
+                list(statistics.typeChanged_dict_ret.values())[:5], 'Top types changed in function return',
+                'Occurrences', ylim=1000)
+
+    # RQ2.3
+    bar_plot_xy(config.ROOT_DIR + "/Resources/Output/TopChanged_var.pdf",
+                list(statistics.typeChanged_dict_var.keys())[:5],
+                list(statistics.typeChanged_dict_var.values())[:5], 'Top types changed in variable assigment',
+                'Occurrences', ylim=1000)
+
+
     smooth_line_xy_multi(config.ROOT_DIR + "/Resources/Output/elements_annotated.pdf",
                         statistics.annotation_coverage,
                        x_label="Year",
@@ -86,29 +110,29 @@ def myplot(statistics):
                    xlim=None,
                  ylim=None)
 
-    from collections import Counter
-    A = Counter(statistics.insert_types)
-    B = Counter(statistics.remove_types)
-    C = Counter(statistics.modify_existing_types)
-    merged = dict(A + B + C)
-
-    A = Counter(merged)
-    B = Counter(statistics.loc_year_edit)
-    merged2 = dict({k: A[k] / (B[k]/10000) for k in A})
-
-    merged = dict(sorted(merged.items()))
-    merged2 = dict(sorted(merged2.items()))
-
-
-    smooth_line_xy_double(config.ROOT_DIR + "/Resources/Output/annotationsPerYear.pdf",
-                          merged.keys(),
-                          merged.values(),
-                          merged2.values(),
-                          x_label="Year",
-                          y_label="Type annotations",
-                          color1='blue', color2='red',
-                          xlim=None,
-                          ylim=None)
+    # from collections import Counter
+    # A = Counter(statistics.insert_types)
+    # B = Counter(statistics.remove_types)
+    # C = Counter(statistics.modify_existing_types)
+    # merged = dict(A + B + C)
+    #
+    # A = Counter(merged)
+    # B = Counter(statistics.loc_year_edit)
+    # merged2 = dict({k: A[k] / (B[k]/10000) for k in A})
+    #
+    # merged = dict(sorted(merged.items()))
+    # merged2 = dict(sorted(merged2.items()))
+    #
+    #
+    # smooth_line_xy_double(config.ROOT_DIR + "/Resources/Output/annotationsPerYear.pdf",
+    #                       merged.keys(),
+    #                       merged.values(),
+    #                       merged2.values(),
+    #                       x_label="Year",
+    #                       y_label="Type annotations",
+    #                       color1='blue', color2='red',
+    #                       xlim=None,
+    #                       ylim=None)
 
     # Total number of commits in each year
     for key in list(statistics.commit_year_dict.keys()):
@@ -164,23 +188,7 @@ def myplot(statistics):
     #          'Occurrences',
     #         title='What are the top 5 types added?')
 
-    # RQ2.3
-    bar_plot_xy(config.ROOT_DIR + "/Resources/Output/TopChanged_arg.pdf",
-                list(statistics.typeChanged_dict_arg.keys())[:5],
-                list(statistics.typeChanged_dict_arg.values())[:5], 'Top types changed in function arguments',
-                'Occurrences', ylim=1000)
 
-    # RQ2.3
-    bar_plot_xy(config.ROOT_DIR + "/Resources/Output/TopChanged_ret.pdf",
-                list(statistics.typeChanged_dict_ret.keys())[:5],
-                list(statistics.typeChanged_dict_ret.values())[:5], 'Top types changed in function return',
-                'Occurrences', ylim=1000)
-
-    # RQ2.3
-    bar_plot_xy(config.ROOT_DIR + "/Resources/Output/TopChanged_var.pdf",
-                list(statistics.typeChanged_dict_var.keys())[:5],
-                list(statistics.typeChanged_dict_var.values())[:5], 'Top types changed in variable assigment',
-                'Occurrences', ylim=1000)
 
     # RQ2.4
     # bar_plot_xy(config.ROOT_DIR + "/Resources/Output/TopRemoved.pdf",

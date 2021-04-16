@@ -1323,6 +1323,27 @@
     <mapping directory="$PROJECT_DIR$/GitHub/zxing-zxing" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/zylo117-Yet-Another-EfficientDet-Pytorch" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub0/httpie" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/GitHub1/521xueweihan-HelloGitHub" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/GitHub1/TheAlgorithms-Python" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/GitHub1/XX-net-XX-Net" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/GitHub1/apache-incubator-superset" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/GitHub1/certbot-certbot" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/GitHub1/deezer-spleeter" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/GitHub1/floodsung-Deep-Learning-Papers-Reading-Roadmap" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/GitHub1/geekcomputers-Python" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/GitHub1/hankcs-HanLP" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/GitHub1/httpie-httpie" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/GitHub1/locustio-locust" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/GitHub1/pallets-flask" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/GitHub1/pjialin-py12306" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/GitHub1/psf-requests" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/GitHub1/scikit-learn-scikit-learn" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/GitHub1/scrapy-scrapy" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/GitHub1/soimort-you-get" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/GitHub1/tensorflow-models" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/GitHub1/tiangolo-fastapi" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/GitHub1/toml-lang-toml" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/GitHub1/willmcgugan-rich" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub2/2020PB-police-brutality" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub2/521xueweihan-HelloGitHub" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub2/JaidedAI-EasyOCR" vcs="Git" />
