@@ -88,10 +88,6 @@ def repo_cloning_csv( pathOutput: str) -> None:
                 print('[Error] cloning repository:', str(e))
                 continue
 
-
-
-
-
 def query_repo_get_changes(repo_name):  # statistics, pointer, dirlist_len):
     start = time.time()
     file_extension = '.py'
@@ -148,7 +144,7 @@ def query_repo_get_changes(repo_name):  # statistics, pointer, dirlist_len):
                     commit_month = time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(commit.commit_time))[5:7]
                     commit_day = time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(commit.commit_time))[8:10]
 
-                    if  int(commit_year) < 2014 and int(commit_year) > 2020:
+                    if  int(commit_year) < 2014 or int(commit_year) > 2020:
                         continue
 
                     # Only before November is consider for a better comparison with 2020
