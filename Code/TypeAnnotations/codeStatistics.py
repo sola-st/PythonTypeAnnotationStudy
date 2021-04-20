@@ -486,12 +486,12 @@ class CodeStatistics:
                 self.annotation_related_deletion_edits_vs_all_commit += stat.annotation_related_deletion_edits_vs_all_commit
 
                 # RQ 5
-                self.matrix_commits_stars_annotations = np.concatenate((self.matrix_commits_stars_annotations,
-                                                                        stat.matrix_commits_stars_annotations), axis=0)
-                self.matrix_test_files_annotations = np.concatenate((self.matrix_test_files_annotations,
-                                                                        stat.matrix_test_files_annotations), axis=0)
-                self.matrix_files_annotations = np.concatenate((self.matrix_files_annotations,
-                                                                        stat.matrix_files_annotations), axis=0)
+               # self.matrix_commits_stars_annotations = np.concatenate((self.matrix_commits_stars_annotations,
+                #                                                        stat.matrix_commits_stars_annotations), axis=0)
+                #self.matrix_test_files_annotations = np.concatenate((self.matrix_test_files_annotations,
+                 #                                                       stat.matrix_test_files_annotations), axis=0)
+                #self.matrix_files_annotations = np.concatenate((self.matrix_files_annotations,
+                 #                                                       stat.matrix_files_annotations), axis=0)
                 # RQ 6
                 self.number_type_annotations_per_repo = merge_dictionaries(
                     [self.number_type_annotations_per_repo, stat.number_type_annotations_per_repo])

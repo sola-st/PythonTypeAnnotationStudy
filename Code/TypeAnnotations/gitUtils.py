@@ -388,6 +388,28 @@ def query_repo_get_changes(repo_name):  # statistics, pointer, dirlist_len):
 
         # process_queue.put(statistics)
 
+        code_changes: list = []
+        commit_statistics: list = []
+
+        # The statistics are merged from the processes
+        statistics_final: CodeStatistics = CodeStatistics()
+
+        statistics_final.merge_results([statistics], code_changes, commit_statistics)
+
+        statistics_final.matrix_commits_stars_annotations = statistics.matrix_commits_stars_annotations.tolist()
+        statistics_final.matrix_files_annotations = statistics.matrix_files_annotations.tolist()
+        statistics_final.matrix_test_files_annotations = statistics.matrix_test_files_annotations.tolist()
+
+        write_in_json(config.ROOT_DIR + f"/Resources/log/RAW_{repo_name}.json",
+                      convert_list_in_list_of_dicts([statistics_final]))
+
+        write_in_json(config.ROOT_DIR + f"/Resources/Output/typeAnnotationChanges_{repo_name}.json",
+                      convert_list_in_list_of_dicts(code_changes))
+
+
+        write_in_json(config.ROOT_DIR + f"/Resources/Output/typeAnnotationCommitStatistics_{repo_name}.json",
+                      convert_list_in_list_of_dicts(commit_statistics))
+
         # Computational time
         end = time.time()
         hours, rem = divmod(end - start, 3600)
