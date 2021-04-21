@@ -191,7 +191,7 @@ def smooth_line_xy_multi(outputFilePath, dict, x_label=None, y_label=None, title
 
     fig, ax = plt.subplots()
 
-    ax.set_ylim([0, 5])
+    ax.set_ylim([0, max(ret + arg + var)])
 
     plt.setp(ax.get_xticklabels(), rotation=30, horizontalalignment='right')
     # Plot the data
