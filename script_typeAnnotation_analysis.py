@@ -92,6 +92,8 @@ def typeAnnotation_analisis():
         statistics_final: CodeStatistics = load_final_statistics()
         myplot(statistics_final)
 
+
+
     print("\nProgram ends successfully")
 
 if __name__ == "__main__":

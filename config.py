@@ -9,5 +9,6 @@ NORMAL_PRINT = True
 
 STATISTICS_COMPUTATION = False
 PLOT = True
+PARTIAL_PLOT = False
 
 # REPO_LIST = ROOT_DIR + '/Resources/Input/repositoriesTOP1000.json'

@@ -1,4 +1,5 @@
 import locale
+import re
 import statistics
 
 import config
@@ -86,19 +87,19 @@ def myplot(statistics):
     bar_plot_xy(config.ROOT_DIR + "/Resources/Output/TopChanged_arg.pdf",
                 list(statistics.typeChanged_dict_arg.keys())[:5],
                 list(statistics.typeChanged_dict_arg.values())[:5], 'Top types changed in function arguments',
-                'Occurrences', ylim=500)
+                'Occurrences', ylim=1000)
 
     # RQ2.3
     bar_plot_xy(config.ROOT_DIR + "/Resources/Output/TopChanged_ret.pdf",
                 list(statistics.typeChanged_dict_ret.keys())[:5],
                 list(statistics.typeChanged_dict_ret.values())[:5], 'Top types changed in function return',
-                'Occurrences', ylim=500)
+                'Occurrences', ylim=1000)
 
     # RQ2.3
     bar_plot_xy(config.ROOT_DIR + "/Resources/Output/TopChanged_var.pdf",
                 list(statistics.typeChanged_dict_var.keys())[:5],
                 list(statistics.typeChanged_dict_var.values())[:5], 'Top types changed in variable assigment',
-                'Occurrences', ylim=500)
+                'Occurrences', ylim=1000)
 
 
     smooth_line_xy_multi(config.ROOT_DIR + "/Resources/Output/elements_annotated.pdf",
@@ -269,7 +270,7 @@ def myplot(statistics):
                        x=[int(k) for k in statistics.typeAnnotation_commit_annotation_year_analysis.keys()],
                        y1=[int(v) for v in statistics.typeAnnotation_commit_annotation_year_analysis.values()],
                        y2=[int(v) for v in statistics.typeAnnotation_commit_not_annotation_year_analysis.values()],
-                       y_label='Number of commits (log scale)')
+                       y_label='Number of commits')
 
     # Last version annotation
     smooth_line_xy(config.ROOT_DIR + "/Resources/Output/types_last_version.pdf",
@@ -526,14 +527,46 @@ def myplot(statistics):
 
 
 def load_final_statistics():
-    with open(config.ROOT_DIR + "/Resources/Output/typeAnnotationChanges.json") as fh:
-        code_changes = json.load(fh)
+    file = open(config.ROOT_DIR + "/Resources/Output/typeAnnotationChanges.json")
+    fh = file.read()
+    list = re.findall(r'\'life_time\': \'[-0-9]+\'', fh)
+    list2 = re.findall(r'\'change_num\': \'[-0-9]+\'', fh)
+    # i = 0
+    # while True:
+    #     try:
+    #         code_changes = json.loads(fh)  # try to parse...
+    #         break  # parsing worked -> exit loop
+    #     except Exception as e:
+    #         print(e)
+    #         # "Expecting , delimiter: line 34 column 54 (char 1158)"
+    #         # position of unexpected character after '"'
+    #         unexp = int(re.findall(r'\(char (\d+)\)', str(e))[0])
+    #         # position of unescaped '"' before that
+    #         unesc = fh.rfind(r'"', 0, unexp)
+    #         fh = fh[:unesc] + r'\"' + fh[unesc + 1:]
+    #         # position of correspondig closing '"' (+2 for inserted '\')
+    #         closg = fh.find(r'"', unesc + 2)
+    #         fh = fh[:closg] + r'\"' + fh[closg + 1:]
+    for s in file:
+        list = re.findall(r'[a-z]+', s)
+
+
+
+    #with open(config.ROOT_DIR + "/Resources/Output/typeAnnotationChanges.json") as fh:
+     #   code_changes = json.load(fh)
+
 
     list_lifetime = []
     n_changes = []
-    for code_change in code_changes:
-        list_lifetime.append(int(code_change['life_time']))
-        n_changes.append(int(code_change['change_num']))
+    #for code_change in code_changes:
+     #   list_lifetime.append(int(code_change['life_time']))
+      #  n_changes.append(int(code_change['change_num']))
+
+    for item in list:
+        list_lifetime.append(int(re.findall('[-0-9]+', item )[0]))
+
+    for item in list2:
+        n_changes.append(int(re.findall('[-0-9]+', item )[0]))
 
     list_lifetime = [x for x in list_lifetime if x != -1]
     tot_ch = len(n_changes)

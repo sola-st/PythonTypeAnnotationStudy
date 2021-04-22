@@ -325,7 +325,7 @@ def bar_plot_double_xy(outputFilePath, x, y1, y2, x_label=None, y_label=None, ti
     plt.ylabel(y_label)
     plt.xlabel(x_label)
 
-    plt.yscale('log')
+    #plt.yscale('log')
 
     plt.bar(numpy.array(x) - 0.2, numpy.array(y1), width=0.4, align='center',
             label='With annotations', color=(0.2, 0.4, 0.6, 0.6))
