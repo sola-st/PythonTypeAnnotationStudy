@@ -86,19 +86,19 @@ def myplot(statistics):
     bar_plot_xy(config.ROOT_DIR + "/Resources/Output/TopChanged_arg.pdf",
                 list(statistics.typeChanged_dict_arg.keys())[:5],
                 list(statistics.typeChanged_dict_arg.values())[:5], 'Top types changed in function arguments',
-                'Occurrences', ylim=1000)
+                'Occurrences', ylim=500)
 
     # RQ2.3
     bar_plot_xy(config.ROOT_DIR + "/Resources/Output/TopChanged_ret.pdf",
                 list(statistics.typeChanged_dict_ret.keys())[:5],
                 list(statistics.typeChanged_dict_ret.values())[:5], 'Top types changed in function return',
-                'Occurrences', ylim=1000)
+                'Occurrences', ylim=500)
 
     # RQ2.3
     bar_plot_xy(config.ROOT_DIR + "/Resources/Output/TopChanged_var.pdf",
                 list(statistics.typeChanged_dict_var.keys())[:5],
                 list(statistics.typeChanged_dict_var.values())[:5], 'Top types changed in variable assigment',
-                'Occurrences', ylim=1000)
+                'Occurrences', ylim=500)
 
 
     smooth_line_xy_multi(config.ROOT_DIR + "/Resources/Output/elements_annotated.pdf",
@@ -536,7 +536,9 @@ def load_final_statistics():
         n_changes.append(int(code_change['change_num']))
 
     list_lifetime = [x for x in list_lifetime if x != -1]
+    tot_ch = len(n_changes)
     n_changes = [x for x in n_changes if x != 0]
+    print(f"% never changed {100- len(n_changes)/tot_ch*100}")
 
     print(
         f"Lifetime: mean {statistics.mean(list_lifetime)}, min {min(list_lifetime)}, max {max(list_lifetime)}, count {len(list_lifetime)}")

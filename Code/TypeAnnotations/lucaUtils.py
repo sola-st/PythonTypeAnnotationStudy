@@ -176,7 +176,7 @@ def smooth_line_xy(outputFilePath, y, x_label=None, y_label=None, title=None, co
 def smooth_line_xy_multi(outputFilePath, dict, x_label=None, y_label=None, title=None, color1='blue', color2='red',
                          xlim=None,
                          ylim=None):
-    plt.rcParams.update({'font.size': font_size})
+    plt.rcParams.update({'font.size': 14})
 
     x = []
     ret = []
@@ -191,7 +191,7 @@ def smooth_line_xy_multi(outputFilePath, dict, x_label=None, y_label=None, title
 
     fig, ax = plt.subplots()
 
-    ax.set_ylim([0, max(ret + arg + var)])
+    ax.set_ylim([0, max(ret + arg + var)+2])
 
     plt.setp(ax.get_xticklabels(), rotation=30, horizontalalignment='right')
     # Plot the data
@@ -282,7 +282,8 @@ def cartesian_plot_xy(outputFilePath, x, y, x_label, y_label, title=None, color=
 
 
 def bar_plot_xy(outputFilePath, x, y, x_label, y_label, title=None, color='blue', xlim=None, ylim=None):
-    plt.rcParams.update({'font.size': 25})
+    plt.rcParams.update({'font.size': 26})
+
 
     axes = plt.gca()
     if ylim is not None:
