@@ -214,7 +214,7 @@ def myplot(statistics):
     histogram_plot_xy(config.ROOT_DIR + "/Resources/Output/perc_annotations_lines_per_commit.pdf",
                       statistics.list_typeAnnotation_changed_per_commit,
                       'Percentage of annotation-related lines among\nall inserted, removed and changed lines',
-                      'Number of commits', 'linear', 'log', bins=20)
+                      'Number of commits (log scale)', 'linear', 'log', bins=20)
 
     # RQ4.4
     # histogram_plot_xy(config.ROOT_DIR + "/Resources/Output/RQ4_4",
