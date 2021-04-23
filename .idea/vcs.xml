@@ -346,6 +346,7 @@
     <mapping directory="$PROJECT_DIR$/GitHub/asweigart-pyautogui" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/autojump" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/automl-auto-sklearn" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/GitHub/autopep8-hhatto" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/awentzonline-image-analogies" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/awesome-algorithm" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/awesome-aws" vcs="Git" />
@@ -485,6 +486,7 @@
     <mapping directory="$PROJECT_DIR$/GitHub/dbrattli-OSlash" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/ddbourgin-numpy-ml" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/deepfakes-faceswap" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/GitHub/deepinsight-insightface" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/deeplearning4j-deeplearning4j" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/deepmind-acme" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GitHub/deepmind-bsuite" vcs="Git" />

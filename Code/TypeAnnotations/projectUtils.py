@@ -98,7 +98,7 @@ def myplot(statistics):
     # RQ2.3
     bar_plot_xy(config.ROOT_DIR + "/Resources/Output/TopChanged_var.pdf",
                 list(statistics.typeChanged_dict_var.keys())[:5],
-                list(statistics.typeChanged_dict_var.values())[:5], 'Top types changed in variable assigment',
+                list(statistics.typeChanged_dict_var.values())[:5], 'Top types changed in variable assignment',
                 'Occurrences', ylim=1000)
 
 
@@ -276,95 +276,95 @@ def myplot(statistics):
     smooth_line_xy(config.ROOT_DIR + "/Resources/Output/types_last_version.pdf",
                    [x for x in statistics.typeLastProjectVersion_percentage if x <= 100],
                    x_label="Repositories sorted by ordinate",
-                   y_label="% Type annotations in last version",
-                   title="Presence of type annotations in\nthe last version of the repositories.",
+                   y_label="% Type annotations in latest version",
+                   title="Presence of type annotations in\nthe latest version of the repositories.",
                    color1='blue', color2='red',
                    xlim=None,
                    ylim=None)
 
     # RQ10
-    list_top_1_developers = []
-    list_link_repo = []
-    i = -1
-    super_total = 0
-
-    for dictionary in statistics.list_dev_plot:
-        i += 1
-        for key in dictionary:
-            if dictionary[key] == 0:
-                list_link_repo.append("https://api.github.com/repos/" + key.replace("-", "/", 1))
-
-        total = sum(dictionary.values())
-        super_total += total
-        if total == 0:
-            continue
-
-        for key in dictionary.keys():
-            dict_temp = statistics.list_dev_dict_total[i]
-            if dict_temp[key] > 0:
-                dictionary[key] = dictionary[key] / statistics.list_dev_dict_total[i][key] * 100
-
-        dictionary = dict(sort_dictionary(dictionary)[:1])
-
-        list_top_1_developers.append(float(sum(dictionary.values())))
-
-    smooth_line_xy(config.ROOT_DIR + "/Resources/Output/top_1_dev.pdf",
-                   [x for x in list_top_1_developers if x <= 100],
-                   x_label="Top developer for each\nrepository (sorted by ordinate)",
-                   y_label="% Type annotations inserted",
-                   color1='blue', color2='red',
-                   xlim=None,
-                   ylim=None)
+    # list_top_1_developers = []
+    # list_link_repo = []
+    # i = -1
+    # super_total = 0
+    #
+    # for dictionary in statistics.list_dev_plot:
+    #     i += 1
+    #     for key in dictionary:
+    #         if dictionary[key] == 0:
+    #             list_link_repo.append("https://api.github.com/repos/" + key.replace("-", "/", 1))
+    #
+    #     total = sum(dictionary.values())
+    #     super_total += total
+    #     if total == 0:
+    #         continue
+    #
+    #     for key in dictionary.keys():
+    #         dict_temp = statistics.list_dev_dict_total[i]
+    #         if dict_temp[key] > 0:
+    #             dictionary[key] = dictionary[key] / statistics.list_dev_dict_total[i][key] * 100
+    #
+    #     dictionary = dict(sort_dictionary(dictionary)[:1])
+    #
+    #     list_top_1_developers.append(float(sum(dictionary.values())))
+    #
+    # smooth_line_xy(config.ROOT_DIR + "/Resources/Output/top_1_dev.pdf",
+    #                [x for x in list_top_1_developers if x <= 100],
+    #                x_label="Top developer for each\nrepository (sorted by ordinate)",
+    #                y_label="% Type annotations inserted",
+    #                color1='blue', color2='red',
+    #                xlim=None,
+    #                ylim=None)
 
     # RQ10.2
-    list_top_1_developers = []
-    list_link_repo = []
-    i = -1
-
-    for dictionary in statistics.list_dev_plot:
-        i += 1
-        for key in dictionary:
-            if dictionary[key] == 0:
-                list_link_repo.append("https://api.github.com/repos/" + key.replace("-", "/", 1))
-
-        total = sum(dictionary.values())
-        if total == 0:
-            continue
-
-        for key in dictionary.keys():
-            dict_temp = statistics.list_dev_dict_total[i]
-            if dict_temp[key] > 0:
-                dictionary[key] = dictionary[key] / super_total * 100
-
-        dictionary = dict(sort_dictionary(dictionary)[:1])
-
-        list_top_1_developers.append(float(sum(dictionary.values())))
-
-    smooth_line_xy(config.ROOT_DIR + "/Resources/Output/top_1_dev_overall.pdf",
-                   [x for x in list_top_1_developers if x <= 100],
-                   x_label="Top developer for each\nrepository overall commits",
-                   y_label="% Type annotations inserted",
-                   color1='blue', color2='red',
-                   xlim=None,
-                   ylim=None)
-
-    list_contributors_repo = []
-
-    for url in list_link_repo:
-        all_contributors = list()
-        page_count = 1
-        while True:
-            contributors = requests.get(url + "/contributors?page=%d" % page_count)
-            if contributors != None and contributors.status_code == 200 and len(contributors.json()) > 0:
-                all_contributors = all_contributors + contributors.json()
-            else:
-                break
-            page_count = page_count + 1
-        count = len(all_contributors)
-        if count == 0:
-            print("Zero contributors for", url)
-            break
-        list_contributors_repo.append(count)
+    # list_top_1_developers = []
+    # list_link_repo = []
+    # i = -1
+    #
+    # for dictionary in statistics.list_dev_plot:
+    #     i += 1
+    #     for key in dictionary:
+    #         if dictionary[key] == 0:
+    #             list_link_repo.append("https://api.github.com/repos/" + key.replace("-", "/", 1))
+    #
+    #     total = sum(dictionary.values())
+    #     if total == 0:
+    #         continue
+    #
+    #     for key in dictionary.keys():
+    #         dict_temp = statistics.list_dev_dict_total[i]
+    #         if dict_temp[key] > 0:
+    #             dictionary[key] = dictionary[key] / super_total * 100
+    #
+    #     dictionary = dict(sort_dictionary(dictionary)[:1])
+    #
+    #     list_top_1_developers.append(float(sum(dictionary.values())))
+    #
+    # smooth_line_xy(config.ROOT_DIR + "/Resources/Output/top_1_dev_overall.pdf",
+    #                [x for x in list_top_1_developers if x <= 100],
+    #                x_label="Top developer for each\nrepository overall commits",
+    #                y_label="% Type annotations inserted",
+    #                color1='blue', color2='red',
+    #                xlim=None,
+    #                ylim=None)
+    #
+    # list_contributors_repo = []
+    #
+    # for url in list_link_repo:
+    #     all_contributors = list()
+    #     page_count = 1
+    #     while True:
+    #         contributors = requests.get(url + "/contributors?page=%d" % page_count)
+    #         if contributors != None and contributors.status_code == 200 and len(contributors.json()) > 0:
+    #             all_contributors = all_contributors + contributors.json()
+    #         else:
+    #             break
+    #         page_count = page_count + 1
+    #     count = len(all_contributors)
+    #     if count == 0:
+    #         print("Zero contributors for", url)
+    #         break
+    #     list_contributors_repo.append(count)
 
     # from scipy.stats.stats import pearsonr
     # print(pearsonr(list_2018_more_comm, list_2018_more_ann))
@@ -531,6 +531,7 @@ def load_final_statistics():
     fh = file.read()
     list = re.findall(r'\'life_time\': \'[-0-9]+\'', fh)
     list2 = re.findall(r'\'change_num\': \'[-0-9]+\'', fh)
+    list3 = re.findall(r'\'url_last_change\': \'(.*?)\'', fh)
     # i = 0
     # while True:
     #     try:
@@ -549,6 +550,18 @@ def load_final_statistics():
     #         fh = fh[:closg] + r'\"' + fh[closg + 1:]
     for s in file:
         list = re.findall(r'[a-z]+', s)
+
+    n_changes2 = []
+    for u in list3:
+        if u == '':
+            n_changes2.append(0)
+        else:
+            m = set(re.findall('/commit/(.+?)#diff', u))
+            n_changes2.append(len(m))
+
+
+
+
 
 
 
@@ -569,8 +582,8 @@ def load_final_statistics():
         n_changes.append(int(re.findall('[-0-9]+', item )[0]))
 
     list_lifetime = [x for x in list_lifetime if x != -1]
-    tot_ch = len(n_changes)
-    n_changes = [x for x in n_changes if x != 0]
+    tot_ch = len(n_changes2)
+    n_changes = [x for x in n_changes2 if x != 0]
     print(f"% never changed {100- len(n_changes)/tot_ch*100}")
 
     print(
@@ -587,7 +600,7 @@ def load_final_statistics():
     histogram_plot_xy(config.ROOT_DIR + "/Resources/Output/num_changes.pdf",
                       n_changes,
                       'Number of changes for a type annotation',
-                      'Type annotations', 'linear', 'log', bins=6)
+                      'Type annotations (log scale)', 'linear', 'log', bins=6)
 
     finalStatistics = CodeStatistics()
 

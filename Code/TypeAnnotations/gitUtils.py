@@ -147,7 +147,6 @@ def query_repo_get_changes(repo_name):  # statistics, pointer, dirlist_len):
                     if  int(commit_year) < 2014 or int(commit_year) > 2020:
                         continue
 
-                    # Only before November is consider for a better comparison with 2020
                     #if int(commit_month) <= 12:
                     if commit_year not in statistics.commit_year_dict:
                         statistics.commit_year_dict[str(commit_year)] = 1

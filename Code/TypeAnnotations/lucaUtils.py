@@ -195,9 +195,9 @@ def smooth_line_xy_multi(outputFilePath, dict, x_label=None, y_label=None, title
 
     plt.setp(ax.get_xticklabels(), rotation=30, horizontalalignment='right')
     # Plot the data
-    data_line = ax.plot(x, arg, label='Function Arguments', color=(0.2, 0.4, 0.6, 0.6))
-    data_line = ax.plot(x, ret, label='Function Returns', color='lightsalmon')
-    data_line = ax.plot(x, var, label='Variable Assignements', color='yellowgreen')
+    data_line = ax.plot(x, arg, label='Function arguments', color=(0.2, 0.4, 0.6, 0.6))
+    data_line = ax.plot(x, ret, label='Function returns', color='lightsalmon')
+    data_line = ax.plot(x, var, label='Variable assignments', color='yellowgreen')
 
     # Make a legend
     legend = ax.legend(loc='upper left')
@@ -237,21 +237,21 @@ def smooth_line_xy_double(outputFilePath, x, y, yy, x_label=None, y_label=None, 
 
 
     ax1.set_xlabel('Year')
-    ax1.set_ylabel('Type Annotations', color= 'black')
-    ax1.plot(x, y, label='Type Annotations (left)', marker='o', color=(0.2, 0.4, 0.6, 0.6))
+    ax1.set_ylabel('Type annotations', color= 'black')
+    ax1.plot(x, y, label='Type annotations (left)', marker='o', color=(0.2, 0.4, 0.6, 0.6))
     ax1.tick_params(axis='y', color='black')
 
     ax2 = ax1.twinx()  # instantiate a second axes that shares the same x-axis
 
-    ax2.set_ylabel('Type Annotations per 1000 LoC', color='black')  # we already handled the x-label with ax1
-    ax2.plot(x, yy, label='Type Annotations per 1000 LoC (right)', marker='X', color='lightsalmon')
+    ax2.set_ylabel('Type annotations per 1000 LoC', color='black')  # we already handled the x-label with ax1
+    ax2.plot(x, yy, label='Type annotations per 1000 LoC (right)', marker='X', color='lightsalmon')
     ax2.tick_params(axis='y', color='black')
 
     # if title is not None:
     #    plt.title(title)
 
     # Make a legend
-    fig.legend()
+    fig.legend(loc='upper center', bbox_to_anchor=(0.517,1.06))
 
     plt.savefig(outputFilePath, bbox_inches='tight')
 

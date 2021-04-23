@@ -167,7 +167,7 @@ def plot_errors_vs_annotations(results):
     plt.xscale("log")
     plt.yscale("log")
     plt.xlabel("Type annotations")
-    plt.ylabel("Number of warnings")
+    plt.ylabel("Number of type errors.")
     #plt.title("Type errors vs. annotations")
     plt.tight_layout()
     plt.savefig(plots_base_dir+"errors_vs_annotations.pdf")
@@ -225,7 +225,7 @@ def plot_per_project_evolution(project_to_history):
             annotation_evol.append(r["nb_param_types"] +
                                    r["nb_return_types"] + r["nb_variable_types"])
             loc_evol.append(r["loc"])
-        _, ax1 = plt.subplots()
+        fig, ax1 = plt.subplots()
         plt.xlabel(f"Time steps during version\nhistory of {p}")
         ax1.set_ylim(bottom=0, top=max(loc_evol)*1.05)
         line1 = ax1.plot(loc_evol, label="Lines of code (left)",
@@ -236,9 +236,8 @@ def plot_per_project_evolution(project_to_history):
             annotation_evol, label="Type annotations (right)", marker="x", color='lightsalmon')
         lines = line1 + line2
         labels = [l.get_label() for l in lines]
-        plt.legend(lines, labels)
-        plt.tight_layout()
-        plt.savefig(f"{plots_base_dir}per_project/{p}.pdf")
+        fig.legend(lines, labels,loc='upper center', bbox_to_anchor=(0.52, 1.1))
+        plt.savefig(f"{plots_base_dir}per_project/{p}.pdf", bbox_inches='tight')
         plt.close()
 
 
