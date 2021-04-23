@@ -167,7 +167,7 @@ def plot_errors_vs_annotations(results):
     plt.xscale("log")
     plt.yscale("log")
     plt.xlabel("Type annotations")
-    plt.ylabel("Number of type errors.")
+    plt.ylabel("Number of type errors")
     #plt.title("Type errors vs. annotations")
     plt.tight_layout()
     plt.savefig(plots_base_dir+"errors_vs_annotations.pdf")
