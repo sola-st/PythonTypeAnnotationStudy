@@ -231,7 +231,7 @@ def analyze_specific_commits(commits_file):
                 match = re.match(commit_url_regexp, commit_url)
                 project = match.group(1) + '-' + match.group(2)
                 commit = match.group(3)
-                if commit == 'b2497386bb6a1a482f0ee1c7b69986ab40b38be7':
+                if commit == 'fb96392e73d0d12b845dabea185cc9e2ffa4652a':
                     continue
                 repo_dir = repos_base_dir+project
                 parent_commit = get_parent_commit(repo_dir, commit)
