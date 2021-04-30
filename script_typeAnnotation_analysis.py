@@ -1,7 +1,7 @@
 import pstats
 import time
 import multiprocessing
-from Code.TypeAnnotations import gitUtils, lucaUtils
+from Code.TypeAnnotations import gitUtils, Utils
 from Code.TypeAnnotations.get_TOP_repo import get_TOP_repo
 from Code.TypeAnnotations.gitUtils import error_check
 from Code.TypeAnnotations.projectUtils import *
@@ -78,7 +78,7 @@ def typeAnnotation_analisis():
         # Write results in files
         try:
             # Remove old files
-            lucaUtils.delete_all_files_in_folder(config.ROOT_DIR + '/Resources/Output/')
+            Utils.delete_all_files_in_folder(config.ROOT_DIR + '/Resources/Output/')
 
             # Compute new files
             write_results(statistics_final, code_changes, commit_statistics)

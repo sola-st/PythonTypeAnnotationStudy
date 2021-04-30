@@ -26,7 +26,7 @@ Python files for this computation:
 * Code/TypeAnnotations/codeStatistics.py -> Statistics computation
 * Code/TypeAnnotations/gitUtils.py -> repository analisis
 * Code/TypeAnnotations/projectUtils.py -> plot methods
-* Code/TypeAnnotations/lucaUtils.py -> utils
+* Code/TypeAnnotations/Utils.py -> utils
 * Code/TypeAnnotations/get_TOP_repo.py -> extract top GitHub repositories
 
 _Type Errors_:

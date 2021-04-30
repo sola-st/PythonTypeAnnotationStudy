@@ -5,7 +5,7 @@ import statistics
 import config
 from Code.TypeAnnotations import codeStatistics
 from Code.TypeAnnotations.codeStatistics import CodeStatistics
-from Code.TypeAnnotations.lucaUtils import *
+from Code.TypeAnnotations.Utils import *
 import numpy as np
 import pandas as pd
 from lxml import html

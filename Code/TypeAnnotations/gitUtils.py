@@ -20,7 +20,7 @@ from Code.TypeAnnotations.codeChangeExtraction import TypeAnnotationExtractionFi
     TypeAnnotationExtractionLast, type_annotation_in_last_version, last_version_analysis, \
     TypeAnnotationExtractionLast_life, extract_from_snippet
 from Code.TypeAnnotations.codeStatistics import CodeStatistics
-from Code.TypeAnnotations.lucaUtils import write_in_json, convert_list_in_list_of_dicts
+from Code.TypeAnnotations.Utils import write_in_json, convert_list_in_list_of_dicts
 from Code.TypeErrors.TypeAnnotationCounter import count_type_annotations, extract_from_file
 
 

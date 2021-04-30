@@ -1,9 +1,3 @@
-"""
-Author: Luca Di Grazia
-My personal library with useful Python methods.
-Tested on Python 3.7
-Last update: July-2020
-"""
 import difflib
 import json
 import os
