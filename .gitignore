@@ -141,3 +141,7 @@ cython_debug/
 
 *~
 *.swp
+
+Resources/Output
+Resources/Output_typeErrors
+Resources/Output_typeErrors2
