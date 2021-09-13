@@ -45,7 +45,7 @@ def invoke_cmd(cmd, cwd):
         out = e.output.decode(sys.stdout.encoding)
     return out
 
-
+# Run pyre check here
 def check_commit(repo_dir, commit):
     print("\n===========================================")
     print(f"Checking commit {commit} of {repo_dir}")
@@ -107,6 +107,79 @@ def check_commit(repo_dir, commit):
     }
     return result
 
+def get_commit_type_error(repo_dir, commit, relevant_filenames): # repo_dir = /home/wai/hiwi/TypeAnnotation_Study/GitHub/Python
+    print("\n===========================================")
+    print(f"Checking commit {commit} of {repo_dir}")
+
+    # go to commit
+    subprocess.run(f"git checkout {commit}".split(" "), cwd=repo_dir)
+
+    # get date of commit
+    out = subprocess.check_output(
+        f"git show -s --format=%ci {commit}".split(" "), cwd=repo_dir)
+    commit_date = out.decode(sys.stdout.encoding).rstrip()
+
+    # count lines of code
+    print("--- Counting lines of code")
+    out = invoke_cmd(f"sloccount .", repo_dir)
+
+    loc = 0
+    for l in out.split("\n"):
+        l_search = re.search(r"python:\s*(\d+) .*", l)
+        if l_search is not None:
+            loc = int(l_search.group(1))
+
+    # count Python files
+    out = invoke_cmd(f"find . -name *.py", repo_dir)
+    nb_python_files = len(out.split("\n")) - 1  # last line is empty
+
+    # type check
+    print("--- Type checking")
+    # out = invoke_cmd("python --version", repo_dir)    
+    # print(out)
+    # out = invoke_cmd("pyre --version", repo_dir)
+    # print(out)
+    # out = invoke_cmd("pyre rage", repo_dir)
+    # print(out)
+    # out = invoke_cmd("git status", repo_dir)
+    # print(out)
+    # out = invoke_cmd("env", repo_dir)
+    # print(out)
+    # sys.exit()
+    out = invoke_cmd("cp ../.pyre_configuration .", repo_dir)
+    out = invoke_cmd("pyre --strict check", repo_dir)
+    
+    warnings = out.split("\n")
+    warnings = warnings[:-1]  # last line is empty
+    print(f"Got {len(warnings)} warnings")
+
+    # analyze warnings
+    kind_to_nb = Counter()
+    for w in warnings:
+        w_search = re.search(r".*:\d+:\d+ (.*\[\d+\]):.*", w)
+        if w_search is None:
+            raise Exception(f"Warning: Could not parse warning -- {w}")
+        warning_kind = w_search.group(1)
+        kind_to_nb[warning_kind] += 1
+
+    # count type annotations
+    param_types, return_types, variable_types, _, _, _ = count_type_annotations(
+        repo_dir)
+    
+    result = {
+        "commit": commit,
+        "commit_date": commit_date,
+        "loc": loc,  # number line of code
+        "nb_python_files": nb_python_files,
+        "nb_param_types": param_types,
+        "nb_return_types": return_types,
+        "nb_variable_types": variable_types,
+        "nb_warnings": len(warnings),
+        "kind_to_nb": kind_to_nb,
+        "relevant_warnings": [w for w in warnings if any(rf in w for rf in relevant_filenames)],
+        "all_warnings": warnings,
+    }
+    return result
 
 def nb_types(r):
     return r["nb_param_types"] + r["nb_variable_types"] + r["nb_return_types"]
@@ -143,11 +216,29 @@ def analyze_histories(projects, max_commits_per_project):
             repo_dir = repos_base_dir+p
             init_pyre(repo_dir)
             all_commits = get_all_commits(repo_dir)
-            #commits = sample_commits(all_commits, max_commits_per_project)
-            commits = all_commits
+            commits = sample_commits(all_commits, max_commits_per_project)
+            #commits = all_commits
             project_results = []
             for c in commits:
                 r = check_commit(repo_dir, c)
+                project_results.append(r)
+            write_results("history_"+p, project_results)
+        except Exception as e:
+            print(f"WARNING: Some problem with {p} -- skipping this project")
+            print(e)
+
+def analyze_typeAnnotation_output(projects, commits, relevant_filenames):
+    for p in projects:
+        try:
+            repo_dir = repos_base_dir+p
+            init_pyre(repo_dir)
+            # all_commits = get_all_commits(repo_dir)
+            # commits = sample_commits(all_commits, max_commits_per_project)
+            #commits = all_commits
+            project_results = []
+            for c in commits:
+                parent_commit = get_parent_commit(repo_dir, c)
+                r = get_commit_type_error(repo_dir, parent_commit, relevant_filenames)
                 project_results.append(r)
             write_results("history_"+p, project_results)
         except Exception as e:
@@ -281,10 +372,13 @@ def analyze_specific_commits(commits_file):
     # analyze_latest_commit(projects)  # TODO: still needed?
 start = time.time()
 
-analyze_histories(projects, max_commits_per_project=100000)
+# analyze_histories(projects, max_commits_per_project=5)
 
-analyze_specific_commits(
-    config.ROOT_DIR + "/Resources/Output/typeAnnotationCommitStatistics.json")
+#analyze_specific_commits(
+ #   config.ROOT_DIR + "/Resources/Output/typeAnnotationCommitStatistics.json")
+
+# The output here will be used in script_typeAnnotation_analysis for matching pyre error msg
+analyze_typeAnnotation_output(['Python'], ['cd987372e4c3a9f87d65b757ab46a48527fc9fa9'], ["graphs/multi_heuristic_astar.py"])
 
 end = time.time()
 hours, rem = divmod(end - start, 3600)

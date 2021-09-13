@@ -9,6 +9,7 @@ from Code.TypeErrors.TypeAnnotationCounter import compute_vars_without_types
 from Code.parsers import TypeCollector
 import libcst as cst
 import copy
+import sys
 from libcst.metadata import PositionProvider
 
 
@@ -194,7 +195,7 @@ def extract_from_snippet_new_new(string_old, string_new):
                                             # print('[ARG] ', parameter.annotation.annotation.value.value, '->', pos)
                                             annotation_node = SingleDiffChange('argument', 'old', parameter.name.value,
                                                                                parameter.annotation.annotation.value.value + brackets,
-                                                                               pos.start.line)
+                                                                               pos.start.line, pos.start.column)
                                             node_list_old.append(annotation_node)
                                             brackets = ""
                                         else:
@@ -203,7 +204,7 @@ def extract_from_snippet_new_new(string_old, string_new):
                                                 annotation_node = SingleDiffChange('argument', 'old',
                                                                                    parameter.name.value,
                                                                                    parameter.annotation.annotation.value,
-                                                                                   pos.start.line)
+                                                                                   pos.start.line, pos.start.column)
                                                 node_list_old.append(annotation_node)
 
                     if hasattr(node, 'returns'):
@@ -236,11 +237,11 @@ def extract_from_snippet_new_new(string_old, string_new):
                                         node.returns.annotation.value).__name__:
                                     annotation_node = SingleDiffChange('return', 'new', node.name.value,
                                                                        node.returns.annotation.value.value + brackets,
-                                                                       pos.start.line)
+                                                                       pos.start.line, pos.start.column)
                                 else:
                                     annotation_node = SingleDiffChange('return', 'new', node.name.value,
                                                                        node.returns.annotation.value + brackets,
-                                                                       pos.start.line)
+                                                                       pos.start.line, pos.start.column)
 
                                 node_list_old.append(annotation_node)
                                 brackets = ""
@@ -276,7 +277,7 @@ def extract_from_snippet_new_new(string_old, string_new):
                                             # print('[VAR] ', variable.annotation.annotation.value.value, '->', pos)
                                             annotation_node = SingleDiffChange('variable', 'old', variable.target.value,
                                                                                variable.annotation.annotation.value.value + brackets,
-                                                                               pos.start.line)
+                                                                               pos.start.line, pos.start.column)
                                             node_list_old.append(annotation_node)
                                         else:
                                             # print('[VAR2] ', variable.annotation.annotation.value, '->', pos)
@@ -284,7 +285,7 @@ def extract_from_snippet_new_new(string_old, string_new):
                                                 annotation_node = SingleDiffChange('variable', 'old',
                                                                                    variable.target.value,
                                                                                    variable.annotation.annotation.value,
-                                                                                   pos.start.line)
+                                                                                   pos.start.line, pos.start.column)
                                                 node_list_old.append(annotation_node)
 
     if not ("fatal: Path" in str(string_new) and "does not exist in" in str(string_new)):
@@ -327,14 +328,14 @@ def extract_from_snippet_new_new(string_old, string_new):
                                             # print('[ARG] ', parameter.annotation.annotation.value.value, '->', pos)
                                             annotation_node = SingleDiffChange('argument', 'new', parameter.name.value,
                                                                                parameter.annotation.annotation.value.value + brackets,
-                                                                               pos.start.line)
+                                                                               pos.start.line, pos.start.column)
                                             node_list_new.append(annotation_node)
                                             brackets = ""
                                         else:
                                             # print('[ARG2] ', parameter.annotation.annotation.value, '->', pos)
                                             annotation_node = SingleDiffChange('argument', 'new', parameter.name.value,
                                                                                parameter.annotation.annotation.value,
-                                                                               pos.start.line)
+                                                                               pos.start.line, pos.start.column)
                                             node_list_new.append(annotation_node)
                     if hasattr(node, 'returns'):
                         if hasattr(node.returns, 'annotation'):
@@ -374,11 +375,11 @@ def extract_from_snippet_new_new(string_old, string_new):
                                         node.returns.annotation.value).__name__:
                                     annotation_node = SingleDiffChange('return', 'new', node.name.value,
                                                                        node.returns.annotation.value.value + brackets,
-                                                                       pos.start.line)
+                                                                       pos.start.line, pos.start.column)
                                 else:
                                     annotation_node = SingleDiffChange('return', 'new', node.name.value,
                                                                        node.returns.annotation.value + brackets,
-                                                                       pos.start.line)
+                                                                       pos.start.line, pos.start.column)
                                 node_list_new.append(annotation_node)
                                 brackets = ""
             else:
@@ -413,13 +414,13 @@ def extract_from_snippet_new_new(string_old, string_new):
                                             # print('[VAR] ', variable.annotation.annotation.value.value, '->', pos)
                                             annotation_node = SingleDiffChange('variable', 'new', variable.target.value,
                                                                                variable.annotation.annotation.value.value + brackets,
-                                                                               pos.start.line)
+                                                                               pos.start.line, pos.start.column)
                                             node_list_new.append(annotation_node)
                                         else:
                                             # print('[VAR2] ', variable.annotation.annotation.value, '->', pos)
                                             annotation_node = SingleDiffChange('variable', 'new', variable.target.value,
                                                                                variable.annotation.annotation.value,
-                                                                               pos.start.line)
+                                                                               pos.start.line, pos.start.column)
                                             node_list_new.append(annotation_node)
 
     return node_list_old, node_list_new
@@ -460,14 +461,14 @@ def extract_from_snippet_new_new_new(string_old, string_new, file_old, file_new)
                                 # print('[ARG] ', parameter.annotation.annotation.value.value, '->', pos)
                                 annotation_node = SingleDiffChange('argument', 'new',  file_old, node.name.value,
                                                                    node.annotation.annotation.value.value + brackets,
-                                                                   pos.start.line)
+                                                                   pos.start.line, pos.start.column)
                                 node_list_old.append(annotation_node)
                                 brackets = ""
                             else:
                                 # print('[ARG2] ', parameter.annotation.annotation.value, '->', pos)
                                 annotation_node = SingleDiffChange('argument', 'new',  file_old,node.name.value,
                                                                    node.annotation.annotation.value,
-                                                                   pos.start.line)
+                                                                   pos.start.line, pos.start.column)
                                 node_list_old.append(annotation_node)
 
 
@@ -487,11 +488,11 @@ def extract_from_snippet_new_new_new(string_old, string_new, file_old, file_new)
                                     node.returns.annotation.value).__name__:
                                 annotation_node = SingleDiffChange('return', 'new', file_old, node.name.value,
                                                                    node.returns.annotation.value.value + brackets,
-                                                                   pos.start.line)
+                                                                   pos.start.line, pos.start.column)
                             else:
                                 annotation_node = SingleDiffChange('return', 'new', file_old, node.name.value,
                                                                    node.returns.annotation.value + brackets,
-                                                                   pos.start.line)
+                                                                   pos.start.line, pos.start.column)
 
                             node_list_old.append(annotation_node)
                             brackets = ""
@@ -513,14 +514,14 @@ def extract_from_snippet_new_new_new(string_old, string_new, file_old, file_new)
                                             # print('[VAR] ', variable.annotation.annotation.value.value, '->', pos)
                                             annotation_node = SingleDiffChange('variable', 'new', file_old, variable.target.value,
                                                                                variable.annotation.annotation.value.value + brackets,
-                                                                               pos.start.line)
+                                                                               pos.start.line, pos.start.column)
                                             node_list_old.append(annotation_node)
                                             brackets = ""
                                         else:
                                             # print('[VAR2] ', variable.annotation.annotation.value, '->', pos)
                                             annotation_node = SingleDiffChange('variable', 'new', file_old, variable.target.value,
                                                                                variable.annotation.annotation.value,
-                                                                               pos.start.line)
+                                                                               pos.start.line, pos.start.column)
                                             node_list_old.append(annotation_node)
 
     # For the new file
@@ -543,14 +544,14 @@ def extract_from_snippet_new_new_new(string_old, string_new, file_old, file_new)
                                 # print('[ARG] ', parameter.annotation.annotation.value.value, '->', pos)
                                 annotation_node = SingleDiffChange('argument', 'new', file_new, node.name.value,
                                                                    node.annotation.annotation.value.value + brackets,
-                                                                   pos.start.line)
+                                                                   pos.start.line, pos.start.column)
                                 node_list_new.append(annotation_node)
                                 brackets = ""
                             else:
                                 # print('[ARG2] ', parameter.annotation.annotation.value, '->', pos)
                                 annotation_node = SingleDiffChange('argument', 'new',file_new, node.name.value,
                                                                    node.annotation.annotation.value,
-                                                                   pos.start.line)
+                                                                   pos.start.line, pos.start.column)
                                 node_list_new.append(annotation_node)
 
             # Return annotation, es. def foo() -> str:
@@ -569,11 +570,11 @@ def extract_from_snippet_new_new_new(string_old, string_new, file_old, file_new)
                                     node.returns.annotation.value).__name__:
                                 annotation_node = SingleDiffChange('return', 'new',file_new, node.name.value,
                                                                    node.returns.annotation.value.value + brackets,
-                                                                   pos.start.line)
+                                                                   pos.start.line, pos.start.column)
                             else:
                                 annotation_node = SingleDiffChange('return', 'new',file_new, node.name.value,
                                                                    node.returns.annotation.value + brackets,
-                                                                   pos.start.line)
+                                                                   pos.start.line, pos.start.column)
 
                             node_list_new.append(annotation_node)
                             brackets = ""
@@ -595,18 +596,50 @@ def extract_from_snippet_new_new_new(string_old, string_new, file_old, file_new)
                                             # print('[VAR] ', variable.annotation.annotation.value.value, '->', pos)
                                             annotation_node = SingleDiffChange('variable', 'new',file_new, variable.target.value,
                                                                                variable.annotation.annotation.value.value + brackets,
-                                                                               pos.start.line)
+                                                                               pos.start.line, pos.start.column)
                                             node_list_new.append(annotation_node)
                                             brackets = ""
                                         else:
                                             # print('[VAR2] ', variable.annotation.annotation.value, '->', pos)
                                             annotation_node = SingleDiffChange('variable', 'new',file_new, variable.target.value,
                                                                                variable.annotation.annotation.value,
-                                                                               pos.start.line)
+                                                                               pos.start.line, pos.start.column)
                                             node_list_new.append(annotation_node)
 
     return node_list_old, node_list_new
 
+def handle_param(node, pos, file_old, node_list_old):
+    if hasattr(node, 'annotation') and node.annotation is not None:
+        if hasattr(node.annotation, 'annotation'):
+            if hasattr(node.annotation.annotation, 'value'):
+                attribute = ""
+
+                if hasattr(node.annotation.annotation, 'attr'):
+                    if hasattr(node.annotation.annotation.attr, 'value'):
+                        attribute = "." + str(node.annotation.annotation.attr.value)
+                if hasattr(node.annotation.annotation.value, 'value'):
+                    if hasattr(node.annotation.annotation, "slice"):
+                        brackets = collection_type_annotation_recursive(
+                            node.annotation.annotation.slice).replace("][", ",")
+
+                    # print('[ARG] ', parameter.annotation.annotation.value.value, '->', pos)
+                    annotation_node = SingleDiffChange('argument', 'old', file_old, node.name.value,
+                                                        str(node.annotation.annotation.value.value) + brackets  + attribute,
+                                                        pos.start.line, pos.start.column)
+                    node_list_old.append(annotation_node)
+                    brackets = ""
+
+                else:
+                    # print('[ARG2] ', parameter.annotation.annotation.value, '->', pos)
+                    annotation_node = SingleDiffChange('argument', 'old',file_old, node.name.value,
+                                                        str(node.annotation.annotation.value)  + attribute,
+                                                        pos.start.line, pos.start.column)
+                    node_list_old.append(annotation_node)               
+    # For old file, include nodes without annotation
+    else:
+        annotation_node = SingleDiffChange('argument', 'old',file_old, node.name.value,
+                                            'nil', pos.start.line, pos.start.column)
+        node_list_old.append(annotation_node)
 
 def extract_from_snippet_new_new_new_new(string_old, string_new, file_old, file_new):
 
@@ -618,79 +651,64 @@ def extract_from_snippet_new_new_new_new(string_old, string_new, file_old, file_
 
     brackets = ""
 
+    type_set = set()
+
+    # For the old file
     if not ("fatal: " in str(string_old)):
         ast_old = cst.parse_module(string_old)
         wrapper_old = cst.metadata.MetadataWrapper(ast_old)
         positions_old = wrapper_old.resolve(PositionProvider)
 
-        # For the old file
         for node, pos in positions_old.items():
-            if 'Param' in type(node).__name__:
-                if hasattr(node, 'annotation'):
-                    if hasattr(node.annotation, 'annotation'):
-                        if hasattr(node.annotation.annotation, 'value'):
-                            attribute = ""
-
-                            if hasattr(node.annotation.annotation, 'attr'):
-                                if hasattr(node.annotation.annotation.attr, 'value'):
-                                    attribute = "." + str(node.annotation.annotation.attr.value)
-
-                            if hasattr(node.annotation.annotation.value, 'value'):
-                                if hasattr(node.annotation.annotation, "slice"):
-                                    brackets = collection_type_annotation_recursive(
-                                        node.annotation.annotation.slice).replace("][", ",")
-
-                                # print('[ARG] ', parameter.annotation.annotation.value.value, '->', pos)
-                                annotation_node = SingleDiffChange('argument', 'new', file_old, node.name.value,
-                                                                   str(node.annotation.annotation.value.value) + str(brackets)  + attribute,
-                                                                   pos.start.line)
-                                node_list_old.append(annotation_node)
-                                brackets = ""
-
-                            else:
-                                # print('[ARG2] ', parameter.annotation.annotation.value, '->', pos)
-                                annotation_node = SingleDiffChange('argument', 'new',file_old, node.name.value,
-                                                                   str(node.annotation.annotation.value)  + attribute,
-                                                                   pos.start.line)
-                                node_list_old.append(annotation_node)
-
-                            attribute = ""
-
+            # print(type(node).__name__)
+            type_set.add(type(node).__name__)
+                
+            if 'Param' == type(node).__name__:
+                handle_param(node, pos, file_old, node_list_old)
+            elif 'Parameters' == type(node).__name__ and hasattr(node, 'params'):                
+                for p in node.params:
+                    handle_param(p, pos, file_old, node_list_old)
             # Return annotation, es. def foo() -> str:
-            elif 'Annotation' in type(node).__name__:
-                if hasattr(node, 'annotation'):
-                    if hasattr(node.annotation, 'value'):
-                        if hasattr(node.annotation.value, 'value'):
-                            if hasattr(node.annotation, "slice"):
-                                brackets = collection_type_annotation_recursive(
-                                    node.annotation.slice).replace("][", ",")
-
+            # elif 'Annotation' in type(node).__name__:
+            elif 'FunctionDef' in type(node).__name__:
+                # print(node)
+                if hasattr(node, 'returns') and node.returns is not None:
+                    if hasattr(node.returns, 'value'):
                         attribute = ""
 
-                        if hasattr(node.annotation, 'attr'):
-                            if hasattr(node.annotation.attr, 'value'):
-                                attribute = "." + str(node.annotation.attr.value)
+                        if hasattr(node.returns, 'attr'):
+                            if hasattr(node.returns.attr, 'value'):
+                                attribute = "." + str(node.returns.attr.value)
+                        if hasattr(node.returns.value, 'value'):
+                            if hasattr(node.returns, "slice"):
+                                brackets = collection_type_annotation_recursive(
+                                    node.returns.slice).replace("][", ",")
 
                         # print('[RETURN] ', node.returns.annotation.value, '->', pos)
-                        if hasattr(node.annotation.value, 'value') and 'Name' in type(
-                                node.annotation.value).__name__:
-                            annotation_node = SingleDiffChange('return', 'old',file_old, "",
-                                                               str(node.annotation.value.value) + brackets  + attribute,
-                                                               pos.start.line)
+                        if hasattr(node.returns.value, 'value') and 'Name' in type(
+                                node.returns.value).__name__:
+                            annotation_node = SingleDiffChange('return', 'old',file_old, node.name,
+                                                               str(node.returns.value.value) + brackets  + attribute,
+                                                               pos.start.line, pos.start.column)
                         else:
-                            annotation_node = SingleDiffChange('return', 'old',file_old, "",
-                                                               str(node.annotation.value) + brackets  + attribute,
-                                                               pos.start.line)
+                            annotation_node = SingleDiffChange('return', 'old',file_old, node.name,
+                                                               str(node.returns.value) + brackets  + attribute,
+                                                               pos.start.line, pos.start.column)
 
                         annotation_list_old.append(annotation_node)
                         brackets = ""
-                        attribute = ""
+                # For old file, include nodes without annotation
+                else:
+                    annotation_node = SingleDiffChange('return', 'old',file_old, node.name,
+                                                        'nil', pos.start.line, pos.start.column)
+                    annotation_list_old.append(annotation_node)
 
             # Variable Annotation, es. x:int = 5
             else:
                 if 'SimpleStatementLine' in type(node).__name__:
                     if hasattr(node, 'body'):
                         for variable in node.body:
+                            # print(variable)
                             if hasattr(variable, 'annotation'):
                                 if hasattr(variable.annotation, 'annotation'):
                                     attribute = ""
@@ -706,19 +724,30 @@ def extract_from_snippet_new_new_new_new(string_old, string_new, file_old, file_
                                                     variable.annotation.annotation.slice).replace("][", ",")
 
                                             # print('[VAR] ', variable.annotation.annotation.value.value, '->', pos)
-                                            annotation_node = SingleDiffChange('variable', 'new',file_old, variable.target.value,
+                                            annotation_node = SingleDiffChange('variable', 'old',file_old, variable.target,
                                                                                str(variable.annotation.annotation.value.value) + brackets  + attribute,
-                                                                               pos.start.line)
+                                                                               pos.start.line, pos.start.column)
                                             node_list_old.append(annotation_node)
                                             brackets = ""
 
                                         else:
                                             # print('[VAR2] ', variable.annotation.annotation.value, '->', pos)
-                                            annotation_node = SingleDiffChange('variable', 'new',file_old, variable.target.value,
+                                            annotation_node = SingleDiffChange('variable', 'old',file_old, variable.target,
                                                                                str(variable.annotation.annotation.value) + attribute,
-                                                                               pos.start.line)
+                                                                               pos.start.line, pos.start.column)
                                             node_list_old.append(annotation_node)
-                                        attribute = ""
+                            # For old file, include nodes without annotation
+                            elif hasattr(variable, 'target'):
+                                # print(variable)
+                                annotation_node = SingleDiffChange('variable', 'old',file_old, variable.target,
+                                                                    'nil', pos.start.line, pos.start.column)
+                                node_list_old.append(annotation_node)
+                            elif hasattr(variable, 'targets'): # Tuple, Subscript, Name, Attribute, ...
+                                for t in variable.targets:
+                                    if hasattr(t, 'target'):
+                                        annotation_node = SingleDiffChange('variable', 'old',file_old, t.target,
+                                                                            'nil', pos.start.line, pos.start.column)
+                                        node_list_old.append(annotation_node)
 
     # For the new file
     if not ("fatal: " in str(string_new)):
@@ -727,6 +756,8 @@ def extract_from_snippet_new_new_new_new(string_old, string_new, file_old, file_
         positions_new = wrapper_new.resolve(PositionProvider)
 
         for node, pos in positions_new.items():
+            # if 'FunctionDef' in type(node).__name__:
+            #     print(node)
             if 'Param' in type(node).__name__:
                 if hasattr(node, 'annotation'):
                     if hasattr(node.annotation, 'annotation'):
@@ -744,40 +775,40 @@ def extract_from_snippet_new_new_new_new(string_old, string_new, file_old, file_
                                 # print('[ARG] ', parameter.annotation.annotation.value.value, '->', pos)
                                 annotation_node = SingleDiffChange('argument', 'new',file_new, node.name.value,
                                                                    str(node.annotation.annotation.value.value) + brackets  + attribute,
-                                                                   pos.start.line)
+                                                                   pos.start.line, pos.start.column)
                                 node_list_new.append(annotation_node)
                                 brackets = ""
                             else:
                                 # print('[ARG2] ', parameter.annotation.annotation.value, '->', pos)
                                 annotation_node = SingleDiffChange('argument', 'new',file_new, node.name.value,
                                                                    str(node.annotation.annotation.value)  + attribute,
-                                                                   pos.start.line)
+                                                                   pos.start.line, pos.start.column)
                                 node_list_new.append(annotation_node)
 
             # Return annotation, es. def foo() -> str:
-            elif 'Annotation' in type(node).__name__:
-                if hasattr(node, 'annotation'):
-                    if hasattr(node.annotation, 'value'):
+            elif 'FunctionDef' in type(node).__name__:
+                if hasattr(node, 'returns') and node.returns is not None:
+                    if hasattr(node.returns, 'value'):
                         attribute = ""
 
-                        if hasattr(node.annotation, 'attr'):
-                            if hasattr(node.annotation.attr, 'value'):
-                                attribute = "." + str(node.annotation.attr.value)
-                        if hasattr(node.annotation.value, 'value'):
-                            if hasattr(node.annotation, "slice"):
+                        if hasattr(node.returns, 'attr'):
+                            if hasattr(node.returns.attr, 'value'):
+                                attribute = "." + str(node.returns.attr.value)
+                        if hasattr(node.returns.value, 'value'):
+                            if hasattr(node.returns, "slice"):
                                 brackets = collection_type_annotation_recursive(
-                                    node.annotation.slice).replace("][", ",")
+                                    node.returns.slice).replace("][", ",")
 
                         # print('[RETURN] ', node.returns.annotation.value, '->', pos)
-                        if hasattr(node.annotation.value, 'value') and 'Name' in type(
-                                node.annotation.value).__name__:
-                            annotation_node = SingleDiffChange('return', 'new',file_new, "",
-                                                               str(node.annotation.value.value) + brackets + attribute,
-                                                               pos.start.line)
+                        if hasattr(node.returns.value, 'value') and 'Name' in type(
+                                node.returns.value).__name__:
+                            annotation_node = SingleDiffChange('return', 'old',file_old, node.name,
+                                                               str(node.returns.value.value) + brackets  + attribute,
+                                                               pos.start.line, pos.start.column)
                         else:
-                            annotation_node = SingleDiffChange('return', 'new',file_new, "",
-                                                               str(node.annotation.value) + brackets  + attribute,
-                                                               pos.start.line)
+                            annotation_node = SingleDiffChange('return', 'old',file_old, node.name,
+                                                               str(node.returns.value) + brackets  + attribute,
+                                                               pos.start.line, pos.start.column)
 
                         annotation_list_new.append(annotation_node)
                         brackets = ""
@@ -794,6 +825,7 @@ def extract_from_snippet_new_new_new_new(string_old, string_new, file_old, file_
                                     if hasattr(variable.annotation.annotation, 'attr'):
                                         if hasattr(variable.annotation.annotation.attr, 'value'):
                                             attribute = "." + str(variable.annotation.annotation.attr.value)
+
                                     if hasattr(variable.annotation.annotation, 'value'):
                                         if hasattr(variable.annotation.annotation.value, 'value'):
                                             if hasattr(variable.annotation.annotation, "slice"):
@@ -803,14 +835,14 @@ def extract_from_snippet_new_new_new_new(string_old, string_new, file_old, file_
                                             # print('[VAR] ', variable.annotation.annotation.value.value, '->', pos)
                                             annotation_node = SingleDiffChange('variable', 'new',file_new, variable.target.value,
                                                                                str(variable.annotation.annotation.value.value) + brackets  + attribute,
-                                                                               pos.start.line)
+                                                                               pos.start.line, pos.start.column)
                                             node_list_new.append(annotation_node)
                                             brackets = ""
                                         else:
                                             # print('[VAR2] ', variable.annotation.annotation.value, '->', pos)
                                             annotation_node = SingleDiffChange('variable', 'new',file_new, variable.target.value,
                                                                                str(variable.annotation.annotation.value) + attribute,
-                                                                               pos.start.line)
+                                                                               pos.start.line, pos.start.column)
                                             node_list_new.append(annotation_node)
 
     size_old = len(annotation_list_old)
@@ -832,10 +864,20 @@ def extract_from_snippet_new_new_new_new(string_old, string_new, file_old, file_
                 del annotation_list_new[j]
                 break
 
-    if size_old == (len(node_list_old) + len(annotation_list_old)) and size_new == (len(node_list_new) + len(annotation_list_new)):
-        return node_list_old + annotation_list_old, node_list_new + annotation_list_new
-    else:
-        return extract_from_snippet_new_new_new(string_old, string_new, file_old, file_new)
+    # Debug:
+    print(type_set)
+    print(size_old)
+    print(size_new)
+    print(len(node_list_old))
+    print(len(node_list_new))
+    print(len(annotation_list_old))
+    print(len(annotation_list_new))
+    return node_list_old + annotation_list_old, node_list_new + annotation_list_new
+
+    # if size_old == (len(node_list_old) + len(annotation_list_old)) and size_new == (len(node_list_new) + len(annotation_list_new)):
+    #     return node_list_old + annotation_list_old, node_list_new + annotation_list_new
+    # else:
+    #     return extract_from_snippet_new_new_new(string_old, string_new, file_old, file_new)
 
 
 def collection_type_annotation_recursive(slice) -> str:
@@ -1364,10 +1406,10 @@ def TypeAnnotationExtractionLast(repo_path, repo_name, commit, patch, url, stati
         code_changes += code_changes_new
 
 def TypeAnnotationExtractionLast_life(repo_path, repo_name, commit, patch, url, statistics,  # lock, logging,
-                                 at_least_one_type_change, code_changes,
+                                 at_least_one_type_change, code_changes, # code_changes stores the metadata of the code change across different commits and patches
                                  typeannotation_line_inserted, typeannotation_line_removed, typeannotation_line_changed,
-                                 list_line_added, list_line_removed,
-                                 commit_year, commit_month, commit_day):
+                                 list_line_added, list_line_removed, commit_year, commit_month, commit_day,
+                                 err_dict=None):
     code_changes_new = []
 
     line_type_annotation_added = []
@@ -1389,13 +1431,13 @@ def TypeAnnotationExtractionLast_life(repo_path, repo_name, commit, patch, url, 
 
     try:
         #print(url)
-        node_list_old, node_list_new = extract_from_snippet_new_new_new_new(
+        node_list_old, node_list_new = extract_from_snippet_new_new_new_new( # extract PARAM, VAR, RETURN annotation
             str(old_stdout.decode('utf-8-sig')),
             str(new_stdout.decode('utf-8-sig')),
-        str(patch.delta.old_file.path),
-        str(patch.delta.new_file.path))
+            str(patch.delta.old_file.path),
+            str(patch.delta.new_file.path))
     except Exception as e:
-        # print(str(e), repo_path, commit.hex)
+        print(str(e), repo_path, commit.hex)
         return
 
     try:
@@ -1408,6 +1450,15 @@ def TypeAnnotationExtractionLast_life(repo_path, repo_name, commit, patch, url, 
         #########################################################################
         ####                    TYPE Annotations                  ###############
         #########################################################################
+        
+        # Debug:
+        # print('node_list_old', len(node_list_old))
+        # for n in node_list_old:
+        #     print(n.__dict__)
+        # print('node_list_new', len(node_list_new))
+        # for n in node_list_new:
+        #     print(n.__dict__)        
+        
 
         for hunk in patch.hunks:
             # result77 = hashlib.md5("main.py".encode('utf-8')).hexdigest()
@@ -1415,14 +1466,14 @@ def TypeAnnotationExtractionLast_life(repo_path, repo_name, commit, patch, url, 
                 if annotation_old.line not in range(hunk.old_start, hunk.old_start + hunk.old_lines):
                     continue
                 j = -1
-                flag_insert = True
+                flag_remove = True
                 for annotation_new in node_list_new:
                     j += 1
                     if annotation_new.line not in range(hunk.new_start, hunk.new_start + hunk.new_lines):
                         continue
-
+                    # Transformation - Modify: this node/annotation is in both old and new code
                     if annotation_old.type == annotation_new.type and annotation_old.variable == annotation_new.variable and annotation_old.filename == annotation_new.filename:
-
+                        
                         # print('[CHANGED]', annotation_old.type, annotation_old.annotation, ' -> ',annotation_new.annotation)
                         if hasattr(annotation_old.annotation, 'value'):
                             annotation_old.annotation = str(annotation_old.annotation.value)
@@ -1432,19 +1483,34 @@ def TypeAnnotationExtractionLast_life(repo_path, repo_name, commit, patch, url, 
 
                         if annotation_old.annotation == annotation_new.annotation:
                             del node_list_new[j]
-                            flag_insert = False
+                            flag_remove = False # annotation is the same, no need to process, quit and remove this
                             break
 
-                        for elem in code_changes:
-                            if elem.where == annotation_old.type and elem.variable == annotation_old.variable and elem.new_file == annotation_old.filename:
-                                elem.change_num = str(int(elem.change_num) + 1)
-                                elem.old_file = str(patch.delta.old_file.path)
-                                elem.old_annotation = str(annotation_old.annotation)
-                                elem.old_line = str(annotation_old.line)
-                                elem.new_file = str(patch.delta.new_file.path)
-                                elem.new_annotation = str(annotation_new.annotation)
-                                elem.new_line = str(annotation_new.line)
-                                elem.url_last_change += url + 'R' + str(annotation_old.line)
+                        temp = CodeChange("",
+                                          "",
+                                          url + 'R' + str(annotation_old.line),
+                                          str(commit_year),
+                                          f"{commit_year}-{commit_month}-{commit_day}",
+                                          "",
+                                          "-1",
+                                          "0",
+                                          str(annotation_old.type),
+                                          '[CHANGED]',
+                                          '' if 'Name' in type(annotation_old.variable).__name__ else annotation_old.variable,
+                                          str(patch.delta.old_file.path),
+                                          str(annotation_old.annotation),
+                                          str(annotation_old.line),
+                                          str(patch.delta.new_file.path),
+                                          str(annotation_new.annotation),
+                                          str(annotation_new.line))  
+                        temp.commit_hex = str(commit.hex)
+                        temp.old_col = str(annotation_old.col)
+                        temp.new_col = str(annotation_new.col)
+
+                        code_changes_new.append(temp)
+                        
+                        del node_list_new[j]
+                        flag_remove = False
 
                         statistics.number_type_annotations_per_repo[repo_name] += 1
                         statistics.total_typeAnnotation_codeChanges += 1
@@ -1455,7 +1521,7 @@ def TypeAnnotationExtractionLast_life(repo_path, repo_name, commit, patch, url, 
                             statistics.modify_existing_types[str(commit_year)] += 1
 
                         line_type_annotation_changed.append(str(annotation_old.line))
-
+                        # Counting annotation change:
                         if str(annotation_old.type) == 'argument':
                             if (annotation_old.annotation + ' -> ' + annotation_new.annotation).lower() not in statistics.typeChanged_dict_arg:
                                 statistics.typeChanged_dict_arg[
@@ -1490,36 +1556,38 @@ def TypeAnnotationExtractionLast_life(repo_path, repo_name, commit, patch, url, 
                         elif annotation_old.type == 'variable':
                             statistics.variableType_changed += 1
 
-                        del node_list_new[j]
-                        flag_insert = False
+                        # del node_list_new[j]
+                        # flag_insert = False
                         break
-
-                if flag_insert:
+                # # Transformation - Remove: if annotation_old not found in annotation_new, and there exists an annotation in annotation_old
+                if flag_remove and annotation_old.annotation != 'nil':
                     # print('[REMOVED]', annotation_old.type, annotation_old.annotation)
 
                     if hasattr(annotation_old.annotation, 'value'):
                         annotation_old.annotation = str(annotation_old.annotation.value)
 
-                    for elem in code_changes:
-                        if elem.where == annotation_old.type and elem.variable == annotation_old.variable and elem.new_file == annotation_old.filename:
-                            if "-" in elem.elimination_date:
-                                continue
+                    temp = CodeChange("",
+                                      url + 'R' + str(annotation_old.line),
+                                      "",
+                                      str(commit_year),
+                                      "",
+                                      f"{commit_year}-{commit_month}-{commit_day}",
+                                      "-1",
+                                      "0",
+                                      str(annotation_old.type),
+                                      '[REMOVED]',
+                                      '' if 'Name' in type(annotation_old.variable).__name__ else annotation_old.variable,
+                                      str(patch.delta.old_file.path),
+                                      annotation_old.annotation,
+                                      annotation_old.line,
+                                      ' ',
+                                      ' ',
+                                      ' ')
+                    temp.commit_hex = str(commit.hex)
+                    temp.old_col = str(annotation_old.col)
+                    temp.new_col = ""
 
-                            elem.url_deletion = url + 'R' + str(annotation_old.line)
-                            
-                            elem.type = "[REMOVED]"
-
-                            elem.new_annotation = ""
-                            elem.new_file = ""
-                            elem.new_line = ""
-
-                            elem.old_annotation = annotation_old.annotation
-                            elem.old_file = str(patch.delta.old_file.path)
-                            elem.old_line = annotation_old.line
-
-                            elem.elimination_date = f"{commit_year}-{commit_month}-{commit_day}"
-                            elem.life_time = str(days_between(elem.creation_date,elem.elimination_date))
-                            #print(elem.life_time)
+                    code_changes_new.append(temp)
 
                     statistics.number_type_annotations_per_repo[repo_name] += 1
                     statistics.total_typeAnnotation_codeChanges += 1
@@ -1546,8 +1614,8 @@ def TypeAnnotationExtractionLast_life(repo_path, repo_name, commit, patch, url, 
                     elif annotation_old.type == 'variable':
                         statistics.variableType_removed += 1
 
-                    flag_insert = True
-
+                    flag_remove = True # Don't think we need this
+            # Transformation - Insert: remaining annotation in new code (other annotation are processed in the above)
             for remained in node_list_new:
                 if remained.line in range(hunk.new_start, hunk.new_start + hunk.new_lines):
                     # print('[INSERTED]', remained.type, remained.annotation)
@@ -1573,7 +1641,10 @@ def TypeAnnotationExtractionLast_life(repo_path, repo_name, commit, patch, url, 
                                       ' ',
                                       str(patch.delta.new_file.path),
                                       str(remained.annotation),
-                                      str(remained.line))
+                                      str(remained.line))  
+                    temp.commit_hex = str(commit.hex)
+                    temp.old_col = ' '
+                    temp.new_col = str(remained.col)
 
                     code_changes_new.append(temp)
 
@@ -1623,6 +1694,14 @@ def TypeAnnotationExtractionLast_life(repo_path, repo_name, commit, patch, url, 
 
         list_line_added[0] += len(set(line_type_annotation_added))
         list_line_removed[0] += len(set(line_type_annotation_removed))
+        
+    # TODO(wai): Put it here for now for clarity.
+    # Should do it in the above before each code_changes_new.append(), here we are looping the list again
+    for c in code_changes_new:
+        if (c.old_file, c.old_line, c.old_col) in err_dict:
+            c.prev_commit_pyre_err = err_dict[(c.old_file, c.old_line, c.old_col)]
+        elif (c.new_file, c.new_line, c.new_col) in err_dict:
+            c.prev_commit_pyre_err = err_dict[(c.new_file, c.new_line, c.new_col)]
 
     if len(code_changes_new) > 0:
         at_least_one_type_change[0] += 1

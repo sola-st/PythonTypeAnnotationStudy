@@ -40,7 +40,13 @@ def typeAnnotation_analisis():
             profile.enable()
 
             print("\nWorking on TEST CONFIGURATION")
-            process_statistics += gitUtils.query_repo_get_changes("mypy")
+            # https://github.com/TheAlgorithms/Python/commit/cd987372e4c3a9f87d65b757ab46a48527fc9fa9
+            # parent = d668c172b07bf9f54d63dc295016a96ec782a541
+            # TODO(wai): fetch commit list and fetch (filename, line, col): error_string pair
+            process_statistics += [gitUtils.query_repo_get_changes("Python", 
+                ['cd987372e4c3a9f87d65b757ab46a48527fc9fa9'], 
+                dict({('graphs/multi_heuristic_astar.py','236','30'): "graphs/multi_heuristic_astar.py:236:30 Missing parameter annotation [2]: Parameter `n_heuristic` has no type specified."})
+            )]
 
             profile.disable()
             ps = pstats.Stats(profile).sort_stats('cumulative')
