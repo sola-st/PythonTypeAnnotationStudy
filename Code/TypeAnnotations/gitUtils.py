@@ -88,7 +88,7 @@ def repo_cloning_csv( pathOutput: str) -> None:
                 print('[Error] cloning repository:', str(e))
                 continue
 
-def query_repo_get_changes(repo_name, target_commits=None, err_dict=None):  # statistics, pointer, dirlist_len):
+def query_repo_get_changes(repo_name, err_dict=None, target_commits=None):  # statistics, pointer, dirlist_len):
     start = time.time()
     file_extension = '.py'
     statistics = CodeStatistics()
@@ -143,10 +143,9 @@ def query_repo_get_changes(repo_name, target_commits=None, err_dict=None):  # st
             for commit in repo.walk(last_commit, GIT_SORT_TOPOLOGICAL | GIT_SORT_REVERSE):
                 try:
                     commit_count += 1
-                    # print(str(commit.hex))
                     if target_commits is not None and str(commit.hex) not in target_commits:
                        continue
-                    print(str(commit.hex))
+                    # print(str(commit.hex))
                     commit_year = time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(commit.commit_time))[:4]
                     commit_month = time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(commit.commit_time))[5:7]
                     commit_day = time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(commit.commit_time))[8:10]

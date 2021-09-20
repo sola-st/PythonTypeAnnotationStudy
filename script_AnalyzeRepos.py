@@ -107,7 +107,7 @@ def check_commit(repo_dir, commit):
     }
     return result
 
-def get_commit_type_error(repo_dir, commit, relevant_filenames): # repo_dir = /home/wai/hiwi/TypeAnnotation_Study/GitHub/Python
+def get_commit_type_error(repo_dir, commit): # repo_dir = /home/wai/hiwi/TypeAnnotation_Study/GitHub/Python
     print("\n===========================================")
     print(f"Checking commit {commit} of {repo_dir}")
 
@@ -176,7 +176,6 @@ def get_commit_type_error(repo_dir, commit, relevant_filenames): # repo_dir = /h
         "nb_variable_types": variable_types,
         "nb_warnings": len(warnings),
         "kind_to_nb": kind_to_nb,
-        "relevant_warnings": [w for w in warnings if any(rf in w for rf in relevant_filenames)],
         "all_warnings": warnings,
     }
     return result
@@ -227,18 +226,19 @@ def analyze_histories(projects, max_commits_per_project):
             print(f"WARNING: Some problem with {p} -- skipping this project")
             print(e)
 
-def analyze_typeAnnotation_output(projects, commits, relevant_filenames):
+def analyze_typeAnnotation_output(projects, max_commits_per_project, commits=None):
     for p in projects:
         try:
             repo_dir = repos_base_dir+p
             init_pyre(repo_dir)
-            # all_commits = get_all_commits(repo_dir)
-            # commits = sample_commits(all_commits, max_commits_per_project)
-            #commits = all_commits
+            if commits is None:
+                all_commits = get_all_commits(repo_dir)
+                commits = sample_commits(all_commits, max_commits_per_project)
+                #commits = all_commits
             project_results = []
             for c in commits:
                 parent_commit = get_parent_commit(repo_dir, c)
-                r = get_commit_type_error(repo_dir, parent_commit, relevant_filenames)
+                r = get_commit_type_error(repo_dir, parent_commit)
                 project_results.append(r)
             write_results("history_"+p, project_results)
         except Exception as e:
@@ -378,7 +378,7 @@ start = time.time()
  #   config.ROOT_DIR + "/Resources/Output/typeAnnotationCommitStatistics.json")
 
 # The output here will be used in script_typeAnnotation_analysis for matching pyre error msg
-analyze_typeAnnotation_output(['Python'], ['cd987372e4c3a9f87d65b757ab46a48527fc9fa9'], ["graphs/multi_heuristic_astar.py"])
+analyze_typeAnnotation_output(['Python'], 1, ['cd987372e4c3a9f87d65b757ab46a48527fc9fa9'])
 
 end = time.time()
 hours, rem = divmod(end - start, 3600)

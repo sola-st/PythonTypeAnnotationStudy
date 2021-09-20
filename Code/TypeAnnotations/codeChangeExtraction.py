@@ -865,13 +865,13 @@ def extract_from_snippet_new_new_new_new(string_old, string_new, file_old, file_
                 break
 
     # Debug:
-    print(type_set)
-    print(size_old)
-    print(size_new)
-    print(len(node_list_old))
-    print(len(node_list_new))
-    print(len(annotation_list_old))
-    print(len(annotation_list_new))
+    # print(type_set)
+    # print(size_old)
+    # print(size_new)
+    # print(len(node_list_old))
+    # print(len(node_list_new))
+    # print(len(annotation_list_old))
+    # print(len(annotation_list_new))
     return node_list_old + annotation_list_old, node_list_new + annotation_list_new
 
     # if size_old == (len(node_list_old) + len(annotation_list_old)) and size_new == (len(node_list_new) + len(annotation_list_new)):
@@ -1437,7 +1437,7 @@ def TypeAnnotationExtractionLast_life(repo_path, repo_name, commit, patch, url, 
             str(patch.delta.old_file.path),
             str(patch.delta.new_file.path))
     except Exception as e:
-        print(str(e), repo_path, commit.hex)
+        # print(str(e), repo_path, commit.hex)
         return
 
     try:
@@ -1697,11 +1697,13 @@ def TypeAnnotationExtractionLast_life(repo_path, repo_name, commit, patch, url, 
         
     # TODO(wai): Put it here for now for clarity.
     # Should do it in the above before each code_changes_new.append(), here we are looping the list again
+    parent_commit = commit.parent_ids[0].hex
     for c in code_changes_new:
-        if (c.old_file, c.old_line, c.old_col) in err_dict:
-            c.prev_commit_pyre_err = err_dict[(c.old_file, c.old_line, c.old_col)]
-        elif (c.new_file, c.new_line, c.new_col) in err_dict:
-            c.prev_commit_pyre_err = err_dict[(c.new_file, c.new_line, c.new_col)]
+        if parent_commit in err_dict: # TODO: Ignoring merge (i.e. len(parent_ids) > 1)
+            if c.old_file in err_dict[parent_commit]:
+                if c.old_line in err_dict[parent_commit][c.old_file]:
+                    if c.old_col in err_dict[parent_commit][c.old_file][c.old_line]:
+                        c.prev_commit_pyre_err = err_dict[parent_commit][c.old_file][c.old_line][c.old_col]
 
     if len(code_changes_new) > 0:
         at_least_one_type_change[0] += 1
