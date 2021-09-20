@@ -1702,6 +1702,8 @@ def TypeAnnotationExtractionLast_life(repo_path, repo_name, commit, patch, url, 
         if parent_commit in err_dict: # TODO: Ignoring merge (i.e. len(parent_ids) > 1)
             if c.old_file in err_dict[parent_commit]:
                 if c.old_line in err_dict[parent_commit][c.old_file]:
+                    # potentially relevant error message (pyre errors that were on the same line)
+                    c.relevant_prev_commit_pyre_err = list(err_dict[parent_commit][c.old_file][c.old_line].values())
                     if c.old_col in err_dict[parent_commit][c.old_file][c.old_line]:
                         c.prev_commit_pyre_err = err_dict[parent_commit][c.old_file][c.old_line][c.old_col]
 
