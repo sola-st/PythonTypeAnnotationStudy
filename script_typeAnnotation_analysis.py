@@ -55,8 +55,11 @@ def typeAnnotation_analisis():
                     if l not in err_dict[h['commit']][f]:
                         err_dict[h['commit']][f][l] = dict()
                     err_dict[h['commit']][f][l][c] = w
-
-            process_statistics += [gitUtils.query_repo_get_changes("Python", err_dict, ['cd987372e4c3a9f87d65b757ab46a48527fc9fa9'])]
+            # TODO(wai): update insert/modify/remove logic
+            # TODO(wai): some duplicate entries
+            process_statistics += [gitUtils.query_repo_get_changes("Python", err_dict, ['cd987372e4c3a9f87d65b757ab46a48527fc9fa9', 'a5bcf0f6749a93a44f7a981edc9b0e35fbd066f2'])]            
+            # Use a5bcf0f6749a93a44f7a981edc9b0e35fbd066f2 for checking function type extraction
+            # process_statistics += [gitUtils.query_repo_get_changes("Python", err_dict, ['a5bcf0f6749a93a44f7a981edc9b0e35fbd066f2'])]            
 
             # Example (for checking a single commit and error):
             # https://github.com/TheAlgorithms/Python/commit/cd987372e4c3a9f87d65b757ab46a48527fc9fa9
