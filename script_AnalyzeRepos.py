@@ -3,6 +3,7 @@
 import subprocess
 import sys
 import re
+import random
 import time
 from collections import Counter
 import json
@@ -245,6 +246,33 @@ def analyze_typeAnnotation_output(projects, max_commits_per_project, commits=Non
             print(f"WARNING: Some problem with {p} -- skipping this project")
             print(e)
 
+def get_type_warning_removed_output(projects, max_commits_per_project, commits=None, num_commit=100):
+    for p in projects:
+        try:
+            repo_dir = repos_base_dir+p
+            init_pyre(repo_dir)
+            if commits is None:
+                all_commits = get_all_commits(repo_dir)
+                commits = sample_commits(all_commits, max_commits_per_project)
+                #commits = all_commits
+            project_results = []
+            for c in commits:
+                parent_commit = get_parent_commit(repo_dir, c)
+                parent_res = get_commit_type_error(repo_dir, parent_commit)
+                res = get_commit_type_error(repo_dir, c)
+                if res['nb_warnings'] < parent_res['nb_warnings']:
+                    project_results.append({'commit': c, 'warning_removed': parent_res['nb_warnings'] - res['nb_warnings']})
+                    # The following is not accurate as line/column/identifier might change
+                    # for pw in parent_res['all_warnings']:
+                    #     if pw not in res['all_warnings']:
+                    #         project_results.append({'commit': c, 'warning_removed': pw})
+            # Get commits randomly from each repo
+            random.Random(2021).shuffle(project_results)
+            project_results = project_results[:num_commit]
+            write_results("history_warning_removed_"+p, project_results)
+        except Exception as e:
+            print(f"WARNING: Some problem with {p} -- skipping this project")
+            print(e)
 
 def analyze_latest_commit(projects):
     results = []
@@ -378,7 +406,8 @@ start = time.time()
  #   config.ROOT_DIR + "/Resources/Output/typeAnnotationCommitStatistics.json")
 
 # The output here will be used in script_typeAnnotation_analysis for matching pyre error msg
-analyze_typeAnnotation_output(['Python'], 1, ['cd987372e4c3a9f87d65b757ab46a48527fc9fa9'])
+# analyze_typeAnnotation_output(['Python'], 1, ['cd987372e4c3a9f87d65b757ab46a48527fc9fa9'])
+get_type_warning_removed_output(['Python'], 1, ['cd987372e4c3a9f87d65b757ab46a48527fc9fa9'])
 
 end = time.time()
 hours, rem = divmod(end - start, 3600)
