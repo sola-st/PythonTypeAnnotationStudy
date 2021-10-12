@@ -266,6 +266,7 @@ def get_type_warning_removed_output(projects, max_commits_per_project, commits=N
                 res = get_commit_type_error(repo_dir, c)
                 if res['nb_warnings'] < parent_res['nb_warnings']:
                     out = {
+                        'project': p,
                         'commit': c, 
                         'parent_commit': parent_commit, 
                         'warning_removed': parent_res['nb_warnings'] - res['nb_warnings'],
