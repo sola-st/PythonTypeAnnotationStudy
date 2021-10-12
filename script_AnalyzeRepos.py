@@ -148,7 +148,7 @@ def get_commit_type_error(repo_dir, commit): # repo_dir = /home/wai/hiwi/TypeAnn
     # print(out)
     # sys.exit()
     out = invoke_cmd("cp ../.pyre_configuration .", repo_dir)
-    out = invoke_cmd("pyre --strict check", repo_dir)
+    out = invoke_cmd("pyre check", repo_dir)
     
     warnings = out.split("\n")
     warnings = warnings[:-1]  # last line is empty
