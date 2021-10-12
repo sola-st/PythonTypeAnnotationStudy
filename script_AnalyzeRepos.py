@@ -250,15 +250,13 @@ def analyze_typeAnnotation_output(projects, max_commits_per_project, commits=Non
             print(f"WARNING: Some problem with {p} -- skipping this project")
             print(e)
 
-def get_type_warning_removed_output(projects, max_commits_per_project, commits=None):
+def get_type_warning_removed_output(projects, max_commits_per_project):
     for p in projects:
         try:
             repo_dir = repos_base_dir+p
-            init_pyre(repo_dir)
-            if commits is None:
-                all_commits = get_all_commits(repo_dir)
-                commits = sample_commits(all_commits, max_commits_per_project)
-                #commits = all_commits
+            init_pyre(repo_dir)            
+            all_commits = get_all_commits(repo_dir)
+            commits = sample_commits(all_commits, max_commits_per_project)
             project_results = []
             for c in commits:
                 parent_commit = get_parent_commit(repo_dir, c)
