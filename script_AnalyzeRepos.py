@@ -157,7 +157,7 @@ def get_commit_type_error(repo_dir, commit): # repo_dir = /home/wai/hiwi/TypeAnn
     # analyze warnings
     kind_to_nb = Counter()
     for w in warnings:
-        w_search = re.search(r".*:\d+:\d+ (.*\[\d+\]):.*", w)
+        w_search = re.search(r".*:-?\d+:-?\d+ (.*\[\d+\]):.*", w)
         if w_search is None:
             raise Exception(f"Warning: Could not parse warning -- {w}")
         warning_kind = w_search.group(1)
