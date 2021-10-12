@@ -5,7 +5,7 @@ import sys
 import re
 import random
 import time
-from collections import Counter
+from collections import Counter, defaultdict
 import json
 from os import path, scandir
 from Code.TypeErrors.TypeAnnotationCounter import count_type_annotations
@@ -246,7 +246,7 @@ def analyze_typeAnnotation_output(projects, max_commits_per_project, commits=Non
             print(f"WARNING: Some problem with {p} -- skipping this project")
             print(e)
 
-def get_type_warning_removed_output(projects, max_commits_per_project, commits=None, num_commit=100):
+def get_type_warning_removed_output(projects, max_commits_per_project, commits=None):
     for p in projects:
         try:
             repo_dir = repos_base_dir+p
@@ -261,14 +261,35 @@ def get_type_warning_removed_output(projects, max_commits_per_project, commits=N
                 parent_res = get_commit_type_error(repo_dir, parent_commit)
                 res = get_commit_type_error(repo_dir, c)
                 if res['nb_warnings'] < parent_res['nb_warnings']:
-                    project_results.append({'commit': c, 'warning_removed': parent_res['nb_warnings'] - res['nb_warnings']})
+                    out = {
+                        'commit': c, 
+                        'parent_commit': parent_commit, 
+                        'warning_removed': parent_res['nb_warnings'] - res['nb_warnings'],
+                        'parent_warnings': [],
+                        'warnings': []
+                    }
+                    parent_files = defaultdict(lambda: 0)
+                    files = defaultdict(lambda: 0)
+                    for w in parent_res['all_warnings']:
+                        f = w.split(':')[0]
+                        parent_files[f] += 1
+                    for w in res['all_warnings']:
+                        f = w.split(':')[0]
+                        files[f] += 1
+                    for f, count in parent_files.items():
+                        if f in files and files[f] < count:
+                            out['parent_warnings'].append([i for i in parent_res['all_warnings'] if i.split(':')[0] in f])
+                            out['warnings'].append([i for i in res['all_warnings'] if i.split(':')[0] in f])
+                        elif f not in files:
+                            out['parent_warnings'].append([i for i in parent_res['all_warnings'] if i.split(':')[0] in f])
+                    project_results.append(out)
                     # The following is not accurate as line/column/identifier might change
                     # for pw in parent_res['all_warnings']:
                     #     if pw not in res['all_warnings']:
                     #         project_results.append({'commit': c, 'warning_removed': pw})
             # Get commits randomly from each repo
             random.Random(2021).shuffle(project_results)
-            project_results = project_results[:num_commit]
+            # project_results = project_results[:num_commit]
             write_results("history_warning_removed_"+p, project_results)
         except Exception as e:
             print(f"WARNING: Some problem with {p} -- skipping this project")
@@ -407,7 +428,7 @@ start = time.time()
 
 # The output here will be used in script_typeAnnotation_analysis for matching pyre error msg
 # analyze_typeAnnotation_output(['Python'], 1, ['cd987372e4c3a9f87d65b757ab46a48527fc9fa9'])
-get_type_warning_removed_output(['Python'], 1, ['cd987372e4c3a9f87d65b757ab46a48527fc9fa9'])
+get_type_warning_removed_output(['Python'], 100)
 
 end = time.time()
 hours, rem = divmod(end - start, 3600)
