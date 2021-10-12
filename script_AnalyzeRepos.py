@@ -156,27 +156,31 @@ def get_commit_type_error(repo_dir, commit): # repo_dir = /home/wai/hiwi/TypeAnn
 
     # analyze warnings
     kind_to_nb = Counter()
+    file_to_count = defaultdict(lambda: 0)
     for w in warnings:
-        w_search = re.search(r".*:-?\d+:-?\d+ (.*\[\d+\]):.*", w)
+        w_search = re.search(r"(.*):-?\d+:-?\d+ (.*\[\d+\]):.*", w)
         if w_search is None:
             raise Exception(f"Warning: Could not parse warning -- {w}")
-        warning_kind = w_search.group(1)
+        filename = w_search.group(1)
+        file_to_count[filename] += 1
+        warning_kind = w_search.group(2)
         kind_to_nb[warning_kind] += 1
 
     # count type annotations
-    param_types, return_types, variable_types, _, _, _ = count_type_annotations(
-        repo_dir)
+    # param_types, return_types, variable_types, _, _, _ = count_type_annotations(
+    #     repo_dir)
     
     result = {
         "commit": commit,
         "commit_date": commit_date,
         "loc": loc,  # number line of code
         "nb_python_files": nb_python_files,
-        "nb_param_types": param_types,
-        "nb_return_types": return_types,
-        "nb_variable_types": variable_types,
+        # "nb_param_types": param_types,
+        # "nb_return_types": return_types,
+        # "nb_variable_types": variable_types,
         "nb_warnings": len(warnings),
         "kind_to_nb": kind_to_nb,
+        "file_to_count": file_to_count,
         "all_warnings": warnings,
     }
     return result
@@ -268,14 +272,8 @@ def get_type_warning_removed_output(projects, max_commits_per_project, commits=N
                         'parent_warnings': [],
                         'warnings': []
                     }
-                    parent_files = defaultdict(lambda: 0)
-                    files = defaultdict(lambda: 0)
-                    for w in parent_res['all_warnings']:
-                        f = w.split(':')[0]
-                        parent_files[f] += 1
-                    for w in res['all_warnings']:
-                        f = w.split(':')[0]
-                        files[f] += 1
+                    parent_files = parent_res['file_to_count']
+                    files = res['file_to_count']
                     for f, count in parent_files.items():
                         if f in files and files[f] < count:
                             out['parent_warnings'].append([i for i in parent_res['all_warnings'] if i.split(':')[0] in f])
