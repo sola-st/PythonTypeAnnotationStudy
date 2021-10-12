@@ -428,6 +428,9 @@ start = time.time()
 # The output here will be used in script_typeAnnotation_analysis for matching pyre error msg
 # analyze_typeAnnotation_output(['Python'], 1, ['cd987372e4c3a9f87d65b757ab46a48527fc9fa9'])
 get_type_warning_removed_output(['Python'], 100)
+repos = ['Python-100-Days', 'models', 'thefuck', 'keras', 'transformers', 
+    'face_recognition','cpython','faceswap','fastapi','localstack']
+get_type_warning_removed_output(repos, 100)
 
 end = time.time()
 hours, rem = divmod(end - start, 3600)
