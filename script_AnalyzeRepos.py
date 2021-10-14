@@ -259,31 +259,35 @@ def get_type_warning_removed_output(projects, max_commits_per_project):
             commits = sample_commits(all_commits, max_commits_per_project)
             project_results = []
             for c in commits:
-                parent_commit = get_parent_commit(repo_dir, c)
-                parent_res = get_commit_type_error(repo_dir, parent_commit)
-                res = get_commit_type_error(repo_dir, c)
-                if res['nb_warnings'] < parent_res['nb_warnings']:
-                    out = {
-                        'project': p,
-                        'commit': c, 
-                        'parent_commit': parent_commit, 
-                        'warning_removed': parent_res['nb_warnings'] - res['nb_warnings'],
-                        'parent_warnings': [],
-                        'warnings': []
-                    }
-                    parent_files = parent_res['file_to_count']
-                    files = res['file_to_count']
-                    for f, count in parent_files.items():
-                        if f in files and files[f] < count:
-                            out['parent_warnings'].append([i for i in parent_res['all_warnings'] if i.split(':')[0] in f])
-                            out['warnings'].append([i for i in res['all_warnings'] if i.split(':')[0] in f])
-                        elif f not in files:
-                            out['parent_warnings'].append([i for i in parent_res['all_warnings'] if i.split(':')[0] in f])
-                    project_results.append(out)
-                    # The following is not accurate as line/column/identifier might change
-                    # for pw in parent_res['all_warnings']:
-                    #     if pw not in res['all_warnings']:
-                    #         project_results.append({'commit': c, 'warning_removed': pw})
+                try:
+                    parent_commit = get_parent_commit(repo_dir, c)
+                    parent_res = get_commit_type_error(repo_dir, parent_commit)
+                    res = get_commit_type_error(repo_dir, c)
+                    if res['nb_warnings'] < parent_res['nb_warnings']:
+                        out = {
+                            'project': p,
+                            'commit': c, 
+                            'parent_commit': parent_commit, 
+                            'warning_removed': parent_res['nb_warnings'] - res['nb_warnings'],
+                            'parent_warnings': [],
+                            'warnings': []
+                        }
+                        parent_files = parent_res['file_to_count']
+                        files = res['file_to_count']
+                        for f, count in parent_files.items():
+                            if f in files and files[f] < count:
+                                out['parent_warnings'].append([i for i in parent_res['all_warnings'] if i.split(':')[0] in f])
+                                out['warnings'].append([i for i in res['all_warnings'] if i.split(':')[0] in f])
+                            elif f not in files:
+                                out['parent_warnings'].append([i for i in parent_res['all_warnings'] if i.split(':')[0] in f])
+                        project_results.append(out)
+                        # The following is not accurate as line/column/identifier might change
+                        # for pw in parent_res['all_warnings']:
+                        #     if pw not in res['all_warnings']:
+                        #         project_results.append({'commit': c, 'warning_removed': pw})
+                except Exception as e:
+                    print(f"WARNING: Some problem with commit {c} of {p} -- skipping this commit")
+                    print(e)
             # Get commits randomly from each repo
             random.Random(2021).shuffle(project_results)
             # project_results = project_results[:num_commit]
@@ -425,9 +429,9 @@ start = time.time()
 
 # The output here will be used in script_typeAnnotation_analysis for matching pyre error msg
 # analyze_typeAnnotation_output(['Python'], 1, ['cd987372e4c3a9f87d65b757ab46a48527fc9fa9'])
-get_type_warning_removed_output(['Python'], 100)
+get_type_warning_removed_output(['Python'], 500)
 repos = ['models', 'thefuck', 'keras', 'transformers', 
-    'face_recognition','cpython','faceswap','fastapi','localstack', 'openpilot']
+    'face_recognition','faceswap','fastapi','localstack', 'openpilot']
 get_type_warning_removed_output(repos, 100)
 
 end = time.time()
