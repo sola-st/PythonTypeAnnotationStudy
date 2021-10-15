@@ -263,7 +263,9 @@ def get_type_warning_removed_output(projects, max_commits_per_project):
             project_results = []
             for c in commits:
                 try:
-                    parent_commit = get_parent_commit(repo_dir, c)
+                    parent_commit = get_parent_commit(repo_dir, c).split()[0]                
+                    # e.g. for ['75007332e4eddac6d67bcf9ad805a02972ef2caf aae156252f5d9a82b0a308ae3243755ee4d81bab'],
+                    # parent_commit == '75007332e4eddac6d67bcf9ad805a02972ef2caf'
                     parent_res = get_commit_type_error(repo_dir, parent_commit)
                     res = get_commit_type_error(repo_dir, c)
                     if res['nb_warnings'] < parent_res['nb_warnings']:
