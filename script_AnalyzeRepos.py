@@ -154,7 +154,7 @@ def get_commit_type_error(repo_dir, commit): # repo_dir = /home/wai/hiwi/TypeAnn
     warnings = warnings[:-1]  # last line is empty
     print(f"Got {len(warnings)} warnings")
 
-    warnings = [k for k in warnings if ' Could not find a module corresponding to import' not in k]
+    warnings = [k for k in warnings if 'Could not find a module corresponding to import' not in k and 'Undefined import' not in k]
     print(f"Got {len(warnings)} warnings after removing import error")
 
     # analyze warnings
