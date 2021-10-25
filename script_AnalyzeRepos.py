@@ -261,14 +261,15 @@ def get_type_warning_removed_output(projects, max_commits_per_project, target_co
             repo_dir = repos_base_dir+p
             init_pyre(repo_dir)            
             all_commits = get_all_commits(repo_dir)
-            if target_commits[p] is not None:
+            target_exist = target_commits is not None and target_commits[p] is not None
+            if target_exist:
                 commits = all_commits
             else:
                 commits = sample_commits(all_commits, max_commits_per_project)
             project_results = []
             for c in commits:
                 try:
-                    if target_commits[p] is not None and c not in target_commits[p]:
+                    if target_exist and c not in target_commits[p]:
                         continue
                     parent_commit = get_parent_commit(repo_dir, c).split()[0]                
                     # e.g. for ['75007332e4eddac6d67bcf9ad805a02972ef2caf aae156252f5d9a82b0a308ae3243755ee4d81bab'],
