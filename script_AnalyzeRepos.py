@@ -441,8 +441,10 @@ start = time.time()
  #   config.ROOT_DIR + "/Resources/Output/typeAnnotationCommitStatistics.json")
 
 # The output here will be used in script_typeAnnotation_analysis for matching pyre error msg
-# analyze_typeAnnotation_output(['Python'], 1, ['cd987372e4c3a9f87d65b757ab46a48527fc9fa9'])
-get_type_warning_removed_output(['Python'], 0, {'Python': ['531d2d6']})
+get_type_warning_removed_output(['Python'], 0, { 
+    # commits with "mypy" in commit message:
+    "Python": ["5e7eed6", "20a4fdf", "af0810f", "4545270", "d009cea", "3c22524", "da71184", "a5bcf0f", "a4b7d12", "c5003a2", "7634cf0", "407c979", "7342b33", "bc09ba9", "4a2216b", "307ffd8", "256c319", "4412eaf", "9586230", "86baec0", "62d4418", "3ea5a13", "977511b", "03d9b67", "deb7116", "252df0a", "531d2d6", "c49fa08", "8c29860", "20c7518", "6089536", "a53fcf2", "5229c74", "895bca3", "c22c7d5", "9b60be6", "9595079", "a8db5d4", "ce99859", "14bcb58", "2c6f553", "8d7ef6a", "9875673", "ffa53c0", "8e488dd", "4f6a929", "4c76e3c", "7df393f", "a4726ca", "2a6e4bb", "81c46df", "2595cf0", "97b6ca2", "d594f45", "00e279e", "207ac95", "f3ba9b6", "ad5108d", "06dad4f", "25164bb", "03e7f37", "aaaa175", "00a6701", "20e09c3", "11ec2fd", "629848e", "0616148", "d924a80", "08254eb", "83a63d9", "b373c99", "9153db2", "fdf095f", "08d4d22", "4bf2eed", "4cf1aae", "bcfca67", "d324f91", "abc725f", "c1b15a8"]
+})
 repos = ['models', 'thefuck', 'keras', 'transformers', 
     'face_recognition','faceswap','fastapi','localstack', 'openpilot']
 get_type_warning_removed_output(repos, 100)
