@@ -290,6 +290,11 @@ def get_type_warning_removed_output(projects, max_commits_per_project, target_co
                             if f in files and files[f] < count:
                                 out['parent_warnings'].append([i for i in parent_res['all_warnings'] if i.split(':')[0] in f])
                                 out['warnings'].append([i for i in res['all_warnings'] if i.split(':')[0] in f])
+                                # Remove warnings that exist in both parent_warnings and warnings
+                                for pw in out['parent_warnings'][-1]:
+                                    if pw in out['warnings'][-1]:
+                                        out['parent_warnings'][-1].remove(pw)
+                                        out['warnings'][-1].remove(pw)
                             elif f not in files:
                                 out['parent_warnings'].append([i for i in parent_res['all_warnings'] if i.split(':')[0] in f])
                         project_results.append(out)
@@ -437,7 +442,7 @@ start = time.time()
 
 # The output here will be used in script_typeAnnotation_analysis for matching pyre error msg
 # analyze_typeAnnotation_output(['Python'], 1, ['cd987372e4c3a9f87d65b757ab46a48527fc9fa9'])
-get_type_warning_removed_output(['Python'], 0, {'Python': ['cd98737']})
+get_type_warning_removed_output(['Python'], 0, {'Python': ['531d2d6']})
 repos = ['models', 'thefuck', 'keras', 'transformers', 
     'face_recognition','faceswap','fastapi','localstack', 'openpilot']
 get_type_warning_removed_output(repos, 100)
