@@ -145,3 +145,9 @@ cython_debug/
 Resources/Output
 Resources/Output_typeErrors
 Resources/Output_typeErrors2
+Resources/Output_typeErrors_backup
+.pyre_configuration
+Resources/Input/
+tmp_diff
+Resources/type_fix_dataset_backup
+wai_hiwi/

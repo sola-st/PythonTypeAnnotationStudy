@@ -13,7 +13,7 @@ from Code.TypeErrors.TypeAnnotationCounter import count_type_annotations
 import config
 
 repos_base_dir = config.ROOT_DIR + "/GitHub/"
-results_base_dir = config.ROOT_DIR + "/Resources/Output_typeErrors/"
+results_base_dir = config.ROOT_DIR + "/Resources/Output_type_fix_commits/"
 
 
 def find_all_projects():
