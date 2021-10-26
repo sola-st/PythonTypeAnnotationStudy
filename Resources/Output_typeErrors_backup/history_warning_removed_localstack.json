@@ -1,0 +1,110 @@
+[
+  {
+    "project": "localstack",
+    "commit": "d0eea77d",
+    "parent_commit": "18261169ed968579cefe78699d581a65640c36b7 2ceadb713641df582bdfda9622d1c2e46b6a26ca",
+    "warning_removed": 3,
+    "parent_warnings": [
+      [
+        "localstack/services/apigateway/apigateway_listener.py:10:0 Undefined import [21]: Could not find a name `TEST_KINESIS_URL` defined in module `localstack.config`.",
+        "localstack/services/apigateway/apigateway_listener.py:10:0 Undefined import [21]: Could not find a name `TEST_SQS_URL` defined in module `localstack.config`."
+      ],
+      [
+        "localstack/services/generic_proxy.py:10:0 Undefined import [21]: Could not find a module corresponding to import `flask_cors`.",
+        "localstack/services/generic_proxy.py:31:4 Incompatible variable type [9]: CORS_ALLOWED_HEADERS is declared to have type `typing.Tuple[str, str, str, str, str, str, str, str, str, str]` but is used as type `typing.Tuple[typing.Any, ...]`.",
+        "localstack/services/generic_proxy.py:37:4 Incompatible variable type [9]: CORS_EXPOSE_HEADERS is declared to have type `typing.Tuple[str]` but is used as type `typing.Tuple[typing.Any, ...]`."
+      ],
+      [
+        "localstack/utils/analytics/event_publisher.py:70:8 Undefined import [21]: Could not find a module corresponding to import `localstack_ext.bootstrap.licensing`."
+      ]
+    ],
+    "warnings": [
+      [
+        "localstack/services/apigateway/apigateway_listener.py:8:0 Undefined import [21]: Could not find a name `TEST_KINESIS_URL` defined in module `localstack.config`."
+      ],
+      [
+        "localstack/services/generic_proxy.py:10:0 Undefined import [21]: Could not find a module corresponding to import `flask_cors`."
+      ]
+    ]
+  },
+  {
+    "project": "localstack",
+    "commit": "69c4588a",
+    "parent_commit": "2d4cba8e02f4d7d7da410d8bb201aff19d873846 d797626ae64cc994200e1186dfa616f13c7599ca",
+    "warning_removed": 1,
+    "parent_warnings": [
+      [
+        "localstack/constants.py:2:0 Undefined import [21]: Could not find a module corresponding to import `localstack_client.config`."
+      ]
+    ],
+    "warnings": []
+  },
+  {
+    "project": "localstack",
+    "commit": "c3ae5ac6",
+    "parent_commit": "4b69a89333c3b993da47568717835e52e953a713 488626eb56f3cabd971fb4f463c1761946710dba",
+    "warning_removed": 1,
+    "parent_warnings": [
+      [
+        "localstack/config.py:36:11 Incompatible parameter type [6]: Expected `typing.Union[bytes, typing_extensions.SupportsIndex]` for 1st positional only parameter to call `bytes.__contains__` but got `str`.",
+        "localstack/config.py:82:78 Unbound name [10]: Name `TEST_APIGATEWAY_URL` is used but not defined in the current scope."
+      ]
+    ],
+    "warnings": [
+      [
+        "localstack/config.py:64:78 Unbound name [10]: Name `TEST_APIGATEWAY_URL` is used but not defined in the current scope."
+      ]
+    ]
+  },
+  {
+    "project": "localstack",
+    "commit": "73789013",
+    "parent_commit": "e1db07528513418a72d9f00b1ae79b4ada5e693d 2aab7697e59e25d6b0292435cee413dd850fa8a0",
+    "warning_removed": 3,
+    "parent_warnings": [
+      [
+        "localstack/mock/infra.py:11:0 Undefined import [21]: Could not find a module corresponding to import `boto3`.",
+        "localstack/mock/infra.py:12:0 Undefined import [21]: Could not find a module corresponding to import `__init__`."
+      ],
+      [
+        "localstack/utils/aws/aws_stack.py:2:0 Undefined import [21]: Could not find a module corresponding to import `boto3`.",
+        "localstack/utils/aws/aws_stack.py:8:0 Undefined import [21]: Could not find a module corresponding to import `elasticsearch`.",
+        "localstack/utils/aws/aws_stack.py:12:0 Undefined import [21]: Could not find a module corresponding to import `requests_aws4auth`.",
+        "localstack/utils/aws/aws_stack.py:161:8 Undefined import [21]: Could not find a module corresponding to import `jsonpath_rw`.",
+        "localstack/utils/aws/aws_stack.py:187:4 Undefined import [21]: Could not find a module corresponding to import `airspeed`."
+      ],
+      [
+        "localstack/utils/common.py:9:0 Undefined import [21]: Could not find a module corresponding to import `sh`.",
+        "localstack/utils/common.py:178:4 Undefined import [21]: Could not find a module corresponding to import `subprocess32`."
+      ],
+      [
+        "localstack/utils/kinesis/kinesis_connector.py:13:0 Undefined import [21]: Could not find a module corresponding to import `urlparse`.",
+        "localstack/utils/kinesis/kinesis_connector.py:14:0 Undefined import [21]: Could not find a module corresponding to import `amazon_kclpy`.",
+        "localstack/utils/kinesis/kinesis_connector.py:16:0 Undefined import [21]: Could not find a module corresponding to import `sh`.",
+        "localstack/utils/kinesis/kinesis_connector.py:35:21 Undefined attribute [16]: Module `logging` has no attribute `SEVERE`.",
+        "localstack/utils/kinesis/kinesis_connector.py:37:93 Undefined attribute [16]: Module `logging` has no attribute `SEVERE`.",
+        "localstack/utils/kinesis/kinesis_connector.py:46:23 Undefined or invalid type [11]: Annotation `kcl.RecordProcessorBase` is not defined as a type."
+      ]
+    ],
+    "warnings": [
+      [
+        "localstack/mock/infra.py:11:0 Undefined import [21]: Could not find a module corresponding to import `__init__`."
+      ],
+      [
+        "localstack/utils/aws/aws_stack.py:2:0 Undefined import [21]: Could not find a module corresponding to import `boto3`.",
+        "localstack/utils/aws/aws_stack.py:7:0 Undefined import [21]: Could not find a module corresponding to import `elasticsearch`.",
+        "localstack/utils/aws/aws_stack.py:140:8 Undefined import [21]: Could not find a module corresponding to import `jsonpath_rw`.",
+        "localstack/utils/aws/aws_stack.py:166:4 Undefined import [21]: Could not find a module corresponding to import `airspeed`."
+      ],
+      [
+        "localstack/utils/common.py:166:4 Undefined import [21]: Could not find a module corresponding to import `subprocess32`."
+      ],
+      [
+        "localstack/utils/kinesis/kinesis_connector.py:11:0 Undefined import [21]: Could not find a module corresponding to import `urlparse`.",
+        "localstack/utils/kinesis/kinesis_connector.py:12:0 Undefined import [21]: Could not find a module corresponding to import `amazon_kclpy`.",
+        "localstack/utils/kinesis/kinesis_connector.py:14:0 Undefined import [21]: Could not find a module corresponding to import `sh`.",
+        "localstack/utils/kinesis/kinesis_connector.py:27:23 Undefined or invalid type [11]: Annotation `kcl.RecordProcessorBase` is not defined as a type."
+      ]
+    ]
+  }
+]

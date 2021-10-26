@@ -1,0 +1,393 @@
+[
+  {
+    "project": "thefuck",
+    "commit": "5a8d889",
+    "parent_commit": "1f96faef2cd530806310478f6e812113ed583874 f286033f82cd3337d05851d516c4b9e29490e0b3",
+    "warning_removed": 1,
+    "parent_warnings": [
+      [
+        "thefuck/rules/apt_get.py:2:4 Undefined import [21]: Could not find a module corresponding to import `CommandNotFound`."
+      ]
+    ],
+    "warnings": []
+  },
+  {
+    "project": "thefuck",
+    "commit": "9cae0bf",
+    "parent_commit": "5b420204c9efa1939925a8ff62e3f5bcb971b516",
+    "warning_removed": 1,
+    "parent_warnings": [
+      [
+        "tests/rules/test_git_flag_after_filename.py:1:0 Undefined import [21]: Could not find a module corresponding to import `pytest`."
+      ]
+    ],
+    "warnings": []
+  },
+  {
+    "project": "thefuck",
+    "commit": "e0b5d47",
+    "parent_commit": "785cb83ff3fd744cf04fd868c9791966e417269e a947259eefad7a2332b03afcb1545cb093002d11",
+    "warning_removed": 2,
+    "parent_warnings": [
+      [
+        "tests/rules/test_git_stash_pop.py:1:0 Undefined import [21]: Could not find a module corresponding to import `pytest`."
+      ],
+      [
+        "tests/rules/test_ifconfig_device_not_found.py:1:0 Undefined import [21]: Could not find a module corresponding to import `pytest`."
+      ]
+    ],
+    "warnings": []
+  },
+  {
+    "project": "thefuck",
+    "commit": "934870f",
+    "parent_commit": "9c9a7343de2714584ed702ede19197ad147ae531 cb6f964a307cd25323eb69346aa7cea9d753e8a0",
+    "warning_removed": 5,
+    "parent_warnings": [
+      [
+        "tests/shells/conftest.py:1:0 Undefined import [21]: Could not find a module corresponding to import `pytest`."
+      ],
+      [
+        "tests/shells/test_bash.py:3:0 Undefined import [21]: Could not find a module corresponding to import `pytest`."
+      ],
+      [
+        "tests/shells/test_fish.py:3:0 Undefined import [21]: Could not find a module corresponding to import `pytest`."
+      ],
+      [
+        "tests/shells/test_generic.py:3:0 Undefined import [21]: Could not find a module corresponding to import `pytest`."
+      ],
+      [
+        "tests/shells/test_tcsh.py:3:0 Undefined import [21]: Could not find a module corresponding to import `pytest`."
+      ],
+      [
+        "tests/shells/test_zsh.py:3:0 Undefined import [21]: Could not find a module corresponding to import `pytest`."
+      ]
+    ],
+    "warnings": []
+  },
+  {
+    "project": "thefuck",
+    "commit": "215c64d",
+    "parent_commit": "fd759ea2ac992bc3f2e43c0e54023775ad64f999 ab76f87e013e330ad50f4a81ee0c72c36cb29681",
+    "warning_removed": 1,
+    "parent_warnings": [
+      [
+        "tests/rules/test_unknown_command.py:1:0 Undefined import [21]: Could not find a module corresponding to import `pytest`."
+      ]
+    ],
+    "warnings": []
+  },
+  {
+    "project": "thefuck",
+    "commit": "c0002fe",
+    "parent_commit": "6609b8d06a61ba0184fa56a032ccec43fc07c218 867aec83c312d3ca9fb8317f0278904d181d0368",
+    "warning_removed": 4,
+    "parent_warnings": [
+      [
+        "setup.py:2:0 Undefined import [21]: Could not find a module corresponding to import `setuptools`.",
+        "setup.py:7:4 Undefined import [21]: Could not find a module corresponding to import `pypandoc`."
+      ],
+      [
+        "tests/rules/test_dirty_untar.py:2:0 Undefined import [21]: Could not find a module corresponding to import `pytest`."
+      ],
+      [
+        "tests/rules/test_dirty_unzip.py:2:0 Undefined import [21]: Could not find a module corresponding to import `pytest`."
+      ],
+      [
+        "tests/rules/test_tsuru_not_command.py:1:0 Undefined import [21]: Could not find a module corresponding to import `pytest`."
+      ]
+    ],
+    "warnings": [
+      [
+        "setup.py:2:0 Undefined import [21]: Could not find a module corresponding to import `setuptools`."
+      ]
+    ]
+  },
+  {
+    "project": "thefuck",
+    "commit": "b016bb2",
+    "parent_commit": "1aaaca12206a02247bd539f065359d668e1760f2 bf109ee5483ffc860bcc15db16de63ae1796c5ee",
+    "warning_removed": 2,
+    "parent_warnings": [
+      [
+        "tests/rules/test_yarn_command_replaced.py:1:0 Undefined import [21]: Could not find a module corresponding to import `pytest`."
+      ],
+      [
+        "tests/test_argument_parser.py:1:0 Undefined import [21]: Could not find a module corresponding to import `pytest`."
+      ]
+    ],
+    "warnings": []
+  },
+  {
+    "project": "thefuck",
+    "commit": "464f86e",
+    "parent_commit": "5abab8bd1e3e49a745c5204a9f47bc4fdcb9cf67 891fbe7ed1fc1d450d28a9f17b60c4e6bd5f0a85",
+    "warning_removed": 1,
+    "parent_warnings": [
+      [
+        "tests/rules/test_cp_omitting_directory.py:1:0 Undefined import [21]: Could not find a module corresponding to import `pytest`."
+      ],
+      [
+        "tests/rules/test_git_branch_delete.py:1:0 Undefined import [21]: Could not find a module corresponding to import `pytest`."
+      ]
+    ],
+    "warnings": []
+  },
+  {
+    "project": "thefuck",
+    "commit": "f1ed8ad",
+    "parent_commit": "9518416a2faf52c17d910726d4186068c50e96fd 1627c891cbc66408fbb3ca74adb74db72b283557",
+    "warning_removed": 1,
+    "parent_warnings": [
+      [
+        "tests/rules/test_lein_not_task.py:1:0 Undefined import [21]: Could not find a module corresponding to import `pytest`."
+      ]
+    ],
+    "warnings": []
+  },
+  {
+    "project": "thefuck",
+    "commit": "4c2fc49",
+    "parent_commit": "0c2083485d15e2f16b422eca81e1f87ac2254e96 bc78c832246c645048a41f01c8129abac96e4e23",
+    "warning_removed": 11,
+    "parent_warnings": [
+      [
+        "tests/rules/test_fab_command_not_found.py:1:0 Undefined import [21]: Could not find a module corresponding to import `pytest`."
+      ],
+      [
+        "tests/rules/test_gradle_not_task.py:1:0 Undefined import [21]: Could not find a module corresponding to import `pytest`."
+      ],
+      [
+        "tests/rules/test_gradle_wrapper.py:1:0 Undefined import [21]: Could not find a module corresponding to import `pytest`."
+      ],
+      [
+        "tests/rules/test_grunt_task_not_found.py:4:0 Undefined import [21]: Could not find a module corresponding to import `pytest`."
+      ],
+      [
+        "tests/rules/test_npm_missing_script.py:1:0 Undefined import [21]: Could not find a module corresponding to import `pytest`."
+      ],
+      [
+        "tests/rules/test_npm_run_script.py:1:0 Undefined import [21]: Could not find a module corresponding to import `pytest`."
+      ],
+      [
+        "tests/rules/test_port_already_in_use.py:3:0 Undefined import [21]: Could not find a module corresponding to import `pytest`."
+      ],
+      [
+        "tests/rules/test_react_native_command_unrecognized.py:1:0 Undefined import [21]: Could not find a module corresponding to import `pytest`."
+      ],
+      [
+        "tests/rules/test_workon_doesnt_exists.py:1:0 Undefined import [21]: Could not find a module corresponding to import `pytest`."
+      ],
+      [
+        "tests/specific/test_npm.py:3:0 Undefined import [21]: Could not find a module corresponding to import `pytest`."
+      ],
+      [
+        "thefuck/rules/workon_doesnt_exists.py:4:4 Undefined import [21]: Could not find a module corresponding to import `pathlib2`."
+      ]
+    ],
+    "warnings": []
+  },
+  {
+    "project": "thefuck",
+    "commit": "6bbd680",
+    "parent_commit": "d2b0b6e8ec2bf8295e270edb93eeede9f9ed53fe e5f8e9c0dedb25be027633a8083fc39a83a7f831",
+    "warning_removed": 7,
+    "parent_warnings": [
+      [
+        "tests/conftest.py:4:4 Undefined import [21]: Could not find a module corresponding to import `pathlib2`.",
+        "tests/conftest.py:5:0 Undefined import [21]: Could not find a module corresponding to import `pytest`."
+      ],
+      [
+        "tests/rules/test_git_rebase_no_changes.py:1:0 Undefined import [21]: Could not find a module corresponding to import `pytest`."
+      ],
+      [
+        "tests/test_corrector.py:3:0 Undefined import [21]: Could not find a module corresponding to import `pytest`.",
+        "tests/test_corrector.py:8:4 Undefined import [21]: Could not find a module corresponding to import `pathlib2`."
+      ],
+      [
+        "tests/test_types.py:9:4 Undefined import [21]: Could not find a module corresponding to import `pathlib2`.",
+        "tests/test_types.py:10:0 Undefined import [21]: Could not find a module corresponding to import `pytest`."
+      ],
+      [
+        "thefuck/conf.py:7:4 Undefined import [21]: Could not find a module corresponding to import `pathlib2`."
+      ],
+      [
+        "thefuck/corrector.py:4:4 Undefined import [21]: Could not find a module corresponding to import `pathlib2`."
+      ],
+      [
+        "thefuck/utils.py:16:4 Undefined import [21]: Could not find a module corresponding to import `pathlib2`.",
+        "thefuck/utils.py:22:4 Undefined import [21]: Could not find a module corresponding to import `anydbm`."
+      ]
+    ],
+    "warnings": [
+      [
+        "tests/conftest.py:2:0 Undefined import [21]: Could not find a module corresponding to import `pytest`."
+      ],
+      [
+        "tests/test_corrector.py:3:0 Undefined import [21]: Could not find a module corresponding to import `pytest`."
+      ],
+      [
+        "tests/test_types.py:7:0 Undefined import [21]: Could not find a module corresponding to import `pytest`."
+      ],
+      [
+        "thefuck/utils.py:19:4 Undefined import [21]: Could not find a module corresponding to import `anydbm`."
+      ]
+    ]
+  },
+  {
+    "project": "thefuck",
+    "commit": "910e6f4",
+    "parent_commit": "190e47ecdbbfbe4ca56726af26cfee66c060908c d3146aa0aca57522820f5bdb0a22f5b248de407e",
+    "warning_removed": 2,
+    "parent_warnings": [
+      [
+        "tests/rules/test_java.py:1:0 Undefined import [21]: Could not find a module corresponding to import `pytest`."
+      ],
+      [
+        "tests/rules/test_javac.py:1:0 Undefined import [21]: Could not find a module corresponding to import `pytest`."
+      ]
+    ],
+    "warnings": []
+  },
+  {
+    "project": "thefuck",
+    "commit": "4b3e6a1",
+    "parent_commit": "c1b67f25142b034ab66a9a4834260467f09fb494 3d6e7b17dba313119c960ac6b0104577aa0c65a8",
+    "warning_removed": 1,
+    "parent_warnings": [
+      [
+        "tests/rules/test_git_two_dashes.py:1:0 Undefined import [21]: Could not find a module corresponding to import `pytest`."
+      ],
+      [
+        "tests/rules/test_touch.py:1:0 Undefined import [21]: Could not find a module corresponding to import `pytest`."
+      ]
+    ],
+    "warnings": []
+  },
+  {
+    "project": "thefuck",
+    "commit": "581c97e",
+    "parent_commit": "0a53966f9bc83d3f722d6e35701e4c8dc4f7483a 79d94e2651efe072661efcae5015f5a06d295eda",
+    "warning_removed": 2,
+    "parent_warnings": [
+      [
+        "tests/rules/test_brew_upgrade.py:1:0 Undefined import [21]: Could not find a module corresponding to import `pytest`."
+      ],
+      [
+        "tests/rules/test_cargo_no_command.py:1:0 Undefined import [21]: Could not find a module corresponding to import `pytest`."
+      ]
+    ],
+    "warnings": []
+  },
+  {
+    "project": "thefuck",
+    "commit": "bbdac18",
+    "parent_commit": "d7c67ad09d339b55a4a7595f1d4905189ec66a5b fc8f1b11361c2aff3e42cc2d2e39b07c505aa3d9",
+    "warning_removed": 7,
+    "parent_warnings": [
+      [
+        "tests/rules/conftest.py:1:0 Undefined import [21]: Could not find a module corresponding to import `pytest`."
+      ],
+      [
+        "tests/rules/test_apt_get.py:1:0 Undefined import [21]: Could not find a module corresponding to import `pytest`."
+      ],
+      [
+        "tests/rules/test_git_add.py:1:0 Undefined import [21]: Could not find a module corresponding to import `pytest`."
+      ],
+      [
+        "tests/rules/test_git_checkout.py:1:0 Undefined import [21]: Could not find a module corresponding to import `pytest`."
+      ],
+      [
+        "tests/rules/test_git_stash.py:1:0 Undefined import [21]: Could not find a module corresponding to import `pytest`."
+      ],
+      [
+        "tests/rules/test_pacman.py:1:0 Undefined import [21]: Could not find a module corresponding to import `pytest`."
+      ],
+      [
+        "tests/rules/test_whois.py:1:0 Undefined import [21]: Could not find a module corresponding to import `pytest`."
+      ]
+    ],
+    "warnings": []
+  },
+  {
+    "project": "thefuck",
+    "commit": "725ef27",
+    "parent_commit": "d2f8cebfd8564a12c29e79d8204f7b9d71db0636 2fea1f3846e88c24261c66116228f06c5fc8b52c",
+    "warning_removed": 4,
+    "parent_warnings": [
+      [
+        "tests/rules/test_hostscli.py:1:0 Undefined import [21]: Could not find a module corresponding to import `pytest`."
+      ],
+      [
+        "tests/rules/test_missing_space_before_subcommand.py:1:0 Undefined import [21]: Could not find a module corresponding to import `pytest`."
+      ],
+      [
+        "tests/rules/test_path_from_history.py:1:0 Undefined import [21]: Could not find a module corresponding to import `pytest`."
+      ],
+      [
+        "tests/test_not_configured.py:1:0 Undefined import [21]: Could not find a module corresponding to import `pytest`."
+      ]
+    ],
+    "warnings": []
+  },
+  {
+    "project": "thefuck",
+    "commit": "ec64fbd",
+    "parent_commit": "1b12cd85e977ba47c2280d7b997eaa74281e5a79 be744f20ba3637fbd4df360463f3be84cc940c67",
+    "warning_removed": 2,
+    "parent_warnings": [
+      [
+        "tests/rules/test_apt_invalid_operation.py:2:0 Undefined import [21]: Could not find a module corresponding to import `pytest`."
+      ],
+      [
+        "thefuck/utils.py:21:4 Undefined import [21]: Could not find a module corresponding to import `gdbm`."
+      ]
+    ],
+    "warnings": []
+  },
+  {
+    "project": "thefuck",
+    "commit": "7c56764",
+    "parent_commit": "8feb722ed0b56d1eb973f06c3b60d5f9cd6ca3ef",
+    "warning_removed": 1,
+    "parent_warnings": [
+      [
+        "tests/rules/test_systemctl.py:1:0 Undefined import [21]: Could not find a module corresponding to import `pytest`."
+      ]
+    ],
+    "warnings": []
+  },
+  {
+    "project": "thefuck",
+    "commit": "b928a59",
+    "parent_commit": "6372674351f43c8fde3666326928040ddddc0b69 32fd929e481ccd4f277df1599e94104667de5931",
+    "warning_removed": 4,
+    "parent_warnings": [
+      [
+        "tests/test_conf.py:1:0 Undefined import [21]: Could not find a module corresponding to import `pytest`."
+      ],
+      [
+        "tests/test_main.py:1:0 Undefined import [21]: Could not find a module corresponding to import `pytest`."
+      ],
+      [
+        "tests/test_shells.py:1:0 Undefined import [21]: Could not find a module corresponding to import `pytest`."
+      ],
+      [
+        "tests/test_utils.py:1:0 Undefined import [21]: Could not find a module corresponding to import `pytest`."
+      ]
+    ],
+    "warnings": []
+  },
+  {
+    "project": "thefuck",
+    "commit": "66e2ec7",
+    "parent_commit": "300c8f528adca45593b8aa44db33265e89fc6137 92cca7b6418b0db0d618ca7e0f9a96efce289af6",
+    "warning_removed": 1,
+    "parent_warnings": [
+      [
+        "tests/rules/test_heroku_not_command.py:1:0 Undefined import [21]: Could not find a module corresponding to import `pytest`."
+      ]
+    ],
+    "warnings": []
+  }
+]

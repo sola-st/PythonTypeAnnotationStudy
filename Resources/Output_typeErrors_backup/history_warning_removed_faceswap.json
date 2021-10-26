@@ -1,0 +1,227 @@
+[
+  {
+    "project": "faceswap",
+    "commit": "4153a7e",
+    "parent_commit": "924d53789ba0ad40158f082839482cbf9060e67c",
+    "warning_removed": 1,
+    "parent_warnings": [
+      [
+        "tools/effmpeg.py:18:0 Undefined import [21]: Could not find a module corresponding to import `imageio`.",
+        "tools/effmpeg.py:19:0 Undefined import [21]: Could not find a module corresponding to import `imageio_ffmpeg`.",
+        "tools/effmpeg.py:20:0 Undefined import [21]: Could not find a module corresponding to import `ffmpy`.",
+        "tools/effmpeg.py:29:32 Unsupported operand [58]: `<` is not supported for operand types `typing.Union[int, str]` and `int`."
+      ],
+      [
+        "tools/lib_alignments/annotate.py:8:0 Undefined import [21]: Could not find a module corresponding to import `cv2`.",
+        "tools/lib_alignments/annotate.py:9:0 Undefined import [21]: Could not find a module corresponding to import `numpy`."
+      ],
+      [
+        "tools/lib_alignments/jobs.py:12:0 Undefined import [21]: Could not find a module corresponding to import `numpy`.",
+        "tools/lib_alignments/jobs.py:13:0 Undefined import [21]: Could not find a module corresponding to import `scipy`.",
+        "tools/lib_alignments/jobs.py:14:0 Undefined import [21]: Could not find a module corresponding to import `sklearn`.",
+        "tools/lib_alignments/jobs.py:15:0 Undefined import [21]: Could not find a module corresponding to import `tqdm`."
+      ],
+      [
+        "tools/lib_alignments/jobs_manual.py:7:0 Undefined import [21]: Could not find a module corresponding to import `cv2`.",
+        "tools/lib_alignments/jobs_manual.py:8:0 Undefined import [21]: Could not find a module corresponding to import `numpy`."
+      ],
+      [
+        "tools/lib_alignments/media.py:9:0 Undefined import [21]: Could not find a module corresponding to import `cv2`.",
+        "tools/lib_alignments/media.py:10:0 Undefined import [21]: Could not find a module corresponding to import `numpy`.",
+        "tools/lib_alignments/media.py:11:0 Undefined import [21]: Could not find a module corresponding to import `tqdm`."
+      ],
+      [
+        "tools/mask.py:7:0 Undefined import [21]: Could not find a module corresponding to import `cv2`.",
+        "tools/mask.py:8:0 Undefined import [21]: Could not find a module corresponding to import `numpy`.",
+        "tools/mask.py:9:0 Undefined import [21]: Could not find a module corresponding to import `tqdm`."
+      ],
+      [
+        "tools/preview.py:14:0 Undefined import [21]: Could not find a module corresponding to import `cv2`.",
+        "tools/preview.py:15:0 Undefined import [21]: Could not find a module corresponding to import `numpy`."
+      ],
+      [
+        "tools/sort.py:12:0 Undefined import [21]: Could not find a module corresponding to import `numpy`.",
+        "tools/sort.py:13:0 Undefined import [21]: Could not find a module corresponding to import `cv2`.",
+        "tools/sort.py:14:0 Undefined import [21]: Could not find a module corresponding to import `tqdm`."
+      ]
+    ],
+    "warnings": []
+  },
+  {
+    "project": "faceswap",
+    "commit": "d1705b0",
+    "parent_commit": "d6886f3a3273c69e1e702b7dd4c160fa97f5e1b0",
+    "warning_removed": 2,
+    "parent_warnings": [
+      [
+        "setup.py:156:12 Undefined import [21]: Could not find a module corresponding to import `pip._internal.utils.misc`.",
+        "setup.py:159:12 Undefined import [21]: Could not find a module corresponding to import `pip.utils`.",
+        "setup.py:270:12 Undefined import [21]: Could not find a module corresponding to import `pip._internal`.",
+        "setup.py:272:12 Undefined import [21]: Could not find a module corresponding to import `pip`."
+      ]
+    ],
+    "warnings": [
+      [
+        "setup.py:25:15 Undefined attribute [16]: Module `ctypes` has no attribute `windll`.",
+        "setup.py:163:8 Undefined import [21]: Could not find a module corresponding to import `pip`."
+      ]
+    ]
+  },
+  {
+    "project": "faceswap",
+    "commit": "d909ae2",
+    "parent_commit": "a3c81c50c2a4584c2f5c2ab529708a051939b594 100121026de7f0d1697a73a9a24afcc3ffcaf562",
+    "warning_removed": 2,
+    "parent_warnings": [
+      [
+        "faceswap.py:5:32 Unsupported operand [58]: `<` is not supported for operand types `typing.Union[int, str]` and `int`."
+      ],
+      [
+        "scripts/convert.py:1:0 Undefined import [21]: Could not find a module corresponding to import `cv2`.",
+        "scripts/convert.py:5:0 Undefined import [21]: Could not find a module corresponding to import `tqdm`."
+      ],
+      [
+        "scripts/extract.py:1:0 Undefined import [21]: Could not find a module corresponding to import `cv2`.",
+        "scripts/extract.py:4:0 Undefined import [21]: Could not find a module corresponding to import `tqdm`."
+      ]
+    ],
+    "warnings": [
+      [
+        "scripts/convert.py:1:0 Undefined import [21]: Could not find a module corresponding to import `cv2`."
+      ],
+      [
+        "scripts/extract.py:1:0 Undefined import [21]: Could not find a module corresponding to import `cv2`."
+      ]
+    ]
+  },
+  {
+    "project": "faceswap",
+    "commit": "47ab001",
+    "parent_commit": "7d4efc26179ba083feec8ddae64df881414e59e3 8f21bb073d786bcdc47b3d78d2f4b54d496e3cca",
+    "warning_removed": 1,
+    "parent_warnings": [
+      [
+        "lib/alignments.py:9:0 Undefined import [21]: Could not find a module corresponding to import `numpy`."
+      ]
+    ],
+    "warnings": []
+  },
+  {
+    "project": "faceswap",
+    "commit": "199f6ca",
+    "parent_commit": "ef1818072462f96276ff3afbb85365352d6ff055",
+    "warning_removed": 1,
+    "parent_warnings": [
+      [
+        "tests/startup_test.py:6:0 Undefined import [21]: Could not find a module corresponding to import `pytest`.",
+        "tests/startup_test.py:8:0 Undefined import [21]: Could not find a module corresponding to import `keras`."
+      ]
+    ],
+    "warnings": [
+      [
+        "tests/startup_test.py:1:1 Parsing failure [404]: Could not parse file at tests/startup_test.py:31:0-31:0"
+      ]
+    ]
+  },
+  {
+    "project": "faceswap",
+    "commit": "c07ba7c",
+    "parent_commit": "66ed005ef3d824b4f8221f7fe5019ffca770a94e e6914254d0ea39ee72eca848d10fc29afda50f27",
+    "warning_removed": 1,
+    "parent_warnings": [
+      [
+        "lib/logger.py:11:0 Undefined import [21]: Could not find a module corresponding to import `tqdm`.",
+        "lib/logger.py:13:0 Undefined import [21]: Could not find a module corresponding to import `numpy`."
+      ]
+    ],
+    "warnings": [
+      [
+        "lib/logger.py:12:0 Undefined import [21]: Could not find a module corresponding to import `tqdm`."
+      ]
+    ]
+  },
+  {
+    "project": "faceswap",
+    "commit": "4a68b3f",
+    "parent_commit": "127d3dbe99b9ae57c5df7d783a2cbb934d7eaad7",
+    "warning_removed": 2,
+    "parent_warnings": [
+      [
+        "plugins/train/model/dlight.py:14:0 Undefined import [21]: Could not find a module corresponding to import `keras.initializers`.",
+        "plugins/train/model/dlight.py:15:0 Undefined import [21]: Could not find a module corresponding to import `keras.layers`.",
+        "plugins/train/model/dlight.py:16:0 Undefined import [21]: Could not find a module corresponding to import `keras.layers.convolutional`.",
+        "plugins/train/model/dlight.py:17:0 Undefined import [21]: Could not find a module corresponding to import `keras.layers.core`.",
+        "plugins/train/model/dlight.py:18:0 Undefined import [21]: Could not find a module corresponding to import `keras.layers.merge`.",
+        "plugins/train/model/dlight.py:19:0 Undefined import [21]: Could not find a module corresponding to import `keras.layers.normalization`.",
+        "plugins/train/model/dlight.py:20:0 Undefined import [21]: Could not find a module corresponding to import `keras.models`."
+      ]
+    ],
+    "warnings": [
+      [
+        "plugins/train/model/dlight.py:11:0 Undefined import [21]: Could not find a module corresponding to import `keras.layers`.",
+        "plugins/train/model/dlight.py:13:0 Undefined import [21]: Could not find a module corresponding to import `keras.layers.core`.",
+        "plugins/train/model/dlight.py:14:0 Undefined import [21]: Could not find a module corresponding to import `keras.layers.merge`.",
+        "plugins/train/model/dlight.py:15:0 Undefined import [21]: Could not find a module corresponding to import `keras.layers.normalization`.",
+        "plugins/train/model/dlight.py:16:0 Undefined import [21]: Could not find a module corresponding to import `keras.models`."
+      ]
+    ]
+  },
+  {
+    "project": "faceswap",
+    "commit": "6efafab",
+    "parent_commit": "650e00aa0aee469094e8055dd10e53bc2947de25 3d06ce99aaa95ede92d7f32eab78389f19f65b09",
+    "warning_removed": 1,
+    "parent_warnings": [
+      [
+        "lib/image.py:11:0 Undefined import [21]: Could not find a module corresponding to import `cv2`.",
+        "lib/image.py:12:0 Undefined import [21]: Could not find a module corresponding to import `imageio`.",
+        "lib/image.py:13:0 Undefined import [21]: Could not find a module corresponding to import `imageio_ffmpeg`.",
+        "lib/image.py:14:0 Undefined import [21]: Could not find a module corresponding to import `numpy`.",
+        "lib/image.py:15:0 Undefined import [21]: Could not find a module corresponding to import `tqdm`."
+      ]
+    ],
+    "warnings": [
+      [
+        "lib/image.py:12:0 Undefined import [21]: Could not find a module corresponding to import `cv2`.",
+        "lib/image.py:13:0 Undefined import [21]: Could not find a module corresponding to import `imageio`.",
+        "lib/image.py:14:0 Undefined import [21]: Could not find a module corresponding to import `imageio_ffmpeg`.",
+        "lib/image.py:15:0 Undefined import [21]: Could not find a module corresponding to import `numpy`."
+      ]
+    ]
+  },
+  {
+    "project": "faceswap",
+    "commit": "ab7fa48",
+    "parent_commit": "6948a54de99744857e16009293f580019b75f1a4",
+    "warning_removed": 3,
+    "parent_warnings": [
+      [
+        "lib/faces_detect.py:5:0 Undefined import [21]: Could not find a module corresponding to import `numpy`.",
+        "lib/faces_detect.py:7:0 Undefined import [21]: Could not find a module corresponding to import `dlib`."
+      ],
+      [
+        "lib/utils.py:15:0 Undefined import [21]: Could not find a module corresponding to import `cv2`.",
+        "lib/utils.py:16:0 Undefined import [21]: Could not find a module corresponding to import `numpy`.",
+        "lib/utils.py:17:0 Undefined import [21]: Could not find a module corresponding to import `dlib`.",
+        "lib/utils.py:19:0 Undefined import [21]: Could not find a module corresponding to import `tqdm`."
+      ],
+      [
+        "plugins/extract/detect/_base.py:19:0 Undefined import [21]: Could not find a module corresponding to import `cv2`.",
+        "plugins/extract/detect/_base.py:20:0 Undefined import [21]: Could not find a module corresponding to import `dlib`."
+      ]
+    ],
+    "warnings": [
+      [
+        "lib/faces_detect.py:5:0 Undefined import [21]: Could not find a module corresponding to import `numpy`."
+      ],
+      [
+        "lib/utils.py:15:0 Undefined import [21]: Could not find a module corresponding to import `cv2`.",
+        "lib/utils.py:16:0 Undefined import [21]: Could not find a module corresponding to import `numpy`.",
+        "lib/utils.py:18:0 Undefined import [21]: Could not find a module corresponding to import `tqdm`."
+      ],
+      [
+        "plugins/extract/detect/_base.py:19:0 Undefined import [21]: Could not find a module corresponding to import `cv2`."
+      ]
+    ]
+  }
+]

@@ -1,0 +1,558 @@
+[
+  {
+    "project": "Python",
+    "commit": "977511b",
+    "parent_commit": "c824b90ead698da4f10ac38e431844d96af109b6",
+    "warning_removed": 1,
+    "parent_warnings": [
+      [
+        "graphs/depth_first_search.py:3:0 Undefined import [21]: Could not find a name `annotations` defined in module `__future__`.",
+        "graphs/depth_first_search.py:32:4 Incompatible return type [7]: Expected `typing.Set[int]` but got `typing.Set[str]`."
+      ]
+    ],
+    "warnings": [
+      [
+        "graphs/depth_first_search.py:3:0 Undefined import [21]: Could not find a name `annotations` defined in module `__future__`."
+      ]
+    ]
+  },
+  {
+    "project": "Python",
+    "commit": "b8df19d",
+    "parent_commit": "e3c24fe59a98b606e2421c2869e27674984fd9fb 1963a59622b47971b903ed17895e29291ab1229b",
+    "warning_removed": 1,
+    "parent_warnings": [
+      [
+        "Tower_of_Hanoi.py:27:8 Incompatible parameter type [6]: Expected `typing_extensions.SupportsIndex` for 1st positional only parameter to call `range.__init__` but got `str`."
+      ]
+    ],
+    "warnings": []
+  },
+  {
+    "project": "Python",
+    "commit": "60a42cc",
+    "parent_commit": "6bdf4fc2d1003040d5c9f12f28fd20b3fb37ea8d 850953c2aad57b510d0c6f1bc7a3fbb7f662a4c7",
+    "warning_removed": 11,
+    "parent_warnings": [
+      [
+        "Project Euler/Problem 01/sol1.py:7:8 Unbound name [10]: Name `raw_input` is used but not defined in the current scope.",
+        "Project Euler/Problem 01/sol1.py:8:0 Incompatible variable type [9]: sum is declared to have type `typing.Callable(sum)[..., unknown][[[typing.Iterable[Variable[_T]]], typing.Union[int, Variable[_T]]][[typing.Iterable[Variable[_T]], Variable[_S]], typing.Union[Variable[_S], Variable[_T]]]]` but is used as type `int`."
+      ],
+      [
+        "Project Euler/Problem 01/sol2.py:7:8 Unbound name [10]: Name `raw_input` is used but not defined in the current scope.",
+        "Project Euler/Problem 01/sol2.py:8:0 Incompatible variable type [9]: sum is declared to have type `typing.Callable(sum)[..., unknown][[[typing.Iterable[Variable[_T]]], typing.Union[int, Variable[_T]]][[typing.Iterable[Variable[_T]], Variable[_S]], typing.Union[Variable[_S], Variable[_T]]]]` but is used as type `int`."
+      ],
+      [
+        "Project Euler/Problem 01/sol3.py:10:8 Unbound name [10]: Name `raw_input` is used but not defined in the current scope.",
+        "Project Euler/Problem 01/sol3.py:11:0 Incompatible variable type [9]: sum is declared to have type `typing.Callable(sum)[..., unknown][[[typing.Iterable[Variable[_T]]], typing.Union[int, Variable[_T]]][[typing.Iterable[Variable[_T]], Variable[_S]], typing.Union[Variable[_S], Variable[_T]]]]` but is used as type `int`."
+      ],
+      [
+        "Project Euler/Problem 02/sol1.py:10:8 Unbound name [10]: Name `raw_input` is used but not defined in the current scope.",
+        "Project Euler/Problem 02/sol1.py:11:10 Incompatible variable type [9]: sum is declared to have type `typing.Callable(sum)[..., unknown][[[typing.Iterable[Variable[_T]]], typing.Union[int, Variable[_T]]][[typing.Iterable[Variable[_T]], Variable[_S]], typing.Union[Variable[_S], Variable[_T]]]]` but is used as type `int`."
+      ],
+      [
+        "Project Euler/Problem 03/sol1.py:20:0 Incompatible variable type [9]: max is declared to have type `typing.Callable(max)[..., unknown][[[Variable[_typeshed.SupportsLessThanT (bound to _typeshed.SupportsLessThan)], Variable[_typeshed.SupportsLessThanT (bound to _typeshed.SupportsLessThan)], Variable(Variable[_typeshed.SupportsLessThanT (bound to _typeshed.SupportsLessThan)]), KeywordOnly(key, None, default)], Variable[_typeshed.SupportsLessThanT (bound to _typeshed.SupportsLessThan)]][[Variable[_T], Variable[_T], Variable(Variable[_T]), KeywordOnly(key, typing.Callable[[Variable[_T]], _typeshed.SupportsLessThan])], Variable[_T]][[typing.Iterable[Variable[_typeshed.SupportsLessThanT (bound to _typeshed.SupportsLessThan)]], KeywordOnly(key, None, default)], Variable[_typeshed.SupportsLessThanT (bound to _typeshed.SupportsLessThan)]][[typing.Iterable[Variable[_T]], KeywordOnly(key, typing.Callable[[Variable[_T]], _typeshed.SupportsLessThan])], Variable[_T]][[typing.Iterable[Variable[_typeshed.SupportsLessThanT (bound to _typeshed.SupportsLessThan)]], KeywordOnly(key, None, default), KeywordOnly(default, Variable[_T])], typing.Union[Variable[_T], Variable[_typeshed.SupportsLessThanT (bound to _typeshed.SupportsLessThan)]]][[typing.Iterable[Variable[_T1]], KeywordOnly(key, typing.Callable[[Variable[_T1]], _typeshed.SupportsLessThan]), KeywordOnly(default, Variable[_T2])], typing.Union[Variable[_T1], Variable[_T2]]]]` but is used as type `int`.",
+        "Project Euler/Problem 03/sol1.py:34:20 Incompatible variable type [9]: max is declared to have type `typing.Callable(max)[..., unknown][[[Variable[_typeshed.SupportsLessThanT (bound to _typeshed.SupportsLessThan)], Variable[_typeshed.SupportsLessThanT (bound to _typeshed.SupportsLessThan)], Variable(Variable[_typeshed.SupportsLessThanT (bound to _typeshed.SupportsLessThan)]), KeywordOnly(key, None, default)], Variable[_typeshed.SupportsLessThanT (bound to _typeshed.SupportsLessThan)]][[Variable[_T], Variable[_T], Variable(Variable[_T]), KeywordOnly(key, typing.Callable[[Variable[_T]], _typeshed.SupportsLessThan])], Variable[_T]][[typing.Iterable[Variable[_typeshed.SupportsLessThanT (bound to _typeshed.SupportsLessThan)]], KeywordOnly(key, None, default)], Variable[_typeshed.SupportsLessThanT (bound to _typeshed.SupportsLessThan)]][[typing.Iterable[Variable[_T]], KeywordOnly(key, typing.Callable[[Variable[_T]], _typeshed.SupportsLessThan])], Variable[_T]][[typing.Iterable[Variable[_typeshed.SupportsLessThanT (bound to _typeshed.SupportsLessThan)]], KeywordOnly(key, None, default), KeywordOnly(default, Variable[_T])], typing.Union[Variable[_T], Variable[_typeshed.SupportsLessThanT (bound to _typeshed.SupportsLessThan)]]][[typing.Iterable[Variable[_T1]], KeywordOnly(key, typing.Callable[[Variable[_T1]], _typeshed.SupportsLessThan]), KeywordOnly(default, Variable[_T2])], typing.Union[Variable[_T1], Variable[_T2]]]]` but is used as type `float`.",
+        "Project Euler/Problem 03/sol1.py:37:20 Incompatible variable type [9]: max is declared to have type `typing.Callable(max)[..., unknown][[[Variable[_typeshed.SupportsLessThanT (bound to _typeshed.SupportsLessThan)], Variable[_typeshed.SupportsLessThanT (bound to _typeshed.SupportsLessThan)], Variable(Variable[_typeshed.SupportsLessThanT (bound to _typeshed.SupportsLessThan)]), KeywordOnly(key, None, default)], Variable[_typeshed.SupportsLessThanT (bound to _typeshed.SupportsLessThan)]][[Variable[_T], Variable[_T], Variable(Variable[_T]), KeywordOnly(key, typing.Callable[[Variable[_T]], _typeshed.SupportsLessThan])], Variable[_T]][[typing.Iterable[Variable[_typeshed.SupportsLessThanT (bound to _typeshed.SupportsLessThan)]], KeywordOnly(key, None, default)], Variable[_typeshed.SupportsLessThanT (bound to _typeshed.SupportsLessThan)]][[typing.Iterable[Variable[_T]], KeywordOnly(key, typing.Callable[[Variable[_T]], _typeshed.SupportsLessThan])], Variable[_T]][[typing.Iterable[Variable[_typeshed.SupportsLessThanT (bound to _typeshed.SupportsLessThan)]], KeywordOnly(key, None, default), KeywordOnly(default, Variable[_T])], typing.Union[Variable[_T], Variable[_typeshed.SupportsLessThanT (bound to _typeshed.SupportsLessThan)]]][[typing.Iterable[Variable[_T1]], KeywordOnly(key, typing.Callable[[Variable[_T1]], _typeshed.SupportsLessThan]), KeywordOnly(default, Variable[_T2])], typing.Union[Variable[_T1], Variable[_T2]]]]` but is used as type `int`."
+      ]
+    ],
+    "warnings": []
+  },
+  {
+    "project": "Python",
+    "commit": "1495382",
+    "parent_commit": "473072bd4fb82bba172c6028b4b613d321d57713",
+    "warning_removed": 1,
+    "parent_warnings": [
+      [
+        "arithmetic_analysis/newton_method.py:1:1 Parsing failure [404]: Could not parse file at arithmetic_analysis/newton_method.py:30:20-30:20"
+      ]
+    ],
+    "warnings": []
+  },
+  {
+    "project": "Python",
+    "commit": "fedb3e7",
+    "parent_commit": "765a3267fcc859e81ed9d323d59fa303ff09b60f 0856a6185998f664d48904a1bfd5a53f9b8aa4a8",
+    "warning_removed": 24,
+    "parent_warnings": [
+      [
+        "Graphs/MinimumSpanningTree_Prims.py:104:8 Unbound name [10]: Name `raw_input` is used but not defined in the current scope."
+      ],
+      [
+        "Graphs/minimum_spanning_tree_kruskal.py:2:36 Unbound name [10]: Name `raw_input` is used but not defined in the current scope."
+      ],
+      [
+        "Graphs/scc_kosaraju.py:3:20 Unbound name [10]: Name `raw_input` is used but not defined in the current scope."
+      ],
+      [
+        "Maths/SieveOfEratosthenes.py:2:8 Unbound name [10]: Name `raw_input` is used but not defined in the current scope."
+      ],
+      [
+        "Neural_Network/perceptron.py:118:0 Undefined attribute [16]: `Perceptron` has no attribute `trannig`.",
+        "Neural_Network/perceptron.py:123:31 Unbound name [10]: Name `raw_input` is used but not defined in the current scope."
+      ],
+      [
+        "Project Euler/Problem 02/sol3.py:10:8 Unbound name [10]: Name `raw_input` is used but not defined in the current scope."
+      ],
+      [
+        "Project Euler/Problem 03/sol1.py:22:6 Unbound name [10]: Name `raw_input` is used but not defined in the current scope."
+      ],
+      [
+        "Project Euler/Problem 03/sol2.py:7:6 Unbound name [10]: Name `raw_input` is used but not defined in the current scope."
+      ],
+      [
+        "Project Euler/Problem 04/sol1.py:7:12 Unbound name [10]: Name `raw_input` is used but not defined in the current scope."
+      ],
+      [
+        "Project Euler/Problem 04/sol2.py:15:6 Unbound name [10]: Name `raw_input` is used but not defined in the current scope."
+      ],
+      [
+        "Project Euler/Problem 05/sol1.py:8:8 Unbound name [10]: Name `raw_input` is used but not defined in the current scope."
+      ],
+      [
+        "Project Euler/Problem 05/sol2.py:16:8 Unbound name [10]: Name `raw_input` is used but not defined in the current scope."
+      ],
+      [
+        "Project Euler/Problem 06/sol1.py:15:8 Unbound name [10]: Name `raw_input` is used but not defined in the current scope."
+      ],
+      [
+        "Project Euler/Problem 06/sol2.py:12:8 Unbound name [10]: Name `raw_input` is used but not defined in the current scope."
+      ],
+      [
+        "Project Euler/Problem 07/sol1.py:19:8 Unbound name [10]: Name `raw_input` is used but not defined in the current scope."
+      ],
+      [
+        "Project Euler/Problem 07/sol2.py:7:8 Unbound name [10]: Name `raw_input` is used but not defined in the current scope."
+      ],
+      [
+        "Project Euler/Problem 09/sol2.py:9:8 Unbound name [10]: Name `raw_input` is used but not defined in the current scope."
+      ],
+      [
+        "Project Euler/Problem 13/sol1.py:7:8 Unbound name [10]: Name `raw_input` is used but not defined in the current scope."
+      ],
+      [
+        "Project Euler/Problem 16/sol1.py:1:12 Unbound name [10]: Name `raw_input` is used but not defined in the current scope."
+      ],
+      [
+        "Project Euler/Problem 20/sol1.py:18:13 Unbound name [10]: Name `raw_input` is used but not defined in the current scope."
+      ],
+      [
+        "data_structures/Graph/BellmanFord.py:38:8 Unbound name [10]: Name `raw_input` is used but not defined in the current scope."
+      ],
+      [
+        "data_structures/Graph/Dijkstra.py:41:8 Unbound name [10]: Name `raw_input` is used but not defined in the current scope."
+      ],
+      [
+        "data_structures/Graph/FloydWarshall.py:33:8 Unbound name [10]: Name `raw_input` is used but not defined in the current scope."
+      ],
+      [
+        "machine_learning/perceptron.py:123:31 Unbound name [10]: Name `raw_input` is used but not defined in the current scope."
+      ]
+    ],
+    "warnings": [
+      [
+        "Neural_Network/perceptron.py:118:0 Undefined attribute [16]: `Perceptron` has no attribute `trannig`."
+      ]
+    ]
+  },
+  {
+    "project": "Python",
+    "commit": "9b60be6",
+    "parent_commit": "959507901ac8f10cd605c51c305d13b27d105536",
+    "warning_removed": 2,
+    "parent_warnings": [
+      [
+        "machine_learning/word_frequency_functions.py:83:4 Incompatible return type [7]: Expected `int` but got `typing.Tuple[int, int]`."
+      ],
+      [
+        "traversals/binary_tree_traversals.py:6:0 Undefined import [21]: Could not find a name `annotations` defined in module `__future__`.",
+        "traversals/binary_tree_traversals.py:191:11 Unbound name [10]: Name `List` is used but not defined in the current scope."
+      ]
+    ],
+    "warnings": [
+      [
+        "traversals/binary_tree_traversals.py:6:0 Undefined import [21]: Could not find a name `annotations` defined in module `__future__`."
+      ]
+    ]
+  },
+  {
+    "project": "Python",
+    "commit": "6089536",
+    "parent_commit": "806b3864c36e24459cb4685b400e74c5685f5674",
+    "warning_removed": 17,
+    "parent_warnings": [
+      [
+        "ciphers/diffie_hellman.py:248:11 Unsupported operand [58]: `<=` is not supported for operand types `int` and `str`.",
+        "ciphers/diffie_hellman.py:248:42 Unsupported operand [58]: `<=` is not supported for operand types `str` and `int`.",
+        "ciphers/diffie_hellman.py:249:19 Incompatible parameter type [6]: Expected `int` for 1st positional only parameter to call `pow` but got `str`.",
+        "ciphers/diffie_hellman.py:261:12 Incompatible parameter type [6]: Expected `str` for 1st positional only parameter to call `DiffieHellman.is_valid_public_key_static` but got `int`.",
+        "ciphers/diffie_hellman.py:261:31 Incompatible parameter type [6]: Expected `str` for 2nd positional only parameter to call `DiffieHellman.is_valid_public_key_static` but got `int`."
+      ],
+      [
+        "ciphers/onepad_cipher.py:5:37 Invalid type [31]: Expression `([str], [int])` is not a valid type.",
+        "ciphers/onepad_cipher.py:17:30 Invalid type [31]: Expression `[str]` is not a valid type.",
+        "ciphers/onepad_cipher.py:17:42 Invalid type [31]: Expression `[int]` is not a valid type."
+      ],
+      [
+        "ciphers/playfair_cipher.py:40:32 Invalid type [31]: Expression `[str]` is not a valid type."
+      ],
+      [
+        "ciphers/porta_cipher.py:1:1 Parsing failure [404]: Could not parse file at ciphers/porta_cipher.py:63:65-63:65"
+      ],
+      [
+        "ciphers/rsa_cipher.py:43:76 Invalid type [31]: Expression `[int]` is not a valid type.",
+        "ciphers/rsa_cipher.py:44:19 Undefined attribute [16]: `int` has no attribute `encode`.",
+        "ciphers/rsa_cipher.py:56:15 Invalid type [31]: Expression `[int]` is not a valid type.",
+        "ciphers/rsa_cipher.py:71:24 Invalid type [31]: Expression `(int, int)` is not a valid type.",
+        "ciphers/rsa_cipher.py:72:5 Invalid type [31]: Expression `[int]` is not a valid type.",
+        "ciphers/rsa_cipher.py:76:35 Incompatible parameter type [6]: Expected `int` for 1st positional only parameter to call `getBlocksFromText` but got `str`.",
+        "ciphers/rsa_cipher.py:82:21 Invalid type [31]: Expression `[int]` is not a valid type.",
+        "ciphers/rsa_cipher.py:84:10 Invalid type [31]: Expression `(int, int)` is not a valid type.",
+        "ciphers/rsa_cipher.py:94:38 Invalid type [31]: Expression `(int, int, int)` is not a valid type."
+      ],
+      [
+        "ciphers/rsa_factorization.py:10:0 Undefined import [21]: Could not find a name `annotations` defined in module `__future__`.",
+        "ciphers/rsa_factorization.py:16:41 Invalid type [31]: Expression `[int]` is not a valid type."
+      ],
+      [
+        "ciphers/shuffled_shift_cipher.py:29:23 Incompatible variable type [9]: passcode is declared to have type `str` but is used as type `None`."
+      ],
+      [
+        "ciphers/trafid_cipher.py:19:64 Invalid type [31]: Expression `(str, str, str)` is not a valid type.",
+        "ciphers/trafid_cipher.py:35:47 Invalid type [31]: Expression `(str, str, dict, dict)` is not a valid type."
+      ],
+      [
+        "ciphers/xor_cipher.py:31:49 Invalid type [31]: Expression `[str]` is not a valid type.",
+        "ciphers/xor_cipher.py:56:49 Invalid type [31]: Expression `[str]` is not a valid type."
+      ]
+    ],
+    "warnings": [
+      [
+        "ciphers/rsa_cipher.py:126:7 Uninitialized local [61]: Local variable `mode` may not be initialized here.",
+        "ciphers/rsa_cipher.py:138:9 Uninitialized local [61]: Local variable `mode` may not be initialized here."
+      ],
+      [
+        "ciphers/rsa_factorization.py:10:0 Undefined import [21]: Could not find a name `annotations` defined in module `__future__`."
+      ]
+    ]
+  },
+  {
+    "project": "Python",
+    "commit": "9456e81",
+    "parent_commit": "561a41464f6dca6c15656ac2257370410b1e9efa",
+    "warning_removed": 1,
+    "parent_warnings": [
+      [
+        "file_transfer_protocol/ftp_client_server.py:28:14 Incompatible parameter type [6]: Expected `typing.Union[array.array[typing.Any], bytearray, bytes, memoryview, mmap.mmap]` for 1st positional only parameter to call `_socket.socket.send` but got `str`."
+      ]
+    ],
+    "warnings": []
+  },
+  {
+    "project": "Python",
+    "commit": "4545270",
+    "parent_commit": "d009cea391414bfef17520ba6b64e4c2d97163ed",
+    "warning_removed": 1,
+    "parent_warnings": [
+      [
+        "graphs/markov_chain.py:1:0 Undefined import [21]: Could not find a name `annotations` defined in module `__future__`.",
+        "graphs/markov_chain.py:37:16 Incompatible return type [7]: Expected `str` but got implicit return value of `None`."
+      ]
+    ],
+    "warnings": [
+      [
+        "graphs/markov_chain.py:1:0 Undefined import [21]: Could not find a name `annotations` defined in module `__future__`."
+      ]
+    ]
+  },
+  {
+    "project": "Python",
+    "commit": "fb1b87c",
+    "parent_commit": "75007332e4eddac6d67bcf9ad805a02972ef2caf aae156252f5d9a82b0a308ae3243755ee4d81bab",
+    "warning_removed": 1,
+    "parent_warnings": [
+      [
+        "data_structures/Trie/Trie.py:15:33 Invalid type [31]: Expression `[str]` is not a valid type."
+      ]
+    ],
+    "warnings": []
+  },
+  {
+    "project": "Python",
+    "commit": "2c0de39",
+    "parent_commit": "a2b540f736d67e38cd5630e93eb64d1f4793c985 13ebdc35fda3e4b5d7c36f382f32f702af2ceed5",
+    "warning_removed": 1,
+    "parent_warnings": [
+      [
+        "hashes/chaos_machine.py:5:2 Unbound name [10]: Name `raw_input` is used but not defined in the current scope."
+      ]
+    ],
+    "warnings": []
+  },
+  {
+    "project": "Python",
+    "commit": "7f87515",
+    "parent_commit": "4306482996a000ee1e109d7abc09fd31ba893185 09131a70a13d06ef233716859f16ad60026362cb",
+    "warning_removed": 1,
+    "parent_warnings": [
+      [
+        "File_Transfer_Protocol/ftp_send_receive.py:1:1 Parsing failure [404]: Could not parse file at File_Transfer_Protocol/ftp_send_receive.py:12:80-12:80"
+      ]
+    ],
+    "warnings": []
+  },
+  {
+    "project": "Python",
+    "commit": "325deda",
+    "parent_commit": "bd67dcff7ddbe68cebbe0ce784a93119383f2847 f65fe8c858636c0e7d29e7f9561d3109f984978b",
+    "warning_removed": 1,
+    "parent_warnings": [
+      [
+        "data_structures/Stacks/Stack.py:42:14 Undefined attribute [16]: `` has no attribute `Stack`."
+      ]
+    ],
+    "warnings": []
+  },
+  {
+    "project": "Python",
+    "commit": "2ed1bad",
+    "parent_commit": "ad6b0f1c6b3d79a8a8a17ea38ead4b5936f11917 2dcbbd432504e00166d7be85e87f5db6800365ad",
+    "warning_removed": 6,
+    "parent_warnings": [
+      [
+        "File_Transfer_Protocol/ftp_send_receive.py:1:1 Parsing failure [404]: Could not parse file at File_Transfer_Protocol/ftp_send_receive.py:12:80-12:80"
+      ],
+      [
+        "Graphs/basic-graphs.py:1:1 Parsing failure [404]: Could not parse file at Graphs/basic-graphs.py:178:16-178:16"
+      ],
+      [
+        "Project Euler/Problem 01/sol1.py:7:8 Unbound name [10]: Name `raw_input` is used but not defined in the current scope.",
+        "Project Euler/Problem 01/sol1.py:8:0 Incompatible variable type [9]: sum is declared to have type `typing.Callable(sum)[..., unknown][[[typing.Iterable[Variable[_T]]], typing.Union[int, Variable[_T]]][[typing.Iterable[Variable[_T]], Variable[_S]], typing.Union[Variable[_S], Variable[_T]]]]` but is used as type `int`."
+      ],
+      [
+        "Project Euler/Problem 01/sol2.py:7:8 Unbound name [10]: Name `raw_input` is used but not defined in the current scope.",
+        "Project Euler/Problem 01/sol2.py:8:0 Incompatible variable type [9]: sum is declared to have type `typing.Callable(sum)[..., unknown][[[typing.Iterable[Variable[_T]]], typing.Union[int, Variable[_T]]][[typing.Iterable[Variable[_T]], Variable[_S]], typing.Union[Variable[_S], Variable[_T]]]]` but is used as type `int`."
+      ],
+      [
+        "Project Euler/Problem 01/sol3.py:10:8 Unbound name [10]: Name `raw_input` is used but not defined in the current scope.",
+        "Project Euler/Problem 01/sol3.py:11:0 Incompatible variable type [9]: sum is declared to have type `typing.Callable(sum)[..., unknown][[[typing.Iterable[Variable[_T]]], typing.Union[int, Variable[_T]]][[typing.Iterable[Variable[_T]], Variable[_S]], typing.Union[Variable[_S], Variable[_T]]]]` but is used as type `int`."
+      ],
+      [
+        "Project Euler/Problem 02/sol1.py:10:8 Unbound name [10]: Name `raw_input` is used but not defined in the current scope.",
+        "Project Euler/Problem 02/sol1.py:13:0 Incompatible variable type [9]: sum is declared to have type `typing.Callable(sum)[..., unknown][[[typing.Iterable[Variable[_T]]], typing.Union[int, Variable[_T]]][[typing.Iterable[Variable[_T]], Variable[_S]], typing.Union[Variable[_S], Variable[_T]]]]` but is used as type `int`."
+      ],
+      [
+        "sorts/external-sort.py:1:1 Parsing failure [404]: Could not parse file at sorts/external-sort.py:161:4-161:4"
+      ]
+    ],
+    "warnings": [
+      [
+        "Project Euler/Problem 01/sol1.py:13:0 Incompatible variable type [9]: sum is declared to have type `typing.Callable(sum)[..., unknown][[[typing.Iterable[Variable[_T]]], typing.Union[int, Variable[_T]]][[typing.Iterable[Variable[_T]], Variable[_S]], typing.Union[Variable[_S], Variable[_T]]]]` but is used as type `int`."
+      ],
+      [
+        "Project Euler/Problem 01/sol2.py:13:0 Incompatible variable type [9]: sum is declared to have type `typing.Callable(sum)[..., unknown][[[typing.Iterable[Variable[_T]]], typing.Union[int, Variable[_T]]][[typing.Iterable[Variable[_T]], Variable[_S]], typing.Union[Variable[_S], Variable[_T]]]]` but is used as type `int`."
+      ],
+      [
+        "Project Euler/Problem 01/sol3.py:16:0 Incompatible variable type [9]: sum is declared to have type `typing.Callable(sum)[..., unknown][[[typing.Iterable[Variable[_T]]], typing.Union[int, Variable[_T]]][[typing.Iterable[Variable[_T]], Variable[_S]], typing.Union[Variable[_S], Variable[_T]]]]` but is used as type `int`."
+      ],
+      [
+        "Project Euler/Problem 02/sol1.py:19:0 Incompatible variable type [9]: sum is declared to have type `typing.Callable(sum)[..., unknown][[[typing.Iterable[Variable[_T]]], typing.Union[int, Variable[_T]]][[typing.Iterable[Variable[_T]], Variable[_S]], typing.Union[Variable[_S], Variable[_T]]]]` but is used as type `int`."
+      ]
+    ]
+  },
+  {
+    "project": "Python",
+    "commit": "531d2d6",
+    "parent_commit": "c49fa088a0beb989f7553d697ec706f1af3a663d",
+    "warning_removed": 1,
+    "parent_warnings": [
+      [
+        "digital_image_processing/rotation/rotation.py:7:9 Undefined or invalid type [11]: Annotation `np.array` is not defined as a type.",
+        "digital_image_processing/rotation/rotation.py:7:24 Undefined or invalid type [11]: Annotation `np.float32` is not defined as a type."
+      ]
+    ],
+    "warnings": [
+      [
+        "digital_image_processing/rotation/rotation.py:9:9 Undefined or invalid type [11]: Annotation `np.ndarray` is not defined as a type."
+      ]
+    ]
+  },
+  {
+    "project": "Python",
+    "commit": "70cf565",
+    "parent_commit": "f70a0a2980188a57195d17dd28ccb29b1fc6962b",
+    "warning_removed": 1,
+    "parent_warnings": [
+      [
+        "matrix/searching_in_sorted_matrix.py:1:1 Parsing failure [404]: Could not parse file at matrix/searching_in_sorted_matrix.py:5:52-5:52"
+      ]
+    ],
+    "warnings": []
+  },
+  {
+    "project": "Python",
+    "commit": "62d4418",
+    "parent_commit": "3ea5a13334f2d573167456c0c9ee4c90497c9466",
+    "warning_removed": 1,
+    "parent_warnings": [
+      [
+        "graphs/bfs_shortest_path.py:56:20 Incompatible return type [7]: Expected `str` but got `typing.List[typing.Any]`."
+      ]
+    ],
+    "warnings": []
+  },
+  {
+    "project": "Python",
+    "commit": "f510207",
+    "parent_commit": "5832340ac64bbfaa891c1fff56d72760f339fcc4 515cf2e81a181348f4968b1944ce34af414a1f5d",
+    "warning_removed": 2,
+    "parent_warnings": [
+      [
+        "sorts/merge_sort_fastest.py:20:7 Unbound name [10]: Name `start` is used but not defined in the current scope.",
+        "sorts/merge_sort_fastest.py:20:15 Unbound name [10]: Name `end` is used but not defined in the current scope."
+      ]
+    ],
+    "warnings": []
+  },
+  {
+    "project": "Python",
+    "commit": "f33c3ba",
+    "parent_commit": "c8e7a6547548715018092baf8e9976b9224203ea 2a87e8625f719b564fb75bd97a5785f5231978af",
+    "warning_removed": 1,
+    "parent_warnings": [
+      [
+        "Neural_Network/perceptron.py:118:0 Undefined attribute [16]: `Perceptron` has no attribute `trannig`."
+      ]
+    ],
+    "warnings": []
+  },
+  {
+    "project": "Python",
+    "commit": "7634cf0",
+    "parent_commit": "407c97906393ddaea43e2c21174c6cdaeb57dcfa",
+    "warning_removed": 2,
+    "parent_warnings": [
+      [
+        "graphs/gale_shapley_bigraph.py:1:0 Undefined import [21]: Could not find a name `annotations` defined in module `__future__`.",
+        "graphs/gale_shapley_bigraph.py:30:20 Undefined attribute [16]: `int` has no attribute `__getitem__`.",
+        "graphs/gale_shapley_bigraph.py:35:15 Undefined attribute [16]: `int` has no attribute `index`."
+      ]
+    ],
+    "warnings": [
+      [
+        "graphs/gale_shapley_bigraph.py:1:0 Undefined import [21]: Could not find a name `annotations` defined in module `__future__`."
+      ]
+    ]
+  },
+  {
+    "project": "Python",
+    "commit": "4c76e3c",
+    "parent_commit": "67b33a295bc0a18f9fbdeb393724835b2645dbd8",
+    "warning_removed": 14,
+    "parent_warnings": [
+      [
+        "matrix/rotate_matrix.py:9:38 Invalid type [31]: Expression `[[int]]` is not a valid type.",
+        "matrix/rotate_matrix.py:26:22 Invalid type [31]: Expression `[[]]` is not a valid type.",
+        "matrix/rotate_matrix.py:26:31 Invalid type [31]: Expression `[[]]` is not a valid type.",
+        "matrix/rotate_matrix.py:38:23 Invalid type [31]: Expression `[[]]` is not a valid type.",
+        "matrix/rotate_matrix.py:38:32 Invalid type [31]: Expression `[[]]` is not a valid type.",
+        "matrix/rotate_matrix.py:50:23 Invalid type [31]: Expression `[[]]` is not a valid type.",
+        "matrix/rotate_matrix.py:50:32 Invalid type [31]: Expression `[[]]` is not a valid type.",
+        "matrix/rotate_matrix.py:62:22 Invalid type [31]: Expression `[[]]` is not a valid type.",
+        "matrix/rotate_matrix.py:62:31 Invalid type [31]: Expression `[[]]` is not a valid type.",
+        "matrix/rotate_matrix.py:67:24 Invalid type [31]: Expression `[[]]` is not a valid type.",
+        "matrix/rotate_matrix.py:67:33 Invalid type [31]: Expression `[[]]` is not a valid type.",
+        "matrix/rotate_matrix.py:72:27 Invalid type [31]: Expression `[[]]` is not a valid type.",
+        "matrix/rotate_matrix.py:72:36 Invalid type [31]: Expression `[[]]` is not a valid type.",
+        "matrix/rotate_matrix.py:77:25 Invalid type [31]: Expression `[[]]` is not a valid type.",
+        "matrix/rotate_matrix.py:77:34 Invalid type [31]: Expression `[[]]` is not a valid type."
+      ]
+    ],
+    "warnings": [
+      [
+        "matrix/rotate_matrix.py:8:0 Undefined import [21]: Could not find a name `annotations` defined in module `__future__`."
+      ]
+    ]
+  },
+  {
+    "project": "Python",
+    "commit": "25164bb",
+    "parent_commit": "0febbd397ec2a41cff7f9fa2c182c14516f5bb36",
+    "warning_removed": 25,
+    "parent_warnings": [
+      [
+        "backtracking/all_combinations.py:8:49 Invalid type [31]: Expression `[[int]]` is not a valid type.",
+        "backtracking/all_combinations.py:23:18 Invalid type [31]: Expression `[int]` is not a valid type.",
+        "backtracking/all_combinations.py:24:16 Invalid type [31]: Expression `[int]` is not a valid type.",
+        "backtracking/all_combinations.py:36:32 Invalid type [31]: Expression `[int]` is not a valid type."
+      ],
+      [
+        "backtracking/all_permutations.py:10:40 Invalid type [31]: Expression `[int]` is not a valid type.",
+        "backtracking/all_permutations.py:11:45 Incompatible parameter type [6]: Expected `int` for 4th positional only parameter to call `create_state_space_tree` but got `typing.List[int]`.",
+        "backtracking/all_permutations.py:15:14 Invalid type [31]: Expression `[int]` is not a valid type.",
+        "backtracking/all_permutations.py:15:39 Invalid type [31]: Expression `[int]` is not a valid type.",
+        "backtracking/all_permutations.py:28:15 Undefined attribute [16]: `int` has no attribute `__getitem__`.",
+        "backtracking/all_permutations.py:30:12 Undefined attribute [16]: `int` has no attribute `__setitem__`.",
+        "backtracking/all_permutations.py:46:0 Incompatible variable type [9]: sequence is declared to have type `typing.List[int]` but is used as type `typing.List[str]`."
+      ],
+      [
+        "backtracking/n_queens.py:13:18 Invalid type [31]: Expression `[[int]]` is not a valid type.",
+        "backtracking/n_queens.py:41:17 Invalid type [31]: Expression `[[int]]` is not a valid type.",
+        "backtracking/n_queens.py:56:8 Incompatible return type [7]: Expected `bool` but got `None`.",
+        "backtracking/n_queens.py:71:22 Invalid type [31]: Expression `[[int]]` is not a valid type."
+      ],
+      [
+        "backtracking/rat_in_maze.py:1:21 Invalid type [31]: Expression `[[int]]` is not a valid type.",
+        "backtracking/rat_in_maze.py:70:19 Invalid type [31]: Expression `[[int]]` is not a valid type.",
+        "backtracking/rat_in_maze.py:70:55 Invalid type [31]: Expression `[[int]]` is not a valid type.",
+        "backtracking/rat_in_maze.py:108:12 Incompatible return type [7]: Expected `bool` but got implicit return value of `None`."
+      ],
+      [
+        "backtracking/sum_of_subsets.py:11:39 Invalid type [31]: Expression `[int]` is not a valid type.",
+        "backtracking/sum_of_subsets.py:11:55 Invalid type [31]: Expression `[int]` is not a valid type.",
+        "backtracking/sum_of_subsets.py:11:65 Invalid type [31]: Expression `[int]` is not a valid type.",
+        "backtracking/sum_of_subsets.py:21:10 Invalid type [31]: Expression `[int]` is not a valid type.",
+        "backtracking/sum_of_subsets.py:24:10 Invalid type [31]: Expression `[int]` is not a valid type.",
+        "backtracking/sum_of_subsets.py:25:12 Invalid type [31]: Expression `[int]` is not a valid type."
+      ]
+    ],
+    "warnings": []
+  },
+  {
+    "project": "Python",
+    "commit": "4adf3b9",
+    "parent_commit": "ee6e5a42cd3bc1046c89415494739407712b41ae",
+    "warning_removed": 1,
+    "parent_warnings": [
+      [
+        "other/password_generator.py:1:1 Parsing failure [404]: Could not parse file at other/password_generator.py:21:3-21:3"
+      ]
+    ],
+    "warnings": []
+  },
+  {
+    "project": "Python",
+    "commit": "5c10a29",
+    "parent_commit": "dc5c5768e0bafca22ed5aacad35aa7722a183014 3cae7967acf2cdef9c65b39547ccec2115c16410",
+    "warning_removed": 1,
+    "parent_warnings": [
+      [
+        "sorts/external-sort.py:1:1 Parsing failure [404]: Could not parse file at sorts/external-sort.py:161:4-161:4"
+      ]
+    ],
+    "warnings": []
+  },
+  {
+    "project": "Python",
+    "commit": "81dc87a",
+    "parent_commit": "683474c64b4ad4c423aafcb967ac3897046a46bf ee8c01179dfe3b4261ac0e53d22a5a6b254f6a37",
+    "warning_removed": 1,
+    "parent_warnings": [
+      [
+        "machine_learning/logistic_regression.py:19:0 Unbound name [10]: Name `get_ipython` is used but not defined in the current scope."
+      ]
+    ],
+    "warnings": []
+  }
+]

@@ -1,0 +1,47 @@
+[
+  {
+    "project": "face_recognition",
+    "commit": "15ab2fa",
+    "parent_commit": "dd9d080cda9a4454b43da3b0aa9d805a37c96d77",
+    "warning_removed": 1,
+    "parent_warnings": [
+      [
+        "examples/blink_detection.py:15:0 Undefined import [21]: Could not find a module corresponding to import `cv2`.",
+        "examples/blink_detection.py:17:0 Undefined import [21]: Could not find a module corresponding to import `scipy.spatial`.",
+        "examples/blink_detection.py:18:0 Undefined import [21]: Could not find a module corresponding to import `keyboard`."
+      ]
+    ],
+    "warnings": [
+      [
+        "examples/blink_detection.py:15:0 Undefined import [21]: Could not find a module corresponding to import `cv2`.",
+        "examples/blink_detection.py:17:0 Undefined import [21]: Could not find a module corresponding to import `scipy.spatial`."
+      ]
+    ]
+  },
+  {
+    "project": "face_recognition",
+    "commit": "db60d96",
+    "parent_commit": "de07ebf69a6e7e1554c5eceed177b62394360cd5",
+    "warning_removed": 1,
+    "parent_warnings": [
+      [
+        "face_recognition/face_detection_cli.py:11:0 Undefined import [21]: Could not find a module corresponding to import `numpy`."
+      ]
+    ],
+    "warnings": []
+  },
+  {
+    "project": "face_recognition",
+    "commit": "9fbab17",
+    "parent_commit": "efbb40f2235d64f0d38d2eb6cebc238df57c250f",
+    "warning_removed": 3,
+    "parent_warnings": [
+      [
+        "examples/facerec_ipcamera_knn.py:36:0 Undefined import [21]: Could not find a module corresponding to import `cv2`.",
+        "examples/facerec_ipcamera_knn.py:38:0 Undefined import [21]: Could not find a module corresponding to import `sklearn`.",
+        "examples/facerec_ipcamera_knn.py:45:0 Undefined import [21]: Could not find a module corresponding to import `numpy`."
+      ]
+    ],
+    "warnings": []
+  }
+]
