@@ -14,6 +14,7 @@
     "url": "https://github.com/keras-team/keras/commit/217cdd8b",
     "repo": "https://github.com/keras-team/keras",
     "filepath": "tools/effmpeg.py",
-    "change_runtime": true
+    "change_runtime": true,
+    "mentioned_by_pyre": false
   }
 ]

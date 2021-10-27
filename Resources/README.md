@@ -42,7 +42,11 @@ Currently, there are 74 fixes recorded.
 
 `"change_runtime"`: Boolean, `true` if the fix changes python runtime behavior.
 
-`"suggested_by_pyre"`: Boolean, `true` if the fixed (i.e. new) type annotation is suggested or appeared in the pyre warning message.
+`"mentioned_by_pyre"`: Boolean, `true` if the fixed (i.e. new) type annotation is mentioned in the pyre warning message. Some special cases:
+- `true` if a subclass of the mentioned types is used
+- `true` if `Optional[T]`/`None` is used when `None` is mentioned
+- `true` if `Callable[T]` is used when the error type is Call error
+- `true` if the new type can be represented by the mentioned types, e.g. true if `List[tuple[]]` is used when `List[Any]` is mentioned
 
 # type_fix_code_data #
 Contains old and new code from different type fixes. It is structured as `{repo}/{commit}/{old_code}` and `{repo}/{commit}/{new_code}`. Intermediate folders are kept. Downloaded by running `script_download_codes.py`.

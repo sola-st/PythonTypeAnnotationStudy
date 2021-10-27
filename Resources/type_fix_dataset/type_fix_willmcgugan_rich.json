@@ -18,7 +18,8 @@
     "full_warning_msg": "rich/text.py:92:8 Incompatible variable type [9]: style is declared to have type `Union[Style, str]` but is used as type `None`.",
     "url": "https://github.com/willmcgugan/rich/commit/6fc2bbe",
     "repo": "https://github.com/willmcgugan/rich",
-    "change_runtime": true
+    "change_runtime": true,
+    "mentioned_by_pyre": false
   },
   {
     "isolated_code_change": "-    total: int = None,\n+    total: Optional[float] = None,\n",
@@ -34,7 +35,8 @@
     "full_warning_msg": "rich/progress.py:86:4 Incompatible variable type [9]: total is declared to have type `int` but is used as type `None`.",
     "url": "https://github.com/willmcgugan/rich/commit/8607fa3",
     "repo": "https://github.com/willmcgugan/rich",
-    "change_runtime": false
+    "change_runtime": false,
+    "mentioned_by_pyre": true
   },
   {
     "isolated_code_change": "-        total: int = None,\n+        total: Optional[float] = None,\n",
@@ -50,7 +52,8 @@
     "full_warning_msg": "rich/progress.py:653:8 Incompatible variable type [9]: total is declared to have type `int` but is used as type `None`.",
     "url": "https://github.com/willmcgugan/rich/commit/8607fa3",
     "repo": "https://github.com/willmcgugan/rich",
-    "change_runtime": false
+    "change_runtime": false,
+    "mentioned_by_pyre": true
   },
   {
     "isolated_code_change": "-        total: float = None,\n+        total: Optional[float] = None,\n",
@@ -66,7 +69,8 @@
     "full_warning_msg": "rich/progress.py:732:8 Incompatible variable type [9]: total is declared to have type `float` but is used as type `None`.",
     "url": "https://github.com/willmcgugan/rich/commit/8607fa3",
     "repo": "https://github.com/willmcgugan/rich",
-    "change_runtime": false
+    "change_runtime": false,
+    "mentioned_by_pyre": true
   }
 
 ]

@@ -18,7 +18,8 @@
     "full_warning_msg": "fastapi/params.py:86:14 Incompatible parameter type [6]: Expected `bool` for 12th positional only parameter to call `Param.__init__` but got `Dict[str, typing.Any]`.",
     "url": "https://github.com/tiangolo/fastapi/commit/0e19c24",
     "repo": "https://github.com/tiangolo/fastapi",
-    "change_runtime": false
+    "change_runtime": false,
+    "mentioned_by_pyre": false
   },
   {
     "isolated_code_change": "-        **extra: Dict[str, Any],\n+        **extra: Any,",
@@ -39,7 +40,8 @@
     "full_warning_msg": "fastapi/params.py:124:14 Incompatible parameter type [6]: Expected `bool` for 12th positional only parameter to call `Param.__init__` but got `Dict[str, typing.Any]`.",
     "url": "https://github.com/tiangolo/fastapi/commit/0e19c24",
     "repo": "https://github.com/tiangolo/fastapi",
-    "change_runtime": false
+    "change_runtime": false,
+    "mentioned_by_pyre": false
   },
   {
     "isolated_code_change": "-        **extra: Dict[str, Any],\n+        **extra: Any,",
@@ -60,7 +62,8 @@
     "full_warning_msg": "fastapi/params.py:162:14 Incompatible parameter type [6]: Expected `bool` for 12th positional only parameter to call `Param.__init__` but got `Dict[str, typing.Any]`.",
     "url": "https://github.com/tiangolo/fastapi/commit/0e19c24",
     "repo": "https://github.com/tiangolo/fastapi",
-    "change_runtime": false
+    "change_runtime": false,
+    "mentioned_by_pyre": false
   },
   {
     "isolated_code_change": "-        **extra: Dict[str, Any],\n+        **extra: Any,",
@@ -81,7 +84,8 @@
     "full_warning_msg": "fastapi/params.py:200:14 Incompatible parameter type [6]: Expected `bool` for 12th positional only parameter to call `Param.__init__` but got `Dict[str, typing.Any]`.",
     "url": "https://github.com/tiangolo/fastapi/commit/0e19c24",
     "repo": "https://github.com/tiangolo/fastapi",
-    "change_runtime": false
+    "change_runtime": false,
+    "mentioned_by_pyre": false
   },
   {
     "isolated_code_change": "-    response_code: str = 200,\n+    status_code: int = 200,",
@@ -100,6 +104,7 @@
     "full_warning_msg": "fastapi/routing.py:43:4 Incompatible variable type [9]: response_code is declared to have type `str` but is used as type `int`.",
     "url": "https://github.com/tiangolo/fastapi/commit/0e19c24",
     "repo": "https://github.com/tiangolo/fastapi",
-    "change_runtime": false
+    "change_runtime": false,
+    "mentioned_by_pyre": true
   }
 ]

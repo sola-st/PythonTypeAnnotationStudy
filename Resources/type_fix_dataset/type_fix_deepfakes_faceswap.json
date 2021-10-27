@@ -18,6 +18,7 @@
     "url": "https://github.com/deepfakes/faceswap/commit/4153a7e",
     "repo": "https://github.com/deepfakes/faceswap",
     "filepath": "tools/effmpeg.py",
-    "change_runtime": true
+    "change_runtime": true,
+    "mentioned_by_pyre": true
   }
 ]
