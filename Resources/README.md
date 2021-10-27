@@ -1,5 +1,8 @@
 # type_fix_dataset #
 Contains json data where each entry is a code change to fix a type error.
+
+Currently, there are 74 fixes recorded.
+
 ## Fields ##
 `"isolated_code_change"`: Minimal code change required to perform the fix in git-diff format. Note that 1 change could fix multiple errors, in this case, each error will produce an entry.
 
@@ -26,7 +29,7 @@ Contains json data where each entry is a code change to fix a type error.
 - REPLACED
 - REMOVED
 
-`"location"` enum: Location of the code change relative to the pyre warning message, which is one of the followings:
+`"location"`: Location of the code change relative to the pyre warning message, which is one of the followings:
 - ENCLOSING_FUN_RETURN
 - ENCLOSING_FUN_PARAM
 - ENCLOSING_FUN
