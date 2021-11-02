@@ -13,7 +13,6 @@
     "full_warning_msg": "tests/keras/test_objectives.py:7:41 Undefined attribute [16]: Module `keras.objectives` has no attribute `root_mean_squared_error`.",
     "url": "https://github.com/keras-team/keras/commit/217cdd8b",
     "repo": "https://github.com/keras-team/keras",
-    "filepath": "tools/effmpeg.py",
     "change_runtime": true,
     "mentioned_by_pyre": false
   }
