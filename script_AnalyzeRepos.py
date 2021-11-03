@@ -3,8 +3,9 @@
 import subprocess
 import sys
 import re
+import random
 import time
-from collections import Counter
+from collections import Counter, defaultdict
 import json
 from os import path, scandir
 from Code.TypeErrors.TypeAnnotationCounter import count_type_annotations
@@ -12,7 +13,7 @@ from Code.TypeErrors.TypeAnnotationCounter import count_type_annotations
 import config
 
 repos_base_dir = config.ROOT_DIR + "/GitHub/"
-results_base_dir = config.ROOT_DIR + "/Resources/Output_typeErrors/"
+results_base_dir = config.ROOT_DIR + "/Resources/Output_type_fix_commits/"
 
 
 def find_all_projects():
@@ -45,7 +46,7 @@ def invoke_cmd(cmd, cwd):
         out = e.output.decode(sys.stdout.encoding)
     return out
 
-
+# Run pyre check here
 def check_commit(repo_dir, commit):
     print("\n===========================================")
     print(f"Checking commit {commit} of {repo_dir}")
@@ -107,6 +108,85 @@ def check_commit(repo_dir, commit):
     }
     return result
 
+def get_commit_type_error(repo_dir, commit): # repo_dir = /home/wai/hiwi/TypeAnnotation_Study/GitHub/Python
+    print("\n===========================================")
+    print(f"Checking commit {commit} of {repo_dir}")
+
+    # go to commit
+    subprocess.run(f"git checkout {commit}".split(" "), cwd=repo_dir)
+
+    # get date of commit
+    out = subprocess.check_output(
+        f"git show -s --format=%ci {commit}".split(" "), cwd=repo_dir)
+    commit_date = out.decode(sys.stdout.encoding).rstrip()
+
+    # count lines of code
+    print("--- Counting lines of code")
+    out = invoke_cmd(f"sloccount .", repo_dir)
+
+    loc = 0
+    for l in out.split("\n"):
+        l_search = re.search(r"python:\s*(\d+) .*", l)
+        if l_search is not None:
+            loc = int(l_search.group(1))
+
+    # count Python files
+    out = invoke_cmd(f"find . -name *.py", repo_dir)
+    nb_python_files = len(out.split("\n")) - 1  # last line is empty
+
+    # type check
+    print("--- Type checking")
+    # out = invoke_cmd("python --version", repo_dir)    
+    # print(out)
+    # out = invoke_cmd("pyre --version", repo_dir)
+    # print(out)
+    # out = invoke_cmd("pyre rage", repo_dir)
+    # print(out)
+    # out = invoke_cmd("git status", repo_dir)
+    # print(out)
+    # out = invoke_cmd("env", repo_dir)
+    # print(out)
+    # sys.exit()
+    out = invoke_cmd("cp ../.pyre_configuration .", repo_dir)
+    out = invoke_cmd("pyre check", repo_dir)
+    
+    warnings = out.split("\n")
+    warnings = warnings[:-1]  # last line is empty
+    print(f"Got {len(warnings)} warnings")
+
+    warnings = [k for k in warnings if 'Could not find a module corresponding to import' not in k and 'Undefined import' not in k]
+    print(f"Got {len(warnings)} warnings after removing import error")
+
+    # analyze warnings
+    kind_to_nb = Counter()
+    file_to_count = defaultdict(lambda: 0)
+    for w in warnings:
+        w_search = re.search(r"(.*):-?\d+:-?\d+ (.*\[\d+\]):.*", w)
+        if w_search is None:
+            raise Exception(f"Warning: Could not parse warning -- {w}")
+        filename = w_search.group(1)
+        file_to_count[filename] += 1
+        warning_kind = w_search.group(2)
+        kind_to_nb[warning_kind] += 1
+
+    # count type annotations
+    # param_types, return_types, variable_types, _, _, _ = count_type_annotations(
+    #     repo_dir)
+    
+    result = {
+        "commit": commit,
+        "commit_date": commit_date,
+        "loc": loc,  # number line of code
+        "nb_python_files": nb_python_files,
+        # "nb_param_types": param_types,
+        # "nb_return_types": return_types,
+        # "nb_variable_types": variable_types,
+        "nb_warnings": len(warnings),
+        "kind_to_nb": kind_to_nb,
+        "file_to_count": file_to_count,
+        "all_warnings": warnings,
+    }
+    return result
 
 def nb_types(r):
     return r["nb_param_types"] + r["nb_variable_types"] + r["nb_return_types"]
@@ -143,8 +223,8 @@ def analyze_histories(projects, max_commits_per_project):
             repo_dir = repos_base_dir+p
             init_pyre(repo_dir)
             all_commits = get_all_commits(repo_dir)
-            #commits = sample_commits(all_commits, max_commits_per_project)
-            commits = all_commits
+            commits = sample_commits(all_commits, max_commits_per_project)
+            #commits = all_commits
             project_results = []
             for c in commits:
                 r = check_commit(repo_dir, c)
@@ -154,6 +234,119 @@ def analyze_histories(projects, max_commits_per_project):
             print(f"WARNING: Some problem with {p} -- skipping this project")
             print(e)
 
+def analyze_typeAnnotation_output(projects, max_commits_per_project, commits=None):
+    for p in projects:
+        try:
+            sys.version_info        
+            repo_dir = repos_base_dir+p
+            init_pyre(repo_dir)
+            if commits is None:
+                all_commits = get_all_commits(repo_dir)
+                commits = sample_commits(all_commits, max_commits_per_project)
+                #commits = all_commits
+            project_results = []
+            for c in commits:
+                parent_commit = get_parent_commit(repo_dir, c)
+                r = get_commit_type_error(repo_dir, parent_commit)
+                project_results.append(r)
+            write_results("history_"+p, project_results)
+        except Exception as e:
+            print(f"WARNING: Some problem with {p} -- skipping this project")
+            print(e)
+
+# Note: target_commits is a dictionary with project name as key, and a list of 7-character hex as value.
+def get_type_warning_removed_output(projects, max_commits_per_project, target_commits=None):
+    for p in projects:
+        try:
+            repo_dir = repos_base_dir+p
+            init_pyre(repo_dir)            
+            all_commits = get_all_commits(repo_dir)
+            target_exist = target_commits is not None and target_commits[p] is not None
+            if target_exist:
+                commits = all_commits
+            else:
+                commits = sample_commits(all_commits, max_commits_per_project)
+            project_results = []
+            for c in commits:
+                try:
+                    if target_exist and c not in target_commits[p]:
+                        continue
+                    parent_commit = get_parent_commit(repo_dir, c).split()[0]                
+                    # e.g. for ['75007332e4eddac6d67bcf9ad805a02972ef2caf aae156252f5d9a82b0a308ae3243755ee4d81bab'],
+                    # parent_commit == '75007332e4eddac6d67bcf9ad805a02972ef2caf'
+                    parent_res = get_commit_type_error(repo_dir, parent_commit)
+                    res = get_commit_type_error(repo_dir, c)
+                    if res['nb_warnings'] < parent_res['nb_warnings']:
+                        out = {
+                            'project': p,
+                            'commit': c, 
+                            'parent_commit': parent_commit, 
+                            'warning_removed': parent_res['nb_warnings'] - res['nb_warnings'],
+                            'parent_warnings': [],
+                            'warnings': []
+                        }
+                        parent_files = parent_res['file_to_count']
+                        files = res['file_to_count']
+                        for f, count in parent_files.items():
+                            if f in files and files[f] < count:
+                                out['parent_warnings'].append([i for i in parent_res['all_warnings'] if i.split(':')[0] in f])
+                                out['warnings'].append([i for i in res['all_warnings'] if i.split(':')[0] in f])
+                                # Remove warnings that exist in both parent_warnings and warnings
+                                for pw in out['parent_warnings'][-1]:
+                                    if pw in out['warnings'][-1]:
+                                        out['parent_warnings'][-1].remove(pw)
+                                        out['warnings'][-1].remove(pw)
+                            elif f not in files:
+                                out['parent_warnings'].append([i for i in parent_res['all_warnings'] if i.split(':')[0] in f])
+                        project_results.append(out)
+                except Exception as e:
+                    print(f"WARNING: Some problem with commit {c} of {p} -- skipping this commit")
+                    print(e)
+            # Get commits randomly from each repo
+            random.Random(2021).shuffle(project_results)
+            # project_results = project_results[:num_commit]
+            write_results("history_warning_removed_"+p, project_results)
+        except Exception as e:
+            print(f"WARNING: Some problem with {p} -- skipping this project")
+            print(e)
+
+# b should be later than a
+def compare_two_commits_warnings_output(p, a_commit, b_commit):
+    try:
+        repo_dir = repos_base_dir+p
+        init_pyre(repo_dir)            
+        all_commits = get_all_commits(repo_dir)
+        commits = all_commits
+        project_results = []
+        a_res = get_commit_type_error(repo_dir, a_commit)
+        b_res = get_commit_type_error(repo_dir, b_commit)
+        if b_res['nb_warnings'] < a_res['nb_warnings']:
+            out = {
+                'project': p,
+                'a_commit': a_commit, 
+                'b_commit': b_commit, 
+                'warning_removed': a_res['nb_warnings'] - b_res['nb_warnings'],
+                'parent_warnings': [],
+                'warnings': []
+            }
+            parent_files = a_res['file_to_count']
+            files = b_res['file_to_count']
+            for f, count in parent_files.items():
+                if f in files and files[f] < count:
+                    out['parent_warnings'].append([i for i in a_res['all_warnings'] if i.split(':')[0] in f])
+                    out['warnings'].append([i for i in b_res['all_warnings'] if i.split(':')[0] in f])
+                    # Remove warnings that exist in both parent_warnings and warnings
+                    for pw in out['parent_warnings'][-1]:
+                        if pw in out['warnings'][-1]:
+                            out['parent_warnings'][-1].remove(pw)
+                            out['warnings'][-1].remove(pw)
+                elif f not in files:
+                    out['parent_warnings'].append([i for i in a_res['all_warnings'] if i.split(':')[0] in f])
+            project_results.append(out)
+        write_results("compare_warning_"+p+"_"+a_commit+"_"+b_commit, project_results)
+    except Exception as e:
+        print(f"WARNING: Some problem with {p} -- skipping this project")
+        print(e)
 
 def analyze_latest_commit(projects):
     results = []
@@ -281,10 +474,21 @@ def analyze_specific_commits(commits_file):
     # analyze_latest_commit(projects)  # TODO: still needed?
 start = time.time()
 
-analyze_histories(projects, max_commits_per_project=100000)
+# analyze_histories(projects, max_commits_per_project=5)
 
-analyze_specific_commits(
-    config.ROOT_DIR + "/Resources/Output/typeAnnotationCommitStatistics.json")
+#analyze_specific_commits(
+ #   config.ROOT_DIR + "/Resources/Output/typeAnnotationCommitStatistics.json")
+
+# The output here will be used in script_typeAnnotation_analysis for matching pyre error msg
+# get_type_warning_removed_output(['Python'], 0, { 
+#     # commits with "mypy" in commit message:
+#     "Python": ["5e7eed6", "20a4fdf", "af0810f", "4545270", "d009cea", "3c22524", "da71184", "a5bcf0f", "a4b7d12", "c5003a2", "7634cf0", "407c979", "7342b33", "bc09ba9", "4a2216b", "307ffd8", "256c319", "4412eaf", "9586230", "86baec0", "62d4418", "3ea5a13", "977511b", "03d9b67", "deb7116", "252df0a", "531d2d6", "c49fa08", "8c29860", "20c7518", "6089536", "a53fcf2", "5229c74", "895bca3", "c22c7d5", "9b60be6", "9595079", "a8db5d4", "ce99859", "14bcb58", "2c6f553", "8d7ef6a", "9875673", "ffa53c0", "8e488dd", "4f6a929", "4c76e3c", "7df393f", "a4726ca", "2a6e4bb", "81c46df", "2595cf0", "97b6ca2", "d594f45", "00e279e", "207ac95", "f3ba9b6", "ad5108d", "06dad4f", "25164bb", "03e7f37", "aaaa175", "00a6701", "20e09c3", "11ec2fd", "629848e", "0616148", "d924a80", "08254eb", "83a63d9", "b373c99", "9153db2", "fdf095f", "08d4d22", "4bf2eed", "4cf1aae", "bcfca67", "d324f91", "abc725f", "c1b15a8"]
+# })
+repos = {
+    'ObjectPath': ['9cb35aa', '93bedaf']
+}
+for r, commits in repos.items():
+    compare_two_commits_warnings_output(r, commits[0], commits[1])
 
 end = time.time()
 hours, rem = divmod(end - start, 3600)

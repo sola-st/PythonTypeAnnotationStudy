@@ -88,7 +88,7 @@ def repo_cloning_csv( pathOutput: str) -> None:
                 print('[Error] cloning repository:', str(e))
                 continue
 
-def query_repo_get_changes(repo_name):  # statistics, pointer, dirlist_len):
+def query_repo_get_changes(repo_name, err_dict=None, target_commits=None):  # statistics, pointer, dirlist_len):
     start = time.time()
     file_extension = '.py'
     statistics = CodeStatistics()
@@ -121,6 +121,7 @@ def query_repo_get_changes(repo_name):  # statistics, pointer, dirlist_len):
         try:
             repo = git.Repository(config.ROOT_DIR + "/GitHub/" + repo_name)
         except:
+            print('Return, repo not found in dir: ', repo_name)
             return
 
         remote_url = None
@@ -135,16 +136,21 @@ def query_repo_get_changes(repo_name):  # statistics, pointer, dirlist_len):
         if statistics.typeLastProjectVersion_total > 0:
             # Go through each commit starting from the most recent commit
             commit_temp = 'e0'
+            commit_count = 0
+            # print(last_commit)
+            # for commit in repo.walk(last_commit, GIT_SORT_TOPOLOGICAL | GIT_SORT_REVERSE):                
+            #     print(commit)
             for commit in repo.walk(last_commit, GIT_SORT_TOPOLOGICAL | GIT_SORT_REVERSE):
                 try:
-                    #print(str(commit.hex))
-                    #if commit.hex != '0d2f5f328ce14fcaed450ee218d44aa0eb32fe4a' and commit.hex != '304de58f8db607913feb326e89243082e27c4c50':  # b86598886ea50c5259982ac18a692748bd3ba402
-                     #   continue
+                    commit_count += 1
+                    if target_commits is not None and str(commit.hex) not in target_commits:
+                       continue
+                    # print(str(commit.hex))
                     commit_year = time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(commit.commit_time))[:4]
                     commit_month = time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(commit.commit_time))[5:7]
                     commit_day = time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(commit.commit_time))[8:10]
 
-                    if  int(commit_year) < 2014 or int(commit_year) > 2020:
+                    if  int(commit_year) < 2014 or int(commit_year) > 2021:
                         continue
 
                     #if int(commit_month) <= 12:
@@ -237,15 +243,19 @@ def query_repo_get_changes(repo_name):  # statistics, pointer, dirlist_len):
                                     n_non_test_files += 1
                             except Exception as e:
                                 return
-
+                            # repo = git.Repository(config.ROOT_DIR + "/GitHub/" + repo_name)
+                            # Go through each commit starting from the most recent commit: last -> 2nd last -> 3rd last -> ...
+                            # diff = repo.diff(commita, commitb)                     
+                            # for patch in diff # iterate over the deltas/patches in this diff.
                             TypeAnnotationExtractionLast_life(config.ROOT_DIR + "/GitHub/", repo_name, commit, patch,
                                                         remote_url + '/commit/' + commit.hex + '#diff-' + diff.patchid.hex,
                                                         statistics,  # lock, logging,
                                                         at_least_one_type_change,
                                                         statistics.code_changes, typeannotation_line_inserted,
                                                         typeannotation_line_removed, typeannotation_line_changed,
-                                                        list_line_added,
-                                                        list_line_removed, commit_year, commit_month, commit_day)
+                                                        list_line_added, list_line_removed, 
+                                                        commit_year, commit_month, commit_day,
+                                                        err_dict)
 
                     added_per_commit_percentage = 0
                     removed_per_commit_percentage = 0

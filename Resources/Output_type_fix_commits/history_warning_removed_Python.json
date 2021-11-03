@@ -1,0 +1,750 @@
+[
+  {
+    "project": "Python",
+    "commit": "9586230",
+    "parent_commit": "86baec0bc9d790e2be6f49492e2e4f0f788060af",
+    "warning_removed": 4,
+    "parent_warnings": [
+      [
+        "graphs/minimum_spanning_tree_prims2.py:247:8 Incompatible return type [7]: Expected `Tuple[Dict[str, int], Dict[str, Optional[str]]]` but got `Tuple[Dict[typing.Any, int], Dict[typing.Any, None]]`.",
+        "graphs/minimum_spanning_tree_prims2.py:256:32 Incompatible parameter type [6]: Expected `None` for 2nd positional only parameter to call `dict.__setitem__` but got `Union[int, str]`.",
+        "graphs/minimum_spanning_tree_prims2.py:264:36 Incompatible parameter type [6]: Expected `None` for 2nd positional only parameter to call `dict.__setitem__` but got `Union[int, str]`.",
+        "graphs/minimum_spanning_tree_prims2.py:265:4 Incompatible return type [7]: Expected `Tuple[Dict[str, int], Dict[str, Optional[str]]]` but got `Tuple[Dict[typing.Any, int], Dict[typing.Any, None]]`."
+      ]
+    ],
+    "warnings": []
+  },
+  {
+    "project": "Python",
+    "commit": "bcfca67",
+    "parent_commit": "e311b02e704891b2f31a1e2c8fe2df77a032b09b",
+    "warning_removed": 20,
+    "parent_warnings": [
+      [
+        "project_euler/problem_003/sol1.py:95:23 Incompatible parameter type [6]: Expected `int` for 1st positional only parameter to call `isprime` but got `float`.",
+        "project_euler/problem_003/sol1.py:100:4 Incompatible return type [7]: Expected `int` but got `float`."
+      ],
+      [
+        "project_euler/problem_003/sol3.py:60:12 Incompatible variable type [9]: n is declared to have type `int` but is used as type `float`."
+      ],
+      [
+        "project_euler/problem_008/sol2.py:72:4 Incompatible return type [7]: Expected `int` but got `typing.Union[int, str]`."
+      ],
+      [
+        "project_euler/problem_009/sol1.py:37:24 Incompatible return type [7]: Expected `int` but got implicit return value of `None`.",
+        "project_euler/problem_009/sol1.py:56:16 Incompatible return type [7]: Expected `int` but got implicit return value of `None`."
+      ],
+      [
+        "project_euler/problem_025/sol2.py:47:8 Incompatible return type [7]: Expected `int` but got `typing.Generator[int, None, None]`.",
+        "project_euler/problem_025/sol2.py:65:23 Incompatible parameter type [6]: Expected `typing.Iterator[Variable[_T]]` for 1st positional only parameter to call `next` but got `int`."
+      ],
+      [
+        "project_euler/problem_044/sol1.py:43:16 Incompatible return type [7]: Expected `int` but got implicit return value of `None`."
+      ],
+      [
+        "project_euler/problem_046/sol1.py:86:16 Incompatible return type [7]: Expected `typing.List[int]` but got implicit return value of `None`."
+      ],
+      [
+        "project_euler/problem_051/sol1.py:66:4 Incompatible variable type [9]: number is declared to have type `int` but is used as type `str`.",
+        "project_euler/problem_051/sol1.py:70:29 Incompatible parameter type [6]: Expected `None` for 1st positional only parameter to call `Counter.__init__` but got `int`.",
+        "project_euler/problem_051/sol1.py:70:51 Incompatible parameter type [6]: Expected `typing.Iterable[Variable[_T]]` for 1st positional only parameter to call `set.__init__` but got `int`.",
+        "project_euler/problem_051/sol1.py:71:22 Undefined attribute [16]: `int` has no attribute `replace`.",
+        "project_euler/problem_051/sol1.py:107:12 Incompatible return type [7]: Expected `int` but got implicit return value of `None`."
+      ],
+      [
+        "project_euler/problem_099/sol1.py:30:4 Incompatible return type [7]: Expected `int` but got `float`."
+      ],
+      [
+        "project_euler/problem_101/sol1.py:91:43 Incompatible parameter type [6]: Expected `int` for 1st positional only parameter to call `int.__truediv__` but got `Union[float, int]`.",
+        "project_euler/problem_101/sol1.py:108:38 Incompatible parameter type [6]: Expected `int` for 1st positional only parameter to call `int.__truediv__` but got `Union[float, int]`.",
+        "project_euler/problem_101/sol1.py:131:4 Incompatible variable type [9]: vector is declared to have type `typing.List[typing.List[Union[float, int]]]` but is used as type `typing.List[typing.List[int]]`.",
+        "project_euler/problem_101/sol1.py:208:8 Incompatible variable type [9]: poly is declared to have type `int` but is used as type `typing.Callable[[int], int]`.",
+        "project_euler/problem_101/sol1.py:210:29 Call error [29]: `int` is not a function.",
+        "project_euler/problem_101/sol1.py:213:15 Call error [29]: `int` is not a function."
+      ],
+      [
+        "project_euler/problem_188/sol1.py:39:27 Incompatible parameter type [6]: Expected `int` for 2nd positional only parameter to call `_modexpt` but got `float`."
+      ]
+    ],
+    "warnings": [
+      [
+        "project_euler/problem_101/sol1.py:91:43 Incompatible parameter type [6]: Expected `int` for 1st positional only parameter to call `int.__truediv__` but got `Union[float, int]`.",
+        "project_euler/problem_101/sol1.py:108:38 Incompatible parameter type [6]: Expected `int` for 1st positional only parameter to call `int.__truediv__` but got `Union[float, int]`.",
+        "project_euler/problem_101/sol1.py:131:4 Incompatible variable type [9]: vector is declared to have type `typing.List[typing.List[Union[float, int]]]` but is used as type `typing.List[typing.List[int]]`."
+      ]
+    ]
+  },
+  {
+    "project": "Python",
+    "commit": "da71184",
+    "parent_commit": "a5bcf0f6749a93a44f7a981edc9b0e35fbd066f2",
+    "warning_removed": 1,
+    "parent_warnings": [
+      [
+        "graphs/minimum_spanning_tree_kruskal.py:36:4 Incompatible return type [7]: Expected `int` but got `List[typing.Any]`."
+      ]
+    ],
+    "warnings": []
+  },
+  {
+    "project": "Python",
+    "commit": "977511b",
+    "parent_commit": "c824b90ead698da4f10ac38e431844d96af109b6",
+    "warning_removed": 1,
+    "parent_warnings": [
+      [
+        "graphs/depth_first_search.py:32:4 Incompatible return type [7]: Expected `typing.Set[int]` but got `typing.Set[str]`."
+      ]
+    ],
+    "warnings": []
+  },
+  {
+    "project": "Python",
+    "commit": "20c7518",
+    "parent_commit": "536fb4bca48f69cb66cfbd03aeb02550def07977",
+    "warning_removed": 4,
+    "parent_warnings": [
+      [
+        "conversions/prefix_conversions.py:62:8 Illegal annotation target [35]: Target `known_prefix` cannot be annotated after it is first declared.",
+        "conversions/prefix_conversions.py:64:8 Illegal annotation target [35]: Target `unknown_prefix` cannot be annotated after it is first declared.",
+        "conversions/prefix_conversions.py:88:8 Illegal annotation target [35]: Target `known_prefix` cannot be annotated after it is first declared.",
+        "conversions/prefix_conversions.py:90:8 Illegal annotation target [35]: Target `unknown_prefix` cannot be annotated after it is first declared."
+      ]
+    ],
+    "warnings": []
+  },
+  {
+    "project": "Python",
+    "commit": "a53fcf2",
+    "parent_commit": "5229c749553d9ec65d455e0183a574e45ac3e73e",
+    "warning_removed": 2,
+    "parent_warnings": [
+      [
+        "hashes/adler32.py:29:4 Incompatible return type [7]: Expected `str` but got `int`."
+      ],
+      [
+        "hashes/sdbm.py:37:4 Incompatible return type [7]: Expected `str` but got `int`."
+      ]
+    ],
+    "warnings": []
+  },
+  {
+    "project": "Python",
+    "commit": "a4726ca",
+    "parent_commit": "02d9bc66c16a9cc851200f149fabbb07df611525",
+    "warning_removed": 1,
+    "parent_warnings": [
+      [
+        "sorts/cocktail_shaker_sort.py:36:12 Incompatible return type [7]: Expected `typing.List[typing.Any]` but got implicit return value of `None`."
+      ]
+    ],
+    "warnings": []
+  },
+  {
+    "project": "Python",
+    "commit": "4545270",
+    "parent_commit": "d009cea391414bfef17520ba6b64e4c2d97163ed",
+    "warning_removed": 1,
+    "parent_warnings": [
+      [
+        "graphs/markov_chain.py:37:16 Incompatible return type [7]: Expected `str` but got implicit return value of `None`."
+      ]
+    ],
+    "warnings": []
+  },
+  {
+    "project": "Python",
+    "commit": "256c319",
+    "parent_commit": "4412eafaac315764ca43e2b63913772776689fa0",
+    "warning_removed": 2,
+    "parent_warnings": [
+      [
+        "graphs/minimum_spanning_tree_kruskal2.py:31:11 Undefined attribute [16]: `int` has no attribute `rank`.",
+        "graphs/minimum_spanning_tree_kruskal2.py:32:12 Undefined attribute [16]: `int` has no attribute `parent`.",
+        "graphs/minimum_spanning_tree_kruskal2.py:40:18 Incompatible parameter type [6]: Expected `int` for 1st positional only parameter to call `DisjointSetTree.link` but got `DisjointSetTreeNode`.",
+        "graphs/minimum_spanning_tree_kruskal2.py:40:36 Incompatible parameter type [6]: Expected `int` for 2nd positional only parameter to call `DisjointSetTree.link` but got `DisjointSetTreeNode`."
+      ]
+    ],
+    "warnings": [
+      [
+        "graphs/minimum_spanning_tree_kruskal2.py:104:23 Undefined attribute [16]: `DisjointSetTree` has no attribute `__getitem__`.",
+        "graphs/minimum_spanning_tree_kruskal2.py:111:16 Undefined attribute [16]: `GraphUndirectedWeighted` has no attribute `__getitem__`."
+      ]
+    ]
+  },
+  {
+    "project": "Python",
+    "commit": "4f6a929",
+    "parent_commit": "ced83bed2cda5a1a4353f3ced2871a884d380879",
+    "warning_removed": 3,
+    "parent_warnings": [
+      [
+        "electronics/ohms_law.py:29:8 Incompatible return type [7]: Expected `float` but got `typing.Dict[str, float]`.",
+        "electronics/ohms_law.py:31:8 Incompatible return type [7]: Expected `float` but got `typing.Dict[str, float]`.",
+        "electronics/ohms_law.py:33:8 Incompatible return type [7]: Expected `float` but got implicit return value of `None`.",
+        "electronics/ohms_law.py:33:8 Incompatible return type [7]: Expected `float` but got `typing.Dict[str, float]`."
+      ]
+    ],
+    "warnings": [
+      [
+        "electronics/ohms_law.py:34:8 Incompatible return type [7]: Expected `Dict[str, float]` but got implicit return value of `None`."
+      ]
+    ]
+  },
+  {
+    "project": "Python",
+    "commit": "895bca3",
+    "parent_commit": "c22c7d503be5f48ae257c648f7b83b8a80a02738",
+    "warning_removed": 1,
+    "parent_warnings": [
+      [
+        "web_programming/emails_from_url.py:22:4 Inconsistent override [14]: `web_programming.emails_from_url.Parser.handle_starttag` overrides method defined in `HTMLParser` inconsistently. Parameter of type `str` is not a supertype of the overridden parameter `typing.List[typing.Tuple[str, typing.Optional[str]]]`.",
+        "web_programming/emails_from_url.py:97:18 Uninitialized local [61]: Local variable `valid_emails` may not be initialized here."
+      ]
+    ],
+    "warnings": [
+      [
+        "web_programming/emails_from_url.py:98:18 Uninitialized local [61]: Local variable `valid_emails` may not be initialized here."
+      ]
+    ]
+  },
+  {
+    "project": "Python",
+    "commit": "c5003a2",
+    "parent_commit": "6732fa013119aa2003f24d1dac1bdc4ee435ee5e",
+    "warning_removed": 1,
+    "parent_warnings": [
+      [
+        "graphs/breadth_first_search_shortest_path.py:78:14 Incompatible parameter type [6]: Expected `typing.Dict[str, str]` for 1st positional only parameter to call `Graph.__init__` but got `typing.Dict[str, typing.List[str]]`."
+      ]
+    ],
+    "warnings": []
+  },
+  {
+    "project": "Python",
+    "commit": "a8db5d4",
+    "parent_commit": "0ee8f792e3105cda122ecb8696575eb0354b09bb",
+    "warning_removed": 1,
+    "parent_warnings": [
+      [
+        "compression/lempel_ziv.py:60:56 Incompatible parameter type [6]: Expected `int` for 4th positional only parameter to call `add_key_to_lexicon` but got `str`."
+      ]
+    ],
+    "warnings": []
+  },
+  {
+    "project": "Python",
+    "commit": "86baec0",
+    "parent_commit": "62d44188516521fd14e9a4e1f18957ea4eaeeb37",
+    "warning_removed": 4,
+    "parent_warnings": [
+      [
+        "graphs/bfs_zero_one_shortest_path.py:110:34 Incompatible parameter type [6]: Expected `None` for 2nd positional only parameter to call `list.__setitem__` but got `int`.",
+        "graphs/bfs_zero_one_shortest_path.py:117:31 Unsupported operand [58]: `+` is not supported for operand types `None` and `int`.",
+        "graphs/bfs_zero_one_shortest_path.py:120:40 Unsupported operand [58]: `>=` is not supported for operand types `int` and `None`.",
+        "graphs/bfs_zero_one_shortest_path.py:123:53 Incompatible parameter type [6]: Expected `None` for 2nd positional only parameter to call `list.__setitem__` but got `int`.",
+        "graphs/bfs_zero_one_shortest_path.py:132:8 Incompatible return type [7]: Expected `int` but got `None`."
+      ]
+    ],
+    "warnings": [
+      [
+        "graphs/bfs_zero_one_shortest_path.py:110:8 Incompatible variable type [9]: distances is declared to have type `typing.List[Optional[int]]` but is used as type `typing.List[None]`."
+      ]
+    ]
+  },
+  {
+    "project": "Python",
+    "commit": "25164bb",
+    "parent_commit": "0febbd397ec2a41cff7f9fa2c182c14516f5bb36",
+    "warning_removed": 25,
+    "parent_warnings": [
+      [
+        "backtracking/all_combinations.py:8:49 Invalid type [31]: Expression `[[int]]` is not a valid type.",
+        "backtracking/all_combinations.py:23:18 Invalid type [31]: Expression `[int]` is not a valid type.",
+        "backtracking/all_combinations.py:24:16 Invalid type [31]: Expression `[int]` is not a valid type.",
+        "backtracking/all_combinations.py:36:32 Invalid type [31]: Expression `[int]` is not a valid type."
+      ],
+      [
+        "backtracking/all_permutations.py:10:40 Invalid type [31]: Expression `[int]` is not a valid type.",
+        "backtracking/all_permutations.py:11:45 Incompatible parameter type [6]: Expected `int` for 4th positional only parameter to call `create_state_space_tree` but got `typing.List[int]`.",
+        "backtracking/all_permutations.py:15:14 Invalid type [31]: Expression `[int]` is not a valid type.",
+        "backtracking/all_permutations.py:15:39 Invalid type [31]: Expression `[int]` is not a valid type.",
+        "backtracking/all_permutations.py:28:15 Undefined attribute [16]: `int` has no attribute `__getitem__`.",
+        "backtracking/all_permutations.py:30:12 Undefined attribute [16]: `int` has no attribute `__setitem__`.",
+        "backtracking/all_permutations.py:46:0 Incompatible variable type [9]: sequence is declared to have type `typing.List[int]` but is used as type `typing.List[str]`."
+      ],
+      [
+        "backtracking/n_queens.py:13:18 Invalid type [31]: Expression `[[int]]` is not a valid type.",
+        "backtracking/n_queens.py:41:17 Invalid type [31]: Expression `[[int]]` is not a valid type.",
+        "backtracking/n_queens.py:56:8 Incompatible return type [7]: Expected `bool` but got `None`.",
+        "backtracking/n_queens.py:71:22 Invalid type [31]: Expression `[[int]]` is not a valid type."
+      ],
+      [
+        "backtracking/rat_in_maze.py:1:21 Invalid type [31]: Expression `[[int]]` is not a valid type.",
+        "backtracking/rat_in_maze.py:70:19 Invalid type [31]: Expression `[[int]]` is not a valid type.",
+        "backtracking/rat_in_maze.py:70:55 Invalid type [31]: Expression `[[int]]` is not a valid type.",
+        "backtracking/rat_in_maze.py:108:12 Incompatible return type [7]: Expected `bool` but got implicit return value of `None`."
+      ],
+      [
+        "backtracking/sum_of_subsets.py:11:39 Invalid type [31]: Expression `[int]` is not a valid type.",
+        "backtracking/sum_of_subsets.py:11:55 Invalid type [31]: Expression `[int]` is not a valid type.",
+        "backtracking/sum_of_subsets.py:11:65 Invalid type [31]: Expression `[int]` is not a valid type.",
+        "backtracking/sum_of_subsets.py:21:10 Invalid type [31]: Expression `[int]` is not a valid type.",
+        "backtracking/sum_of_subsets.py:24:10 Invalid type [31]: Expression `[int]` is not a valid type.",
+        "backtracking/sum_of_subsets.py:25:12 Invalid type [31]: Expression `[int]` is not a valid type."
+      ]
+    ],
+    "warnings": []
+  },
+  {
+    "project": "Python",
+    "commit": "8c29860",
+    "parent_commit": "20c7518028efbb6e8ae46a42b28c3f2e27acb2a2",
+    "warning_removed": 1,
+    "parent_warnings": [
+      [
+        "linear_algebra/src/conjugate_gradient.py:9:27 Undefined or invalid type [11]: Annotation `np.array` is not defined as a type.",
+        "linear_algebra/src/conjugate_gradient.py:44:34 Undefined or invalid type [11]: Annotation `np.int64` is not defined as a type.",
+        "linear_algebra/src/conjugate_gradient.py:145:11 Uninitialized local [61]: Local variable `x` may not be initialized here."
+      ],
+      [
+        "linear_algebra/src/polynom_for_points.py:99:28 Incompatible parameter type [6]: Expected `str` for 1st positional only parameter to call `list.append` but got `float`.",
+        "linear_algebra/src/polynom_for_points.py:117:15 Uninitialized local [61]: Local variable `solved` may not be initialized here."
+      ],
+      [
+        "linear_algebra/src/power_iteration.py:5:18 Undefined or invalid type [11]: Annotation `np.array` is not defined as a type.",
+        "linear_algebra/src/power_iteration.py:6:5 Invalid type [31]: Expression `[float, numpy.array]` is not a valid type.",
+        "linear_algebra/src/power_iteration.py:68:11 Uninitialized local [61]: Local variable `lamda` may not be initialized here."
+      ]
+    ],
+    "warnings": [
+      [
+        "linear_algebra/src/conjugate_gradient.py:11:27 Undefined or invalid type [11]: Annotation `np.ndarray` is not defined as a type.",
+        "linear_algebra/src/conjugate_gradient.py:150:11 Uninitialized local [61]: Local variable `x` may not be initialized here."
+      ],
+      [
+        "linear_algebra/src/polynom_for_points.py:114:15 Uninitialized local [61]: Local variable `solved` may not be initialized here."
+      ],
+      [
+        "linear_algebra/src/power_iteration.py:5:18 Undefined or invalid type [11]: Annotation `np.ndarray` is not defined as a type.",
+        "linear_algebra/src/power_iteration.py:71:11 Uninitialized local [61]: Local variable `lamda` may not be initialized here."
+      ]
+    ]
+  },
+  {
+    "project": "Python",
+    "commit": "9b60be6",
+    "parent_commit": "959507901ac8f10cd605c51c305d13b27d105536",
+    "warning_removed": 2,
+    "parent_warnings": [
+      [
+        "machine_learning/word_frequency_functions.py:83:4 Incompatible return type [7]: Expected `int` but got `typing.Tuple[int, int]`."
+      ],
+      [
+        "traversals/binary_tree_traversals.py:191:11 Unbound name [10]: Name `List` is used but not defined in the current scope."
+      ]
+    ],
+    "warnings": []
+  },
+  {
+    "project": "Python",
+    "commit": "f3ba9b6",
+    "parent_commit": "0ccb213c1140d094e4c86bc04c767290b4ebaf15",
+    "warning_removed": 8,
+    "parent_warnings": [
+      [
+        "backtracking/all_subsequences.py:45:0 Incompatible variable type [9]: sequence is declared to have type `List[int]` but is used as type `List[str]`."
+      ],
+      [
+        "backtracking/knight_tour.py:14:4 Unable to unpack [23]: Unable to unpack single value, 2 were expected.",
+        "backtracking/knight_tour.py:58:8 Unable to unpack [23]: Unable to unpack single value, 2 were expected.",
+        "backtracking/knight_tour.py:88:47 Incompatible parameter type [6]: Expected `typing.Tuple[int]` for 2nd positional only parameter to call `open_knight_tour_helper` but got `typing.Tuple[int, int]`."
+      ],
+      [
+        "backtracking/n_queens_math.py:109:8 Incompatible variable type [9]: possible_board is declared to have type `typing.List[int]` but is used as type `typing.List[str]`.",
+        "backtracking/n_queens_math.py:110:22 Incompatible parameter type [6]: Expected `typing.List[str]` for 1st positional only parameter to call `list.append` but got `typing.List[int]`."
+      ],
+      [
+        "backtracking/sudoku.py:91:16 Incompatible return type [7]: Expected `Tuple[int, int]` but got implicit return value of `None`.",
+        "backtracking/sudoku.py:149:27 Incompatible parameter type [6]: Expected `List[List[int]]` for 1st positional only parameter to call `print_solution` but got `Union[List[List[int]], bool]`."
+      ]
+    ],
+    "warnings": []
+  },
+  {
+    "project": "Python",
+    "commit": "af0810f",
+    "parent_commit": "4545270ace03411ec861361329345a36195b881d",
+    "warning_removed": 2,
+    "parent_warnings": [
+      [
+        "maths/average_median.py:22:25 Incompatible parameter type [6]: Expected `typing.Iterable[Variable[_typeshed.SupportsLessThanT (bound to _typeshed.SupportsLessThan)]]` for 1st positional only parameter to call `sorted` but got `Union[float, int]`."
+      ],
+      [
+        "maths/series/harmonic_series.py:36:8 Incompatible return type [7]: Expected `typing.List[typing.Any]` but got `str`."
+      ]
+    ],
+    "warnings": []
+  },
+  {
+    "project": "Python",
+    "commit": "c1b15a8",
+    "parent_commit": "757d4fb84f77865fc569aae4129999faf75c970f",
+    "warning_removed": 1,
+    "parent_warnings": [
+      [
+        "dynamic_programming/fractional_knapsack_2.py:43:27 Incompatible parameter type [6]: Expected `int` for 2nd positional only parameter to call `list.__setitem__` but got `float`.",
+        "dynamic_programming/fractional_knapsack_2.py:47:4 Incompatible return type [7]: Expected `typing.Tuple[int, typing.List[int]]` but got `typing.Tuple[float, typing.List[int]]`."
+      ]
+    ],
+    "warnings": [
+      [
+        "dynamic_programming/fractional_knapsack_2.py:36:4 Incompatible variable type [9]: fractions is declared to have type `typing.List[float]` but is used as type `typing.List[int]`."
+      ]
+    ]
+  },
+  {
+    "project": "Python",
+    "commit": "6089536",
+    "parent_commit": "806b3864c36e24459cb4685b400e74c5685f5674",
+    "warning_removed": 18,
+    "parent_warnings": [
+      [
+        "ciphers/diffie_hellman.py:248:11 Unsupported operand [58]: `<=` is not supported for operand types `int` and `str`.",
+        "ciphers/diffie_hellman.py:248:42 Unsupported operand [58]: `<=` is not supported for operand types `str` and `int`.",
+        "ciphers/diffie_hellman.py:249:19 Incompatible parameter type [6]: Expected `int` for 1st positional only parameter to call `pow` but got `str`.",
+        "ciphers/diffie_hellman.py:261:12 Incompatible parameter type [6]: Expected `str` for 1st positional only parameter to call `DiffieHellman.is_valid_public_key_static` but got `int`.",
+        "ciphers/diffie_hellman.py:261:31 Incompatible parameter type [6]: Expected `str` for 2nd positional only parameter to call `DiffieHellman.is_valid_public_key_static` but got `int`."
+      ],
+      [
+        "ciphers/onepad_cipher.py:5:37 Invalid type [31]: Expression `([str], [int])` is not a valid type.",
+        "ciphers/onepad_cipher.py:17:30 Invalid type [31]: Expression `[str]` is not a valid type.",
+        "ciphers/onepad_cipher.py:17:42 Invalid type [31]: Expression `[int]` is not a valid type."
+      ],
+      [
+        "ciphers/playfair_cipher.py:40:32 Invalid type [31]: Expression `[str]` is not a valid type."
+      ],
+      [
+        "ciphers/porta_cipher.py:1:1 Parsing failure [404]: Could not parse file at ciphers/porta_cipher.py:63:65-63:65"
+      ],
+      [
+        "ciphers/rsa_cipher.py:43:76 Invalid type [31]: Expression `[int]` is not a valid type.",
+        "ciphers/rsa_cipher.py:44:19 Undefined attribute [16]: `int` has no attribute `encode`.",
+        "ciphers/rsa_cipher.py:56:15 Invalid type [31]: Expression `[int]` is not a valid type.",
+        "ciphers/rsa_cipher.py:71:24 Invalid type [31]: Expression `(int, int)` is not a valid type.",
+        "ciphers/rsa_cipher.py:72:5 Invalid type [31]: Expression `[int]` is not a valid type.",
+        "ciphers/rsa_cipher.py:76:35 Incompatible parameter type [6]: Expected `int` for 1st positional only parameter to call `getBlocksFromText` but got `str`.",
+        "ciphers/rsa_cipher.py:82:21 Invalid type [31]: Expression `[int]` is not a valid type.",
+        "ciphers/rsa_cipher.py:84:10 Invalid type [31]: Expression `(int, int)` is not a valid type.",
+        "ciphers/rsa_cipher.py:94:38 Invalid type [31]: Expression `(int, int, int)` is not a valid type."
+      ],
+      [
+        "ciphers/rsa_factorization.py:16:41 Invalid type [31]: Expression `[int]` is not a valid type."
+      ],
+      [
+        "ciphers/shuffled_shift_cipher.py:29:23 Incompatible variable type [9]: passcode is declared to have type `str` but is used as type `None`."
+      ],
+      [
+        "ciphers/trafid_cipher.py:19:64 Invalid type [31]: Expression `(str, str, str)` is not a valid type.",
+        "ciphers/trafid_cipher.py:35:47 Invalid type [31]: Expression `(str, str, dict, dict)` is not a valid type."
+      ],
+      [
+        "ciphers/xor_cipher.py:31:49 Invalid type [31]: Expression `[str]` is not a valid type.",
+        "ciphers/xor_cipher.py:56:49 Invalid type [31]: Expression `[str]` is not a valid type."
+      ]
+    ],
+    "warnings": [
+      [
+        "ciphers/rsa_cipher.py:126:7 Uninitialized local [61]: Local variable `mode` may not be initialized here.",
+        "ciphers/rsa_cipher.py:138:9 Uninitialized local [61]: Local variable `mode` may not be initialized here."
+      ]
+    ]
+  },
+  {
+    "project": "Python",
+    "commit": "d009cea",
+    "parent_commit": "032999f36ed6eef61752e6bc5e399020988b06bd",
+    "warning_removed": 3,
+    "parent_warnings": [
+      [
+        "maths/greedy_coin_change.py:88:8 Incompatible variable type [9]: value is declared to have type `int` but is used as type `str`.",
+        "maths/greedy_coin_change.py:92:8 Incompatible variable type [9]: value is declared to have type `int` but is used as type `str`."
+      ],
+      [
+        "maths/triplet_sum.py:37:12 Incompatible return type [7]: Expected `typing.Tuple[int, int, int]` but got `typing.Tuple[int, ...]`."
+      ]
+    ],
+    "warnings": []
+  },
+  {
+    "project": "Python",
+    "commit": "14bcb58",
+    "parent_commit": "99a42f2b5821356718fb7d011ac711a6b4a63a83",
+    "warning_removed": 10,
+    "parent_warnings": [
+      [
+        "ciphers/cryptomath_module.py:9:8 Incompatible return type [7]: Expected `int` but got `None`."
+      ],
+      [
+        "ciphers/decrypt_caesar_with_chi_squared.py:8:4 Incompatible variable type [9]: cipher_alphabet is declared to have type `str` but is used as type `None`.",
+        "ciphers/decrypt_caesar_with_chi_squared.py:9:4 Incompatible variable type [9]: frequencies_dict is declared to have type `str` but is used as type `None`.",
+        "ciphers/decrypt_caesar_with_chi_squared.py:126:4 Incompatible variable type [9]: frequencies_dict is declared to have type `str` but is used as type `typing.Union[typing.Dict[Variable[_KT], Variable[_VT]], str]`.",
+        "ciphers/decrypt_caesar_with_chi_squared.py:195:43 Incompatible parameter type [6]: Expected `typing.Union[int, slice]` for 1st positional only parameter to call `str.__getitem__` but got `str`.",
+        "ciphers/decrypt_caesar_with_chi_squared.py:198:55 Unsupported operand [58]: `-` is not supported for operand types `int` and `str`.",
+        "ciphers/decrypt_caesar_with_chi_squared.py:198:73 Unsupported operand [58]: `/` is not supported for operand types `int` and `str`.",
+        "ciphers/decrypt_caesar_with_chi_squared.py:209:43 Incompatible parameter type [6]: Expected `typing.Union[int, slice]` for 1st positional only parameter to call `str.__getitem__` but got `str`.",
+        "ciphers/decrypt_caesar_with_chi_squared.py:212:55 Unsupported operand [58]: `-` is not supported for operand types `int` and `str`.",
+        "ciphers/decrypt_caesar_with_chi_squared.py:212:73 Unsupported operand [58]: `/` is not supported for operand types `int` and `str`."
+      ],
+      [
+        "ciphers/elgamal_key_generator.py:33:34 Invalid type [31]: Expression `((int, int, int, int), (int, int))` is not a valid type."
+      ],
+      [
+        "ciphers/enigma_machine2.py:102:4 Incompatible variable type [9]: pb is declared to have type `str` but is used as type `typing.Dict[typing.Any, typing.Any]`."
+      ]
+    ],
+    "warnings": []
+  },
+  {
+    "project": "Python",
+    "commit": "4c76e3c",
+    "parent_commit": "67b33a295bc0a18f9fbdeb393724835b2645dbd8",
+    "warning_removed": 15,
+    "parent_warnings": [
+      [
+        "matrix/rotate_matrix.py:9:38 Invalid type [31]: Expression `[[int]]` is not a valid type.",
+        "matrix/rotate_matrix.py:26:22 Invalid type [31]: Expression `[[]]` is not a valid type.",
+        "matrix/rotate_matrix.py:26:31 Invalid type [31]: Expression `[[]]` is not a valid type.",
+        "matrix/rotate_matrix.py:38:23 Invalid type [31]: Expression `[[]]` is not a valid type.",
+        "matrix/rotate_matrix.py:38:32 Invalid type [31]: Expression `[[]]` is not a valid type.",
+        "matrix/rotate_matrix.py:50:23 Invalid type [31]: Expression `[[]]` is not a valid type.",
+        "matrix/rotate_matrix.py:50:32 Invalid type [31]: Expression `[[]]` is not a valid type.",
+        "matrix/rotate_matrix.py:62:22 Invalid type [31]: Expression `[[]]` is not a valid type.",
+        "matrix/rotate_matrix.py:62:31 Invalid type [31]: Expression `[[]]` is not a valid type.",
+        "matrix/rotate_matrix.py:67:24 Invalid type [31]: Expression `[[]]` is not a valid type.",
+        "matrix/rotate_matrix.py:67:33 Invalid type [31]: Expression `[[]]` is not a valid type.",
+        "matrix/rotate_matrix.py:72:27 Invalid type [31]: Expression `[[]]` is not a valid type.",
+        "matrix/rotate_matrix.py:72:36 Invalid type [31]: Expression `[[]]` is not a valid type.",
+        "matrix/rotate_matrix.py:77:25 Invalid type [31]: Expression `[[]]` is not a valid type.",
+        "matrix/rotate_matrix.py:77:34 Invalid type [31]: Expression `[[]]` is not a valid type."
+      ]
+    ],
+    "warnings": []
+  },
+  {
+    "project": "Python",
+    "commit": "4a2216b",
+    "parent_commit": "72aa4cc315ca0a70e09026884556cb724145d12e",
+    "warning_removed": 2,
+    "parent_warnings": [
+      [
+        "graphs/bidirectional_a_star.py:122:12 Incompatible return type [7]: Expected `typing.List[typing.Tuple[int]]` but got implicit return value of `None`.",
+        "graphs/bidirectional_a_star.py:224:12 Incompatible return type [7]: Expected `typing.List[typing.Tuple[int]]` but got implicit return value of `None`."
+      ]
+    ],
+    "warnings": []
+  },
+  {
+    "project": "Python",
+    "commit": "7634cf0",
+    "parent_commit": "407c97906393ddaea43e2c21174c6cdaeb57dcfa",
+    "warning_removed": 2,
+    "parent_warnings": [
+      [
+        "graphs/gale_shapley_bigraph.py:30:20 Undefined attribute [16]: `int` has no attribute `__getitem__`.",
+        "graphs/gale_shapley_bigraph.py:35:15 Undefined attribute [16]: `int` has no attribute `index`."
+      ]
+    ],
+    "warnings": []
+  },
+  {
+    "project": "Python",
+    "commit": "307ffd8",
+    "parent_commit": "8c13a7786f4fe15af4d133fed14e5e2fb0888926",
+    "warning_removed": 2,
+    "parent_warnings": [
+      [
+        "graphs/bidirectional_breadth_first_search.py:69:12 Incompatible return type [7]: Expected `typing.List[typing.Tuple[int]]` but got implicit return value of `None`.",
+        "graphs/bidirectional_breadth_first_search.py:146:12 Incompatible return type [7]: Expected `typing.List[typing.Tuple[int]]` but got implicit return value of `None`."
+      ]
+    ],
+    "warnings": []
+  },
+  {
+    "project": "Python",
+    "commit": "2595cf0",
+    "parent_commit": "97b6ca2b19a3ef92016e586569aa514e53f01067",
+    "warning_removed": 6,
+    "parent_warnings": [
+      [
+        "data_structures/binary_tree/lazy_segment_tree.py:113:12 Incompatible return type [7]: Expected `int` but got `float`.",
+        "data_structures/binary_tree/lazy_segment_tree.py:121:4 Inconsistent override [15]: `data_structures.binary_tree.lazy_segment_tree.SegmentTree.__str__` overrides method defined in `object` inconsistently. Returned type `None` is not a subtype of the overridden return `str`.",
+        "data_structures/binary_tree/lazy_segment_tree.py:122:8 Incompatible return type [7]: Expected `None` but got `typing.List[int]`."
+      ],
+      [
+        "data_structures/binary_tree/treap.py:14:23 Incompatible variable type [9]: value is declared to have type `int` but is used as type `None`.",
+        "data_structures/binary_tree/treap.py:45:8 Incompatible return type [7]: Expected `typing.Tuple[Node, Node]` but got `typing.Tuple[None, None]`.",
+        "data_structures/binary_tree/treap.py:47:8 Incompatible return type [7]: Expected `typing.Tuple[Node, Node]` but got `typing.Tuple[None, None]`."
+      ]
+    ],
+    "warnings": []
+  },
+  {
+    "project": "Python",
+    "commit": "531d2d6",
+    "parent_commit": "c49fa088a0beb989f7553d697ec706f1af3a663d",
+    "warning_removed": 1,
+    "parent_warnings": [
+      [
+        "digital_image_processing/rotation/rotation.py:7:9 Undefined or invalid type [11]: Annotation `np.array` is not defined as a type.",
+        "digital_image_processing/rotation/rotation.py:7:24 Undefined or invalid type [11]: Annotation `np.float32` is not defined as a type."
+      ]
+    ],
+    "warnings": [
+      [
+        "digital_image_processing/rotation/rotation.py:9:9 Undefined or invalid type [11]: Annotation `np.ndarray` is not defined as a type."
+      ]
+    ]
+  },
+  {
+    "project": "Python",
+    "commit": "97b6ca2",
+    "parent_commit": "3f1e376bbc41fc3855bb9562e3e7797342304035",
+    "warning_removed": 9,
+    "parent_warnings": [
+      [
+        "boolean_algebra/quine_mc_cluskey.py:17:8 Incompatible return type [7]: Expected `str` but got `int`.",
+        "boolean_algebra/quine_mc_cluskey.py:22:18 Invalid type [31]: Expression `[str]` is not a valid type.",
+        "boolean_algebra/quine_mc_cluskey.py:22:28 Invalid type [31]: Expression `[str]` is not a valid type.",
+        "boolean_algebra/quine_mc_cluskey.py:46:53 Invalid type [31]: Expression `[float]` is not a valid type.",
+        "boolean_algebra/quine_mc_cluskey.py:46:65 Invalid type [31]: Expression `[str]` is not a valid type.",
+        "boolean_algebra/quine_mc_cluskey.py:82:21 Invalid type [31]: Expression `[[int]]` is not a valid type.",
+        "boolean_algebra/quine_mc_cluskey.py:82:48 Invalid type [31]: Expression `[str]` is not a valid type.",
+        "boolean_algebra/quine_mc_cluskey.py:82:58 Invalid type [31]: Expression `[str]` is not a valid type.",
+        "boolean_algebra/quine_mc_cluskey.py:129:44 Invalid type [31]: Expression `[str]` is not a valid type.",
+        "boolean_algebra/quine_mc_cluskey.py:129:59 Invalid type [31]: Expression `[str]` is not a valid type.",
+        "boolean_algebra/quine_mc_cluskey.py:129:69 Invalid type [31]: Expression `[[int]]` is not a valid type."
+      ]
+    ],
+    "warnings": [
+      [
+        "boolean_algebra/quine_mc_cluskey.py:46:8 Incompatible return type [7]: Expected `List[str]` but got implicit return value of `None`.",
+        "boolean_algebra/quine_mc_cluskey.py:129:20 Incompatible return type [7]: Expected `List[str]` but got implicit return value of `None`."
+      ]
+    ]
+  },
+  {
+    "project": "Python",
+    "commit": "62d4418",
+    "parent_commit": "3ea5a13334f2d573167456c0c9ee4c90497c9466",
+    "warning_removed": 1,
+    "parent_warnings": [
+      [
+        "graphs/bfs_shortest_path.py:56:20 Incompatible return type [7]: Expected `str` but got `typing.List[typing.Any]`."
+      ]
+    ],
+    "warnings": []
+  },
+  {
+    "project": "Python",
+    "commit": "5e7eed6",
+    "parent_commit": "78a5d3a5587ef649c2b4d2286cfb949886095467",
+    "warning_removed": 9,
+    "parent_warnings": [
+      [
+        "strings/aho_corasick.py:25:36 Incompatible parameter type [6]: Expected `int` for 1st positional only parameter to call `Automaton.find_next_state` but got `typing.Optional[int]`.",
+        "strings/aho_corasick.py:26:53 Incompatible parameter type [6]: Expected `int` for 1st positional only parameter to call `Automaton.find_next_state` but got `typing.Optional[int]`."
+      ],
+      [
+        "strings/min_cost_string_conversion.py:36:20 Incompatible parameter type [6]: Expected `int` for 2nd positional only parameter to call `list.__setitem__` but got `str`.",
+        "strings/min_cost_string_conversion.py:40:20 Incompatible parameter type [6]: Expected `int` for 2nd positional only parameter to call `list.__setitem__` but got `str`.",
+        "strings/min_cost_string_conversion.py:46:28 Incompatible parameter type [6]: Expected `int` for 2nd positional only parameter to call `list.__setitem__` but got `str`.",
+        "strings/min_cost_string_conversion.py:49:28 Incompatible parameter type [6]: Expected `int` for 2nd positional only parameter to call `list.__setitem__` but got `str`.",
+        "strings/min_cost_string_conversion.py:53:28 Incompatible parameter type [6]: Expected `int` for 2nd positional only parameter to call `list.__setitem__` but got `str`.",
+        "strings/min_cost_string_conversion.py:57:28 Incompatible parameter type [6]: Expected `int` for 2nd positional only parameter to call `list.__setitem__` but got `str`.",
+        "strings/min_cost_string_conversion.py:59:4 Incompatible return type [7]: Expected `Tuple[List[int], List[str]]` but got `Tuple[List[List[int]], List[List[int]]]`."
+      ]
+    ],
+    "warnings": []
+  },
+  {
+    "project": "Python",
+    "commit": "3ea5a13",
+    "parent_commit": "2899cdac207822f6f3ca454f27f55d7b73eaac9e",
+    "warning_removed": 1,
+    "parent_warnings": [
+      [
+        "graphs/bellman_ford.py:33:12 Incompatible return type [7]: Expected `int` but got `None`."
+      ]
+    ],
+    "warnings": []
+  },
+  {
+    "project": "Python",
+    "commit": "252df0a",
+    "parent_commit": "531d2d6d7e36b7aa793c4382fa14aa5977af0d7e",
+    "warning_removed": 2,
+    "parent_warnings": [
+      [
+        "scripts/validate_solutions.py:25:4 Undefined attribute [16]: Optional type has no attribute `loader`.",
+        "scripts/validate_solutions.py:92:17 Undefined attribute [16]: `ModuleType` has no attribute `solution`."
+      ]
+    ],
+    "warnings": [
+      []
+    ]
+  },
+  {
+    "project": "Python",
+    "commit": "06dad4f",
+    "parent_commit": "ba6310b6470346fdac85ea4ef697e5939c30b180",
+    "warning_removed": 5,
+    "parent_warnings": [
+      [
+        "blockchain/chinese_remainder_theorem.py:15:40 Invalid type [31]: Expression `(int, int)` is not a valid type."
+      ],
+      [
+        "blockchain/diophantine_equation.py:8:44 Invalid type [31]: Expression `(int, int)` is not a valid type.",
+        "blockchain/diophantine_equation.py:101:37 Invalid type [31]: Expression `(int, int, int)` is not a valid type."
+      ],
+      [
+        "blockchain/modular_division.py:75:37 Invalid type [31]: Expression `(int, int, int)` is not a valid type.",
+        "blockchain/modular_division.py:102:40 Invalid type [31]: Expression `(int, int)` is not a valid type."
+      ]
+    ],
+    "warnings": []
+  },
+  {
+    "project": "Python",
+    "commit": "9595079",
+    "parent_commit": "a8db5d4b93410d8ad3c281d1edd9ce26c6e087e0",
+    "warning_removed": 5,
+    "parent_warnings": [
+      [
+        "divide_and_conquer/max_difference_pair.py:4:37 Invalid type [31]: Expression `(int, int)` is not a valid type."
+      ],
+      [
+        "divide_and_conquer/strassen_matrix_multiplication.py:124:8 Incompatible return type [7]: Expected `typing.List[typing.Any]` but got `typing.Tuple[typing.List[typing.Any], typing.List[typing.Any]]`."
+      ],
+      [
+        "electronics/electric_power.py:42:8 Incompatible return type [7]: Expected `typing.Tuple[typing.Any, ...]` but got `electric_power.result`.",
+        "electronics/electric_power.py:44:8 Incompatible return type [7]: Expected `typing.Tuple[typing.Any, ...]` but got implicit return value of `None`."
+      ],
+      [
+        "electronics/ohms_law.py:34:8 Incompatible return type [7]: Expected `Dict[str, float]` but got implicit return value of `None`."
+      ],
+      [
+        "quantum/ripple_adder_classic.py:9:49 Invalid type [31]: Expression `(qiskit.QuantumCircuit, str, str)` is not a valid type.",
+        "quantum/ripple_adder_classic.py:39:13 Undefined or invalid type [11]: Annotation `QuantumCircuit` is not defined as a type."
+      ]
+    ],
+    "warnings": [
+      [
+        "electronics/electric_power.py:42:8 Incompatible return type [7]: Expected `typing.Tuple[typing.Any, ...]` but got `electric_power.result`."
+      ],
+      [
+        "quantum/ripple_adder_classic.py:9:48 Undefined or invalid type [11]: Annotation `QuantumCircuit` is not defined as a type."
+      ]
+    ]
+  }
+]
