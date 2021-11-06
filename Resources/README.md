@@ -20,6 +20,8 @@ Currently, there are 74 fixes recorded.
 - CASTING
 - ADD_RETURN_VAL
 - RENAME_VAR
+- CHANGE_EXPRESSION
+- MODIFY_METHOD_CALL
 
 `"involved_types"`: Indicates all type involved in this fix, including before and after fix. Composite types are broken down, e.g. `Union[int, str]` -> `"involved_types":["Union", "str", "int"]`.
 
@@ -28,6 +30,7 @@ Currently, there are 74 fixes recorded.
 - ADDED
 - REPLACED
 - REMOVED
+- None
 
 `"location"`: Location of the code change relative to the pyre warning message, which is one of the followings:
 - ENCLOSING_FUN_RETURN
@@ -35,6 +38,7 @@ Currently, there are 74 fixes recorded.
 - ENCLOSING_FUN
 - EXACT_LINE
 - FUN_CALLEE
+- CLASS_ATTR
 
 `"full_warning_msg"`: Warning message produced by pyre prior to the fix (i.e. the parent commit).
 
