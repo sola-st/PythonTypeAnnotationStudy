@@ -154,7 +154,7 @@ def get_commit_type_error(repo_dir, commit): # repo_dir = /home/wai/hiwi/TypeAnn
     warnings = warnings[:-1]  # last line is empty
     print(f"Got {len(warnings)} warnings")
 
-    warnings = [k for k in warnings if 'Could not find a module corresponding to import' not in k and 'Undefined import' not in k]
+    warnings = [k for k in warnings if 'Could not find a module corresponding to import' not in k and 'Undefined import' not in k and 'Parsing failure' not in k]
     print(f"Got {len(warnings)} warnings after removing import error")
 
     # analyze warnings
@@ -315,34 +315,31 @@ def compare_two_commits_warnings_output(p, a_commit, b_commit):
     try:
         repo_dir = repos_base_dir+p
         init_pyre(repo_dir)            
-        all_commits = get_all_commits(repo_dir)
-        commits = all_commits
         project_results = []
         a_res = get_commit_type_error(repo_dir, a_commit)
         b_res = get_commit_type_error(repo_dir, b_commit)
-        if b_res['nb_warnings'] < a_res['nb_warnings']:
-            out = {
-                'project': p,
-                'a_commit': a_commit, 
-                'b_commit': b_commit, 
-                'warning_removed': a_res['nb_warnings'] - b_res['nb_warnings'],
-                'parent_warnings': [],
-                'warnings': []
-            }
-            parent_files = a_res['file_to_count']
-            files = b_res['file_to_count']
-            for f, count in parent_files.items():
-                if f in files and files[f] < count:
-                    out['parent_warnings'].append([i for i in a_res['all_warnings'] if i.split(':')[0] in f])
-                    out['warnings'].append([i for i in b_res['all_warnings'] if i.split(':')[0] in f])
-                    # Remove warnings that exist in both parent_warnings and warnings
-                    for pw in out['parent_warnings'][-1]:
-                        if pw in out['warnings'][-1]:
-                            out['parent_warnings'][-1].remove(pw)
-                            out['warnings'][-1].remove(pw)
-                elif f not in files:
-                    out['parent_warnings'].append([i for i in a_res['all_warnings'] if i.split(':')[0] in f])
-            project_results.append(out)
+        out = {
+            'project': p,
+            'a_commit': a_commit, 
+            'b_commit': b_commit, 
+            'warning_removed': a_res['nb_warnings'] - b_res['nb_warnings'],
+            'parent_warnings': [],
+            'warnings': []
+        }
+        parent_files = a_res['file_to_count']
+        files = b_res['file_to_count']
+        for f, count in parent_files.items():
+            if f in files and files[f] < count:
+                out['parent_warnings'].append([i for i in a_res['all_warnings'] if i.split(':')[0] in f])
+                out['warnings'].append([i for i in b_res['all_warnings'] if i.split(':')[0] in f])
+                # Remove warnings that exist in both parent_warnings and warnings
+                for pw in out['parent_warnings'][-1]:
+                    if pw in out['warnings'][-1]:
+                        out['parent_warnings'][-1].remove(pw)
+                        out['warnings'][-1].remove(pw)
+            elif f not in files:
+                out['parent_warnings'].append([i for i in a_res['all_warnings'] if i.split(':')[0] in f])
+        project_results.append(out)
         write_results("compare_warning_"+p+"_"+a_commit+"_"+b_commit, project_results)
     except Exception as e:
         print(f"WARNING: Some problem with {p} -- skipping this project")
@@ -485,7 +482,18 @@ start = time.time()
 #     "Python": ["5e7eed6", "20a4fdf", "af0810f", "4545270", "d009cea", "3c22524", "da71184", "a5bcf0f", "a4b7d12", "c5003a2", "7634cf0", "407c979", "7342b33", "bc09ba9", "4a2216b", "307ffd8", "256c319", "4412eaf", "9586230", "86baec0", "62d4418", "3ea5a13", "977511b", "03d9b67", "deb7116", "252df0a", "531d2d6", "c49fa08", "8c29860", "20c7518", "6089536", "a53fcf2", "5229c74", "895bca3", "c22c7d5", "9b60be6", "9595079", "a8db5d4", "ce99859", "14bcb58", "2c6f553", "8d7ef6a", "9875673", "ffa53c0", "8e488dd", "4f6a929", "4c76e3c", "7df393f", "a4726ca", "2a6e4bb", "81c46df", "2595cf0", "97b6ca2", "d594f45", "00e279e", "207ac95", "f3ba9b6", "ad5108d", "06dad4f", "25164bb", "03e7f37", "aaaa175", "00a6701", "20e09c3", "11ec2fd", "629848e", "0616148", "d924a80", "08254eb", "83a63d9", "b373c99", "9153db2", "fdf095f", "08d4d22", "4bf2eed", "4cf1aae", "bcfca67", "d324f91", "abc725f", "c1b15a8"]
 # })
 repos = {
-    'ObjectPath': ['9cb35aa', '93bedaf']
+    # repo_name: [parent commit, current commit]
+    # 'asciidots': ['ee95023', '4c3243b'],
+    # 'polyglot': ['f72f0d7','75f82b3'],
+    # 'ObjectPath': ['9cb35aa', '93bedaf'],
+    # 'ahkab': ['43beb43', '42826d0'],
+    # 'streamalert': ['f200eaba','19fffb57'],
+    # 'unsync': ['992f00c','c7d6a73'],
+    # 'kaldi-gstreamer-server': ['fa894d1','81640a4'],
+    # 'sh': ['48554ce','7e5539b'],
+    # 'anchore-engine': ['704964bb','cfcf4ee9'],
+    # 'thoonk.py': ['fc6803c','b8844fa'],
+    'Arelle': ['dbb8c43b','7463baed'],
 }
 for r, commits in repos.items():
     compare_two_commits_warnings_output(r, commits[0], commits[1])
