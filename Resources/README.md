@@ -1,7 +1,7 @@
 # type_fix_dataset #
 Contains json data where each entry is a code change to fix a type error.
 
-Currently, there are 74 fixes recorded.
+Currently, there are 100 fixes recorded.
 
 ## Fields ##
 `"isolated_code_change"`: Minimal code change required to perform the fix in git-diff format. Note that 1 change could fix multiple errors, in this case, each error will produce an entry.
@@ -22,6 +22,10 @@ Currently, there are 74 fixes recorded.
 - RENAME_VAR
 - CHANGE_EXPRESSION
 - MODIFY_METHOD_CALL
+- MODIFY_ISINSTANCE_CALL
+- ADD_NONE_CHECK
+- MODIFY_ATTR_TYPE
+- REMOVE_REANNOTATION
 
 `"involved_types"`: Indicates all type involved in this fix, including before and after fix. Composite types are broken down, e.g. `Union[int, str]` -> `"involved_types":["Union", "str", "int"]`.
 
@@ -39,6 +43,8 @@ Currently, there are 74 fixes recorded.
 - EXACT_LINE
 - FUN_CALLEE
 - CLASS_ATTR
+- SUPERCLASS_ATTR
+- ENCLOSING_IF
 
 `"full_warning_msg"`: Warning message produced by pyre prior to the fix (i.e. the parent commit).
 
@@ -51,6 +57,10 @@ Currently, there are 74 fixes recorded.
 - `true` if `Optional[T]`/`None` is used when `None` is mentioned
 - `true` if `Callable[T]` is used when the error type is Call error
 - `true` if the new type can be represented by the mentioned types, e.g. true if `List[tuple[]]` is used when `List[Any]` is mentioned
+
+<!-- `"custom_type"`: Boolean, `true` if a customly defined type is used, e.g. `license_formats: ElementsType = ()` with `ElementsType = Union[Sequence[T], Dict[T, float], KeysView[T]]`. -->
+
+`"filepath"`: Optional. Show the filepath where the code change happens. Non-existent if file is the same as the one shown in the earning
 
 # type_fix_code_data #
 Contains old and new code from different type fixes. It is structured as `{repo}/{commit}/{old_code}` and `{repo}/{commit}/{new_code}`. Intermediate folders are kept. Downloaded by running `script_download_codes.py`.
