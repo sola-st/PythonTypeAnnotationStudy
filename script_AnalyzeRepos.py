@@ -147,7 +147,8 @@ def get_commit_type_error(repo_dir, commit): # repo_dir = /home/wai/hiwi/TypeAnn
     # out = invoke_cmd("env", repo_dir)
     # print(out)
     # sys.exit()
-    out = invoke_cmd("cp ../.pyre_configuration .", repo_dir)
+    if not path.isfile(repo_dir+"/.pyre_configuration"):
+        out = invoke_cmd("cp ../.pyre_configuration .", repo_dir)
     out = invoke_cmd("pyre check", repo_dir)
     
     warnings = out.split("\n")
@@ -493,7 +494,13 @@ repos = {
     # 'sh': ['48554ce','7e5539b'],
     # 'anchore-engine': ['704964bb','cfcf4ee9'],
     # 'thoonk.py': ['fc6803c','b8844fa'],
-    'Arelle': ['dbb8c43b','7463baed'],
+    # 'Arelle': ['dbb8c43b','7463baed'],
+    # 'LibCST': ['3ccfc4a^','3ccfc4a'],
+    # 'pyscaffold': ['609f548','4628e57'],
+    # 'operator': ['824aa2d^','824aa2d'],
+    # 'faker': ['9a382ed^','9a382ed'],
+    # 'hivemind': ['40d3ece^','40d3ece'],
+    # 'pytorch': ['78d5707^','78d5707'],
 }
 for r, commits in repos.items():
     compare_two_commits_warnings_output(r, commits[0], commits[1])
