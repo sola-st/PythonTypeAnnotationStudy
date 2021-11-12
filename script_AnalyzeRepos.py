@@ -292,11 +292,16 @@ def get_type_warning_removed_output(projects, max_commits_per_project, target_co
                             if f in files and files[f] < count:
                                 out['parent_warnings'].append([i for i in parent_res['all_warnings'] if i.split(':')[0] in f])
                                 out['warnings'].append([i for i in res['all_warnings'] if i.split(':')[0] in f])
-                                # Remove warnings that exist in both parent_warnings and warnings
-                                for pw in out['parent_warnings'][-1]:
-                                    if pw in out['warnings'][-1]:
-                                        out['parent_warnings'][-1].remove(pw)
-                                        out['warnings'][-1].remove(pw)
+                                # Remove warnings if the same msg exist in both parent_warnings and warnings
+                                for pw in list(out['parent_warnings'][-1]):
+                                    pw_msg = pw.split(':')[-1]
+                                    for w in list(out['warnings'][-1]):
+                                        if pw_msg in w:
+                                            if pw in out['parent_warnings'][-1]:
+                                                out['parent_warnings'][-1].remove(pw)
+                                            if w in out['warnings'][-1]:
+                                                out['warnings'][-1].remove(w)
+                                            break
                             elif f not in files:
                                 out['parent_warnings'].append([i for i in parent_res['all_warnings'] if i.split(':')[0] in f])
                         project_results.append(out)
@@ -333,11 +338,16 @@ def compare_two_commits_warnings_output(p, a_commit, b_commit):
             if f in files and files[f] < count:
                 out['parent_warnings'].append([i for i in a_res['all_warnings'] if i.split(':')[0] in f])
                 out['warnings'].append([i for i in b_res['all_warnings'] if i.split(':')[0] in f])
-                # Remove warnings that exist in both parent_warnings and warnings
-                for pw in out['parent_warnings'][-1]:
-                    if pw in out['warnings'][-1]:
-                        out['parent_warnings'][-1].remove(pw)
-                        out['warnings'][-1].remove(pw)
+                # Remove warnings if the same msg exist in both parent_warnings and warnings
+                for pw in list(out['parent_warnings'][-1]):
+                    pw_msg = pw.split(':')[-1]
+                    for w in list(out['warnings'][-1]):
+                        if pw_msg in w:
+                            if pw in out['parent_warnings'][-1]:
+                                out['parent_warnings'][-1].remove(pw)
+                            if w in out['warnings'][-1]:
+                                out['warnings'][-1].remove(w)
+                            break
             elif f not in files:
                 out['parent_warnings'].append([i for i in a_res['all_warnings'] if i.split(':')[0] in f])
         project_results.append(out)
