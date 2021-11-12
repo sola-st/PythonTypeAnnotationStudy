@@ -1,7 +1,9 @@
+TODO: new column?: Relationship of between the newly fixed type and the type suggested by pyre. (e.g. Sequence -> List = subtype)
+
 # type_fix_dataset #
 Contains json data where each entry is a code change to fix a type error.
 
-Currently, there are 100 fixes recorded.
+Currently, there are 126 fixes recorded.
 
 ## Fields ##
 `"isolated_code_change"`: Minimal code change required to perform the fix in git-diff format. Note that 1 change could fix multiple errors, in this case, each error will produce an entry.
@@ -26,15 +28,17 @@ Currently, there are 100 fixes recorded.
 - ADD_NONE_CHECK
 - MODIFY_ATTR_TYPE
 - REMOVE_REANNOTATION
+- MODIFY_IMPORT
+- MODIFY_RETURN_TYPE
 
-`"involved_types"`: Indicates all type involved in this fix, including before and after fix. Composite types are broken down, e.g. `Union[int, str]` -> `"involved_types":["Union", "str", "int"]`.
-
+`"involved_types"`: Indicates all type involved in this fix, including before and after fix. Including types that only appeared in pyre warning messages. Composite types are broken down, e.g. `Union[int, str]` -> `"involved_types":["Union", "str", "int"]`.
+- `Text` = alias for `str`
 
 `"type_change"`: Category of the type annotation change, which is one of the followings:
 - ADDED
 - REPLACED
 - REMOVED
-- None
+- NONE
 
 `"location"`: Location of the code change relative to the pyre warning message, which is one of the followings:
 - ENCLOSING_FUN_RETURN

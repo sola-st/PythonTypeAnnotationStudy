@@ -71,6 +71,23 @@
     "repo": "https://github.com/willmcgugan/rich",
     "change_runtime": false,
     "mentioned_by_pyre": true
+  },
+  {
+    "isolated_code_change": "-from .__init__ import get_console \n+from . import get_console",
+    "type_error": "Undefined attribute [16]",
+    "code_transform": "MODIFY_IMPORT",
+    "involved_types": [],
+    "type_change": {
+      "kind": "NONE",
+      "from": "",
+      "to": ""
+    },
+    "location": "EXACT_LINE",
+    "full_warning_msg": "rich/live.py:116:59 Undefined attribute [16]: Module `rich` has no attribute `__init__`.",
+    "url": "https://github.com/willmcgugan/rich/commit/9e881e5",
+    "repo": "https://github.com/willmcgugan/rich",
+    "change_runtime": false,
+    "mentioned_by_pyre": true
   }
 
 ]

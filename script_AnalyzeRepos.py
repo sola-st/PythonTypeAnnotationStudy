@@ -492,28 +492,64 @@ start = time.time()
 #     # commits with "mypy" in commit message:
 #     "Python": ["5e7eed6", "20a4fdf", "af0810f", "4545270", "d009cea", "3c22524", "da71184", "a5bcf0f", "a4b7d12", "c5003a2", "7634cf0", "407c979", "7342b33", "bc09ba9", "4a2216b", "307ffd8", "256c319", "4412eaf", "9586230", "86baec0", "62d4418", "3ea5a13", "977511b", "03d9b67", "deb7116", "252df0a", "531d2d6", "c49fa08", "8c29860", "20c7518", "6089536", "a53fcf2", "5229c74", "895bca3", "c22c7d5", "9b60be6", "9595079", "a8db5d4", "ce99859", "14bcb58", "2c6f553", "8d7ef6a", "9875673", "ffa53c0", "8e488dd", "4f6a929", "4c76e3c", "7df393f", "a4726ca", "2a6e4bb", "81c46df", "2595cf0", "97b6ca2", "d594f45", "00e279e", "207ac95", "f3ba9b6", "ad5108d", "06dad4f", "25164bb", "03e7f37", "aaaa175", "00a6701", "20e09c3", "11ec2fd", "629848e", "0616148", "d924a80", "08254eb", "83a63d9", "b373c99", "9153db2", "fdf095f", "08d4d22", "4bf2eed", "4cf1aae", "bcfca67", "d324f91", "abc725f", "c1b15a8"]
 # })
-repos = {
-    # repo_name: [parent commit, current commit]
-    # 'asciidots': ['ee95023', '4c3243b'],
-    # 'polyglot': ['f72f0d7','75f82b3'],
-    # 'ObjectPath': ['9cb35aa', '93bedaf'],
-    # 'ahkab': ['43beb43', '42826d0'],
-    # 'streamalert': ['f200eaba','19fffb57'],
-    # 'unsync': ['992f00c','c7d6a73'],
-    # 'kaldi-gstreamer-server': ['fa894d1','81640a4'],
-    # 'sh': ['48554ce','7e5539b'],
-    # 'anchore-engine': ['704964bb','cfcf4ee9'],
-    # 'thoonk.py': ['fc6803c','b8844fa'],
-    # 'Arelle': ['dbb8c43b','7463baed'],
-    # 'LibCST': ['3ccfc4a^','3ccfc4a'],
-    # 'pyscaffold': ['609f548','4628e57'],
-    # 'operator': ['824aa2d^','824aa2d'],
-    # 'faker': ['9a382ed^','9a382ed'],
-    # 'hivemind': ['40d3ece^','40d3ece'],
-    # 'pytorch': ['78d5707^','78d5707'],
-}
-for r, commits in repos.items():
-    compare_two_commits_warnings_output(r, commits[0], commits[1])
+repos = [
+    # [repo_name, parent commit, current commit]
+    # ['asciidots', 'ee95023', '4c3243b'],
+    # ['polyglot', 'f72f0d7','75f82b3'],
+    # ['ObjectPath', '9cb35aa', '93bedaf'],
+    # ['ahkab', '43beb43', '42826d0'],
+    # ['streamalert', 'f200eaba','19fffb57'],
+    # ['unsync', '992f00c','c7d6a73'],
+    # ['kaldi-gstreamer-server', 'fa894d1','81640a4'],
+    # ['sh', '48554ce','7e5539b'],
+    # ['anchore-engine', '704964bb','cfcf4ee9'],
+    # ['thoonk.py', 'fc6803c','b8844fa'],
+    # ['Arelle', 'dbb8c43b','7463baed'],
+    # ['LibCST', '3ccfc4a^','3ccfc4a'],
+    # ['pyscaffold', '609f548','4628e57'],
+    # ['operator', '824aa2d^','824aa2d'],
+    # ['faker', '9a382ed^','9a382ed'],
+    # ['hivemind', '40d3ece^','40d3ece'],
+    # ['pytorch', '78d5707^','78d5707'],
+    # ['pytorch', 'd4d5f85^','d4d5f85'], # n
+    # ['pytorch', 'e89b150^','e89b150'], # n
+    # ['pytorch', '8ec7b47^','8ec7b47'],
+    # ['pytorch', '88ed93c^','88ed93c'],
+    # ['pytorch', '85b562d^','85b562d'], # n
+    # ['Fixit', 'cbef89f^','cbef89f'], # strict, pyre ignore
+    # ['openr', 'b53d50a^','b53d50a'], # strict, pyre ignore
+    # ['keras', '41d967f^','41d967f'],
+    # ['keras', '050e8cb^','050e8cb'],
+    # ['keras', '9f8f520^','9f8f520'],
+    # ['fastapi', '0e19c24014c96e241bd73bede2805e21fc20c9d8^','0e19c24014c96e241bd73bede2805e21fc20c9d8'], # n 
+    # ['fastapi', 'ca27317b654e8265b8783df22e88a439adf96e8a^','ca27317b654e8265b8783df22e88a439adf96e8a'], # n
+    # ['fastapi', '75407b92952d4a5fabe9b2d7084fddce5725dcbd^','75407b92952d4a5fabe9b2d7084fddce5725dcbd'], # n
+    # ['fastapi', 'e71636e381a297d1825b37f71362ecd36f2fb3fb^','e71636e381a297d1825b37f71362ecd36f2fb3fb'], # n
+    # ['fastapi', 'fdb6c9ccc504f90afd0fbcec53f3ea0bfebc261a^','fdb6c9ccc504f90afd0fbcec53f3ea0bfebc261a'],
+    # ['fastapi', '4d208b2b9035e24bdf80505571b5b1bac8f9ae7a^','4d208b2b9035e24bdf80505571b5b1bac8f9ae7a'], # n
+    # ['fastapi', 'd8fe307d61a55148a4d95c550f0ef33148ba8681^','d8fe307d61a55148a4d95c550f0ef33148ba8681'], # n
+    # ['fastapi', 'f1c5330b6526b706b1dc2d9b3301a3ec401ddca4^','f1c5330b6526b706b1dc2d9b3301a3ec401ddca4'], # n
+    # ['faker', 'eb088b85861d4e26565024c748ccf021e8ced88c^', 'eb088b85861d4e26565024c748ccf021e8ced88c'], 
+    # ['faker', 'acdfc155099722414be5e46103ad09c3bf19c58b^', 'acdfc155099722414be5e46103ad09c3bf19c58b'], 
+    # ['faker', 'f4deca79f8e13e7029b2bfa7c7b2ce2a82c41b0f^', 'f4deca79f8e13e7029b2bfa7c7b2ce2a82c41b0f'], 
+    # ['faker', '8d1a2bd0159de38533c5262a60be2eacf564852d^', '8d1a2bd0159de38533c5262a60be2eacf564852d'], 
+    # ['faker', '9a382ed237ef6ac40eb272703eb3b6ce0546ad0f^', '9a382ed237ef6ac40eb272703eb3b6ce0546ad0f'], 
+    # ['faker', 'b63b5f434925c3b5751b2693a0aec87dfa021892^', 'b63b5f434925c3b5751b2693a0aec87dfa021892'], 
+    # ['rich', 'f513abd35fdacccdc6fcbcc6989b5792b75ec97a^', 'f513abd35fdacccdc6fcbcc6989b5792b75ec97a'], 
+    # ['rich', 'f84c84f2623c4b5605641d440479edc259de8e64^', 'f84c84f2623c4b5605641d440479edc259de8e64'], 
+    # ['rich', '9e881e5510931f4e2d005cb4f852f19412eb337d^', '9e881e5510931f4e2d005cb4f852f19412eb337d'], 
+    # ['rich', '22d55908d261ef103778d9af41a947c4e44ac3b6^', '22d55908d261ef103778d9af41a947c4e44ac3b6'], 
+    # ['rich', '19961c1a6a7448295377bb52479ac937e2bfdf9b^', '19961c1a6a7448295377bb52479ac937e2bfdf9b'], 
+    # ['Kats', '61d3945^','61d3945'],
+    # ['Kats', '4405225^','4405225'], # n
+    # ['Kats', '4a395b4^','4a395b4'], # n
+    # ['Kats', 'feed421cbeeecf566cb1d39522b3c1d14ccddbc5^','feed421cbeeecf566cb1d39522b3c1d14ccddbc5'], 
+    # ['Kats', '4884647a99432804647ec03d37040a5ac10e9508^','4884647a99432804647ec03d37040a5ac10e9508'], 
+    # ['Kats', '2c955ab9825a48124fd2d3ba523048b1bed0da43^','2c955ab9825a48124fd2d3ba523048b1bed0da43'], 
+    ['rasa', '1ded5effc8aa78d723f8a8be06997c0bef1d2fbe^','1ded5effc8aa78d723f8a8be06997c0bef1d2fbe'], 
+]
+for r in repos:
+    compare_two_commits_warnings_output(r[0], r[1], r[2])
 
 end = time.time()
 hours, rem = divmod(end - start, 3600)

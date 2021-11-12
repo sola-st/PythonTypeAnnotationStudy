@@ -106,5 +106,45 @@
     "repo": "https://github.com/tiangolo/fastapi",
     "change_runtime": false,
     "mentioned_by_pyre": true
+  },
+  {
+    "isolated_code_change": "-deprecated: bool = None, \n+deprecated: Optional[bool] = None",
+    "type_error": "Incompatible variable type [9]",
+    "code_transform": "MODIFY_FUN_PARAM_TYPE",
+    "involved_types": [
+      "bool",
+      "Optional"
+    ],
+    "type_change": {
+      "kind": "REPLACED",
+      "from": "bool",
+      "to": "Optional[bool]"
+    },
+    "location": "EXACT_LINE",
+    "full_warning_msg": "fastapi/routing.py:412:8 Incompatible variable type [9]: deprecated is declared to have type `bool` but is used as type `None`.",
+    "url": "https://github.com/tiangolo/fastapi/commit/fdb6c9c",
+    "repo": "https://github.com/tiangolo/fastapi",
+    "change_runtime": false,
+    "mentioned_by_pyre": true
+  },
+  {
+    "isolated_code_change": "-deprecated: bool = None, \n+deprecated: Optional[bool] = None",
+    "type_error": "Incompatible variable type [9]",
+    "code_transform": "MODIFY_FUN_PARAM_TYPE",
+    "involved_types": [
+      "bool",
+      "Optional"
+    ],
+    "type_change": {
+      "kind": "REPLACED",
+      "from": "bool",
+      "to": "Optional[bool]"
+    },
+    "location": "EXACT_LINE",
+    "full_warning_msg": "fastapi/routing.py:595:8 Incompatible variable type [9]: deprecated is declared to have type `bool` but is used as type `None`.",
+    "url": "https://github.com/tiangolo/fastapi/commit/fdb6c9c",
+    "repo": "https://github.com/tiangolo/fastapi",
+    "change_runtime": false,
+    "mentioned_by_pyre": true
   }
 ]

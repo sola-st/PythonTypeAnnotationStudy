@@ -171,5 +171,30 @@
     "repo": "https://github.com/joke2k/faker",
     "change_runtime": false,
     "mentioned_by_pyre": true
+  },
+  {
+    "isolated_code_change": "-def process_dict_structure(data: dict) -> dict:\n +def process_dict_structure(data: Union[int, float, bool, Dict[str, Any]]) -> Any",
+    "type_error": "Incompatible parameter type [6]",
+    "code_transform": "MODIFY_FUN_PARAM_TYPE",
+    "involved_types": [
+      "Union",
+      "Dict",
+      "int",
+      "float",
+      "bool",
+      "str",
+      "Any"
+    ],
+    "type_change": {
+      "kind": "REPLACED",
+      "from": "Dict[Any, Any]",
+      "to": "Union[int, float, bool, Dict[str, Any]]"
+    },
+    "location": "FUN_CALLEE",
+    "full_warning_msg": "faker/providers/misc/__init__.py:518:61 Incompatible parameter type [6]: Expected `typing.Dict[typing.Any, typing.Any]` for 1st positional only parameter to anonymous call but got `typing.Union[typing.Dict[typing.Any, typing.Any], bool, float, int]`.",
+    "url": "https://github.com/joke2k/faker/commit/9a382ed",
+    "repo": "https://github.com/joke2k/faker",
+    "change_runtime": false,
+    "mentioned_by_pyre": true
   }
 ]
