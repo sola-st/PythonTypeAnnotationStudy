@@ -50,7 +50,7 @@ Currently, there are 126 fixes recorded.
 - SUPERCLASS_ATTR
 - ENCLOSING_IF
 
-`"full_warning_msg"`: Warning message produced by pyre prior to the fix (i.e. the parent commit).
+`"full_warning_msg"`: Warning message produced by pyre prior to the fix (i.e. the parent commit). `pyre-fixme` (i.e. a suppressed pyre warning) is also included when it's type error gets fixed.
 
 `"url"`: Url to the commit where this type fix happens. 
 
