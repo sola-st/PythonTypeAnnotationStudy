@@ -152,7 +152,7 @@
   },        
   {
     "isolated_code_change": "-def process_list_structure(data: list) -> dict:\n+def process_list_structure(data: Sequence[Any]) -> Any:",
-    "type_error": "Incompatible parameter type [6]",
+    "type_error": "Illegal annotation target [35]",
     "code_transform": "REMOVE_REANNOTATION",
     "involved_types": [
       "List",

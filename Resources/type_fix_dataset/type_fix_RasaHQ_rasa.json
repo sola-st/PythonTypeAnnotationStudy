@@ -1,7 +1,7 @@
 [
   {
     "isolated_code_change": "-def start_rasa_for_local_rasa_x(args: argparse.Namespace, rasa_x_token: Text) -> None: \n+def start_rasa_for_local_rasa_x( args: argparse.Namespace, rasa_x_token: Text ) -> BaseProcess:",
-    "type_error": "",
+    "type_error": "Incompatible return type [7]",
     "code_transform": "MODIFY_FUN_RETURN_TYPE",
     "involved_types": [
       "None",

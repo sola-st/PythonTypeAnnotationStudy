@@ -160,7 +160,7 @@
   },
   {
     "isolated_code_change": "-def update(self, time: datetime, score: np.array, ci_upper: np.array, ci_lower: np.array, pred: np.array, anom_mag: np.array, stat_sig: np.array): \n+def update(self, time: datetime, score: ArrayLike, ci_upper: ArrayLike, ci_lower: ArrayLike, pred: ArrayLike, anom_mag: ArrayLike, stat_sig: ArrayLike) -> None:",
-    "type_error": "Undefined Type [6]",
+    "type_error": "Undefined Type [11]",
     "code_transform": "MODIFY_FUN_PARAM_TYPE",
     "involved_types": [
       "np.array", 
@@ -180,7 +180,7 @@
   },
   {
     "isolated_code_change": "-def _if_normal(self, cur_mean: float, change_directions: str) -> None:\n+def _if_normal(self, cur_mean: float, change_directions: List[str]) -> bool:",
-    "type_error": "Undefined Type [6]",
+    "type_error": "Incompatible Parameter Type [6]",
     "code_transform": "MODIFY_FUN_PARAM_TYPE",
     "involved_types": [
       "str", 
