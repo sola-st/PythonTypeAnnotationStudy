@@ -153,7 +153,7 @@
   {
     "isolated_code_change": "-def create_component_from_class(self, component_class: Type[C], **cfg: Any) -> C: \n+def create_component_from_class( self, component_class: Type[Component], **cfg: Any ) -> Optional[Component]:",
     "type_error": "Incompatible return type [7]",
-    "code_transform": "MODIFY_RETURN_TYPE",
+    "code_transform": "MODIFY_FUN_RETURN_TYPE",
     "involved_types": [
       "DIETClassifier",
       "ResponseSelector"
@@ -173,7 +173,7 @@
   {
     "isolated_code_change": "-def _create_emulator(mode: Optional[Text]) -> NoEmulator: \n+def _create_emulator(mode: Optional[Text]) -> Emulator:",
     "type_error": "Incompatible return type [7]",
-    "code_transform": "MODIFY_RETURN_TYPE",
+    "code_transform": "MODIFY_FUN_RETURN_TYPE",
     "involved_types": [
       "NoEmulator",
       "Emulator",
@@ -194,7 +194,7 @@
   {
     "isolated_code_change": "-def get_active_loop_name(state: State) -> Optional[Text]: \n+def get_active_loop_name( state: State, ) -> Optional[Union[Text, Tuple[Union[float, Text]]]]:",
     "type_error": "Incompatible return type [7]",
-    "code_transform": "MODIFY_RETURN_TYPE",
+    "code_transform": "MODIFY_FUN_RETURN_TYPE",
     "involved_types": [
       "Optional",
       "Union",

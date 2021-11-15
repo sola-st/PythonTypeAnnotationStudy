@@ -3,7 +3,7 @@ TODO: new column?: Relationship of between the newly fixed type and the type sug
 # type_fix_dataset #
 Contains json data where each entry is a code change to fix a type error.
 
-Currently, there are 126 fixes recorded.
+Currently, there are 125 fixes recorded.
 
 ## Fields ##
 `"isolated_code_change"`: Minimal code change required to perform the fix in git-diff format. Note that 1 change could fix multiple errors, in this case, each error will produce an entry.
@@ -14,10 +14,10 @@ Currently, there are 126 fixes recorded.
 - MODIFY_FUN_RETURN_VALUE
 - MODIFY_FUN_RETURN_TYPE
 - MODIFY_FUN_PARAM_TYPE
+- MODIFY_FUN_PARAM_VAL
 - REMOVE
 - REMOVE_TYPE
 - MODIFY_VAR_TYPE
-- REMOVE_FUN_PARAM
 - OP_CHANGE
 - CASTING
 - ADD_RETURN_VAL
@@ -28,7 +28,6 @@ Currently, there are 126 fixes recorded.
 - ADD_NONE_CHECK
 - MODIFY_ATTR_TYPE
 - REMOVE_REANNOTATION
-- MODIFY_IMPORT
 - MODIFY_RETURN_TYPE
 
 `"involved_types"`: Indicates all type involved in this fix, including before and after fix. Including types that only appeared in pyre warning messages. Composite types are broken down, e.g. `Union[int, str]` -> `"involved_types":["Union", "str", "int"]`.

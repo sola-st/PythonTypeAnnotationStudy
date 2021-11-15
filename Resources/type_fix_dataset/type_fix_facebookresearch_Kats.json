@@ -1,7 +1,7 @@
 [
   {
     "isolated_code_change": "-time_unit: str = None,\n+time_unit: Optional[str] = None,",
-    "type_error": "Incompatible Variable Type [9]",
+    "type_error": "Incompatible variable type [9]",
     "code_transform": "MODIFY_FUN_PARAM_TYPE",
     "involved_types": ["Optional", "str"],
     "type_change": {
@@ -18,7 +18,7 @@
   },  
   {
     "isolated_code_change": "-def _set_time_unit(self, data: TimeSeriesData, historical_data: TimeSeriesData): \n+def _set_time_unit( self, data: TimeSeriesData, historical_data: Optional[TimeSeriesData] ) -> None:",
-    "type_error": "Incompatible Parameter Type [6]",
+    "type_error": "Incompatible parameter type [6]",
     "code_transform": "MODIFY_FUN_PARAM_TYPE",
     "involved_types": ["Optional", "TimeSeriesData"],
     "type_change": {
@@ -52,7 +52,7 @@
   },
   {
     "isolated_code_change": "-def _get_llr(self, ts: np.ndarray, change_meta: Dict[str, Dict[str, Any]]):\n-changepoint = change_meta[\"changepoint\"]\n+def _get_llr(self, ts: np.ndarray, change_meta: Dict[str, Any]):\n+changepoint: int = change_meta[\"changepoint\"]",
-    "type_error": "Unsupported Operand [58]",
+    "type_error": "Unsupported operand [58]",
     "code_transform": "MODIFY_VAR_TYPE",
     "involved_types": [
       "Dict", 
@@ -74,7 +74,7 @@
   },
   {
     "isolated_code_change": "-def _get_llr(self, ts: np.ndarray, change_meta: Dict[str, Dict[str, Any]]):\n-mu0 = change_meta[\"mu0\"]\n+def _get_llr(self, ts: np.ndarray, change_meta: Dict[str, Any]):\n+mu0: float = change_meta[\"mu0\"]",
-    "type_error": "Incompatible Parameter Type [6]",
+    "type_error": "Incompatible parameter type [6]",
     "code_transform": "MODIFY_VAR_TYPE",
     "involved_types": [
       "Dict", 
@@ -96,7 +96,7 @@
   },
   {
     "isolated_code_change": "-def evaluate(self, model_params: Dict[str, float] = None, data: pd.DataFrame = None, ignore_list: List[str] = None, alert_style_cp: bool = False, threshold_low: float = 0.0, threshold_high: float = 1.0) -> pd.DataFrame: \n+def evaluate( self, model_params: Optional[Dict[str, float]] = None, data: Optional[pd.DataFrame] = None, ignore_list: Optional[List[str]] = None, alert_style_cp: bool = False, threshold_low: float = 0.0, threshold_high: float = 1.0, ) -> pd.DataFrame:",
-    "type_error": "Incompatible Variable Type [9]",
+    "type_error": "Incompatible variable type [9]",
     "code_transform": "MODIFY_FUN_PARAM_TYPE",
     "involved_types": [
       "Dict", 
@@ -118,7 +118,7 @@
   },
   {
     "isolated_code_change": "-def evaluate(self, model_params: Dict[str, float] = None, data: pd.DataFrame = None, ignore_list: List[str] = None, alert_style_cp: bool = False, threshold_low: float = 0.0, threshold_high: float = 1.0) -> pd.DataFrame: \n+def evaluate( self, model_params: Optional[Dict[str, float]] = None, data: Optional[pd.DataFrame] = None, ignore_list: Optional[List[str]] = None, alert_style_cp: bool = False, threshold_low: float = 0.0, threshold_high: float = 1.0, ) -> pd.DataFrame:",
-    "type_error": "Incompatible Parameter Type [6]",
+    "type_error": "Incompatible parameter type [6]",
     "code_transform": "MODIFY_FUN_PARAM_TYPE",
     "involved_types": [
       "DataFrame",
@@ -138,7 +138,7 @@
   },
   {
     "isolated_code_change": "-def evaluate(self, model_params: Dict[str, float] = None, data: pd.DataFrame = None, ignore_list: List[str] = None, alert_style_cp: bool = False, threshold_low: float = 0.0, threshold_high: float = 1.0) -> pd.DataFrame: \n+def evaluate( self, model_params: Optional[Dict[str, float]] = None, data: Optional[pd.DataFrame] = None, ignore_list: Optional[List[str]] = None, alert_style_cp: bool = False, threshold_low: float = 0.0, threshold_high: float = 1.0, ) -> pd.DataFrame:",
-    "type_error": "Incompatible Parameter Type [6]",
+    "type_error": "Incompatible parameter type [6]",
     "code_transform": "MODIFY_FUN_PARAM_TYPE",
     "involved_types": [
       "Dict", 
@@ -180,7 +180,7 @@
   },
   {
     "isolated_code_change": "-def _if_normal(self, cur_mean: float, change_directions: str) -> None:\n+def _if_normal(self, cur_mean: float, change_directions: List[str]) -> bool:",
-    "type_error": "Incompatible Parameter Type [6]",
+    "type_error": "Incompatible parameter type [6]",
     "code_transform": "MODIFY_FUN_PARAM_TYPE",
     "involved_types": [
       "str", 
