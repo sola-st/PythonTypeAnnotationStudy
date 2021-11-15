@@ -18,6 +18,6 @@
     "url": "https://github.com/deepfakes/faceswap/commit/4153a7e",
     "repo": "https://github.com/deepfakes/faceswap",
     "change_runtime": true,
-    "mentioned_by_pyre": true
+    "mentioned_by_pyre": false
   }
 ]

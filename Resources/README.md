@@ -1,5 +1,6 @@
 TODO: new column?: Relationship of between the newly fixed type and the type suggested by pyre. (e.g. Sequence -> List = subtype)
 
+TODO: fix download code script for pyre-fixme 
 # type_fix_dataset #
 Contains json data where each entry is a code change to fix a type error.
 

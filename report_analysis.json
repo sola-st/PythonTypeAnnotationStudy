@@ -54,8 +54,8 @@
         "true": 25
     },
     "mentioned_by_pyre": {
-        "false": 44,
-        "true": 81
+        "false": 45,
+        "true": 80
     },
     "involved_types": {
         "(int, int)": 2,
@@ -329,7 +329,7 @@
     },
     "Pyre error type": {
         "Incompatible return type [7]": 33,
-        "Unsupported operand [58]": 4,
+        "Unsupported operand [58]": 3,
         "Inconsistent override [15]": 1,
         "Incompatible variable type [9]": 19,
         "Incompatible parameter type [6]": 19,
@@ -343,7 +343,7 @@
         "MODIFY_RETURN_TYPE": 2,
         "CASTING": 2,
         "MODIFY_VAR_TYPE": 11,
-        "REMOVE": 3,
+        "REMOVE": 2,
         "MODIFY_FUN_PARAM_TYPE": 25,
         "MODIFY_FUN_RETURN_VALUE": 3,
         "OP_CHANGE": 4,
