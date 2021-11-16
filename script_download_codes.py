@@ -12,7 +12,10 @@ for data_file in os.listdir(directory):
       data = json.load(f) 
       for d in data:
         # note: filepath is from the old version
-        filepath = d['full_warning_msg'].split(':')[0]
+        if 'filepath' in d:
+          filepath = d['filepath']
+        else:
+          filepath = d['full_warning_msg'].split(':')[0]
         filename = filepath.split('/')[-1]
         folderpath = str.join('/', filepath.split('/')[0:-1])
         d_split = d['url'].split('/')

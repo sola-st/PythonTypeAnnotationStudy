@@ -81,7 +81,7 @@
     "full_warning_msg": "ciphers/diffie_hellman.py:249:19 Incompatible parameter type [6]: Expected `int` for 1st positional only parameter to call `pow` but got `str`.",
     "url": "https://github.com/TheAlgorithms/Python/commit/6089536",
     "repo": "https://github.com/TheAlgorithms/Python",
-    "change_runtime": true,
+    "change_runtime": false,
     "mentioned_by_pyre": true
   },  
   {
@@ -98,7 +98,7 @@
     "full_warning_msg": "ciphers/diffie_hellman.py:261:12 Incompatible parameter type [6]: Expected `str` for 1st positional only parameter to call `DiffieHellman.is_valid_public_key_static` but got `int`.",
     "url": "https://github.com/TheAlgorithms/Python/commit/6089536",
     "repo": "https://github.com/TheAlgorithms/Python",
-    "change_runtime": true,
+    "change_runtime": false,
     "mentioned_by_pyre": true
   },    
   {
@@ -268,7 +268,7 @@
     "full_warning_msg": "ciphers/rsa_cipher.py:76:35 Incompatible parameter type [6]: Expected `int` for 1st positional only parameter to call `getBlocksFromText` but got `str`.",
     "url": "https://github.com/TheAlgorithms/Python/commit/6089536",
     "repo": "https://github.com/TheAlgorithms/Python",
-    "change_runtime": true,
+    "change_runtime": false,
     "mentioned_by_pyre": true
   },
   {
@@ -613,7 +613,7 @@
   },
   {
     "isolated_code_change": "-def fibonacci_generator() -> int:\n+def fibonacci_generator() -> Generator[int, None, None]:\n",
-    "type_error": "Incompatible return type [7]",
+    "type_error": "Incompatible parameter type [6]",
     "code_transform": "MODIFY_FUN_RETURN_TYPE",
     "involved_types": ["int", "Generator", "None"],
     "type_change": {
@@ -1038,7 +1038,7 @@
   },
   {
     "isolated_code_change": "-    def link(self, x: int, y: int) -> None:\n+    def link(\n+        self, node1: DisjointSetTreeNode[T], node2: DisjointSetTreeNode[T]\n+    ) -> None:\n",
-    "type_error": "Undefined attribute [16]",
+    "type_error": "Incompatible parameter type [6]",
     "code_transform": "MODIFY_FUN_PARAM_TYPE",
     "involved_types": ["int", "DisjointSetTreeNode", "TypeVar(Any)", "Generic"],
     "type_change": {
@@ -1055,7 +1055,7 @@
   },  
   {
     "isolated_code_change": "-    def link(self, x: int, y: int) -> None:\n+    def link(\n+        self, node1: DisjointSetTreeNode[T], node2: DisjointSetTreeNode[T]\n+    ) -> None:\n",
-    "type_error": "Undefined attribute [16]",
+    "type_error": "Incompatible parameter type [6]",
     "code_transform": "MODIFY_FUN_PARAM_TYPE",
     "involved_types": ["int", "DisjointSetTreeNode", "TypeVar(Any)", "Generic"],
     "type_change": {

@@ -2,7 +2,7 @@
   {
     "isolated_code_change": "-        style: Union[str, Style] = None,\n+        style: Union[str, Style] = \"none\",\n",
     "type_error": "Incompatible variable type [9]",
-    "code_transform": "MODIFY_VAR_TYPE",
+    "code_transform": "MODIFY_FUN_PARAM_VAL",
     "involved_types": [
       "Union",
       "Style", 
@@ -72,5 +72,4 @@
     "change_runtime": false,
     "mentioned_by_pyre": true
   }
-
 ]

@@ -1,7 +1,10 @@
+TODO: new column?: Relationship of between the newly fixed type and the type suggested by pyre. (e.g. Sequence -> List = subtype)
+
+TODO: fix download code script for pyre-fixme 
 # type_fix_dataset #
 Contains json data where each entry is a code change to fix a type error.
 
-Currently, there are 74 fixes recorded.
+Currently, there are 125 fixes recorded.
 
 ## Fields ##
 `"isolated_code_change"`: Minimal code change required to perform the fix in git-diff format. Note that 1 change could fix multiple errors, in this case, each error will produce an entry.
@@ -12,22 +15,30 @@ Currently, there are 74 fixes recorded.
 - MODIFY_FUN_RETURN_VALUE
 - MODIFY_FUN_RETURN_TYPE
 - MODIFY_FUN_PARAM_TYPE
+- MODIFY_FUN_PARAM_VAL
 - REMOVE
 - REMOVE_TYPE
 - MODIFY_VAR_TYPE
-- REMOVE_FUN_PARAM
 - OP_CHANGE
 - CASTING
 - ADD_RETURN_VAL
 - RENAME_VAR
+- CHANGE_EXPRESSION
+- MODIFY_METHOD_CALL
+- MODIFY_ISINSTANCE_CALL
+- ADD_NONE_CHECK
+- MODIFY_ATTR_TYPE
+- REMOVE_REANNOTATION
+- MODIFY_RETURN_TYPE
 
-`"involved_types"`: Indicates all type involved in this fix, including before and after fix. Composite types are broken down, e.g. `Union[int, str]` -> `"involved_types":["Union", "str", "int"]`.
-
+`"involved_types"`: Indicates all type involved in this fix, including before and after fix. Including types that only appeared in pyre warning messages. Composite types are broken down, e.g. `Union[int, str]` -> `"involved_types":["Union", "str", "int"]`.
+- `Text` = alias for `str`
 
 `"type_change"`: Category of the type annotation change, which is one of the followings:
 - ADDED
 - REPLACED
 - REMOVED
+- NONE
 
 `"location"`: Location of the code change relative to the pyre warning message, which is one of the followings:
 - ENCLOSING_FUN_RETURN
@@ -35,8 +46,11 @@ Currently, there are 74 fixes recorded.
 - ENCLOSING_FUN
 - EXACT_LINE
 - FUN_CALLEE
+- CLASS_ATTR
+- SUPERCLASS_ATTR
+- ENCLOSING_IF
 
-`"full_warning_msg"`: Warning message produced by pyre prior to the fix (i.e. the parent commit).
+`"full_warning_msg"`: Warning message produced by pyre prior to the fix (i.e. the parent commit). `pyre-fixme` (i.e. a suppressed pyre warning) is also included when it's type error gets fixed.
 
 `"url"`: Url to the commit where this type fix happens. 
 
@@ -47,6 +61,10 @@ Currently, there are 74 fixes recorded.
 - `true` if `Optional[T]`/`None` is used when `None` is mentioned
 - `true` if `Callable[T]` is used when the error type is Call error
 - `true` if the new type can be represented by the mentioned types, e.g. true if `List[tuple[]]` is used when `List[Any]` is mentioned
+
+<!-- `"custom_type"`: Boolean, `true` if a customly defined type is used, e.g. `license_formats: ElementsType = ()` with `ElementsType = Union[Sequence[T], Dict[T, float], KeysView[T]]`. -->
+
+`"filepath"`: Optional. Show the filepath where the code change happens. Non-existent if file is the same as the one shown in the earning
 
 # type_fix_code_data #
 Contains old and new code from different type fixes. It is structured as `{repo}/{commit}/{old_code}` and `{repo}/{commit}/{new_code}`. Intermediate folders are kept. Downloaded by running `script_download_codes.py`.

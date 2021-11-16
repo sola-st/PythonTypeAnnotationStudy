@@ -1,6 +1,6 @@
 [
   {
-    "isolated_code_change": "-allobj = [objectives.mean_squared_error, objectives.root_mean_squared_error,\n-          objectives.mean_absolute_error, objectives.mean_absolute_percentage_error,\n-          objectives.mean_squared_logarithmic_error, objectives.squared_hinge,\n-          objectives.hinge, objectives.categorical_crossentropy, objectives.binary_crossentropy, objectives.poisson,\n+allobj = [objectives.mean_squared_error,\n+          objectives.mean_absolute_error,\n+          objectives.mean_absolute_percentage_error,\n+          objectives.mean_squared_logarithmic_error,\n+          objectives.squared_hinge,\n+          objectives.hinge, objectives.categorical_crossentropy,\n+          objectives.binary_crossentropy,\n+          objectives.poisson,\n",
+    "isolated_code_change": "-allobj = [objectives.mean_squared_error, objectives.root_mean_squared_error,\n+allobj = [objectives.mean_squared_error,",
     "type_error": "Undefined attribute [16]",
     "code_transform": "REMOVE",
     "involved_types": [],
@@ -15,5 +15,25 @@
     "repo": "https://github.com/keras-team/keras",
     "change_runtime": true,
     "mentioned_by_pyre": false
+  },
+  {
+    "isolated_code_change": "-def split_data(x, y, ratio: int = 0.8): \n+def split_data(x, y, ratio=0.8):",
+    "type_error": "Incompatible variable type [9]",
+    "code_transform": "REMOVE",
+    "involved_types": [
+      "int",
+      "float"
+    ],
+    "type_change": {
+      "kind": "REMOVED",
+      "from": "int",
+      "to": ""
+    },
+    "location": "EXACT_LINE",
+    "full_warning_msg": "examples/lstm_stateful.py:157:21 Incompatible variable type [9]: ratio is declared to have type `int` but is used as type `float`.",
+    "url": "https://github.com/keras-team/keras/commit/41d967f",
+    "repo": "https://github.com/keras-team/keras",
+    "change_runtime": false,
+    "mentioned_by_pyre": true
   }
 ]
