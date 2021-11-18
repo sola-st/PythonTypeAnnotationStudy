@@ -95,7 +95,7 @@
     ],
     "type_change": {
       "kind": "REPLACED",
-      "from": "str",
+      "from": "Text",
       "to": "Dict[Text, Text]"
     },
     "location": "EXACT_LINE",

@@ -34,9 +34,9 @@
     "mentioned_by_pyre": true
   },
   {
-    "isolated_code_change": "+return name",
+    "isolated_code_change": "+return False",
     "type_error": "Incompatible return type [7]",
-    "code_transform": "MODIFY_FUN_RETURN_VALUE",
+    "code_transform": "ADD_RETURN_VAL",
     "involved_types": ["bool", "None"],
     "type_change": {
       "kind": "REPLACED",
