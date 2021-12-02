@@ -153,5 +153,5 @@ tmp_diff
 Resources/type_fix_dataset_backup
 wai_hiwi/
 Github/
-Resources/Output_type_fix_commits/compare_warning_*
+Resources/Output_type_fix_commits*/compare_warning_*
 *.png

@@ -24,6 +24,32 @@ from Code.TypeAnnotations.Utils import write_in_json, convert_list_in_list_of_di
 from Code.TypeErrors.TypeAnnotationCounter import count_type_annotations, extract_from_file
 
 
+def repo_cloning_commits_query(filenameInput: str, pathOutput: str, count: List[int]) -> None:
+    with open(filenameInput) as fh:
+        commits = json.load(fh)
+
+    repo_urls = [c['repository']['html_url'] for c in commits]
+
+    i = 0
+    for link in repo_urls:
+        i+=1
+        count[0] += 1
+
+        out = re.sub('https://github.com/', '', link).replace('/', '-')
+
+        if os.path.isdir(pathOutput + '/' + out):
+            print(str(count) + ' Already cloned', link)
+
+            continue
+
+        else:
+            print(str(count) + ' Cloning ' + link)
+            try:
+                git.clone_repository(link, pathOutput + '/' + out)
+            except Exception as e:
+                print('[Error] cloning repository:', str(e))
+                continue
+
 def repo_cloning(filenameInput: str, pathOutput: str, count: List[int]) -> None:
     with open(filenameInput) as fh:
         articles = json.load(fh)
@@ -54,7 +80,6 @@ def repo_cloning(filenameInput: str, pathOutput: str, count: List[int]) -> None:
             except Exception as e:
                 print('[Error] cloning repository:', str(e))
                 continue
-
 
 def repo_cloning_csv( pathOutput: str) -> None:
     columns = defaultdict(list)  # each value in each column is appended to a list
