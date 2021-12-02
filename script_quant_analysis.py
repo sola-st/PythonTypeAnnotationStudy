@@ -4,6 +4,7 @@ import os
 import matplotlib.pyplot as plt
 import pandas as pd
 import numpy as np
+from textwrap import wrap
 
 directory = r'Resources/type_fix_dataset/'
 total = 0
@@ -98,15 +99,26 @@ for field, field_dict in out_d.items():
     # ).get_figure()
     # fig.savefig(field+".png")
     if field == 'involved_types':
+      plt.rcParams.update({'font.size': 25})
       field_dict = dict(sorted(field_dict.items(), key=lambda item: item[1], reverse=True)[:10])
-    plt.figure(figsize=(20, 10))
+    elif field == 'type_error':
+      plt.rcParams.update({'font.size': 20})
+      field_dict = {'\n'.join(wrap(key.split('[')[0], 15)): value for key, value in field_dict.items()}
+    elif field == 'location':
+      plt.rcParams.update({'font.size': 25})    
+      field_dict = {'\n'.join(wrap(key, 10)): value for key, value in field_dict.items()}
+    plt.figure(figsize=(20, 12))
     plt.barh(*zip(*field_dict.items()))
     # plt.yticks(k_list)
     plt.xticks(rotation=0)
-    plt.title(field)
+    if field == 'involved_types':
+      plt.title(field+' (Top 10)')
+    else:  
+      plt.title(field)
     plt.xlabel('count')
     plt.savefig(field+".png")
     plt.clf()
+    plt.rcParams.update({'font.size': 12}) # reset font
 out_d['Total count'] = total
 out_d['Fix pattern'] = fix_for_error_dict
 out_d['Runtime code change'] = runtime_dict
@@ -121,11 +133,12 @@ print(r)
 
 # df = pd.DataFrame(np.c_[Y,Z,Y], index=X)
 # df.plot.barh(figsize=(20, 10))
+plt.rcParams.update({'font.size': 20})
 for err, dict in fix_for_error_dict.items():
   if 'Incompatible return type' in err or 'Incompatible variable type' in err or 'Incompatible parameter type' in err:
-    # for cc, v in dict.items():
-    plt.figure(figsize=(15, 6))
-    plt.bar(*zip(*dict.items()))
+    dict = {'\n'.join(wrap(key, 10)): value for key, value in dict.items()}
+    plt.figure(figsize=(20, 10))
+    plt.barh(*zip(*dict.items()))
     plt.xticks(rotation=0)
     plt.title('"'+err+'" Fix Pattern')
     plt.ylabel('count')
