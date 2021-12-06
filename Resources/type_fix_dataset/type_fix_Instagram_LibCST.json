@@ -14,7 +14,8 @@
     "url": "https://github.com/Instagram/LibCST/commit/3ccfc4a",
     "repo": "https://github.com/Instagram/LibCST",
     "change_runtime": true,
-    "mentioned_by_pyre": true
+    "mentioned_by_pyre": true,
+    "pyre_detail": "USE_EXPECTED_TYPE"
   },
   {
     "isolated_code_change": "+name = None\n-    return get_full_name_for_node(node)\n-elif len(names) == 1:\n-    return names[0]\n-else:\n+    name = get_full_name_for_node(node)\n+elif len(names) == 1 and isinstance(names[0], str):\n+    name = names[0]\n+if name is None:\n+return name\n",
@@ -31,7 +32,8 @@
     "url": "https://github.com/Instagram/LibCST/commit/3ccfc4a",
     "repo": "https://github.com/Instagram/LibCST",
     "change_runtime": true,
-    "mentioned_by_pyre": true
+    "mentioned_by_pyre": true,
+    "pyre_detail": "USE_EXPECTED_TYPE"
   },
   {
     "isolated_code_change": "+return False",
@@ -48,7 +50,8 @@
     "url": "https://github.com/Instagram/LibCST/commit/3ccfc4a",
     "repo": "https://github.com/Instagram/LibCST",
     "change_runtime": true,
-    "mentioned_by_pyre": true
+    "mentioned_by_pyre": true,
+    "pyre_detail": "USE_EXPECTED_TYPE"
   },  
   {
     "isolated_code_change": "-def _handle_Index(self, slice: cst.Index, node: cst.Subscript) -> cst.Subscript: \n+def _handle_Index(self, slice: cst.Index, node: cst.Subscript) -> cst.Index:",
@@ -65,7 +68,8 @@
     "url": "https://github.com/Instagram/LibCST/commit/3ccfc4a",
     "repo": "https://github.com/Instagram/LibCST",
     "change_runtime": false,
-    "mentioned_by_pyre": true
+    "mentioned_by_pyre": true,
+    "pyre_detail": "USE_NOT_EXPECTED_TYPE"
   },    
   {
     "isolated_code_change": "-def _handle_Index(self, slice: cst.Index, node: cst.Subscript) -> cst.Subscript: \n+def _handle_Index(self, slice: cst.Index, node: cst.Subscript) -> cst.Index:",
@@ -82,7 +86,8 @@
     "url": "https://github.com/Instagram/LibCST/commit/3ccfc4a",
     "repo": "https://github.com/Instagram/LibCST",
     "change_runtime": false,
-    "mentioned_by_pyre": true
+    "mentioned_by_pyre": true,
+    "pyre_detail": "USE_NOT_EXPECTED_TYPE"
   },
   {
     "isolated_code_change": "-def _handle_Index(self, slice: cst.Index, node: cst.Subscript) -> cst.Subscript: \n+def _handle_Index(self, slice: cst.Index, node: cst.Subscript) -> cst.Index:",
@@ -99,7 +104,8 @@
     "url": "https://github.com/Instagram/LibCST/commit/3ccfc4a",
     "repo": "https://github.com/Instagram/LibCST",
     "change_runtime": false,
-    "mentioned_by_pyre": true
+    "mentioned_by_pyre": true,
+    "pyre_detail": "USE_NOT_EXPECTED_TYPE"
   },
   {
     "isolated_code_change": "-else:\n+elif isinstance(node, NAME_OR_ATTRIBUTE):",
@@ -116,7 +122,8 @@
     "url": "https://github.com/Instagram/LibCST/commit/3ccfc4a",
     "repo": "https://github.com/Instagram/LibCST",
     "change_runtime": true,
-    "mentioned_by_pyre": true
+    "mentioned_by_pyre": true,
+    "pyre_detail": "USE_EXPECTED_TYPE"
   },
   {
     "isolated_code_change": "-if set_return_annotation: \n+if set_return_annotation and function_annotation.returns is not None:",
@@ -133,6 +140,7 @@
     "url": "https://github.com/Instagram/LibCST/commit/3ccfc4a",
     "repo": "https://github.com/Instagram/LibCST",
     "change_runtime": true,
-    "mentioned_by_pyre": true
+    "mentioned_by_pyre": true,
+    "pyre_detail": "USE_EXPECTED_TYPE"
   }
 ]

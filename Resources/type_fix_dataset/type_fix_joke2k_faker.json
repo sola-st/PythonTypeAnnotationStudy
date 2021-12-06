@@ -24,6 +24,7 @@
     "repo": "https://github.com/joke2k/faker",
     "change_runtime": false,
     "mentioned_by_pyre": false,
+    "pyre_detail": "USE_ANOTHER_TYPE",
     "filepath": "faker/providers/address/__init__.py"
   }, 
   {
@@ -51,6 +52,7 @@
     "repo": "https://github.com/joke2k/faker",
     "change_runtime": false,
     "mentioned_by_pyre": false,
+    "pyre_detail": "USE_ANOTHER_TYPE",
     "filepath": "faker/providers/address/__init__.py"
   },   
   {
@@ -78,6 +80,7 @@
     "repo": "https://github.com/joke2k/faker",
     "change_runtime": false,
     "mentioned_by_pyre": false,
+    "pyre_detail": "USE_ANOTHER_TYPE",
     "filepath": "faker/providers/address/__init__.py"
   },
   {
@@ -104,6 +107,7 @@
     "repo": "https://github.com/joke2k/faker",
     "change_runtime": false,
     "mentioned_by_pyre": false,
+    "pyre_detail": "USE_ANOTHER_TYPE",
     "filepath": "faker/providers/automotive/__init__.py"
   },
   {
@@ -127,6 +131,7 @@
     "repo": "https://github.com/joke2k/faker",
     "change_runtime": false,
     "mentioned_by_pyre": false,
+    "pyre_detail": "USE_ANOTHER_TYPE",
     "filepath": "faker/providers/barcode/__init__.py"
   },    
   {
@@ -148,7 +153,8 @@
     "url": "https://github.com/joke2k/faker/commit/9a382ed",
     "repo": "https://github.com/joke2k/faker",
     "change_runtime": false,
-    "mentioned_by_pyre": true
+    "mentioned_by_pyre": true,
+    "pyre_detail": "USE_SUPER_TYPE"
   },        
   {
     "isolated_code_change": "-def process_list_structure(data: list) -> dict:\n+def process_list_structure(data: Sequence[Any]) -> Any:",
@@ -170,7 +176,8 @@
     "url": "https://github.com/joke2k/faker/commit/9a382ed",
     "repo": "https://github.com/joke2k/faker",
     "change_runtime": false,
-    "mentioned_by_pyre": true
+    "mentioned_by_pyre": true,
+    "pyre_detail": "CANNOT_REANNOTATE"
   },
   {
     "isolated_code_change": "-def process_dict_structure(data: dict) -> dict:\n +def process_dict_structure(data: Union[int, float, bool, Dict[str, Any]]) -> Any",
@@ -195,6 +202,7 @@
     "url": "https://github.com/joke2k/faker/commit/9a382ed",
     "repo": "https://github.com/joke2k/faker",
     "change_runtime": false,
-    "mentioned_by_pyre": true
+    "mentioned_by_pyre": true,
+    "pyre_detail": "USE_SUPER_TYPE"
   }
 ]

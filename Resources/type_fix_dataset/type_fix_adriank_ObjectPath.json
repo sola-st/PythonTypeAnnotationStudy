@@ -18,7 +18,8 @@
     "url": "https://github.com/adriank/ObjectPath/commit/aafb622",
     "repo": "https://github.com/adriank/ObjectPath",
     "change_runtime": true,
-    "mentioned_by_pyre": false
+    "mentioned_by_pyre": false,
+    "pyre_detail": "USE_ANOTHER_TYPE"
   }
 ]
 

@@ -19,7 +19,8 @@
     "url": "https://github.com/tiangolo/fastapi/commit/0e19c24",
     "repo": "https://github.com/tiangolo/fastapi",
     "change_runtime": false,
-    "mentioned_by_pyre": false
+    "mentioned_by_pyre": false,
+    "pyre_detail": "USE_ANOTHER_TYPE"
   },
   {
     "isolated_code_change": "-        **extra: Dict[str, Any],\n+        **extra: Any,",
@@ -41,7 +42,8 @@
     "url": "https://github.com/tiangolo/fastapi/commit/0e19c24",
     "repo": "https://github.com/tiangolo/fastapi",
     "change_runtime": false,
-    "mentioned_by_pyre": false
+    "mentioned_by_pyre": false,
+    "pyre_detail": "USE_ANOTHER_TYPE"
   },
   {
     "isolated_code_change": "-        **extra: Dict[str, Any],\n+        **extra: Any,",
@@ -63,7 +65,8 @@
     "url": "https://github.com/tiangolo/fastapi/commit/0e19c24",
     "repo": "https://github.com/tiangolo/fastapi",
     "change_runtime": false,
-    "mentioned_by_pyre": false
+    "mentioned_by_pyre": false,
+    "pyre_detail": "USE_ANOTHER_TYPE"
   },
   {
     "isolated_code_change": "-        **extra: Dict[str, Any],\n+        **extra: Any,",
@@ -85,7 +88,8 @@
     "url": "https://github.com/tiangolo/fastapi/commit/0e19c24",
     "repo": "https://github.com/tiangolo/fastapi",
     "change_runtime": false,
-    "mentioned_by_pyre": false
+    "mentioned_by_pyre": false,
+    "pyre_detail": "USE_ANOTHER_TYPE"
   },
   {
     "isolated_code_change": "-    response_code: str = 200,\n+    status_code: int = 200,",
@@ -105,7 +109,8 @@
     "url": "https://github.com/tiangolo/fastapi/commit/0e19c24",
     "repo": "https://github.com/tiangolo/fastapi",
     "change_runtime": false,
-    "mentioned_by_pyre": true
+    "mentioned_by_pyre": true,
+    "pyre_detail": "USE_NOT_EXPECTED_TYPE"
   },
   {
     "isolated_code_change": "-deprecated: bool = None, \n+deprecated: Optional[bool] = None",
@@ -125,7 +130,8 @@
     "url": "https://github.com/tiangolo/fastapi/commit/fdb6c9c",
     "repo": "https://github.com/tiangolo/fastapi",
     "change_runtime": false,
-    "mentioned_by_pyre": true
+    "mentioned_by_pyre": true,
+    "pyre_detail": "USE_OPTIONAL_FOR_NONE"
   },
   {
     "isolated_code_change": "-deprecated: bool = None, \n+deprecated: Optional[bool] = None",
@@ -145,6 +151,7 @@
     "url": "https://github.com/tiangolo/fastapi/commit/fdb6c9c",
     "repo": "https://github.com/tiangolo/fastapi",
     "change_runtime": false,
-    "mentioned_by_pyre": true
+    "mentioned_by_pyre": true,
+    "pyre_detail": "USE_OPTIONAL_FOR_NONE"
   }
 ]

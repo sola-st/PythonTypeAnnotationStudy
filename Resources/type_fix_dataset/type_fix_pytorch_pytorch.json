@@ -19,7 +19,8 @@
     "url": "https://github.com/pytorch/pytorch/commit/17f07c3",
     "repo": "https://github.com/pytorch/pytorch",
     "change_runtime": false,
-    "mentioned_by_pyre": true
+    "mentioned_by_pyre": true,
+    "pyre_detail": "USE_OPTIONAL_FOR_NONE"
   }, 
   {
     "isolated_code_change": "-prepare_custom_config_dict: Dict[str, Any] = None, \n+prepare_custom_config_dict: Optional[Dict[str, Any]] = None,",
@@ -41,7 +42,8 @@
     "url": "https://github.com/pytorch/pytorch/commit/17f07c3",
     "repo": "https://github.com/pytorch/pytorch",
     "change_runtime": false,
-    "mentioned_by_pyre": true
+    "mentioned_by_pyre": true,
+    "pyre_detail": "USE_OPTIONAL_FOR_NONE"
   },   
   {
     "isolated_code_change": "-backend_config_dict: Dict[str, Any] = None, \n+backend_config_dict: Optional[Dict[str, Any]] = None,",
@@ -63,7 +65,8 @@
     "url": "https://github.com/pytorch/pytorch/commit/17f07c3",
     "repo": "https://github.com/pytorch/pytorch",
     "change_runtime": false,
-    "mentioned_by_pyre": true
+    "mentioned_by_pyre": true,
+    "pyre_detail": "USE_OPTIONAL_FOR_NONE"
   },   
   {
     "isolated_code_change": "-fuse_custom_config_dict: Dict[str, Any] = None, \n+fuse_custom_config_dict: Optional[Dict[str, Any]] = None,",
@@ -85,7 +88,8 @@
     "url": "https://github.com/pytorch/pytorch/commit/17f07c3",
     "repo": "https://github.com/pytorch/pytorch",
     "change_runtime": false,
-    "mentioned_by_pyre": true
+    "mentioned_by_pyre": true,
+    "pyre_detail": "USE_OPTIONAL_FOR_NONE"
   },
   {
     "isolated_code_change": "-convert_custom_config_dict: Dict[str, Any] = None, \n+convert_custom_config_dict: Optional[Dict[str, Any]] = None,",
@@ -107,7 +111,8 @@
     "url": "https://github.com/pytorch/pytorch/commit/17f07c3",
     "repo": "https://github.com/pytorch/pytorch",
     "change_runtime": false,
-    "mentioned_by_pyre": true
+    "mentioned_by_pyre": true,
+    "pyre_detail": "USE_OPTIONAL_FOR_NONE"
   },
   {
     "isolated_code_change": "-def fuse(self, model: GraphModule, fuse_custom_config_dict: Dict[str, Any] = None) -> GraphModule: \n+def fuse( self, model: GraphModule, fuse_custom_config_dict: Optional[Dict[str, Any]] = None ) -> GraphModule:",
@@ -130,7 +135,8 @@
     "repo": "https://github.com/pytorch/pytorch",
     "change_runtime": false,
     "mentioned_by_pyre": true,
-    "filepath": "torch/ao/quantization/fx/fuse.py"
+    "filepath": "torch/ao/quantization/fx/fuse.py",
+    "pyre_detail": "USE_OPTIONAL_FOR_NONE"
   },
   {
     "isolated_code_change": "-clean_ctx: GeneratedFileCleaner = None) -> HipifyFinalResult: \n+clean_ctx: Optional[GeneratedFileCleaner] = None) -> HipifyFinalResult:",
@@ -150,6 +156,7 @@
     "url": "https://github.com/pytorch/pytorch/commit/6401658",
     "repo": "https://github.com/pytorch/pytorch",
     "change_runtime": false,
-    "mentioned_by_pyre": true
+    "mentioned_by_pyre": true,
+    "pyre_detail": "USE_OPTIONAL_FOR_NONE"
   }
 ]

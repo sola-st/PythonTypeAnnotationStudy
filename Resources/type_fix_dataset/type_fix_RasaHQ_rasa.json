@@ -18,7 +18,8 @@
     "url": "https://github.com/RasaHQ/rasa/commit/1ded5ef",
     "repo": "https://github.com/RasaHQ/rasa",
     "change_runtime": false,
-    "mentioned_by_pyre": true
+    "mentioned_by_pyre": true,
+    "pyre_detail": "USE_SUBCLASS"
   },
   {
     "isolated_code_change": "-return [UserUtteranceReverted()] + _message_clarification(tracker)\n+reverted_event: List[Event] = [UserUtteranceReverted()]\n+return reverted_event + _message_clarification(tracker)",
@@ -39,12 +40,13 @@
     "url": "https://github.com/RasaHQ/rasa/commit/1ded5ef",
     "repo": "https://github.com/RasaHQ/rasa",
     "change_runtime": false,
-    "mentioned_by_pyre": true
+    "mentioned_by_pyre": true,
+    "pyre_detail": "USE_EXPECTED_TYPE"
   },
   {
     "isolated_code_change": "-return [UserUtteranceReverted()] + _message_clarification(tracker)\n+reverted_event: List[Event] = [UserUtteranceReverted()]\n+return reverted_event + _message_clarification(tracker)",
     "type_error": "Unsupported operand [58]",
-    "code_transform": "MODIFY_RETURN_TYPE",
+    "code_transform": "MODIFY_VAR_TYPE",
     "involved_types": [
       "List",
       "UserUtteranceReverted",
@@ -60,7 +62,8 @@
     "url": "https://github.com/RasaHQ/rasa/commit/1ded5ef",
     "repo": "https://github.com/RasaHQ/rasa",
     "change_runtime": false,
-    "mentioned_by_pyre": true
+    "mentioned_by_pyre": true,
+    "pyre_detail": "EXACT_MENTIONED_TYPE"
   },
   {
     "isolated_code_change": "-return [UserUtteranceReverted()] + _message_clarification(tracker)\n+reverted_event: List[Event] = [UserUtteranceReverted()]\n+return reverted_event + _message_clarification(tracker)",
@@ -81,7 +84,8 @@
     "url": "https://github.com/RasaHQ/rasa/commit/1ded5ef",
     "repo": "https://github.com/RasaHQ/rasa",
     "change_runtime": false,
-    "mentioned_by_pyre": true
+    "mentioned_by_pyre": true,
+    "pyre_detail": "USE_EXPECTED_TYPE"
   },
   {
     "isolated_code_change": "-def list_routes(app: Sanic) -> Text: \n+def list_routes(app: Sanic) -> Dict[Text, Text]:",
@@ -103,7 +107,8 @@
     "url": "https://github.com/RasaHQ/rasa/commit/1ded5ef",
     "repo": "https://github.com/RasaHQ/rasa",
     "change_runtime": false,
-    "mentioned_by_pyre": true
+    "mentioned_by_pyre": true,
+    "pyre_detail": "USE_SUBTYPE"
   },
   {
     "isolated_code_change": "-) -> Optional[Text]: \n+) -> Optional[Union[Path, Text]]:",
@@ -127,7 +132,8 @@
     "url": "https://github.com/RasaHQ/rasa/commit/1ded5ef",
     "repo": "https://github.com/RasaHQ/rasa",
     "change_runtime": false,
-    "mentioned_by_pyre": true
+    "mentioned_by_pyre": true,
+    "pyre_detail": "USE_NOT_EXPECTED_TYPE"
   },
   {
     "isolated_code_change": "-def create_component_from_class(self, component_class: Type[C], **cfg: Any) -> C: \n+def create_component_from_class( self, component_class: Type[Component], **cfg: Any ) -> Optional[Component]:",
@@ -148,7 +154,8 @@
     "url": "https://github.com/RasaHQ/rasa/commit/1ded5ef",
     "repo": "https://github.com/RasaHQ/rasa",
     "change_runtime": false,
-    "mentioned_by_pyre": true
+    "mentioned_by_pyre": true,
+    "pyre_detail": "PARTIAL_MENTIONED_TYPE"
   },    
   {
     "isolated_code_change": "-def create_component_from_class(self, component_class: Type[C], **cfg: Any) -> C: \n+def create_component_from_class( self, component_class: Type[Component], **cfg: Any ) -> Optional[Component]:",
@@ -168,7 +175,8 @@
     "url": "https://github.com/RasaHQ/rasa/commit/1ded5ef",
     "repo": "https://github.com/RasaHQ/rasa",
     "change_runtime": false,
-    "mentioned_by_pyre": true
+    "mentioned_by_pyre": true,
+    "pyre_detail": "USE_EXPECTED_TYPE"
   },
   {
     "isolated_code_change": "-def _create_emulator(mode: Optional[Text]) -> NoEmulator: \n+def _create_emulator(mode: Optional[Text]) -> Emulator:",
@@ -189,7 +197,8 @@
     "url": "https://github.com/RasaHQ/rasa/commit/1ded5ef",
     "repo": "https://github.com/RasaHQ/rasa",
     "change_runtime": false,
-    "mentioned_by_pyre": true
+    "mentioned_by_pyre": true,
+    "pyre_detail": "USE_NOT_EXPECTED_TYPE"
   },
   {
     "isolated_code_change": "-def get_active_loop_name(state: State) -> Optional[Text]: \n+def get_active_loop_name( state: State, ) -> Optional[Union[Text, Tuple[Union[float, Text]]]]:",
@@ -212,6 +221,7 @@
     "url": "https://github.com/RasaHQ/rasa/commit/1ded5ef",
     "repo": "https://github.com/RasaHQ/rasa",
     "change_runtime": false,
-    "mentioned_by_pyre": false
+    "mentioned_by_pyre": false,
+    "pyre_detail": "USE_NOT_EXPECTED_TYPE"
   }
 ]

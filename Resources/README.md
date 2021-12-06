@@ -62,6 +62,30 @@ Currently, there are 125 fixes recorded.
 - `true` if `Callable[T]` is used when the error type is Call error
 - `true` if the new type can be represented by the mentioned types, e.g. true if `List[tuple[]]` is used when `List[Any]` is mentioned
 
+`"pyre_detail"`: Explains how developers use the hint given by pyre. 
+- Potential value if `"mentioned_by_pyre"` is `true`:
+  - `"EXACT_MENTIONED_TYPE"`
+  - More specific kind of `"EXACT_MENTIONED_TYPE"`:
+    - `"USE_EXPECTED_TYPE"` (e.g. "Expected A but got B" -> A = `EXPECTED_TYPE`)
+    - `"USE_NOT_EXPECTED_TYPE"` (e.g. "v is declared to have type "A" but is used as type "B" -> B = `NOT_EXPECTED_TYPE`)
+    - `"USE_OPTIONAL_FOR_NONE"` (a more specific kind of `"EXACT_MENTIONED_TYPE"`)
+    - `"USE_OVERRIDEN_TYPE"` (only for `Inconsistent override [15]`)
+  - `"PARTIAL_MENTIONED_TYPE"` (e.g. pyre mentions `Component`, dev uses `Optional[Component]`)
+  - `"USE_SUPER_TYPE"`
+  - `"USE_SUBCLASS"` (e.g. Animal -> Dog)
+  - `"USE_SUBTYPE"` (= narrower than suggested types)
+  - `"REDUNDANT_HINT"` (only for `Redundant Cast [22]`)
+  - `"CANNOT_REANNOTATE"` (only for `Illegal annotation target [35]`)
+  - `"ASSIGN_VALUE_OF_TYPE"`
+  - `"USE_CALLABLE"` (only for `Call error [29]`)
+- Potential value if `"mentioned_by_pyre"` is `false`: (Usually no hints are given if it is `Invalid type [31]` or `Undefined attribute [16]`)
+  - `"CALL_CORRECT_METHOD"`
+  - `"USE_ANOTHER_TYPE"`
+  - `"USE_ANY"`
+  - `"CAST_STR_ENCODING"`
+  - `"REMOVE"`
+  <!-- - `"NO_SUGGESTION"` -->
+
 <!-- `"custom_type"`: Boolean, `true` if a customly defined type is used, e.g. `license_formats: ElementsType = ()` with `ElementsType = Union[Sequence[T], Dict[T, float], KeysView[T]]`. -->
 
 `"filepath"`: Optional. Show the filepath where the code change happens. Non-existent if file is the same as the one shown in the earning

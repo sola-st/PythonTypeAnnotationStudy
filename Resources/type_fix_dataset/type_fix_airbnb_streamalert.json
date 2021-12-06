@@ -18,6 +18,7 @@
     "url": "https://github.com/airbnb/streamalert/commit/b49d9f7",
     "repo": "https://github.com/airbnb/streamalert",
     "change_runtime": false,
-    "mentioned_by_pyre": true
+    "mentioned_by_pyre": true,
+    "pyre_detail": "USE_NOT_EXPECTED_TYPE"
   }
 ]

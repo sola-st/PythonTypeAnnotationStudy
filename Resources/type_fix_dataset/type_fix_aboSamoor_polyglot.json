@@ -16,6 +16,7 @@
     "url": "https://github.com/aboSamoor/polyglot/commit/75f82b345730894a6dca05c81401635b3c9649bd",
     "repo": "https://github.com/aboSamoor/polyglot",
     "change_runtime": true,
-    "mentioned_by_pyre": false
+    "mentioned_by_pyre": false,
+    "pyre_detail": "CALL_CORRECT_METHOD"
   }
 ]

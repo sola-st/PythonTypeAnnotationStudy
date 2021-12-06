@@ -14,7 +14,8 @@
     "url": "https://github.com/keras-team/keras/commit/217cdd8b",
     "repo": "https://github.com/keras-team/keras",
     "change_runtime": true,
-    "mentioned_by_pyre": false
+    "mentioned_by_pyre": false,
+    "pyre_detail": "REMOVE"
   },
   {
     "isolated_code_change": "-def split_data(x, y, ratio: int = 0.8): \n+def split_data(x, y, ratio=0.8):",
@@ -34,6 +35,7 @@
     "url": "https://github.com/keras-team/keras/commit/41d967f",
     "repo": "https://github.com/keras-team/keras",
     "change_runtime": false,
-    "mentioned_by_pyre": true
+    "mentioned_by_pyre": true,
+    "pyre_detail": "USE_EXPECTED_TYPE"
   }
 ]

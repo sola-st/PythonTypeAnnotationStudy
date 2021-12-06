@@ -19,7 +19,8 @@
     "url": "https://github.com/willmcgugan/rich/commit/6fc2bbe",
     "repo": "https://github.com/willmcgugan/rich",
     "change_runtime": true,
-    "mentioned_by_pyre": false
+    "mentioned_by_pyre": true,
+    "pyre_detail": "ASSIGN_VALUE_OF_TYPE"
   },
   {
     "isolated_code_change": "-    total: int = None,\n+    total: Optional[float] = None,\n",
@@ -36,7 +37,8 @@
     "url": "https://github.com/willmcgugan/rich/commit/8607fa3",
     "repo": "https://github.com/willmcgugan/rich",
     "change_runtime": false,
-    "mentioned_by_pyre": true
+    "mentioned_by_pyre": true,
+    "pyre_detail": "PARTIAL_MENTIONED_TYPE"
   },
   {
     "isolated_code_change": "-        total: int = None,\n+        total: Optional[float] = None,\n",
@@ -53,7 +55,8 @@
     "url": "https://github.com/willmcgugan/rich/commit/8607fa3",
     "repo": "https://github.com/willmcgugan/rich",
     "change_runtime": false,
-    "mentioned_by_pyre": true
+    "mentioned_by_pyre": true,
+    "pyre_detail": "PARTIAL_MENTIONED_TYPE"
   },
   {
     "isolated_code_change": "-        total: float = None,\n+        total: Optional[float] = None,\n",
@@ -70,6 +73,7 @@
     "url": "https://github.com/willmcgugan/rich/commit/8607fa3",
     "repo": "https://github.com/willmcgugan/rich",
     "change_runtime": false,
-    "mentioned_by_pyre": true
+    "mentioned_by_pyre": true,
+    "pyre_detail": "PARTIAL_MENTIONED_TYPE"
   }
 ]

@@ -16,6 +16,7 @@
     "url": "https://github.com/anchore/anchore-engine/commit/f8b608c2065024872e83282837a8c4274c04c31f",
     "repo": "https://github.com/anchore/anchore-engine",
     "change_runtime": true,
-    "mentioned_by_pyre": false
+    "mentioned_by_pyre": false,
+    "pyre_detail": "CAST_STR_ENCODING"
   }
 ]

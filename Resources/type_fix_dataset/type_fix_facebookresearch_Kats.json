@@ -14,7 +14,8 @@
     "url": "https://github.com/facebookresearch/Kats/commit/b8f0637",
     "repo": "https://github.com/facebookresearch/Kats",
     "change_runtime": false,
-    "mentioned_by_pyre": true
+    "mentioned_by_pyre": true,
+    "pyre_detail": "USE_OPTIONAL_FOR_NONE"
   },  
   {
     "isolated_code_change": "-def _set_time_unit(self, data: TimeSeriesData, historical_data: TimeSeriesData): \n+def _set_time_unit( self, data: TimeSeriesData, historical_data: Optional[TimeSeriesData] ) -> None:",
@@ -31,24 +32,26 @@
     "url": "https://github.com/facebookresearch/Kats/commit/b8f0637",
     "repo": "https://github.com/facebookresearch/Kats",
     "change_runtime": false,
-    "mentioned_by_pyre": true
+    "mentioned_by_pyre": true,
+    "pyre_detail": "USE_OPTIONAL_FOR_NONE"
   },
   {
     "isolated_code_change": "-def _update_response(self, date: datetime): \n+def _update_response(self, date: pd.Timestamp) -> None:",
     "type_error": "Inconsistent override [14]",
-    "code_transform": "MODIFY_FUN_RETURN_TYPE",
-    "involved_types": ["Any", "None"],
+    "code_transform": "MODIFY_FUN_PARAM_TYPE",
+    "involved_types": ["datetime.datetime", "pandas.Timestamp"],
     "type_change": {
       "kind": "REPLACED",
-      "from": "Any",
-      "to": "None"
+      "from": "datetime.datetime",
+      "to": "pandas.Timestamp"
     },
     "location": "EXACT_LINE",
     "full_warning_msg": "pyre-fixme[14]: `_update_response` overrides method defined in `StatSigDetectorModel` inconsistently.",
     "url": "https://github.com/facebookresearch/Kats/commit/b8f0637",
     "repo": "https://github.com/facebookresearch/Kats",
     "change_runtime": false,
-    "mentioned_by_pyre": false
+    "mentioned_by_pyre": true,
+    "pyre_detail": "USE_OVERRIDEN_TYPE"
   },
   {
     "isolated_code_change": "-def _get_llr(self, ts: np.ndarray, change_meta: Dict[str, Dict[str, Any]]):\n-changepoint = change_meta[\"changepoint\"]\n+def _get_llr(self, ts: np.ndarray, change_meta: Dict[str, Any]):\n+changepoint: int = change_meta[\"changepoint\"]",
@@ -70,7 +73,8 @@
     "url": "https://github.com/facebookresearch/Kats/commit/feed421",
     "repo": "https://github.com/facebookresearch/Kats",
     "change_runtime": false,
-    "mentioned_by_pyre": true
+    "mentioned_by_pyre": true,
+    "pyre_detail": "EXACT_MENTIONED_TYPE"
   },
   {
     "isolated_code_change": "-def _get_llr(self, ts: np.ndarray, change_meta: Dict[str, Dict[str, Any]]):\n-mu0 = change_meta[\"mu0\"]\n+def _get_llr(self, ts: np.ndarray, change_meta: Dict[str, Any]):\n+mu0: float = change_meta[\"mu0\"]",
@@ -92,7 +96,8 @@
     "url": "https://github.com/facebookresearch/Kats/commit/feed421",
     "repo": "https://github.com/facebookresearch/Kats",
     "change_runtime": false,
-    "mentioned_by_pyre": true
+    "mentioned_by_pyre": true,
+    "pyre_detail": "USE_EXPECTED_TYPE"
   },
   {
     "isolated_code_change": "-def evaluate(self, model_params: Dict[str, float] = None, data: pd.DataFrame = None, ignore_list: List[str] = None, alert_style_cp: bool = False, threshold_low: float = 0.0, threshold_high: float = 1.0) -> pd.DataFrame: \n+def evaluate( self, model_params: Optional[Dict[str, float]] = None, data: Optional[pd.DataFrame] = None, ignore_list: Optional[List[str]] = None, alert_style_cp: bool = False, threshold_low: float = 0.0, threshold_high: float = 1.0, ) -> pd.DataFrame:",
@@ -114,7 +119,8 @@
     "url": "https://github.com/facebookresearch/Kats/commit/feed421",
     "repo": "https://github.com/facebookresearch/Kats",
     "change_runtime": false,
-    "mentioned_by_pyre": true
+    "mentioned_by_pyre": true,
+    "pyre_detail": "USE_OPTIONAL_FOR_NONE"
   },
   {
     "isolated_code_change": "-def evaluate(self, model_params: Dict[str, float] = None, data: pd.DataFrame = None, ignore_list: List[str] = None, alert_style_cp: bool = False, threshold_low: float = 0.0, threshold_high: float = 1.0) -> pd.DataFrame: \n+def evaluate( self, model_params: Optional[Dict[str, float]] = None, data: Optional[pd.DataFrame] = None, ignore_list: Optional[List[str]] = None, alert_style_cp: bool = False, threshold_low: float = 0.0, threshold_high: float = 1.0, ) -> pd.DataFrame:",
@@ -134,7 +140,8 @@
     "url": "https://github.com/facebookresearch/Kats/commit/feed421",
     "repo": "https://github.com/facebookresearch/Kats",
     "change_runtime": false,
-    "mentioned_by_pyre": true
+    "mentioned_by_pyre": true,
+    "pyre_detail": "USE_OPTIONAL_FOR_NONE"
   },
   {
     "isolated_code_change": "-def evaluate(self, model_params: Dict[str, float] = None, data: pd.DataFrame = None, ignore_list: List[str] = None, alert_style_cp: bool = False, threshold_low: float = 0.0, threshold_high: float = 1.0) -> pd.DataFrame: \n+def evaluate( self, model_params: Optional[Dict[str, float]] = None, data: Optional[pd.DataFrame] = None, ignore_list: Optional[List[str]] = None, alert_style_cp: bool = False, threshold_low: float = 0.0, threshold_high: float = 1.0, ) -> pd.DataFrame:",
@@ -156,7 +163,8 @@
     "url": "https://github.com/facebookresearch/Kats/commit/feed421",
     "repo": "https://github.com/facebookresearch/Kats",
     "change_runtime": false,
-    "mentioned_by_pyre": true
+    "mentioned_by_pyre": true,
+    "pyre_detail": "USE_OPTIONAL_FOR_NONE"
   },
   {
     "isolated_code_change": "-def update(self, time: datetime, score: np.array, ci_upper: np.array, ci_lower: np.array, pred: np.array, anom_mag: np.array, stat_sig: np.array): \n+def update(self, time: datetime, score: ArrayLike, ci_upper: ArrayLike, ci_lower: ArrayLike, pred: ArrayLike, anom_mag: ArrayLike, stat_sig: ArrayLike) -> None:",
@@ -176,7 +184,8 @@
     "url": "https://github.com/facebookresearch/Kats/commit/4884647",
     "repo": "https://github.com/facebookresearch/Kats",
     "change_runtime": false,
-    "mentioned_by_pyre": true
+    "mentioned_by_pyre": false,
+    "pyre_detail": "USE_ANOTHER_TYPE"
   },
   {
     "isolated_code_change": "-def _if_normal(self, cur_mean: float, change_directions: str) -> None:\n+def _if_normal(self, cur_mean: float, change_directions: List[str]) -> bool:",
@@ -196,7 +205,8 @@
     "url": "https://github.com/facebookresearch/Kats/commit/2c955ab",
     "repo": "https://github.com/facebookresearch/Kats",
     "change_runtime": false,
-    "mentioned_by_pyre": true
+    "mentioned_by_pyre": true,
+    "pyre_detail": "USE_NOT_EXPECTED_TYPE"
   },
   {
     "isolated_code_change": "-other = cast(TimeSeriesData, other)",
@@ -213,7 +223,8 @@
     "url": "https://github.com/facebookresearch/Kats/commit/4de2b05",
     "repo": "https://github.com/facebookresearch/Kats",
     "change_runtime": false,
-    "mentioned_by_pyre": true
+    "mentioned_by_pyre": true,
+    "pyre_detail": "REDUNDANT_HINT"
   }
 
 ]
