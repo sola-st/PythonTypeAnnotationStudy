@@ -13,6 +13,8 @@ fix_for_error_dict = defaultdict(lambda: defaultdict(lambda: 0))
 runtime_dict = defaultdict(lambda: 0)
 pyre_error_dict = defaultdict(lambda: 0)
 pyre_change_dict = defaultdict(lambda: 0)
+pyre_true_hint_dict = defaultdict(lambda: 0)
+pyre_false_hint_dict = defaultdict(lambda: 0)
 for data_file in os.listdir(directory):
   if data_file.startswith('type_fix_') and data_file.endswith('.json'):
     with open(directory+'/'+data_file) as f:
@@ -50,6 +52,10 @@ for data_file in os.listdir(directory):
         # 6.2. What code_transform when mentioned_by_pyre is true?
         if d['mentioned_by_pyre']:
           pyre_change_dict[d['code_transform']] += 1
+        if d['mentioned_by_pyre']:
+          pyre_true_hint_dict[d['pyre_detail']] += 1
+        else:
+          pyre_false_hint_dict[d['pyre_detail']] += 1
 
         # 7. Count involved_types distribution
         for t in d['involved_types']:
@@ -124,6 +130,8 @@ out_d['Fix pattern'] = fix_for_error_dict
 out_d['Runtime code change'] = runtime_dict
 out_d['Pyre error type'] = pyre_error_dict
 out_d['Pyre code change'] = pyre_change_dict
+out_d['Pyre true hint'] = pyre_true_hint_dict
+out_d['Pyre false hint'] = pyre_false_hint_dict
 r = json.dumps(out_d, indent=4)
 print(r)
 
@@ -167,6 +175,25 @@ plt.xticks(rotation=0)
 plt.title('Code change hinted by pyre')
 plt.xlabel('count')
 plt.savefig("pyre_cc.png")
+plt.clf()
+
+plt.rcParams.update({'font.size': 20})
+plt.figure(figsize=(20, 15))
+pyre_true_hint_dict = {'\n'.join(wrap(key, 12)): value for key, value in pyre_true_hint_dict.items()}
+plt.barh(*zip(*pyre_true_hint_dict.items()))
+plt.xticks(rotation=0)
+plt.title('How developers use hints when "mentioned_by_pyre" is true')
+plt.xlabel('count')
+plt.savefig("pyre_true_hint.png")
+plt.clf()
+
+plt.figure(figsize=(20, 15))
+pyre_false_hint_dict = {'\n'.join(wrap(key, 12)): value for key, value in pyre_false_hint_dict.items()}
+plt.barh(*zip(*pyre_false_hint_dict.items()))
+plt.xticks(rotation=0)
+plt.title('How developers fix bugs when "mentioned_by_pyre" is false')
+plt.xlabel('count')
+plt.savefig("pyre_false_hint.png")
 plt.clf()
 
 # print('{')

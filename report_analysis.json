@@ -355,5 +355,29 @@
         "MODIFY_FUN_PARAM_VAL": 1,
         "MODIFY_ISINSTANCE_CALL": 2,
         "ADD_NONE_CHECK": 1
+    },
+    "Pyre true hint": {
+        "USE_SUBCLASS": 1,
+        "USE_EXPECTED_TYPE": 21,
+        "EXACT_MENTIONED_TYPE": 3,
+        "USE_SUBTYPE": 3,
+        "USE_NOT_EXPECTED_TYPE": 20,
+        "PARTIAL_MENTIONED_TYPE": 4,
+        "USE_OPTIONAL_FOR_NONE": 15,
+        "USE_OVERRIDEN_TYPE": 1,
+        "REDUNDANT_HINT": 1,
+        "ASSIGN_VALUE_OF_TYPE": 7,
+        "USE_CALLABLE": 2,
+        "USE_SUPER_TYPE": 2,
+        "CANNOT_REANNOTATE": 1
+    },
+    "Pyre false hint": {
+        "USE_NOT_EXPECTED_TYPE": 1,
+        "USE_ANOTHER_TYPE": 33,
+        "REMOVE": 2,
+        "CAST_STR_ENCODING": 1,
+        "USE_ANY": 2,
+        "CANNOT_REANNOTATE": 4,
+        "CALL_CORRECT_METHOD": 1
     }
 }
