@@ -4,7 +4,9 @@ import random
 
 directories = [
   r'Resources/Output_type_fix_commits_via_API_pyre/', 
-  r'Resources/Output_type_fix_commits_via_API_mypy/'
+  r'Resources/Output_type_fix_commits_via_API_mypy/',
+  r'Resources/Output_type_fix_commits_via_API_repo/',
+  r'Resources/Output_type_fix_commits_via_API_repo_json/'
 ]
 for dir in directories:  
   i = 0
@@ -12,10 +14,19 @@ for dir in directories:
   random.shuffle(files)	
   print('-------------------------------------------')
   print('Sampling from '+dir)
-  for data_file in files:
-    if i >= 10:
-      break
-    elif data_file.startswith('compare_warning_') and data_file.endswith('.json'):
-      print(data_file)
-      i += 1
+  for fn in files:
+    try:
+      if i >= 10:
+        break
+      elif fn.startswith('compare_warning_') and fn.endswith('.json'):
+        with open(dir+fn) as f:
+          data = json.load(f) 
+          for d in data: 
+            if len(d['parent_warnings']) > 0:            
+              print(fn)
+              i += 1
+    except Exception as e:
+      # print(e)
+      print(f"cannot parse json, skip file {f}")
+
 

@@ -26,7 +26,12 @@ from Code.TypeErrors.TypeAnnotationCounter import count_type_annotations, extrac
 
 def repo_cloning_commits_query(filenameInput: str, pathOutput: str, count: List[int]) -> None:
     with open(filenameInput) as fh:
-        commits = json.load(fh)
+        try:
+            commits = json.load(fh)
+        except Exception:
+            print(f"cannot parse json, skip cloning {fh}")
+            return
+
 
     repo_urls = [c['repository']['html_url'] for c in commits]
 
@@ -38,7 +43,7 @@ def repo_cloning_commits_query(filenameInput: str, pathOutput: str, count: List[
         out = re.sub('https://github.com/', '', link).replace('/', '-')
 
         if os.path.isdir(pathOutput + '/' + out):
-            print(str(count) + ' Already cloned', link)
+            # print(str(count) + ' Already cloned', link)
 
             continue
 

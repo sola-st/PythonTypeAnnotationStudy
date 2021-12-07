@@ -1,0 +1,48 @@
+-------------------------------------------
+Sampling from Resources/Output_type_fix_commits_via_API_pyre/
+1 OK, compare_warning_bigfootjon-keyedarchivelib_6a8e03a995c040ca52c81fcac16ca4b274b03ef6^_6a8e03a995c040ca52c81fcac16ca4b274b03ef6.json
+4 OK, 10 No(Suppression only) compare_warning_jaclucas-pytorch3d_model_discovery_e491efb81f89f60ab98a9c8a343c55c327527900^_e491efb81f89f60ab98a9c8a343c55c327527900.json
+12 No(Suppression only), compare_warning_facebookresearch-ReAgent_3ca4e6cc52aa95289ec693517acd6fbbec9c62a9^_3ca4e6cc52aa95289ec693517acd6fbbec9c62a9.json
+5 No(Suppression only), compare_warning_hsahovic-poke-env_4696dfba22ce9ce3aa28a0edb2da008891d1568b^_4696dfba22ce9ce3aa28a0edb2da008891d1568b.json
+1 No(Suppression only), compare_warning_GuangTianLi-grpcalchemy_c3319f96d22378279c22a1e126ceacc3738abf58^_c3319f96d22378279c22a1e126ceacc3738abf58.json
+1 No(Suppression only), others No(Cannot see warnings), compare_warning_facebookresearch-Kats_64049a9bff5498864a3d3da0cd738d83e9b725c4^_64049a9bff5498864a3d3da0cd738d83e9b725c4.json
+35 OK, compare_warning_facebookincubator-dcrpm_eaa273d94e71a855f54c3167ba6fbb10acc413e1^_eaa273d94e71a855f54c3167ba6fbb10acc413e1.json
+1 No(Remove Only), 1 No(Suppression only), No(Cannot see warnings), compare_warning_facebookresearch-Kats_b8f06376667305845eff03e76ed43eb091891f70^_b8f06376667305845eff03e76ed43eb091891f70.json
+20 No(Suppression only), compare_warning_parkbeomsik-opacus-reweight_9ed4195b69e23b2c851c5fdb5dbeb0f0406cffab^_9ed4195b69e23b2c851c5fdb5dbeb0f0406cffab.json
+1 OK, 5 No(Suppression only), No(Cannot see warnings),compare_warning_facebook-openr_e4cfb64ee4738f58dabee6c46141afc3283b27dc^_e4cfb64ee4738f58dabee6c46141afc3283b27dc.json
+-------------------------------------------
+Sampling from Resources/Output_type_fix_commits_via_API_mypy/
+1 OK, compare_warning_a0x8o-spark_fbac1ade8dad2b7932f00d7a6e760d108cbbb175^_fbac1ade8dad2b7932f00d7a6e760d108cbbb175.json
+16 OK, compare_warning_ElrondNetwork-elrond-sdk-erdpy_c34c484a5cdcd758776074215f0be668c31b6548^_c34c484a5cdcd758776074215f0be668c31b6548.json
+5 OK, compare_warning_datopian-giftless_3a343be7439cf1656351e3f06d18403165d2067a^_3a343be7439cf1656351e3f06d18403165d2067a.json
+2 OK, compare_warning_plone-guillotina_b877d947899401c845691be06157ebe1e50c7e80^_b877d947899401c845691be06157ebe1e50c7e80.json
+2 OK, compare_warning_nikolovdeyan-myfitnesspaw_e4162c74d0da6d04648a71d31e145922714c0ea2^_e4162c74d0da6d04648a71d31e145922714c0ea2.json
+10 OK, compare_warning_so1n-rap_9c480adcd9e8c69822f3a219892ff666ff30f25b^_9c480adcd9e8c69822f3a219892ff666ff30f25b.json
+86 OK, compare_warning_bzdvdn-amocrm-api-wrapper_20ac8add89c301250c43dee90859a6848334180c^_20ac8add89c301250c43dee90859a6848334180c.json
+12 OK, compare_warning_ArchiveBox-ArchiveBox_7f2c834ea361ba5999309381b8dcfbc95b087c2e^_7f2c834ea361ba5999309381b8dcfbc95b087c2e.json
+9 OK, compare_warning_pckSF-SNN-chrome-dino-experiment_141dbb069708bd22dda4e4f8bace977b34ff5ae0^_141dbb069708bd22dda4e4f8bace977b34ff5ae0.json
+1 OK, compare_warning_QCoDeS-Qcodes_5981d9cc37ea0abbcecd0153a884fe8a80cd573e^_5981d9cc37ea0abbcecd0153a884fe8a80cd573e.json
+-------------------------------------------
+Sampling from Resources/Output_type_fix_commits_via_API_repo/
+11 OK, compare_warning_TheAlgorithms-Python_97b6ca2b19a3ef92016e586569aa514e53f01067^_97b6ca2b19a3ef92016e586569aa514e53f01067.json
+3 OK, 1 Not fixed, compare_warning_TheAlgorithms-Python_4f6a929503ac4ee427e85896d1354b50f465ddb4^_4f6a929503ac4ee427e85896d1354b50f465ddb4.json
+13 OK, 1 Analysis failure, 3 Not fixed, compare_warning_zulip-zulip_1ae56e466bc24b5e708b619977de8b67ec4d0709^_1ae56e466bc24b5e708b619977de8b67ec4d0709.json
+19 OK, compare_warning_TheAlgorithms-Python_60895366c0f50844af2737130ed98c2510e90060^_60895366c0f50844af2737130ed98c2510e90060.json
+96 OK, compare_warning_python-poetry-poetry_1346497b2bb8c1d1353243a153f6a85b41a57728^_1346497b2bb8c1d1353243a153f6a85b41a57728.json
+1 No (Remove only), compare_warning_PyTorchLightning-pytorch-lightning_45143fd82539f9b9b6ca06eff586a2fcf8dd8ffa^_45143fd82539f9b9b6ca06eff586a2fcf8dd8ffa.json
+4 No (Remove only), compare_warning_PyTorchLightning-pytorch-lightning_cf8e828559450095cfdead77b074d05b131f34b6^_cf8e828559450095cfdead77b074d05b131f34b6.json
+17 OK, 8 No (Remove only), 5 Not fixed, compare_warning_sanic-org-sanic_bc08383acd914c380ba9ac5112c9e61284e31ab9^_bc08383acd914c380ba9ac5112c9e61284e31ab9.json
+1 OK, compare_warning_huggingface-transformers_7c6d63298f27b4a386f4603262a4603a2a6bf057^_7c6d63298f27b4a386f4603262a4603a2a6bf057.json
+5 OK, compare_warning_TheAlgorithms-Python_959507901ac8f10cd605c51c305d13b27d105536^_959507901ac8f10cd605c51c305d13b27d105536.json
+-------------------------------------------
+Sampling from Resources/Output_type_fix_commits_via_API_repo_json/
+60 No (Remove only) (put types in stub package instead), compare_warning_zzzeek-sqlalchemy_71cb17c81d358646f8dfeac14e9662ce42bb94df^_71cb17c81d358646f8dfeac14e9662ce42bb94df.json
+>100 Error (wrong git version), compare_warning_python-mypy_4d76c4211545104686f3976b3c0fe105a992a4cc^_4d76c4211545104686f3976b3c0fe105a992a4cc.json
+compare_warning_naftaliharris-tauthon_95746eb70f8f05da70a4fae70f15e99d9611e0f1^_95746eb70f8f05da70a4fae70f15e99d9611e0f1.json
+compare_warning_ethereum-py-evm_3e91d981e2dc0f3d279f7d38747bfd5c14b707fc^_3e91d981e2dc0f3d279f7d38747bfd5c14b707fc.json
+compare_warning_naftaliharris-tauthon_8282ed84a60d49722998144139da1af70dc899f3^_8282ed84a60d49722998144139da1af70dc899f3.json
+compare_warning_python-typeshed_ca553cd5899663b828ef1974095d7939472874c9^_ca553cd5899663b828ef1974095d7939472874c9.json
+compare_warning_getsentry-sentry_db15fe51a13febb01f81ea414d7c525911fd7893^_db15fe51a13febb01f81ea414d7c525911fd7893.json
+compare_warning_edgedb-edgedb_a65541803895a13af8e15b9d7cefcf40d6abb3f6^_a65541803895a13af8e15b9d7cefcf40d6abb3f6.json
+compare_warning_DataDog-integrations-core_419e1733d50ca2e2a6afcd2a577a7ed7f0b98724^_419e1733d50ca2e2a6afcd2a577a7ed7f0b98724.json
+compare_warning_RasaHQ-rasa_ff0c707236e0639c75cc0711d0eb75f08eabe715^_ff0c707236e0639c75cc0711d0eb75f08eabe715.json
