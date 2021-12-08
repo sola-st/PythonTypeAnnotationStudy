@@ -156,7 +156,7 @@ def compare_two_commits_warnings_output(p_commit_pair):
         a_commit = b_commit+'^'
         if os.path.isfile(results_base_dir+"compare_warning_"+p+"_"+a_commit+"_"+b_commit+".json"):
             print(f"Skip commit, data {p}_{a_commit}_{b_commit} already processed.")
-            return
+            continue
 
         try:
             repo_dir = repos_base_dir+p
@@ -209,7 +209,7 @@ if config.CLONING:
     j = [0]
     dir = 'Resources/Input/TypeFix/top10000/'
     # Clone and collect commits
-    commit_dict = defaultdict(list)
+    repo_commit_dict = defaultdict(list)
     for f in os.listdir(dir):
         filename = dir + f
         gitUtils.repo_cloning_commits_query(config.ROOT_DIR +'/'+ filename, config.ROOT_DIR + "/GitHub", j)
@@ -218,14 +218,14 @@ if config.CLONING:
                 commits = json.load(fh)
                 for c in commits:
                     if 'cpython' not in c['repository']['full_name']:
-                        commit_dict[c['repository']['full_name'].replace('/', '-')].append(c['sha'])
+                        repo_commit_dict[c['repository']['full_name'].replace('/', '-')].append(c['sha'])
                         # compare_two_commits_warnings_output(c['repository']['full_name'].replace('/', '-'), c['sha']+'^', c['sha'])
             except Exception:
                 print(f"cannot parse json, skip file {fh}")
     # with multiprocessing.Pool(4) as p:
-    #     for i in p.imap_unordered(compare_two_commits_warnings_output, commit_dict.items()):
-    #         print(i)
-    for i in commit_dict.items():
+    #     for i in p.imap_unordered(compare_two_commits_warnings_output, repo_commit_dict.items()):
+            # print(i)
+    for i in repo_commit_dict.items():
         compare_two_commits_warnings_output(i)
 
 end = time.time()
