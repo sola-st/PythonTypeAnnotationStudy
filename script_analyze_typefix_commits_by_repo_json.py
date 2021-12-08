@@ -1,4 +1,7 @@
 #!/usr/bin/python3
+
+# TODO: This file is the latest version of script_analyze_type_commits*. Run diff on other script_analyze_type_commits*.py to update them.
+
 import multiprocessing
 import resource
 import os
@@ -87,7 +90,7 @@ def get_commit_type_error(repo_dir, commit): # repo_dir = /home/wai/hiwi/TypeAnn
     print("--- Type checking")
     if not path.isfile(repo_dir+"/.pyre_configuration"):
         out = invoke_cmd("cp ../.pyre_configuration .", repo_dir)
-    out = invoke_cmd("pyre check", repo_dir)
+    out = invoke_cmd("pyre incremental", repo_dir)
     
     warnings = out.split("\n")
     warnings = warnings[:-1]  # last line is empty
@@ -152,6 +155,7 @@ def sample_commits(all_commits, max_commits_per_project):
 # b should be later than a
 def compare_two_commits_warnings_output(p_commit_pair):   
     p, commits = p_commit_pair
+    repo_dir = repos_base_dir+p
     for b_commit in commits:
         a_commit = b_commit+'^'
         if os.path.isfile(results_base_dir+"compare_warning_"+p+"_"+a_commit+"_"+b_commit+".json"):
@@ -159,7 +163,6 @@ def compare_two_commits_warnings_output(p_commit_pair):
             continue
 
         try:
-            repo_dir = repos_base_dir+p
             init_pyre(repo_dir)            
             project_results = []
             a_res = get_commit_type_error(repo_dir, a_commit)
@@ -196,6 +199,9 @@ def compare_two_commits_warnings_output(p_commit_pair):
             print(f"WARNING: Some problem with {p} -- skipping this project")
             write_results("compare_warning_"+p+"_"+a_commit+"_"+b_commit, []) # write empty files so that it won't be processed again
             print(e)
+    # Shutdown the pyre server (each repo uses one) at the end
+    invoke_cmd("pyre stop", repo_dir)
+
 
 def get_parent_commit(repo_dir, commit):
     cmd = f"git log --pretty=%P -n 1 {commit}"
