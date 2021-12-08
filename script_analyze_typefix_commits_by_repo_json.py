@@ -52,68 +52,6 @@ def invoke_cmd(cmd, cwd):
         out = e.output.decode(sys.stdout.encoding)
     return out
 
-# Run pyre check here
-def check_commit(repo_dir, commit):
-    print("\n===========================================")
-    print(f"Checking commit {commit} of {repo_dir}")
-
-    # go to commit
-    subprocess.run(f"git checkout {commit}".split(" "), cwd=repo_dir)
-
-    # get date of commit
-    out = subprocess.check_output(
-        f"git show -s --format=%ci {commit}".split(" "), cwd=repo_dir)
-    commit_date = out.decode(sys.stdout.encoding).rstrip()
-
-    # count lines of code
-    print("--- Counting lines of code")
-    out = invoke_cmd(f"sloccount .", repo_dir)
-
-    loc = 0
-    for l in out.split("\n"):
-        l_search = re.search(r"python:\s*(\d+) .*", l)
-        if l_search is not None:
-            loc = int(l_search.group(1))
-
-    # count Python files
-    out = invoke_cmd(f"find . -name *.py", repo_dir)
-    nb_python_files = len(out.split("\n")) - 1  # last line is empty
-
-    # type check
-    print("--- Type checking")
-    out = invoke_cmd("cp ../.pyre_configuration .", repo_dir)
-    out = invoke_cmd("pyre check", repo_dir)
-
-    warnings = out.split("\n")
-    warnings = warnings[:-1]  # last line is empty
-    print(f"Got {len(warnings)} warnings")
-
-    # analyze warnings
-    kind_to_nb = Counter()
-    for w in warnings:
-        w_search = re.search(r".*:\d+:\d+ (.*\[\d+\]):.*", w)
-        if w_search is None:
-            raise Exception(f"Warning: Could not parse warning -- {w}")
-        warning_kind = w_search.group(1)
-        kind_to_nb[warning_kind] += 1
-
-    # count type annotations
-    param_types, return_types, variable_types, _, _, _ = count_type_annotations(
-        repo_dir)
-
-    result = {
-        "commit": commit,
-        "commit_date": commit_date,
-        "loc": loc,  # number line of code
-        "nb_python_files": nb_python_files,
-        "nb_param_types": param_types,
-        "nb_return_types": return_types,
-        "nb_variable_types": variable_types,
-        "nb_warnings": len(warnings),
-        "kind_to_nb": kind_to_nb
-    }
-    return result
-
 def get_commit_type_error(repo_dir, commit): # repo_dir = /home/wai/hiwi/TypeAnnotation_Study/GitHub/Python
     print("\n===========================================")
     print(f"Running git reset --hard for {repo_dir}")
@@ -131,33 +69,22 @@ def get_commit_type_error(repo_dir, commit): # repo_dir = /home/wai/hiwi/TypeAnn
         f"git show -s --format=%ci {commit}".split(" "), cwd=repo_dir)
     commit_date = out.decode(sys.stdout.encoding).rstrip()
 
-    # count lines of code
-    print("--- Counting lines of code")
-    out = invoke_cmd(f"sloccount .", repo_dir)
+    # # count lines of code
+    # print("--- Counting lines of code")
+    # out = invoke_cmd(f"sloccount .", repo_dir)
 
-    loc = 0
-    for l in out.split("\n"):
-        l_search = re.search(r"python:\s*(\d+) .*", l)
-        if l_search is not None:
-            loc = int(l_search.group(1))
+    # loc = 0
+    # for l in out.split("\n"):
+    #     l_search = re.search(r"python:\s*(\d+) .*", l)
+    #     if l_search is not None:
+    #         loc = int(l_search.group(1))
 
-    # count Python files
-    out = invoke_cmd(f"find . -name *.py", repo_dir)
-    nb_python_files = len(out.split("\n")) - 1  # last line is empty
+    # # count Python files
+    # out = invoke_cmd(f"find . -name *.py", repo_dir)
+    # nb_python_files = len(out.split("\n")) - 1  # last line is empty
 
     # type check
     print("--- Type checking")
-    # out = invoke_cmd("python --version", repo_dir)    
-    # print(out)
-    # out = invoke_cmd("pyre --version", repo_dir)
-    # print(out)
-    # out = invoke_cmd("pyre rage", repo_dir)
-    # print(out)
-    # out = invoke_cmd("git status", repo_dir)
-    # print(out)
-    # out = invoke_cmd("env", repo_dir)
-    # print(out)
-    # sys.exit()
     if not path.isfile(repo_dir+"/.pyre_configuration"):
         out = invoke_cmd("cp ../.pyre_configuration .", repo_dir)
     out = invoke_cmd("pyre check", repo_dir)
@@ -188,8 +115,8 @@ def get_commit_type_error(repo_dir, commit): # repo_dir = /home/wai/hiwi/TypeAnn
     result = {
         "commit": commit,
         "commit_date": commit_date,
-        "loc": loc,  # number line of code
-        "nb_python_files": nb_python_files,
+        # "loc": loc,  # number line of code
+        # "nb_python_files": nb_python_files,
         # "nb_param_types": param_types,
         # "nb_return_types": return_types,
         # "nb_variable_types": variable_types,
