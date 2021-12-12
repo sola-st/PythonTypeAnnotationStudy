@@ -47,15 +47,6 @@ def get_memory():
 # Set maximun memory usage to half of sys 
 memory_limit()
 
-def init_pyre(repo_dir):
-    if not path.isfile(repo_dir+"/.pyre_configuration"):
-        print(f"Creating pyre configuration for {repo_dir}")
-        subprocess.run(
-            f"cp data/.pyre_configuration {repo_dir}".split(" "))
-    else:
-        print(f"Reusing existing pyre configuration for {repo_dir}")
-
-
 def invoke_cmd(cmd, cwd):
     try:
         # The os.setsid() is passed in the argument preexec_fn so
@@ -141,27 +132,9 @@ def get_commit_type_error(repo_dir, commit): # repo_dir = /home/wai/hiwi/TypeAnn
     }
     return result
 
-def get_all_commits(repo_dir):
-    out = invoke_cmd("git log --all --oneline", repo_dir)
-    lines = out.split("\n")
-    lines = lines[:-1]  # last line is empty
-    commits = [l.split(" ")[0] for l in lines]
-    print(f"Found {len(commits)} commits")
-    return commits
-
 def write_results(name, results):
     with open(results_base_dir+name+".json", "w") as fp:
         fp.write(json.dumps(results, indent=2))
-
-def sample_commits(all_commits, max_commits_per_project):
-    if len(all_commits) <= max_commits_per_project:
-        commits = all_commits
-    else:
-        stride = int(round(len(all_commits) /
-                           float(max_commits_per_project - 1)))
-        commits = [all_commits[i]
-                   for i in range(0, len(all_commits), stride)]
-    return commits
 
 # b should be later than a
 def compare_two_commits_warnings_output(p_commit_pair):   
@@ -191,10 +164,6 @@ def compare_two_commits_warnings_output(p_commit_pair):
                 out = {
                     'project': p,
                     'a_commit': a_commit, 
-                'a_commit': a_commit, 
-                    'a_commit': a_commit, 
-                    'b_commit': b_commit, 
-                'b_commit': b_commit, 
                     'b_commit': b_commit, 
                     'warning_removed': a_res['nb_warnings'] - b_res['nb_warnings'],
                     'parent_warnings': [],
