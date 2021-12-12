@@ -261,7 +261,10 @@ def get_parent_commit(repo_dir, commit):
     return out.split("\n")[0]
 
 start = time.time()
-
+fail_log = open("failed_repo.txt", "a")  # append mode
+fail_log.write('\n====================\nStart running at: '+str(start)+'\n')
+fail_log.close()
+#TODO: add logger
 if config.CLONING:
     i = 0
     j = [0]
@@ -275,16 +278,29 @@ if config.CLONING:
             try:
                 commits = json.load(fh)
                 for c in commits:
-                    if 'cpython' not in c['repository']['full_name']:
+                    if 'cpython' not in c['repository']['full_name'] \
+                    and 'gevent' not in c['repository']['full_name'] \
+                    and 'naftaliharris/tauthon' not in c['repository']['full_name'] \
+                    and 'platomav/MEAnalyzer' not in c['repository']['full_name'] \
+                    and 'jython/frozen-mirror' not in c['repository']['full_name'] \
+                    and 'rocky/python-uncompyle6' not in c['repository']['full_name'] \
+                    and 'faucetsdn/ryu' not in c['repository']['full_name'] \
+                    and 'gramps-project/gramps' not in c['repository']['full_name'] \
+                    and 'ansible/ansible' not in c['repository']['full_name'] \
+                    and 'python/typeshed' not in c['repository']['full_name'] \
+                    and 'indico/indico' not in c['repository']['full_name'] \
+                    and 'getsentry/sentry' not in c['repository']['full_name']:
                         repo_commit_dict[c['repository']['full_name'].replace('/', '-')].append(c['sha'])
-                        # compare_two_commits_warnings_output(c['repository']['full_name'].replace('/', '-'), c['sha']+'^', c['sha'])
             except Exception:
                 print(f"cannot parse json, skip file {fh}")
-    # with multiprocessing.Pool(4) as p:
-    #     for i in p.imap_unordered(compare_two_commits_warnings_output, repo_commit_dict.items()):
-            # print(i)
-    for i in repo_commit_dict.items():
-        compare_two_commits_warnings_output(i)
+    # --- Multi-thread ---
+    with multiprocessing.Pool(4) as p:
+        for i in p.imap_unordered(compare_two_commits_warnings_output, repo_commit_dict.items()):
+            print(i)
+
+    # --- Single-thread ---
+    # for i in repo_commit_dict.items():
+    #     compare_two_commits_warnings_output(i)
 
 end = time.time()
 hours, rem = divmod(end - start, 3600)
