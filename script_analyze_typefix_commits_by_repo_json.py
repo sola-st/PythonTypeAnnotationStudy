@@ -73,15 +73,12 @@ def invoke_cmd(cmd, cwd):
 
 def get_commit_type_error(repo_dir, commit): # repo_dir = /home/wai/hiwi/TypeAnnotation_Study/GitHub/Python
     print("\n===========================================")
-    print(f"Running git reset --hard for {repo_dir}")
-    # reset so that git won't abort if there is unsaved changes
-    subprocess.run(f"git reset --hard".split(" "), cwd=repo_dir)
-    subprocess.run(f"git clean -df".split(" "), cwd=repo_dir)
-
     print(f"Checking commit {commit} of {repo_dir}")
 
-    # go to commit
-    subprocess.run(f"git checkout {commit}".split(" "), cwd=repo_dir)
+    # go to commit, force checkout so that git won't abort if there is unsaved changes
+    # subprocess.run(f"git checkout -- .".split(" "), cwd=repo_dir)
+    # subprocess.run(f"git clean -df".split(" "), cwd=repo_dir)
+    subprocess.run(f"git checkout -f {commit}".split(" "), cwd=repo_dir)
 
     # get date of commit
     out = subprocess.check_output(
