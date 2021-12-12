@@ -1,5 +1,6 @@
 import json
 import os
+import time
 
 # directory = r'Resources/type_fix_dataset/'
 # count = 0
@@ -74,10 +75,12 @@ print('Resources/Output_type_fix_commits_via_API_repo/ fixed warnings in commits
 # -------- Count fixed warnings in commits *after filtering* for top 1000 repos from 2010-2019 --------
 directory = r'Resources/Output_type_fix_commits_via_API_repo_json/'
 count = 0
+commit_count = 0
 for data_file in os.listdir(directory):
     with open(directory+data_file) as f:
       try:
         data = json.load(f) 
+        commit_count += 1
         for d in data: 
           for pw in d['parent_warnings']:
             count += len(pw)
@@ -85,3 +88,7 @@ for data_file in os.listdir(directory):
         print(f"cannot parse json, skip file {f}")
 
 print('Resources/Output_type_fix_commits_via_API_repo_json/ fixed warnings in commits *after filtering* count: ', count)
+print('Resources/Output_type_fix_commits_via_API_repo_json/ processed commits count: ', commit_count)
+
+start = time.asctime()
+print('Time: ' + start)
