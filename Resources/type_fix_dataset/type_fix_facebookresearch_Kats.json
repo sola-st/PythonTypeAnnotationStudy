@@ -185,7 +185,7 @@
     "repo": "https://github.com/facebookresearch/Kats",
     "change_runtime": false,
     "mentioned_by_pyre": false,
-    "pyre_detail": "USE_ANOTHER_TYPE"
+    "pyre_detail": "NO_HINT"
   },
   {
     "isolated_code_change": "-def _if_normal(self, cur_mean: float, change_directions: str) -> None:\n+def _if_normal(self, cur_mean: float, change_directions: List[str]) -> bool:",
