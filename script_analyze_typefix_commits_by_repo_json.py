@@ -1,7 +1,4 @@
 #!/usr/bin/python3
-
-# TODO: This file is the latest version of script_analyze_type_commits*. Run diff on other script_analyze_type_commits*.py to update them.
-
 import multiprocessing
 import resource
 import os
@@ -31,21 +28,23 @@ class PyreTimeoutError(Exception):
         self.message = message+str(pid)
         super().__init__(self.message)
 
-def memory_limit():
-    soft, hard = resource.getrlimit(resource.RLIMIT_AS)
-    resource.setrlimit(resource.RLIMIT_AS, (get_memory() * 1024 / 2, hard))
 
-def get_memory():
-    with open('/proc/meminfo', 'r') as mem:
-        free_memory = 0
-        for i in mem:
-            sline = i.split()
-            if str(sline[0]) in ('MemFree:', 'Buffers:', 'Cached:'):
-                free_memory += int(sline[1])
-    return free_memory
+# Useless as the CPU/memory consumption come from process spawned from the script
+# def memory_limit():
+#     soft, hard = resource.getrlimit(resource.RLIMIT_AS)
+#     resource.setrlimit(resource.RLIMIT_AS, (get_memory() * 1024 / 2, hard))
 
-# Set maximun memory usage to half of sys 
-memory_limit()
+# def get_memory():
+#     with open('/proc/meminfo', 'r') as mem:
+#         free_memory = 0
+#         for i in mem:
+#             sline = i.split()
+#             if str(sline[0]) in ('MemFree:', 'Buffers:', 'Cached:'):
+#                 free_memory += int(sline[1])
+#     return free_memory
+
+# # Set maximun memory usage to half of sys 
+# memory_limit()
 
 def invoke_cmd(cmd, cwd):
     try:
