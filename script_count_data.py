@@ -90,5 +90,41 @@ for data_file in os.listdir(directory):
 print('Resources/Output_type_fix_commits_via_API_repo_json/ fixed warnings in commits *after filtering* count: ', count)
 print('Resources/Output_type_fix_commits_via_API_repo_json/ processed commits count: ', commit_count)
 
+# -------- Count fixed warnings in commits *after warning filtering* for top 1000 repos from 2010-2019 --------
+directory = r'Resources/Output_type_fix_commits_via_API_mypy_all/'
+count = 0
+commit_count = 0
+for data_file in os.listdir(directory):
+    with open(directory+data_file) as f:
+      try:
+        data = json.load(f) 
+        commit_count += 1
+        for d in data: 
+          for pw in d['parent_warnings']:
+            count += len(pw)
+      except Exception:
+        print(f"cannot parse json, skip file {f}")
+
+print('Resources/Output_type_fix_commits_via_API_mypy_all/ fixed warnings in commits *after warning filtering* count: ', count)
+print('Resources/Output_type_fix_commits_via_API_mypy_all/ processed commits count: ', commit_count)
+
+# -------- Count fixed warnings in commits *after warning+repo filtering* for top 1000 repos from 2010-2019 --------
+directory = r'Resources/Output_type_fix_commits_via_API_mypy_all_filtered/'
+count = 0
+commit_count = 0
+for data_file in os.listdir(directory):
+    with open(directory+data_file) as f:
+      try:
+        data = json.load(f) 
+        commit_count += 1
+        for d in data: 
+          for pw in d['parent_warnings']:
+            count += len(pw)
+      except Exception:
+        print(f"cannot parse json, skip file {f}")
+
+print('Resources/Output_type_fix_commits_via_API_mypy_all_filtered/ fixed warnings in commits *after warning+repo filtering* count: ', count)
+print('Resources/Output_type_fix_commits_via_API_mypy_all_filtered/ processed commits count: ', commit_count)
+
 start = time.asctime()
 print('Time: ' + start)

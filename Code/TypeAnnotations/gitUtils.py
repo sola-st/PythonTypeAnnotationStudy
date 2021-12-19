@@ -12,7 +12,7 @@ import numpy as np
 
 import pygit2 as git
 from pygit2 import GIT_SORT_TOPOLOGICAL, GIT_SORT_REVERSE
-from typing import List
+from typing import List, Tuple
 
 import config
 from Code.TypeAnnotations.codeChange import CommitStatistics
@@ -23,8 +23,34 @@ from Code.TypeAnnotations.codeStatistics import CodeStatistics
 from Code.TypeAnnotations.Utils import write_in_json, convert_list_in_list_of_dicts
 from Code.TypeErrors.TypeAnnotationCounter import count_type_annotations, extract_from_file
 
+class MyRemoteCallbacks(git.RemoteCallbacks):
+    def __init__(self):
+        self.user = config.GIT_USER
+        self.token = config.GIT_TOKEN
+    def credentials(self, url, username_from_url, allowed_types):
+        return git.UserPass(self.user,self.token)
+    def certificate_check(self, certificate, valid, host):
+        return True
 
-def repo_cloning_commits_query(filenameInput: str, pathOutput: str, count: List[int]) -> None:
+def repo_cloning_commits_query_with_url(repo_url: str) -> None:
+    pathOutput = config.ROOT_DIR + "/GitHub"
+    out = re.sub('https://github.com/', '', repo_url).replace('/', '-')
+
+    if os.path.isdir(pathOutput + '/' + out):
+        print(out + ' Already cloned', repo_url)
+        return
+
+    else:
+        print(' Cloning ' + repo_url)
+        try:
+            git.clone_repository(repo_url, pathOutput + '/' + out, callbacks=MyRemoteCallbacks())
+        except Exception as e:
+            print('[Error] cloning repository:', str(e))
+            return
+
+
+def repo_cloning_commits_query(filenameInput: str) -> None:
+    pathOutput = config.ROOT_DIR + "/GitHub"
     with open(filenameInput) as fh:
         try:
             commits = json.load(fh)
@@ -38,19 +64,18 @@ def repo_cloning_commits_query(filenameInput: str, pathOutput: str, count: List[
     i = 0
     for link in repo_urls:
         i+=1
-        count[0] += 1
 
         out = re.sub('https://github.com/', '', link).replace('/', '-')
 
         if os.path.isdir(pathOutput + '/' + out):
-            # print(str(count) + ' Already cloned', link)
+            print(out + ' Already cloned', link)
 
             continue
 
         else:
-            print(str(count) + ' Cloning ' + link)
+            print(' Cloning ' + link)
             try:
-                git.clone_repository(link, pathOutput + '/' + out)
+                git.clone_repository(link, pathOutput + '/' + out, callbacks=MyRemoteCallbacks())
             except Exception as e:
                 print('[Error] cloning repository:', str(e))
                 continue

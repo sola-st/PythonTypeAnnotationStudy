@@ -3,9 +3,10 @@ import requests
 import os
 import calendar
 import time
+import config
 
 repo_qualifier = ''
-headers = {'Authorization': 'token %s' % 'placeholder'}
+headers = {'Authorization': 'token %s' % config.GIT_TOKEN}
 req_count = 0
 total_commits_count = 0
 for y in range(2015, 2022):
@@ -15,7 +16,7 @@ for y in range(2015, 2022):
       str(y)+'-'+str(m).zfill(2)+'-'+str(calendar.monthrange(y, m)[1])    
     for i in range(1,11): # page 1-10, GitHub Search API provides up to 1,000 results for each search.
       try:
-        filename = 'Resources/Input/TypeFix/'+query+'_commits_page'+str(i)+'.json'
+        filename = 'Resources/Input/TypeFix/fix_mypy_all/'+query+'_commits_page'+str(i)+'.json'
         if os.path.isfile(filename):
           print('Skip this page of commits, data already downloaded: ', query)
           continue
