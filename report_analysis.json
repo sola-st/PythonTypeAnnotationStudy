@@ -373,8 +373,9 @@
     },
     "Pyre false hint": {
         "USE_NOT_EXPECTED_TYPE": 1,
-        "USE_ANOTHER_TYPE": 33,
+        "USE_ANOTHER_TYPE": 12,
         "REMOVE": 2,
+        "NO_HINT": 21,
         "CAST_STR_ENCODING": 1,
         "USE_ANY": 2,
         "CANNOT_REANNOTATE": 4,
