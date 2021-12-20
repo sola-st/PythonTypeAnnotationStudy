@@ -33,13 +33,9 @@ def repo_cloning(filenameInput: str, pathOutput: str, count: List[int]) -> None:
     i = 0
     for link in article_urls:
         i+=1
-        #if i >50:
-         #   print("new year")
-          #  return
 
         count[0] += 1
 
-        # out = link.rsplit('/', 1)[-1].replace('.git', '')
         out = re.sub('https://github.com/', '', link).replace('/', '-')
 
         if os.path.isdir(pathOutput + '/' + out):

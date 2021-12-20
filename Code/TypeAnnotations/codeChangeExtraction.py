@@ -940,9 +940,9 @@ def extract_from_file(file_path: str):
     type_collector = TypeCollector()
     wrapper.visit(type_collector)
 
-    param_types = type_collector.param_annotations
-    return_types = type_collector.return_types
-    variable_types = type_collector.variable_annotations
+    param_types = type_collector.param_annotations # foo(x:int)
+    return_types = type_collector.return_types   # return x:float
+    variable_types = type_collector.variable_annotations  # x: int = 0
 
     # print(f"params: {param_types}, returns: {return_types}")
     # return f"params: {param_types}, returns: {return_types}"
