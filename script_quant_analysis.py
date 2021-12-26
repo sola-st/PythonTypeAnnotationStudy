@@ -105,6 +105,8 @@ for field, field_dict in out_d.items():
     #   use_index=False
     # ).get_figure()
     # fig.savefig('figures/'+field+file_ext)
+    plt.rcParams.update({'font.size': 12}) # reset font
+    plt.figure(figsize=(20, 12))
     if field == 'involved_types':
       plt.rcParams.update({'font.size': 25})
       field_dict = dict(sorted(field_dict.items(), key=lambda item: item[1], reverse=True)[:10])
@@ -114,7 +116,10 @@ for field, field_dict in out_d.items():
     elif field == 'location':
       plt.rcParams.update({'font.size': 25})    
       field_dict = {'\n'.join(wrap(key, 10)): value for key, value in field_dict.items()}
-    plt.figure(figsize=(20, 12))
+    elif field == 'code_transform':
+      plt.rcParams.update({'font.size': 20})
+      plt.figure(figsize=(20, 20))
+      field_dict = {'\n'.join(wrap(key.replace('_','-'), 12)).replace('-','_'): value for key, value in field_dict.items()}
     plt.barh(*zip(*field_dict.items()))
     # plt.yticks(k_list)
     plt.xticks(rotation=0)
@@ -125,7 +130,6 @@ for field, field_dict in out_d.items():
     plt.xlabel('count')
     plt.savefig('figures/'+field+file_ext)
     plt.clf()
-    plt.rcParams.update({'font.size': 12}) # reset font
 out_d['Total count'] = total
 out_d['Fix pattern'] = fix_for_error_dict
 out_d['Runtime code change'] = runtime_dict
@@ -181,7 +185,7 @@ plt.savefig('figures/'+"pyre_cc"+file_ext)
 plt.clf()
 
 plt.rcParams.update({'font.size': 20})
-plt.figure(figsize=(20, 15))
+plt.figure(figsize=(20, 20))
 pyre_true_hint_dict = {'\n'.join(wrap(key.replace('_','-'), 12)).replace('-','_'): value for key, value in pyre_true_hint_dict.items()}
 plt.barh(*zip(*pyre_true_hint_dict.items()))
 plt.xticks(rotation=0)

@@ -1,6 +1,3 @@
-TODO: new column?: Relationship of between the newly fixed type and the type suggested by pyre. (e.g. Sequence -> List = subtype)
-
-TODO: fix download code script for pyre-fixme 
 # type_fix_dataset #
 Contains json data where each entry is a code change to fix a type error.
 
@@ -71,8 +68,7 @@ Currently, there are 125 fixes recorded.
     - `"USE_OPTIONAL_FOR_NONE"` (a more specific kind of `"EXACT_MENTIONED_TYPE"`)
     - `"USE_OVERRIDEN_TYPE"` (only for `Inconsistent override [15]`)
   - `"PARTIAL_MENTIONED_TYPE"` (e.g. pyre mentions `Component`, dev uses `Optional[Component]`)
-  - `"USE_SUPER_TYPE"`
-  - `"USE_SUBCLASS"` (e.g. Animal -> Dog)
+  - `"USE_SUPER_TYPE"` (e.g. Use `BaseProcess` instead of `SpawnProcess`)
   - `"USE_SUBTYPE"` (= narrower than suggested types)
   - `"REDUNDANT_HINT"` (only for `Redundant Cast [22]`)
   - `"CANNOT_REANNOTATE"` (only for `Illegal annotation target [35]`)
@@ -90,7 +86,7 @@ Currently, there are 125 fixes recorded.
 
 <!-- `"custom_type"`: Boolean, `true` if a customly defined type is used, e.g. `license_formats: ElementsType = ()` with `ElementsType = Union[Sequence[T], Dict[T, float], KeysView[T]]`. -->
 
-`"filepath"`: Optional. Show the filepath where the code change happens. Non-existent if file is the same as the one shown in the earning
+`"filepath"`: Optional. Show the filepath where the code change happens, if the warning is not fixed in the same file. So far only 6 warnings are fixed by changing another file.
 
 # type_fix_code_data #
 Contains old and new code from different type fixes. It is structured as `{repo}/{commit}/{old_code}` and `{repo}/{commit}/{new_code}`. Intermediate folders are kept. Downloaded by running `script_download_codes.py`.
@@ -99,3 +95,7 @@ Contains old and new code from different type fixes. It is structured as `{repo}
 Contains commits that have less pyre type warnings than their parent commits. Used for selecting interesting commits to analyze.
 
 It displays the warnings in both parent and child commits. Only warnings from *files that have a less number of warnings than parents* are shown. Generated from `script_AnalyzeRepos.py`.
+
+TODO: new column?: Relationship of between the newly fixed type and the type suggested by pyre. (e.g. Sequence -> List = subtype)
+
+TODO: fix download code script for pyre-fixme 

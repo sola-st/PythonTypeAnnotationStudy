@@ -19,7 +19,7 @@
     "repo": "https://github.com/RasaHQ/rasa",
     "change_runtime": false,
     "mentioned_by_pyre": true,
-    "pyre_detail": "USE_SUBCLASS"
+    "pyre_detail": "USE_SUPER_TYPE"
   },
   {
     "isolated_code_change": "-return [UserUtteranceReverted()] + _message_clarification(tracker)\n+reverted_event: List[Event] = [UserUtteranceReverted()]\n+return reverted_event + _message_clarification(tracker)",

@@ -358,10 +358,10 @@
         "ADD_NONE_CHECK": 1
     },
     "Pyre true hint": {
-        "USE_SUBCLASS": 1,
+        "USE_SUPER_TYPE": 2,
         "USE_EXPECTED_TYPE": 21,
         "EXACT_MENTIONED_TYPE": 3,
-        "USE_SUBTYPE": 3,
+        "USE_SUBTYPE": 4,
         "USE_NOT_EXPECTED_TYPE": 20,
         "PARTIAL_MENTIONED_TYPE": 4,
         "USE_OPTIONAL_FOR_NONE": 15,
@@ -369,8 +369,7 @@
         "REDUNDANT_HINT": 1,
         "ASSIGN_VALUE_OF_TYPE": 7,
         "USE_CALLABLE": 2,
-        "CANNOT_REANNOTATE": 5,
-        "USE_SUPER_TYPE": 2
+        "CANNOT_REANNOTATE": 5
     },
     "Pyre false hint": {
         "USE_NOT_EXPECTED_TYPE": 1,
