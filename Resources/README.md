@@ -78,9 +78,11 @@ Currently, there are 125 fixes recorded.
   - `"CANNOT_REANNOTATE"` (only for `Illegal annotation target [35]`)
   - `"ASSIGN_VALUE_OF_TYPE"`
   - `"USE_CALLABLE"` (only for `Call error [29]`)
-- Potential value if `"mentioned_by_pyre"` is `false`: (Usually no hints are given if it is `Invalid type [31]` or `Undefined attribute [16]`)
+- Potential value if `"mentioned_by_pyre"` is `false`:
   - `"CALL_CORRECT_METHOD"`
   - `"USE_ANOTHER_TYPE"`
+  - `"NO_HINT"`
+    - No hints are given if it is `Undefined type [11]`, `Invalid type [31]` or `Undefined attribute [16]`
   - `"USE_ANY"`
   - `"CAST_STR_ENCODING"`
   - `"REMOVE"`
