@@ -77,6 +77,7 @@ for data_file in os.listdir(directory):
 
 # Print the result in JSON (will not be valid, need a little manual fixing)
 out_d = {}
+file_ext = '.pdf'
 for field, field_dict in count_dict.items():
   od = OrderedDict(sorted(field_dict.items()))
   out_d[field] = od
@@ -87,7 +88,7 @@ for field, field_dict in out_d.items():
       field == 'type_change.kind'):
     df = pd.DataFrame.from_dict(field_dict, orient='index')
     fig = df.plot.bar(title=field, ylabel='count', legend=False, rot=0).get_figure()
-    fig.savefig(field+".png")  
+    fig.savefig('figures/'+field+file_ext)  
   else:  
     # print(list(field_dict.keys()))
     # df = pd.DataFrame.from_dict([field_dict])
@@ -103,7 +104,7 @@ for field, field_dict in out_d.items():
     #   colormap='cubehelix',
     #   use_index=False
     # ).get_figure()
-    # fig.savefig(field+".png")
+    # fig.savefig('figures/'+field+file_ext)
     if field == 'involved_types':
       plt.rcParams.update({'font.size': 25})
       field_dict = dict(sorted(field_dict.items(), key=lambda item: item[1], reverse=True)[:10])
@@ -122,7 +123,7 @@ for field, field_dict in out_d.items():
     else:  
       plt.title(field)
     plt.xlabel('count')
-    plt.savefig(field+".png")
+    plt.savefig('figures/'+field+file_ext)
     plt.clf()
     plt.rcParams.update({'font.size': 12}) # reset font
 out_d['Total count'] = total
@@ -144,21 +145,22 @@ print(r)
 plt.rcParams.update({'font.size': 20})
 for err, dict in fix_for_error_dict.items():
   if 'Incompatible return type' in err or 'Incompatible variable type' in err or 'Incompatible parameter type' in err:
-    dict = {'\n'.join(wrap(key, 10)): value for key, value in dict.items()}
+    dict = {'\n'.join(wrap(key.replace('_','-'), 12)).replace('-','_'): value for key, value in dict.items()}
     plt.figure(figsize=(20, 10))
     plt.barh(*zip(*dict.items()))
     plt.xticks(rotation=0)
     plt.title('"'+err+'" Fix Pattern')
     plt.ylabel('count')
-    plt.savefig(err+".png")
+    plt.savefig('figures/'+err+file_ext)
     plt.clf()
 
-plt.figure(figsize=(18, 8))
+runtime_dict = {'\n'.join(wrap(key.replace('_','-'), 12)).replace('-','_'): value for key, value in runtime_dict.items()}
+plt.figure(figsize=(20, 15))
 plt.barh(*zip(*runtime_dict.items()))
 plt.xticks(rotation=0)
 plt.title('Code change that changes runtime')
 plt.xlabel('count')
-plt.savefig("runtime.png")
+plt.savefig('figures/'+"runtime"+file_ext)
 plt.clf()
 
 plt.figure(figsize=(18, 8))
@@ -166,34 +168,35 @@ plt.barh(*zip(*pyre_error_dict.items()))
 plt.xticks(rotation=0)
 plt.title('Type errors where the fixes are hinted by pyre')
 plt.xlabel('count')
-plt.savefig("pyre_error.png")
+plt.savefig('figures/'+"pyre_error"+file_ext)
 plt.clf()
 
-plt.figure(figsize=(18, 8))
+pyre_change_dict = {'\n'.join(wrap(key.replace('_','-'), 12)).replace('-','_'): value for key, value in pyre_change_dict.items()}
+plt.figure(figsize=(20, 20))
 plt.barh(*zip(*pyre_change_dict.items()))
 plt.xticks(rotation=0)
 plt.title('Code change hinted by pyre')
 plt.xlabel('count')
-plt.savefig("pyre_cc.png")
+plt.savefig('figures/'+"pyre_cc"+file_ext)
 plt.clf()
 
 plt.rcParams.update({'font.size': 20})
 plt.figure(figsize=(20, 15))
-pyre_true_hint_dict = {'\n'.join(wrap(key, 12)): value for key, value in pyre_true_hint_dict.items()}
+pyre_true_hint_dict = {'\n'.join(wrap(key.replace('_','-'), 12)).replace('-','_'): value for key, value in pyre_true_hint_dict.items()}
 plt.barh(*zip(*pyre_true_hint_dict.items()))
 plt.xticks(rotation=0)
 plt.title('How developers use hints when "mentioned_by_pyre" is true')
 plt.xlabel('count')
-plt.savefig("pyre_true_hint.png")
+plt.savefig('figures/'+"pyre_true_hint"+file_ext)
 plt.clf()
 
 plt.figure(figsize=(20, 15))
-pyre_false_hint_dict = {'\n'.join(wrap(key, 12)): value for key, value in pyre_false_hint_dict.items()}
+pyre_false_hint_dict = {'\n'.join(wrap(key.replace('_','-'), 12)).replace('-','_'): value for key, value in pyre_false_hint_dict.items()}
 plt.barh(*zip(*pyre_false_hint_dict.items()))
 plt.xticks(rotation=0)
 plt.title('How developers fix bugs when "mentioned_by_pyre" is false')
 plt.xlabel('count')
-plt.savefig("pyre_false_hint.png")
+plt.savefig('figures/'+"pyre_false_hint"+file_ext)
 plt.clf()
 
 # print('{')
