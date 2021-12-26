@@ -54,8 +54,8 @@
         "true": 25
     },
     "mentioned_by_pyre": {
-        "false": 44,
-        "true": 81
+        "false": 40,
+        "true": 85
     },
     "involved_types": {
         "(int, int)": 2,
@@ -338,7 +338,7 @@
         "Inconsistent override [14]": 1,
         "Redundant Cast [22]": 1,
         "Call error [29]": 2,
-        "Illegal annotation target [35]": 1
+        "Illegal annotation target [35]": 5
     },
     "Pyre code change": {
         "MODIFY_FUN_RETURN_TYPE": 19,
@@ -351,6 +351,7 @@
         "OP_CHANGE": 4,
         "ADD_RETURN_VAL": 8,
         "RENAME_VAR": 1,
+        "REMOVE_TYPE": 4,
         "REMOVE_REANNOTATION": 1,
         "MODIFY_FUN_PARAM_VAL": 1,
         "MODIFY_ISINSTANCE_CALL": 2,
@@ -368,8 +369,8 @@
         "REDUNDANT_HINT": 1,
         "ASSIGN_VALUE_OF_TYPE": 7,
         "USE_CALLABLE": 2,
-        "USE_SUPER_TYPE": 2,
-        "CANNOT_REANNOTATE": 1
+        "CANNOT_REANNOTATE": 5,
+        "USE_SUPER_TYPE": 2
     },
     "Pyre false hint": {
         "USE_NOT_EXPECTED_TYPE": 1,
@@ -378,7 +379,6 @@
         "NO_HINT": 21,
         "CAST_STR_ENCODING": 1,
         "USE_ANY": 2,
-        "CANNOT_REANNOTATE": 4,
         "CALL_CORRECT_METHOD": 1
     }
 }

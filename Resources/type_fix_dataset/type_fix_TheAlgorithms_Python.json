@@ -932,7 +932,7 @@
     "url": "https://github.com/TheAlgorithms/Python/commit/20c7518",
     "repo": "https://github.com/TheAlgorithms/Python",
     "change_runtime": false,
-    "mentioned_by_pyre": false,
+    "mentioned_by_pyre": true,
     "pyre_detail": "CANNOT_REANNOTATE"
   },  
   {
@@ -950,7 +950,7 @@
     "url": "https://github.com/TheAlgorithms/Python/commit/20c7518",
     "repo": "https://github.com/TheAlgorithms/Python",
     "change_runtime": false,
-    "mentioned_by_pyre": false,
+    "mentioned_by_pyre": true,
     "pyre_detail": "CANNOT_REANNOTATE"
   },  
   {
@@ -968,7 +968,7 @@
     "url": "https://github.com/TheAlgorithms/Python/commit/20c7518",
     "repo": "https://github.com/TheAlgorithms/Python",
     "change_runtime": false,
-    "mentioned_by_pyre": false,
+    "mentioned_by_pyre": true,
     "pyre_detail": "CANNOT_REANNOTATE"
   },  
   {
@@ -986,7 +986,7 @@
     "url": "https://github.com/TheAlgorithms/Python/commit/20c7518",
     "repo": "https://github.com/TheAlgorithms/Python",
     "change_runtime": false,
-    "mentioned_by_pyre": false,
+    "mentioned_by_pyre": true,
     "pyre_detail": "CANNOT_REANNOTATE"
   },  
   {
