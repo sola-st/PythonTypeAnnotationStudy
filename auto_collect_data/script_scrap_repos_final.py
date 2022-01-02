@@ -5,22 +5,21 @@ import calendar
 import time
 import config
 
-repo_qualifier = ''
+# Query Github for repo data, check for language=Python, stars:>=100 and size:<=5000000 (5GB)
 headers = {'Authorization': 'token %s' % config.GIT_TOKEN}
 req_count = 0
-total_commits_count = 0
-for y in range(2015, 2022):
+for y in range(2010, 2022):
   for m in range(1,13):
-    query = 'fixing+mypy+committer-date:'+ \
+    query = 'created:'+ \
       str(y)+'-'+str(m).zfill(2)+'-01..'+ \
       str(y)+'-'+str(m).zfill(2)+'-'+str(calendar.monthrange(y, m)[1])    
     for i in range(1,11): # page 1-10, GitHub Search API provides up to 1,000 results for each search.
       try:
-        filename = 'Resources/Input/TypeFix/fix_mypy_all/'+query+'_commits_page'+str(i)+'.json'
+        filename = 'Resources/Input/TypeFix/repos_final/'+str(y)+'-'+str(m).zfill(2)+'_page'+str(i)+'.json'
         if os.path.isfile(filename):
-          print('Skip this page of commits, data already downloaded: ', query)
+          print('Skip this page of repos, data already downloaded: ', query)
           continue
-        url = 'https://api.github.com/search/commits?q='+query+'+merge:false&per_page=100&page='+str(i)
+        url = 'https://api.github.com/search/repositories?q='+query+'+stars:>=100+size:<=5000000+language:Python&per_page=100&page='+str(i)
         print(f"Downloading {url}")
         res = requests.get(url, headers=headers)
         req_count += 1
@@ -40,5 +39,4 @@ for y in range(2015, 2022):
           continue
         break # maybe 'Validation Failed'
 
-print('req_count: ', req_count) # should be 12*7 = 84
-print('total_commits_count: ', total_commits_count) # should be < 84000
+print('req_count: ', req_count) 

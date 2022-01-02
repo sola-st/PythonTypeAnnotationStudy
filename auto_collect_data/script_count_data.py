@@ -126,5 +126,38 @@ for data_file in os.listdir(directory):
 print('Resources/Output_type_fix_commits_via_API_mypy_all_filtered/ fixed warnings in commits *after warning+repo filtering* count: ', count)
 print('Resources/Output_type_fix_commits_via_API_mypy_all_filtered/ processed commits count: ', commit_count)
 
+# -------- Count --------
+directory = r'Resources/Input/TypeFix/repos_final/'
+count = 0
+size_sum = 0
+for data_file in os.listdir(directory):
+    with open(directory+data_file) as f:
+      try:
+        data = json.load(f) 
+        for d in data: 
+          count += 1
+          size_sum += d['size'] 
+      except Exception:
+        print(f"cannot parse json, skip file {f}")
+
+print('Resources/Input/TypeFix/repos_final/ repos count: ', count)
+print('Resources/Input/TypeFix/repos_final/ repos size sum: ', size_sum)
+
+# -------- Count --------
+directory = r'Resources/Input/TypeFix/commits_final/'
+commit_set = set()
+for data_file in os.listdir(directory):
+    with open(directory+data_file) as f:
+      try:
+        data = json.load(f) 
+        for d in data: 
+          commit_set.add(d['sha'])
+      except Exception:
+        # print(f"cannot parse json, skip file {f}")
+        pass
+
+print('Resources/Input/TypeFix/commits_final/ commits count: ', len(commit_set))
+
 start = time.asctime()
 print('Time: ' + start)
+

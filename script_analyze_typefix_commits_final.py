@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+
 import multiprocessing
 import resource
 import os
@@ -9,13 +10,12 @@ import random
 import time
 from collections import Counter, defaultdict
 import json
-from Code.TypeErrors.TypeAnnotationCounter import count_type_annotations
 from Code.TypeAnnotations import gitUtils
 import config
 import signal
 
 repos_base_dir = config.ROOT_DIR + "/GitHub/"
-results_base_dir = config.ROOT_DIR + "/Resources/Output_type_fix_commits_via_API_repo_json/"
+results_base_dir = config.ROOT_DIR + "/Resources/Output_type_fix_commits_final/"
 
 class PyreTimeoutError(Exception):
     """
@@ -97,7 +97,7 @@ def get_commit_type_error(repo_dir, commit): # repo_dir = /home/wai/hiwi/TypeAnn
     warnings = warnings[:-1]  # last line is empty
     print(f"Got {len(warnings)} warnings")
 
-    warnings = [k for k in warnings if 'Could not find a module corresponding to import' not in k and 'Undefined import' not in k and 'Parsing failure' not in k]
+    warnings = [k for k in warnings if 'Analysis failure' not in k and 'Parsing failure' not in k]
     print(f"Got {len(warnings)} warnings after removing import error")
 
     # analyze warnings
@@ -150,8 +150,8 @@ def compare_two_commits_warnings_output(p_commit_pair):
             f"cp data/.watchmanconfig {repo_dir}".split(" "))
     for b_commit in commits:
         a_commit = b_commit+'^'
-        if os.path.isfile(results_base_dir+"compare_warning_"+p+"_"+a_commit+"_"+b_commit+".json"):
-            print(f"Skip commit, data {p}_{a_commit}_{b_commit} already processed.")
+        if os.path.isfile(results_base_dir+"compare_warning_"+p+"_"+b_commit+".json"):
+            print(f"Skip commit, data {p}_{b_commit} already processed.")
             continue
         else:
             print(invoke_cmd("watchman watch .", repo_dir)) # must have watchman watching for pyre incremental to work
@@ -187,22 +187,22 @@ def compare_two_commits_warnings_output(p_commit_pair):
                     elif f not in files:
                         out['parent_warnings'].append([i for i in a_res['all_warnings'] if i.split(':')[0] in f])
                 project_results.append(out)
-                write_results("compare_warning_"+p+"_"+a_commit+"_"+b_commit, project_results)
+                write_results("compare_warning_"+p+"_"+b_commit, project_results)
             except PyreTimeoutError as pe:
                 # invoke_cmd("pyre kill", repo_dir) # Kill *all* pyre servers!!
                 os.killpg(os.getpgid(pe.pid), signal.SIGTERM)  # Send the signal to all the process groups
                 # print(invoke_cmd("pkill -c pyre.bin", repo_dir)) # Kill process
                 print(pe.pid)
                 print(f"WARNING: PyreTimeoutError with {p}: {b_commit} -- skipping this project")
-                fail_log = open("failed_repo.txt", "a")  # append mode
+                fail_log = open("failed_repo_final.txt", "a")  # append mode
                 fail_log.write('Timeout: '+p+': '+b_commit+'\n')
                 fail_log.close()
                 print(invoke_cmd("watchman watch-del .", repo_dir)) # teardown watchman to reduce inotify instances (cannot watch if its too big)
                 break # Skip this project
             except Exception as e:
                 print(f"WARNING: Some problem with {p} -- skipping this commit")
-                # write_results("compare_warning_"+p+"_"+a_commit+"_"+b_commit, []) # write empty files so that it won't be processed again
-                fail_log = open("failed_repo.txt", "a")  # append mode
+                # write_results("compare_warning_"+p+"_"+b_commit, []) # write empty files so that it won't be processed again
+                fail_log = open("failed_repo_final.txt", "a")  # append mode
                 fail_log.write(str(e) + ' : '+p+': '+b_commit+'\n')
                 fail_log.close()
                 print(e)
@@ -217,7 +217,7 @@ def compare_two_commits_warnings_output(p_commit_pair):
             # print(invoke_cmd("pkill -c pyre.bin", repo_dir)) # Kill process
             print(pe.pid)
             print('WARNING: Timeout when stopping: '+p+': '+b_commit+'\n')
-            fail_log = open("failed_repo.txt", "a")  # append mode
+            fail_log = open("failed_repo_final.txt", "a")  # append mode
             fail_log.write('Timeout when stopping: '+p+': '+b_commit+'\n')
             fail_log.close()
 
@@ -229,42 +229,56 @@ def get_parent_commit(repo_dir, commit):
     return out.split("\n")[0]
 
 start = time.time()
-fail_log = open("failed_repo.txt", "a")  # append mode
+fail_log = open("failed_repo_final.txt", "a")  # append mode
 fail_log.write('\n====================\nStart running at: '+str(start)+'\n')
 fail_log.close()
 #TODO: add logger
 if config.CLONING:
-    i = 0
-    j = [0]
-    dir = 'Resources/Input/TypeFix/top10000/'
+    dir = 'Resources/Input/TypeFix/commits_final/'
     # Clone and collect commits
     repo_commit_dict = defaultdict(list)
+    urls_to_clone = set()
     for f in os.listdir(dir):
-        filename = dir + f
-        gitUtils.repo_cloning_commits_query(config.ROOT_DIR +'/'+ filename)
-        with open(config.ROOT_DIR +'/'+ filename) as fh:
-            try:
-                commits = json.load(fh)
-                for c in commits:
-                    if 'cpython' not in c['repository']['full_name'] \
-                    and 'gevent' not in c['repository']['full_name'] \
-                    and 'naftaliharris/tauthon' not in c['repository']['full_name'] \
-                    and 'platomav/MEAnalyzer' not in c['repository']['full_name'] \
-                    and 'jython/frozen-mirror' not in c['repository']['full_name'] \
-                    and 'rocky/python-uncompyle6' not in c['repository']['full_name'] \
-                    and 'faucetsdn/ryu' not in c['repository']['full_name'] \
-                    and 'gramps-project/gramps' not in c['repository']['full_name'] \
-                    and 'ansible/ansible' not in c['repository']['full_name'] \
-                    and 'python/typeshed' not in c['repository']['full_name'] \
-                    and 'indico/indico' not in c['repository']['full_name'] \
-                    and 'getsentry/sentry' not in c['repository']['full_name']:
-                        repo_commit_dict[c['repository']['full_name'].replace('/', '-')].append(c['sha'])
-            except Exception:
-                print(f"cannot parse json, skip file {fh}")
+        if f.endswith('.json'):
+            filename = dir + f
+            with open(config.ROOT_DIR +'/'+ filename) as fh:
+                try:
+                    commits = json.load(fh)
+                    for c in commits:
+                        # Is Fork / Failed to process / Too large:
+                        if not c['repository']['fork'] and \
+                        'cpython' not in c['repository']['full_name'] \
+                        and 'gevent' not in c['repository']['full_name'] \
+                        and 'naftaliharris/tauthon' not in c['repository']['full_name'] \
+                        and 'platomav/MEAnalyzer' not in c['repository']['full_name'] \
+                        and 'jython/frozen-mirror' not in c['repository']['full_name'] \
+                        and 'rocky/python-uncompyle6' not in c['repository']['full_name'] \
+                        and 'faucetsdn/ryu' not in c['repository']['full_name'] \
+                        and 'gramps-project/gramps' not in c['repository']['full_name'] \
+                        and 'ansible/ansible' not in c['repository']['full_name'] \
+                        and 'python/typeshed' not in c['repository']['full_name'] \
+                        and 'indico/indico' not in c['repository']['full_name'] \
+                        and 'getsentry/sentry' not in c['repository']['full_name'] \
+                        and 'Uber-Evaluation/chromium-1' not in c['repository']['full_name'] \
+                        and 'bloomberg/chromium.bb' not in c['repository']['full_name'] \
+                        and 'WaterfoxCo/Waterfox' not in c['repository']['full_name'] \
+                        and 'MercifulPotato/mercifulpotato' not in c['repository']['full_name'] \
+                        and 'jamienicol/gecko' not in c['repository']['full_name'] :
+                            repo_commit_dict[c['repository']['full_name'].replace('/', '-')].append(c['sha'])
+                            urls_to_clone.add(c['repository']['html_url'])        
+                except Exception as e:
+                    print(f"cannot parse json, skip file {fh}, due to {e}")
     # --- Multi-thread ---
-    with multiprocessing.Pool(4) as p:
+    # --- Cloning ---
+    with multiprocessing.Pool(24) as p:
+        for i in p.imap_unordered(gitUtils.repo_cloning_commits_query_with_url, urls_to_clone):
+            pass
+    print('--- Done Cloning ---')
+    #  --- Run pyre ---
+    with multiprocessing.Pool(8) as p:
         for i in p.imap_unordered(compare_two_commits_warnings_output, repo_commit_dict.items()):
-            print(i)
+            pass
+    print('--- Done Running pyre ---')
 
     # --- Single-thread ---
     # for i in repo_commit_dict.items():
