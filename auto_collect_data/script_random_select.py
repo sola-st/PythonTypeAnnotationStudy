@@ -4,11 +4,12 @@ import random
 import sys
 
 directories = [
-  r'Resources/Output_type_fix_commits_via_API_pyre/', 
-  r'Resources/Output_type_fix_commits_via_API_mypy/',
-  r'Resources/Output_type_fix_commits_via_API_repo/',
-  r'Resources/Output_type_fix_commits_via_API_repo_json/',
-  r'Resources/Output_type_fix_commits_via_API_mypy_all_filtered/'
+  # r'Resources/Output_type_fix_commits_via_API_pyre/', 
+  # r'Resources/Output_type_fix_commits_via_API_mypy/',
+  # r'Resources/Output_type_fix_commits_via_API_repo/',
+  # r'Resources/Output_type_fix_commits_via_API_repo_json/',
+  # r'Resources/Output_type_fix_commits_via_API_mypy_all_filtered/',
+  r'Resources/Output_type_fix_commits_final/'
 ]
 for dir in directories:  
   i = 0
@@ -29,7 +30,7 @@ for dir in directories:
           data = json.load(f) 
           for d in data: 
             if len(d['parent_warnings']) > 0:
-              if (use_filter and len(d['parent_warnings']) == 1 and len(d['parent_warnings'][0]) <= int(warning_limit)) or not use_filter:
+              # if (use_filter and len(d['parent_warnings']) == 1 and len(d['parent_warnings'][0]) <= int(warning_limit)) or not use_filter:
                 print(fn)
                 i += 1              
     except Exception as e:
