@@ -1,3 +1,4 @@
+from collections import OrderedDict, defaultdict
 import json
 import os
 import time
@@ -159,12 +160,14 @@ for data_file in os.listdir(directory):
 print('Resources/Input/TypeFix/commits_final/ commits count: ', len(commit_set))
 
 # -------- Count fixed warnings in commits *after warning filtering* for final merged method --------
+# -------- And Pyre error type distribution for data collected via final merged method --------
 directory = r'Resources/Output_type_fix_commits_final/'
 count = 0
 commit_set = set()
 commit_count = 0
 w_in_commit_count = 0
 max_w_in_file = 10 # 100/10/5/1
+error_dict = defaultdict(lambda: 0)
 for data_file in os.listdir(directory):
     with open(directory+data_file) as f:
       try:
@@ -175,11 +178,16 @@ for data_file in os.listdir(directory):
           for pw in d['parent_warnings']:            
             if len(pw) <= max_w_in_file:
               count += len(pw) 
+              for w in pw:
+                error_dict[w.split(':',3)[2].split(' ',1)[1]] += 1
       except Exception:
         print(f"cannot parse json, skip file {f}")
 
 print('Resources/Output_type_fix_commits_final/ processed commits count: ', commit_count)
 print('Resources/Output_type_fix_commits_final/ fixed warnings in commits *after warning filtering* count: ', count)
+od = OrderedDict(sorted(error_dict.items(), key=lambda item: item[1], reverse=True))
+r = json.dumps(od, indent=4)
+print(r)
 
 start = time.asctime()
 print('Time: ' + start)
