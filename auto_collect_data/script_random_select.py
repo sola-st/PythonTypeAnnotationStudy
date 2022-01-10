@@ -1,3 +1,5 @@
+# Must pass a param: Max # of warnings in a file. 
+
 import json
 import os
 import random
@@ -17,10 +19,7 @@ for dir in directories:
   random.shuffle(files)	
   print('-------------------------------------------')
   print('Sampling from '+dir)
-  use_filter = False
-  if len(sys.argv) > 1:    
-    use_filter = True
-    warning_limit = sys.argv[1]
+  max_w_in_file = int(sys.argv[1])
   for fn in files:
     try:
       if i >= 10:
@@ -30,11 +29,13 @@ for dir in directories:
           data = json.load(f) 
           for d in data: 
             if len(d['parent_warnings']) > 0:
-              # if (use_filter and len(d['parent_warnings']) == 1 and len(d['parent_warnings'][0]) <= int(warning_limit)) or not use_filter:
-                print(fn)
-                i += 1              
+              for pw in d['parent_warnings']:            
+                if len(pw) <= max_w_in_file:
+                  print(fn)
+                  i += 1
+                  break
     except Exception as e:
-      # print(e)
+      print(e)
       print(f"cannot parse json, skip file {f}")
 
 
