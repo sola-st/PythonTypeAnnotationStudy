@@ -1,3 +1,4 @@
+import pathlib
 import pstats
 import time
 import multiprocessing
@@ -24,6 +25,20 @@ def typeAnnotation_analisis():
             i += 1
         #gitUtils.repo_cloning(config.ROOT_DIR + "/Resources/Input/Top1000_Python2019_Complete.json",
          #                     config.ROOT_DIR + "/GitHub", j)
+
+    directory_list = list()
+    directory_list= os.listdir(config.ROOT_DIR + "/GitHub")
+    dictOfWords = {i: 0 for i in directory_list}
+
+    count = 0
+    for i in directory_list:
+        for filepath in pathlib.Path(config.ROOT_DIR + "/GitHub/"+i).glob('**/*'):
+            if str(filepath).endswith(".pyi"):
+                dictOfWords[i] += 1
+
+    f = open(config.ROOT_DIR + "/sample.json", "w")
+    json.dump(dictOfWords, f)
+    f.close()
 
 
     if config.STATISTICS_COMPUTATION:
