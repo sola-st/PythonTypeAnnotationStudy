@@ -137,7 +137,8 @@ def write_results(name, results):
 
 # b should be later than a
 def compare_two_commits_warnings_output(p_commit_pair):   
-    p, commits = p_commit_pair
+    p_full_name, commits = p_commit_pair
+    p = p_full_name.replace('/', '-')
     repo_dir = repos_base_dir+p
     pyre_server_up = False
     if not os.path.isfile(repo_dir+"/.pyre_configuration"):
@@ -161,7 +162,7 @@ def compare_two_commits_warnings_output(p_commit_pair):
                 a_res = get_commit_type_error(repo_dir, a_commit)
                 b_res = get_commit_type_error(repo_dir, b_commit)
                 out = {
-                    'project': p,
+                    'project': p_full_name,
                     'a_commit': a_commit, 
                     'b_commit': b_commit, 
                     'warning_removed': a_res['nb_warnings'] - b_res['nb_warnings'],
@@ -264,7 +265,7 @@ if config.CLONING:
                         and 'WaterfoxCo/Waterfox' not in c['repository']['full_name'] \
                         and 'MercifulPotato/mercifulpotato' not in c['repository']['full_name'] \
                         and 'jamienicol/gecko' not in c['repository']['full_name'] :
-                            repo_commit_dict[c['repository']['full_name'].replace('/', '-')].append(c['sha'])
+                            repo_commit_dict[c['repository']['full_name']].append(c['sha'])
                             urls_to_clone.add(c['repository']['html_url'])        
                 except Exception as e:
                     print(f"cannot parse json, skip file {fh}, due to {e}")
