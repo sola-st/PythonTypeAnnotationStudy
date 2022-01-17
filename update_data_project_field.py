@@ -1,6 +1,5 @@
 #!/usr/bin/python3
 import os
-from collections import defaultdict
 import json
 import config
 
@@ -13,8 +12,6 @@ results_base_dir = config.ROOT_DIR + "/Resources/Output_type_fix_commits_final/"
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
 
 dir = 'Resources/Input/TypeFix/commits_final/'
-repo_commit_dict = defaultdict(list)
-urls_to_clone = set()
 for f in os.listdir(dir):
   if f.endswith('.json'):
     input_file = dir + f
