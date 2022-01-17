@@ -31,11 +31,40 @@ for dir in directories:
             if len(d['parent_warnings']) > 0:
               for pw in d['parent_warnings']:            
                 if len(pw) <= max_w_in_file:
-                  print(fn)
+                  print(dir+fn)
                   i += 1
                   break
     except Exception as e:
       print(e)
       print(f"cannot parse json, skip file {f}")
+
+# Filter by warnings
+for dir in directories:  
+  files = os.listdir(dir)
+  random.shuffle(files)	
+  print('-------------------------------------------')
+  print('Sampling from '+dir)
+  max_w_in_file = int(sys.argv[1])
+  warning_types = ['Undefined import [21]', 'Undefined or invalid type [11]', 'Undefined attribute [16]']
+  for w in warning_types:
+    print('Warning type:', w)
+    i = 0
+    for fn in files:
+      try:
+        if i >= 10:
+          break
+        elif fn.startswith('compare_warning_') and fn.endswith('.json'):
+          with open(dir+fn) as f:
+            data = json.load(f) 
+            for d in data: 
+              if len(d['parent_warnings']) > 0:
+                for pw in d['parent_warnings']:
+                  if len(pw) <= max_w_in_file and w in ' '.join(pw):
+                    print(dir+fn)
+                    i += 1
+                    break
+      except Exception as e:
+        print(e)
+        print(f"cannot parse json, skip file {f}")
 
 
