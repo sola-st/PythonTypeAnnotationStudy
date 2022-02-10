@@ -16,5 +16,5 @@ def kill_pyre():
       print(e)
 
 scheduler = BlockingScheduler()
-scheduler.add_job(kill_pyre, 'interval', hours=1)
+scheduler.add_job(kill_pyre, 'interval', minutes=30)
 scheduler.start()
