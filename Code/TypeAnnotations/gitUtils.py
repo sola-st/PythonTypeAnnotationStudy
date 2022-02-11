@@ -12,7 +12,7 @@ import numpy as np
 
 import pygit2 as git
 from pygit2 import GIT_SORT_TOPOLOGICAL, GIT_SORT_REVERSE
-from typing import List
+from typing import List, Tuple
 
 import config
 from Code.TypeAnnotations.codeChange import CommitStatistics
@@ -23,6 +23,62 @@ from Code.TypeAnnotations.codeStatistics import CodeStatistics
 from Code.TypeAnnotations.Utils import write_in_json, convert_list_in_list_of_dicts
 from Code.TypeErrors.TypeAnnotationCounter import count_type_annotations, extract_from_file
 
+class MyRemoteCallbacks(git.RemoteCallbacks):
+    def __init__(self):
+        self.user = config.GIT_USER
+        self.token = config.GIT_TOKEN
+    def credentials(self, url, username_from_url, allowed_types):
+        return git.UserPass(self.user,self.token)
+    def certificate_check(self, certificate, valid, host):
+        return True
+
+def repo_cloning_commits_query_with_url(repo_url: str) -> None:
+    pathOutput = config.ROOT_DIR + "/GitHub"
+    out = re.sub('https://github.com/', '', repo_url).replace('/', '-')
+
+    if os.path.isdir(pathOutput + '/' + out):
+        print(out + ' Already cloned', repo_url)
+        return
+
+    else:
+        print(' Cloning ' + repo_url)
+        try:
+            git.clone_repository(repo_url, pathOutput + '/' + out, callbacks=MyRemoteCallbacks())
+        except Exception as e:
+            print('[Error] cloning repository:', str(e))
+            return
+
+
+def repo_cloning_commits_query(filenameInput: str) -> None:
+    pathOutput = config.ROOT_DIR + "/GitHub"
+    with open(filenameInput) as fh:
+        try:
+            commits = json.load(fh)
+        except Exception:
+            print(f"cannot parse json, skip cloning {fh}")
+            return
+
+
+    repo_urls = [c['repository']['html_url'] for c in commits]
+
+    i = 0
+    for link in repo_urls:
+        i+=1
+
+        out = re.sub('https://github.com/', '', link).replace('/', '-')
+
+        if os.path.isdir(pathOutput + '/' + out):
+            print(out + ' Already cloned', link)
+
+            continue
+
+        else:
+            print(' Cloning ' + link)
+            try:
+                git.clone_repository(link, pathOutput + '/' + out, callbacks=MyRemoteCallbacks())
+            except Exception as e:
+                print('[Error] cloning repository:', str(e))
+                continue
 
 def repo_cloning(filenameInput: str, pathOutput: str, count: List[int]) -> None:
     with open(filenameInput) as fh:
@@ -54,7 +110,6 @@ def repo_cloning(filenameInput: str, pathOutput: str, count: List[int]) -> None:
             except Exception as e:
                 print('[Error] cloning repository:', str(e))
                 continue
-
 
 def repo_cloning_csv( pathOutput: str) -> None:
     columns = defaultdict(list)  # each value in each column is appended to a list
@@ -88,7 +143,7 @@ def repo_cloning_csv( pathOutput: str) -> None:
                 print('[Error] cloning repository:', str(e))
                 continue
 
-def query_repo_get_changes(repo_name):  # statistics, pointer, dirlist_len):
+def query_repo_get_changes(repo_name, err_dict=None, target_commits=None):  # statistics, pointer, dirlist_len):
     start = time.time()
     file_extension = '.py'
     statistics = CodeStatistics()
@@ -121,6 +176,7 @@ def query_repo_get_changes(repo_name):  # statistics, pointer, dirlist_len):
         try:
             repo = git.Repository(config.ROOT_DIR + "/GitHub/" + repo_name)
         except:
+            print('Return, repo not found in dir: ', repo_name)
             return
 
         remote_url = None
@@ -135,16 +191,21 @@ def query_repo_get_changes(repo_name):  # statistics, pointer, dirlist_len):
         if statistics.typeLastProjectVersion_total > 0:
             # Go through each commit starting from the most recent commit
             commit_temp = 'e0'
+            commit_count = 0
+            # print(last_commit)
+            # for commit in repo.walk(last_commit, GIT_SORT_TOPOLOGICAL | GIT_SORT_REVERSE):                
+            #     print(commit)
             for commit in repo.walk(last_commit, GIT_SORT_TOPOLOGICAL | GIT_SORT_REVERSE):
                 try:
-                    #print(str(commit.hex))
-                    #if commit.hex != '0d2f5f328ce14fcaed450ee218d44aa0eb32fe4a' and commit.hex != '304de58f8db607913feb326e89243082e27c4c50':  # b86598886ea50c5259982ac18a692748bd3ba402
-                     #   continue
+                    commit_count += 1
+                    if target_commits is not None and str(commit.hex) not in target_commits:
+                       continue
+                    # print(str(commit.hex))
                     commit_year = time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(commit.commit_time))[:4]
                     commit_month = time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(commit.commit_time))[5:7]
                     commit_day = time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(commit.commit_time))[8:10]
 
-                    if  int(commit_year) < 2014 or int(commit_year) > 2020:
+                    if  int(commit_year) < 2014 or int(commit_year) > 2021:
                         continue
 
                     #if int(commit_month) <= 12:
@@ -237,15 +298,19 @@ def query_repo_get_changes(repo_name):  # statistics, pointer, dirlist_len):
                                     n_non_test_files += 1
                             except Exception as e:
                                 return
-
+                            # repo = git.Repository(config.ROOT_DIR + "/GitHub/" + repo_name)
+                            # Go through each commit starting from the most recent commit: last -> 2nd last -> 3rd last -> ...
+                            # diff = repo.diff(commita, commitb)                     
+                            # for patch in diff # iterate over the deltas/patches in this diff.
                             TypeAnnotationExtractionLast_life(config.ROOT_DIR + "/GitHub/", repo_name, commit, patch,
                                                         remote_url + '/commit/' + commit.hex + '#diff-' + diff.patchid.hex,
                                                         statistics,  # lock, logging,
                                                         at_least_one_type_change,
                                                         statistics.code_changes, typeannotation_line_inserted,
                                                         typeannotation_line_removed, typeannotation_line_changed,
-                                                        list_line_added,
-                                                        list_line_removed, commit_year, commit_month, commit_day)
+                                                        list_line_added, list_line_removed, 
+                                                        commit_year, commit_month, commit_day,
+                                                        err_dict)
 
                     added_per_commit_percentage = 0
                     removed_per_commit_percentage = 0

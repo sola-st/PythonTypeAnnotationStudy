@@ -72,7 +72,7 @@ def write_in_json(outputFilePath: str, data: list) -> None:
     except Exception as e:
         print("write_in_json error", e)
 
-        with open(outputFilePath + '.txt', 'w') as f:
+        with open(outputFilePath + '.txt', 'w+') as f:
             for item in data:
                 f.write("%s\n" % item)
         # print(data)
@@ -81,7 +81,7 @@ def write_in_json(outputFilePath: str, data: list) -> None:
     if '.json' not in outputFilePath:
         outputFilePath += '.json'
 
-    with open(outputFilePath, "w") as f:
+    with open(outputFilePath, "w+") as f:
         f.write(json_file)
     f.close()
 

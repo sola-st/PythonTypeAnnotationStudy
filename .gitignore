@@ -143,5 +143,15 @@ cython_debug/
 *.swp
 
 Resources/Output
+Resources/Output_typeErrors_luca
 Resources/Output_typeErrors
 Resources/Output_typeErrors2
+Resources/Output_typeErrors_backup
+.pyre_configuration
+Resources/Input/
+tmp_diff
+Resources/type_fix_dataset_backup
+wai_hiwi/
+Github/
+Resources/Output_type_fix_commits*/compare_warning_*
+*.png
