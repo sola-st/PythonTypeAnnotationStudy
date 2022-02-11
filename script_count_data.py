@@ -9,5 +9,6 @@ for data_file in os.listdir(directory):
       data = json.load(f) 
       for d in data:
         count += 1
+        
 
 print(count)
