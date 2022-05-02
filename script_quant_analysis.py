@@ -111,12 +111,15 @@ for field, field_dict in out_d.items():
       plt.rcParams.update({'font.size': 25})
       field_dict = dict(sorted(field_dict.items(), key=lambda item: item[1], reverse=True)[:10])
     elif field == 'type_error':
+      field_dict = dict(sorted(field_dict.items(), key=lambda item: item[1], reverse=True))
       plt.rcParams.update({'font.size': 20})
       field_dict = {'\n'.join(wrap(key.split('[')[0], 15)): value for key, value in field_dict.items()}
     elif field == 'location':
+      field_dict = dict(sorted(field_dict.items(), key=lambda item: item[1], reverse=True))
       plt.rcParams.update({'font.size': 25})    
       field_dict = {'\n'.join(wrap(key, 10)): value for key, value in field_dict.items()}
     elif field == 'code_transform':
+      field_dict = dict(sorted(field_dict.items(), key=lambda item: item[1], reverse=True))
       plt.rcParams.update({'font.size': 20})
       plt.figure(figsize=(20, 20))
       field_dict = {'\n'.join(wrap(key.replace('_','-'), 12)).replace('-','_'): value for key, value in field_dict.items()}
@@ -147,11 +150,12 @@ print(r)
 # df = pd.DataFrame(np.c_[Y,Z,Y], index=X)
 # df.plot.barh(figsize=(20, 10))
 plt.rcParams.update({'font.size': 20})
-for err, dict in fix_for_error_dict.items():
+for err, err_dict in fix_for_error_dict.items():
   if 'Incompatible return type' in err or 'Incompatible variable type' in err or 'Incompatible parameter type' in err:
-    dict = {'\n'.join(wrap(key.replace('_','-'), 12)).replace('-','_'): value for key, value in dict.items()}
+    err_dict = dict(sorted(err_dict.items(), key=lambda item: item[1], reverse=True))
+    err_dict = {'\n'.join(wrap(key.replace('_','-'), 12)).replace('-','_'): value for key, value in err_dict.items()}
     plt.figure(figsize=(20, 10))
-    plt.barh(*zip(*dict.items()))
+    plt.barh(*zip(*err_dict.items()))
     plt.xticks(rotation=0)
     plt.title('"'+err+'" Fix Pattern')
     plt.ylabel('count')
@@ -159,6 +163,7 @@ for err, dict in fix_for_error_dict.items():
     plt.clf()
 
 runtime_dict = {'\n'.join(wrap(key.replace('_','-'), 12)).replace('-','_'): value for key, value in runtime_dict.items()}
+runtime_dict = dict(sorted(runtime_dict.items(), key=lambda item: item[1], reverse=True))
 plt.figure(figsize=(20, 15))
 plt.barh(*zip(*runtime_dict.items()))
 plt.xticks(rotation=0)
@@ -170,16 +175,17 @@ plt.clf()
 plt.figure(figsize=(18, 8))
 plt.barh(*zip(*pyre_error_dict.items()))
 plt.xticks(rotation=0)
-plt.title('Type errors where the fixes are hinted by pyre')
+plt.title('Type errors where Pyre gives a hint on how to fix them')
 plt.xlabel('count')
 plt.savefig('figures/'+"pyre_error"+file_ext)
 plt.clf()
 
 pyre_change_dict = {'\n'.join(wrap(key.replace('_','-'), 12)).replace('-','_'): value for key, value in pyre_change_dict.items()}
+pyre_change_dict = dict(sorted(pyre_change_dict.items(), key=lambda item: item[1], reverse=True))
 plt.figure(figsize=(20, 20))
 plt.barh(*zip(*pyre_change_dict.items()))
 plt.xticks(rotation=0)
-plt.title('Code change hinted by pyre')
+plt.title('Code change when Pyre gives a hint')
 plt.xlabel('count')
 plt.savefig('figures/'+"pyre_cc"+file_ext)
 plt.clf()
@@ -187,15 +193,17 @@ plt.clf()
 plt.rcParams.update({'font.size': 20})
 plt.figure(figsize=(20, 20))
 pyre_true_hint_dict = {'\n'.join(wrap(key.replace('_','-'), 12)).replace('-','_'): value for key, value in pyre_true_hint_dict.items()}
+pyre_true_hint_dict = dict(sorted(pyre_true_hint_dict.items(), key=lambda item: item[1], reverse=True))
 plt.barh(*zip(*pyre_true_hint_dict.items()))
 plt.xticks(rotation=0)
-plt.title('How developers use hints when "mentioned_by_pyre" is true')
+plt.title('How developers use Pyre hints when "mentioned_by_pyre" is true')
 plt.xlabel('count')
 plt.savefig('figures/'+"pyre_true_hint"+file_ext)
 plt.clf()
 
 plt.figure(figsize=(20, 15))
 pyre_false_hint_dict = {'\n'.join(wrap(key.replace('_','-'), 12)).replace('-','_'): value for key, value in pyre_false_hint_dict.items()}
+pyre_false_hint_dict = dict(sorted(pyre_false_hint_dict.items(), key=lambda item: item[1], reverse=True))
 plt.barh(*zip(*pyre_false_hint_dict.items()))
 plt.xticks(rotation=0)
 plt.title('How developers fix bugs when "mentioned_by_pyre" is false')
