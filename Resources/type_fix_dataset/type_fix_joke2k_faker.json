@@ -1,6 +1,6 @@
 [
   {
-    "isolated_code_change": "-building_number_formats = ('##', )\n+building_number_formats: ElementsType = ('##', )",
+    "isolated_code_change": "-from .. import BaseProvider, date_time\n+from .. import BaseProvider, ElementsType, date_time\n-building_number_formats = ('##', )\n+building_number_formats: ElementsType = ('##', )",
     "type_error": "Inconsistent override [15]",
     "code_transform": "MODIFY_ATTR_TYPE",
     "involved_types": [
@@ -23,12 +23,12 @@
     "url": "https://github.com/joke2k/faker/commit/9a382ed",
     "repo": "https://github.com/joke2k/faker",
     "change_runtime": false,
-    "mentioned_by_pyre": false,
-    "pyre_detail": "USE_ANOTHER_TYPE",
+    "mentioned_by_pyre": true,
+    "pyre_detail": "USE_SUPER_TYPE",
     "filepath": "faker/providers/address/__init__.py"
   }, 
   {
-    "isolated_code_change": "-postcode_formats = ('#####', )\n+postcode_formats: ElementsType = ('#####', )",
+    "isolated_code_change": "-from .. import BaseProvider, date_time\n+from .. import BaseProvider, ElementsType, date_time\n-postcode_formats = ('#####', )\n+postcode_formats: ElementsType = ('#####', )",
     "type_error": "Inconsistent override [15]",
     "code_transform": "MODIFY_ATTR_TYPE",
     "involved_types": [
@@ -51,12 +51,12 @@
     "url": "https://github.com/joke2k/faker/commit/9a382ed",
     "repo": "https://github.com/joke2k/faker",
     "change_runtime": false,
-    "mentioned_by_pyre": false,
-    "pyre_detail": "USE_ANOTHER_TYPE",
+    "mentioned_by_pyre": true,
+    "pyre_detail": "USE_SUPER_TYPE",
     "filepath": "faker/providers/address/__init__.py"
   },   
   {
-    "isolated_code_change": "-street_suffixes = ['Street']\n+street_suffixes: ElementsType = ['Street']",
+    "isolated_code_change": "-from .. import BaseProvider, date_time\n+from .. import BaseProvider, ElementsType, date_time\n-street_suffixes = ['Street']\n+street_suffixes: ElementsType = ['Street']",
     "type_error": "Inconsistent override [15]",
     "code_transform": "MODIFY_ATTR_TYPE",
     "involved_types": [
@@ -79,12 +79,12 @@
     "url": "https://github.com/joke2k/faker/commit/9a382ed",
     "repo": "https://github.com/joke2k/faker",
     "change_runtime": false,
-    "mentioned_by_pyre": false,
-    "pyre_detail": "USE_ANOTHER_TYPE",
+    "mentioned_by_pyre": true,
+    "pyre_detail": "USE_SUPER_TYPE",
     "filepath": "faker/providers/address/__init__.py"
   },
   {
-    "isolated_code_change": "-license_formats = ()\n+license_formats: ElementsType = ()",
+    "isolated_code_change": "-from .. import BaseProvider, date_time\n+from .. import BaseProvider, ElementsType, date_time\n-license_formats = ()\n+license_formats: ElementsType = ()",
     "type_error": "Inconsistent override [15]",
     "code_transform": "MODIFY_ATTR_TYPE",
     "involved_types": [
@@ -106,12 +106,12 @@
     "url": "https://github.com/joke2k/faker/commit/9a382ed",
     "repo": "https://github.com/joke2k/faker",
     "change_runtime": false,
-    "mentioned_by_pyre": false,
-    "pyre_detail": "USE_ANOTHER_TYPE",
+    "mentioned_by_pyre": true,
+    "pyre_detail": "USE_SUPER_TYPE",
     "filepath": "faker/providers/automotive/__init__.py"
   },
   {
-    "isolated_code_change": "-local_prefixes = ()\n+local_prefixes: PrefixType = ()",
+    "isolated_code_change": "+PrefixType = Tuple[Union[int, str, Tuple[Union[int, str], ...]], ...]\n-local_prefixes = ()\n+local_prefixes: PrefixType = ()",
     "type_error": "Inconsistent override [15]",
     "code_transform": "MODIFY_ATTR_TYPE",
     "involved_types": [
@@ -130,8 +130,8 @@
     "url": "https://github.com/joke2k/faker/commit/9a382ed",
     "repo": "https://github.com/joke2k/faker",
     "change_runtime": false,
-    "mentioned_by_pyre": false,
-    "pyre_detail": "USE_ANOTHER_TYPE",
+    "mentioned_by_pyre": true,
+    "pyre_detail": "USE_SUPER_TYPE",
     "filepath": "faker/providers/barcode/__init__.py"
   },    
   {
@@ -157,7 +157,7 @@
     "pyre_detail": "USE_SUPER_TYPE"
   },        
   {
-    "isolated_code_change": "-def process_list_structure(data: list) -> dict:\n+def process_list_structure(data: Sequence[Any]) -> Any:",
+    "isolated_code_change": "-available_locales: Set[str] = set():\n+available_locales = set()",
     "type_error": "Illegal annotation target [35]",
     "code_transform": "REMOVE_REANNOTATION",
     "involved_types": [
@@ -171,7 +171,7 @@
       "from": "List[str]",
       "to": "Set[Any]"
     },
-    "location": "FUN_CALLEE",
+    "location": "EXACT_LINE",
     "full_warning_msg": "faker/utils/loading.py:47:4 Illegal annotation target [35]: Target `available_locales` cannot be annotated after it is first declared.",
     "url": "https://github.com/joke2k/faker/commit/9a382ed",
     "repo": "https://github.com/joke2k/faker",

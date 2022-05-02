@@ -20,7 +20,7 @@
   {
     "isolated_code_change": "-def split_data(x, y, ratio: int = 0.8): \n+def split_data(x, y, ratio=0.8):",
     "type_error": "Incompatible variable type [9]",
-    "code_transform": "REMOVE",
+    "code_transform": "REMOVE_TYPE",
     "involved_types": [
       "int",
       "float"
@@ -36,6 +36,6 @@
     "repo": "https://github.com/keras-team/keras",
     "change_runtime": false,
     "mentioned_by_pyre": true,
-    "pyre_detail": "USE_EXPECTED_TYPE"
+    "pyre_detail": "USE_NOT_EXPECTED_TYPE"
   }
 ]

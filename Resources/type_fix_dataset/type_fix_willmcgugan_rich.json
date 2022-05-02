@@ -20,12 +20,12 @@
     "repo": "https://github.com/willmcgugan/rich",
     "change_runtime": true,
     "mentioned_by_pyre": true,
-    "pyre_detail": "ASSIGN_VALUE_OF_TYPE"
+    "pyre_detail": "USE_VALUE_OF_TYPE"
   },
   {
     "isolated_code_change": "-    total: int = None,\n+    total: Optional[float] = None,\n",
     "type_error": "Incompatible variable type [9]",
-    "code_transform": "MODIFY_VAR_TYPE",
+    "code_transform": "MODIFY_FUN_PARAM_TYPE",
     "involved_types": ["int", "Optional", "float"],
     "type_change": {
       "kind": "REPLACED",
@@ -38,12 +38,12 @@
     "repo": "https://github.com/willmcgugan/rich",
     "change_runtime": false,
     "mentioned_by_pyre": true,
-    "pyre_detail": "PARTIAL_MENTIONED_TYPE"
+    "pyre_detail": "USE_OPTIONAL_FOR_NONE"
   },
   {
     "isolated_code_change": "-        total: int = None,\n+        total: Optional[float] = None,\n",
     "type_error": "Incompatible variable type [9]",
-    "code_transform": "MODIFY_VAR_TYPE",
+    "code_transform": "MODIFY_FUN_PARAM_TYPE",
     "involved_types": ["int", "Optional", "float"],
     "type_change": {
       "kind": "REPLACED",
@@ -56,12 +56,12 @@
     "repo": "https://github.com/willmcgugan/rich",
     "change_runtime": false,
     "mentioned_by_pyre": true,
-    "pyre_detail": "PARTIAL_MENTIONED_TYPE"
+    "pyre_detail": "USE_OPTIONAL_FOR_NONE"
   },
   {
     "isolated_code_change": "-        total: float = None,\n+        total: Optional[float] = None,\n",
     "type_error": "Incompatible variable type [9]",
-    "code_transform": "MODIFY_VAR_TYPE",
+    "code_transform": "MODIFY_FUN_PARAM_TYPE",
     "involved_types": ["Optional", "float"],
     "type_change": {
       "kind": "REPLACED",
@@ -74,6 +74,6 @@
     "repo": "https://github.com/willmcgugan/rich",
     "change_runtime": false,
     "mentioned_by_pyre": true,
-    "pyre_detail": "PARTIAL_MENTIONED_TYPE"
+    "pyre_detail": "USE_OPTIONAL_FOR_NONE"
   }
 ]

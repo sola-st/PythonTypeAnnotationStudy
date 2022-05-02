@@ -2,7 +2,7 @@
   {
     "isolated_code_change": "-POS_ID_TAG = {v:k for k,v in POS_TAG_ID.iteritems()}\n+POS_ID_TAG = {v:k for k,v in POS_TAG_ID.items()}\n",
     "type_error": "Undefined attribute [16]",
-    "code_transform": "MODIFY_METHOD_CALL",
+    "code_transform": "CALL_OTHER_METHOD",
     "involved_types": [
       "Dict"
     ],

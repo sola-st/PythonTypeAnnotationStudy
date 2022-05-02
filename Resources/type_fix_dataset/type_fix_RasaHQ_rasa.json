@@ -13,7 +13,7 @@
       "from": "None",
       "to": "BaseProcess"
     },
-    "location": "EXACT_LINE",
+    "location": "ENCLOSING_FUN_RETURN",
     "full_warning_msg": "rasa/cli/x.py:225:4 Incompatible return type [7]: Expected `None` but got `multiprocessing.context.SpawnProcess`.",
     "url": "https://github.com/RasaHQ/rasa/commit/1ded5ef",
     "repo": "https://github.com/RasaHQ/rasa",
@@ -24,7 +24,7 @@
   {
     "isolated_code_change": "-return [UserUtteranceReverted()] + _message_clarification(tracker)\n+reverted_event: List[Event] = [UserUtteranceReverted()]\n+return reverted_event + _message_clarification(tracker)",
     "type_error": "Incompatible return type [7]",
-    "code_transform": "MODIFY_RETURN_TYPE",
+    "code_transform": "MODIFY_VAR_TYPE",
     "involved_types": [
       "List",
       "UserUtteranceReverted",
@@ -66,7 +66,7 @@
     "pyre_detail": "EXACT_MENTIONED_TYPE"
   },
   {
-    "isolated_code_change": "-return [UserUtteranceReverted()] + _message_clarification(tracker)\n+reverted_event: List[Event] = [UserUtteranceReverted()]\n+return reverted_event + _message_clarification(tracker)",
+    "isolated_code_change": "-return (\n+return bool(",
     "type_error": "Incompatible return type [7]",
     "code_transform": "CASTING",
     "involved_types": [
@@ -127,7 +127,7 @@
       "from": "Optional[Text]",
       "to": "Optional[Union[Path, Text]]"
     },
-    "location": "EXACT_LINE",
+    "location": "ENCLOSING_FUN_RETURN",
     "full_warning_msg": "rasa/model.py:642:8 Incompatible return type [7]: Expected `Optional[str]` but got `Union[None, Path, str]`.",
     "url": "https://github.com/RasaHQ/rasa/commit/1ded5ef",
     "repo": "https://github.com/RasaHQ/rasa",
@@ -149,7 +149,7 @@
       "from": "TypeVar(\"C\", bound=Component)",
       "to": "Optional[Component]"
     },
-    "location": "EXACT_LINE",
+    "location": "ENCLOSING_FUN_RETURN",
     "full_warning_msg": "rasa/nlu/components.py:956:8 Incompatible return type [7]: Expected `Variable[C (bound to Component)]` but got `Component`.",
     "url": "https://github.com/RasaHQ/rasa/commit/1ded5ef",
     "repo": "https://github.com/RasaHQ/rasa",
@@ -158,9 +158,9 @@
     "pyre_detail": "PARTIAL_MENTIONED_TYPE"
   },    
   {
-    "isolated_code_change": "-def create_component_from_class(self, component_class: Type[C], **cfg: Any) -> C: \n+def create_component_from_class( self, component_class: Type[Component], **cfg: Any ) -> Optional[Component]:",
+    "isolated_code_change": "-model = super().load(\n+model: ResponseSelector = super().load(",
     "type_error": "Incompatible return type [7]",
-    "code_transform": "MODIFY_FUN_RETURN_TYPE",
+    "code_transform": "MODIFY_VAR_TYPE",
     "involved_types": [
       "DIETClassifier",
       "ResponseSelector"
@@ -170,7 +170,7 @@
       "from": "DIETClassifier",
       "to": "ResponseSelector"
     },
-    "location": "EXACT_LINE",
+    "location": "ENCLOSING_FUN",
     "full_warning_msg": "rasa/nlu/selectors/response_selector.py:638:12 Incompatible return type [7]: Expected `ResponseSelector` but got `DIETClassifier`.",
     "url": "https://github.com/RasaHQ/rasa/commit/1ded5ef",
     "repo": "https://github.com/RasaHQ/rasa",
@@ -192,7 +192,7 @@
       "from": "NoEmulator",
       "to": "Emulator"
     },
-    "location": "EXACT_LINE",
+    "location": "ENCLOSING_FUN_RETURN",
     "full_warning_msg": "rasa/server.py:452:8 Incompatible return type [7]: Expected `NoEmulator` but got `WitEmulator`.",
     "url": "https://github.com/RasaHQ/rasa/commit/1ded5ef",
     "repo": "https://github.com/RasaHQ/rasa",
@@ -216,12 +216,12 @@
       "from": "Optional[Text]",
       "to": "Optional[Union[Text, Tuple[Union[float, Text]]]]"
     },
-    "location": "EXACT_LINE",
+    "location": "ENCLOSING_FUN_RETURN",
     "full_warning_msg": "rasa/shared/core/trackers.py:892:4 Incompatible return type [7]: Expected `Optional[str]` but got `Union[None, Tuple[Union[float, str]], str]`.",
     "url": "https://github.com/RasaHQ/rasa/commit/1ded5ef",
     "repo": "https://github.com/RasaHQ/rasa",
     "change_runtime": false,
-    "mentioned_by_pyre": false,
+    "mentioned_by_pyre": true,
     "pyre_detail": "USE_NOT_EXPECTED_TYPE"
   }
 ]

@@ -56,7 +56,7 @@
   {
     "isolated_code_change": "-def _get_llr(self, ts: np.ndarray, change_meta: Dict[str, Dict[str, Any]]):\n-changepoint = change_meta[\"changepoint\"]\n+def _get_llr(self, ts: np.ndarray, change_meta: Dict[str, Any]):\n+changepoint: int = change_meta[\"changepoint\"]",
     "type_error": "Unsupported operand [58]",
-    "code_transform": "MODIFY_VAR_TYPE",
+    "code_transform": "MODIFY_FUN_PARAM_TYPE",
     "involved_types": [
       "Dict", 
       "str", 
@@ -68,7 +68,7 @@
       "from": "Dict[str, Any]",
       "to": "int"
     },
-    "location": "EXACT_LINE",
+    "location": "ENCLOSING_FUN_PARAM",
     "full_warning_msg": "pyre-fixme[58]: `+` is not supported for operand types `Dict[str,  typing.Any]` and `int`.",
     "url": "https://github.com/facebookresearch/Kats/commit/feed421",
     "repo": "https://github.com/facebookresearch/Kats",
@@ -79,7 +79,7 @@
   {
     "isolated_code_change": "-def _get_llr(self, ts: np.ndarray, change_meta: Dict[str, Dict[str, Any]]):\n-mu0 = change_meta[\"mu0\"]\n+def _get_llr(self, ts: np.ndarray, change_meta: Dict[str, Any]):\n+mu0: float = change_meta[\"mu0\"]",
     "type_error": "Incompatible parameter type [6]",
-    "code_transform": "MODIFY_VAR_TYPE",
+    "code_transform": "MODIFY_FUN_PARAM_TYPE",
     "involved_types": [
       "Dict", 
       "str", 
@@ -91,7 +91,7 @@
       "from": "Dict[str, Any]",
       "to": "float"
     },
-    "location": "EXACT_LINE",
+    "location": "ENCLOSING_FUN_PARAM",
     "full_warning_msg": "pyre-fixme[6]: Expected `float` for 4th param but got `Dict[str,  typing.Any]`.",
     "url": "https://github.com/facebookresearch/Kats/commit/feed421",
     "repo": "https://github.com/facebookresearch/Kats",
@@ -100,7 +100,7 @@
     "pyre_detail": "USE_EXPECTED_TYPE"
   },
   {
-    "isolated_code_change": "-def evaluate(self, model_params: Dict[str, float] = None, data: pd.DataFrame = None, ignore_list: List[str] = None, alert_style_cp: bool = False, threshold_low: float = 0.0, threshold_high: float = 1.0) -> pd.DataFrame: \n+def evaluate( self, model_params: Optional[Dict[str, float]] = None, data: Optional[pd.DataFrame] = None, ignore_list: Optional[List[str]] = None, alert_style_cp: bool = False, threshold_low: float = 0.0, threshold_high: float = 1.0, ) -> pd.DataFrame:",
+    "isolated_code_change": "-def evaluate(self, model_params: Dict[str, float] = None\n+def evaluate( self, model_params: Optional[Dict[str, float]] = None",
     "type_error": "Incompatible variable type [9]",
     "code_transform": "MODIFY_FUN_PARAM_TYPE",
     "involved_types": [
@@ -123,7 +123,7 @@
     "pyre_detail": "USE_OPTIONAL_FOR_NONE"
   },
   {
-    "isolated_code_change": "-def evaluate(self, model_params: Dict[str, float] = None, data: pd.DataFrame = None, ignore_list: List[str] = None, alert_style_cp: bool = False, threshold_low: float = 0.0, threshold_high: float = 1.0) -> pd.DataFrame: \n+def evaluate( self, model_params: Optional[Dict[str, float]] = None, data: Optional[pd.DataFrame] = None, ignore_list: Optional[List[str]] = None, alert_style_cp: bool = False, threshold_low: float = 0.0, threshold_high: float = 1.0, ) -> pd.DataFrame:",
+    "isolated_code_change": "-data: pd.DataFrame = None\n+data: Optional[pd.DataFrame] = None",
     "type_error": "Incompatible parameter type [6]",
     "code_transform": "MODIFY_FUN_PARAM_TYPE",
     "involved_types": [
@@ -144,7 +144,7 @@
     "pyre_detail": "USE_OPTIONAL_FOR_NONE"
   },
   {
-    "isolated_code_change": "-def evaluate(self, model_params: Dict[str, float] = None, data: pd.DataFrame = None, ignore_list: List[str] = None, alert_style_cp: bool = False, threshold_low: float = 0.0, threshold_high: float = 1.0) -> pd.DataFrame: \n+def evaluate( self, model_params: Optional[Dict[str, float]] = None, data: Optional[pd.DataFrame] = None, ignore_list: Optional[List[str]] = None, alert_style_cp: bool = False, threshold_low: float = 0.0, threshold_high: float = 1.0, ) -> pd.DataFrame:",
+    "isolated_code_change": "-def evaluate(self, model_params: Dict[str, float] = None\n+def evaluate( self, model_params: Optional[Dict[str, float]] = None",
     "type_error": "Incompatible parameter type [6]",
     "code_transform": "MODIFY_FUN_PARAM_TYPE",
     "involved_types": [
@@ -179,7 +179,7 @@
       "from": "np.array",
       "to": "ArrayLike"
     },
-    "location": "FUN_CALLEE",
+    "location": "EXACT_LINE",
     "full_warning_msg": "pyre-fixme[11]: Annotation `array` is not defined as a type.",
     "url": "https://github.com/facebookresearch/Kats/commit/4884647",
     "repo": "https://github.com/facebookresearch/Kats",

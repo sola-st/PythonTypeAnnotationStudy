@@ -1,8 +1,8 @@
 [
   {
-    "isolated_code_change": "-if sys.version_info < \"3\"\n+if sys.version_info.major < 3:",
+    "isolated_code_change": "-if sys.version_info >= '3':\n+if sys.version_info.major >= 3:",
     "type_error": "Unsupported operand [58]",
-    "code_transform": "CHANGE_EXPRESSION",
+    "code_transform": "OTHER",
     "involved_types": [
       "sys._version_info",
       "str",

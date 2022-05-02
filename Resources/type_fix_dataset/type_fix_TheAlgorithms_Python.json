@@ -15,7 +15,7 @@
     "repo": "https://github.com/TheAlgorithms/Python",
     "change_runtime": true,
     "mentioned_by_pyre": true,
-    "pyre_detail": "ASSIGN_VALUE_OF_TYPE"
+    "pyre_detail": "USE_VALUE_OF_TYPE"
   },
   {
     "isolated_code_change": "-def depth_first_search(graph: dict, start: str) -> set[int]:\n+def depth_first_search(graph: dict, start: str) -> Set[str]:",
@@ -549,7 +549,7 @@
       "from": "float",
       "to": "int"
     },
-    "location": "EXACT_LINE",
+    "location": "ENCLOSING_FUN",
     "full_warning_msg": "project_euler/problem_003/sol1.py:100:4 Incompatible return type [7]: Expected `int` but got `float`.",
     "url": "https://github.com/TheAlgorithms/Python/commit/bcfca67",
     "repo": "https://github.com/TheAlgorithms/Python",
@@ -609,7 +609,7 @@
     "repo": "https://github.com/TheAlgorithms/Python",
     "change_runtime": true,
     "mentioned_by_pyre": true,
-    "pyre_detail": "ASSIGN_VALUE_OF_TYPE"
+    "pyre_detail": "USE_VALUE_OF_TYPE"
   },
   {
     "isolated_code_change": "+    return -1",
@@ -627,7 +627,7 @@
     "repo": "https://github.com/TheAlgorithms/Python",
     "change_runtime": true,
     "mentioned_by_pyre": true,
-    "pyre_detail": "ASSIGN_VALUE_OF_TYPE"
+    "pyre_detail": "USE_VALUE_OF_TYPE"
   },  
   {
     "isolated_code_change": "-def fibonacci_generator() -> int:\n+def fibonacci_generator() -> Generator[int, None, None]:\n",
@@ -681,7 +681,7 @@
     "repo": "https://github.com/TheAlgorithms/Python",
     "change_runtime": true,
     "mentioned_by_pyre": true,
-    "pyre_detail": "ASSIGN_VALUE_OF_TYPE"
+    "pyre_detail": "USE_VALUE_OF_TYPE"
   },
   {
     "isolated_code_change": "+    return []",
@@ -699,12 +699,12 @@
     "repo": "https://github.com/TheAlgorithms/Python",
     "change_runtime": true,
     "mentioned_by_pyre": true,
-    "pyre_detail": "ASSIGN_VALUE_OF_TYPE"
+    "pyre_detail": "USE_VALUE_OF_TYPE"
   },
   {
     "isolated_code_change": "-    number = str(number)\n+    number_str = str(number)\n",
     "type_error": "Incompatible variable type [9]",
-    "code_transform": "RENAME_VAR",
+    "code_transform": "CREATE_NEW_VAR",
     "involved_types": ["int", "str"],
     "type_change": {
       "kind": "REPLACED",
@@ -789,7 +789,7 @@
     "repo": "https://github.com/TheAlgorithms/Python",
     "change_runtime": true,
     "mentioned_by_pyre": true,
-    "pyre_detail": "ASSIGN_VALUE_OF_TYPE"
+    "pyre_detail": "USE_VALUE_OF_TYPE"
   },        
   {
     "isolated_code_change": "-    largest = [0, 0]\n+    largest: float = 0\n+    result = 0\n-        if x * log10(a) > largest[0]:\n-            largest = [x * log10(a), i + 1]\n-    return largest[1]\n+        if x * log10(a) > largest:\n+            largest = x * log10(a)\n+            result = i + 1\n+    return result\n",
@@ -842,8 +842,8 @@
     "url": "https://github.com/TheAlgorithms/Python/commit/bcfca67",
     "repo": "https://github.com/TheAlgorithms/Python",
     "change_runtime": false,
-    "mentioned_by_pyre": true,
-    "pyre_detail": "USE_CALLABLE"
+    "mentioned_by_pyre": false,
+    "pyre_detail": "NO_HINT"
   },
   {
     "isolated_code_change": "-    poly: int\n+    poly: Callable[[int], int]\n",
@@ -860,8 +860,8 @@
     "url": "https://github.com/TheAlgorithms/Python/commit/bcfca67",
     "repo": "https://github.com/TheAlgorithms/Python",
     "change_runtime": false,
-    "mentioned_by_pyre": true,
-    "pyre_detail": "USE_CALLABLE"
+    "mentioned_by_pyre": false,
+    "pyre_detail": "NO_HINT"
   },
   {
     "isolated_code_change": "-        x = _modexpt(base, exponent / 2, modulo_value) % modulo_value\n+        x = _modexpt(base, exponent // 2, modulo_value) % modulo_value\n",

@@ -13,7 +13,7 @@
     },
     "location": "EXACT_LINE",
     "full_warning_msg": "anchore_engine/analyzers/modules/12_gem_package_list.py:48:28 Undefined attribute [16]: `str` has no attribute `decode`.",
-    "url": "https://github.com/anchore/anchore-engine/commit/f8b608c2065024872e83282837a8c4274c04c31f",
+    "url": "https://github.com/anchore/anchore-engine/commit/e18868031a2913a7f9a0ef4ac3beef12ac9218c3",
     "repo": "https://github.com/anchore/anchore-engine",
     "change_runtime": true,
     "mentioned_by_pyre": false,

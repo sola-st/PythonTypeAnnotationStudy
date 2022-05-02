@@ -20,7 +20,7 @@
   {
     "isolated_code_change": "+name = None\n-    return get_full_name_for_node(node)\n-elif len(names) == 1:\n-    return names[0]\n-else:\n+    name = get_full_name_for_node(node)\n+elif len(names) == 1 and isinstance(names[0], str):\n+    name = names[0]\n+if name is None:\n+return name\n",
     "type_error": "Incompatible return type [7]",
-    "code_transform": "MODIFY_FUN_RETURN_VALUE",
+    "code_transform": "ADD_NONE_CHECK",
     "involved_types": ["str", "Optional"],
     "type_change": {
       "kind": "REPLACED",
