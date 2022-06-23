@@ -1,0 +1,313 @@
+[
+    {
+        "execution_time": "",
+        "machine": {
+            "OS": "Linux-4.15.0-166-generic-x86_64-with-Ubuntu-18.04-bionic",
+            "CPU": "x86_64",
+            "CORES": 48
+        },
+        "total_repositories": 1,
+        "total_commits": 5184,
+        "commit_year_dict": {
+            "2016": 152,
+            "2017": 1102,
+            "2018": 1260,
+            "2019": 1022,
+            "2020": 856,
+            "2021": 792
+        },
+        "loc_year_edit": {
+            "2016": 25547,
+            "2017": 169257,
+            "2018": 90774,
+            "2019": 58628,
+            "2020": 29306,
+            "2021": 71357
+        },
+        "s0": "------------------------------------------------------------------------",
+        "RQ0": "How many types are used?",
+        "code_changes": [],
+        "commit_statistics": [],
+        "repo_with_types_changes": 1,
+        "percentage_repo_with_typeChanges": "",
+        "commits_with_typeChanges": 3,
+        "percentage_commits_with_typeChanges": "",
+        "total_typeAnnotation_codeChanges": 6,
+        "s1": "------------------------------------------------------------------------",
+        "RQ1": "Are type annotation inserted, removed and changed?",
+        "insert_types": {
+            "2019": 3,
+            "2020": 1
+        },
+        "percentage_insert_types": "",
+        "remove_types": {
+            "2020": 2
+        },
+        "percentage_remove_types": "",
+        "modify_existing_types": {},
+        "percentage_modify_existing_types": "",
+        "s2": "------------------------------------------------------------------------",
+        "RQ2_1": "What types are added (generic, numeric, ...)?",
+        "anyType_added": 0,
+        "noneType_added": 0,
+        "numericType_added": 0,
+        "binarySequenceType_added": 0,
+        "textSequenceType_added": 0,
+        "mappingTypes_added": 0,
+        "setTypes_added": 0,
+        "sequenceType_added": 0,
+        "newType_added": 0,
+        "total_added": 4,
+        "RQ2_2": "What are the top 5 types added?",
+        "typeAdded_dict": {
+            "argparse.argumentparser": 1,
+            "colorattr": 3
+        },
+        "RQ2_3": "What types are removed (generic, numeric, ...)?",
+        "anyType_removed": 0,
+        "noneType_removed": 0,
+        "numericType_removed": 0,
+        "binarySequenceType_removed": 0,
+        "textSequenceType_removed": 0,
+        "mappingTypes_removed": 0,
+        "setTypes_removed": 0,
+        "sequenceType_removed": 0,
+        "newType_removed": 0,
+        "total_removed": 2,
+        "RQ2_4": "What are the top 5 types removed?",
+        "typeRemoved_dict": {
+            "argparse.argumentparser": 1,
+            "colorattr": 1
+        },
+        "RQ2_5": "What types are the top 10 changed ?",
+        "total_changed": 0,
+        "typeChanged_dict_var": {},
+        "typeChanged_dict_arg": {},
+        "typeChanged_dict_ret": {},
+        "s3": "------------------------------------------------------------------------",
+        "RQ3_1": "Where are types added (function args, function returns, variables)?",
+        "functionArgsType_added": 3,
+        "functionReturnsType_added": 1,
+        "variableType_added": 0,
+        "RQ3_2": "Where are types removed (function args, function returns, variables)?",
+        "functionArgsType_removed": 2,
+        "functionReturnsType_removed": 0,
+        "variableType_removed": 0,
+        "RQ3_3": "Where are types changed (function args, function returns, variables?",
+        "functionArgsType_changed": 0,
+        "functionReturnsType_changed": 0,
+        "variableType_changed": 0,
+        "s4": "------------------------------------------------------------------------",
+        "RQ4_1": "Are types added along with other changes around this code or in commits that only add types?",
+        "typeAnnotation_added_per_commit": 0,
+        "list_typeAnnotation_added_per_commit": [],
+        "RQ4_2": "Are types removed along with other changes around this code or in commits that only add types?",
+        "typeAnnotation_removed_per_commit": 0,
+        "list_typeAnnotation_removed_per_commit": [],
+        "RQ4_3": "Are types changed along with other changes around this code or in commits that only add types?",
+        "typeAnnotation_changed_per_commit": 0,
+        "list_typeAnnotation_changed_per_commit": [
+            2.272727272727273,
+            4.166666666666666,
+            6.25,
+            1.8518518518518516,
+            2.380952380952381
+        ],
+        "annotation_related_insertion_edits_vs_all_commit": [],
+        "annotation_related_deletion_edits_vs_all_commit": [],
+        "s5": "------------------------------------------------------------------------",
+        "RQ5": "Relation of properties of projects vs. properties of type changes.",
+        "matrix_commits_stars_annotations": [
+            [
+                "2016",
+                "5184",
+                "3084",
+                "6",
+                "116",
+                "9",
+                "57",
+                "6714",
+                "68",
+                "0",
+                "0",
+                "15041"
+            ]
+        ],
+        "matrix_files_annotations": [],
+        "matrix_test_files_annotations": [],
+        "dict_funct_call_no_types": {},
+        "dict_funct_call_types": {},
+        "s6": "------------------------------------------------------------------------",
+        "RQ6": "Which are the top 10 repository with the highest number of type annotations.",
+        "number_type_annotations_per_repo": {
+            "https://github.com/saulpw/visidata": 6
+        },
+        "s7": "------------------------------------------------------------------------",
+        "RQ7": "How many of all types are annotated in the last version of the code?",
+        "typeLastProjectVersion_total": 2,
+        "typeLastProjectVersion_average": 0,
+        "typeLastProjectVersion_percentage": [
+            50.0
+        ],
+        "typeLastProjectVersion_dict": {
+            "https://github.com/saulpw/visidata": 2
+        },
+        "typeLastProjectVersion_dict_error": {},
+        "RQ8": "Total number of annotations over time, across all projects",
+        "typeAnnotation_year_analysis": {
+            "2019": 3,
+            "2020": 1
+        },
+        "RQ9": "Total number of annotation-related commit over time, across all projects",
+        "typeAnnotation_commit_annotation_year_analysis": {
+            "2019": 2,
+            "2020": 1
+        },
+        "typeAnnotation_commit_not_annotation_year_analysis": {
+            "2019": 545,
+            "2020": 46
+        },
+        "RQ10": "Type annotation coverage for each each",
+        "annotation_coverage": {
+            "2014": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+            ],
+            "2015": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+            ],
+            "2016": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+            ],
+            "2017": [
+                0,
+                2911,
+                0,
+                1329,
+                0,
+                2277
+            ],
+            "2018": [
+                0,
+                4086,
+                0,
+                1839,
+                0,
+                3613
+            ],
+            "2019": [
+                2,
+                2405,
+                1,
+                1060,
+                0,
+                2243
+            ],
+            "2020": [
+                3,
+                10927,
+                3,
+                4864,
+                0,
+                10024
+            ]
+        },
+        "RQ11": "Developers statistics",
+        "list_dev_dict": [
+            {
+                "saulpw-visidata": 0,
+                "code@saul.pw": 2,
+                "anja.kefala@gmail.com": 1
+            }
+        ],
+        "list_dev_dict_total": [
+            {
+                "saulpw-visidata": 0,
+                "code@saul.pw": 3385,
+                "bill.booth@oracle.com": 1,
+                "saulpwanson@gmail.com": 56,
+                "vivian@eff.org": 10,
+                "anja.kefala@gmail.com": 1443,
+                "ubuntu@ip-172-31-39-130.us-west-2.compute.internal": 1,
+                "nt4u@kpvn.de": 3,
+                "brannerchinese@users.noreply.github.com": 36,
+                "dev@hermann.in": 1,
+                "jeffarn12@gmail.com": 2,
+                "pdeboer5@gmail.com": 1,
+                "databranner@gmail.com": 2,
+                "nathan.guerin@riseup.net": 3,
+                "cj.tapper@gmail.com": 1,
+                "keith.hughitt@gmail.com": 5,
+                "aboskovic@vitalimages.com": 6,
+                "jpgrayson@gmail.com": 1,
+                "karl42@gmail.com": 1,
+                "led@users.noreply.github.com": 2,
+                "chocolate@cpan.org": 5,
+                "deinspanjer@gmail.com": 1,
+                "lucas.c.messenger@gmail.com": 18,
+                "l.messenger@temperednetworks.com": 2,
+                "ssiegel@sdas.net": 1,
+                "aborruso@gmail.com": 2,
+                "kovas.palunas@gmail.com": 3,
+                "quantum.analyst@gmail.com": 1,
+                "azjps@users.noreply.github.com": 6,
+                "polm@dampfkraft.com": 4,
+                "tom@zulutango.org": 12,
+                "rasmusscholer@gmail.com": 2,
+                "f.rosencrantz@gmail.com": 3,
+                "akerrigan@mdsol.com": 8,
+                "kerrigan.aj@gmail.com": 46,
+                "sfranky@gmail.com": 2,
+                "tom@tombh.co.uk": 1,
+                "andrew.swanson@tdstelecom.com": 1,
+                "andrew@swanso.net": 1,
+                "daniel@cynerio.co": 6,
+                "www@zulutango.org": 1,
+                "jsvine@gmail.com": 6,
+                "github.7rhdeqzfu7@pkt5.com": 20,
+                "aj@speckledmonkey.com": 11,
+                "interface@p3k.org": 8,
+                "andreas.motl@panodata.org": 1,
+                "L.Plant.98@cantab.net": 1,
+                "anatoli@rainforce.org": 2,
+                "sthen@users.noreply.github.com": 1,
+                "jeremydormitzer@lola.com": 1,
+                "SuRaMoN@users.noreply.github.com": 4,
+                "matthew-github@dracos.co.uk": 2,
+                "cwarden@xerus.org": 1,
+                "zjv5002@gmail.com": 1,
+                "t.anquetin@samsung.com": 1,
+                "ryanprior@hey.com": 4,
+                "luke@luke.work": 20,
+                "moritz@sendwave.com": 1,
+                "dthiel@stanford.edu": 1,
+                "mwayne@gmail.com": 1,
+                "pacien.trangirard@pacien.net": 3,
+                "stuart@stuartellis.name": 1,
+                "davidskeck@users.noreply.github.com": 1,
+                "jim@jimamberger.name": 1,
+                "peter@stuifzand.eu": 1,
+                "markus1189@gmail.com": 1,
+                "jim.amberger@gmail.com": 2,
+                "adren@users.noreply.github.com": 1
+            }
+        ],
+        "dev_dict": {},
+        "dev_dict_total": {},
+        "list_dev_plot": []
+    }
+]

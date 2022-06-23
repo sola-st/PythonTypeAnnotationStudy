@@ -1,0 +1,321 @@
+[
+    {
+        "execution_time": "",
+        "machine": {
+            "OS": "Linux-4.15.0-166-generic-x86_64-with-Ubuntu-18.04-bionic",
+            "CPU": "x86_64",
+            "CORES": 48
+        },
+        "total_repositories": 1,
+        "total_commits": 223,
+        "commit_year_dict": {
+            "2018": 179,
+            "2020": 41,
+            "2021": 3
+        },
+        "loc_year_edit": {
+            "2018": 10804,
+            "2020": 4878,
+            "2021": 68
+        },
+        "s0": "------------------------------------------------------------------------",
+        "RQ0": "How many types are used?",
+        "code_changes": [],
+        "commit_statistics": [],
+        "repo_with_types_changes": 1,
+        "percentage_repo_with_typeChanges": "",
+        "commits_with_typeChanges": 40,
+        "percentage_commits_with_typeChanges": "",
+        "total_typeAnnotation_codeChanges": 703,
+        "s1": "------------------------------------------------------------------------",
+        "RQ1": "Are type annotation inserted, removed and changed?",
+        "insert_types": {
+            "2018": 421,
+            "2020": 162
+        },
+        "percentage_insert_types": "",
+        "remove_types": {
+            "2018": 66,
+            "2020": 51
+        },
+        "percentage_remove_types": "",
+        "modify_existing_types": {
+            "2018": 3
+        },
+        "percentage_modify_existing_types": "",
+        "s2": "------------------------------------------------------------------------",
+        "RQ2_1": "What types are added (generic, numeric, ...)?",
+        "anyType_added": 0,
+        "noneType_added": 0,
+        "numericType_added": 0,
+        "binarySequenceType_added": 0,
+        "textSequenceType_added": 0,
+        "mappingTypes_added": 0,
+        "setTypes_added": 0,
+        "sequenceType_added": 0,
+        "newType_added": 0,
+        "total_added": 583,
+        "RQ2_2": "What are the top 5 types added?",
+        "typeAdded_dict": {
+            "str": 398,
+            "int": 117,
+            "tuple": 11,
+            "list": 4,
+            "professor": 4,
+            "ghost": 5,
+            "'charm'": 5,
+            "'transfiguration'": 1,
+            "'jinx'": 1,
+            "'hex'": 1,
+            "'curse'": 1,
+            "'counterspell'": 1,
+            "'healingspell'": 1,
+            "'darkarmymember'": 1,
+            "'castlekilmeremember'": 11,
+            "'professor'": 4,
+            "bool": 9,
+            "'pupil'": 6,
+            "'spell'": 2
+        },
+        "RQ2_3": "What types are removed (generic, numeric, ...)?",
+        "anyType_removed": 0,
+        "noneType_removed": 0,
+        "numericType_removed": 0,
+        "binarySequenceType_removed": 0,
+        "textSequenceType_removed": 0,
+        "mappingTypes_removed": 0,
+        "setTypes_removed": 0,
+        "sequenceType_removed": 0,
+        "newType_removed": 0,
+        "total_removed": 117,
+        "RQ2_4": "What are the top 5 types removed?",
+        "typeRemoved_dict": {
+            "str": 88,
+            "int": 18,
+            "tuple": 3,
+            "list": 4,
+            "professor": 1,
+            "ghost": 3
+        },
+        "RQ2_5": "What types are the top 10 changed ?",
+        "total_changed": 3,
+        "typeChanged_dict_var": {
+            "str -> int": 1
+        },
+        "typeChanged_dict_arg": {
+            "str -> tr": 1,
+            "tr -> str": 1
+        },
+        "typeChanged_dict_ret": {},
+        "s3": "------------------------------------------------------------------------",
+        "RQ3_1": "Where are types added (function args, function returns, variables)?",
+        "functionArgsType_added": 427,
+        "functionReturnsType_added": 117,
+        "variableType_added": 39,
+        "RQ3_2": "Where are types removed (function args, function returns, variables)?",
+        "functionArgsType_removed": 97,
+        "functionReturnsType_removed": 0,
+        "variableType_removed": 20,
+        "RQ3_3": "Where are types changed (function args, function returns, variables?",
+        "functionArgsType_changed": 2,
+        "functionReturnsType_changed": 0,
+        "variableType_changed": 1,
+        "s4": "------------------------------------------------------------------------",
+        "RQ4_1": "Are types added along with other changes around this code or in commits that only add types?",
+        "typeAnnotation_added_per_commit": 0,
+        "list_typeAnnotation_added_per_commit": [],
+        "RQ4_2": "Are types removed along with other changes around this code or in commits that only add types?",
+        "typeAnnotation_removed_per_commit": 0,
+        "list_typeAnnotation_removed_per_commit": [],
+        "RQ4_3": "Are types changed along with other changes around this code or in commits that only add types?",
+        "typeAnnotation_changed_per_commit": 0,
+        "list_typeAnnotation_changed_per_commit": [
+            4.166666666666666,
+            4.166666666666666,
+            4.166666666666666,
+            2.2222222222222223,
+            100.0,
+            1.9296254256526675,
+            1.2195121951219512,
+            2.5454545454545454,
+            11.11111111111111,
+            3.4482758620689653,
+            2.88659793814433,
+            5.347593582887701,
+            8.13953488372093,
+            11.11111111111111,
+            100.0,
+            2.5,
+            4.421052631578947,
+            3.508771929824561,
+            3.664921465968586,
+            3.664921465968586,
+            0.29895366218236175,
+            9.090909090909092,
+            4.3478260869565215,
+            8.045977011494253,
+            7.142857142857142,
+            5.263157894736842,
+            2.857142857142857,
+            2.7027027027027026,
+            4.201680672268908,
+            6.217616580310881,
+            51.02040816326531,
+            6.756756756756757,
+            2.3529411764705883,
+            5.357142857142857,
+            2.127659574468085,
+            8.695652173913043,
+            31.428571428571427,
+            25.806451612903224,
+            32.25806451612903,
+            15.0,
+            7.6923076923076925,
+            9.090909090909092,
+            26.08695652173913,
+            20.833333333333336,
+            1.1904761904761905,
+            12.345679012345679,
+            1.6129032258064515,
+            30.76923076923077,
+            10.476190476190476,
+            3.571428571428571,
+            8.333333333333332,
+            11.11111111111111,
+            14.285714285714285,
+            14.285714285714285,
+            6.25
+        ],
+        "annotation_related_insertion_edits_vs_all_commit": [],
+        "annotation_related_deletion_edits_vs_all_commit": [],
+        "s5": "------------------------------------------------------------------------",
+        "RQ5": "Relation of properties of projects vs. properties of type changes.",
+        "matrix_commits_stars_annotations": [
+            [
+                "2018",
+                "223",
+                "747",
+                "703",
+                "52",
+                "0",
+                "35",
+                "151",
+                "3",
+                "0",
+                "0",
+                "3234"
+            ]
+        ],
+        "matrix_files_annotations": [],
+        "matrix_test_files_annotations": [],
+        "dict_funct_call_no_types": {},
+        "dict_funct_call_types": {},
+        "s6": "------------------------------------------------------------------------",
+        "RQ6": "Which are the top 10 repository with the highest number of type annotations.",
+        "number_type_annotations_per_repo": {
+            "https://github.com/zotroneneis/magical_universe": 703
+        },
+        "s7": "------------------------------------------------------------------------",
+        "RQ7": "How many of all types are annotated in the last version of the code?",
+        "typeLastProjectVersion_total": 443,
+        "typeLastProjectVersion_average": 0,
+        "typeLastProjectVersion_percentage": [
+            75.99
+        ],
+        "typeLastProjectVersion_dict": {
+            "https://github.com/zotroneneis/magical_universe": 443
+        },
+        "typeLastProjectVersion_dict_error": {},
+        "RQ8": "Total number of annotations over time, across all projects",
+        "typeAnnotation_year_analysis": {
+            "2018": 421,
+            "2020": 162
+        },
+        "RQ9": "Total number of annotation-related commit over time, across all projects",
+        "typeAnnotation_commit_annotation_year_analysis": {
+            "2018": 21,
+            "2020": 19
+        },
+        "typeAnnotation_commit_not_annotation_year_analysis": {
+            "2018": 149,
+            "2020": 19
+        },
+        "RQ10": "Type annotation coverage for each each",
+        "annotation_coverage": {
+            "2014": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+            ],
+            "2015": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+            ],
+            "2016": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+            ],
+            "2017": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+            ],
+            "2018": [
+                660,
+                1224,
+                0,
+                1028,
+                52,
+                512
+            ],
+            "2019": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+            ],
+            "2020": [
+                649,
+                1235,
+                15,
+                1017,
+                48,
+                507
+            ]
+        },
+        "RQ11": "Developers statistics",
+        "list_dev_dict": [
+            {
+                "zotroneneis-magical_universe": 0,
+                "popkes@gmx.net": 39,
+                "zotroneneis@users.noreply.github.com": 1
+            }
+        ],
+        "list_dev_dict_total": [
+            {
+                "zotroneneis-magical_universe": 0,
+                "popkes@gmx.net": 131,
+                "zotroneneis@users.noreply.github.com": 92
+            }
+        ],
+        "dev_dict": {},
+        "dev_dict_total": {},
+        "list_dev_plot": []
+    }
+]

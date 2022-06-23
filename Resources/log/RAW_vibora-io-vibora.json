@@ -1,0 +1,333 @@
+[
+    {
+        "execution_time": "",
+        "machine": {
+            "OS": "Linux-4.15.0-166-generic-x86_64-with-Ubuntu-18.04-bionic",
+            "CPU": "x86_64",
+            "CORES": 48
+        },
+        "total_repositories": 1,
+        "total_commits": 141,
+        "commit_year_dict": {
+            "2018": 139,
+            "2019": 2
+        },
+        "loc_year_edit": {
+            "2018": 12447,
+            "2019": 13
+        },
+        "s0": "------------------------------------------------------------------------",
+        "RQ0": "How many types are used?",
+        "code_changes": [],
+        "commit_statistics": [],
+        "repo_with_types_changes": 1,
+        "percentage_repo_with_typeChanges": "",
+        "commits_with_typeChanges": 8,
+        "percentage_commits_with_typeChanges": "",
+        "total_typeAnnotation_codeChanges": 307,
+        "s1": "------------------------------------------------------------------------",
+        "RQ1": "Are type annotation inserted, removed and changed?",
+        "insert_types": {
+            "2018": 211
+        },
+        "percentage_insert_types": "",
+        "remove_types": {
+            "2018": 91
+        },
+        "percentage_remove_types": "",
+        "modify_existing_types": {
+            "2018": 5
+        },
+        "percentage_modify_existing_types": "",
+        "s2": "------------------------------------------------------------------------",
+        "RQ2_1": "What types are added (generic, numeric, ...)?",
+        "anyType_added": 0,
+        "noneType_added": 0,
+        "numericType_added": 0,
+        "binarySequenceType_added": 0,
+        "textSequenceType_added": 0,
+        "mappingTypes_added": 0,
+        "setTypes_added": 0,
+        "sequenceType_added": 0,
+        "newType_added": 0,
+        "total_added": 211,
+        "RQ2_2": "What are the top 5 types added?",
+        "typeAdded_dict": {
+            "request": 16,
+            "config": 1,
+            "testcomponent": 2,
+            "testcomponent2": 2,
+            "str": 38,
+            "request2": 1,
+            "list": 11,
+            "callable": 5,
+            "serverlimits": 1,
+            "routelimits": 1,
+            "type": 2,
+            "int": 26,
+            "bool": 25,
+            "dict": 20,
+            "session": 5,
+            "retrystrategy": 1,
+            "response": 5,
+            "connection": 1,
+            "'route'": 1,
+            "vibora": 8,
+            "missingcomponent": 1,
+            "exception": 1,
+            "tuple [bytes]": 1,
+            "tuple": 1,
+            "typing.callable": 1,
+            "bytes": 10,
+            "sessionengine": 6,
+            "none": 8,
+            "statichandler": 1,
+            "type [request]": 1,
+            "optional [response]": 1,
+            "headers": 1,
+            "list [uploadedfile]": 1,
+            "optional [str]": 1,
+            "iterable [union [str,bytes]]": 1,
+            "set": 1,
+            "object": 1,
+            "mock": 1
+        },
+        "RQ2_3": "What types are removed (generic, numeric, ...)?",
+        "anyType_removed": 0,
+        "noneType_removed": 0,
+        "numericType_removed": 0,
+        "binarySequenceType_removed": 0,
+        "textSequenceType_removed": 0,
+        "mappingTypes_removed": 0,
+        "setTypes_removed": 0,
+        "sequenceType_removed": 0,
+        "newType_removed": 0,
+        "total_removed": 91,
+        "RQ2_4": "What are the top 5 types removed?",
+        "typeRemoved_dict": {
+            "str": 17,
+            "bytes": 20,
+            "int": 9,
+            "bytearray": 2,
+            "list": 7,
+            "dict": 9,
+            "headers": 1,
+            "stream": 1,
+            "bool": 4,
+            "parseresult": 1,
+            "requestparams": 1,
+            "session": 4,
+            "list [uploadedfile]": 1,
+            "request": 3,
+            "sessionengine": 3,
+            "response": 1,
+            "type": 1,
+            "callable": 2,
+            "route": 1,
+            "'streamingresponse'": 2,
+            "object": 1
+        },
+        "RQ2_5": "What types are the top 10 changed ?",
+        "total_changed": 5,
+        "typeChanged_dict_var": {},
+        "typeChanged_dict_arg": {
+            "list -> list [str]": 1,
+            "session -> retries_module.retrystrategy": 1,
+            "retrystrategy -> retries_module.retrystrategy": 1,
+            "typing.callable -> callable": 1
+        },
+        "typeChanged_dict_ret": {
+            "sessionengine -> bool": 1
+        },
+        "s3": "------------------------------------------------------------------------",
+        "RQ3_1": "Where are types added (function args, function returns, variables)?",
+        "functionArgsType_added": 165,
+        "functionReturnsType_added": 32,
+        "variableType_added": 14,
+        "RQ3_2": "Where are types removed (function args, function returns, variables)?",
+        "functionArgsType_removed": 71,
+        "functionReturnsType_removed": 19,
+        "variableType_removed": 1,
+        "RQ3_3": "Where are types changed (function args, function returns, variables?",
+        "functionArgsType_changed": 4,
+        "functionReturnsType_changed": 1,
+        "variableType_changed": 0,
+        "s4": "------------------------------------------------------------------------",
+        "RQ4_1": "Are types added along with other changes around this code or in commits that only add types?",
+        "typeAnnotation_added_per_commit": 0,
+        "list_typeAnnotation_added_per_commit": [],
+        "RQ4_2": "Are types removed along with other changes around this code or in commits that only add types?",
+        "typeAnnotation_removed_per_commit": 0,
+        "list_typeAnnotation_removed_per_commit": [],
+        "RQ4_3": "Are types changed along with other changes around this code or in commits that only add types?",
+        "typeAnnotation_changed_per_commit": 0,
+        "list_typeAnnotation_changed_per_commit": [
+            6.506849315068493,
+            4.477611940298507,
+            2.7777777777777777,
+            0.8733624454148471,
+            5.178571428571429,
+            5.47945205479452,
+            3.30188679245283,
+            8.673469387755102,
+            1.8518518518518516,
+            0.6451612903225806,
+            11.363636363636363,
+            3.377110694183865,
+            4.009433962264151,
+            4.25531914893617
+        ],
+        "annotation_related_insertion_edits_vs_all_commit": [],
+        "annotation_related_deletion_edits_vs_all_commit": [],
+        "s5": "------------------------------------------------------------------------",
+        "RQ5": "Relation of properties of projects vs. properties of type changes.",
+        "matrix_commits_stars_annotations": [
+            [
+                "2018",
+                "141",
+                "5627",
+                "307",
+                "316",
+                "149",
+                "65",
+                "135",
+                "28",
+                "0",
+                "0",
+                "374"
+            ]
+        ],
+        "matrix_files_annotations": [],
+        "matrix_test_files_annotations": [],
+        "dict_funct_call_no_types": {},
+        "dict_funct_call_types": {},
+        "s6": "------------------------------------------------------------------------",
+        "RQ6": "Which are the top 10 repository with the highest number of type annotations.",
+        "number_type_annotations_per_repo": {
+            "https://github.com/vibora-io/vibora": 307
+        },
+        "s7": "------------------------------------------------------------------------",
+        "RQ7": "How many of all types are annotated in the last version of the code?",
+        "typeLastProjectVersion_total": 685,
+        "typeLastProjectVersion_average": 0,
+        "typeLastProjectVersion_percentage": [
+            324.64
+        ],
+        "typeLastProjectVersion_dict": {
+            "https://github.com/vibora-io/vibora": 685
+        },
+        "typeLastProjectVersion_dict_error": {},
+        "RQ8": "Total number of annotations over time, across all projects",
+        "typeAnnotation_year_analysis": {
+            "2018": 211
+        },
+        "RQ9": "Total number of annotation-related commit over time, across all projects",
+        "typeAnnotation_commit_annotation_year_analysis": {
+            "2018": 8
+        },
+        "typeAnnotation_commit_not_annotation_year_analysis": {
+            "2018": 131
+        },
+        "RQ10": "Type annotation coverage for each each",
+        "annotation_coverage": {
+            "2014": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+            ],
+            "2015": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+            ],
+            "2016": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+            ],
+            "2017": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+            ],
+            "2018": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+            ],
+            "2019": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+            ],
+            "2020": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+            ]
+        },
+        "RQ11": "Developers statistics",
+        "list_dev_dict": [
+            {
+                "vibora-io-vibora": 0,
+                "frank@frankvieira.com.br": 8
+            }
+        ],
+        "list_dev_dict_total": [
+            {
+                "vibora-io-vibora": 0,
+                "frank@frankvieira.com.br": 103,
+                "ricky@ucsb.edu": 1,
+                "pyx@xrefactor.com": 3,
+                "liujinjin0806005bubu@gmail.com": 1,
+                "brettcannon@users.noreply.github.com": 2,
+                "spindolafilipe@gmail.com": 2,
+                "mohdshakir@gmail.com": 1,
+                "zwork101@gmail.com": 1,
+                "cclauss@bluewin.ch": 1,
+                "6186720+NyanKiyoshi@users.noreply.github.com": 1,
+                "3lnc.slam@gmail.com": 1,
+                "daltonmatos@gmail.com": 1,
+                "jscott35@uic.edu": 3,
+                "mariatta.wijaya@gmail.com": 1,
+                "thatiparthysreenivas@gmail.com": 1,
+                "mandarvaze@gmail.com": 1,
+                "craigdanj@gmail.com": 1,
+                "michelelacchia@gmail.com": 1,
+                "emauricio@users.noreply.github.com": 1,
+                "boris.uwarow@gmail.com": 1,
+                "4catcode@gmail.com": 2,
+                "eli@boyar.ski": 1,
+                "asfaltboy@gmail.com": 1,
+                "daniel.daeschle@gmail.com": 3,
+                "40815324+gkdoc@users.noreply.github.com": 1,
+                "xinqiu.94@gmail.com": 2,
+                "frank@frankvieira.io": 3
+            }
+        ],
+        "dev_dict": {},
+        "dev_dict_total": {},
+        "list_dev_plot": []
+    }
+]

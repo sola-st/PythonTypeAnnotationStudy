@@ -1,0 +1,307 @@
+[
+    {
+        "execution_time": "",
+        "machine": {
+            "OS": "Linux-4.15.0-166-generic-x86_64-with-Ubuntu-18.04-bionic",
+            "CPU": "x86_64",
+            "CORES": 48
+        },
+        "total_repositories": 1,
+        "total_commits": 91,
+        "commit_year_dict": {
+            "2018": 26,
+            "2019": 57,
+            "2021": 8
+        },
+        "loc_year_edit": {
+            "2018": 295015,
+            "2019": 75366,
+            "2021": 1417
+        },
+        "s0": "------------------------------------------------------------------------",
+        "RQ0": "How many types are used?",
+        "code_changes": [],
+        "commit_statistics": [],
+        "repo_with_types_changes": 1,
+        "percentage_repo_with_typeChanges": "",
+        "commits_with_typeChanges": 15,
+        "percentage_commits_with_typeChanges": "",
+        "total_typeAnnotation_codeChanges": 165,
+        "s1": "------------------------------------------------------------------------",
+        "RQ1": "Are type annotation inserted, removed and changed?",
+        "insert_types": {
+            "2018": 58,
+            "2019": 24,
+            "2021": 1
+        },
+        "percentage_insert_types": "",
+        "remove_types": {
+            "2018": 11,
+            "2019": 63
+        },
+        "percentage_remove_types": "",
+        "modify_existing_types": {
+            "2018": 5,
+            "2019": 3
+        },
+        "percentage_modify_existing_types": "",
+        "s2": "------------------------------------------------------------------------",
+        "RQ2_1": "What types are added (generic, numeric, ...)?",
+        "anyType_added": 0,
+        "noneType_added": 0,
+        "numericType_added": 0,
+        "binarySequenceType_added": 0,
+        "textSequenceType_added": 0,
+        "mappingTypes_added": 0,
+        "setTypes_added": 0,
+        "sequenceType_added": 0,
+        "newType_added": 0,
+        "total_added": 83,
+        "RQ2_2": "What are the top 5 types added?",
+        "typeAdded_dict": {
+            "str": 12,
+            "none": 6,
+            "xdata": 1,
+            "xmodel": 1,
+            "pd.dataframe": 7,
+            "list [str]": 25,
+            "int": 12,
+            "attribute(\n    value=attribute(\n        value=attribute(\n            value=name(\n                value='pd',\n                lpar=[],\n                rpar=[],\n            ),\n            attr=name(\n                value='core',\n                lpar=[],\n                rpar=[],\n            ),\n            dot=dot(\n                whitespace_before=simplewhitespace(\n                    value='',\n                ),\n                whitespace_after=simplewhitespace(\n                    value='',\n                ),\n            ),\n            lpar=[],\n            rpar=[],\n        ),\n        attr=name(\n            value='groupby',\n            lpar=[],\n            rpar=[],\n        ),\n        dot=dot(\n            whitespace_before=simplewhitespace(\n                value='',\n            ),\n            whitespace_after=simplewhitespace(\n                value='',\n            ),\n        ),\n        lpar=[],\n        rpar=[],\n    ),\n    attr=name(\n        value='groupby',\n        lpar=[],\n        rpar=[],\n    ),\n    dot=dot(\n        whitespace_before=simplewhitespace(\n            value='',\n        ),\n        whitespace_after=simplewhitespace(\n            value='',\n        ),\n    ),\n    lpar=[],\n    rpar=[],\n).dataframegroupby": 1,
+            "bool": 3,
+            "list": 1,
+            "any": 4,
+            "tuple [pd,optional [np]]": 1,
+            "tuple [pd,np,pd,np,np,np]": 1,
+            "np.ndarray": 5,
+            "float": 2,
+            "dict [str,float]": 1
+        },
+        "RQ2_3": "What types are removed (generic, numeric, ...)?",
+        "anyType_removed": 0,
+        "noneType_removed": 0,
+        "numericType_removed": 0,
+        "binarySequenceType_removed": 0,
+        "textSequenceType_removed": 0,
+        "mappingTypes_removed": 0,
+        "setTypes_removed": 0,
+        "sequenceType_removed": 0,
+        "newType_removed": 0,
+        "total_removed": 74,
+        "RQ2_4": "What are the top 5 types removed?",
+        "typeRemoved_dict": {
+            "str": 11,
+            "list [str]": 28,
+            "int": 10,
+            "xmodel": 1,
+            "pd.dataframe": 6,
+            "float": 1,
+            "bool": 1,
+            "list": 1,
+            "none": 4,
+            "attribute(\n    value=attribute(\n        value=attribute(\n            value=name(\n                value='pd',\n                lpar=[],\n                rpar=[],\n            ),\n            attr=name(\n                value='core',\n                lpar=[],\n                rpar=[],\n            ),\n            dot=dot(\n                whitespace_before=simplewhitespace(\n                    value='',\n                ),\n                whitespace_after=simplewhitespace(\n                    value='',\n                ),\n            ),\n            lpar=[],\n            rpar=[],\n        ),\n        attr=name(\n            value='groupby',\n            lpar=[],\n            rpar=[],\n        ),\n        dot=dot(\n            whitespace_before=simplewhitespace(\n                value='',\n            ),\n            whitespace_after=simplewhitespace(\n                value='',\n            ),\n        ),\n        lpar=[],\n        rpar=[],\n    ),\n    attr=name(\n        value='groupby',\n        lpar=[],\n        rpar=[],\n    ),\n    dot=dot(\n        whitespace_before=simplewhitespace(\n            value='',\n        ),\n        whitespace_after=simplewhitespace(\n            value='',\n        ),\n    ),\n    lpar=[],\n    rpar=[],\n).dataframegroupby": 2,
+            "any": 8,
+            "xdata": 1
+        },
+        "RQ2_5": "What types are the top 10 changed ?",
+        "total_changed": 8,
+        "typeChanged_dict_var": {},
+        "typeChanged_dict_arg": {
+            "int -> float": 2,
+            "list [str] -> lireplacest [str]": 1,
+            "lireplacest [str] -> list [str]": 1,
+            "np.array -> union [np,list]": 1,
+            "int -> optional [int]": 1
+        },
+        "typeChanged_dict_ret": {
+            "none -> any": 2
+        },
+        "s3": "------------------------------------------------------------------------",
+        "RQ3_1": "Where are types added (function args, function returns, variables)?",
+        "functionArgsType_added": 67,
+        "functionReturnsType_added": 15,
+        "variableType_added": 1,
+        "RQ3_2": "Where are types removed (function args, function returns, variables)?",
+        "functionArgsType_removed": 60,
+        "functionReturnsType_removed": 13,
+        "variableType_removed": 1,
+        "RQ3_3": "Where are types changed (function args, function returns, variables?",
+        "functionArgsType_changed": 6,
+        "functionReturnsType_changed": 2,
+        "variableType_changed": 0,
+        "s4": "------------------------------------------------------------------------",
+        "RQ4_1": "Are types added along with other changes around this code or in commits that only add types?",
+        "typeAnnotation_added_per_commit": 0,
+        "list_typeAnnotation_added_per_commit": [],
+        "RQ4_2": "Are types removed along with other changes around this code or in commits that only add types?",
+        "typeAnnotation_removed_per_commit": 0,
+        "list_typeAnnotation_removed_per_commit": [],
+        "RQ4_3": "Are types changed along with other changes around this code or in commits that only add types?",
+        "typeAnnotation_changed_per_commit": 0,
+        "list_typeAnnotation_changed_per_commit": [
+            5.88235294117647,
+            0.03521333411585187,
+            12.5,
+            9.554140127388536,
+            1.7241379310344827,
+            5.555555555555555,
+            0.28328611898017,
+            0.3920287487749101,
+            1.3186813186813187,
+            0.08525149190110827,
+            0.014080540692762602,
+            0.00839066957543212,
+            0.13850415512465375,
+            0.31545741324921134,
+            2.4691358024691357,
+            0.006129892420388023,
+            13.666666666666666,
+            0.23696682464454977,
+            0.23148148148148145,
+            1.9801980198019802,
+            8.860759493670885,
+            0.38461538461538464,
+            1.3100436681222707,
+            2.7027027027027026,
+            0.3289473684210526,
+            0.1006036217303823,
+            0.03462603878116344,
+            5.185185185185185,
+            50.0
+        ],
+        "annotation_related_insertion_edits_vs_all_commit": [],
+        "annotation_related_deletion_edits_vs_all_commit": [],
+        "s5": "------------------------------------------------------------------------",
+        "RQ5": "Relation of properties of projects vs. properties of type changes.",
+        "matrix_commits_stars_annotations": [
+            [
+                "2019",
+                "91",
+                "509",
+                "165",
+                "78",
+                "4",
+                "2",
+                "57",
+                "4",
+                "0",
+                "0",
+                "18036"
+            ]
+        ],
+        "matrix_files_annotations": [],
+        "matrix_test_files_annotations": [],
+        "dict_funct_call_no_types": {},
+        "dict_funct_call_types": {},
+        "s6": "------------------------------------------------------------------------",
+        "RQ6": "Which are the top 10 repository with the highest number of type annotations.",
+        "number_type_annotations_per_repo": {
+            "https://github.com/EthicalML/xai": 165
+        },
+        "s7": "------------------------------------------------------------------------",
+        "RQ7": "How many of all types are annotated in the last version of the code?",
+        "typeLastProjectVersion_total": 53,
+        "typeLastProjectVersion_average": 0,
+        "typeLastProjectVersion_percentage": [
+            63.86
+        ],
+        "typeLastProjectVersion_dict": {
+            "https://github.com/EthicalML/xai": 53
+        },
+        "typeLastProjectVersion_dict_error": {},
+        "RQ8": "Total number of annotations over time, across all projects",
+        "typeAnnotation_year_analysis": {
+            "2018": 58,
+            "2019": 24,
+            "2021": 1
+        },
+        "RQ9": "Total number of annotation-related commit over time, across all projects",
+        "typeAnnotation_commit_annotation_year_analysis": {
+            "2018": 7,
+            "2019": 7,
+            "2021": 1
+        },
+        "typeAnnotation_commit_not_annotation_year_analysis": {
+            "2018": 14,
+            "2019": 27,
+            "2021": 7
+        },
+        "RQ10": "Type annotation coverage for each each",
+        "annotation_coverage": {
+            "2014": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+            ],
+            "2015": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+            ],
+            "2016": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+            ],
+            "2017": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+            ],
+            "2018": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+            ],
+            "2019": [
+                46,
+                62,
+                5,
+                21,
+                1,
+                170
+            ],
+            "2020": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+            ]
+        },
+        "RQ11": "Developers statistics",
+        "list_dev_dict": [
+            {
+                "EthicalML-xai": 0,
+                "axsauze@gmail.com": 14,
+                "saimanthena13579@gmail.com": 1
+            }
+        ],
+        "list_dev_dict_total": [
+            {
+                "EthicalML-xai": 0,
+                "axsauze@gmail.com": 89,
+                "uwais.iqbal94@gmail.com": 1,
+                "saimanthena13579@gmail.com": 1
+            }
+        ],
+        "dev_dict": {},
+        "dev_dict_total": {},
+        "list_dev_plot": []
+    }
+]

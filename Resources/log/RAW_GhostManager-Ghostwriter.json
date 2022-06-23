@@ -1,0 +1,261 @@
+[
+    {
+        "execution_time": "",
+        "machine": {
+            "OS": "Linux-4.15.0-166-generic-x86_64-with-Ubuntu-18.04-bionic",
+            "CPU": "x86_64",
+            "CORES": 48
+        },
+        "total_repositories": 1,
+        "total_commits": 950,
+        "commit_year_dict": {
+            "2019": 86,
+            "2020": 336,
+            "2021": 528
+        },
+        "loc_year_edit": {
+            "2019": 31244,
+            "2020": 112966,
+            "2021": 50328
+        },
+        "s0": "------------------------------------------------------------------------",
+        "RQ0": "How many types are used?",
+        "code_changes": [],
+        "commit_statistics": [],
+        "repo_with_types_changes": 1,
+        "percentage_repo_with_typeChanges": "",
+        "commits_with_typeChanges": 3,
+        "percentage_commits_with_typeChanges": "",
+        "total_typeAnnotation_codeChanges": 38,
+        "s1": "------------------------------------------------------------------------",
+        "RQ1": "Are type annotation inserted, removed and changed?",
+        "insert_types": {
+            "2019": 10,
+            "2020": 16
+        },
+        "percentage_insert_types": "",
+        "remove_types": {
+            "2021": 12
+        },
+        "percentage_remove_types": "",
+        "modify_existing_types": {},
+        "percentage_modify_existing_types": "",
+        "s2": "------------------------------------------------------------------------",
+        "RQ2_1": "What types are added (generic, numeric, ...)?",
+        "anyType_added": 0,
+        "noneType_added": 0,
+        "numericType_added": 0,
+        "binarySequenceType_added": 0,
+        "textSequenceType_added": 0,
+        "mappingTypes_added": 0,
+        "setTypes_added": 0,
+        "sequenceType_added": 0,
+        "newType_added": 0,
+        "total_added": 26,
+        "RQ2_2": "What are the top 5 types added?",
+        "typeAdded_dict": {
+            "httprequest": 2,
+            "any": 1,
+            "settings.auth_user_model": 4,
+            "requestfactory": 3,
+            "str": 4,
+            "answer": 1,
+            "list": 6,
+            "union [answer,nxdomain,noanswer]": 1,
+            "dict": 4
+        },
+        "RQ2_3": "What types are removed (generic, numeric, ...)?",
+        "anyType_removed": 0,
+        "noneType_removed": 0,
+        "numericType_removed": 0,
+        "binarySequenceType_removed": 0,
+        "textSequenceType_removed": 0,
+        "mappingTypes_removed": 0,
+        "setTypes_removed": 0,
+        "sequenceType_removed": 0,
+        "newType_removed": 0,
+        "total_removed": 12,
+        "RQ2_4": "What are the top 5 types removed?",
+        "typeRemoved_dict": {
+            "bool": 1,
+            "sequence [any]": 1,
+            "settings.auth_user_model": 6,
+            "requestfactory": 4
+        },
+        "RQ2_5": "What types are the top 10 changed ?",
+        "total_changed": 0,
+        "typeChanged_dict_var": {},
+        "typeChanged_dict_arg": {},
+        "typeChanged_dict_ret": {},
+        "s3": "------------------------------------------------------------------------",
+        "RQ3_1": "Where are types added (function args, function returns, variables)?",
+        "functionArgsType_added": 20,
+        "functionReturnsType_added": 6,
+        "variableType_added": 0,
+        "RQ3_2": "Where are types removed (function args, function returns, variables)?",
+        "functionArgsType_removed": 10,
+        "functionReturnsType_removed": 2,
+        "variableType_removed": 0,
+        "RQ3_3": "Where are types changed (function args, function returns, variables?",
+        "functionArgsType_changed": 0,
+        "functionReturnsType_changed": 0,
+        "variableType_changed": 0,
+        "s4": "------------------------------------------------------------------------",
+        "RQ4_1": "Are types added along with other changes around this code or in commits that only add types?",
+        "typeAnnotation_added_per_commit": 0,
+        "list_typeAnnotation_added_per_commit": [],
+        "RQ4_2": "Are types removed along with other changes around this code or in commits that only add types?",
+        "typeAnnotation_removed_per_commit": 0,
+        "list_typeAnnotation_removed_per_commit": [],
+        "RQ4_3": "Are types changed along with other changes around this code or in commits that only add types?",
+        "typeAnnotation_changed_per_commit": 0,
+        "list_typeAnnotation_changed_per_commit": [
+            0.02533355852052018,
+            3.614457831325301,
+            0.14903129657228018,
+            3.225806451612903,
+            6.25,
+            4.0
+        ],
+        "annotation_related_insertion_edits_vs_all_commit": [],
+        "annotation_related_deletion_edits_vs_all_commit": [],
+        "s5": "------------------------------------------------------------------------",
+        "RQ5": "Relation of properties of projects vs. properties of type changes.",
+        "matrix_commits_stars_annotations": [
+            [
+                "2019",
+                "950",
+                "319",
+                "38",
+                "65",
+                "37",
+                "124",
+                "1207",
+                "12",
+                "0",
+                "0",
+                "5271"
+            ]
+        ],
+        "matrix_files_annotations": [],
+        "matrix_test_files_annotations": [],
+        "dict_funct_call_no_types": {},
+        "dict_funct_call_types": {},
+        "s6": "------------------------------------------------------------------------",
+        "RQ6": "Which are the top 10 repository with the highest number of type annotations.",
+        "number_type_annotations_per_repo": {
+            "https://github.com/GhostManager/Ghostwriter": 38
+        },
+        "s7": "------------------------------------------------------------------------",
+        "RQ7": "How many of all types are annotated in the last version of the code?",
+        "typeLastProjectVersion_total": 24,
+        "typeLastProjectVersion_average": 0,
+        "typeLastProjectVersion_percentage": [
+            92.31
+        ],
+        "typeLastProjectVersion_dict": {
+            "https://github.com/GhostManager/Ghostwriter": 24
+        },
+        "typeLastProjectVersion_dict_error": {},
+        "RQ8": "Total number of annotations over time, across all projects",
+        "typeAnnotation_year_analysis": {
+            "2019": 10,
+            "2020": 16
+        },
+        "RQ9": "Total number of annotation-related commit over time, across all projects",
+        "typeAnnotation_commit_annotation_year_analysis": {
+            "2019": 1,
+            "2020": 2
+        },
+        "typeAnnotation_commit_not_annotation_year_analysis": {
+            "2019": 85,
+            "2020": 156
+        },
+        "RQ10": "Type annotation coverage for each each",
+        "annotation_coverage": {
+            "2014": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+            ],
+            "2015": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+            ],
+            "2016": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+            ],
+            "2017": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+            ],
+            "2018": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+            ],
+            "2019": [
+                54,
+                1905,
+                9,
+                1197,
+                0,
+                5260
+            ],
+            "2020": [
+                64,
+                2951,
+                14,
+                1701,
+                0,
+                7008
+            ]
+        },
+        "RQ11": "Developers statistics",
+        "list_dev_dict": [
+            {
+                "GhostManager-Ghostwriter": 0,
+                "cmaddalena@specterops.io": 1,
+                "chris.maddalena@protonmail.com": 2
+            }
+        ],
+        "list_dev_dict_total": [
+            {
+                "GhostManager-Ghostwriter": 0,
+                "cmaddalena@specterops.io": 537,
+                "lorenzo.acc@bernardi.be": 3,
+                "covertgeek@users.noreply.github.com": 3,
+                "lorenzo@bernardi.be": 15,
+                "chris.maddalena@protonmail.com": 352,
+                "dbuentello@mioty.com": 1,
+                "chris.maddalena@gmail.com": 1,
+                "mattreduce@users.noreply.github.com": 1,
+                "hotnops@protonmail.com": 31,
+                "achiles@specterops.io": 2,
+                "admin@specterops.io": 4
+            }
+        ],
+        "dev_dict": {},
+        "dev_dict_total": {},
+        "list_dev_plot": []
+    }
+]

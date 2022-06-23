@@ -1,0 +1,293 @@
+[
+    {
+        "execution_time": "",
+        "machine": {
+            "OS": "Linux-4.15.0-166-generic-x86_64-with-Ubuntu-18.04-bionic",
+            "CPU": "x86_64",
+            "CORES": 48
+        },
+        "total_repositories": 1,
+        "total_commits": 480,
+        "commit_year_dict": {
+            "2019": 253,
+            "2020": 199,
+            "2021": 28
+        },
+        "loc_year_edit": {
+            "2019": 87952,
+            "2020": 26421,
+            "2021": 2547
+        },
+        "s0": "------------------------------------------------------------------------",
+        "RQ0": "How many types are used?",
+        "code_changes": [],
+        "commit_statistics": [],
+        "repo_with_types_changes": 1,
+        "percentage_repo_with_typeChanges": "",
+        "commits_with_typeChanges": 10,
+        "percentage_commits_with_typeChanges": "",
+        "total_typeAnnotation_codeChanges": 45,
+        "s1": "------------------------------------------------------------------------",
+        "RQ1": "Are type annotation inserted, removed and changed?",
+        "insert_types": {
+            "2019": 1,
+            "2020": 33,
+            "2021": 7
+        },
+        "percentage_insert_types": "",
+        "remove_types": {
+            "2020": 3,
+            "2021": 1
+        },
+        "percentage_remove_types": "",
+        "modify_existing_types": {},
+        "percentage_modify_existing_types": "",
+        "s2": "------------------------------------------------------------------------",
+        "RQ2_1": "What types are added (generic, numeric, ...)?",
+        "anyType_added": 0,
+        "noneType_added": 0,
+        "numericType_added": 0,
+        "binarySequenceType_added": 0,
+        "textSequenceType_added": 0,
+        "mappingTypes_added": 0,
+        "setTypes_added": 0,
+        "sequenceType_added": 0,
+        "newType_added": 0,
+        "total_added": 41,
+        "RQ2_2": "What are the top 5 types added?",
+        "typeAdded_dict": {
+            "str": 10,
+            "bertconfig": 2,
+            "tasktype": 1,
+            "mtdnntask": 1,
+            "taskdef": 2,
+            "list [taskdef]": 3,
+            "torch.longtensor": 5,
+            "list [str]": 1,
+            "bool": 6,
+            "int": 5,
+            "torch.tensor": 2,
+            "tuple [np,np]": 1,
+            "float": 1,
+            "optional [str]": 1
+        },
+        "RQ2_3": "What types are removed (generic, numeric, ...)?",
+        "anyType_removed": 0,
+        "noneType_removed": 0,
+        "numericType_removed": 0,
+        "binarySequenceType_removed": 0,
+        "textSequenceType_removed": 0,
+        "mappingTypes_removed": 0,
+        "setTypes_removed": 0,
+        "sequenceType_removed": 0,
+        "newType_removed": 0,
+        "total_removed": 4,
+        "RQ2_4": "What are the top 5 types removed?",
+        "typeRemoved_dict": {
+            "bertconfig": 1,
+            "tasktype": 1,
+            "mtdnntask": 1,
+            "str": 1
+        },
+        "RQ2_5": "What types are the top 10 changed ?",
+        "total_changed": 0,
+        "typeChanged_dict_var": {},
+        "typeChanged_dict_arg": {},
+        "typeChanged_dict_ret": {},
+        "s3": "------------------------------------------------------------------------",
+        "RQ3_1": "Where are types added (function args, function returns, variables)?",
+        "functionArgsType_added": 32,
+        "functionReturnsType_added": 5,
+        "variableType_added": 4,
+        "RQ3_2": "Where are types removed (function args, function returns, variables)?",
+        "functionArgsType_removed": 3,
+        "functionReturnsType_removed": 1,
+        "variableType_removed": 0,
+        "RQ3_3": "Where are types changed (function args, function returns, variables?",
+        "functionArgsType_changed": 0,
+        "functionReturnsType_changed": 0,
+        "variableType_changed": 0,
+        "s4": "------------------------------------------------------------------------",
+        "RQ4_1": "Are types added along with other changes around this code or in commits that only add types?",
+        "typeAnnotation_added_per_commit": 0,
+        "list_typeAnnotation_added_per_commit": [],
+        "RQ4_2": "Are types removed along with other changes around this code or in commits that only add types?",
+        "typeAnnotation_removed_per_commit": 0,
+        "list_typeAnnotation_removed_per_commit": [],
+        "RQ4_3": "Are types changed along with other changes around this code or in commits that only add types?",
+        "typeAnnotation_changed_per_commit": 0,
+        "list_typeAnnotation_changed_per_commit": [
+            0.6451612903225806,
+            2.0408163265306123,
+            0.8333333333333334,
+            0.7751937984496124,
+            1.8433179723502304,
+            1.2048192771084338,
+            8.823529411764707,
+            8.0,
+            6.25,
+            0.8226691042047531,
+            0.9615384615384616,
+            2.928870292887029,
+            1.1363636363636365
+        ],
+        "annotation_related_insertion_edits_vs_all_commit": [],
+        "annotation_related_deletion_edits_vs_all_commit": [],
+        "s5": "------------------------------------------------------------------------",
+        "RQ5": "Relation of properties of projects vs. properties of type changes.",
+        "matrix_commits_stars_annotations": [
+            [
+                "2019",
+                "480",
+                "1497",
+                "45",
+                "306",
+                "11",
+                "22",
+                "644",
+                "25",
+                "0",
+                "0",
+                "1774"
+            ]
+        ],
+        "matrix_files_annotations": [],
+        "matrix_test_files_annotations": [],
+        "dict_funct_call_no_types": {},
+        "dict_funct_call_types": {},
+        "s6": "------------------------------------------------------------------------",
+        "RQ6": "Which are the top 10 repository with the highest number of type annotations.",
+        "number_type_annotations_per_repo": {
+            "https://github.com/namisan/mt-dnn": 45
+        },
+        "s7": "------------------------------------------------------------------------",
+        "RQ7": "How many of all types are annotated in the last version of the code?",
+        "typeLastProjectVersion_total": 20,
+        "typeLastProjectVersion_average": 0,
+        "typeLastProjectVersion_percentage": [
+            48.78
+        ],
+        "typeLastProjectVersion_dict": {
+            "https://github.com/namisan/mt-dnn": 20
+        },
+        "typeLastProjectVersion_dict_error": {},
+        "RQ8": "Total number of annotations over time, across all projects",
+        "typeAnnotation_year_analysis": {
+            "2019": 1,
+            "2020": 33,
+            "2021": 7
+        },
+        "RQ9": "Total number of annotation-related commit over time, across all projects",
+        "typeAnnotation_commit_annotation_year_analysis": {
+            "2019": 1,
+            "2020": 8,
+            "2021": 1
+        },
+        "typeAnnotation_commit_not_annotation_year_analysis": {
+            "2019": 88,
+            "2020": 150,
+            "2021": 10
+        },
+        "RQ10": "Type annotation coverage for each each",
+        "annotation_coverage": {
+            "2014": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+            ],
+            "2015": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+            ],
+            "2016": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+            ],
+            "2017": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+            ],
+            "2018": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+            ],
+            "2019": [
+                0,
+                2048,
+                0,
+                721,
+                0,
+                3202
+            ],
+            "2020": [
+                29,
+                3963,
+                10,
+                1334,
+                7,
+                6047
+            ]
+        },
+        "RQ11": "Developers statistics",
+        "list_dev_dict": [
+            {
+                "namisan-mt-dnn": 0,
+                "anselmwang@gmail.com": 1,
+                "yuwan@microsoft.com": 6,
+                "liuxiaodongby@gmail.com": 2,
+                "xiaodl@microsoft.com": 1
+            }
+        ],
+        "list_dev_dict_total": [
+            {
+                "namisan-mt-dnn": 0,
+                "liuxiaodongby@gmail.com": 281,
+                "32424535+monomagentaeggroll@users.noreply.github.com": 1,
+                "chenweizhu@msn.com": 1,
+                "BrittonWinterrose@users.noreply.github.com": 1,
+                "pidugusundeep5@gmail.com": 2,
+                "llychinalz@gmail.com": 5,
+                "xiaodl@microsoft.com": 36,
+                "trustghwu@gmail.com": 1,
+                "yuwan@microsoft.com": 53,
+                "mehrad@stanford.edu": 14,
+                "rintaro@fout.jp": 4,
+                "shal2@illinois.edu": 1,
+                "anselmwang@gmail.com": 24,
+                "jianshuj89@gmail.com": 1,
+                "jianshuj@microsoft.com": 35,
+                "raj.ratn18@gamil.com": 2,
+                "penhe@microsoft.com": 3,
+                "38195654+BigBird01@users.noreply.github.com": 6,
+                "mariamedp@gmail.com": 2,
+                "root@GCRAZGDL382.redmond.corp.microsoft.com": 1,
+                "41173877+gjamsue@users.noreply.github.com": 2,
+                "ruowu@microsoft.com": 1,
+                "pai@tangxiangguangdeMacBook-Pro.local": 2,
+                "8727782+hao-cheng@users.noreply.github.com": 1
+            }
+        ],
+        "dev_dict": {},
+        "dev_dict_total": {},
+        "list_dev_plot": []
+    }
+]

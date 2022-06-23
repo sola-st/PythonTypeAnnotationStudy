@@ -1,0 +1,282 @@
+[
+    {
+        "execution_time": "",
+        "machine": {
+            "OS": "Linux-4.15.0-166-generic-x86_64-with-Ubuntu-18.04-bionic",
+            "CPU": "x86_64",
+            "CORES": 48
+        },
+        "total_repositories": 1,
+        "total_commits": 707,
+        "commit_year_dict": {
+            "2015": 45,
+            "2016": 111,
+            "2017": 69,
+            "2018": 203,
+            "2019": 121,
+            "2020": 142,
+            "2021": 16
+        },
+        "loc_year_edit": {
+            "2015": 477,
+            "2016": 588549,
+            "2017": 219782,
+            "2018": 75153,
+            "2019": 29384,
+            "2020": 19031,
+            "2021": 2119
+        },
+        "s0": "------------------------------------------------------------------------",
+        "RQ0": "How many types are used?",
+        "code_changes": [],
+        "commit_statistics": [],
+        "repo_with_types_changes": 1,
+        "percentage_repo_with_typeChanges": "",
+        "commits_with_typeChanges": 4,
+        "percentage_commits_with_typeChanges": "",
+        "total_typeAnnotation_codeChanges": 19,
+        "s1": "------------------------------------------------------------------------",
+        "RQ1": "Are type annotation inserted, removed and changed?",
+        "insert_types": {
+            "2020": 18
+        },
+        "percentage_insert_types": "",
+        "remove_types": {
+            "2020": 1
+        },
+        "percentage_remove_types": "",
+        "modify_existing_types": {},
+        "percentage_modify_existing_types": "",
+        "s2": "------------------------------------------------------------------------",
+        "RQ2_1": "What types are added (generic, numeric, ...)?",
+        "anyType_added": 0,
+        "noneType_added": 0,
+        "numericType_added": 0,
+        "binarySequenceType_added": 0,
+        "textSequenceType_added": 0,
+        "mappingTypes_added": 0,
+        "setTypes_added": 0,
+        "sequenceType_added": 0,
+        "newType_added": 0,
+        "total_added": 18,
+        "RQ2_2": "What are the top 5 types added?",
+        "typeAdded_dict": {
+            "union [int,float]": 6,
+            "str": 1,
+            "weather": 1,
+            "dict": 1,
+            "none": 1,
+            "bool": 1,
+            "one_call.onecall": 1,
+            "optional [weather]": 5,
+            "int": 1
+        },
+        "RQ2_3": "What types are removed (generic, numeric, ...)?",
+        "anyType_removed": 0,
+        "noneType_removed": 0,
+        "numericType_removed": 0,
+        "binarySequenceType_removed": 0,
+        "textSequenceType_removed": 0,
+        "mappingTypes_removed": 0,
+        "setTypes_removed": 0,
+        "sequenceType_removed": 0,
+        "newType_removed": 0,
+        "total_removed": 1,
+        "RQ2_4": "What are the top 5 types removed?",
+        "typeRemoved_dict": {
+            "bool": 1
+        },
+        "RQ2_5": "What types are the top 10 changed ?",
+        "total_changed": 0,
+        "typeChanged_dict_var": {},
+        "typeChanged_dict_arg": {},
+        "typeChanged_dict_ret": {},
+        "s3": "------------------------------------------------------------------------",
+        "RQ3_1": "Where are types added (function args, function returns, variables)?",
+        "functionArgsType_added": 16,
+        "functionReturnsType_added": 2,
+        "variableType_added": 0,
+        "RQ3_2": "Where are types removed (function args, function returns, variables)?",
+        "functionArgsType_removed": 1,
+        "functionReturnsType_removed": 0,
+        "variableType_removed": 0,
+        "RQ3_3": "Where are types changed (function args, function returns, variables?",
+        "functionArgsType_changed": 0,
+        "functionReturnsType_changed": 0,
+        "variableType_changed": 0,
+        "s4": "------------------------------------------------------------------------",
+        "RQ4_1": "Are types added along with other changes around this code or in commits that only add types?",
+        "typeAnnotation_added_per_commit": 0,
+        "list_typeAnnotation_added_per_commit": [],
+        "RQ4_2": "Are types removed along with other changes around this code or in commits that only add types?",
+        "typeAnnotation_removed_per_commit": 0,
+        "list_typeAnnotation_removed_per_commit": [],
+        "RQ4_3": "Are types changed along with other changes around this code or in commits that only add types?",
+        "typeAnnotation_changed_per_commit": 0,
+        "list_typeAnnotation_changed_per_commit": [
+            1.303538175046555,
+            0.11049723756906078,
+            4.166666666666666,
+            14.285714285714285,
+            0.16877637130801687
+        ],
+        "annotation_related_insertion_edits_vs_all_commit": [],
+        "annotation_related_deletion_edits_vs_all_commit": [],
+        "s5": "------------------------------------------------------------------------",
+        "RQ5": "Relation of properties of projects vs. properties of type changes.",
+        "matrix_commits_stars_annotations": [
+            [
+                "2013",
+                "707",
+                "601",
+                "19",
+                "123",
+                "7",
+                "1161",
+                "1328",
+                "32",
+                "0",
+                "0",
+                "22658"
+            ]
+        ],
+        "matrix_files_annotations": [],
+        "matrix_test_files_annotations": [],
+        "dict_funct_call_no_types": {},
+        "dict_funct_call_types": {},
+        "s6": "------------------------------------------------------------------------",
+        "RQ6": "Which are the top 10 repository with the highest number of type annotations.",
+        "number_type_annotations_per_repo": {
+            "https://github.com/csparpa/pyowm": 19
+        },
+        "s7": "------------------------------------------------------------------------",
+        "RQ7": "How many of all types are annotated in the last version of the code?",
+        "typeLastProjectVersion_total": 19,
+        "typeLastProjectVersion_average": 0,
+        "typeLastProjectVersion_percentage": [
+            105.56
+        ],
+        "typeLastProjectVersion_dict": {
+            "https://github.com/csparpa/pyowm": 19
+        },
+        "typeLastProjectVersion_dict_error": {},
+        "RQ8": "Total number of annotations over time, across all projects",
+        "typeAnnotation_year_analysis": {
+            "2020": 18
+        },
+        "RQ9": "Total number of annotation-related commit over time, across all projects",
+        "typeAnnotation_commit_annotation_year_analysis": {
+            "2020": 4
+        },
+        "typeAnnotation_commit_not_annotation_year_analysis": {
+            "2020": 115
+        },
+        "RQ10": "Type annotation coverage for each each",
+        "annotation_coverage": {
+            "2014": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+            ],
+            "2015": [
+                0,
+                928,
+                0,
+                644,
+                0,
+                1116
+            ],
+            "2016": [
+                0,
+                1910,
+                0,
+                1324,
+                0,
+                2338
+            ],
+            "2017": [
+                0,
+                3320,
+                0,
+                2158,
+                0,
+                4019
+            ],
+            "2018": [
+                5,
+                8379,
+                1,
+                5235,
+                0,
+                10329
+            ],
+            "2019": [
+                5,
+                4086,
+                1,
+                2511,
+                0,
+                4992
+            ],
+            "2020": [
+                26,
+                4162,
+                4,
+                2577,
+                0,
+                5217
+            ]
+        },
+        "RQ11": "Developers statistics",
+        "list_dev_dict": [
+            {
+                "csparpa-pyowm": 0,
+                "robert@resch.dev": 2,
+                "jwmelvin@gmail.com": 1,
+                "csparpa@gmail.com": 1
+            }
+        ],
+        "list_dev_dict_total": [
+            {
+                "csparpa-pyowm": 0,
+                "csparpa@gmail.com": 607,
+                "claudiosparpaglione@gmail.com": 3,
+                "dustin.hildebrandt@invenia.ca": 1,
+                "claudio@walletsaver.com": 18,
+                "x@x00.us": 3,
+                "tim.schneider@nb-dev.de": 1,
+                "claudio.sparpaglione@certilogo.com": 22,
+                "andrewnorilsk@gmail.com": 6,
+                "titilambert@gmail.com": 1,
+                "txemitron@gmail.com": 1,
+                "mail@lukas-boersma.com": 1,
+                "alec.hewitt9@gmail.com": 1,
+                "claudio@imac-di-loredana-celano.local": 1,
+                "simone.zabberoni@gmail.com": 1,
+                "EJEP@users.noreply.github.com": 2,
+                "camponez@gmail.com": 1,
+                "31631183+dev-iks@users.noreply.github.com": 1,
+                "claudio.sparpaglione@intesasanpaolo.com": 3,
+                "retrain24@gmail.com": 1,
+                "robert@resch.dev": 9,
+                "6774676+eumiro@users.noreply.github.com": 1,
+                "Harmon758@gmail.com": 1,
+                "jwmelvin@gmail.com": 4,
+                "17592840+Wesley-Vos@users.noreply.github.com": 1,
+                "Tobiaqs@users.noreply.github.com": 1,
+                "49699333+dependabot[bot]@users.noreply.github.com": 1,
+                "roman465@hotmail.com": 3,
+                "aaron@rockforest.org": 3,
+                "jandeo92@gmail.com": 5,
+                "ira89@icloud.com": 2,
+                "matthew.crossley.2003@gmail.com": 1
+            }
+        ],
+        "dev_dict": {},
+        "dev_dict_total": {},
+        "list_dev_plot": []
+    }
+]

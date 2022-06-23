@@ -1,0 +1,308 @@
+[
+    {
+        "execution_time": "",
+        "machine": {
+            "OS": "Linux-4.15.0-166-generic-x86_64-with-Ubuntu-18.04-bionic",
+            "CPU": "x86_64",
+            "CORES": 48
+        },
+        "total_repositories": 1,
+        "total_commits": 149,
+        "commit_year_dict": {
+            "2019": 77,
+            "2020": 36,
+            "2021": 36
+        },
+        "loc_year_edit": {
+            "2019": 41081,
+            "2020": 12769,
+            "2021": 10074
+        },
+        "s0": "------------------------------------------------------------------------",
+        "RQ0": "How many types are used?",
+        "code_changes": [],
+        "commit_statistics": [],
+        "repo_with_types_changes": 1,
+        "percentage_repo_with_typeChanges": "",
+        "commits_with_typeChanges": 13,
+        "percentage_commits_with_typeChanges": "",
+        "total_typeAnnotation_codeChanges": 212,
+        "s1": "------------------------------------------------------------------------",
+        "RQ1": "Are type annotation inserted, removed and changed?",
+        "insert_types": {
+            "2019": 15,
+            "2020": 22,
+            "2021": 136
+        },
+        "percentage_insert_types": "",
+        "remove_types": {
+            "2019": 18,
+            "2021": 17
+        },
+        "percentage_remove_types": "",
+        "modify_existing_types": {
+            "2021": 4
+        },
+        "percentage_modify_existing_types": "",
+        "s2": "------------------------------------------------------------------------",
+        "RQ2_1": "What types are added (generic, numeric, ...)?",
+        "anyType_added": 0,
+        "noneType_added": 0,
+        "numericType_added": 0,
+        "binarySequenceType_added": 0,
+        "textSequenceType_added": 0,
+        "mappingTypes_added": 0,
+        "setTypes_added": 0,
+        "sequenceType_added": 0,
+        "newType_added": 0,
+        "total_added": 173,
+        "RQ2_2": "What are the top 5 types added?",
+        "typeAdded_dict": {
+            "tensor": 7,
+            "iterable": 1,
+            "np.ndarray": 7,
+            "set": 1,
+            "bool": 28,
+            "float": 32,
+            "torch.tensor": 13,
+            "modeltype": 3,
+            "str": 10,
+            "int": 16,
+            "callable": 1,
+            "dict": 6,
+            "list": 3,
+            "params": 9,
+            "optional [float]": 5,
+            "optlossclosure": 7,
+            "optfloat": 7,
+            "betas2": 3,
+            "none": 2,
+            "optional [int]": 1,
+            "grads": 1,
+            "list [torch]": 1,
+            "optional [callable [...,float]]": 1,
+            "nus2": 1,
+            "expconfig": 1,
+            "collection": 6
+        },
+        "RQ2_3": "What types are removed (generic, numeric, ...)?",
+        "anyType_removed": 0,
+        "noneType_removed": 0,
+        "numericType_removed": 0,
+        "binarySequenceType_removed": 0,
+        "textSequenceType_removed": 0,
+        "mappingTypes_removed": 0,
+        "setTypes_removed": 0,
+        "sequenceType_removed": 0,
+        "newType_removed": 0,
+        "total_removed": 35,
+        "RQ2_4": "What are the top 5 types removed?",
+        "typeRemoved_dict": {
+            "int": 9,
+            "bool": 1,
+            "optional [dict]": 1,
+            "optional [int]": 3,
+            "float": 7,
+            "module": 2,
+            "torch.tensor": 3,
+            "str": 1,
+            "params": 2,
+            "betas2": 1,
+            "grads": 1,
+            "optlossclosure": 1,
+            "none": 1,
+            "list [torch]": 1,
+            "optfloat": 1
+        },
+        "RQ2_5": "What types are the top 10 changed ?",
+        "total_changed": 4,
+        "typeChanged_dict_var": {
+            "str -> list": 1,
+            "list -> list": 1
+        },
+        "typeChanged_dict_arg": {
+            "params -> _params_t": 1
+        },
+        "typeChanged_dict_ret": {
+            "optional [float] -> bool": 1
+        },
+        "s3": "------------------------------------------------------------------------",
+        "RQ3_1": "Where are types added (function args, function returns, variables)?",
+        "functionArgsType_added": 125,
+        "functionReturnsType_added": 25,
+        "variableType_added": 23,
+        "RQ3_2": "Where are types removed (function args, function returns, variables)?",
+        "functionArgsType_removed": 31,
+        "functionReturnsType_removed": 3,
+        "variableType_removed": 1,
+        "RQ3_3": "Where are types changed (function args, function returns, variables?",
+        "functionArgsType_changed": 1,
+        "functionReturnsType_changed": 1,
+        "variableType_changed": 2,
+        "s4": "------------------------------------------------------------------------",
+        "RQ4_1": "Are types added along with other changes around this code or in commits that only add types?",
+        "typeAnnotation_added_per_commit": 0,
+        "list_typeAnnotation_added_per_commit": [],
+        "RQ4_2": "Are types removed along with other changes around this code or in commits that only add types?",
+        "typeAnnotation_removed_per_commit": 0,
+        "list_typeAnnotation_removed_per_commit": [],
+        "RQ4_3": "Are types changed along with other changes around this code or in commits that only add types?",
+        "typeAnnotation_changed_per_commit": 0,
+        "list_typeAnnotation_changed_per_commit": [
+            2.34375,
+            0.2962962962962963,
+            2.5316455696202533,
+            0.8064516129032258,
+            9.090909090909092,
+            2.5974025974025974,
+            37.5,
+            2.459016393442623,
+            3.278688524590164,
+            1.3513513513513513,
+            0.5747126436781609,
+            0.7633587786259541,
+            48.148148148148145,
+            4.9504950495049505,
+            0.6483482556344551,
+            0.5448241703813769,
+            0.07601672367920942,
+            5.263157894736842
+        ],
+        "annotation_related_insertion_edits_vs_all_commit": [],
+        "annotation_related_deletion_edits_vs_all_commit": [],
+        "s5": "------------------------------------------------------------------------",
+        "RQ5": "Relation of properties of projects vs. properties of type changes.",
+        "matrix_commits_stars_annotations": [
+            [
+                "2019",
+                "149",
+                "303",
+                "212",
+                "32",
+                "3",
+                "306",
+                "741",
+                "5",
+                "0",
+                "0",
+                "784"
+            ]
+        ],
+        "matrix_files_annotations": [],
+        "matrix_test_files_annotations": [],
+        "dict_funct_call_no_types": {},
+        "dict_funct_call_types": {},
+        "s6": "------------------------------------------------------------------------",
+        "RQ6": "Which are the top 10 repository with the highest number of type annotations.",
+        "number_type_annotations_per_repo": {
+            "https://github.com/achaiah/pywick": 212
+        },
+        "s7": "------------------------------------------------------------------------",
+        "RQ7": "How many of all types are annotated in the last version of the code?",
+        "typeLastProjectVersion_total": 176,
+        "typeLastProjectVersion_average": 0,
+        "typeLastProjectVersion_percentage": [
+            101.73
+        ],
+        "typeLastProjectVersion_dict": {
+            "https://github.com/achaiah/pywick": 176
+        },
+        "typeLastProjectVersion_dict_error": {},
+        "RQ8": "Total number of annotations over time, across all projects",
+        "typeAnnotation_year_analysis": {
+            "2019": 15,
+            "2020": 22,
+            "2021": 136
+        },
+        "RQ9": "Total number of annotation-related commit over time, across all projects",
+        "typeAnnotation_commit_annotation_year_analysis": {
+            "2019": 1,
+            "2020": 4,
+            "2021": 8
+        },
+        "typeAnnotation_commit_not_annotation_year_analysis": {
+            "2019": 10,
+            "2020": 32,
+            "2021": 22
+        },
+        "RQ10": "Type annotation coverage for each each",
+        "annotation_coverage": {
+            "2014": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+            ],
+            "2015": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+            ],
+            "2016": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+            ],
+            "2017": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+            ],
+            "2018": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+            ],
+            "2019": [
+                29,
+                6791,
+                6,
+                2277,
+                0,
+                6218
+            ],
+            "2020": [
+                37,
+                7196,
+                6,
+                2415,
+                0,
+                6541
+            ]
+        },
+        "RQ11": "Developers statistics",
+        "list_dev_dict": [
+            {
+                "achaiah-pywick": 0,
+                "Alexei.Samoylov@digikey.com": 2,
+                "achaiah@gmail.com": 11
+            }
+        ],
+        "list_dev_dict_total": [
+            {
+                "achaiah-pywick": 0,
+                "Alexei.Samoylov@digikey.com": 52,
+                "achaiah@gmail.com": 93,
+                "none@none.com": 1,
+                "cclauss@me.com": 3
+            }
+        ],
+        "dev_dict": {},
+        "dev_dict_total": {},
+        "list_dev_plot": []
+    }
+]

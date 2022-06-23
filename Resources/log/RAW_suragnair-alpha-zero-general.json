@@ -1,0 +1,285 @@
+[
+    {
+        "execution_time": "",
+        "machine": {
+            "OS": "Linux-4.15.0-166-generic-x86_64-with-Ubuntu-18.04-bionic",
+            "CPU": "x86_64",
+            "CORES": 48
+        },
+        "total_repositories": 1,
+        "total_commits": 207,
+        "commit_year_dict": {
+            "2017": 121,
+            "2018": 49,
+            "2019": 20,
+            "2020": 13,
+            "2021": 4
+        },
+        "loc_year_edit": {
+            "2017": 10770,
+            "2018": 2241,
+            "2019": 37199,
+            "2020": 7784,
+            "2021": 1445
+        },
+        "s0": "------------------------------------------------------------------------",
+        "RQ0": "How many types are used?",
+        "code_changes": [],
+        "commit_statistics": [],
+        "repo_with_types_changes": 1,
+        "percentage_repo_with_typeChanges": "",
+        "commits_with_typeChanges": 1,
+        "percentage_commits_with_typeChanges": "",
+        "total_typeAnnotation_codeChanges": 128,
+        "s1": "------------------------------------------------------------------------",
+        "RQ1": "Are type annotation inserted, removed and changed?",
+        "insert_types": {
+            "2019": 128
+        },
+        "percentage_insert_types": "",
+        "remove_types": {},
+        "percentage_remove_types": "",
+        "modify_existing_types": {},
+        "percentage_modify_existing_types": "",
+        "s2": "------------------------------------------------------------------------",
+        "RQ2_1": "What types are added (generic, numeric, ...)?",
+        "anyType_added": 0,
+        "noneType_added": 0,
+        "numericType_added": 0,
+        "binarySequenceType_added": 0,
+        "textSequenceType_added": 0,
+        "mappingTypes_added": 0,
+        "setTypes_added": 0,
+        "sequenceType_added": 0,
+        "newType_added": 0,
+        "total_added": 128,
+        "RQ2_2": "What are the top 5 types added?",
+        "typeAdded_dict": {
+            "np.ndarray": 20,
+            "int": 48,
+            "np.array": 2,
+            "none": 10,
+            "tuple [int,int,int]": 1,
+            "tuple [np,int]": 1,
+            "float": 5,
+            "tuple": 1,
+            "list": 2,
+            "dotdict": 1,
+            "any": 1,
+            "str": 9,
+            "dict": 9,
+            "bool": 14,
+            "tuple [str,str]": 1,
+            "list [boardtile]": 1,
+            "list [int]": 1,
+            "optional [tuple [any,any]]": 1
+        },
+        "RQ2_3": "What types are removed (generic, numeric, ...)?",
+        "anyType_removed": 0,
+        "noneType_removed": 0,
+        "numericType_removed": 0,
+        "binarySequenceType_removed": 0,
+        "textSequenceType_removed": 0,
+        "mappingTypes_removed": 0,
+        "setTypes_removed": 0,
+        "sequenceType_removed": 0,
+        "newType_removed": 0,
+        "total_removed": 0,
+        "RQ2_4": "What are the top 5 types removed?",
+        "typeRemoved_dict": {},
+        "RQ2_5": "What types are the top 10 changed ?",
+        "total_changed": 0,
+        "typeChanged_dict_var": {},
+        "typeChanged_dict_arg": {},
+        "typeChanged_dict_ret": {},
+        "s3": "------------------------------------------------------------------------",
+        "RQ3_1": "Where are types added (function args, function returns, variables)?",
+        "functionArgsType_added": 96,
+        "functionReturnsType_added": 31,
+        "variableType_added": 1,
+        "RQ3_2": "Where are types removed (function args, function returns, variables)?",
+        "functionArgsType_removed": 0,
+        "functionReturnsType_removed": 0,
+        "variableType_removed": 0,
+        "RQ3_3": "Where are types changed (function args, function returns, variables?",
+        "functionArgsType_changed": 0,
+        "functionReturnsType_changed": 0,
+        "variableType_changed": 0,
+        "s4": "------------------------------------------------------------------------",
+        "RQ4_1": "Are types added along with other changes around this code or in commits that only add types?",
+        "typeAnnotation_added_per_commit": 0,
+        "list_typeAnnotation_added_per_commit": [],
+        "RQ4_2": "Are types removed along with other changes around this code or in commits that only add types?",
+        "typeAnnotation_removed_per_commit": 0,
+        "list_typeAnnotation_removed_per_commit": [],
+        "RQ4_3": "Are types changed along with other changes around this code or in commits that only add types?",
+        "typeAnnotation_changed_per_commit": 0,
+        "list_typeAnnotation_changed_per_commit": [
+            0.30111158013226397
+        ],
+        "annotation_related_insertion_edits_vs_all_commit": [],
+        "annotation_related_deletion_edits_vs_all_commit": [],
+        "s5": "------------------------------------------------------------------------",
+        "RQ5": "Relation of properties of projects vs. properties of type changes.",
+        "matrix_commits_stars_annotations": [
+            [
+                "2017",
+                "207",
+                "2001",
+                "128",
+                "577",
+                "43",
+                "7",
+                "444",
+                "40",
+                "0",
+                "0",
+                "316859"
+            ]
+        ],
+        "matrix_files_annotations": [],
+        "matrix_test_files_annotations": [],
+        "dict_funct_call_no_types": {},
+        "dict_funct_call_types": {},
+        "s6": "------------------------------------------------------------------------",
+        "RQ6": "Which are the top 10 repository with the highest number of type annotations.",
+        "number_type_annotations_per_repo": {
+            "https://github.com/suragnair/alpha-zero-general": 128
+        },
+        "s7": "------------------------------------------------------------------------",
+        "RQ7": "How many of all types are annotated in the last version of the code?",
+        "typeLastProjectVersion_total": 128,
+        "typeLastProjectVersion_average": 0,
+        "typeLastProjectVersion_percentage": [
+            100.0
+        ],
+        "typeLastProjectVersion_dict": {
+            "https://github.com/suragnair/alpha-zero-general": 128
+        },
+        "typeLastProjectVersion_dict_error": {},
+        "RQ8": "Total number of annotations over time, across all projects",
+        "typeAnnotation_year_analysis": {
+            "2019": 128
+        },
+        "RQ9": "Total number of annotation-related commit over time, across all projects",
+        "typeAnnotation_commit_annotation_year_analysis": {
+            "2019": 1
+        },
+        "typeAnnotation_commit_not_annotation_year_analysis": {
+            "2019": 12
+        },
+        "RQ10": "Type annotation coverage for each each",
+        "annotation_coverage": {
+            "2014": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+            ],
+            "2015": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+            ],
+            "2016": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+            ],
+            "2017": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+            ],
+            "2018": [
+                0,
+                721,
+                0,
+                307,
+                0,
+                847
+            ],
+            "2019": [
+                96,
+                1107,
+                31,
+                433,
+                1,
+                1321
+            ],
+            "2020": [
+                96,
+                878,
+                31,
+                350,
+                1,
+                1063
+            ]
+        },
+        "RQ11": "Developers statistics",
+        "list_dev_dict": [
+            {
+                "suragnair-alpha-zero-general": 0,
+                "jernej.habjan96@gmail.com": 1
+            }
+        ],
+        "list_dev_dict_total": [
+            {
+                "suragnair-alpha-zero-general": 0,
+                "suragnair@users.noreply.github.com": 43,
+                "suragnair@hotmail.com": 60,
+                "jjw.megha@gmail.com": 18,
+                "shanu.thakoor@gmail.com": 19,
+                "surag@group10.0ba1f3wsyyiernwly4ecs542ge.jx.internal.cloudapp.net": 5,
+                "root@instance-1.c.shantanuthakoor2.internal": 2,
+                "kumarshantanu95@gmail.com": 3,
+                "evg.tyurin@gmail.com": 11,
+                "jianlongma521355@gmail.com": 2,
+                "richbcla@optonline.net": 2,
+                "rodo@rodojojo.com": 3,
+                "sunfcool@gmail.com": 1,
+                "korrarahuldev@gmail.com": 1,
+                "zxkyjimmy@gmail.com": 1,
+                "gigayaya@gmail.com": 1,
+                "imrehg@gmail.com": 1,
+                "koonce@hello.com": 1,
+                "corochannz@gmail.com": 3,
+                "marco@goodnotesapp.com": 1,
+                "jernej.habjan96@gmail.com": 2,
+                "saravanans23@gmail.com": 1,
+                "me@nutchanon.org": 1,
+                "ZhiqingXiao@users.noreply.github.com": 1,
+                "chicong.v@gmail.com": 2,
+                "threedliteguy@users.noreply.github.com": 3,
+                "49699333+dependabot[bot]@users.noreply.github.com": 1,
+                "47704679+wang-zm18@users.noreply.github.com": 1,
+                "50264605+Crash34000@users.noreply.github.com": 1,
+                "edward_tau@yahoo.com": 1,
+                "mwilliammyers@gmail.com": 1,
+                "37887237+rlronan@users.noreply.github.com": 3,
+                "48676901+Leviathan91@users.noreply.github.com": 1,
+                "41483463+goshawk22@users.noreply.github.com": 2,
+                "martin.ennemoser@gmx.at": 2,
+                "mikhail.simin@gmail.com": 2,
+                "carlos.aguayo@appian.com": 1,
+                "adamjlawson22@gmail.com": 1,
+                "47823818+janoglezcampos@users.noreply.github.com": 1,
+                "75344937+pavolkacej@users.noreply.github.com": 1
+            }
+        ],
+        "dev_dict": {},
+        "dev_dict_total": {},
+        "list_dev_plot": []
+    }
+]

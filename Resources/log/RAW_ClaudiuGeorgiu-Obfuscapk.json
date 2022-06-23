@@ -1,0 +1,333 @@
+[
+    {
+        "execution_time": "",
+        "machine": {
+            "OS": "Linux-4.15.0-166-generic-x86_64-with-Ubuntu-18.04-bionic",
+            "CPU": "x86_64",
+            "CORES": 48
+        },
+        "total_repositories": 1,
+        "total_commits": 97,
+        "commit_year_dict": {
+            "2019": 27,
+            "2020": 46,
+            "2021": 24
+        },
+        "loc_year_edit": {
+            "2019": 7674,
+            "2020": 10516,
+            "2021": 1086
+        },
+        "s0": "------------------------------------------------------------------------",
+        "RQ0": "How many types are used?",
+        "code_changes": [],
+        "commit_statistics": [],
+        "repo_with_types_changes": 1,
+        "percentage_repo_with_typeChanges": "",
+        "commits_with_typeChanges": 21,
+        "percentage_commits_with_typeChanges": "",
+        "total_typeAnnotation_codeChanges": 621,
+        "s1": "------------------------------------------------------------------------",
+        "RQ1": "Are type annotation inserted, removed and changed?",
+        "insert_types": {
+            "2019": 347,
+            "2020": 131,
+            "2021": 41
+        },
+        "percentage_insert_types": "",
+        "remove_types": {
+            "2019": 5,
+            "2020": 72,
+            "2021": 19
+        },
+        "percentage_remove_types": "",
+        "modify_existing_types": {
+            "2020": 6
+        },
+        "percentage_modify_existing_types": "",
+        "s2": "------------------------------------------------------------------------",
+        "RQ2_1": "What types are added (generic, numeric, ...)?",
+        "anyType_added": 0,
+        "noneType_added": 0,
+        "numericType_added": 0,
+        "binarySequenceType_added": 0,
+        "textSequenceType_added": 0,
+        "mappingTypes_added": 0,
+        "setTypes_added": 0,
+        "sequenceType_added": 0,
+        "newType_added": 0,
+        "total_added": 519,
+        "RQ2_2": "What are the top 5 types added?",
+        "typeAdded_dict": {
+            "apktool": 3,
+            "jarsigner": 2,
+            "zipalign": 2,
+            "str": 240,
+            "list [str]": 58,
+            "bool": 44,
+            "int": 32,
+            "union [str,none]": 8,
+            "list [list [str]]": 4,
+            "union [int,list [int]]": 3,
+            "none": 4,
+            "obfuscation": 25,
+            "stringio": 3,
+            "dict": 13,
+            "dict [str,str]": 4,
+            "element": 2,
+            "set [str]": 49,
+            "list [codeblock]": 1,
+            "list": 3,
+            "list [int]": 13,
+            "list [bool]": 2,
+            "apksigner": 1,
+            "bundledecompiler": 2,
+            "aabsigner": 1
+        },
+        "RQ2_3": "What types are removed (generic, numeric, ...)?",
+        "anyType_removed": 0,
+        "noneType_removed": 0,
+        "numericType_removed": 0,
+        "binarySequenceType_removed": 0,
+        "textSequenceType_removed": 0,
+        "mappingTypes_removed": 0,
+        "setTypes_removed": 0,
+        "sequenceType_removed": 0,
+        "newType_removed": 0,
+        "total_removed": 96,
+        "RQ2_4": "What are the top 5 types removed?",
+        "typeRemoved_dict": {
+            "list [int]": 1,
+            "list [str]": 12,
+            "bool": 8,
+            "str": 36,
+            "apktool": 1,
+            "jarsigner": 2,
+            "zipalign": 1,
+            "int": 8,
+            "set [str]": 21,
+            "union [str,none]": 4,
+            "dict": 2
+        },
+        "RQ2_5": "What types are the top 10 changed ?",
+        "total_changed": 6,
+        "typeChanged_dict_var": {},
+        "typeChanged_dict_arg": {
+            "list [str] -> str": 2
+        },
+        "typeChanged_dict_ret": {
+            "fileinput -> str": 1,
+            "set [str] -> int": 1,
+            "dict -> int": 1,
+            "dict -> optional [dict]": 1
+        },
+        "s3": "------------------------------------------------------------------------",
+        "RQ3_1": "Where are types added (function args, function returns, variables)?",
+        "functionArgsType_added": 251,
+        "functionReturnsType_added": 79,
+        "variableType_added": 189,
+        "RQ3_2": "Where are types removed (function args, function returns, variables)?",
+        "functionArgsType_removed": 12,
+        "functionReturnsType_removed": 6,
+        "variableType_removed": 78,
+        "RQ3_3": "Where are types changed (function args, function returns, variables?",
+        "functionArgsType_changed": 2,
+        "functionReturnsType_changed": 4,
+        "variableType_changed": 0,
+        "s4": "------------------------------------------------------------------------",
+        "RQ4_1": "Are types added along with other changes around this code or in commits that only add types?",
+        "typeAnnotation_added_per_commit": 0,
+        "list_typeAnnotation_added_per_commit": [],
+        "RQ4_2": "Are types removed along with other changes around this code or in commits that only add types?",
+        "typeAnnotation_removed_per_commit": 0,
+        "list_typeAnnotation_removed_per_commit": [],
+        "RQ4_3": "Are types changed along with other changes around this code or in commits that only add types?",
+        "typeAnnotation_changed_per_commit": 0,
+        "list_typeAnnotation_changed_per_commit": [
+            6.672297297297297,
+            3.995793901156677,
+            2.142857142857143,
+            0.7547169811320755,
+            23.809523809523807,
+            30.0,
+            20.0,
+            8.823529411764707,
+            4.0,
+            1.5661707126076743,
+            5.217391304347826,
+            2.2857142857142856,
+            4.891304347826087,
+            4.048582995951417,
+            11.016949152542372,
+            15.0,
+            0.45129748025573524,
+            0.9453072248480756,
+            0.02414875633904854,
+            16.666666666666664,
+            1.2345679012345678,
+            10.267857142857142,
+            0.32679738562091504,
+            24.324324324324326,
+            7.368421052631578,
+            2.941176470588235,
+            14.285714285714285,
+            4.511278195488721,
+            4.724409448818897,
+            30.0,
+            75.0,
+            4.878048780487805,
+            3.6363636363636362,
+            17.391304347826086,
+            66.66666666666666,
+            2.0408163265306123,
+            3.7735849056603774,
+            6.25
+        ],
+        "annotation_related_insertion_edits_vs_all_commit": [],
+        "annotation_related_deletion_edits_vs_all_commit": [],
+        "s5": "------------------------------------------------------------------------",
+        "RQ5": "Relation of properties of projects vs. properties of type changes.",
+        "matrix_commits_stars_annotations": [
+            [
+                "2019",
+                "97",
+                "357",
+                "621",
+                "102",
+                "22",
+                "15",
+                "235",
+                "10",
+                "0",
+                "0",
+                "4037"
+            ]
+        ],
+        "matrix_files_annotations": [],
+        "matrix_test_files_annotations": [],
+        "dict_funct_call_no_types": {},
+        "dict_funct_call_types": {},
+        "s6": "------------------------------------------------------------------------",
+        "RQ6": "Which are the top 10 repository with the highest number of type annotations.",
+        "number_type_annotations_per_repo": {
+            "https://github.com/ClaudiuGeorgiu/Obfuscapk": 621
+        },
+        "s7": "------------------------------------------------------------------------",
+        "RQ7": "How many of all types are annotated in the last version of the code?",
+        "typeLastProjectVersion_total": 429,
+        "typeLastProjectVersion_average": 0,
+        "typeLastProjectVersion_percentage": [
+            82.66
+        ],
+        "typeLastProjectVersion_dict": {
+            "https://github.com/ClaudiuGeorgiu/Obfuscapk": 429
+        },
+        "typeLastProjectVersion_dict_error": {},
+        "RQ8": "Total number of annotations over time, across all projects",
+        "typeAnnotation_year_analysis": {
+            "2019": 347,
+            "2020": 131,
+            "2021": 41
+        },
+        "RQ9": "Total number of annotation-related commit over time, across all projects",
+        "typeAnnotation_commit_annotation_year_analysis": {
+            "2019": 5,
+            "2020": 11,
+            "2021": 5
+        },
+        "typeAnnotation_commit_not_annotation_year_analysis": {
+            "2019": 22,
+            "2020": 30,
+            "2021": 19
+        },
+        "RQ10": "Type annotation coverage for each each",
+        "annotation_coverage": {
+            "2014": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+            ],
+            "2015": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+            ],
+            "2016": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+            ],
+            "2017": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+            ],
+            "2018": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+            ],
+            "2019": [
+                173,
+                144,
+                97,
+                62,
+                79,
+                598
+            ],
+            "2020": [
+                247,
+                239,
+                100,
+                133,
+                76,
+                709
+            ]
+        },
+        "RQ11": "Developers statistics",
+        "list_dev_dict": [
+            {
+                "ClaudiuGeorgiu-Obfuscapk": 0,
+                "gabriel@claudiugeorgiu.com": 12,
+                "simone.aonzo@gmail.com": 3,
+                "60169133+kiber-io@users.noreply.github.com": 1,
+                "eliyoribek@gmail.com": 1,
+                "dave.caputo93@gmail.com": 2,
+                "saman@mstajbakhsh.ir": 1,
+                "claudiugeorgiu@users.noreply.github.com": 1
+            }
+        ],
+        "list_dev_dict_total": [
+            {
+                "ClaudiuGeorgiu-Obfuscapk": 0,
+                "gabriel@claudiugeorgiu.com": 69,
+                "simone.aonzo@gmail.com": 8,
+                "claudiugeorgiu@users.noreply.github.com": 7,
+                "60169133+kiber-io@users.noreply.github.com": 1,
+                "eliyoribek@gmail.com": 1,
+                "dave.caputo93@gmail.com": 2,
+                "techet@gmail.com": 2,
+                "54781797+ardalan-foroughi@users.noreply.github.com": 5,
+                "saman@mstajbakhsh.ir": 2
+            }
+        ],
+        "dev_dict": {},
+        "dev_dict_total": {},
+        "list_dev_plot": []
+    }
+]

@@ -1,0 +1,313 @@
+[
+    {
+        "execution_time": "",
+        "machine": {
+            "OS": "Linux-4.15.0-166-generic-x86_64-with-Ubuntu-18.04-bionic",
+            "CPU": "x86_64",
+            "CORES": 48
+        },
+        "total_repositories": 1,
+        "total_commits": 223,
+        "commit_year_dict": {
+            "2018": 87,
+            "2019": 101,
+            "2020": 24,
+            "2021": 11
+        },
+        "loc_year_edit": {
+            "2018": 6467,
+            "2019": 3725,
+            "2020": 545,
+            "2021": 1776
+        },
+        "s0": "------------------------------------------------------------------------",
+        "RQ0": "How many types are used?",
+        "code_changes": [],
+        "commit_statistics": [],
+        "repo_with_types_changes": 1,
+        "percentage_repo_with_typeChanges": "",
+        "commits_with_typeChanges": 20,
+        "percentage_commits_with_typeChanges": "",
+        "total_typeAnnotation_codeChanges": 190,
+        "s1": "------------------------------------------------------------------------",
+        "RQ1": "Are type annotation inserted, removed and changed?",
+        "insert_types": {
+            "2018": 72,
+            "2019": 43,
+            "2020": 7,
+            "2021": 4
+        },
+        "percentage_insert_types": "",
+        "remove_types": {
+            "2018": 37,
+            "2019": 19,
+            "2020": 2,
+            "2021": 3
+        },
+        "percentage_remove_types": "",
+        "modify_existing_types": {
+            "2021": 3
+        },
+        "percentage_modify_existing_types": "",
+        "s2": "------------------------------------------------------------------------",
+        "RQ2_1": "What types are added (generic, numeric, ...)?",
+        "anyType_added": 0,
+        "noneType_added": 0,
+        "numericType_added": 0,
+        "binarySequenceType_added": 0,
+        "textSequenceType_added": 0,
+        "mappingTypes_added": 0,
+        "setTypes_added": 0,
+        "sequenceType_added": 0,
+        "newType_added": 0,
+        "total_added": 126,
+        "RQ2_2": "What are the top 5 types added?",
+        "typeAdded_dict": {
+            "list": 7,
+            "int": 43,
+            "image": 18,
+            "xdisplay.display": 12,
+            "dict": 6,
+            "xutil.terminalwindowinfo": 10,
+            "geometry.distance": 1,
+            "view": 1,
+            "str": 5,
+            "visibility": 1,
+            "_action.action": 5,
+            "parser.parser": 1,
+            "exception": 1,
+            "pathlib.posixpath": 1,
+            "weakref.weakkeydictionary": 1,
+            "geometry.point": 5,
+            "float": 3,
+            "scaling.imagescaler": 1,
+            "tuple": 1,
+            "x.display": 3
+        },
+        "RQ2_3": "What types are removed (generic, numeric, ...)?",
+        "anyType_removed": 0,
+        "noneType_removed": 0,
+        "numericType_removed": 0,
+        "binarySequenceType_removed": 0,
+        "textSequenceType_removed": 0,
+        "mappingTypes_removed": 0,
+        "setTypes_removed": 0,
+        "sequenceType_removed": 0,
+        "newType_removed": 0,
+        "total_removed": 61,
+        "RQ2_4": "What are the top 5 types removed?",
+        "typeRemoved_dict": {
+            "int": 15,
+            "list": 3,
+            "image": 17,
+            "xutil.terminalwindowinfo": 5,
+            "xdisplay.display": 9,
+            "dict": 4,
+            "_action.action": 1,
+            "str": 4,
+            "parser.parser": 1,
+            "exception": 1,
+            "view": 1
+        },
+        "RQ2_5": "What types are the top 10 changed ?",
+        "total_changed": 3,
+        "typeChanged_dict_var": {},
+        "typeChanged_dict_arg": {
+            "xdisplay.display -> x.display": 3
+        },
+        "typeChanged_dict_ret": {},
+        "s3": "------------------------------------------------------------------------",
+        "RQ3_1": "Where are types added (function args, function returns, variables)?",
+        "functionArgsType_added": 124,
+        "functionReturnsType_added": 2,
+        "variableType_added": 0,
+        "RQ3_2": "Where are types removed (function args, function returns, variables)?",
+        "functionArgsType_removed": 59,
+        "functionReturnsType_removed": 2,
+        "variableType_removed": 0,
+        "RQ3_3": "Where are types changed (function args, function returns, variables?",
+        "functionArgsType_changed": 3,
+        "functionReturnsType_changed": 0,
+        "variableType_changed": 0,
+        "s4": "------------------------------------------------------------------------",
+        "RQ4_1": "Are types added along with other changes around this code or in commits that only add types?",
+        "typeAnnotation_added_per_commit": 0,
+        "list_typeAnnotation_added_per_commit": [],
+        "RQ4_2": "Are types removed along with other changes around this code or in commits that only add types?",
+        "typeAnnotation_removed_per_commit": 0,
+        "list_typeAnnotation_removed_per_commit": [],
+        "RQ4_3": "Are types changed along with other changes around this code or in commits that only add types?",
+        "typeAnnotation_changed_per_commit": 0,
+        "list_typeAnnotation_changed_per_commit": [
+            0.6949806949806949,
+            2.941176470588235,
+            1.2658227848101267,
+            1.4517506404782237,
+            1.4517506404782237,
+            10.714285714285714,
+            4.3478260869565215,
+            2.941176470588235,
+            4.545454545454546,
+            6.25,
+            1.5625,
+            50.0,
+            50.0,
+            9.090909090909092,
+            4.25531914893617,
+            10.526315789473683,
+            3.225806451612903,
+            4.25531914893617,
+            4.25531914893617,
+            1.4285714285714286,
+            5.88235294117647,
+            9.090909090909092,
+            2.857142857142857,
+            6.293706293706294,
+            1.9607843137254901,
+            36.0,
+            4.761904761904762,
+            4.081632653061225,
+            3.7735849056603774,
+            5.405405405405405,
+            2.0689655172413794,
+            0.36199095022624433,
+            0.5555555555555556,
+            0.1820388349514563
+        ],
+        "annotation_related_insertion_edits_vs_all_commit": [],
+        "annotation_related_deletion_edits_vs_all_commit": [],
+        "s5": "------------------------------------------------------------------------",
+        "RQ5": "Relation of properties of projects vs. properties of type changes.",
+        "matrix_commits_stars_annotations": [
+            [
+                "2018",
+                "223",
+                "479",
+                "190",
+                "23",
+                "21",
+                "0",
+                "278",
+                "2",
+                "0",
+                "0",
+                "189"
+            ]
+        ],
+        "matrix_files_annotations": [],
+        "matrix_test_files_annotations": [],
+        "dict_funct_call_no_types": {},
+        "dict_funct_call_types": {},
+        "s6": "------------------------------------------------------------------------",
+        "RQ6": "Which are the top 10 repository with the highest number of type annotations.",
+        "number_type_annotations_per_repo": {
+            "https://github.com/seebye/ueberzug": 190
+        },
+        "s7": "------------------------------------------------------------------------",
+        "RQ7": "How many of all types are annotated in the last version of the code?",
+        "typeLastProjectVersion_total": 65,
+        "typeLastProjectVersion_average": 0,
+        "typeLastProjectVersion_percentage": [
+            51.59
+        ],
+        "typeLastProjectVersion_dict": {
+            "https://github.com/seebye/ueberzug": 65
+        },
+        "typeLastProjectVersion_dict_error": {},
+        "RQ8": "Total number of annotations over time, across all projects",
+        "typeAnnotation_year_analysis": {
+            "2018": 72,
+            "2019": 43,
+            "2020": 7,
+            "2021": 4
+        },
+        "RQ9": "Total number of annotation-related commit over time, across all projects",
+        "typeAnnotation_commit_annotation_year_analysis": {
+            "2018": 12,
+            "2019": 5,
+            "2020": 2,
+            "2021": 1
+        },
+        "typeAnnotation_commit_not_annotation_year_analysis": {
+            "2018": 74,
+            "2019": 91,
+            "2020": 20,
+            "2021": 5
+        },
+        "RQ10": "Type annotation coverage for each each",
+        "annotation_coverage": {
+            "2014": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+            ],
+            "2015": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+            ],
+            "2016": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+            ],
+            "2017": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+            ],
+            "2018": [
+                22,
+                169,
+                0,
+                95,
+                0,
+                167
+            ],
+            "2019": [
+                59,
+                380,
+                0,
+                231,
+                0,
+                288
+            ],
+            "2020": [
+                61,
+                408,
+                0,
+                248,
+                0,
+                300
+            ]
+        },
+        "RQ11": "Developers statistics",
+        "list_dev_dict": [
+            {
+                "seebye-ueberzug": 0,
+                "seebye@users.noreply.github.com": 20
+            }
+        ],
+        "list_dev_dict_total": [
+            {
+                "seebye-ueberzug": 0,
+                "seebye@users.noreply.github.com": 223
+            }
+        ],
+        "dev_dict": {},
+        "dev_dict_total": {},
+        "list_dev_plot": []
+    }
+]

@@ -1,0 +1,290 @@
+[
+    {
+        "execution_time": "",
+        "machine": {
+            "OS": "Linux-4.15.0-166-generic-x86_64-with-Ubuntu-18.04-bionic",
+            "CPU": "x86_64",
+            "CORES": 48
+        },
+        "total_repositories": 1,
+        "total_commits": 673,
+        "commit_year_dict": {
+            "2019": 26,
+            "2020": 616,
+            "2021": 31
+        },
+        "loc_year_edit": {
+            "2019": 248330,
+            "2020": 138752,
+            "2021": 1711
+        },
+        "s0": "------------------------------------------------------------------------",
+        "RQ0": "How many types are used?",
+        "code_changes": [],
+        "commit_statistics": [],
+        "repo_with_types_changes": 1,
+        "percentage_repo_with_typeChanges": "",
+        "commits_with_typeChanges": 10,
+        "percentage_commits_with_typeChanges": "",
+        "total_typeAnnotation_codeChanges": 32,
+        "s1": "------------------------------------------------------------------------",
+        "RQ1": "Are type annotation inserted, removed and changed?",
+        "insert_types": {
+            "2019": 13,
+            "2020": 15
+        },
+        "percentage_insert_types": "",
+        "remove_types": {
+            "2020": 4
+        },
+        "percentage_remove_types": "",
+        "modify_existing_types": {},
+        "percentage_modify_existing_types": "",
+        "s2": "------------------------------------------------------------------------",
+        "RQ2_1": "What types are added (generic, numeric, ...)?",
+        "anyType_added": 0,
+        "noneType_added": 0,
+        "numericType_added": 0,
+        "binarySequenceType_added": 0,
+        "textSequenceType_added": 0,
+        "mappingTypes_added": 0,
+        "setTypes_added": 0,
+        "sequenceType_added": 0,
+        "newType_added": 0,
+        "total_added": 28,
+        "RQ2_2": "What are the top 5 types added?",
+        "typeAdded_dict": {
+            "bool": 13,
+            "dict": 10,
+            "np.ndarray": 2,
+            "int": 2,
+            "float": 1
+        },
+        "RQ2_3": "What types are removed (generic, numeric, ...)?",
+        "anyType_removed": 0,
+        "noneType_removed": 0,
+        "numericType_removed": 0,
+        "binarySequenceType_removed": 0,
+        "textSequenceType_removed": 0,
+        "mappingTypes_removed": 0,
+        "setTypes_removed": 0,
+        "sequenceType_removed": 0,
+        "newType_removed": 0,
+        "total_removed": 4,
+        "RQ2_4": "What are the top 5 types removed?",
+        "typeRemoved_dict": {
+            "bool": 2,
+            "np.ndarray": 2
+        },
+        "RQ2_5": "What types are the top 10 changed ?",
+        "total_changed": 0,
+        "typeChanged_dict_var": {},
+        "typeChanged_dict_arg": {},
+        "typeChanged_dict_ret": {},
+        "s3": "------------------------------------------------------------------------",
+        "RQ3_1": "Where are types added (function args, function returns, variables)?",
+        "functionArgsType_added": 28,
+        "functionReturnsType_added": 0,
+        "variableType_added": 0,
+        "RQ3_2": "Where are types removed (function args, function returns, variables)?",
+        "functionArgsType_removed": 4,
+        "functionReturnsType_removed": 0,
+        "variableType_removed": 0,
+        "RQ3_3": "Where are types changed (function args, function returns, variables?",
+        "functionArgsType_changed": 0,
+        "functionReturnsType_changed": 0,
+        "variableType_changed": 0,
+        "s4": "------------------------------------------------------------------------",
+        "RQ4_1": "Are types added along with other changes around this code or in commits that only add types?",
+        "typeAnnotation_added_per_commit": 0,
+        "list_typeAnnotation_added_per_commit": [],
+        "RQ4_2": "Are types removed along with other changes around this code or in commits that only add types?",
+        "typeAnnotation_removed_per_commit": 0,
+        "list_typeAnnotation_removed_per_commit": [],
+        "RQ4_3": "Are types changed along with other changes around this code or in commits that only add types?",
+        "typeAnnotation_changed_per_commit": 0,
+        "list_typeAnnotation_changed_per_commit": [
+            0.14442839684479503,
+            1.5384615384615385,
+            2.1739130434782608,
+            0.16638935108153077,
+            0.22779043280182232,
+            0.2680965147453083,
+            0.24330900243309003,
+            0.2232142857142857,
+            0.03881987577639751,
+            1.3157894736842104,
+            1.6611295681063125,
+            10.0,
+            0.2785515320334262
+        ],
+        "annotation_related_insertion_edits_vs_all_commit": [],
+        "annotation_related_deletion_edits_vs_all_commit": [],
+        "s5": "------------------------------------------------------------------------",
+        "RQ5": "Relation of properties of projects vs. properties of type changes.",
+        "matrix_commits_stars_annotations": [
+            [
+                "2019",
+                "673",
+                "382",
+                "32",
+                "79",
+                "11",
+                "50",
+                "698",
+                "36",
+                "0",
+                "0",
+                "7008"
+            ]
+        ],
+        "matrix_files_annotations": [],
+        "matrix_test_files_annotations": [],
+        "dict_funct_call_no_types": {},
+        "dict_funct_call_types": {},
+        "s6": "------------------------------------------------------------------------",
+        "RQ6": "Which are the top 10 repository with the highest number of type annotations.",
+        "number_type_annotations_per_repo": {
+            "https://github.com/athena-team/athena": 32
+        },
+        "s7": "------------------------------------------------------------------------",
+        "RQ7": "How many of all types are annotated in the last version of the code?",
+        "typeLastProjectVersion_total": 26,
+        "typeLastProjectVersion_average": 0,
+        "typeLastProjectVersion_percentage": [
+            92.86
+        ],
+        "typeLastProjectVersion_dict": {
+            "https://github.com/athena-team/athena": 26
+        },
+        "typeLastProjectVersion_dict_error": {},
+        "RQ8": "Total number of annotations over time, across all projects",
+        "typeAnnotation_year_analysis": {
+            "2019": 13,
+            "2020": 15
+        },
+        "RQ9": "Total number of annotation-related commit over time, across all projects",
+        "typeAnnotation_commit_annotation_year_analysis": {
+            "2019": 1,
+            "2020": 9
+        },
+        "typeAnnotation_commit_not_annotation_year_analysis": {
+            "2019": 25,
+            "2020": 362
+        },
+        "RQ10": "Type annotation coverage for each each",
+        "annotation_coverage": {
+            "2014": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+            ],
+            "2015": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+            ],
+            "2016": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+            ],
+            "2017": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+            ],
+            "2018": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+            ],
+            "2019": [
+                30,
+                1756,
+                0,
+                782,
+                0,
+                2554
+            ],
+            "2020": [
+                131,
+                9613,
+                0,
+                3868,
+                0,
+                16278
+            ]
+        },
+        "RQ11": "Developers statistics",
+        "list_dev_dict": [
+            {
+                "athena-team-athena": 0,
+                "tjadamlee@hotmail.com": 1,
+                "zhangruixiong@didichuxing.com": 4,
+                "dengchengyun@didiglobal.com": 1,
+                "jiangdongwei@didiglobal.com": 2,
+                "guotingwei@didiglobal.com": 1,
+                "jiangdongwei@didichuxing.com": 1
+            }
+        ],
+        "list_dev_dict_total": [
+            {
+                "athena-team-athena": 0,
+                "tjadamlee@hotmail.com": 117,
+                "lixiangang@didichuxing.com": 27,
+                "zwluckypku@gmail.com": 5,
+                "jdw19930725@gmail.com": 129,
+                "794377332@qq.com": 26,
+                "499293647@qq.com": 1,
+                "yuejianjian_i@didichuxing.com": 3,
+                "chenguoguo06@gmail.com": 11,
+                "jiangdongwei@didichuxing.com": 22,
+                "nene.luo@gmail.com": 78,
+                "807172403@qq.com": 3,
+                "leixiaoning@didiglobal.com": 2,
+                "49699333+dependabot[bot]@users.noreply.github.com": 1,
+                "liwubo@didiglobal.com": 2,
+                "sunjianwei@didiglobal.com": 5,
+                "664610407@qq.com": 53,
+                "zhangruixiong@didiglobal.com": 32,
+                "luone@didiglobal.com": 6,
+                "gaoyonghu@126.com": 2,
+                "zichengqiu@gmail.com": 1,
+                "jiangdongwei@didiglobal.com": 39,
+                "zhangruixiong@didichuxing.com": 36,
+                "46837201+neneluo@users.noreply.github.com": 11,
+                "dengchengyun@didiglobal.com": 18,
+                "guotingwei@didiglobal.com": 14,
+                "huang17.yiqi@Gmail.com": 1,
+                "vicentwencheng@didiglobal.com": 4,
+                "lixiangang@lixiangangdeMacBook-Pro.local": 1,
+                "libo@libos-MacBook-Pro.local": 1,
+                "lekai.huang@gmail.com": 3,
+                "jiangdongwei@192.168.0.105": 1,
+                "jiangdongwei@Jiangs-MacBook-Pro.local": 1,
+                "zhaoshuaijiang8@gmail.com": 14,
+                "zhaoshuaijiang001@ke.com": 2,
+                "sunjianwei006@ke.com": 1
+            }
+        ],
+        "dev_dict": {},
+        "dev_dict_total": {},
+        "list_dev_plot": []
+    }
+]

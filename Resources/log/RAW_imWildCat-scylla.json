@@ -1,0 +1,331 @@
+[
+    {
+        "execution_time": "",
+        "machine": {
+            "OS": "Linux-4.15.0-166-generic-x86_64-with-Ubuntu-18.04-bionic",
+            "CPU": "x86_64",
+            "CORES": 48
+        },
+        "total_repositories": 1,
+        "total_commits": 346,
+        "commit_year_dict": {
+            "2018": 273,
+            "2019": 49,
+            "2020": 4,
+            "2021": 20
+        },
+        "loc_year_edit": {
+            "2018": 13909,
+            "2019": 5268,
+            "2020": 98,
+            "2021": 1031
+        },
+        "s0": "------------------------------------------------------------------------",
+        "RQ0": "How many types are used?",
+        "code_changes": [],
+        "commit_statistics": [],
+        "repo_with_types_changes": 1,
+        "percentage_repo_with_typeChanges": "",
+        "commits_with_typeChanges": 31,
+        "percentage_commits_with_typeChanges": "",
+        "total_typeAnnotation_codeChanges": 194,
+        "s1": "------------------------------------------------------------------------",
+        "RQ1": "Are type annotation inserted, removed and changed?",
+        "insert_types": {
+            "2018": 103,
+            "2019": 10,
+            "2021": 38
+        },
+        "percentage_insert_types": "",
+        "remove_types": {
+            "2018": 22,
+            "2019": 3,
+            "2021": 16
+        },
+        "percentage_remove_types": "",
+        "modify_existing_types": {
+            "2021": 2
+        },
+        "percentage_modify_existing_types": "",
+        "s2": "------------------------------------------------------------------------",
+        "RQ2_1": "What types are added (generic, numeric, ...)?",
+        "anyType_added": 0,
+        "noneType_added": 0,
+        "numericType_added": 0,
+        "binarySequenceType_added": 0,
+        "textSequenceType_added": 0,
+        "mappingTypes_added": 0,
+        "setTypes_added": 0,
+        "sequenceType_added": 0,
+        "newType_added": 0,
+        "total_added": 151,
+        "RQ2_2": "What are the top 5 types added?",
+        "typeAdded_dict": {
+            "html": 16,
+            "bool": 19,
+            "str": 33,
+            "union [html,none]": 1,
+            "htmlresponse": 1,
+            "int": 9,
+            "float": 4,
+            "queue": 4,
+            "baseprovider": 1,
+            "validator": 1,
+            "threadpoolexecutor": 1,
+            "sqlitedatabase": 1,
+            "proxyip": 19,
+            "union [str,none]": 3,
+            "dict": 3,
+            "request": 2,
+            "httpresponse": 1,
+            "pyquery": 28,
+            "union [pyquery,none]": 2,
+            "response": 1,
+            "worker": 1
+        },
+        "RQ2_3": "What types are removed (generic, numeric, ...)?",
+        "anyType_removed": 0,
+        "noneType_removed": 0,
+        "numericType_removed": 0,
+        "binarySequenceType_removed": 0,
+        "textSequenceType_removed": 0,
+        "mappingTypes_removed": 0,
+        "setTypes_removed": 0,
+        "sequenceType_removed": 0,
+        "newType_removed": 0,
+        "total_removed": 41,
+        "RQ2_4": "What are the top 5 types removed?",
+        "typeRemoved_dict": {
+            "str": 12,
+            "int": 2,
+            "validator": 1,
+            "union [str,none]": 2,
+            "dict": 2,
+            "queue": 1,
+            "proxyip": 2,
+            "bool": 2,
+            "baseprovider": 1,
+            "html": 16
+        },
+        "RQ2_5": "What types are the top 10 changed ?",
+        "total_changed": 2,
+        "typeChanged_dict_var": {
+            "htmlresponse -> response": 1
+        },
+        "typeChanged_dict_arg": {},
+        "typeChanged_dict_ret": {
+            "union [html,none] -> union [pyquery,none]": 1
+        },
+        "s3": "------------------------------------------------------------------------",
+        "RQ3_1": "Where are types added (function args, function returns, variables)?",
+        "functionArgsType_added": 85,
+        "functionReturnsType_added": 31,
+        "variableType_added": 35,
+        "RQ3_2": "Where are types removed (function args, function returns, variables)?",
+        "functionArgsType_removed": 34,
+        "functionReturnsType_removed": 5,
+        "variableType_removed": 2,
+        "RQ3_3": "Where are types changed (function args, function returns, variables?",
+        "functionArgsType_changed": 0,
+        "functionReturnsType_changed": 1,
+        "variableType_changed": 1,
+        "s4": "------------------------------------------------------------------------",
+        "RQ4_1": "Are types added along with other changes around this code or in commits that only add types?",
+        "typeAnnotation_added_per_commit": 0,
+        "list_typeAnnotation_added_per_commit": [],
+        "RQ4_2": "Are types removed along with other changes around this code or in commits that only add types?",
+        "typeAnnotation_removed_per_commit": 0,
+        "list_typeAnnotation_removed_per_commit": [],
+        "RQ4_3": "Are types changed along with other changes around this code or in commits that only add types?",
+        "typeAnnotation_changed_per_commit": 0,
+        "list_typeAnnotation_changed_per_commit": [
+            1.3059701492537312,
+            3.5211267605633805,
+            1.1764705882352942,
+            5.263157894736842,
+            1.639344262295082,
+            7.894736842105263,
+            5.263157894736842,
+            12.5,
+            3.571428571428571,
+            4.3478260869565215,
+            9.090909090909092,
+            7.142857142857142,
+            6.666666666666667,
+            9.67741935483871,
+            20.0,
+            2.7777777777777777,
+            5.263157894736842,
+            5.263157894736842,
+            4.3478260869565215,
+            1.1627906976744187,
+            4.651162790697675,
+            3.7735849056603774,
+            2.3255813953488373,
+            14.285714285714285,
+            4.878048780487805,
+            7.142857142857142,
+            5.769230769230769,
+            5.263157894736842,
+            6.666666666666667,
+            6.806282722513089,
+            7.142857142857142,
+            1.0600706713780919,
+            42.10526315789473,
+            3.0303030303030303,
+            3.3003300330033,
+            1.092896174863388,
+            15.350877192982457,
+            8.98876404494382,
+            0.49019607843137253,
+            2.2222222222222223
+        ],
+        "annotation_related_insertion_edits_vs_all_commit": [],
+        "annotation_related_deletion_edits_vs_all_commit": [],
+        "s5": "------------------------------------------------------------------------",
+        "RQ5": "Relation of properties of projects vs. properties of type changes.",
+        "matrix_commits_stars_annotations": [
+            [
+                "2018",
+                "346",
+                "3036",
+                "194",
+                "379",
+                "38",
+                "101",
+                "272",
+                "15",
+                "0",
+                "0",
+                "683"
+            ]
+        ],
+        "matrix_files_annotations": [],
+        "matrix_test_files_annotations": [],
+        "dict_funct_call_no_types": {},
+        "dict_funct_call_types": {},
+        "s6": "------------------------------------------------------------------------",
+        "RQ6": "Which are the top 10 repository with the highest number of type annotations.",
+        "number_type_annotations_per_repo": {
+            "https://github.com/imWildCat/scylla": 194
+        },
+        "s7": "------------------------------------------------------------------------",
+        "RQ7": "How many of all types are annotated in the last version of the code?",
+        "typeLastProjectVersion_total": 66,
+        "typeLastProjectVersion_average": 0,
+        "typeLastProjectVersion_percentage": [
+            43.71
+        ],
+        "typeLastProjectVersion_dict": {
+            "https://github.com/imWildCat/scylla": 66
+        },
+        "typeLastProjectVersion_dict_error": {},
+        "RQ8": "Total number of annotations over time, across all projects",
+        "typeAnnotation_year_analysis": {
+            "2018": 103,
+            "2019": 10,
+            "2021": 38
+        },
+        "RQ9": "Total number of annotation-related commit over time, across all projects",
+        "typeAnnotation_commit_annotation_year_analysis": {
+            "2018": 28,
+            "2019": 1,
+            "2021": 2
+        },
+        "typeAnnotation_commit_not_annotation_year_analysis": {
+            "2018": 245,
+            "2019": 18,
+            "2021": 18
+        },
+        "RQ10": "Type annotation coverage for each each",
+        "annotation_coverage": {
+            "2014": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+            ],
+            "2015": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+            ],
+            "2016": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+            ],
+            "2017": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+            ],
+            "2018": [
+                58,
+                114,
+                22,
+                171,
+                28,
+                356
+            ],
+            "2019": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+            ],
+            "2020": [
+                29,
+                57,
+                11,
+                72,
+                14,
+                176
+            ]
+        },
+        "RQ11": "Developers statistics",
+        "list_dev_dict": [
+            {
+                "imWildCat-scylla": 0,
+                "wildcat.name@gmail.com": 29,
+                "kivson@gmail.com": 1,
+                "songhou@advance.ai": 1
+            }
+        ],
+        "list_dev_dict_total": [
+            {
+                "imWildCat-scylla": 0,
+                "wildcat.name@gmail.com": 292,
+                "cclauss@bluewin.ch": 1,
+                "kivson@gmail.com": 1,
+                "zhanglc77@gmail.com": 1,
+                "jjyy@outlook.com": 2,
+                "shawwwn1@gmail.com": 16,
+                "songhou@advance.ai": 1,
+                "yuujinnx@gmail.com": 1,
+                "49699333+dependabot[bot]@users.noreply.github.com": 26,
+                "10784701+memwey@users.noreply.github.com": 1,
+                "wvengen@users.noreply.github.com": 1,
+                "tim.gates@iress.com": 1,
+                "slava.ganzin@gmail.com": 1,
+                "PaleNeutron@users.noreply.github.com": 1
+            }
+        ],
+        "dev_dict": {},
+        "dev_dict_total": {},
+        "list_dev_plot": []
+    }
+]

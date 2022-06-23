@@ -198,11 +198,15 @@ def is_add_only_commit(c):
 
 def is_remove_only_commit(c):
     return (c["removed_per_commit_percentage"] == "100.0 %" and
-            int(c["typeannotation_line_removed"]) > 0)
+            int(c["typeannotation_line_inserted"]) == 0 and
+            int(c["typeannotation_line_removed"]) > 0 and
+            int(c["typeannotation_line_changed"]) == 0)
 
 
 def is_changed_only_commit(c):
     return (c["changed_per_commit_percentage"] == "100.0 %" and
+            int(c["typeannotation_line_inserted"]) == 0 and
+            int(c["typeannotation_line_removed"]) == 0 and
             int(c["typeannotation_line_changed"]) > 0)
 
 
@@ -244,7 +248,7 @@ def analyze_specific_commits(commits_file):
             remove_only = is_remove_only_commit(c)
             change_only = is_changed_only_commit(c)
 
-            if remove_only or change_only:
+            if change_only:
                 commit_url = c["url"]
                 match = re.match(commit_url_regexp, commit_url)
                 project = match.group(1) + '-' + match.group(2)
@@ -298,7 +302,7 @@ def analyze_specific_commits(commits_file):
     # analyze_latest_commit(projects)  # TODO: still needed?
 start = time.time()
 
-#analyze_histories(projects, max_commits_per_project=10)
+analyze_histories(projects, max_commits_per_project=10)
 
 analyze_specific_commits(config.ROOT_DIR + "/Resources/Output/typeAnnotationCommitStatistics.json")
 

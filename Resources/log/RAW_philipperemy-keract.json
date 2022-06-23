@@ -1,0 +1,261 @@
+[
+    {
+        "execution_time": "",
+        "machine": {
+            "OS": "Linux-4.15.0-166-generic-x86_64-with-Ubuntu-18.04-bionic",
+            "CPU": "x86_64",
+            "CORES": 48
+        },
+        "total_repositories": 1,
+        "total_commits": 382,
+        "commit_year_dict": {
+            "2017": 34,
+            "2018": 22,
+            "2019": 156,
+            "2020": 138,
+            "2021": 32
+        },
+        "loc_year_edit": {
+            "2017": 1203,
+            "2018": 1018,
+            "2019": 1932,
+            "2020": 2267,
+            "2021": 334
+        },
+        "s0": "------------------------------------------------------------------------",
+        "RQ0": "How many types are used?",
+        "code_changes": [],
+        "commit_statistics": [],
+        "repo_with_types_changes": 1,
+        "percentage_repo_with_typeChanges": "",
+        "commits_with_typeChanges": 6,
+        "percentage_commits_with_typeChanges": "",
+        "total_typeAnnotation_codeChanges": 14,
+        "s1": "------------------------------------------------------------------------",
+        "RQ1": "Are type annotation inserted, removed and changed?",
+        "insert_types": {
+            "2019": 5,
+            "2020": 7
+        },
+        "percentage_insert_types": "",
+        "remove_types": {
+            "2019": 2
+        },
+        "percentage_remove_types": "",
+        "modify_existing_types": {},
+        "percentage_modify_existing_types": "",
+        "s2": "------------------------------------------------------------------------",
+        "RQ2_1": "What types are added (generic, numeric, ...)?",
+        "anyType_added": 0,
+        "noneType_added": 0,
+        "numericType_added": 0,
+        "binarySequenceType_added": 0,
+        "textSequenceType_added": 0,
+        "mappingTypes_added": 0,
+        "setTypes_added": 0,
+        "sequenceType_added": 0,
+        "newType_added": 0,
+        "total_added": 12,
+        "RQ2_2": "What are the top 5 types added?",
+        "typeAdded_dict": {
+            "model": 1,
+            "dict": 4,
+            "none": 6,
+            "int": 1
+        },
+        "RQ2_3": "What types are removed (generic, numeric, ...)?",
+        "anyType_removed": 0,
+        "noneType_removed": 0,
+        "numericType_removed": 0,
+        "binarySequenceType_removed": 0,
+        "textSequenceType_removed": 0,
+        "mappingTypes_removed": 0,
+        "setTypes_removed": 0,
+        "sequenceType_removed": 0,
+        "newType_removed": 0,
+        "total_removed": 2,
+        "RQ2_4": "What are the top 5 types removed?",
+        "typeRemoved_dict": {
+            "dict": 2
+        },
+        "RQ2_5": "What types are the top 10 changed ?",
+        "total_changed": 0,
+        "typeChanged_dict_var": {},
+        "typeChanged_dict_arg": {},
+        "typeChanged_dict_ret": {},
+        "s3": "------------------------------------------------------------------------",
+        "RQ3_1": "Where are types added (function args, function returns, variables)?",
+        "functionArgsType_added": 6,
+        "functionReturnsType_added": 6,
+        "variableType_added": 0,
+        "RQ3_2": "Where are types removed (function args, function returns, variables)?",
+        "functionArgsType_removed": 2,
+        "functionReturnsType_removed": 0,
+        "variableType_removed": 0,
+        "RQ3_3": "Where are types changed (function args, function returns, variables?",
+        "functionArgsType_changed": 0,
+        "functionReturnsType_changed": 0,
+        "variableType_changed": 0,
+        "s4": "------------------------------------------------------------------------",
+        "RQ4_1": "Are types added along with other changes around this code or in commits that only add types?",
+        "typeAnnotation_added_per_commit": 0,
+        "list_typeAnnotation_added_per_commit": [],
+        "RQ4_2": "Are types removed along with other changes around this code or in commits that only add types?",
+        "typeAnnotation_removed_per_commit": 0,
+        "list_typeAnnotation_removed_per_commit": [],
+        "RQ4_3": "Are types changed along with other changes around this code or in commits that only add types?",
+        "typeAnnotation_changed_per_commit": 0,
+        "list_typeAnnotation_changed_per_commit": [
+            9.090909090909092,
+            14.285714285714285,
+            14.285714285714285,
+            13.333333333333334,
+            1.7543859649122806,
+            5.88235294117647,
+            3.8461538461538463
+        ],
+        "annotation_related_insertion_edits_vs_all_commit": [],
+        "annotation_related_deletion_edits_vs_all_commit": [],
+        "s5": "------------------------------------------------------------------------",
+        "RQ5": "Relation of properties of projects vs. properties of type changes.",
+        "matrix_commits_stars_annotations": [
+            [
+                "2017",
+                "382",
+                "810",
+                "14",
+                "167",
+                "1",
+                "24",
+                "296",
+                "15",
+                "0",
+                "0",
+                "4370"
+            ]
+        ],
+        "matrix_files_annotations": [],
+        "matrix_test_files_annotations": [],
+        "dict_funct_call_no_types": {},
+        "dict_funct_call_types": {},
+        "s6": "------------------------------------------------------------------------",
+        "RQ6": "Which are the top 10 repository with the highest number of type annotations.",
+        "number_type_annotations_per_repo": {
+            "https://github.com/philipperemy/keract": 14
+        },
+        "s7": "------------------------------------------------------------------------",
+        "RQ7": "How many of all types are annotated in the last version of the code?",
+        "typeLastProjectVersion_total": 10,
+        "typeLastProjectVersion_average": 0,
+        "typeLastProjectVersion_percentage": [
+            83.33
+        ],
+        "typeLastProjectVersion_dict": {
+            "https://github.com/philipperemy/keract": 10
+        },
+        "typeLastProjectVersion_dict_error": {},
+        "RQ8": "Total number of annotations over time, across all projects",
+        "typeAnnotation_year_analysis": {
+            "2019": 5,
+            "2020": 7
+        },
+        "RQ9": "Total number of annotation-related commit over time, across all projects",
+        "typeAnnotation_commit_annotation_year_analysis": {
+            "2019": 3,
+            "2020": 3
+        },
+        "typeAnnotation_commit_not_annotation_year_analysis": {
+            "2019": 150,
+            "2020": 124
+        },
+        "RQ10": "Type annotation coverage for each each",
+        "annotation_coverage": {
+            "2014": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+            ],
+            "2015": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+            ],
+            "2016": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+            ],
+            "2017": [
+                0,
+                5,
+                0,
+                5,
+                0,
+                48
+            ],
+            "2018": [
+                0,
+                10,
+                0,
+                10,
+                0,
+                96
+            ],
+            "2019": [
+                3,
+                27,
+                0,
+                13,
+                0,
+                113
+            ],
+            "2020": [
+                8,
+                183,
+                12,
+                111,
+                0,
+                611
+            ]
+        },
+        "RQ11": "Developers statistics",
+        "list_dev_dict": [
+            {
+                "philipperemy-keract": 0,
+                "premy@cogent.co.jp": 2,
+                "premy.enseirb@gmail.com": 4
+            }
+        ],
+        "list_dev_dict_total": [
+            {
+                "philipperemy-keract": 0,
+                "premy@cogent.co.jp": 140,
+                "premy@reactive.co.jp": 14,
+                "1171021690@qq.com": 1,
+                "qwertpi@users.noreply.github.com": 24,
+                "28253514+Stochastic13@users.noreply.github.com": 3,
+                "long.nguyen2306@protonmail.com": 1,
+                "zkx741481546@live.com": 4,
+                "27856297+dependabot-preview[bot]@users.noreply.github.com": 5,
+                "premy.enseirb@gmail.com": 176,
+                "thomas.debrunner@wsl.ch": 1,
+                "kzimmer-bah": 6,
+                "luis.herrmann@hella.com": 3,
+                "doug.blank@gmail.com": 1,
+                "daniyaleight8@gmail.com": 3
+            }
+        ],
+        "dev_dict": {},
+        "dev_dict_total": {},
+        "list_dev_plot": []
+    }
+]

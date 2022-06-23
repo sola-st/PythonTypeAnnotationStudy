@@ -1,0 +1,323 @@
+[
+    {
+        "execution_time": "",
+        "machine": {
+            "OS": "Linux-4.15.0-166-generic-x86_64-with-Ubuntu-18.04-bionic",
+            "CPU": "x86_64",
+            "CORES": 48
+        },
+        "total_repositories": 1,
+        "total_commits": 129,
+        "commit_year_dict": {
+            "2019": 58,
+            "2020": 56,
+            "2021": 15
+        },
+        "loc_year_edit": {
+            "2019": 2953,
+            "2020": 5481,
+            "2021": 198
+        },
+        "s0": "------------------------------------------------------------------------",
+        "RQ0": "How many types are used?",
+        "code_changes": [],
+        "commit_statistics": [],
+        "repo_with_types_changes": 1,
+        "percentage_repo_with_typeChanges": "",
+        "commits_with_typeChanges": 13,
+        "percentage_commits_with_typeChanges": "",
+        "total_typeAnnotation_codeChanges": 451,
+        "s1": "------------------------------------------------------------------------",
+        "RQ1": "Are type annotation inserted, removed and changed?",
+        "insert_types": {
+            "2020": 426,
+            "2021": 10
+        },
+        "percentage_insert_types": "",
+        "remove_types": {
+            "2020": 11
+        },
+        "percentage_remove_types": "",
+        "modify_existing_types": {
+            "2020": 4
+        },
+        "percentage_modify_existing_types": "",
+        "s2": "------------------------------------------------------------------------",
+        "RQ2_1": "What types are added (generic, numeric, ...)?",
+        "anyType_added": 0,
+        "noneType_added": 0,
+        "numericType_added": 0,
+        "binarySequenceType_added": 0,
+        "textSequenceType_added": 0,
+        "mappingTypes_added": 0,
+        "setTypes_added": 0,
+        "sequenceType_added": 0,
+        "newType_added": 0,
+        "total_added": 436,
+        "RQ2_2": "What are the top 5 types added?",
+        "typeAdded_dict": {
+            "tensor": 59,
+            "int": 22,
+            "str": 55,
+            "bool": 72,
+            "optional [tensor]": 104,
+            "union [array,tensor]": 1,
+            "optional [struct]": 3,
+            "dict [str,int]": 1,
+            "none": 13,
+            "modeloutput": 3,
+            "list [int]": 1,
+            "tuple [tensor,tensor]": 2,
+            "float": 13,
+            "smploutput": 2,
+            "smplhoutput": 1,
+            "smplxoutput": 1,
+            "manooutput": 2,
+            "torch.dtype": 2,
+            "flameoutput": 2,
+            "union [smpllayer,smplhlayer,smplxlayer,manolayer,flamelayer]": 1,
+            "union [smpl,smplh,smplx,mano,flame]": 1,
+            "optional [union [tensor,array]]": 1,
+            "pca": 1,
+            "shape": 3,
+            "pose": 11,
+            "variable": 2,
+            "posewithpca": 3,
+            "expression": 2,
+            "smpl": 2,
+            "smplh": 1,
+            "smplx": 1,
+            "mano": 1,
+            "flame": 1,
+            "omegaconf": 1,
+            "meshfolder": 1,
+            "tuple [float]": 2,
+            "optional [int]": 4,
+            "optimconfig": 1,
+            "datasetconfig": 1,
+            "lossconfig": 1,
+            "bodymodelconfig": 1,
+            "edgefitting": 1,
+            "tuple [float,float]": 1,
+            "lbfgs": 1,
+            "sgd": 1,
+            "adam": 1,
+            "trustregionnewtoncg": 1,
+            "optional [tuple]": 1,
+            "nn.module": 8,
+            "torch.optim": 1,
+            "list [tensor]": 2,
+            "optional [callable [...,dict [str,float]]]": 1,
+            "dict": 2,
+            "dict [str,tensor]": 6,
+            "optional [str]": 3,
+            "optional": 1,
+            "callable": 3
+        },
+        "RQ2_3": "What types are removed (generic, numeric, ...)?",
+        "anyType_removed": 0,
+        "noneType_removed": 0,
+        "numericType_removed": 0,
+        "binarySequenceType_removed": 0,
+        "textSequenceType_removed": 0,
+        "mappingTypes_removed": 0,
+        "setTypes_removed": 0,
+        "sequenceType_removed": 0,
+        "newType_removed": 0,
+        "total_removed": 11,
+        "RQ2_4": "What are the top 5 types removed?",
+        "typeRemoved_dict": {
+            "tensor": 10,
+            "str": 1
+        },
+        "RQ2_5": "What types are the top 10 changed ?",
+        "total_changed": 4,
+        "typeChanged_dict_var": {},
+        "typeChanged_dict_arg": {},
+        "typeChanged_dict_ret": {
+            "str -> tensor": 1,
+            "modeloutput -> smploutput": 1,
+            "modeloutput -> smplhoutput": 1,
+            "modeloutput -> smplxoutput": 1
+        },
+        "s3": "------------------------------------------------------------------------",
+        "RQ3_1": "Where are types added (function args, function returns, variables)?",
+        "functionArgsType_added": 245,
+        "functionReturnsType_added": 60,
+        "variableType_added": 131,
+        "RQ3_2": "Where are types removed (function args, function returns, variables)?",
+        "functionArgsType_removed": 1,
+        "functionReturnsType_removed": 0,
+        "variableType_removed": 10,
+        "RQ3_3": "Where are types changed (function args, function returns, variables?",
+        "functionArgsType_changed": 0,
+        "functionReturnsType_changed": 4,
+        "variableType_changed": 0,
+        "s4": "------------------------------------------------------------------------",
+        "RQ4_1": "Are types added along with other changes around this code or in commits that only add types?",
+        "typeAnnotation_added_per_commit": 0,
+        "list_typeAnnotation_added_per_commit": [],
+        "RQ4_2": "Are types removed along with other changes around this code or in commits that only add types?",
+        "typeAnnotation_removed_per_commit": 0,
+        "list_typeAnnotation_removed_per_commit": [],
+        "RQ4_3": "Are types changed along with other changes around this code or in commits that only add types?",
+        "typeAnnotation_changed_per_commit": 0,
+        "list_typeAnnotation_changed_per_commit": [
+            43.47826086956522,
+            17.307692307692307,
+            46.15384615384615,
+            0.34602076124567477,
+            73.80952380952381,
+            33.9622641509434,
+            7.98004987531172,
+            5.5,
+            0.21337126600284498,
+            14.285714285714285,
+            11.11111111111111,
+            7.198952879581152,
+            100.0,
+            9.67741935483871,
+            20.0,
+            100.0
+        ],
+        "annotation_related_insertion_edits_vs_all_commit": [],
+        "annotation_related_deletion_edits_vs_all_commit": [],
+        "s5": "------------------------------------------------------------------------",
+        "RQ5": "Relation of properties of projects vs. properties of type changes.",
+        "matrix_commits_stars_annotations": [
+            [
+                "2019",
+                "129",
+                "316",
+                "451",
+                "64",
+                "9",
+                "0",
+                "141",
+                "11",
+                "0",
+                "0",
+                "818"
+            ]
+        ],
+        "matrix_files_annotations": [],
+        "matrix_test_files_annotations": [],
+        "dict_funct_call_no_types": {},
+        "dict_funct_call_types": {},
+        "s6": "------------------------------------------------------------------------",
+        "RQ6": "Which are the top 10 repository with the highest number of type annotations.",
+        "number_type_annotations_per_repo": {
+            "https://github.com/vchoutas/smplx": 451
+        },
+        "s7": "------------------------------------------------------------------------",
+        "RQ7": "How many of all types are annotated in the last version of the code?",
+        "typeLastProjectVersion_total": 421,
+        "typeLastProjectVersion_average": 0,
+        "typeLastProjectVersion_percentage": [
+            96.56
+        ],
+        "typeLastProjectVersion_dict": {
+            "https://github.com/vchoutas/smplx": 421
+        },
+        "typeLastProjectVersion_dict_error": {},
+        "RQ8": "Total number of annotations over time, across all projects",
+        "typeAnnotation_year_analysis": {
+            "2020": 426,
+            "2021": 10
+        },
+        "RQ9": "Total number of annotation-related commit over time, across all projects",
+        "typeAnnotation_commit_annotation_year_analysis": {
+            "2020": 9,
+            "2021": 4
+        },
+        "typeAnnotation_commit_not_annotation_year_analysis": {
+            "2020": 31,
+            "2021": 11
+        },
+        "RQ10": "Type annotation coverage for each each",
+        "annotation_coverage": {
+            "2014": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+            ],
+            "2015": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+            ],
+            "2016": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+            ],
+            "2017": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+            ],
+            "2018": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+            ],
+            "2019": [
+                0,
+                162,
+                0,
+                33,
+                0,
+                266
+            ],
+            "2020": [
+                188,
+                160,
+                42,
+                29,
+                18,
+                532
+            ]
+        },
+        "RQ11": "Developers statistics",
+        "list_dev_dict": [
+            {
+                "vchoutas-smplx": 0,
+                "vchoutas@users.noreply.github.com": 11,
+                "ppatel@gullfoss.is.localnet": 2
+            }
+        ],
+        "list_dev_dict_total": [
+            {
+                "vchoutas-smplx": 0,
+                "vassilis.choutas@tuebingen.mpg.de": 29,
+                "5918727+vchoutas@users.noreply.github.com": 18,
+                "dim.tziwnas@gmail.com": 18,
+                "nkolot@seas.upenn.edu": 1,
+                "32509797+MohameHassan@users.noreply.github.com": 1,
+                "vchoutas@users.noreply.github.com": 50,
+                "romain.bregier@naverlabs.com": 1,
+                "omid.taheri@tuebingen.mpg.de": 6,
+                "ppatel@gullfoss.is.localnet": 4,
+                "andres.casado.94@gmail.com": 1
+            }
+        ],
+        "dev_dict": {},
+        "dev_dict_total": {},
+        "list_dev_plot": []
+    }
+]

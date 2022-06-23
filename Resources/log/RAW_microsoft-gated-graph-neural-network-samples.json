@@ -1,0 +1,302 @@
+[
+    {
+        "execution_time": "",
+        "machine": {
+            "OS": "Linux-4.15.0-166-generic-x86_64-with-Ubuntu-18.04-bionic",
+            "CPU": "x86_64",
+            "CORES": 48
+        },
+        "total_repositories": 1,
+        "total_commits": 60,
+        "commit_year_dict": {
+            "2017": 8,
+            "2018": 43,
+            "2019": 9
+        },
+        "loc_year_edit": {
+            "2017": 16664,
+            "2018": 1893,
+            "2019": 70
+        },
+        "s0": "------------------------------------------------------------------------",
+        "RQ0": "How many types are used?",
+        "code_changes": [],
+        "commit_statistics": [],
+        "repo_with_types_changes": 1,
+        "percentage_repo_with_typeChanges": "",
+        "commits_with_typeChanges": 8,
+        "percentage_commits_with_typeChanges": "",
+        "total_typeAnnotation_codeChanges": 97,
+        "s1": "------------------------------------------------------------------------",
+        "RQ1": "Are type annotation inserted, removed and changed?",
+        "insert_types": {
+            "2017": 45,
+            "2018": 28
+        },
+        "percentage_insert_types": "",
+        "remove_types": {
+            "2017": 14,
+            "2018": 4
+        },
+        "percentage_remove_types": "",
+        "modify_existing_types": {
+            "2017": 6
+        },
+        "percentage_modify_existing_types": "",
+        "s2": "------------------------------------------------------------------------",
+        "RQ2_1": "What types are added (generic, numeric, ...)?",
+        "anyType_added": 0,
+        "noneType_added": 0,
+        "numericType_added": 0,
+        "binarySequenceType_added": 0,
+        "textSequenceType_added": 0,
+        "mappingTypes_added": 0,
+        "setTypes_added": 0,
+        "sequenceType_added": 0,
+        "newType_added": 0,
+        "total_added": 73,
+        "RQ2_2": "What are the top 5 types added?",
+        "typeAdded_dict": {
+            "tf.tensor": 10,
+            "list [tf]": 1,
+            "int": 10,
+            "chemgnn": 1,
+            "tuple [list [preprocessedgraph],int]": 2,
+            "tuple [dict [int,np],dict [int,np]]": 1,
+            "optional [tf]": 2,
+            "list [preprocessedgraph]": 2,
+            "chemgcn": 1,
+            "tuple [np,np]": 1,
+            "str": 6,
+            "sequence [any]": 5,
+            "any": 6,
+            "bool": 12,
+            "tf.session": 1,
+            "list [list [int]]": 1,
+            "none": 6,
+            "tuple [dict [int,np],dict [int,dict [int,int]]]": 1,
+            "dict [int,sequence [int]]": 1,
+            "dict [int,int]": 1,
+            "tuple [np,list [list [np]],list [list [np]],list [np]]": 1,
+            "list [tuple [np,list [list [np]],list [list [np]],list [np]]]": 1
+        },
+        "RQ2_3": "What types are removed (generic, numeric, ...)?",
+        "anyType_removed": 0,
+        "noneType_removed": 0,
+        "numericType_removed": 0,
+        "binarySequenceType_removed": 0,
+        "textSequenceType_removed": 0,
+        "mappingTypes_removed": 0,
+        "setTypes_removed": 0,
+        "sequenceType_removed": 0,
+        "newType_removed": 0,
+        "total_removed": 18,
+        "RQ2_4": "What are the top 5 types removed?",
+        "typeRemoved_dict": {
+            "tf.tensor": 5,
+            "optional [tf]": 2,
+            "int": 3,
+            "chemgcn": 1,
+            "tuple [dict [int,np],dict [int,np]]": 1,
+            "list [tf]": 1,
+            "chemgnn": 1,
+            "tf.session": 1,
+            "str": 2,
+            "none": 1
+        },
+        "RQ2_5": "What types are the top 10 changed ?",
+        "total_changed": 6,
+        "typeChanged_dict_var": {},
+        "typeChanged_dict_arg": {
+            "list [preprocessedgraph] -> any": 2
+        },
+        "typeChanged_dict_ret": {
+            "tuple [list [preprocessedgraph],int] -> none": 2,
+            "tuple [np,np] -> any": 1,
+            "tf.tensor -> tuple [np,np]": 1
+        },
+        "s3": "------------------------------------------------------------------------",
+        "RQ3_1": "Where are types added (function args, function returns, variables)?",
+        "functionArgsType_added": 50,
+        "functionReturnsType_added": 23,
+        "variableType_added": 0,
+        "RQ3_2": "Where are types removed (function args, function returns, variables)?",
+        "functionArgsType_removed": 16,
+        "functionReturnsType_removed": 2,
+        "variableType_removed": 0,
+        "RQ3_3": "Where are types changed (function args, function returns, variables?",
+        "functionArgsType_changed": 2,
+        "functionReturnsType_changed": 4,
+        "variableType_changed": 0,
+        "s4": "------------------------------------------------------------------------",
+        "RQ4_1": "Are types added along with other changes around this code or in commits that only add types?",
+        "typeAnnotation_added_per_commit": 0,
+        "list_typeAnnotation_added_per_commit": [],
+        "RQ4_2": "Are types removed along with other changes around this code or in commits that only add types?",
+        "typeAnnotation_removed_per_commit": 0,
+        "list_typeAnnotation_removed_per_commit": [],
+        "RQ4_3": "Are types changed along with other changes around this code or in commits that only add types?",
+        "typeAnnotation_changed_per_commit": 0,
+        "list_typeAnnotation_changed_per_commit": [
+            0.03552650277106721,
+            6.349206349206349,
+            2.127659574468085,
+            1.6,
+            2.43161094224924,
+            1.0135135135135136,
+            0.3246753246753247,
+            2.7027027027027026,
+            3.0303030303030303,
+            5.376344086021505,
+            1.4344262295081966,
+            5.172413793103448,
+            6.451612903225806
+        ],
+        "annotation_related_insertion_edits_vs_all_commit": [],
+        "annotation_related_deletion_edits_vs_all_commit": [],
+        "s5": "------------------------------------------------------------------------",
+        "RQ5": "Relation of properties of projects vs. properties of type changes.",
+        "matrix_commits_stars_annotations": [
+            [
+                "2017",
+                "60",
+                "926",
+                "97",
+                "242",
+                "2",
+                "0",
+                "64",
+                "17",
+                "0",
+                "0",
+                "150"
+            ]
+        ],
+        "matrix_files_annotations": [],
+        "matrix_test_files_annotations": [],
+        "dict_funct_call_no_types": {},
+        "dict_funct_call_types": {},
+        "s6": "------------------------------------------------------------------------",
+        "RQ6": "Which are the top 10 repository with the highest number of type annotations.",
+        "number_type_annotations_per_repo": {
+            "https://github.com/microsoft/gated-graph-neural-network-samples": 97
+        },
+        "s7": "------------------------------------------------------------------------",
+        "RQ7": "How many of all types are annotated in the last version of the code?",
+        "typeLastProjectVersion_total": 34,
+        "typeLastProjectVersion_average": 0,
+        "typeLastProjectVersion_percentage": [
+            46.58
+        ],
+        "typeLastProjectVersion_dict": {
+            "https://github.com/microsoft/gated-graph-neural-network-samples": 34
+        },
+        "typeLastProjectVersion_dict_error": {},
+        "RQ8": "Total number of annotations over time, across all projects",
+        "typeAnnotation_year_analysis": {
+            "2017": 45,
+            "2018": 28
+        },
+        "RQ9": "Total number of annotation-related commit over time, across all projects",
+        "typeAnnotation_commit_annotation_year_analysis": {
+            "2017": 4,
+            "2018": 4
+        },
+        "typeAnnotation_commit_not_annotation_year_analysis": {
+            "2017": 1,
+            "2018": 38
+        },
+        "RQ10": "Type annotation coverage for each each",
+        "annotation_coverage": {
+            "2014": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+            ],
+            "2015": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+            ],
+            "2016": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+            ],
+            "2017": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+            ],
+            "2018": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+            ],
+            "2019": [
+                21,
+                95,
+                13,
+                45,
+                0,
+                450
+            ],
+            "2020": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+            ]
+        },
+        "RQ11": "Developers statistics",
+        "list_dev_dict": [
+            {
+                "microsoft-gated-graph-neural-network-samples": 0,
+                "t-mialla@microsoft.com": 1,
+                "mabrocks@microsoft.com": 6,
+                "polozov@microsoft.com": 1
+            }
+        ],
+        "list_dev_dict_total": [
+            {
+                "microsoft-gated-graph-neural-network-samples": 0,
+                "msftgits@microsoft.com": 1,
+                "microsoftopensource@users.noreply.github.com": 2,
+                "t-mialla@microsoft.com": 1,
+                "mabrocks@microsoft.com": 28,
+                "t-algaun@microsoft.com": 6,
+                "mallamanis@gmail.com": 2,
+                "marc+github@marcbrockschmidt.de": 4,
+                "marc@marcbrockschmidt.de": 2,
+                "ryoto@microsoft.com": 2,
+                "algaunt@hotmail.co.uk": 2,
+                "miallama@microsoft.com": 3,
+                "algaunt@microsoft.com": 1,
+                "bharatr@symphonyai.com": 2,
+                "miltos@allamanis.com": 1,
+                "sahilsuneja@gmail.com": 2,
+                "polozov@microsoft.com": 1
+            }
+        ],
+        "dev_dict": {},
+        "dev_dict_total": {},
+        "list_dev_plot": []
+    }
+]

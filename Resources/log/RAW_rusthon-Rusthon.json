@@ -1,0 +1,258 @@
+[
+    {
+        "execution_time": "",
+        "machine": {
+            "OS": "Linux-4.15.0-166-generic-x86_64-with-Ubuntu-18.04-bionic",
+            "CPU": "x86_64",
+            "CORES": 48
+        },
+        "total_repositories": 1,
+        "total_commits": 836,
+        "commit_year_dict": {
+            "2015": 835,
+            "2016": 1
+        },
+        "loc_year_edit": {
+            "2015": 299549,
+            "2016": 31
+        },
+        "s0": "------------------------------------------------------------------------",
+        "RQ0": "How many types are used?",
+        "code_changes": [],
+        "commit_statistics": [],
+        "repo_with_types_changes": 1,
+        "percentage_repo_with_typeChanges": "",
+        "commits_with_typeChanges": 12,
+        "percentage_commits_with_typeChanges": "",
+        "total_typeAnnotation_codeChanges": 74,
+        "s1": "------------------------------------------------------------------------",
+        "RQ1": "Are type annotation inserted, removed and changed?",
+        "insert_types": {
+            "2015": 71
+        },
+        "percentage_insert_types": "",
+        "remove_types": {
+            "2015": 2
+        },
+        "percentage_remove_types": "",
+        "modify_existing_types": {
+            "2015": 1
+        },
+        "percentage_modify_existing_types": "",
+        "s2": "------------------------------------------------------------------------",
+        "RQ2_1": "What types are added (generic, numeric, ...)?",
+        "anyType_added": 0,
+        "noneType_added": 0,
+        "numericType_added": 0,
+        "binarySequenceType_added": 0,
+        "textSequenceType_added": 0,
+        "mappingTypes_added": 0,
+        "setTypes_added": 0,
+        "sequenceType_added": 0,
+        "newType_added": 0,
+        "total_added": 71,
+        "RQ2_2": "What are the top 5 types added?",
+        "typeAdded_dict": {
+            "int": 39,
+            "record": 1,
+            "a": 28,
+            "b": 1,
+            "c": 1,
+            "string": 1
+        },
+        "RQ2_3": "What types are removed (generic, numeric, ...)?",
+        "anyType_removed": 0,
+        "noneType_removed": 0,
+        "numericType_removed": 0,
+        "binarySequenceType_removed": 0,
+        "textSequenceType_removed": 0,
+        "mappingTypes_removed": 0,
+        "setTypes_removed": 0,
+        "sequenceType_removed": 0,
+        "newType_removed": 0,
+        "total_removed": 2,
+        "RQ2_4": "What are the top 5 types removed?",
+        "typeRemoved_dict": {
+            "b": 1,
+            "c": 1
+        },
+        "RQ2_5": "What types are the top 10 changed ?",
+        "total_changed": 1,
+        "typeChanged_dict_var": {},
+        "typeChanged_dict_arg": {},
+        "typeChanged_dict_ret": {
+            "int -> a": 1
+        },
+        "s3": "------------------------------------------------------------------------",
+        "RQ3_1": "Where are types added (function args, function returns, variables)?",
+        "functionArgsType_added": 52,
+        "functionReturnsType_added": 19,
+        "variableType_added": 0,
+        "RQ3_2": "Where are types removed (function args, function returns, variables)?",
+        "functionArgsType_removed": 2,
+        "functionReturnsType_removed": 0,
+        "variableType_removed": 0,
+        "RQ3_3": "Where are types changed (function args, function returns, variables?",
+        "functionArgsType_changed": 0,
+        "functionReturnsType_changed": 1,
+        "variableType_changed": 0,
+        "s4": "------------------------------------------------------------------------",
+        "RQ4_1": "Are types added along with other changes around this code or in commits that only add types?",
+        "typeAnnotation_added_per_commit": 0,
+        "list_typeAnnotation_added_per_commit": [],
+        "RQ4_2": "Are types removed along with other changes around this code or in commits that only add types?",
+        "typeAnnotation_removed_per_commit": 0,
+        "list_typeAnnotation_removed_per_commit": [],
+        "RQ4_3": "Are types changed along with other changes around this code or in commits that only add types?",
+        "typeAnnotation_changed_per_commit": 0,
+        "list_typeAnnotation_changed_per_commit": [
+            1.107011070110701,
+            15.555555555555555,
+            3.389830508474576,
+            15.384615384615385,
+            2.7027027027027026,
+            15.384615384615385,
+            1.4925373134328357,
+            5.0,
+            13.333333333333334,
+            5.970149253731343,
+            1.8957345971563981,
+            2.5316455696202533,
+            0.45871559633027525,
+            3.968253968253968
+        ],
+        "annotation_related_insertion_edits_vs_all_commit": [],
+        "annotation_related_deletion_edits_vs_all_commit": [],
+        "s5": "------------------------------------------------------------------------",
+        "RQ5": "Relation of properties of projects vs. properties of type changes.",
+        "matrix_commits_stars_annotations": [
+            [
+                "2014",
+                "836",
+                "831",
+                "74",
+                "50",
+                "5",
+                "359",
+                "709",
+                "9",
+                "0",
+                "0",
+                "9308"
+            ]
+        ],
+        "matrix_files_annotations": [],
+        "matrix_test_files_annotations": [],
+        "dict_funct_call_no_types": {},
+        "dict_funct_call_types": {},
+        "s6": "------------------------------------------------------------------------",
+        "RQ6": "Which are the top 10 repository with the highest number of type annotations.",
+        "number_type_annotations_per_repo": {
+            "https://github.com/rusthon/Rusthon": 74
+        },
+        "s7": "------------------------------------------------------------------------",
+        "RQ7": "How many of all types are annotated in the last version of the code?",
+        "typeLastProjectVersion_total": 77,
+        "typeLastProjectVersion_average": 0,
+        "typeLastProjectVersion_percentage": [
+            108.45
+        ],
+        "typeLastProjectVersion_dict": {
+            "https://github.com/rusthon/Rusthon": 77
+        },
+        "typeLastProjectVersion_dict_error": {},
+        "RQ8": "Total number of annotations over time, across all projects",
+        "typeAnnotation_year_analysis": {
+            "2015": 71
+        },
+        "RQ9": "Total number of annotation-related commit over time, across all projects",
+        "typeAnnotation_commit_annotation_year_analysis": {
+            "2015": 12
+        },
+        "typeAnnotation_commit_not_annotation_year_analysis": {
+            "2015": 760
+        },
+        "RQ10": "Type annotation coverage for each each",
+        "annotation_coverage": {
+            "2014": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+            ],
+            "2015": [
+                48,
+                1689,
+                28,
+                1013,
+                0,
+                2657
+            ],
+            "2016": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+            ],
+            "2017": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+            ],
+            "2018": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+            ],
+            "2019": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+            ],
+            "2020": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+            ]
+        },
+        "RQ11": "Developers statistics",
+        "list_dev_dict": [
+            {
+                "rusthon-Rusthon": 0,
+                "goatman.py@gmail.com": 12
+            }
+        ],
+        "list_dev_dict_total": [
+            {
+                "rusthon-Rusthon": 0,
+                "goatman.py@gmail.com": 747,
+                "gregor.a.cieslak@gmail.com": 22,
+                "james dot rubino  gmail.com": 2,
+                "james.rubino@gmail.com": 3,
+                "github@kudling.de": 8,
+                "gordianknot1981@gmail.com": 1,
+                "brett@localhost.localdomain": 49,
+                "sdfavis@gmail.com": 4
+            }
+        ],
+        "dev_dict": {},
+        "dev_dict_total": {},
+        "list_dev_plot": []
+    }
+]

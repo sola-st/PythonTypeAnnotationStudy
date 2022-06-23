@@ -1,0 +1,292 @@
+[
+    {
+        "execution_time": "",
+        "machine": {
+            "OS": "Linux-4.15.0-166-generic-x86_64-with-Ubuntu-18.04-bionic",
+            "CPU": "x86_64",
+            "CORES": 48
+        },
+        "total_repositories": 1,
+        "total_commits": 1025,
+        "commit_year_dict": {
+            "2016": 34,
+            "2017": 38,
+            "2018": 263,
+            "2019": 314,
+            "2020": 280,
+            "2021": 96
+        },
+        "loc_year_edit": {
+            "2016": 9272,
+            "2017": 7457,
+            "2018": 9930,
+            "2019": 26251,
+            "2020": 9339,
+            "2021": 5127
+        },
+        "s0": "------------------------------------------------------------------------",
+        "RQ0": "How many types are used?",
+        "code_changes": [],
+        "commit_statistics": [],
+        "repo_with_types_changes": 1,
+        "percentage_repo_with_typeChanges": "",
+        "commits_with_typeChanges": 8,
+        "percentage_commits_with_typeChanges": "",
+        "total_typeAnnotation_codeChanges": 196,
+        "s1": "------------------------------------------------------------------------",
+        "RQ1": "Are type annotation inserted, removed and changed?",
+        "insert_types": {
+            "2020": 124
+        },
+        "percentage_insert_types": "",
+        "remove_types": {
+            "2020": 71
+        },
+        "percentage_remove_types": "",
+        "modify_existing_types": {
+            "2020": 1
+        },
+        "percentage_modify_existing_types": "",
+        "s2": "------------------------------------------------------------------------",
+        "RQ2_1": "What types are added (generic, numeric, ...)?",
+        "anyType_added": 0,
+        "noneType_added": 0,
+        "numericType_added": 0,
+        "binarySequenceType_added": 0,
+        "textSequenceType_added": 0,
+        "mappingTypes_added": 0,
+        "setTypes_added": 0,
+        "sequenceType_added": 0,
+        "newType_added": 0,
+        "total_added": 124,
+        "RQ2_2": "What are the top 5 types added?",
+        "typeAdded_dict": {
+            "list [tuple [list,optional [str]]]": 1,
+            "list [tuple [str,list]]": 1,
+            "str": 12,
+            "float": 43,
+            "fixturerequest": 19,
+            "none": 19,
+            "holodeckenvironment": 15,
+            "int": 12,
+            "callable [...,none]": 1,
+            "list [any]": 1
+        },
+        "RQ2_3": "What types are removed (generic, numeric, ...)?",
+        "anyType_removed": 0,
+        "noneType_removed": 0,
+        "numericType_removed": 0,
+        "binarySequenceType_removed": 0,
+        "textSequenceType_removed": 0,
+        "mappingTypes_removed": 0,
+        "setTypes_removed": 0,
+        "sequenceType_removed": 0,
+        "newType_removed": 0,
+        "total_removed": 71,
+        "RQ2_4": "What are the top 5 types removed?",
+        "typeRemoved_dict": {
+            "list [tuple [str,list]]": 1,
+            "fixturerequest": 10,
+            "holodeckenvironment": 9,
+            "str": 9,
+            "float": 20,
+            "int": 9,
+            "none": 11,
+            "callable [...,none]": 1,
+            "list [any]": 1
+        },
+        "RQ2_5": "What types are the top 10 changed ?",
+        "total_changed": 1,
+        "typeChanged_dict_var": {},
+        "typeChanged_dict_arg": {},
+        "typeChanged_dict_ret": {
+            "float -> none": 1
+        },
+        "s3": "------------------------------------------------------------------------",
+        "RQ3_1": "Where are types added (function args, function returns, variables)?",
+        "functionArgsType_added": 99,
+        "functionReturnsType_added": 25,
+        "variableType_added": 0,
+        "RQ3_2": "Where are types removed (function args, function returns, variables)?",
+        "functionArgsType_removed": 57,
+        "functionReturnsType_removed": 14,
+        "variableType_removed": 0,
+        "RQ3_3": "Where are types changed (function args, function returns, variables?",
+        "functionArgsType_changed": 0,
+        "functionReturnsType_changed": 1,
+        "variableType_changed": 0,
+        "s4": "------------------------------------------------------------------------",
+        "RQ4_1": "Are types added along with other changes around this code or in commits that only add types?",
+        "typeAnnotation_added_per_commit": 0,
+        "list_typeAnnotation_added_per_commit": [],
+        "RQ4_2": "Are types removed along with other changes around this code or in commits that only add types?",
+        "typeAnnotation_removed_per_commit": 0,
+        "list_typeAnnotation_removed_per_commit": [],
+        "RQ4_3": "Are types changed along with other changes around this code or in commits that only add types?",
+        "typeAnnotation_changed_per_commit": 0,
+        "list_typeAnnotation_changed_per_commit": [
+            3.4682080924855487,
+            4.761904761904762,
+            5.829596412556054,
+            0.33557046979865773,
+            7.222222222222221,
+            6.451612903225806,
+            50.0,
+            6.25,
+            8.048289738430583,
+            8.368200836820083,
+            10.476190476190476,
+            10.526315789473683,
+            2.8846153846153846,
+            4.40251572327044,
+            100.0
+        ],
+        "annotation_related_insertion_edits_vs_all_commit": [],
+        "annotation_related_deletion_edits_vs_all_commit": [],
+        "s5": "------------------------------------------------------------------------",
+        "RQ5": "Relation of properties of projects vs. properties of type changes.",
+        "matrix_commits_stars_annotations": [
+            [
+                "2016",
+                "1025",
+                "492",
+                "196",
+                "27",
+                "55",
+                "360",
+                "1073",
+                "22",
+                "0",
+                "0",
+                "145643"
+            ]
+        ],
+        "matrix_files_annotations": [],
+        "matrix_test_files_annotations": [],
+        "dict_funct_call_no_types": {},
+        "dict_funct_call_types": {},
+        "s6": "------------------------------------------------------------------------",
+        "RQ6": "Which are the top 10 repository with the highest number of type annotations.",
+        "number_type_annotations_per_repo": {
+            "https://github.com/BYU-PCCL/holodeck": 196
+        },
+        "s7": "------------------------------------------------------------------------",
+        "RQ7": "How many of all types are annotated in the last version of the code?",
+        "typeLastProjectVersion_total": 53,
+        "typeLastProjectVersion_average": 0,
+        "typeLastProjectVersion_percentage": [
+            42.74
+        ],
+        "typeLastProjectVersion_dict": {
+            "https://github.com/BYU-PCCL/holodeck": 53
+        },
+        "typeLastProjectVersion_dict_error": {},
+        "RQ8": "Total number of annotations over time, across all projects",
+        "typeAnnotation_year_analysis": {
+            "2020": 124
+        },
+        "RQ9": "Total number of annotation-related commit over time, across all projects",
+        "typeAnnotation_commit_annotation_year_analysis": {
+            "2020": 8
+        },
+        "typeAnnotation_commit_not_annotation_year_analysis": {
+            "2020": 171
+        },
+        "RQ10": "Type annotation coverage for each each",
+        "annotation_coverage": {
+            "2014": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+            ],
+            "2015": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+            ],
+            "2016": [
+                0,
+                86,
+                0,
+                39,
+                0,
+                17
+            ],
+            "2017": [
+                0,
+                120,
+                0,
+                74,
+                0,
+                67
+            ],
+            "2018": [
+                0,
+                1703,
+                0,
+                984,
+                0,
+                1768
+            ],
+            "2019": [
+                49,
+                1424,
+                11,
+                818,
+                0,
+                1669
+            ],
+            "2020": [
+                126,
+                1678,
+                33,
+                1030,
+                0,
+                2385
+            ]
+        },
+        "RQ11": "Developers statistics",
+        "list_dev_dict": [
+            {
+                "BYU-PCCL-holodeck": 0,
+                "24789592+iiridescent@users.noreply.github.com": 7,
+                "24789592+vinhowe@users.noreply.github.com": 1
+            }
+        ],
+        "list_dev_dict_total": [
+            {
+                "BYU-PCCL-holodeck": 0,
+                "rpottorff@gmail.com": 7,
+                "derekhancock44@gmail.com": 28,
+                "inboxconnor@gmail.com": 4,
+                "joshua.greaves@googlemail.com": 25,
+                "Joshua Greaves": 2,
+                "mitchneutron@gmail.com": 15,
+                "joshua.greaves@gmail.com": 80,
+                "32994869+mitchneutron@users.noreply.github.com": 15,
+                "maxdrob1@gmail.com": 193,
+                "nickwalton00@gmail.com": 144,
+                "cclauss@bluewin.ch": 1,
+                "mwilliammyers@gmail.com": 2,
+                "jaydenmilne@users.noreply.github.com": 153,
+                "kolbytn@gmail.com": 56,
+                "felipe.cancinos@gmail.com": 3,
+                "daniekpo@gmail.com": 45,
+                "24789592+iiridescent@users.noreply.github.com": 49,
+                "24789592+vinhowe@users.noreply.github.com": 95,
+                "powley.matthew@gmail.com": 35,
+                "mattpow35@gmail.com": 11,
+                "thechrisluangrath@gmail.com": 62
+            }
+        ],
+        "dev_dict": {},
+        "dev_dict_total": {},
+        "list_dev_plot": []
+    }
+]

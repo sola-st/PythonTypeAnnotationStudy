@@ -1,0 +1,336 @@
+[
+    {
+        "execution_time": "",
+        "machine": {
+            "OS": "Linux-4.15.0-166-generic-x86_64-with-Ubuntu-18.04-bionic",
+            "CPU": "x86_64",
+            "CORES": 48
+        },
+        "total_repositories": 1,
+        "total_commits": 263,
+        "commit_year_dict": {
+            "2016": 86,
+            "2017": 74,
+            "2018": 26,
+            "2019": 63,
+            "2021": 14
+        },
+        "loc_year_edit": {
+            "2016": 3144,
+            "2017": 8486,
+            "2018": 626,
+            "2019": 8832,
+            "2021": 603
+        },
+        "s0": "------------------------------------------------------------------------",
+        "RQ0": "How many types are used?",
+        "code_changes": [],
+        "commit_statistics": [],
+        "repo_with_types_changes": 1,
+        "percentage_repo_with_typeChanges": "",
+        "commits_with_typeChanges": 24,
+        "percentage_commits_with_typeChanges": "",
+        "total_typeAnnotation_codeChanges": 326,
+        "s1": "------------------------------------------------------------------------",
+        "RQ1": "Are type annotation inserted, removed and changed?",
+        "insert_types": {
+            "2019": 283,
+            "2021": 2
+        },
+        "percentage_insert_types": "",
+        "remove_types": {
+            "2019": 14
+        },
+        "percentage_remove_types": "",
+        "modify_existing_types": {
+            "2019": 27
+        },
+        "percentage_modify_existing_types": "",
+        "s2": "------------------------------------------------------------------------",
+        "RQ2_1": "What types are added (generic, numeric, ...)?",
+        "anyType_added": 0,
+        "noneType_added": 0,
+        "numericType_added": 0,
+        "binarySequenceType_added": 0,
+        "textSequenceType_added": 0,
+        "mappingTypes_added": 0,
+        "setTypes_added": 0,
+        "sequenceType_added": 0,
+        "newType_added": 0,
+        "total_added": 285,
+        "RQ2_2": "What are the top 5 types added?",
+        "typeAdded_dict": {
+            "object": 4,
+            "none": 76,
+            "any": 4,
+            "int": 40,
+            "bool": 32,
+            "str": 53,
+            "callable": 2,
+            "bytearray": 12,
+            "dict [str,int]": 8,
+            "list [tuple [str,int,int,str,any]]": 6,
+            "list [memorylayoutentrytype]": 5,
+            "list [tuple [str,int,int,int,any]]": 2,
+            "list": 2,
+            "string": 14,
+            "tuple [bytearray,int]": 2,
+            "architecture": 6,
+            "emulatorstate": 2,
+            "memorylayoutentrytype": 2,
+            "qwidget": 2,
+            "qtextedit": 6,
+            "tuple [int,int]": 2,
+            "qaction": 1,
+            "qdockwidget": 1,
+            "qapplication": 1
+        },
+        "RQ2_3": "What types are removed (generic, numeric, ...)?",
+        "anyType_removed": 0,
+        "noneType_removed": 0,
+        "numericType_removed": 0,
+        "binarySequenceType_removed": 0,
+        "textSequenceType_removed": 0,
+        "mappingTypes_removed": 0,
+        "setTypes_removed": 0,
+        "sequenceType_removed": 0,
+        "newType_removed": 0,
+        "total_removed": 14,
+        "RQ2_4": "What are the top 5 types removed?",
+        "typeRemoved_dict": {
+            "none": 6,
+            "emulatorstate": 2,
+            "bool": 2,
+            "list [memorylayoutentrytype]": 2,
+            "str": 2
+        },
+        "RQ2_5": "What types are the top 10 changed ?",
+        "total_changed": 27,
+        "typeChanged_dict_var": {},
+        "typeChanged_dict_arg": {
+            "int -> emulatorstate": 2,
+            "list [tuple [str,int,int,int,any]] -> list [tuple [str,int,int,str,any]]": 2,
+            "list [tuple [str,int,int,str,any]] -> list [memorylayoutentrytype]": 4,
+            "list [tuple [str,int,int,str,any]] -> list [memorysection]": 1,
+            "str -> memorypermission": 1,
+            "list [memorylayoutentrytype] -> list [memorysection]": 2
+        },
+        "typeChanged_dict_ret": {
+            "dict [str,int] -> none": 2,
+            "none -> int": 2,
+            "str -> none": 2,
+            "list [tuple [str,int,int,str,any]] -> list [memorylayoutentrytype]": 2,
+            "none -> bool": 2,
+            "bool -> none": 2,
+            "list [memorylayoutentrytype] -> none": 1,
+            "list [memorylayoutentrytype] -> list [memorysection]": 2
+        },
+        "s3": "------------------------------------------------------------------------",
+        "RQ3_1": "Where are types added (function args, function returns, variables)?",
+        "functionArgsType_added": 119,
+        "functionReturnsType_added": 166,
+        "variableType_added": 0,
+        "RQ3_2": "Where are types removed (function args, function returns, variables)?",
+        "functionArgsType_removed": 4,
+        "functionReturnsType_removed": 10,
+        "variableType_removed": 0,
+        "RQ3_3": "Where are types changed (function args, function returns, variables?",
+        "functionArgsType_changed": 12,
+        "functionReturnsType_changed": 15,
+        "variableType_changed": 0,
+        "s4": "------------------------------------------------------------------------",
+        "RQ4_1": "Are types added along with other changes around this code or in commits that only add types?",
+        "typeAnnotation_added_per_commit": 0,
+        "list_typeAnnotation_added_per_commit": [],
+        "RQ4_2": "Are types removed along with other changes around this code or in commits that only add types?",
+        "typeAnnotation_removed_per_commit": 0,
+        "list_typeAnnotation_removed_per_commit": [],
+        "RQ4_3": "Are types changed along with other changes around this code or in commits that only add types?",
+        "typeAnnotation_changed_per_commit": 0,
+        "list_typeAnnotation_changed_per_commit": [
+            5.719237435008666,
+            5.555555555555555,
+            0.41841004184100417,
+            13.333333333333334,
+            1.5873015873015872,
+            5.813953488372093,
+            2.631578947368421,
+            5.88235294117647,
+            0.9433962264150944,
+            3.0303030303030303,
+            2.158273381294964,
+            5.394190871369295,
+            2.3529411764705883,
+            0.48426150121065376,
+            3.125,
+            4.3478260869565215,
+            1.1111111111111112,
+            7.317073170731707,
+            5.709342560553633,
+            5.555555555555555,
+            0.41841004184100417,
+            13.333333333333334,
+            1.5873015873015872,
+            5.813953488372093,
+            2.631578947368421,
+            5.88235294117647,
+            0.9433962264150944,
+            3.0303030303030303,
+            2.158273381294964,
+            5.394190871369295,
+            2.3529411764705883,
+            0.48426150121065376,
+            3.125,
+            4.3478260869565215,
+            1.1111111111111112,
+            7.317073170731707,
+            3.389830508474576,
+            12.5,
+            3.571428571428571,
+            0.6493506493506493,
+            2.898550724637681,
+            3.076923076923077,
+            0.53475935828877,
+            3.0303030303030303
+        ],
+        "annotation_related_insertion_edits_vs_all_commit": [],
+        "annotation_related_deletion_edits_vs_all_commit": [],
+        "s5": "------------------------------------------------------------------------",
+        "RQ5": "Relation of properties of projects vs. properties of type changes.",
+        "matrix_commits_stars_annotations": [
+            [
+                "2016",
+                "263",
+                "593",
+                "326",
+                "87",
+                "4",
+                "0",
+                "428",
+                "11",
+                "0",
+                "0",
+                "435"
+            ]
+        ],
+        "matrix_files_annotations": [],
+        "matrix_test_files_annotations": [],
+        "dict_funct_call_no_types": {},
+        "dict_funct_call_types": {},
+        "s6": "------------------------------------------------------------------------",
+        "RQ6": "Which are the top 10 repository with the highest number of type annotations.",
+        "number_type_annotations_per_repo": {
+            "https://github.com/hugsy/cemu": 326
+        },
+        "s7": "------------------------------------------------------------------------",
+        "RQ7": "How many of all types are annotated in the last version of the code?",
+        "typeLastProjectVersion_total": 143,
+        "typeLastProjectVersion_average": 0,
+        "typeLastProjectVersion_percentage": [
+            50.18
+        ],
+        "typeLastProjectVersion_dict": {
+            "https://github.com/hugsy/cemu": 143
+        },
+        "typeLastProjectVersion_dict_error": {},
+        "RQ8": "Total number of annotations over time, across all projects",
+        "typeAnnotation_year_analysis": {
+            "2019": 283,
+            "2021": 2
+        },
+        "RQ9": "Total number of annotation-related commit over time, across all projects",
+        "typeAnnotation_commit_annotation_year_analysis": {
+            "2019": 22,
+            "2021": 2
+        },
+        "typeAnnotation_commit_not_annotation_year_analysis": {
+            "2019": 21,
+            "2021": 12
+        },
+        "RQ10": "Type annotation coverage for each each",
+        "annotation_coverage": {
+            "2014": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+            ],
+            "2015": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+            ],
+            "2016": [
+                0,
+                186,
+                0,
+                87,
+                0,
+                240
+            ],
+            "2017": [
+                0,
+                293,
+                0,
+                159,
+                0,
+                366
+            ],
+            "2018": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+            ],
+            "2019": [
+                44,
+                627,
+                64,
+                300,
+                0,
+                832
+            ],
+            "2020": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+            ]
+        },
+        "RQ11": "Developers statistics",
+        "list_dev_dict": [
+            {
+                "hugsy-cemu": 0,
+                "christophe.alladoum@sophos.com": 18,
+                "hugsy+github@blah.cat": 6
+            }
+        ],
+        "list_dev_dict_total": [
+            {
+                "hugsy-cemu": 0,
+                "hugsy+github@blah.cat": 143,
+                "hugsy@users.noreply.github.com": 39,
+                "hugsy@blah.cat": 33,
+                "yannick.formaggio@istuary.com": 1,
+                "drmint80@gmail.com": 6,
+                "mx@pycoder.nl": 1,
+                "ahmed_nematallah@hotmail.com": 1,
+                "christophe.alladoum@sophos.com": 37,
+                "jeff.thomas6@mail.dcu.ie": 1,
+                "ciri@ciri.pl": 1
+            }
+        ],
+        "dev_dict": {},
+        "dev_dict_total": {},
+        "list_dev_plot": []
+    }
+]

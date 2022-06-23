@@ -1,0 +1,324 @@
+[
+    {
+        "execution_time": "",
+        "machine": {
+            "OS": "Linux-4.15.0-166-generic-x86_64-with-Ubuntu-18.04-bionic",
+            "CPU": "x86_64",
+            "CORES": 48
+        },
+        "total_repositories": 1,
+        "total_commits": 161,
+        "commit_year_dict": {
+            "2018": 63,
+            "2019": 36,
+            "2020": 48,
+            "2021": 14
+        },
+        "loc_year_edit": {
+            "2018": 11521,
+            "2019": 772,
+            "2020": 1965,
+            "2021": 1067
+        },
+        "s0": "------------------------------------------------------------------------",
+        "RQ0": "How many types are used?",
+        "code_changes": [],
+        "commit_statistics": [],
+        "repo_with_types_changes": 1,
+        "percentage_repo_with_typeChanges": "",
+        "commits_with_typeChanges": 11,
+        "percentage_commits_with_typeChanges": "",
+        "total_typeAnnotation_codeChanges": 193,
+        "s1": "------------------------------------------------------------------------",
+        "RQ1": "Are type annotation inserted, removed and changed?",
+        "insert_types": {
+            "2018": 124,
+            "2020": 1
+        },
+        "percentage_insert_types": "",
+        "remove_types": {
+            "2018": 47
+        },
+        "percentage_remove_types": "",
+        "modify_existing_types": {
+            "2018": 21
+        },
+        "percentage_modify_existing_types": "",
+        "s2": "------------------------------------------------------------------------",
+        "RQ2_1": "What types are added (generic, numeric, ...)?",
+        "anyType_added": 0,
+        "noneType_added": 0,
+        "numericType_added": 0,
+        "binarySequenceType_added": 0,
+        "textSequenceType_added": 0,
+        "mappingTypes_added": 0,
+        "setTypes_added": 0,
+        "sequenceType_added": 0,
+        "newType_added": 0,
+        "total_added": 125,
+        "RQ2_2": "What are the top 5 types added?",
+        "typeAdded_dict": {
+            "union [dict,none]": 2,
+            "none": 11,
+            "dict": 20,
+            "list [any]": 1,
+            "str": 41,
+            "list [tuple [str,str]]": 1,
+            "'shortcuts.shortcut'": 1,
+            "dict [str,any]": 2,
+            "int": 2,
+            "list": 3,
+            "'shortcut'": 2,
+            "union [plistdumper,tomldumper]": 2,
+            "list [str]": 1,
+            "dict [str,type [baseaction]]": 3,
+            "union [str,none]": 3,
+            "list ['field']": 2,
+            "union [none,str]": 1,
+            "tuple [dict [str,dict [str,str]],str]": 1,
+            "textio": 4,
+            "type ['baseaction']": 5,
+            "union [str,bytes]": 1,
+            "'baseaction'": 1,
+            "union [type ['baseaction'],none]": 1,
+            "union [dict,str]": 1,
+            "union [str,list,dict]": 2,
+            "list [dict [str,any]]": 2,
+            "tuple [type ['baseaction'],...]": 1,
+            "dict [str,type [wfdeserializer]]": 1,
+            "binaryio": 1,
+            "bool": 1,
+            "optional [bool]": 1,
+            "type [baseaction]": 4
+        },
+        "RQ2_3": "What types are removed (generic, numeric, ...)?",
+        "anyType_removed": 0,
+        "noneType_removed": 0,
+        "numericType_removed": 0,
+        "binarySequenceType_removed": 0,
+        "textSequenceType_removed": 0,
+        "mappingTypes_removed": 0,
+        "setTypes_removed": 0,
+        "sequenceType_removed": 0,
+        "newType_removed": 0,
+        "total_removed": 47,
+        "RQ2_4": "What are the top 5 types removed?",
+        "typeRemoved_dict": {
+            "str": 10,
+            "int": 1,
+            "list": 3,
+            "none": 3,
+            "'shortcut'": 2,
+            "union [plistdumper,tomldumper]": 2,
+            "dict": 12,
+            "list [str]": 1,
+            "union [dict,str]": 1,
+            "dict [str,type [baseaction]]": 2,
+            "tuple [type ['baseaction'],...]": 1,
+            "union [type ['baseaction'],none]": 1,
+            "type ['baseaction']": 7,
+            "list ['field']": 1
+        },
+        "RQ2_5": "What types are the top 10 changed ?",
+        "total_changed": 21,
+        "typeChanged_dict_var": {},
+        "typeChanged_dict_arg": {
+            "'shortcuts.shortcut' -> 'shortcuts.shortcut.shortcut'": 1,
+            "'shortcuts.shortcut.shortcut' -> 'shortcut'": 1,
+            "textio -> binaryio": 4
+        },
+        "typeChanged_dict_ret": {
+            "list [tuple [str,str]] -> dict": 1,
+            "str -> none": 2,
+            "str -> 'shortcut'": 4,
+            "union [plistdumper,tomldumper] -> type [baseloader]": 1,
+            "none -> str": 1,
+            "union [plistdumper,tomldumper] -> type [basedumper]": 1,
+            "list -> list [str]": 1,
+            "dict -> dict [str,any]": 1,
+            "union [str,list,dict] -> type ['baseaction']": 1,
+            "list [dict [str,any]] -> type ['baseaction']": 1,
+            "str -> type ['baseaction']": 1
+        },
+        "s3": "------------------------------------------------------------------------",
+        "RQ3_1": "Where are types added (function args, function returns, variables)?",
+        "functionArgsType_added": 55,
+        "functionReturnsType_added": 56,
+        "variableType_added": 14,
+        "RQ3_2": "Where are types removed (function args, function returns, variables)?",
+        "functionArgsType_removed": 24,
+        "functionReturnsType_removed": 20,
+        "variableType_removed": 3,
+        "RQ3_3": "Where are types changed (function args, function returns, variables?",
+        "functionArgsType_changed": 6,
+        "functionReturnsType_changed": 15,
+        "variableType_changed": 0,
+        "s4": "------------------------------------------------------------------------",
+        "RQ4_1": "Are types added along with other changes around this code or in commits that only add types?",
+        "typeAnnotation_added_per_commit": 0,
+        "list_typeAnnotation_added_per_commit": [],
+        "RQ4_2": "Are types removed along with other changes around this code or in commits that only add types?",
+        "typeAnnotation_removed_per_commit": 0,
+        "list_typeAnnotation_removed_per_commit": [],
+        "RQ4_3": "Are types changed along with other changes around this code or in commits that only add types?",
+        "typeAnnotation_changed_per_commit": 0,
+        "list_typeAnnotation_changed_per_commit": [
+            0.6485610052695582,
+            14.705882352941178,
+            15.306122448979592,
+            0.4975124378109453,
+            2.7777777777777777,
+            5.7324840764331215,
+            1.7167381974248928,
+            1.6666666666666667,
+            1.82648401826484,
+            0.29940119760479045,
+            18.181818181818183,
+            4.761904761904762,
+            3.614457831325301,
+            0.9404388714733543,
+            0.36900369003690037,
+            1.5486725663716814,
+            5.583756345177665,
+            3.260869565217391,
+            28.57142857142857,
+            2.941176470588235
+        ],
+        "annotation_related_insertion_edits_vs_all_commit": [],
+        "annotation_related_deletion_edits_vs_all_commit": [],
+        "s5": "------------------------------------------------------------------------",
+        "RQ5": "Relation of properties of projects vs. properties of type changes.",
+        "matrix_commits_stars_annotations": [
+            [
+                "2018",
+                "161",
+                "505",
+                "193",
+                "28",
+                "4",
+                "126",
+                "232",
+                "8",
+                "0",
+                "0",
+                "343"
+            ]
+        ],
+        "matrix_files_annotations": [],
+        "matrix_test_files_annotations": [],
+        "dict_funct_call_no_types": {},
+        "dict_funct_call_types": {},
+        "s6": "------------------------------------------------------------------------",
+        "RQ6": "Which are the top 10 repository with the highest number of type annotations.",
+        "number_type_annotations_per_repo": {
+            "https://github.com/alexander-akhmetov/python-shortcuts": 193
+        },
+        "s7": "------------------------------------------------------------------------",
+        "RQ7": "How many of all types are annotated in the last version of the code?",
+        "typeLastProjectVersion_total": 93,
+        "typeLastProjectVersion_average": 0,
+        "typeLastProjectVersion_percentage": [
+            74.4
+        ],
+        "typeLastProjectVersion_dict": {
+            "https://github.com/alexander-akhmetov/python-shortcuts": 93
+        },
+        "typeLastProjectVersion_dict_error": {},
+        "RQ8": "Total number of annotations over time, across all projects",
+        "typeAnnotation_year_analysis": {
+            "2018": 124,
+            "2020": 1
+        },
+        "RQ9": "Total number of annotation-related commit over time, across all projects",
+        "typeAnnotation_commit_annotation_year_analysis": {
+            "2018": 10,
+            "2020": 1
+        },
+        "typeAnnotation_commit_not_annotation_year_analysis": {
+            "2018": 53,
+            "2020": 25
+        },
+        "RQ10": "Type annotation coverage for each each",
+        "annotation_coverage": {
+            "2014": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+            ],
+            "2015": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+            ],
+            "2016": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+            ],
+            "2017": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+            ],
+            "2018": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+            ],
+            "2019": [
+                41,
+                256,
+                41,
+                170,
+                10,
+                848
+            ],
+            "2020": [
+                41,
+                256,
+                41,
+                170,
+                11,
+                847
+            ]
+        },
+        "RQ11": "Developers statistics",
+        "list_dev_dict": [
+            {
+                "alexander-akhmetov-python-shortcuts": 0,
+                "me@aleks.sh": 10,
+                "me@alx.cx": 1
+            }
+        ],
+        "list_dev_dict_total": [
+            {
+                "alexander-akhmetov-python-shortcuts": 0,
+                "me@aleks.sh": 66,
+                "me@alex.earth": 4,
+                "slogsdon@fastmail.fm": 1,
+                "jon77p@gmail.com": 2,
+                "27856297+dependabot-preview[bot]@users.noreply.github.com": 61,
+                "a@alx.cx": 24,
+                "me@alx.cx": 3
+            }
+        ],
+        "dev_dict": {},
+        "dev_dict_total": {},
+        "list_dev_plot": []
+    }
+]

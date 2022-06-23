@@ -15,11 +15,8 @@ def typeAnnotation_analisis():
 
 
     if config.CLONING:
-        i = 0
         j = [0]
-        #while i < 10:
-         #   gitUtils.repo_cloning_(config.ROOT_DIR + "/Resources/Input/Top1000_Python201"+str(i)+"_Complete.json", config.ROOT_DIR + "/GitHub", j)
-          #  i += 1
+        
         gitUtils.repo_cloning_oneplus(config.ROOT_DIR + "/Resources/Input/oneplus_list.json",
                               config.ROOT_DIR + "/GitHub", j)
 

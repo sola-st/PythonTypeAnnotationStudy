@@ -1,0 +1,266 @@
+[
+    {
+        "execution_time": "",
+        "machine": {
+            "OS": "Linux-4.15.0-166-generic-x86_64-with-Ubuntu-18.04-bionic",
+            "CPU": "x86_64",
+            "CORES": 48
+        },
+        "total_repositories": 1,
+        "total_commits": 113,
+        "commit_year_dict": {
+            "2019": 86,
+            "2020": 25,
+            "2021": 2
+        },
+        "loc_year_edit": {
+            "2019": 649875,
+            "2020": 26272,
+            "2021": 11667
+        },
+        "s0": "------------------------------------------------------------------------",
+        "RQ0": "How many types are used?",
+        "code_changes": [],
+        "commit_statistics": [],
+        "repo_with_types_changes": 1,
+        "percentage_repo_with_typeChanges": "",
+        "commits_with_typeChanges": 5,
+        "percentage_commits_with_typeChanges": "",
+        "total_typeAnnotation_codeChanges": 71,
+        "s1": "------------------------------------------------------------------------",
+        "RQ1": "Are type annotation inserted, removed and changed?",
+        "insert_types": {
+            "2019": 2,
+            "2020": 57,
+            "2021": 11
+        },
+        "percentage_insert_types": "",
+        "remove_types": {
+            "2019": 1
+        },
+        "percentage_remove_types": "",
+        "modify_existing_types": {},
+        "percentage_modify_existing_types": "",
+        "s2": "------------------------------------------------------------------------",
+        "RQ2_1": "What types are added (generic, numeric, ...)?",
+        "anyType_added": 0,
+        "noneType_added": 0,
+        "numericType_added": 0,
+        "binarySequenceType_added": 0,
+        "textSequenceType_added": 0,
+        "mappingTypes_added": 0,
+        "setTypes_added": 0,
+        "sequenceType_added": 0,
+        "newType_added": 0,
+        "total_added": 70,
+        "RQ2_2": "What are the top 5 types added?",
+        "typeAdded_dict": {
+            "str": 8,
+            "dict [str,any]": 9,
+            "list [str]": 4,
+            "manager": 3,
+            "none": 5,
+            "int": 9,
+            "list [float]": 4,
+            "bool": 3,
+            "np.ndarray": 4,
+            "torch.tensor": 7,
+            "union [torch,np,list]": 1,
+            "list [np]": 3,
+            "tuple [int,int]": 1,
+            "image": 1,
+            "osnet": 1,
+            "bytes": 2,
+            "union [list [np],none]": 2,
+            "union [torch,none]": 1,
+            "dict": 2
+        },
+        "RQ2_3": "What types are removed (generic, numeric, ...)?",
+        "anyType_removed": 0,
+        "noneType_removed": 0,
+        "numericType_removed": 0,
+        "binarySequenceType_removed": 0,
+        "textSequenceType_removed": 0,
+        "mappingTypes_removed": 0,
+        "setTypes_removed": 0,
+        "sequenceType_removed": 0,
+        "newType_removed": 0,
+        "total_removed": 1,
+        "RQ2_4": "What are the top 5 types removed?",
+        "typeRemoved_dict": {
+            "str": 1
+        },
+        "RQ2_5": "What types are the top 10 changed ?",
+        "total_changed": 0,
+        "typeChanged_dict_var": {},
+        "typeChanged_dict_arg": {},
+        "typeChanged_dict_ret": {},
+        "s3": "------------------------------------------------------------------------",
+        "RQ3_1": "Where are types added (function args, function returns, variables)?",
+        "functionArgsType_added": 51,
+        "functionReturnsType_added": 19,
+        "variableType_added": 0,
+        "RQ3_2": "Where are types removed (function args, function returns, variables)?",
+        "functionArgsType_removed": 1,
+        "functionReturnsType_removed": 0,
+        "variableType_removed": 0,
+        "RQ3_3": "Where are types changed (function args, function returns, variables?",
+        "functionArgsType_changed": 0,
+        "functionReturnsType_changed": 0,
+        "variableType_changed": 0,
+        "s4": "------------------------------------------------------------------------",
+        "RQ4_1": "Are types added along with other changes around this code or in commits that only add types?",
+        "typeAnnotation_added_per_commit": 0,
+        "list_typeAnnotation_added_per_commit": [],
+        "RQ4_2": "Are types removed along with other changes around this code or in commits that only add types?",
+        "typeAnnotation_removed_per_commit": 0,
+        "list_typeAnnotation_removed_per_commit": [],
+        "RQ4_3": "Are types changed along with other changes around this code or in commits that only add types?",
+        "typeAnnotation_changed_per_commit": 0,
+        "list_typeAnnotation_changed_per_commit": [
+            0.15847860538827258,
+            0.06743088334457181,
+            0.0591016548463357,
+            0.21679148600709497,
+            0.031033412640943413,
+            0.05144915108900703
+        ],
+        "annotation_related_insertion_edits_vs_all_commit": [],
+        "annotation_related_deletion_edits_vs_all_commit": [],
+        "s5": "------------------------------------------------------------------------",
+        "RQ5": "Relation of properties of projects vs. properties of type changes.",
+        "matrix_commits_stars_annotations": [
+            [
+                "2019",
+                "113",
+                "1336",
+                "71",
+                "255",
+                "22",
+                "200",
+                "1554",
+                "7",
+                "0",
+                "0",
+                "102130"
+            ]
+        ],
+        "matrix_files_annotations": [],
+        "matrix_test_files_annotations": [],
+        "dict_funct_call_no_types": {},
+        "dict_funct_call_types": {},
+        "s6": "------------------------------------------------------------------------",
+        "RQ6": "Which are the top 10 repository with the highest number of type annotations.",
+        "number_type_annotations_per_repo": {
+            "https://github.com/svip-lab/impersonator": 71
+        },
+        "s7": "------------------------------------------------------------------------",
+        "RQ7": "How many of all types are annotated in the last version of the code?",
+        "typeLastProjectVersion_total": 69,
+        "typeLastProjectVersion_average": 0,
+        "typeLastProjectVersion_percentage": [
+            98.57
+        ],
+        "typeLastProjectVersion_dict": {
+            "https://github.com/svip-lab/impersonator": 69
+        },
+        "typeLastProjectVersion_dict_error": {},
+        "RQ8": "Total number of annotations over time, across all projects",
+        "typeAnnotation_year_analysis": {
+            "2019": 2,
+            "2020": 57,
+            "2021": 11
+        },
+        "RQ9": "Total number of annotation-related commit over time, across all projects",
+        "typeAnnotation_commit_annotation_year_analysis": {
+            "2019": 2,
+            "2020": 2,
+            "2021": 1
+        },
+        "typeAnnotation_commit_not_annotation_year_analysis": {
+            "2019": 66,
+            "2020": 23,
+            "2021": 1
+        },
+        "RQ10": "Type annotation coverage for each each",
+        "annotation_coverage": {
+            "2014": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+            ],
+            "2015": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+            ],
+            "2016": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+            ],
+            "2017": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+            ],
+            "2018": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+            ],
+            "2019": [
+                43,
+                5260,
+                12,
+                1940,
+                0,
+                7874
+            ],
+            "2020": [
+                86,
+                6306,
+                30,
+                2342,
+                0,
+                9908
+            ]
+        },
+        "RQ11": "Developers statistics",
+        "list_dev_dict": [
+            {
+                "svip-lab-impersonator": 0,
+                "liuwen@shanghaitech.edu.cn": 5
+            }
+        ],
+        "list_dev_dict_total": [
+            {
+                "svip-lab-impersonator": 0,
+                "liuwen@shanghaitech.edu.cn": 68,
+                "1029945092@qq.com": 40,
+                "ahsen.khaliq@gmail.com": 2,
+                "dnahurnyi@gmail.com": 1,
+                "nathan@glovers.id.au": 1,
+                "49699333+dependabot[bot]@users.noreply.github.com": 1
+            }
+        ],
+        "dev_dict": {},
+        "dev_dict_total": {},
+        "list_dev_plot": []
+    }
+]

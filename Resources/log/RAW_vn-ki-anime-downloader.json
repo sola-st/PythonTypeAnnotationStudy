@@ -1,0 +1,311 @@
+[
+    {
+        "execution_time": "",
+        "machine": {
+            "OS": "Linux-4.15.0-166-generic-x86_64-with-Ubuntu-18.04-bionic",
+            "CPU": "x86_64",
+            "CORES": 48
+        },
+        "total_repositories": 1,
+        "total_commits": 922,
+        "commit_year_dict": {
+            "2018": 229,
+            "2019": 89,
+            "2020": 370,
+            "2021": 234
+        },
+        "loc_year_edit": {
+            "2018": 8431,
+            "2019": 24673,
+            "2020": 140065,
+            "2021": 3680
+        },
+        "s0": "------------------------------------------------------------------------",
+        "RQ0": "How many types are used?",
+        "code_changes": [],
+        "commit_statistics": [],
+        "repo_with_types_changes": 1,
+        "percentage_repo_with_typeChanges": "",
+        "commits_with_typeChanges": 10,
+        "percentage_commits_with_typeChanges": "",
+        "total_typeAnnotation_codeChanges": 30,
+        "s1": "------------------------------------------------------------------------",
+        "RQ1": "Are type annotation inserted, removed and changed?",
+        "insert_types": {
+            "2019": 16,
+            "2020": 2,
+            "2021": 11
+        },
+        "percentage_insert_types": "",
+        "remove_types": {
+            "2019": 1
+        },
+        "percentage_remove_types": "",
+        "modify_existing_types": {},
+        "percentage_modify_existing_types": "",
+        "s2": "------------------------------------------------------------------------",
+        "RQ2_1": "What types are added (generic, numeric, ...)?",
+        "anyType_added": 0,
+        "noneType_added": 0,
+        "numericType_added": 0,
+        "binarySequenceType_added": 0,
+        "textSequenceType_added": 0,
+        "mappingTypes_added": 0,
+        "setTypes_added": 0,
+        "sequenceType_added": 0,
+        "newType_added": 0,
+        "total_added": 29,
+        "RQ2_2": "What are the top 5 types added?",
+        "typeAdded_dict": {
+            "str": 19,
+            "bool": 5,
+            "anime": 1,
+            "int": 4
+        },
+        "RQ2_3": "What types are removed (generic, numeric, ...)?",
+        "anyType_removed": 0,
+        "noneType_removed": 0,
+        "numericType_removed": 0,
+        "binarySequenceType_removed": 0,
+        "textSequenceType_removed": 0,
+        "mappingTypes_removed": 0,
+        "setTypes_removed": 0,
+        "sequenceType_removed": 0,
+        "newType_removed": 0,
+        "total_removed": 1,
+        "RQ2_4": "What are the top 5 types removed?",
+        "typeRemoved_dict": {
+            "str": 1
+        },
+        "RQ2_5": "What types are the top 10 changed ?",
+        "total_changed": 0,
+        "typeChanged_dict_var": {},
+        "typeChanged_dict_arg": {},
+        "typeChanged_dict_ret": {},
+        "s3": "------------------------------------------------------------------------",
+        "RQ3_1": "Where are types added (function args, function returns, variables)?",
+        "functionArgsType_added": 26,
+        "functionReturnsType_added": 3,
+        "variableType_added": 0,
+        "RQ3_2": "Where are types removed (function args, function returns, variables)?",
+        "functionArgsType_removed": 1,
+        "functionReturnsType_removed": 0,
+        "variableType_removed": 0,
+        "RQ3_3": "Where are types changed (function args, function returns, variables?",
+        "functionArgsType_changed": 0,
+        "functionReturnsType_changed": 0,
+        "variableType_changed": 0,
+        "s4": "------------------------------------------------------------------------",
+        "RQ4_1": "Are types added along with other changes around this code or in commits that only add types?",
+        "typeAnnotation_added_per_commit": 0,
+        "list_typeAnnotation_added_per_commit": [],
+        "RQ4_2": "Are types removed along with other changes around this code or in commits that only add types?",
+        "typeAnnotation_removed_per_commit": 0,
+        "list_typeAnnotation_removed_per_commit": [],
+        "RQ4_3": "Are types changed along with other changes around this code or in commits that only add types?",
+        "typeAnnotation_changed_per_commit": 0,
+        "list_typeAnnotation_changed_per_commit": [
+            4.487179487179487,
+            1.8181818181818181,
+            4.545454545454546,
+            9.67741935483871,
+            0.33444816053511706,
+            2.1739130434782608,
+            4.3478260869565215,
+            14.285714285714285,
+            0.4149377593360996,
+            6.666666666666667,
+            2.803738317757009
+        ],
+        "annotation_related_insertion_edits_vs_all_commit": [],
+        "annotation_related_deletion_edits_vs_all_commit": [],
+        "s5": "------------------------------------------------------------------------",
+        "RQ5": "Relation of properties of projects vs. properties of type changes.",
+        "matrix_commits_stars_annotations": [
+            [
+                "2018",
+                "922",
+                "789",
+                "30",
+                "149",
+                "31",
+                "96",
+                "1389",
+                "57",
+                "0",
+                "0",
+                "1345"
+            ]
+        ],
+        "matrix_files_annotations": [],
+        "matrix_test_files_annotations": [],
+        "dict_funct_call_no_types": {},
+        "dict_funct_call_types": {},
+        "s6": "------------------------------------------------------------------------",
+        "RQ6": "Which are the top 10 repository with the highest number of type annotations.",
+        "number_type_annotations_per_repo": {
+            "https://github.com/vn-ki/anime-downloader": 30
+        },
+        "s7": "------------------------------------------------------------------------",
+        "RQ7": "How many of all types are annotated in the last version of the code?",
+        "typeLastProjectVersion_total": 28,
+        "typeLastProjectVersion_average": 0,
+        "typeLastProjectVersion_percentage": [
+            96.55
+        ],
+        "typeLastProjectVersion_dict": {
+            "https://github.com/vn-ki/anime-downloader": 28
+        },
+        "typeLastProjectVersion_dict_error": {},
+        "RQ8": "Total number of annotations over time, across all projects",
+        "typeAnnotation_year_analysis": {
+            "2019": 16,
+            "2020": 2,
+            "2021": 11
+        },
+        "RQ9": "Total number of annotation-related commit over time, across all projects",
+        "typeAnnotation_commit_annotation_year_analysis": {
+            "2019": 7,
+            "2020": 2,
+            "2021": 1
+        },
+        "typeAnnotation_commit_not_annotation_year_analysis": {
+            "2019": 76,
+            "2020": 243,
+            "2021": 29
+        },
+        "RQ10": "Type annotation coverage for each each",
+        "annotation_coverage": {
+            "2014": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+            ],
+            "2015": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+            ],
+            "2016": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+            ],
+            "2017": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+            ],
+            "2018": [
+                0,
+                204,
+                0,
+                133,
+                0,
+                371
+            ],
+            "2019": [
+                15,
+                279,
+                0,
+                178,
+                0,
+                537
+            ],
+            "2020": [
+                50,
+                2043,
+                0,
+                1383,
+                0,
+                5056
+            ]
+        },
+        "RQ11": "Developers statistics",
+        "list_dev_dict": [
+            {
+                "vn-ki-anime-downloader": 0,
+                "appukuttancr@gmail.com": 7,
+                "53124886+ArjixGamer@users.noreply.github.com": 1,
+                "46196380+Blatzar@users.noreply.github.com": 1,
+                "53124886+ArjixWasTaken@users.noreply.github.com": 1
+            }
+        ],
+        "list_dev_dict_total": [
+            {
+                "vn-ki-anime-downloader": 0,
+                "31964688+vn-ki@users.noreply.github.com": 51,
+                "appukuttancr@gmail.com": 254,
+                "h.keving81@gmail.com": 2,
+                "31358215+Enderlein@users.noreply.github.com": 4,
+                "39453935+KashTag@users.noreply.github.com": 1,
+                "ngomile932@gmail.com": 7,
+                "mrigankkrishan@gmail.com": 1,
+                "39145128+ngomile@users.noreply.github.com": 9,
+                "go-schiller@t-online.de": 4,
+                "phanirithvij2000@gmail.com": 1,
+                "dekanszn@gmail.com": 6,
+                "nick@vitruvian.services": 1,
+                "ncward@ncsu.edu": 1,
+                "jonas@rehtlaw.me": 1,
+                "fadhlika@gmail.com": 1,
+                "29ayush@gmail.com": 2,
+                "bg1987@gmail.com": 1,
+                "45184265+mcj64@users.noreply.github.com": 1,
+                "40592339+NexWasTaken@users.noreply.github.com": 1,
+                "35733240+pjzzz@users.noreply.github.com": 2,
+                "LiteracyFanatic@gmail.com": 4,
+                "jain.prayagjain.tinku@gmail.com": 2,
+                "38541580+SLaGrave@users.noreply.github.com": 1,
+                "igor.larcs@gmail.com": 1,
+                "andrewlef@users.noreply.github.com": 2,
+                "46196380+Blatzar@users.noreply.github.com": 177,
+                "19552720+RaitaroH@users.noreply.github.com": 1,
+                "58363011+GoodGuyKali@users.noreply.github.com": 1,
+                "a.yong91@gmail.com": 1,
+                "49699333+dependabot[bot]@users.noreply.github.com": 3,
+                "rui@meetup.com": 1,
+                "cgreenreddon69@gmail.com": 3,
+                "danielb2@users.noreply.github.com": 1,
+                "44432163+MichaelDavidJohnson@users.noreply.github.com": 12,
+                "25087116+AbdullahM0hamed@users.noreply.github.com": 118,
+                "aaroncgonzales.dev@gmail.com": 1,
+                "53124886+ArjixGamer@users.noreply.github.com": 102,
+                "40650681+nate-moo@users.noreply.github.com": 23,
+                "65817824+Arjix-2nd@users.noreply.github.com": 1,
+                "balt.758@gmail.com": 1,
+                "44432163+IguanasInPyjamas@users.noreply.github.com": 23,
+                "jimms.hsieh@gmail.com": 1,
+                "congusbongus@gmail.com": 1,
+                "25724815+lieuxnoir@users.noreply.github.com": 1,
+                "68983984+theCow61@users.noreply.github.com": 1,
+                "47427013+AditCh@users.noreply.github.com": 1,
+                "blatzar@gmail.com": 1,
+                "53124886+ArjixWasTaken@users.noreply.github.com": 71,
+                "gum12367@gmail.com": 1,
+                "czoins@gmail.com": 3,
+                "displicit@users.noreply.github.com": 2,
+                "45874270+RPMYT@users.noreply.github.com": 2,
+                "64770452+hoshiya4522@users.noreply.github.com": 1,
+                "zero@cock.li": 1,
+                "sreekaran.srinath@gmail.com": 4,
+                "axel.paulander@gmail.com": 1
+            }
+        ],
+        "dev_dict": {},
+        "dev_dict_total": {},
+        "list_dev_plot": []
+    }
+]

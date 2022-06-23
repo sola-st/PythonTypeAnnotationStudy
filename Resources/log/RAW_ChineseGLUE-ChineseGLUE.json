@@ -1,0 +1,267 @@
+[
+    {
+        "execution_time": "",
+        "machine": {
+            "OS": "Linux-4.15.0-166-generic-x86_64-with-Ubuntu-18.04-bionic",
+            "CPU": "x86_64",
+            "CORES": 48
+        },
+        "total_repositories": 1,
+        "total_commits": 365,
+        "commit_year_dict": {
+            "2019": 357,
+            "2020": 5,
+            "2021": 3
+        },
+        "loc_year_edit": {
+            "2019": 390239,
+            "2020": 58,
+            "2021": 10
+        },
+        "s0": "------------------------------------------------------------------------",
+        "RQ0": "How many types are used?",
+        "code_changes": [],
+        "commit_statistics": [],
+        "repo_with_types_changes": 1,
+        "percentage_repo_with_typeChanges": "",
+        "commits_with_typeChanges": 2,
+        "percentage_commits_with_typeChanges": "",
+        "total_typeAnnotation_codeChanges": 84,
+        "s1": "------------------------------------------------------------------------",
+        "RQ1": "Are type annotation inserted, removed and changed?",
+        "insert_types": {
+            "2019": 56
+        },
+        "percentage_insert_types": "",
+        "remove_types": {
+            "2019": 28
+        },
+        "percentage_remove_types": "",
+        "modify_existing_types": {},
+        "percentage_modify_existing_types": "",
+        "s2": "------------------------------------------------------------------------",
+        "RQ2_1": "What types are added (generic, numeric, ...)?",
+        "anyType_added": 0,
+        "noneType_added": 0,
+        "numericType_added": 0,
+        "binarySequenceType_added": 0,
+        "textSequenceType_added": 0,
+        "mappingTypes_added": 0,
+        "setTypes_added": 0,
+        "sequenceType_added": 0,
+        "newType_added": 0,
+        "total_added": 56,
+        "RQ2_2": "What are the top 5 types added?",
+        "typeAdded_dict": {
+            "str": 28,
+            "union [str,path]": 8,
+            "callable": 2,
+            "io": 4,
+            "bool": 2,
+            "tuple [str,str]": 4,
+            "optional [str]": 2,
+            "none": 4,
+            "set [str]": 2
+        },
+        "RQ2_3": "What types are removed (generic, numeric, ...)?",
+        "anyType_removed": 0,
+        "noneType_removed": 0,
+        "numericType_removed": 0,
+        "binarySequenceType_removed": 0,
+        "textSequenceType_removed": 0,
+        "mappingTypes_removed": 0,
+        "setTypes_removed": 0,
+        "sequenceType_removed": 0,
+        "newType_removed": 0,
+        "total_removed": 28,
+        "RQ2_4": "What are the top 5 types removed?",
+        "typeRemoved_dict": {
+            "str": 14,
+            "union [str,path]": 4,
+            "callable": 1,
+            "io": 2,
+            "bool": 1,
+            "tuple [str,str]": 2,
+            "optional [str]": 1,
+            "none": 2,
+            "set [str]": 1
+        },
+        "RQ2_5": "What types are the top 10 changed ?",
+        "total_changed": 0,
+        "typeChanged_dict_var": {},
+        "typeChanged_dict_arg": {},
+        "typeChanged_dict_ret": {},
+        "s3": "------------------------------------------------------------------------",
+        "RQ3_1": "Where are types added (function args, function returns, variables)?",
+        "functionArgsType_added": 38,
+        "functionReturnsType_added": 18,
+        "variableType_added": 0,
+        "RQ3_2": "Where are types removed (function args, function returns, variables)?",
+        "functionArgsType_removed": 19,
+        "functionReturnsType_removed": 9,
+        "variableType_removed": 0,
+        "RQ3_3": "Where are types changed (function args, function returns, variables?",
+        "functionArgsType_changed": 0,
+        "functionReturnsType_changed": 0,
+        "variableType_changed": 0,
+        "s4": "------------------------------------------------------------------------",
+        "RQ4_1": "Are types added along with other changes around this code or in commits that only add types?",
+        "typeAnnotation_added_per_commit": 0,
+        "list_typeAnnotation_added_per_commit": [],
+        "RQ4_2": "Are types removed along with other changes around this code or in commits that only add types?",
+        "typeAnnotation_removed_per_commit": 0,
+        "list_typeAnnotation_removed_per_commit": [],
+        "RQ4_3": "Are types changed along with other changes around this code or in commits that only add types?",
+        "typeAnnotation_changed_per_commit": 0,
+        "list_typeAnnotation_changed_per_commit": [
+            0.09879795817553103,
+            0.09218713989398479,
+            0.09879795817553103
+        ],
+        "annotation_related_insertion_edits_vs_all_commit": [],
+        "annotation_related_deletion_edits_vs_all_commit": [],
+        "s5": "------------------------------------------------------------------------",
+        "RQ5": "Relation of properties of projects vs. properties of type changes.",
+        "matrix_commits_stars_annotations": [
+            [
+                "2019",
+                "365",
+                "1318",
+                "84",
+                "201",
+                "18",
+                "36",
+                "440",
+                "21",
+                "0",
+                "0",
+                "2729"
+            ]
+        ],
+        "matrix_files_annotations": [],
+        "matrix_test_files_annotations": [],
+        "dict_funct_call_no_types": {},
+        "dict_funct_call_types": {},
+        "s6": "------------------------------------------------------------------------",
+        "RQ6": "Which are the top 10 repository with the highest number of type annotations.",
+        "number_type_annotations_per_repo": {
+            "https://github.com/ChineseGLUE/ChineseGLUE": 84
+        },
+        "s7": "------------------------------------------------------------------------",
+        "RQ7": "How many of all types are annotated in the last version of the code?",
+        "typeLastProjectVersion_total": 28,
+        "typeLastProjectVersion_average": 0,
+        "typeLastProjectVersion_percentage": [
+            50.0
+        ],
+        "typeLastProjectVersion_dict": {
+            "https://github.com/ChineseGLUE/ChineseGLUE": 28
+        },
+        "typeLastProjectVersion_dict_error": {},
+        "RQ8": "Total number of annotations over time, across all projects",
+        "typeAnnotation_year_analysis": {
+            "2019": 56
+        },
+        "RQ9": "Total number of annotation-related commit over time, across all projects",
+        "typeAnnotation_commit_annotation_year_analysis": {
+            "2019": 2
+        },
+        "typeAnnotation_commit_not_annotation_year_analysis": {
+            "2019": 262
+        },
+        "RQ10": "Type annotation coverage for each each",
+        "annotation_coverage": {
+            "2014": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+            ],
+            "2015": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+            ],
+            "2016": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+            ],
+            "2017": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+            ],
+            "2018": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+            ],
+            "2019": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+            ],
+            "2020": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+            ]
+        },
+        "RQ11": "Developers statistics",
+        "list_dev_dict": [
+            {
+                "ChineseGLUE-ChineseGLUE": 0,
+                "ccjdurandal422@163.com": 2
+            }
+        ],
+        "list_dev_dict_total": [
+            {
+                "ChineseGLUE-ChineseGLUE": 0,
+                "brightmart@hotmail.com": 71,
+                "zhangxuanwei@zxw.local": 1,
+                "zhangxw0413@gmail.com": 89,
+                "zhangxuanwei@qiyi.com": 2,
+                "tianyin@i-i.ai": 2,
+                "aa": 3,
+                "tsewkviko@gmail.com": 32,
+                "ccjdurandal422@163.com": 47,
+                "aa@qq.com": 28,
+                "enningxie@163.com": 5,
+                "enningxie@gmail.com": 6,
+                "yucong@mail.i-i.ai": 1,
+                "wrzzd@hotmail.com": 26,
+                "xuyechen@yiwise.com": 2,
+                "38023469+Amazonhhh@users.noreply.github.com": 16,
+                "sunsshine000@163.com": 1,
+                "453332177@qq.com": 2,
+                "708876062@qq.com": 17,
+                "1436496575@qq.com": 1,
+                "bo.shi@mobvoi.com": 13
+            }
+        ],
+        "dev_dict": {},
+        "dev_dict_total": {},
+        "list_dev_plot": []
+    }
+]

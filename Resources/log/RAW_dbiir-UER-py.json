@@ -1,0 +1,298 @@
+[
+    {
+        "execution_time": "",
+        "machine": {
+            "OS": "Linux-4.15.0-166-generic-x86_64-with-Ubuntu-18.04-bionic",
+            "CPU": "x86_64",
+            "CORES": 48
+        },
+        "total_repositories": 1,
+        "total_commits": 883,
+        "commit_year_dict": {
+            "2019": 290,
+            "2020": 147,
+            "2021": 446
+        },
+        "loc_year_edit": {
+            "2019": 8617747,
+            "2020": 666143,
+            "2021": 284965
+        },
+        "s0": "------------------------------------------------------------------------",
+        "RQ0": "How many types are used?",
+        "code_changes": [],
+        "commit_statistics": [],
+        "repo_with_types_changes": 1,
+        "percentage_repo_with_typeChanges": "",
+        "commits_with_typeChanges": 5,
+        "percentage_commits_with_typeChanges": "",
+        "total_typeAnnotation_codeChanges": 41,
+        "s1": "------------------------------------------------------------------------",
+        "RQ1": "Are type annotation inserted, removed and changed?",
+        "insert_types": {
+            "2019": 6,
+            "2021": 29
+        },
+        "percentage_insert_types": "",
+        "remove_types": {
+            "2019": 4,
+            "2021": 2
+        },
+        "percentage_remove_types": "",
+        "modify_existing_types": {},
+        "percentage_modify_existing_types": "",
+        "s2": "------------------------------------------------------------------------",
+        "RQ2_1": "What types are added (generic, numeric, ...)?",
+        "anyType_added": 0,
+        "noneType_added": 0,
+        "numericType_added": 0,
+        "binarySequenceType_added": 0,
+        "textSequenceType_added": 0,
+        "mappingTypes_added": 0,
+        "setTypes_added": 0,
+        "sequenceType_added": 0,
+        "newType_added": 0,
+        "total_added": 35,
+        "RQ2_2": "What are the top 5 types added?",
+        "typeAdded_dict": {
+            "str": 6,
+            "np.ndarray": 4,
+            "optimizer": 4,
+            "int": 13,
+            "float": 4,
+            "iterable [torch]": 1,
+            "tuple [float,float]": 1,
+            "bool": 1,
+            "callable": 1
+        },
+        "RQ2_3": "What types are removed (generic, numeric, ...)?",
+        "anyType_removed": 0,
+        "noneType_removed": 0,
+        "numericType_removed": 0,
+        "binarySequenceType_removed": 0,
+        "textSequenceType_removed": 0,
+        "mappingTypes_removed": 0,
+        "setTypes_removed": 0,
+        "sequenceType_removed": 0,
+        "newType_removed": 0,
+        "total_removed": 6,
+        "RQ2_4": "What are the top 5 types removed?",
+        "typeRemoved_dict": {
+            "str": 4,
+            "np.ndarray": 2
+        },
+        "RQ2_5": "What types are the top 10 changed ?",
+        "total_changed": 0,
+        "typeChanged_dict_var": {},
+        "typeChanged_dict_arg": {},
+        "typeChanged_dict_ret": {},
+        "s3": "------------------------------------------------------------------------",
+        "RQ3_1": "Where are types added (function args, function returns, variables)?",
+        "functionArgsType_added": 35,
+        "functionReturnsType_added": 0,
+        "variableType_added": 0,
+        "RQ3_2": "Where are types removed (function args, function returns, variables)?",
+        "functionArgsType_removed": 6,
+        "functionReturnsType_removed": 0,
+        "variableType_removed": 0,
+        "RQ3_3": "Where are types changed (function args, function returns, variables?",
+        "functionArgsType_changed": 0,
+        "functionReturnsType_changed": 0,
+        "variableType_changed": 0,
+        "s4": "------------------------------------------------------------------------",
+        "RQ4_1": "Are types added along with other changes around this code or in commits that only add types?",
+        "typeAnnotation_added_per_commit": 0,
+        "list_typeAnnotation_added_per_commit": [],
+        "RQ4_2": "Are types removed along with other changes around this code or in commits that only add types?",
+        "typeAnnotation_removed_per_commit": 0,
+        "list_typeAnnotation_removed_per_commit": [],
+        "RQ4_3": "Are types changed along with other changes around this code or in commits that only add types?",
+        "typeAnnotation_changed_per_commit": 0,
+        "list_typeAnnotation_changed_per_commit": [
+            1.9230769230769231,
+            1.5625,
+            0.9523809523809524,
+            0.9523809523809524,
+            3.5000000000000004,
+            0.273972602739726,
+            0.2352941176470588,
+            0.4807692307692308
+        ],
+        "annotation_related_insertion_edits_vs_all_commit": [],
+        "annotation_related_deletion_edits_vs_all_commit": [],
+        "s5": "------------------------------------------------------------------------",
+        "RQ5": "Relation of properties of projects vs. properties of type changes.",
+        "matrix_commits_stars_annotations": [
+            [
+                "2019",
+                "883",
+                "953",
+                "41",
+                "169",
+                "33",
+                "9",
+                "1434",
+                "47",
+                "0",
+                "0",
+                "39498"
+            ]
+        ],
+        "matrix_files_annotations": [],
+        "matrix_test_files_annotations": [],
+        "dict_funct_call_no_types": {},
+        "dict_funct_call_types": {},
+        "s6": "------------------------------------------------------------------------",
+        "RQ6": "Which are the top 10 repository with the highest number of type annotations.",
+        "number_type_annotations_per_repo": {
+            "https://github.com/dbiir/UER-py": 41
+        },
+        "s7": "------------------------------------------------------------------------",
+        "RQ7": "How many of all types are annotated in the last version of the code?",
+        "typeLastProjectVersion_total": 29,
+        "typeLastProjectVersion_average": 0,
+        "typeLastProjectVersion_percentage": [
+            82.86
+        ],
+        "typeLastProjectVersion_dict": {
+            "https://github.com/dbiir/UER-py": 29
+        },
+        "typeLastProjectVersion_dict_error": {},
+        "RQ8": "Total number of annotations over time, across all projects",
+        "typeAnnotation_year_analysis": {
+            "2019": 6,
+            "2021": 29
+        },
+        "RQ9": "Total number of annotation-related commit over time, across all projects",
+        "typeAnnotation_commit_annotation_year_analysis": {
+            "2019": 2,
+            "2021": 3
+        },
+        "typeAnnotation_commit_not_annotation_year_analysis": {
+            "2019": 110,
+            "2021": 333
+        },
+        "RQ10": "Type annotation coverage for each each",
+        "annotation_coverage": {
+            "2014": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+            ],
+            "2015": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+            ],
+            "2016": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+            ],
+            "2017": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+            ],
+            "2018": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+            ],
+            "2019": [
+                2,
+                600,
+                0,
+                228,
+                0,
+                1389
+            ],
+            "2020": [
+                2,
+                613,
+                0,
+                227,
+                0,
+                1534
+            ]
+        },
+        "RQ11": "Developers statistics",
+        "list_dev_dict": [
+            {
+                "dbiir-UER-py": 0,
+                "38198098+ZhaoxinRuc@users.noreply.github.com": 2,
+                "1152543959@qq.com": 2,
+                "435405393@qq.com": 1
+            }
+        ],
+        "list_dev_dict_total": [
+            {
+                "dbiir-UER-py": 0,
+                "zhaozhe19920415@outlook.com": 152,
+                "31317254+Embedding@users.noreply.github.com": 79,
+                "38198098+ZhaoxinRuc@users.noreply.github.com": 29,
+                "1152543959@qq.com": 242,
+                "49503887+ZhiruoWang@users.noreply.github.com": 1,
+                "18813123198@163.com": 20,
+                "autoliuweijie@users.noreply.github.com": 8,
+                "autoliuweijie@163.com": 1,
+                "jagerliu@tencent.com": 2,
+                "cc.hello@foxmail.com": 2,
+                "liyudong123@hotmail.com": 148,
+                "nlpzhezhao@tencent.com": 10,
+                "bojone@spaces.ac.cn": 1,
+                "zhanglusheng@outlook.com": 2,
+                "dapeng201318@163.com": 1,
+                "435405393@qq.com": 87,
+                "59219579+hhou435@users.noreply.github.com": 18,
+                "amberhan0301@163.com": 1,
+                "zhaoxinruc@ruc.edu.cn": 14,
+                "maowq95@gmail.com": 2,
+                "zhutaosqc@bupt.edu.cn": 4,
+                "cyber-arbiter@163.com": 3,
+                "36334197+liuhaixiao0720@users.noreply.github.com": 3,
+                "593231771@qq.com": 1,
+                "784272191@qq.com": 1,
+                "ma_xan@126.com": 1,
+                "donxhuang@tencent.com": 4,
+                "72004095+JhxCUGBCS@users.noreply.github.com": 1,
+                "31721891+fanrong5151@users.noreply.github.com": 9,
+                "ldxyxm@126.com": 1,
+                "wuhuanqin@foxmail.com": 1,
+                "34148529+EdwardMao@users.noreply.github.com": 3,
+                "53114891+chaosles@users.noreply.github.com": 2,
+                "pengmeng@tencent.com": 1,
+                "44120124+Chestnut1999@users.noreply.github.com": 4,
+                "86136781+2389540652@users.noreply.github.com": 2,
+                "jimwgguo@tencent.com": 2,
+                "771484566@qq.com": 3,
+                "kids937@foxmail.com": 1,
+                "": 1,
+                "haoyan.liu@buaa.edu.cn": 1,
+                "709649264@qq.com": 2,
+                "80993860+Eric8932@users.noreply.github.com": 6,
+                "30366539+guoraikkonen@users.noreply.github.com": 4,
+                "guoraikkonen@gmail.com": 1,
+                "jianxiang.li@rwth-aachen.de": 1
+            }
+        ],
+        "dev_dict": {},
+        "dev_dict_total": {},
+        "list_dev_plot": []
+    }
+]

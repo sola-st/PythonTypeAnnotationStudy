@@ -1,0 +1,334 @@
+[
+    {
+        "execution_time": "",
+        "machine": {
+            "OS": "Linux-4.15.0-166-generic-x86_64-with-Ubuntu-18.04-bionic",
+            "CPU": "x86_64",
+            "CORES": 48
+        },
+        "total_repositories": 1,
+        "total_commits": 357,
+        "commit_year_dict": {
+            "2017": 70,
+            "2018": 183,
+            "2019": 96,
+            "2020": 7,
+            "2021": 1
+        },
+        "loc_year_edit": {
+            "2017": 6209,
+            "2018": 73932,
+            "2019": 120526,
+            "2020": 622,
+            "2021": 2085
+        },
+        "s0": "------------------------------------------------------------------------",
+        "RQ0": "How many types are used?",
+        "code_changes": [],
+        "commit_statistics": [],
+        "repo_with_types_changes": 1,
+        "percentage_repo_with_typeChanges": "",
+        "commits_with_typeChanges": 17,
+        "percentage_commits_with_typeChanges": "",
+        "total_typeAnnotation_codeChanges": 178,
+        "s1": "------------------------------------------------------------------------",
+        "RQ1": "Are type annotation inserted, removed and changed?",
+        "insert_types": {
+            "2017": 29,
+            "2018": 49,
+            "2019": 39
+        },
+        "percentage_insert_types": "",
+        "remove_types": {
+            "2017": 7,
+            "2018": 5,
+            "2019": 39
+        },
+        "percentage_remove_types": "",
+        "modify_existing_types": {
+            "2018": 5,
+            "2019": 5
+        },
+        "percentage_modify_existing_types": "",
+        "s2": "------------------------------------------------------------------------",
+        "RQ2_1": "What types are added (generic, numeric, ...)?",
+        "anyType_added": 0,
+        "noneType_added": 0,
+        "numericType_added": 0,
+        "binarySequenceType_added": 0,
+        "textSequenceType_added": 0,
+        "mappingTypes_added": 0,
+        "setTypes_added": 0,
+        "sequenceType_added": 0,
+        "newType_added": 0,
+        "total_added": 117,
+        "RQ2_2": "What are the top 5 types added?",
+        "typeAdded_dict": {
+            "\"int\"": 2,
+            "\"list[str]\"": 2,
+            "\"str\"": 6,
+            "\"node\"": 5,
+            "\"list[list[int]]\"": 1,
+            "\"bool\"": 1,
+            "list [int]": 17,
+            "int": 40,
+            "none": 2,
+            "str": 9,
+            "node": 2,
+            "vector": 10,
+            "list [vector]": 4,
+            "tuple [int]": 2,
+            "'vector'": 4,
+            "optional ['direction']": 2,
+            "direction": 2,
+            "any": 2,
+            "list [list [str]]": 2,
+            "list [cart]": 2
+        },
+        "RQ2_3": "What types are removed (generic, numeric, ...)?",
+        "anyType_removed": 0,
+        "noneType_removed": 0,
+        "numericType_removed": 0,
+        "binarySequenceType_removed": 0,
+        "textSequenceType_removed": 0,
+        "mappingTypes_removed": 0,
+        "setTypes_removed": 0,
+        "sequenceType_removed": 0,
+        "newType_removed": 0,
+        "total_removed": 51,
+        "RQ2_4": "What are the top 5 types removed?",
+        "typeRemoved_dict": {
+            "\"list[int]\"": 4,
+            "list [int]": 6,
+            "\"int\"": 2,
+            "\"str\"": 4,
+            "str": 3,
+            "int": 17,
+            "vector": 5,
+            "list [vector]": 2,
+            "tuple [int]": 1,
+            "'vector'": 2,
+            "optional ['direction']": 1,
+            "direction": 1,
+            "any": 1,
+            "list [list [str]]": 1,
+            "list [cart]": 1
+        },
+        "RQ2_5": "What types are the top 10 changed ?",
+        "total_changed": 10,
+        "typeChanged_dict_var": {},
+        "typeChanged_dict_arg": {
+            "\"node\" -> node": 2,
+            "\"str\" -> str": 2,
+            "\"int\" -> int": 1,
+            "\"list[list[int]]\" -> list [list [int]]": 1
+        },
+        "typeChanged_dict_ret": {
+            "\"node\" -> node": 1,
+            "\"bool\" -> bool": 1,
+            "\"list[str]\" -> list [str]": 2
+        },
+        "s3": "------------------------------------------------------------------------",
+        "RQ3_1": "Where are types added (function args, function returns, variables)?",
+        "functionArgsType_added": 48,
+        "functionReturnsType_added": 27,
+        "variableType_added": 42,
+        "RQ3_2": "Where are types removed (function args, function returns, variables)?",
+        "functionArgsType_removed": 19,
+        "functionReturnsType_removed": 11,
+        "variableType_removed": 21,
+        "RQ3_3": "Where are types changed (function args, function returns, variables?",
+        "functionArgsType_changed": 6,
+        "functionReturnsType_changed": 4,
+        "variableType_changed": 0,
+        "s4": "------------------------------------------------------------------------",
+        "RQ4_1": "Are types added along with other changes around this code or in commits that only add types?",
+        "typeAnnotation_added_per_commit": 0,
+        "list_typeAnnotation_added_per_commit": [],
+        "RQ4_2": "Are types removed along with other changes around this code or in commits that only add types?",
+        "typeAnnotation_removed_per_commit": 0,
+        "list_typeAnnotation_removed_per_commit": [],
+        "RQ4_3": "Are types changed along with other changes around this code or in commits that only add types?",
+        "typeAnnotation_changed_per_commit": 0,
+        "list_typeAnnotation_changed_per_commit": [
+            0.3206841261357563,
+            4.878048780487805,
+            1.0416666666666665,
+            0.9900990099009901,
+            2.1739130434782608,
+            2.127659574468085,
+            14.285714285714285,
+            1.1904761904761905,
+            3.225806451612903,
+            0.5076142131979695,
+            0.5050505050505051,
+            0.4434589800443459,
+            0.2008032128514056,
+            0.2061855670103093,
+            0.138217000691085,
+            0.06277463904582549,
+            0.2985074626865672,
+            2.6595744680851063,
+            1.3725490196078431,
+            2.152641878669276,
+            0.033783783783783786,
+            0.012904474626576767,
+            0.012904474626576767,
+            0.1664816870144284,
+            0.11984880612150824,
+            0.12093585748174335
+        ],
+        "annotation_related_insertion_edits_vs_all_commit": [],
+        "annotation_related_deletion_edits_vs_all_commit": [],
+        "s5": "------------------------------------------------------------------------",
+        "RQ5": "Relation of properties of projects vs. properties of type changes.",
+        "matrix_commits_stars_annotations": [
+            [
+                "2017",
+                "357",
+                "992",
+                "178",
+                "124",
+                "6",
+                "17",
+                "849",
+                "21",
+                "0",
+                "0",
+                "1955"
+            ]
+        ],
+        "matrix_files_annotations": [],
+        "matrix_test_files_annotations": [],
+        "dict_funct_call_no_types": {},
+        "dict_funct_call_types": {},
+        "s6": "------------------------------------------------------------------------",
+        "RQ6": "Which are the top 10 repository with the highest number of type annotations.",
+        "number_type_annotations_per_repo": {
+            "https://github.com/marcosfede/algorithms": 178
+        },
+        "s7": "------------------------------------------------------------------------",
+        "RQ7": "How many of all types are annotated in the last version of the code?",
+        "typeLastProjectVersion_total": 67,
+        "typeLastProjectVersion_average": 0,
+        "typeLastProjectVersion_percentage": [
+            57.26
+        ],
+        "typeLastProjectVersion_dict": {
+            "https://github.com/marcosfede/algorithms": 67
+        },
+        "typeLastProjectVersion_dict_error": {},
+        "RQ8": "Total number of annotations over time, across all projects",
+        "typeAnnotation_year_analysis": {
+            "2017": 29,
+            "2018": 49,
+            "2019": 39
+        },
+        "RQ9": "Total number of annotation-related commit over time, across all projects",
+        "typeAnnotation_commit_annotation_year_analysis": {
+            "2017": 6,
+            "2018": 9,
+            "2019": 2
+        },
+        "typeAnnotation_commit_not_annotation_year_analysis": {
+            "2017": 64,
+            "2018": 171,
+            "2019": 91
+        },
+        "RQ10": "Type annotation coverage for each each",
+        "annotation_coverage": {
+            "2014": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+            ],
+            "2015": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+            ],
+            "2016": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+            ],
+            "2017": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+            ],
+            "2018": [
+                23,
+                1098,
+                11,
+                646,
+                0,
+                1932
+            ],
+            "2019": [
+                30,
+                1342,
+                16,
+                738,
+                21,
+                2412
+            ],
+            "2020": [
+                30,
+                1558,
+                16,
+                847,
+                21,
+                3062
+            ]
+        },
+        "RQ11": "Developers statistics",
+        "list_dev_dict": [
+            {
+                "marcosfede-algorithms": 0,
+                "marcosfede@gmail.com": 12,
+                "federico.marcos@celerative.com": 5
+            }
+        ],
+        "list_dev_dict_total": [
+            {
+                "marcosfede-algorithms": 0,
+                "marcosfede@gmail.com": 194,
+                "geraq1988@gmail.com": 20,
+                "federico.marcos@celerative.com": 102,
+                "matias.pierobonm@gmail.com": 12,
+                "badger@gitter.im": 1,
+                "cclauss@bluewin.ch": 3,
+                "Olliepop@users.noreply.github.com": 1,
+                "eijialford@gmail.com": 4,
+                "jaime.zubieta@celerative.com": 1,
+                "jaime.zb0@gmail.com": 1,
+                "SanketSanath@users.noreply.github.com": 2,
+                "luchopcerra@gmail.com": 1,
+                "igrcevic@despegar.com": 3,
+                "kumarvipinyadav369@gmail.com": 1,
+                "jperelli@gmail.com": 5,
+                "mvhb@cin.ufpe.br": 2,
+                "rishabh0098@gmail.com": 1,
+                "pigletwithcurls@gmail.com": 1,
+                "44198980+sauravjoshi23@users.noreply.github.com": 1,
+                "agarwalanmol922@gmail.com": 1
+            }
+        ],
+        "dev_dict": {},
+        "dev_dict_total": {},
+        "list_dev_plot": []
+    }
+]

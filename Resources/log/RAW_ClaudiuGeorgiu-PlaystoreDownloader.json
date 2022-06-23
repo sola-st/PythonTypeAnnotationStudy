@@ -1,0 +1,320 @@
+[
+    {
+        "execution_time": "",
+        "machine": {
+            "OS": "Linux-4.15.0-166-generic-x86_64-with-Ubuntu-18.04-bionic",
+            "CPU": "x86_64",
+            "CORES": 48
+        },
+        "total_repositories": 1,
+        "total_commits": 123,
+        "commit_year_dict": {
+            "2017": 38,
+            "2018": 18,
+            "2019": 24,
+            "2020": 33,
+            "2021": 10
+        },
+        "loc_year_edit": {
+            "2017": 58258,
+            "2018": 1280,
+            "2019": 24591,
+            "2020": 4058,
+            "2021": 55337
+        },
+        "s0": "------------------------------------------------------------------------",
+        "RQ0": "How many types are used?",
+        "code_changes": [],
+        "commit_statistics": [],
+        "repo_with_types_changes": 1,
+        "percentage_repo_with_typeChanges": "",
+        "commits_with_typeChanges": 14,
+        "percentage_commits_with_typeChanges": "",
+        "total_typeAnnotation_codeChanges": 306,
+        "s1": "------------------------------------------------------------------------",
+        "RQ1": "Are type annotation inserted, removed and changed?",
+        "insert_types": {
+            "2017": 31,
+            "2018": 7,
+            "2019": 23,
+            "2020": 8,
+            "2021": 110
+        },
+        "percentage_insert_types": "",
+        "remove_types": {
+            "2018": 2,
+            "2019": 10,
+            "2020": 3,
+            "2021": 108
+        },
+        "percentage_remove_types": "",
+        "modify_existing_types": {
+            "2018": 1,
+            "2020": 3
+        },
+        "percentage_modify_existing_types": "",
+        "s2": "------------------------------------------------------------------------",
+        "RQ2_1": "What types are added (generic, numeric, ...)?",
+        "anyType_added": 0,
+        "noneType_added": 0,
+        "numericType_added": 0,
+        "binarySequenceType_added": 0,
+        "textSequenceType_added": 0,
+        "mappingTypes_added": 0,
+        "setTypes_added": 0,
+        "sequenceType_added": 0,
+        "newType_added": 0,
+        "total_added": 179,
+        "RQ2_2": "What are the top 5 types added?",
+        "typeAdded_dict": {
+            "str": 76,
+            "bool": 29,
+            "object": 19,
+            "int": 8,
+            "none": 10,
+            "dict": 8,
+            "list": 4,
+            "iterable [int]": 5,
+            "bytes": 7,
+            "requests.response": 3,
+            "packagemeta": 4,
+            "outdir": 3,
+            "path": 1,
+            "iterable": 2
+        },
+        "RQ2_3": "What types are removed (generic, numeric, ...)?",
+        "anyType_removed": 0,
+        "noneType_removed": 0,
+        "numericType_removed": 0,
+        "binarySequenceType_removed": 0,
+        "textSequenceType_removed": 0,
+        "mappingTypes_removed": 0,
+        "setTypes_removed": 0,
+        "sequenceType_removed": 0,
+        "newType_removed": 0,
+        "total_removed": 123,
+        "RQ2_4": "What are the top 5 types removed?",
+        "typeRemoved_dict": {
+            "str": 59,
+            "bool": 19,
+            "int": 6,
+            "bytes": 5,
+            "list": 4,
+            "dict": 6,
+            "requests.response": 2,
+            "object": 12,
+            "none": 4,
+            "iterable [int]": 4,
+            "iterable": 2
+        },
+        "RQ2_5": "What types are the top 10 changed ?",
+        "total_changed": 4,
+        "typeChanged_dict_var": {},
+        "typeChanged_dict_arg": {
+            "str -> dict": 1,
+            "list -> iterable": 1
+        },
+        "typeChanged_dict_ret": {
+            "object -> list": 1,
+            "bool -> iterable [int]": 1
+        },
+        "s3": "------------------------------------------------------------------------",
+        "RQ3_1": "Where are types added (function args, function returns, variables)?",
+        "functionArgsType_added": 111,
+        "functionReturnsType_added": 43,
+        "variableType_added": 25,
+        "RQ3_2": "Where are types removed (function args, function returns, variables)?",
+        "functionArgsType_removed": 77,
+        "functionReturnsType_removed": 26,
+        "variableType_removed": 20,
+        "RQ3_3": "Where are types changed (function args, function returns, variables?",
+        "functionArgsType_changed": 2,
+        "functionReturnsType_changed": 2,
+        "variableType_changed": 0,
+        "s4": "------------------------------------------------------------------------",
+        "RQ4_1": "Are types added along with other changes around this code or in commits that only add types?",
+        "typeAnnotation_added_per_commit": 0,
+        "list_typeAnnotation_added_per_commit": [],
+        "RQ4_2": "Are types removed along with other changes around this code or in commits that only add types?",
+        "typeAnnotation_removed_per_commit": 0,
+        "list_typeAnnotation_removed_per_commit": [],
+        "RQ4_3": "Are types changed along with other changes around this code or in commits that only add types?",
+        "typeAnnotation_changed_per_commit": 0,
+        "list_typeAnnotation_changed_per_commit": [
+            0.05298906498386242,
+            0.9523809523809524,
+            2.0408163265306123,
+            2.7777777777777777,
+            0.7462686567164178,
+            7.6923076923076925,
+            3.8461538461538463,
+            0.29069767441860467,
+            0.9569377990430622,
+            11.29032258064516,
+            0.4784688995215311,
+            0.3618817852834741,
+            0.4728132387706856,
+            1.0362694300518136,
+            0.30272452068617556,
+            1.5384615384615385,
+            0.3952569169960474,
+            3.2085561497326207,
+            0.7299270072992701,
+            0.21645021645021645,
+            0.15923566878980894,
+            0.32849113073947,
+            0.31608350485151426,
+            0.32639442953506925,
+            0.3148107474924958
+        ],
+        "annotation_related_insertion_edits_vs_all_commit": [],
+        "annotation_related_deletion_edits_vs_all_commit": [],
+        "s5": "------------------------------------------------------------------------",
+        "RQ5": "Relation of properties of projects vs. properties of type changes.",
+        "matrix_commits_stars_annotations": [
+            [
+                "2017",
+                "123",
+                "573",
+                "306",
+                "99",
+                "6",
+                "62",
+                "139",
+                "10",
+                "0",
+                "0",
+                "2773"
+            ]
+        ],
+        "matrix_files_annotations": [],
+        "matrix_test_files_annotations": [],
+        "dict_funct_call_no_types": {},
+        "dict_funct_call_types": {},
+        "s6": "------------------------------------------------------------------------",
+        "RQ6": "Which are the top 10 repository with the highest number of type annotations.",
+        "number_type_annotations_per_repo": {
+            "https://github.com/ClaudiuGeorgiu/PlaystoreDownloader": 306
+        },
+        "s7": "------------------------------------------------------------------------",
+        "RQ7": "How many of all types are annotated in the last version of the code?",
+        "typeLastProjectVersion_total": 51,
+        "typeLastProjectVersion_average": 0,
+        "typeLastProjectVersion_percentage": [
+            28.49
+        ],
+        "typeLastProjectVersion_dict": {
+            "https://github.com/ClaudiuGeorgiu/PlaystoreDownloader": 51
+        },
+        "typeLastProjectVersion_dict_error": {},
+        "RQ8": "Total number of annotations over time, across all projects",
+        "typeAnnotation_year_analysis": {
+            "2017": 31,
+            "2018": 7,
+            "2019": 23,
+            "2020": 8,
+            "2021": 110
+        },
+        "RQ9": "Total number of annotation-related commit over time, across all projects",
+        "typeAnnotation_commit_annotation_year_analysis": {
+            "2017": 4,
+            "2018": 3,
+            "2019": 3,
+            "2020": 2,
+            "2021": 2
+        },
+        "typeAnnotation_commit_not_annotation_year_analysis": {
+            "2017": 33,
+            "2018": 7,
+            "2019": 19,
+            "2020": 20,
+            "2021": 4
+        },
+        "RQ10": "Type annotation coverage for each each",
+        "annotation_coverage": {
+            "2014": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+            ],
+            "2015": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+            ],
+            "2016": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+            ],
+            "2017": [
+                18,
+                118,
+                9,
+                46,
+                0,
+                623
+            ],
+            "2018": [
+                43,
+                253,
+                21,
+                96,
+                0,
+                1270
+            ],
+            "2019": [
+                24,
+                117,
+                14,
+                48,
+                1,
+                524
+            ],
+            "2020": [
+                36,
+                170,
+                13,
+                72,
+                1,
+                547
+            ]
+        },
+        "RQ11": "Developers statistics",
+        "list_dev_dict": [
+            {
+                "ClaudiuGeorgiu-PlaystoreDownloader": 0,
+                "claudiugeorgiu@hotmail.com": 7,
+                "simone.aonzo@gmail.com": 1,
+                "gabriel@claudiugeorgiu.com": 4,
+                "fernandocollova@gmail.com": 2
+            }
+        ],
+        "list_dev_dict_total": [
+            {
+                "ClaudiuGeorgiu-PlaystoreDownloader": 0,
+                "claudiugeorgiu@hotmail.com": 63,
+                "simone.aonzo@gmail.com": 3,
+                "gaiban@poketb.com": 2,
+                "gabriel@claudiugeorgiu.com": 47,
+                "notengine@gmail.com": 1,
+                "daniel@uptodown.com": 1,
+                "claudiugeorgiu@users.noreply.github.com": 3,
+                "rooky-c3bo@users.noreply.github.com": 1,
+                "fernandocollova@gmail.com": 2
+            }
+        ],
+        "dev_dict": {},
+        "dev_dict_total": {},
+        "list_dev_plot": []
+    }
+]

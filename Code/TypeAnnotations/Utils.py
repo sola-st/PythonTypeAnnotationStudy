@@ -240,7 +240,7 @@ def smooth_line_xy_double(outputFilePath, x, y, yy, x_label=None, y_label=None, 
     ax1.set_xlabel('Year')
     ax1.set_ylabel('Type annotations', color= 'black')
     ax1.plot(x, y, label='Type annotations (left)', marker='o', color=(0.2, 0.4, 0.6, 0.6))
-    ax1.plot(x, yyy, label='STUB annotations (left)', marker='^', color='yellowgreen')
+    ax1.plot(x, yyy, label='STUB annotations (left)', marker='', color='yellowgreen')
     ax1.tick_params(axis='y', color='black')
 
     ax2 = ax1.twinx()  # instantiate a second axes that shares the same x-axis

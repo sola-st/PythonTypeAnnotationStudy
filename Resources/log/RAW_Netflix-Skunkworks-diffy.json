@@ -1,0 +1,277 @@
+[
+    {
+        "execution_time": "",
+        "machine": {
+            "OS": "Linux-4.15.0-166-generic-x86_64-with-Ubuntu-18.04-bionic",
+            "CPU": "x86_64",
+            "CORES": 48
+        },
+        "total_repositories": 1,
+        "total_commits": 256,
+        "commit_year_dict": {
+            "2018": 236,
+            "2019": 16,
+            "2020": 4
+        },
+        "loc_year_edit": {
+            "2018": 4750,
+            "2019": 403,
+            "2020": 15
+        },
+        "s0": "------------------------------------------------------------------------",
+        "RQ0": "How many types are used?",
+        "code_changes": [],
+        "commit_statistics": [],
+        "repo_with_types_changes": 1,
+        "percentage_repo_with_typeChanges": "",
+        "commits_with_typeChanges": 7,
+        "percentage_commits_with_typeChanges": "",
+        "total_typeAnnotation_codeChanges": 121,
+        "s1": "------------------------------------------------------------------------",
+        "RQ1": "Are type annotation inserted, removed and changed?",
+        "insert_types": {
+            "2018": 106,
+            "2019": 1
+        },
+        "percentage_insert_types": "",
+        "remove_types": {
+            "2018": 2
+        },
+        "percentage_remove_types": "",
+        "modify_existing_types": {
+            "2018": 12
+        },
+        "percentage_modify_existing_types": "",
+        "s2": "------------------------------------------------------------------------",
+        "RQ2_1": "What types are added (generic, numeric, ...)?",
+        "anyType_added": 0,
+        "noneType_added": 0,
+        "numericType_added": 0,
+        "binarySequenceType_added": 0,
+        "textSequenceType_added": 0,
+        "mappingTypes_added": 0,
+        "setTypes_added": 0,
+        "sequenceType_added": 0,
+        "newType_added": 0,
+        "total_added": 107,
+        "RQ2_2": "What are the top 5 types added?",
+        "typeAdded_dict": {
+            "dict": 30,
+            "none": 2,
+            "bool": 10,
+            "str": 35,
+            "object": 3,
+            "list [tuple]": 1,
+            "list [str]": 16,
+            "tuple [str,str]": 1,
+            "list [dict]": 5,
+            "callable": 1,
+            "list": 1,
+            "tuple": 1,
+            "dict [str,union [iterable [any],path,str,bool,none]]": 1
+        },
+        "RQ2_3": "What types are removed (generic, numeric, ...)?",
+        "anyType_removed": 0,
+        "noneType_removed": 0,
+        "numericType_removed": 0,
+        "binarySequenceType_removed": 0,
+        "textSequenceType_removed": 0,
+        "mappingTypes_removed": 0,
+        "setTypes_removed": 0,
+        "sequenceType_removed": 0,
+        "newType_removed": 0,
+        "total_removed": 2,
+        "RQ2_4": "What are the top 5 types removed?",
+        "typeRemoved_dict": {
+            "list [str]": 1,
+            "dict": 1
+        },
+        "RQ2_5": "What types are the top 10 changed ?",
+        "total_changed": 12,
+        "typeChanged_dict_var": {
+            "str -> optional [str]": 6,
+            "object -> any": 1
+        },
+        "typeChanged_dict_arg": {},
+        "typeChanged_dict_ret": {
+            "dict -> any": 1,
+            "str -> optional [str]": 2,
+            "list [tuple] -> any [list]": 1,
+            "any [list] -> list [any]": 1
+        },
+        "s3": "------------------------------------------------------------------------",
+        "RQ3_1": "Where are types added (function args, function returns, variables)?",
+        "functionArgsType_added": 56,
+        "functionReturnsType_added": 39,
+        "variableType_added": 12,
+        "RQ3_2": "Where are types removed (function args, function returns, variables)?",
+        "functionArgsType_removed": 1,
+        "functionReturnsType_removed": 1,
+        "variableType_removed": 0,
+        "RQ3_3": "Where are types changed (function args, function returns, variables?",
+        "functionArgsType_changed": 0,
+        "functionReturnsType_changed": 5,
+        "variableType_changed": 7,
+        "s4": "------------------------------------------------------------------------",
+        "RQ4_1": "Are types added along with other changes around this code or in commits that only add types?",
+        "typeAnnotation_added_per_commit": 0,
+        "list_typeAnnotation_added_per_commit": [],
+        "RQ4_2": "Are types removed along with other changes around this code or in commits that only add types?",
+        "typeAnnotation_removed_per_commit": 0,
+        "list_typeAnnotation_removed_per_commit": [],
+        "RQ4_3": "Are types changed along with other changes around this code or in commits that only add types?",
+        "typeAnnotation_changed_per_commit": 0,
+        "list_typeAnnotation_changed_per_commit": [
+            4.219096965210955,
+            0.3048780487804878,
+            0.5050505050505051,
+            84.61538461538461,
+            33.33333333333333,
+            100.0,
+            100.0,
+            2.941176470588235,
+            0.641025641025641,
+            2.631578947368421
+        ],
+        "annotation_related_insertion_edits_vs_all_commit": [],
+        "annotation_related_deletion_edits_vs_all_commit": [],
+        "s5": "------------------------------------------------------------------------",
+        "RQ5": "Relation of properties of projects vs. properties of type changes.",
+        "matrix_commits_stars_annotations": [
+            [
+                "2018",
+                "256",
+                "531",
+                "121",
+                "54",
+                "12",
+                "19",
+                "166",
+                "11",
+                "0",
+                "0",
+                "1149"
+            ]
+        ],
+        "matrix_files_annotations": [],
+        "matrix_test_files_annotations": [],
+        "dict_funct_call_no_types": {},
+        "dict_funct_call_types": {},
+        "s6": "------------------------------------------------------------------------",
+        "RQ6": "Which are the top 10 repository with the highest number of type annotations.",
+        "number_type_annotations_per_repo": {
+            "https://github.com/Netflix-Skunkworks/diffy": 121
+        },
+        "s7": "------------------------------------------------------------------------",
+        "RQ7": "How many of all types are annotated in the last version of the code?",
+        "typeLastProjectVersion_total": 128,
+        "typeLastProjectVersion_average": 0,
+        "typeLastProjectVersion_percentage": [
+            119.63
+        ],
+        "typeLastProjectVersion_dict": {
+            "https://github.com/Netflix-Skunkworks/diffy": 128
+        },
+        "typeLastProjectVersion_dict_error": {},
+        "RQ8": "Total number of annotations over time, across all projects",
+        "typeAnnotation_year_analysis": {
+            "2018": 106,
+            "2019": 1
+        },
+        "RQ9": "Total number of annotation-related commit over time, across all projects",
+        "typeAnnotation_commit_annotation_year_analysis": {
+            "2018": 6,
+            "2019": 1
+        },
+        "typeAnnotation_commit_not_annotation_year_analysis": {
+            "2018": 230,
+            "2019": 12
+        },
+        "RQ10": "Type annotation coverage for each each",
+        "annotation_coverage": {
+            "2014": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+            ],
+            "2015": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+            ],
+            "2016": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+            ],
+            "2017": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+            ],
+            "2018": [
+                134,
+                656,
+                94,
+                282,
+                22,
+                770
+            ],
+            "2019": [
+                138,
+                672,
+                96,
+                286,
+                22,
+                816
+            ],
+            "2020": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+            ]
+        },
+        "RQ11": "Developers statistics",
+        "list_dev_dict": [
+            {
+                "Netflix-Skunkworks-diffy": 0,
+                "kevgliss@gmail.com": 3,
+                "forest.monsen@gmail.com": 3,
+                "maestretti@netflix.com": 1
+            }
+        ],
+        "list_dev_dict_total": [
+            {
+                "Netflix-Skunkworks-diffy": 0,
+                "kevgliss@gmail.com": 19,
+                "fmonsen@netflix.com": 16,
+                "forest.monsen@gmail.com": 131,
+                "github-bot@pyup.io": 78,
+                "sfraser@mozilla.com": 1,
+                "maestretti@netflix.com": 5,
+                "kglisson@netflix.com": 1,
+                "49699333+dependabot[bot]@users.noreply.github.com": 3,
+                "ssh@maxbachmann.de": 1,
+                "44199644+maxbachmann@users.noreply.github.com": 1
+            }
+        ],
+        "dev_dict": {},
+        "dev_dict_total": {},
+        "list_dev_plot": []
+    }
+]

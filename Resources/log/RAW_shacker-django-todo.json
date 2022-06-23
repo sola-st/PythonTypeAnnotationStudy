@@ -1,0 +1,272 @@
+[
+    {
+        "execution_time": "",
+        "machine": {
+            "OS": "Linux-4.15.0-166-generic-x86_64-with-Ubuntu-18.04-bionic",
+            "CPU": "x86_64",
+            "CORES": 48
+        },
+        "total_repositories": 1,
+        "total_commits": 204,
+        "commit_year_dict": {
+            "2015": 9,
+            "2016": 30,
+            "2017": 4,
+            "2018": 87,
+            "2019": 55,
+            "2020": 8,
+            "2021": 11
+        },
+        "loc_year_edit": {
+            "2015": 98,
+            "2016": 1555,
+            "2017": 15,
+            "2018": 8963,
+            "2019": 4979,
+            "2020": 226,
+            "2021": 291
+        },
+        "s0": "------------------------------------------------------------------------",
+        "RQ0": "How many types are used?",
+        "code_changes": [],
+        "commit_statistics": [],
+        "repo_with_types_changes": 1,
+        "percentage_repo_with_typeChanges": "",
+        "commits_with_typeChanges": 7,
+        "percentage_commits_with_typeChanges": "",
+        "total_typeAnnotation_codeChanges": 62,
+        "s1": "------------------------------------------------------------------------",
+        "RQ1": "Are type annotation inserted, removed and changed?",
+        "insert_types": {
+            "2018": 35,
+            "2019": 11
+        },
+        "percentage_insert_types": "",
+        "remove_types": {
+            "2018": 16
+        },
+        "percentage_remove_types": "",
+        "modify_existing_types": {},
+        "percentage_modify_existing_types": "",
+        "s2": "------------------------------------------------------------------------",
+        "RQ2_1": "What types are added (generic, numeric, ...)?",
+        "anyType_added": 0,
+        "noneType_added": 0,
+        "numericType_added": 0,
+        "binarySequenceType_added": 0,
+        "textSequenceType_added": 0,
+        "mappingTypes_added": 0,
+        "setTypes_added": 0,
+        "sequenceType_added": 0,
+        "newType_added": 0,
+        "total_added": 46,
+        "RQ2_2": "What are the top 5 types added?",
+        "typeAdded_dict": {
+            "user": 2,
+            "httpresponse": 23,
+            "int": 11,
+            "str": 3,
+            "bool": 2,
+            "commandparser": 1,
+            "any": 2,
+            "none": 2
+        },
+        "RQ2_3": "What types are removed (generic, numeric, ...)?",
+        "anyType_removed": 0,
+        "noneType_removed": 0,
+        "numericType_removed": 0,
+        "binarySequenceType_removed": 0,
+        "textSequenceType_removed": 0,
+        "mappingTypes_removed": 0,
+        "setTypes_removed": 0,
+        "sequenceType_removed": 0,
+        "newType_removed": 0,
+        "total_removed": 16,
+        "RQ2_4": "What are the top 5 types removed?",
+        "typeRemoved_dict": {
+            "user": 1,
+            "httpresponse": 10,
+            "int": 4,
+            "str": 1
+        },
+        "RQ2_5": "What types are the top 10 changed ?",
+        "total_changed": 0,
+        "typeChanged_dict_var": {},
+        "typeChanged_dict_arg": {},
+        "typeChanged_dict_ret": {},
+        "s3": "------------------------------------------------------------------------",
+        "RQ3_1": "Where are types added (function args, function returns, variables)?",
+        "functionArgsType_added": 19,
+        "functionReturnsType_added": 27,
+        "variableType_added": 0,
+        "RQ3_2": "Where are types removed (function args, function returns, variables)?",
+        "functionArgsType_removed": 6,
+        "functionReturnsType_removed": 10,
+        "variableType_removed": 0,
+        "RQ3_3": "Where are types changed (function args, function returns, variables?",
+        "functionArgsType_changed": 0,
+        "functionReturnsType_changed": 0,
+        "variableType_changed": 0,
+        "s4": "------------------------------------------------------------------------",
+        "RQ4_1": "Are types added along with other changes around this code or in commits that only add types?",
+        "typeAnnotation_added_per_commit": 0,
+        "list_typeAnnotation_added_per_commit": [],
+        "RQ4_2": "Are types removed along with other changes around this code or in commits that only add types?",
+        "typeAnnotation_removed_per_commit": 0,
+        "list_typeAnnotation_removed_per_commit": [],
+        "RQ4_3": "Are types changed along with other changes around this code or in commits that only add types?",
+        "typeAnnotation_changed_per_commit": 0,
+        "list_typeAnnotation_changed_per_commit": [
+            72.72727272727273,
+            1.25,
+            2.0,
+            1.8518518518518516,
+            1.9748653500897666,
+            1.9396551724137931,
+            0.5008347245409015,
+            2.7027027027027026,
+            4.3478260869565215
+        ],
+        "annotation_related_insertion_edits_vs_all_commit": [],
+        "annotation_related_deletion_edits_vs_all_commit": [],
+        "s5": "------------------------------------------------------------------------",
+        "RQ5": "Relation of properties of projects vs. properties of type changes.",
+        "matrix_commits_stars_annotations": [
+            [
+                "2010",
+                "204",
+                "553",
+                "62",
+                "211",
+                "8",
+                "43",
+                "319",
+                "14",
+                "0",
+                "0",
+                "372"
+            ]
+        ],
+        "matrix_files_annotations": [],
+        "matrix_test_files_annotations": [],
+        "dict_funct_call_no_types": {},
+        "dict_funct_call_types": {},
+        "s6": "------------------------------------------------------------------------",
+        "RQ6": "Which are the top 10 repository with the highest number of type annotations.",
+        "number_type_annotations_per_repo": {
+            "https://github.com/shacker/django-todo": 62
+        },
+        "s7": "------------------------------------------------------------------------",
+        "RQ7": "How many of all types are annotated in the last version of the code?",
+        "typeLastProjectVersion_total": 28,
+        "typeLastProjectVersion_average": 0,
+        "typeLastProjectVersion_percentage": [
+            60.87
+        ],
+        "typeLastProjectVersion_dict": {
+            "https://github.com/shacker/django-todo": 28
+        },
+        "typeLastProjectVersion_dict_error": {},
+        "RQ8": "Total number of annotations over time, across all projects",
+        "typeAnnotation_year_analysis": {
+            "2018": 35,
+            "2019": 11
+        },
+        "RQ9": "Total number of annotation-related commit over time, across all projects",
+        "typeAnnotation_commit_annotation_year_analysis": {
+            "2018": 4,
+            "2019": 3
+        },
+        "typeAnnotation_commit_not_annotation_year_analysis": {
+            "2018": 54,
+            "2019": 32
+        },
+        "RQ10": "Type annotation coverage for each each",
+        "annotation_coverage": {
+            "2014": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+            ],
+            "2015": [
+                0,
+                39,
+                0,
+                22,
+                0,
+                112
+            ],
+            "2016": [
+                0,
+                53,
+                0,
+                32,
+                0,
+                115
+            ],
+            "2017": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+            ],
+            "2018": [
+                5,
+                103,
+                9,
+                43,
+                0,
+                222
+            ],
+            "2019": [
+                12,
+                224,
+                16,
+                101,
+                0,
+                431
+            ],
+            "2020": [
+                12,
+                228,
+                16,
+                102,
+                0,
+                436
+            ]
+        },
+        "RQ11": "Developers statistics",
+        "list_dev_dict": [
+            {
+                "shacker-django-todo": 0,
+                "shacker@birdhouse.org": 7
+            }
+        ],
+        "list_dev_dict_total": [
+            {
+                "shacker-django-todo": 0,
+                "shacker@birdhouse.org": 170,
+                "django@bittner.it": 5,
+                "shantisuresh01@gmail.com": 4,
+                "el13635@mail.ntua.gr": 2,
+                "stuart@madscienceproductions.org": 1,
+                "multun@users.noreply.github.com": 2,
+                "james1293@users.noreply.github.com": 4,
+                "dave@st.germa.in": 1,
+                "49699333+dependabot[bot]@users.noreply.github.com": 10,
+                "rghvn29@gmail.com": 1,
+                "59178380+1hanzla100@users.noreply.github.com": 1,
+                "deniz195@gmail.com": 1,
+                "bernd-wechner@users.noreply.github.com": 2
+            }
+        ],
+        "dev_dict": {},
+        "dev_dict_total": {},
+        "list_dev_plot": []
+    }
+]

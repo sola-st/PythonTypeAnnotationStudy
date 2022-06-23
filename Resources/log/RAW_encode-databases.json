@@ -1,0 +1,324 @@
+[
+    {
+        "execution_time": "",
+        "machine": {
+            "OS": "Linux-4.15.0-166-generic-x86_64-with-Ubuntu-18.04-bionic",
+            "CPU": "x86_64",
+            "CORES": 48
+        },
+        "total_repositories": 1,
+        "total_commits": 295,
+        "commit_year_dict": {
+            "2019": 230,
+            "2020": 38,
+            "2021": 27
+        },
+        "loc_year_edit": {
+            "2019": 8060,
+            "2020": 883,
+            "2021": 1208
+        },
+        "s0": "------------------------------------------------------------------------",
+        "RQ0": "How many types are used?",
+        "code_changes": [],
+        "commit_statistics": [],
+        "repo_with_types_changes": 1,
+        "percentage_repo_with_typeChanges": "",
+        "commits_with_typeChanges": 6,
+        "percentage_commits_with_typeChanges": "",
+        "total_typeAnnotation_codeChanges": 63,
+        "s1": "------------------------------------------------------------------------",
+        "RQ1": "Are type annotation inserted, removed and changed?",
+        "insert_types": {
+            "2019": 43
+        },
+        "percentage_insert_types": "",
+        "remove_types": {
+            "2019": 2
+        },
+        "percentage_remove_types": "",
+        "modify_existing_types": {
+            "2019": 18
+        },
+        "percentage_modify_existing_types": "",
+        "s2": "------------------------------------------------------------------------",
+        "RQ2_1": "What types are added (generic, numeric, ...)?",
+        "anyType_added": 0,
+        "noneType_added": 0,
+        "numericType_added": 0,
+        "binarySequenceType_added": 0,
+        "textSequenceType_added": 0,
+        "mappingTypes_added": 0,
+        "setTypes_added": 0,
+        "sequenceType_added": 0,
+        "newType_added": 0,
+        "total_added": 43,
+        "RQ2_2": "What are the top 5 types added?",
+        "typeAdded_dict": {
+            "str": 1,
+            "typing.any": 2,
+            "none": 14,
+            "bool": 2,
+            "databaseurl": 2,
+            "aiosqlite.connection": 2,
+            "executioncontext": 1,
+            "sqlitepool": 1,
+            "dialect": 1,
+            "clauseelement": 6,
+            "dict": 1,
+            "list": 1,
+            "sqliteconnection": 1,
+            "\"sqliteconnection\"": 1,
+            "attribute(\n    value=name(\n        value='typing',\n        lpar=[],\n        rpar=[],\n    ),\n    attr=name(\n        value='list',\n        lpar=[],\n        rpar=[],\n    ),\n    dot=dot(\n        whitespace_before=simplewhitespace(\n            value='',\n        ),\n        whitespace_after=simplewhitespace(\n            value='',\n        ),\n    ),\n    lpar=[],\n    rpar=[],\n) [rowproxy]": 1,
+            "rowproxy": 1,
+            "attribute(\n    value=name(\n        value='typing',\n        lpar=[],\n        rpar=[],\n    ),\n    attr=name(\n        value='asyncgenerator',\n        lpar=[],\n        rpar=[],\n    ),\n    dot=dot(\n        whitespace_before=simplewhitespace(\n            value='',\n        ),\n        whitespace_after=simplewhitespace(\n            value='',\n        ),\n    ),\n    lpar=[],\n    rpar=[],\n) [typing,none]": 2,
+            "transactionbackend": 1,
+            "attribute(\n    value=name(\n        value='typing',\n        lpar=[],\n        rpar=[],\n    ),\n    attr=name(\n        value='tuple',\n        lpar=[],\n        rpar=[],\n    ),\n    dot=dot(\n        whitespace_before=simplewhitespace(\n            value='',\n        ),\n        whitespace_after=simplewhitespace(\n            value='',\n        ),\n    ),\n    lpar=[],\n    rpar=[],\n) [str,list,compilationcontext]": 1,
+            "\"transactionbackend\"": 1
+        },
+        "RQ2_3": "What types are removed (generic, numeric, ...)?",
+        "anyType_removed": 0,
+        "noneType_removed": 0,
+        "numericType_removed": 0,
+        "binarySequenceType_removed": 0,
+        "textSequenceType_removed": 0,
+        "mappingTypes_removed": 0,
+        "setTypes_removed": 0,
+        "sequenceType_removed": 0,
+        "newType_removed": 0,
+        "total_removed": 2,
+        "RQ2_4": "What are the top 5 types removed?",
+        "typeRemoved_dict": {
+            "attribute(\n    value=name(\n        value='typing',\n        lpar=[],\n        rpar=[],\n    ),\n    attr=name(\n        value='asyncgenerator',\n        lpar=[],\n        rpar=[],\n    ),\n    dot=dot(\n        whitespace_before=simplewhitespace(\n            value='',\n        ),\n        whitespace_after=simplewhitespace(\n            value='',\n        ),\n    ),\n    lpar=[],\n    rpar=[],\n) [typing,none]": 2
+        },
+        "RQ2_5": "What types are the top 10 changed ?",
+        "total_changed": 18,
+        "typeChanged_dict_var": {},
+        "typeChanged_dict_arg": {},
+        "typeChanged_dict_ret": {
+            "\"databasesession\" -> \"connectionbackend\"": 1,
+            "typing.any -> none": 1,
+            "\"databasetransaction\" -> attribute(\n    value=name(\n        value='typing',\n        lpar=[],\n        rpar=[],\n    ),\n    attr=name(\n        value='asyncgenerator',\n        lpar=[],\n        rpar=[],\n    ),\n    dot=dot(\n        whitespace_before=simplewhitespace(\n            value='',\n        ),\n        whitespace_after=simplewhitespace(\n            value='',\n        ),\n    ),\n    lpar=[],\n    rpar=[],\n) [typing,none]": 1,
+            "none -> \"transactionbackend\"": 1,
+            "typing.any -> attribute(\n    value=name(\n        value='typing',\n        lpar=[],\n        rpar=[],\n    ),\n    attr=name(\n        value='list',\n        lpar=[],\n        rpar=[],\n    ),\n    dot=dot(\n        whitespace_before=simplewhitespace(\n            value='',\n        ),\n        whitespace_after=simplewhitespace(\n            value='',\n        ),\n    ),\n    lpar=[],\n    rpar=[],\n) [rowproxy]": 1,
+            "typing.any -> rowproxy": 1,
+            "attribute(\n    value=name(\n        value='typing',\n        lpar=[],\n        rpar=[],\n    ),\n    attr=name(\n        value='asyncgenerator',\n        lpar=[],\n        rpar=[],\n    ),\n    dot=dot(\n        whitespace_before=simplewhitespace(\n            value='',\n        ),\n        whitespace_after=simplewhitespace(\n            value='',\n        ),\n    ),\n    lpar=[],\n    rpar=[],\n) [typing,none] -> attribute(\n    value=name(\n        value='typing',\n        lpar=[],\n        rpar=[],\n    ),\n    attr=name(\n        value='asyncgenerator',\n        lpar=[],\n        rpar=[],\n    ),\n    dot=dot(\n        whitespace_before=simplewhitespace(\n            value='',\n        ),\n        whitespace_after=simplewhitespace(\n            value='',\n        ),\n    ),\n    lpar=[],\n    rpar=[],\n) [rowproxy,none]": 1,
+            "none -> typing.any": 3,
+            "attribute(\n    value=name(\n        value='typing',\n        lpar=[],\n        rpar=[],\n    ),\n    attr=name(\n        value='list',\n        lpar=[],\n        rpar=[],\n    ),\n    dot=dot(\n        whitespace_before=simplewhitespace(\n            value='',\n        ),\n        whitespace_after=simplewhitespace(\n            value='',\n        ),\n    ),\n    lpar=[],\n    rpar=[],\n) [rowproxy] -> attribute(\n    value=name(\n        value='typing',\n        lpar=[],\n        rpar=[],\n    ),\n    attr=name(\n        value='list',\n        lpar=[],\n        rpar=[],\n    ),\n    dot=dot(\n        whitespace_before=simplewhitespace(\n            value='',\n        ),\n        whitespace_after=simplewhitespace(\n            value='',\n        ),\n    ),\n    lpar=[],\n    rpar=[],\n) [typing]": 1,
+            "rowproxy -> attribute(\n    value=name(\n        value='typing',\n        lpar=[],\n        rpar=[],\n    ),\n    attr=name(\n        value='optional',\n        lpar=[],\n        rpar=[],\n    ),\n    dot=dot(\n        whitespace_before=simplewhitespace(\n            value='',\n        ),\n        whitespace_after=simplewhitespace(\n            value='',\n        ),\n    ),\n    lpar=[],\n    rpar=[],\n) [typing]": 1,
+            "attribute(\n    value=name(\n        value='typing',\n        lpar=[],\n        rpar=[],\n    ),\n    attr=name(\n        value='asyncgenerator',\n        lpar=[],\n        rpar=[],\n    ),\n    dot=dot(\n        whitespace_before=simplewhitespace(\n            value='',\n        ),\n        whitespace_after=simplewhitespace(\n            value='',\n        ),\n    ),\n    lpar=[],\n    rpar=[],\n) [rowproxy,none] -> attribute(\n    value=name(\n        value='typing',\n        lpar=[],\n        rpar=[],\n    ),\n    attr=name(\n        value='asyncgenerator',\n        lpar=[],\n        rpar=[],\n    ),\n    dot=dot(\n        whitespace_before=simplewhitespace(\n            value='',\n        ),\n        whitespace_after=simplewhitespace(\n            value='',\n        ),\n    ),\n    lpar=[],\n    rpar=[],\n) [typing,none]": 1,
+            "attribute(\n    value=name(\n        value='typing',\n        lpar=[],\n        rpar=[],\n    ),\n    attr=name(\n        value='asyncgenerator',\n        lpar=[],\n        rpar=[],\n    ),\n    dot=dot(\n        whitespace_before=simplewhitespace(\n            value='',\n        ),\n        whitespace_after=simplewhitespace(\n            value='',\n        ),\n    ),\n    lpar=[],\n    rpar=[],\n) [typing,none] -> typing.any": 1,
+            "typing.any -> attribute(\n    value=name(\n        value='typing',\n        lpar=[],\n        rpar=[],\n    ),\n    attr=name(\n        value='asyncgenerator',\n        lpar=[],\n        rpar=[],\n    ),\n    dot=dot(\n        whitespace_before=simplewhitespace(\n            value='',\n        ),\n        whitespace_after=simplewhitespace(\n            value='',\n        ),\n    ),\n    lpar=[],\n    rpar=[],\n) [typing,none]": 1,
+            "\"transactionbackend\" -> typing.any": 2,
+            "typing.any -> \"transactionbackend\"": 1
+        },
+        "s3": "------------------------------------------------------------------------",
+        "RQ3_1": "Where are types added (function args, function returns, variables)?",
+        "functionArgsType_added": 18,
+        "functionReturnsType_added": 25,
+        "variableType_added": 0,
+        "RQ3_2": "Where are types removed (function args, function returns, variables)?",
+        "functionArgsType_removed": 0,
+        "functionReturnsType_removed": 2,
+        "variableType_removed": 0,
+        "RQ3_3": "Where are types changed (function args, function returns, variables?",
+        "functionArgsType_changed": 0,
+        "functionReturnsType_changed": 18,
+        "variableType_changed": 0,
+        "s4": "------------------------------------------------------------------------",
+        "RQ4_1": "Are types added along with other changes around this code or in commits that only add types?",
+        "typeAnnotation_added_per_commit": 0,
+        "list_typeAnnotation_added_per_commit": [],
+        "RQ4_2": "Are types removed along with other changes around this code or in commits that only add types?",
+        "typeAnnotation_removed_per_commit": 0,
+        "list_typeAnnotation_removed_per_commit": [],
+        "RQ4_3": "Are types changed along with other changes around this code or in commits that only add types?",
+        "typeAnnotation_changed_per_commit": 0,
+        "list_typeAnnotation_changed_per_commit": [
+            8.333333333333332,
+            1.1952191235059761,
+            0.3703703703703704,
+            0.7619047619047619,
+            4.0,
+            3.4482758620689653,
+            10.38961038961039,
+            6.0606060606060606,
+            4.838709677419355,
+            33.33333333333333,
+            20.0,
+            0.8620689655172413,
+            1.694915254237288,
+            1.282051282051282,
+            1.4388489208633095,
+            1.1363636363636365
+        ],
+        "annotation_related_insertion_edits_vs_all_commit": [],
+        "annotation_related_deletion_edits_vs_all_commit": [],
+        "s5": "------------------------------------------------------------------------",
+        "RQ5": "Relation of properties of projects vs. properties of type changes.",
+        "matrix_commits_stars_annotations": [
+            [
+                "2019",
+                "295",
+                "1668",
+                "63",
+                "124",
+                "84",
+                "105",
+                "316",
+                "43",
+                "0",
+                "0",
+                "1266"
+            ]
+        ],
+        "matrix_files_annotations": [],
+        "matrix_test_files_annotations": [],
+        "dict_funct_call_no_types": {},
+        "dict_funct_call_types": {},
+        "s6": "------------------------------------------------------------------------",
+        "RQ6": "Which are the top 10 repository with the highest number of type annotations.",
+        "number_type_annotations_per_repo": {
+            "https://github.com/encode/databases": 63
+        },
+        "s7": "------------------------------------------------------------------------",
+        "RQ7": "How many of all types are annotated in the last version of the code?",
+        "typeLastProjectVersion_total": 306,
+        "typeLastProjectVersion_average": 0,
+        "typeLastProjectVersion_percentage": [
+            711.63
+        ],
+        "typeLastProjectVersion_dict": {
+            "https://github.com/encode/databases": 306
+        },
+        "typeLastProjectVersion_dict_error": {},
+        "RQ8": "Total number of annotations over time, across all projects",
+        "typeAnnotation_year_analysis": {
+            "2019": 43
+        },
+        "RQ9": "Total number of annotation-related commit over time, across all projects",
+        "typeAnnotation_commit_annotation_year_analysis": {
+            "2019": 6
+        },
+        "typeAnnotation_commit_not_annotation_year_analysis": {
+            "2019": 217
+        },
+        "RQ10": "Type annotation coverage for each each",
+        "annotation_coverage": {
+            "2014": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+            ],
+            "2015": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+            ],
+            "2016": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+            ],
+            "2017": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+            ],
+            "2018": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+            ],
+            "2019": [
+                528,
+                905,
+                577,
+                445,
+                0,
+                1827
+            ],
+            "2020": [
+                122,
+                209,
+                136,
+                104,
+                0,
+                445
+            ]
+        },
+        "RQ11": "Developers statistics",
+        "list_dev_dict": [
+            {
+                "encode-databases": 0,
+                "tom@tomchristie.com": 4,
+                "gvbgduh@gmail.com": 2
+            }
+        ],
+        "list_dev_dict_total": [
+            {
+                "encode-databases": 0,
+                "tom@tomchristie.com": 200,
+                "pete@weargoggles.co.uk": 3,
+                "florimond.manca@gmail.com": 3,
+                "perdy@perdy.io": 1,
+                "gvbgduh@gmail.com": 21,
+                "ricardo18.bnu@gmail.com": 6,
+                "pierre.vanliefland@gmail.com": 3,
+                "mike@depalatis.net": 1,
+                "shamrin@gmail.com": 2,
+                "516999+sm-Fifteen@users.noreply.github.com": 2,
+                "jakub.urban@quantlane.com": 4,
+                "git@thequod.de": 1,
+                "bakhtiyor.ruziev@yandex.ru": 1,
+                "kontakt@rpiton.com": 4,
+                "sabanski.n@gmail.com": 2,
+                "gmarkhor@gmail.com": 1,
+                "raymondzane@gmail.com": 1,
+                "pvanliefland@users.noreply.github.com": 1,
+                "retnikt@gmail.com": 1,
+                "vadim@athenian.co": 6,
+                "210193+brianpkennedy@users.noreply.github.com": 1,
+                "onerandomghost@gmail.com": 1,
+                "levi@malott.co": 1,
+                "57868732+kulame@users.noreply.github.com": 1,
+                "contact@sohamsen.me": 1,
+                "loumarvincaraig@gmail.com": 1,
+                "kpdemetriou@users.noreply.github.com": 1,
+                "gruentee@users.noreply.github.com": 1,
+                "hzwhuang@gmail.com": 1,
+                "172633+nwillems@users.noreply.github.com": 1,
+                "adamantike@users.noreply.github.com": 1,
+                "goteguru@users.noreply.github.com": 1,
+                "santiwilly@gmail.com": 1,
+                "em.jolibois@gmail.com": 1,
+                "mohammadamin.alaee@gmail.com": 10,
+                "sondrelg@live.no": 1,
+                "taybin@users.noreply.github.com": 1,
+                "andre.dias@pronus.io": 1,
+                "michael@hadam.us": 1,
+                "stefano.palazzo@gmail.com": 1,
+                "manlix@yandex.ru": 1,
+                "dom.batten@appearhere.co.uk": 1
+            }
+        ],
+        "dev_dict": {},
+        "dev_dict_total": {},
+        "list_dev_plot": []
+    }
+]

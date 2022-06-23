@@ -1,0 +1,269 @@
+[
+    {
+        "execution_time": "",
+        "machine": {
+            "OS": "Linux-4.15.0-166-generic-x86_64-with-Ubuntu-18.04-bionic",
+            "CPU": "x86_64",
+            "CORES": 48
+        },
+        "total_repositories": 1,
+        "total_commits": 1910,
+        "commit_year_dict": {
+            "2015": 1297,
+            "2016": 211,
+            "2017": 255,
+            "2018": 77,
+            "2019": 43,
+            "2020": 9,
+            "2021": 18
+        },
+        "loc_year_edit": {
+            "2015": 239424,
+            "2016": 150900,
+            "2017": 18874,
+            "2018": 2252,
+            "2019": 1146,
+            "2020": 63,
+            "2021": 203
+        },
+        "s0": "------------------------------------------------------------------------",
+        "RQ0": "How many types are used?",
+        "code_changes": [],
+        "commit_statistics": [],
+        "repo_with_types_changes": 1,
+        "percentage_repo_with_typeChanges": "",
+        "commits_with_typeChanges": 2,
+        "percentage_commits_with_typeChanges": "",
+        "total_typeAnnotation_codeChanges": 2,
+        "s1": "------------------------------------------------------------------------",
+        "RQ1": "Are type annotation inserted, removed and changed?",
+        "insert_types": {
+            "2017": 1,
+            "2019": 1
+        },
+        "percentage_insert_types": "",
+        "remove_types": {},
+        "percentage_remove_types": "",
+        "modify_existing_types": {},
+        "percentage_modify_existing_types": "",
+        "s2": "------------------------------------------------------------------------",
+        "RQ2_1": "What types are added (generic, numeric, ...)?",
+        "anyType_added": 0,
+        "noneType_added": 0,
+        "numericType_added": 0,
+        "binarySequenceType_added": 0,
+        "textSequenceType_added": 0,
+        "mappingTypes_added": 0,
+        "setTypes_added": 0,
+        "sequenceType_added": 0,
+        "newType_added": 0,
+        "total_added": 2,
+        "RQ2_2": "What are the top 5 types added?",
+        "typeAdded_dict": {
+            "str": 1,
+            "\"my_property\"": 1
+        },
+        "RQ2_3": "What types are removed (generic, numeric, ...)?",
+        "anyType_removed": 0,
+        "noneType_removed": 0,
+        "numericType_removed": 0,
+        "binarySequenceType_removed": 0,
+        "textSequenceType_removed": 0,
+        "mappingTypes_removed": 0,
+        "setTypes_removed": 0,
+        "sequenceType_removed": 0,
+        "newType_removed": 0,
+        "total_removed": 0,
+        "RQ2_4": "What are the top 5 types removed?",
+        "typeRemoved_dict": {},
+        "RQ2_5": "What types are the top 10 changed ?",
+        "total_changed": 0,
+        "typeChanged_dict_var": {},
+        "typeChanged_dict_arg": {},
+        "typeChanged_dict_ret": {},
+        "s3": "------------------------------------------------------------------------",
+        "RQ3_1": "Where are types added (function args, function returns, variables)?",
+        "functionArgsType_added": 1,
+        "functionReturnsType_added": 1,
+        "variableType_added": 0,
+        "RQ3_2": "Where are types removed (function args, function returns, variables)?",
+        "functionArgsType_removed": 0,
+        "functionReturnsType_removed": 0,
+        "variableType_removed": 0,
+        "RQ3_3": "Where are types changed (function args, function returns, variables?",
+        "functionArgsType_changed": 0,
+        "functionReturnsType_changed": 0,
+        "variableType_changed": 0,
+        "s4": "------------------------------------------------------------------------",
+        "RQ4_1": "Are types added along with other changes around this code or in commits that only add types?",
+        "typeAnnotation_added_per_commit": 0,
+        "list_typeAnnotation_added_per_commit": [],
+        "RQ4_2": "Are types removed along with other changes around this code or in commits that only add types?",
+        "typeAnnotation_removed_per_commit": 0,
+        "list_typeAnnotation_removed_per_commit": [],
+        "RQ4_3": "Are types changed along with other changes around this code or in commits that only add types?",
+        "typeAnnotation_changed_per_commit": 0,
+        "list_typeAnnotation_changed_per_commit": [
+            0.33783783783783783,
+            1.0
+        ],
+        "annotation_related_insertion_edits_vs_all_commit": [],
+        "annotation_related_deletion_edits_vs_all_commit": [],
+        "s5": "------------------------------------------------------------------------",
+        "RQ5": "Relation of properties of projects vs. properties of type changes.",
+        "matrix_commits_stars_annotations": [
+            [
+                "2015",
+                "1910",
+                "3422",
+                "2",
+                "928",
+                "65",
+                "635",
+                "2536",
+                "30",
+                "0",
+                "0",
+                "22815"
+            ]
+        ],
+        "matrix_files_annotations": [],
+        "matrix_test_files_annotations": [],
+        "dict_funct_call_no_types": {},
+        "dict_funct_call_types": {},
+        "s6": "------------------------------------------------------------------------",
+        "RQ6": "Which are the top 10 repository with the highest number of type annotations.",
+        "number_type_annotations_per_repo": {
+            "https://github.com/QingdaoU/OnlineJudge": 2
+        },
+        "s7": "------------------------------------------------------------------------",
+        "RQ7": "How many of all types are annotated in the last version of the code?",
+        "typeLastProjectVersion_total": 1,
+        "typeLastProjectVersion_average": 0,
+        "typeLastProjectVersion_percentage": [
+            50.0
+        ],
+        "typeLastProjectVersion_dict": {
+            "https://github.com/QingdaoU/OnlineJudge": 1
+        },
+        "typeLastProjectVersion_dict_error": {},
+        "RQ8": "Total number of annotations over time, across all projects",
+        "typeAnnotation_year_analysis": {
+            "2017": 1,
+            "2019": 1
+        },
+        "RQ9": "Total number of annotation-related commit over time, across all projects",
+        "typeAnnotation_commit_annotation_year_analysis": {
+            "2017": 1,
+            "2019": 1
+        },
+        "typeAnnotation_commit_not_annotation_year_analysis": {
+            "2017": 124,
+            "2019": 29
+        },
+        "RQ10": "Type annotation coverage for each each",
+        "annotation_coverage": {
+            "2014": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+            ],
+            "2015": [
+                0,
+                803,
+                0,
+                589,
+                0,
+                1794
+            ],
+            "2016": [
+                0,
+                525,
+                0,
+                261,
+                0,
+                1171
+            ],
+            "2017": [
+                0,
+                471,
+                0,
+                272,
+                0,
+                1024
+            ],
+            "2018": [
+                1,
+                792,
+                0,
+                467,
+                0,
+                1684
+            ],
+            "2019": [
+                2,
+                1604,
+                0,
+                941,
+                0,
+                3317
+            ],
+            "2020": [
+                1,
+                803,
+                0,
+                471,
+                0,
+                1662
+            ]
+        },
+        "RQ11": "Developers statistics",
+        "list_dev_dict": [
+            {
+                "QingdaoU-OnlineJudge": 0,
+                "virusdefender@outllok.com": 1,
+                "virusdefender@outlook.com": 1
+            }
+        ],
+        "list_dev_dict_total": [
+            {
+                "QingdaoU-OnlineJudge": 0,
+                "qduliyang@outlook.com": 77,
+                "1670873886@qq.com": 889,
+                "609029365@qq.com": 125,
+                "sxwxs@msn.com": 365,
+                "lsxwxs@aliyun.com": 9,
+                "uzi@localhost.localdomain": 9,
+                "1043218708@qq.com": 1,
+                "virusdefender@users.noreply.github.com": 43,
+                "jvbei@live.com": 8,
+                "chen919695074@gmail.com": 1,
+                "qduliyang@outlok.com": 27,
+                "virusdefender@outlook.com": 153,
+                "hezhang0929@gmail.com": 4,
+                "i@wind.moe": 17,
+                "forblackking@gmail.com": 2,
+                "virusdefender@outllok.com": 10,
+                "rawidn@163.com": 140,
+                "netmaze@163.com": 11,
+                "sylxjtu@users.noreply.github.com": 1,
+                "zyh3838438zyh@live.cn": 1,
+                "xudian.cn@gmail.com": 1,
+                "zimo.zhang@zimozhangdeMBP.in.chaitin.com": 1,
+                "h.dwwwwww@gmail.com": 1,
+                "creedowl@gmail.com": 1,
+                "33693783+myleosu@users.noreply.github.com": 3,
+                "helsonxiao@gmail.com": 3,
+                "1269158832@qq.com": 2,
+                "g841734459@126.com": 4,
+                "harrychen0314@gmail.com": 1
+            }
+        ],
+        "dev_dict": {},
+        "dev_dict_total": {},
+        "list_dev_plot": []
+    }
+]

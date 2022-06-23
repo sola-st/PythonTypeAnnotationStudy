@@ -1,0 +1,311 @@
+[
+    {
+        "execution_time": "",
+        "machine": {
+            "OS": "Linux-4.15.0-166-generic-x86_64-with-Ubuntu-18.04-bionic",
+            "CPU": "x86_64",
+            "CORES": 48
+        },
+        "total_repositories": 1,
+        "total_commits": 119,
+        "commit_year_dict": {
+            "2017": 19,
+            "2018": 57,
+            "2019": 41,
+            "2020": 1,
+            "2021": 1
+        },
+        "loc_year_edit": {
+            "2017": 2033,
+            "2018": 2403,
+            "2019": 760,
+            "2020": 4,
+            "2021": 4
+        },
+        "s0": "------------------------------------------------------------------------",
+        "RQ0": "How many types are used?",
+        "code_changes": [],
+        "commit_statistics": [],
+        "repo_with_types_changes": 1,
+        "percentage_repo_with_typeChanges": "",
+        "commits_with_typeChanges": 9,
+        "percentage_commits_with_typeChanges": "",
+        "total_typeAnnotation_codeChanges": 162,
+        "s1": "------------------------------------------------------------------------",
+        "RQ1": "Are type annotation inserted, removed and changed?",
+        "insert_types": {
+            "2017": 48,
+            "2018": 36
+        },
+        "percentage_insert_types": "",
+        "remove_types": {
+            "2017": 24,
+            "2018": 33
+        },
+        "percentage_remove_types": "",
+        "modify_existing_types": {
+            "2017": 3,
+            "2018": 18
+        },
+        "percentage_modify_existing_types": "",
+        "s2": "------------------------------------------------------------------------",
+        "RQ2_1": "What types are added (generic, numeric, ...)?",
+        "anyType_added": 0,
+        "noneType_added": 0,
+        "numericType_added": 0,
+        "binarySequenceType_added": 0,
+        "textSequenceType_added": 0,
+        "mappingTypes_added": 0,
+        "setTypes_added": 0,
+        "sequenceType_added": 0,
+        "newType_added": 0,
+        "total_added": 84,
+        "RQ2_2": "What are the top 5 types added?",
+        "typeAdded_dict": {
+            "int": 5,
+            "variable": 21,
+            "torch.longtensor": 7,
+            "optional [variable]": 2,
+            "bool": 5,
+            "union [variable,torch]": 2,
+            "optional [union [variable,torch]]": 2,
+            "torch.floattensor": 6,
+            "none": 5,
+            "list [list [int]]": 4,
+            "list [int]": 2,
+            "str": 4,
+            "torch.bytetensor": 5,
+            "torch.tensor": 10,
+            "optional [torch]": 4
+        },
+        "RQ2_3": "What types are removed (generic, numeric, ...)?",
+        "anyType_removed": 0,
+        "noneType_removed": 0,
+        "numericType_removed": 0,
+        "binarySequenceType_removed": 0,
+        "textSequenceType_removed": 0,
+        "mappingTypes_removed": 0,
+        "setTypes_removed": 0,
+        "sequenceType_removed": 0,
+        "newType_removed": 0,
+        "total_removed": 57,
+        "RQ2_4": "What are the top 5 types removed?",
+        "typeRemoved_dict": {
+            "int": 4,
+            "variable": 12,
+            "torch.longtensor": 4,
+            "optional [variable]": 1,
+            "bool": 4,
+            "union [variable,torch]": 1,
+            "optional [union [variable,torch]]": 1,
+            "torch.floattensor": 4,
+            "none": 4,
+            "list [list [int]]": 3,
+            "list [int]": 1,
+            "union [torch,torch]": 1,
+            "torch.tensor": 8,
+            "optional [torch]": 4,
+            "str": 2,
+            "torch.bytetensor": 3
+        },
+        "RQ2_5": "What types are the top 10 changed ?",
+        "total_changed": 21,
+        "typeChanged_dict_var": {},
+        "typeChanged_dict_arg": {
+            "torch.longtensor -> variable": 2,
+            "variable -> torch.tensor": 3,
+            "variable -> torch.longtensor": 2,
+            "optional [variable] -> optional [torch]": 1,
+            "union [variable,torch] -> torch.tensor": 1,
+            "optional [union [variable,torch]] -> optional [torch]": 1,
+            "variable -> torch.bytetensor": 2,
+            "torch.longtensor -> optional [torch]": 1,
+            "torch.bytetensor -> optional [torch]": 1
+        },
+        "typeChanged_dict_ret": {
+            "variable -> none": 1,
+            "list [int] -> list [list [int]]": 1,
+            "torch.floattensor -> union [torch,torch]": 1,
+            "variable -> torch.tensor": 3,
+            "torch.tensor -> none": 1
+        },
+        "s3": "------------------------------------------------------------------------",
+        "RQ3_1": "Where are types added (function args, function returns, variables)?",
+        "functionArgsType_added": 56,
+        "functionReturnsType_added": 28,
+        "variableType_added": 0,
+        "RQ3_2": "Where are types removed (function args, function returns, variables)?",
+        "functionArgsType_removed": 38,
+        "functionReturnsType_removed": 19,
+        "variableType_removed": 0,
+        "RQ3_3": "Where are types changed (function args, function returns, variables?",
+        "functionArgsType_changed": 14,
+        "functionReturnsType_changed": 7,
+        "variableType_changed": 0,
+        "s4": "------------------------------------------------------------------------",
+        "RQ4_1": "Are types added along with other changes around this code or in commits that only add types?",
+        "typeAnnotation_added_per_commit": 0,
+        "list_typeAnnotation_added_per_commit": [],
+        "RQ4_2": "Are types removed along with other changes around this code or in commits that only add types?",
+        "typeAnnotation_removed_per_commit": 0,
+        "list_typeAnnotation_removed_per_commit": [],
+        "RQ4_3": "Are types changed along with other changes around this code or in commits that only add types?",
+        "typeAnnotation_changed_per_commit": 0,
+        "list_typeAnnotation_changed_per_commit": [
+            2.5337837837837838,
+            3.6855036855036856,
+            3.926701570680628,
+            1.342281879194631,
+            1.8181818181818181,
+            1.1904761904761905,
+            0.5128205128205128,
+            20.0,
+            1.639344262295082,
+            2.564102564102564,
+            0.9900990099009901,
+            100.0,
+            1.2903225806451613,
+            4.21455938697318,
+            1.3513513513513513,
+            8.333333333333332,
+            2.941176470588235,
+            5.263157894736842,
+            14.285714285714285,
+            4.878048780487805,
+            4.8517520215633425
+        ],
+        "annotation_related_insertion_edits_vs_all_commit": [],
+        "annotation_related_deletion_edits_vs_all_commit": [],
+        "s5": "------------------------------------------------------------------------",
+        "RQ5": "Relation of properties of projects vs. properties of type changes.",
+        "matrix_commits_stars_annotations": [
+            [
+                "2017",
+                "119",
+                "560",
+                "162",
+                "94",
+                "21",
+                "23",
+                "77",
+                "5",
+                "0",
+                "0",
+                "92"
+            ]
+        ],
+        "matrix_files_annotations": [],
+        "matrix_test_files_annotations": [],
+        "dict_funct_call_no_types": {},
+        "dict_funct_call_types": {},
+        "s6": "------------------------------------------------------------------------",
+        "RQ6": "Which are the top 10 repository with the highest number of type annotations.",
+        "number_type_annotations_per_repo": {
+            "https://github.com/kmkurn/pytorch-crf": 162
+        },
+        "s7": "------------------------------------------------------------------------",
+        "RQ7": "How many of all types are annotated in the last version of the code?",
+        "typeLastProjectVersion_total": 27,
+        "typeLastProjectVersion_average": 0,
+        "typeLastProjectVersion_percentage": [
+            32.14
+        ],
+        "typeLastProjectVersion_dict": {
+            "https://github.com/kmkurn/pytorch-crf": 27
+        },
+        "typeLastProjectVersion_dict_error": {},
+        "RQ8": "Total number of annotations over time, across all projects",
+        "typeAnnotation_year_analysis": {
+            "2017": 48,
+            "2018": 36
+        },
+        "RQ9": "Total number of annotation-related commit over time, across all projects",
+        "typeAnnotation_commit_annotation_year_analysis": {
+            "2017": 3,
+            "2018": 6
+        },
+        "typeAnnotation_commit_not_annotation_year_analysis": {
+            "2017": 15,
+            "2018": 48
+        },
+        "RQ10": "Type annotation coverage for each each",
+        "annotation_coverage": {
+            "2014": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+            ],
+            "2015": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+            ],
+            "2016": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+            ],
+            "2017": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+            ],
+            "2018": [
+                16,
+                43,
+                10,
+                24,
+                0,
+                190
+            ],
+            "2019": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+            ],
+            "2020": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+            ]
+        },
+        "RQ11": "Developers statistics",
+        "list_dev_dict": [
+            {
+                "kmkurn-pytorch-crf": 0,
+                "kemal@kkurniawan.com": 8,
+                "jeppe@hallgren.com": 1
+            }
+        ],
+        "list_dev_dict_total": [
+            {
+                "kmkurn-pytorch-crf": 0,
+                "kemal@kkurniawan.com": 116,
+                "jeppe@hallgren.com": 1,
+                "fllubo@qq.com": 1,
+                "xusong.vip@gmail.com": 1
+            }
+        ],
+        "dev_dict": {},
+        "dev_dict_total": {},
+        "list_dev_plot": []
+    }
+]

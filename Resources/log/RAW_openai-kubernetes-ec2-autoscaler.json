@@ -1,0 +1,302 @@
+[
+    {
+        "execution_time": "",
+        "machine": {
+            "OS": "Linux-4.15.0-166-generic-x86_64-with-Ubuntu-18.04-bionic",
+            "CPU": "x86_64",
+            "CORES": 48
+        },
+        "total_repositories": 1,
+        "total_commits": 189,
+        "commit_year_dict": {
+            "2016": 64,
+            "2017": 106,
+            "2018": 18,
+            "2019": 1
+        },
+        "loc_year_edit": {
+            "2016": 4295,
+            "2017": 4301,
+            "2018": 1256,
+            "2019": 158
+        },
+        "s0": "------------------------------------------------------------------------",
+        "RQ0": "How many types are used?",
+        "code_changes": [],
+        "commit_statistics": [],
+        "repo_with_types_changes": 1,
+        "percentage_repo_with_typeChanges": "",
+        "commits_with_typeChanges": 9,
+        "percentage_commits_with_typeChanges": "",
+        "total_typeAnnotation_codeChanges": 100,
+        "s1": "------------------------------------------------------------------------",
+        "RQ1": "Are type annotation inserted, removed and changed?",
+        "insert_types": {
+            "2017": 84,
+            "2018": 6
+        },
+        "percentage_insert_types": "",
+        "remove_types": {
+            "2017": 5,
+            "2018": 2
+        },
+        "percentage_remove_types": "",
+        "modify_existing_types": {
+            "2017": 2,
+            "2018": 1
+        },
+        "percentage_modify_existing_types": "",
+        "s2": "------------------------------------------------------------------------",
+        "RQ2_1": "What types are added (generic, numeric, ...)?",
+        "anyType_added": 0,
+        "noneType_added": 0,
+        "numericType_added": 0,
+        "binarySequenceType_added": 0,
+        "textSequenceType_added": 0,
+        "mappingTypes_added": 0,
+        "setTypes_added": 0,
+        "sequenceType_added": 0,
+        "newType_added": 0,
+        "total_added": 90,
+        "RQ2_2": "What are the top 5 types added?",
+        "typeAdded_dict": {
+            "azureapi": 3,
+            "list [azurescaleset]": 6,
+            "mutablemapping [str,tuple [str,azurescalesetinstance]]": 3,
+            "str": 21,
+            "int": 7,
+            "object": 2,
+            "datetime": 2,
+            "azurescaleset": 9,
+            "list [azurescalesetinstance]": 6,
+            "computemanagementclient": 2,
+            "mutablemapping [tuple [str,str],list [azurescalesetinstance]]": 2,
+            "mutablemapping [str,list [azurescaleset]]": 3,
+            "none": 6,
+            "bool": 3,
+            "future": 6,
+            "monitorclient": 1,
+            "mutablemapping [str,list [eventdata]]": 1,
+            "mapping [str,str]": 1,
+            "kubepod": 2,
+            "resourcemanagementclient": 1,
+            "mutablemapping [str,mutablemapping [str,int]]": 2,
+            "iterable [mapping]": 1
+        },
+        "RQ2_3": "What types are removed (generic, numeric, ...)?",
+        "anyType_removed": 0,
+        "noneType_removed": 0,
+        "numericType_removed": 0,
+        "binarySequenceType_removed": 0,
+        "textSequenceType_removed": 0,
+        "mappingTypes_removed": 0,
+        "setTypes_removed": 0,
+        "sequenceType_removed": 0,
+        "newType_removed": 0,
+        "total_removed": 7,
+        "RQ2_4": "What are the top 5 types removed?",
+        "typeRemoved_dict": {
+            "mutablemapping [str,tuple [str,azurescalesetinstance]]": 2,
+            "computemanagementclient": 1,
+            "mutablemapping [tuple [str,str],list [azurescalesetinstance]]": 1,
+            "mutablemapping [str,list [azurescaleset]]": 2,
+            "mutablemapping [str,mutablemapping [str,int]]": 1
+        },
+        "RQ2_5": "What types are the top 10 changed ?",
+        "total_changed": 3,
+        "typeChanged_dict_var": {},
+        "typeChanged_dict_arg": {},
+        "typeChanged_dict_ret": {
+            "none -> int": 1,
+            "list [azurescaleset] -> str": 1,
+            "list [azurescaleset] -> none": 1
+        },
+        "s3": "------------------------------------------------------------------------",
+        "RQ3_1": "Where are types added (function args, function returns, variables)?",
+        "functionArgsType_added": 55,
+        "functionReturnsType_added": 24,
+        "variableType_added": 11,
+        "RQ3_2": "Where are types removed (function args, function returns, variables)?",
+        "functionArgsType_removed": 1,
+        "functionReturnsType_removed": 0,
+        "variableType_removed": 6,
+        "RQ3_3": "Where are types changed (function args, function returns, variables?",
+        "functionArgsType_changed": 0,
+        "functionReturnsType_changed": 3,
+        "variableType_changed": 0,
+        "s4": "------------------------------------------------------------------------",
+        "RQ4_1": "Are types added along with other changes around this code or in commits that only add types?",
+        "typeAnnotation_added_per_commit": 0,
+        "list_typeAnnotation_added_per_commit": [],
+        "RQ4_2": "Are types removed along with other changes around this code or in commits that only add types?",
+        "typeAnnotation_removed_per_commit": 0,
+        "list_typeAnnotation_removed_per_commit": [],
+        "RQ4_3": "Are types changed along with other changes around this code or in commits that only add types?",
+        "typeAnnotation_changed_per_commit": 0,
+        "list_typeAnnotation_changed_per_commit": [
+            5.9734513274336285,
+            2.7777777777777777,
+            10.526315789473683,
+            1.694915254237288,
+            100.0,
+            100.0,
+            2.272727272727273,
+            2.0618556701030926,
+            8.264462809917356,
+            2.898550724637681,
+            1.0416666666666665,
+            33.33333333333333,
+            -200.0,
+            11.11111111111111,
+            2.857142857142857
+        ],
+        "annotation_related_insertion_edits_vs_all_commit": [],
+        "annotation_related_deletion_edits_vs_all_commit": [],
+        "s5": "------------------------------------------------------------------------",
+        "RQ5": "Relation of properties of projects vs. properties of type changes.",
+        "matrix_commits_stars_annotations": [
+            [
+                "2016",
+                "189",
+                "839",
+                "100",
+                "144",
+                "0",
+                "50",
+                "258",
+                "21",
+                "0",
+                "0",
+                "561"
+            ]
+        ],
+        "matrix_files_annotations": [],
+        "matrix_test_files_annotations": [],
+        "dict_funct_call_no_types": {},
+        "dict_funct_call_types": {},
+        "s6": "------------------------------------------------------------------------",
+        "RQ6": "Which are the top 10 repository with the highest number of type annotations.",
+        "number_type_annotations_per_repo": {
+            "https://github.com/openai/kubernetes-ec2-autoscaler": 100
+        },
+        "s7": "------------------------------------------------------------------------",
+        "RQ7": "How many of all types are annotated in the last version of the code?",
+        "typeLastProjectVersion_total": 79,
+        "typeLastProjectVersion_average": 0,
+        "typeLastProjectVersion_percentage": [
+            87.78
+        ],
+        "typeLastProjectVersion_dict": {
+            "https://github.com/openai/kubernetes-ec2-autoscaler": 79
+        },
+        "typeLastProjectVersion_dict_error": {},
+        "RQ8": "Total number of annotations over time, across all projects",
+        "typeAnnotation_year_analysis": {
+            "2017": 84,
+            "2018": 6
+        },
+        "RQ9": "Total number of annotation-related commit over time, across all projects",
+        "typeAnnotation_commit_annotation_year_analysis": {
+            "2017": 7,
+            "2018": 2
+        },
+        "typeAnnotation_commit_not_annotation_year_analysis": {
+            "2017": 37,
+            "2018": 15
+        },
+        "RQ10": "Type annotation coverage for each each",
+        "annotation_coverage": {
+            "2014": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+            ],
+            "2015": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+            ],
+            "2016": [
+                0,
+                361,
+                0,
+                166,
+                0,
+                624
+            ],
+            "2017": [
+                43,
+                391,
+                19,
+                181,
+                3,
+                728
+            ],
+            "2018": [
+                54,
+                407,
+                22,
+                188,
+                3,
+                781
+            ],
+            "2019": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+            ],
+            "2020": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+            ]
+        },
+        "RQ11": "Developers statistics",
+        "list_dev_dict": [
+            {
+                "openai-kubernetes-ec2-autoscaler": 0,
+                "christopherberner@gmail.com": 9
+            }
+        ],
+        "list_dev_dict_total": [
+            {
+                "openai-kubernetes-ec2-autoscaler": 0,
+                "vicki@openai.com": 77,
+                "vicki.mw.cheung@gmail.com": 10,
+                "mail@jonasschneider.com": 1,
+                "catherio@mit.edu": 3,
+                "Mistobaan@users.noreply.github.com": 1,
+                "kenji.kaneda@gmail.com": 1,
+                "nottombrown@gmail.com": 1,
+                "jonas@openai.com": 1,
+                "aykamko@gmail.com": 1,
+                "me@esigler.com": 2,
+                "bdorsey@homeaway.com": 1,
+                "jessek@allenai.org": 3,
+                "christopherberner@gmail.com": 76,
+                "art@openai.com": 3,
+                "artchaidarun@gmail.com": 1,
+                "dchichkov@gmail.com": 1,
+                "tengoverskylab@gmail.com": 1,
+                "sbajaj@lyft.com": 3,
+                "christopherhesse@users.noreply.github.com": 1,
+                "eric@openai.com": 1
+            }
+        ],
+        "dev_dict": {},
+        "dev_dict_total": {},
+        "list_dev_plot": []
+    }
+]

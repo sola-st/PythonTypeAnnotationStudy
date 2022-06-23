@@ -1,0 +1,295 @@
+[
+    {
+        "execution_time": "",
+        "machine": {
+            "OS": "Linux-4.15.0-166-generic-x86_64-with-Ubuntu-18.04-bionic",
+            "CPU": "x86_64",
+            "CORES": 48
+        },
+        "total_repositories": 1,
+        "total_commits": 114,
+        "commit_year_dict": {
+            "2015": 9,
+            "2016": 53,
+            "2017": 30,
+            "2018": 20,
+            "2019": 2
+        },
+        "loc_year_edit": {
+            "2015": 160,
+            "2016": 2992,
+            "2017": 1370,
+            "2018": 308,
+            "2019": 2
+        },
+        "s0": "------------------------------------------------------------------------",
+        "RQ0": "How many types are used?",
+        "code_changes": [],
+        "commit_statistics": [],
+        "repo_with_types_changes": 1,
+        "percentage_repo_with_typeChanges": "",
+        "commits_with_typeChanges": 8,
+        "percentage_commits_with_typeChanges": "",
+        "total_typeAnnotation_codeChanges": 64,
+        "s1": "------------------------------------------------------------------------",
+        "RQ1": "Are type annotation inserted, removed and changed?",
+        "insert_types": {
+            "2016": 15,
+            "2017": 14,
+            "2018": 6
+        },
+        "percentage_insert_types": "",
+        "remove_types": {
+            "2016": 7
+        },
+        "percentage_remove_types": "",
+        "modify_existing_types": {
+            "2016": 4,
+            "2017": 18
+        },
+        "percentage_modify_existing_types": "",
+        "s2": "------------------------------------------------------------------------",
+        "RQ2_1": "What types are added (generic, numeric, ...)?",
+        "anyType_added": 0,
+        "noneType_added": 0,
+        "numericType_added": 0,
+        "binarySequenceType_added": 0,
+        "textSequenceType_added": 0,
+        "mappingTypes_added": 0,
+        "setTypes_added": 0,
+        "sequenceType_added": 0,
+        "newType_added": 0,
+        "total_added": 35,
+        "RQ2_2": "What are the top 5 types added?",
+        "typeAdded_dict": {
+            "none": 9,
+            "str": 8,
+            "identity": 3,
+            "bool": 1,
+            "callable [...,str]": 2,
+            "groupset": 1,
+            "type [pkey]": 5,
+            "optional [int]": 1,
+            "pkey": 1,
+            "mapping [str,object]": 1,
+            "tuple [type [pkey],optional [int]]": 1,
+            "int": 1,
+            "callable [...,bool]": 1
+        },
+        "RQ2_3": "What types are removed (generic, numeric, ...)?",
+        "anyType_removed": 0,
+        "noneType_removed": 0,
+        "numericType_removed": 0,
+        "binarySequenceType_removed": 0,
+        "textSequenceType_removed": 0,
+        "mappingTypes_removed": 0,
+        "setTypes_removed": 0,
+        "sequenceType_removed": 0,
+        "newType_removed": 0,
+        "total_removed": 7,
+        "RQ2_4": "What are the top 5 types removed?",
+        "typeRemoved_dict": {
+            "types.functiontype": 2,
+            "int": 4,
+            "numbers.real": 1
+        },
+        "RQ2_5": "What types are the top 10 changed ?",
+        "total_changed": 22,
+        "typeChanged_dict_var": {},
+        "typeChanged_dict_arg": {
+            "numbers.integral -> int": 1,
+            "typing.sequence -> sequence [object]": 1,
+            "tuple -> tuple [str,...]": 1,
+            "int -> optional [int]": 3
+        },
+        "typeChanged_dict_ret": {
+            "tuple -> attribute(\n    value=name(\n        value='typing',\n        lpar=[],\n        rpar=[],\n    ),\n    attr=name(\n        value='tuple',\n        lpar=[],\n        rpar=[],\n    ),\n    dot=dot(\n        whitespace_before=simplewhitespace(\n            value='',\n        ),\n        whitespace_after=simplewhitespace(\n            value='',\n        ),\n    ),\n    lpar=[],\n    rpar=[],\n) [str,str]": 2,
+            "attribute(\n    value=name(\n        value='collections',\n        lpar=[],\n        rpar=[],\n    ),\n    attr=name(\n        value='abc',\n        lpar=[],\n        rpar=[],\n    ),\n    dot=dot(\n        whitespace_before=simplewhitespace(\n            value='',\n        ),\n        whitespace_after=simplewhitespace(\n            value='',\n        ),\n    ),\n    lpar=[],\n    rpar=[],\n).set -> attribute(\n    value=name(\n        value='typing',\n        lpar=[],\n        rpar=[],\n    ),\n    attr=name(\n        value='abstractset',\n        lpar=[],\n        rpar=[],\n    ),\n    dot=dot(\n        whitespace_before=simplewhitespace(\n            value='',\n        ),\n        whitespace_after=simplewhitespace(\n            value='',\n        ),\n    ),\n    lpar=[],\n    rpar=[],\n) [pkey]": 2,
+            "dict -> mapping [str,node]": 1,
+            "attribute(\n    value=name(\n        value='typing',\n        lpar=[],\n        rpar=[],\n    ),\n    attr=name(\n        value='iterator',\n        lpar=[],\n        rpar=[],\n    ),\n    dot=dot(\n        whitespace_before=simplewhitespace(\n            value='',\n        ),\n        whitespace_after=simplewhitespace(\n            value='',\n        ),\n    ),\n    lpar=[],\n    rpar=[],\n) [str] -> iterator [str]": 1,
+            "typing.mapping -> mapping [str,object]": 2,
+            "attribute(\n    value=attribute(\n        value=name(\n            value='typing',\n            lpar=[],\n            rpar=[],\n        ),\n        attr=name(\n            value='re',\n            lpar=[],\n            rpar=[],\n        ),\n        dot=dot(\n            whitespace_before=simplewhitespace(\n                value='',\n            ),\n            whitespace_after=simplewhitespace(\n                value='',\n            ),\n        ),\n        lpar=[],\n        rpar=[],\n    ),\n    attr=name(\n        value='pattern',\n        lpar=[],\n        rpar=[],\n    ),\n    dot=dot(\n        whitespace_before=simplewhitespace(\n            value='',\n        ),\n        whitespace_after=simplewhitespace(\n            value='',\n        ),\n    ),\n    lpar=[],\n    rpar=[],\n) [str] -> pattern [str]": 1,
+            "attribute(\n    value=name(\n        value='typing',\n        lpar=[],\n        rpar=[],\n    ),\n    attr=name(\n        value='abstractset',\n        lpar=[],\n        rpar=[],\n    ),\n    dot=dot(\n        whitespace_before=simplewhitespace(\n            value='',\n        ),\n        whitespace_after=simplewhitespace(\n            value='',\n        ),\n    ),\n    lpar=[],\n    rpar=[],\n) [pkey] -> abstractset [pkey]": 3,
+            "attribute(\n    value=name(\n        value='typing',\n        lpar=[],\n        rpar=[],\n    ),\n    attr=name(\n        value='tuple',\n        lpar=[],\n        rpar=[],\n    ),\n    dot=dot(\n        whitespace_before=simplewhitespace(\n            value='',\n        ),\n        whitespace_after=simplewhitespace(\n            value='',\n        ),\n    ),\n    lpar=[],\n    rpar=[],\n) [str,str] -> tuple [str,str]": 2,
+            "attribute(\n    value=name(\n        value='collections',\n        lpar=[],\n        rpar=[],\n    ),\n    attr=name(\n        value='abc',\n        lpar=[],\n        rpar=[],\n    ),\n    dot=dot(\n        whitespace_before=simplewhitespace(\n            value='',\n        ),\n        whitespace_after=simplewhitespace(\n            value='',\n        ),\n    ),\n    lpar=[],\n    rpar=[],\n).mapping -> remoteset": 1,
+            "attribute(\n    value=name(\n        value='collections',\n        lpar=[],\n        rpar=[],\n    ),\n    attr=name(\n        value='abc',\n        lpar=[],\n        rpar=[],\n    ),\n    dot=dot(\n        whitespace_before=simplewhitespace(\n            value='',\n        ),\n        whitespace_after=simplewhitespace(\n            value='',\n        ),\n    ),\n    lpar=[],\n    rpar=[],\n).mapping -> mapping [str,union [str,int]]": 1
+        },
+        "s3": "------------------------------------------------------------------------",
+        "RQ3_1": "Where are types added (function args, function returns, variables)?",
+        "functionArgsType_added": 21,
+        "functionReturnsType_added": 14,
+        "variableType_added": 0,
+        "RQ3_2": "Where are types removed (function args, function returns, variables)?",
+        "functionArgsType_removed": 6,
+        "functionReturnsType_removed": 1,
+        "variableType_removed": 0,
+        "RQ3_3": "Where are types changed (function args, function returns, variables?",
+        "functionArgsType_changed": 6,
+        "functionReturnsType_changed": 16,
+        "variableType_changed": 0,
+        "s4": "------------------------------------------------------------------------",
+        "RQ4_1": "Are types added along with other changes around this code or in commits that only add types?",
+        "typeAnnotation_added_per_commit": 0,
+        "list_typeAnnotation_added_per_commit": [],
+        "RQ4_2": "Are types removed along with other changes around this code or in commits that only add types?",
+        "typeAnnotation_removed_per_commit": 0,
+        "list_typeAnnotation_removed_per_commit": [],
+        "RQ4_3": "Are types changed along with other changes around this code or in commits that only add types?",
+        "typeAnnotation_changed_per_commit": 0,
+        "list_typeAnnotation_changed_per_commit": [
+            2.380952380952381,
+            1.2861736334405145,
+            0.7054673721340388,
+            2.18978102189781,
+            4.0,
+            0.847457627118644,
+            2.631578947368421,
+            2.941176470588235,
+            1.0714285714285714,
+            9.523809523809524,
+            1.36986301369863,
+            3.4482758620689653
+        ],
+        "annotation_related_insertion_edits_vs_all_commit": [],
+        "annotation_related_deletion_edits_vs_all_commit": [],
+        "s5": "------------------------------------------------------------------------",
+        "RQ5": "Relation of properties of projects vs. properties of type changes.",
+        "matrix_commits_stars_annotations": [
+            [
+                "2014",
+                "114",
+                "336",
+                "64",
+                "35",
+                "11",
+                "42",
+                "139",
+                "9",
+                "0",
+                "0",
+                "440"
+            ]
+        ],
+        "matrix_files_annotations": [],
+        "matrix_test_files_annotations": [],
+        "dict_funct_call_no_types": {},
+        "dict_funct_call_types": {},
+        "s6": "------------------------------------------------------------------------",
+        "RQ6": "Which are the top 10 repository with the highest number of type annotations.",
+        "number_type_annotations_per_repo": {
+            "https://github.com/spoqa/geofront": 64
+        },
+        "s7": "------------------------------------------------------------------------",
+        "RQ7": "How many of all types are annotated in the last version of the code?",
+        "typeLastProjectVersion_total": 403,
+        "typeLastProjectVersion_average": 0,
+        "typeLastProjectVersion_percentage": [
+            1151.43
+        ],
+        "typeLastProjectVersion_dict": {
+            "https://github.com/spoqa/geofront": 403
+        },
+        "typeLastProjectVersion_dict_error": {},
+        "RQ8": "Total number of annotations over time, across all projects",
+        "typeAnnotation_year_analysis": {
+            "2016": 15,
+            "2017": 14,
+            "2018": 6
+        },
+        "RQ9": "Total number of annotation-related commit over time, across all projects",
+        "typeAnnotation_commit_annotation_year_analysis": {
+            "2016": 2,
+            "2017": 3,
+            "2018": 3
+        },
+        "typeAnnotation_commit_not_annotation_year_analysis": {
+            "2016": 13,
+            "2017": 20,
+            "2018": 15
+        },
+        "RQ10": "Type annotation coverage for each each",
+        "annotation_coverage": {
+            "2014": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+            ],
+            "2015": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+            ],
+            "2016": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+            ],
+            "2017": [
+                246,
+                394,
+                153,
+                183,
+                0,
+                878
+            ],
+            "2018": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+            ],
+            "2019": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+            ],
+            "2020": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+            ]
+        },
+        "RQ11": "Developers statistics",
+        "list_dev_dict": [
+            {
+                "spoqa-geofront": 0,
+                "hongminhee@member.fsf.org": 3,
+                "hong.minhee@gmail.com": 2,
+                "joongi@lablup.com": 3
+            }
+        ],
+        "list_dev_dict_total": [
+            {
+                "spoqa-geofront": 0,
+                "hongminhee@member.fsf.org": 71,
+                "encyphered@gmail.com": 1,
+                "badger@gitter.im": 1,
+                "hong.minhee@gmail.com": 22,
+                "me@daybreaker.info": 7,
+                "joongi@lablup.com": 10,
+                "toughrogrammer@gmail.com": 1,
+                "iam.kanghyojun@gmail.com": 1
+            }
+        ],
+        "dev_dict": {},
+        "dev_dict_total": {},
+        "list_dev_plot": []
+    }
+]

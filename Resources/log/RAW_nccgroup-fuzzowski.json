@@ -1,0 +1,349 @@
+[
+    {
+        "execution_time": "",
+        "machine": {
+            "OS": "Linux-4.15.0-166-generic-x86_64-with-Ubuntu-18.04-bionic",
+            "CPU": "x86_64",
+            "CORES": 48
+        },
+        "total_repositories": 1,
+        "total_commits": 39,
+        "commit_year_dict": {
+            "2019": 36,
+            "2020": 2,
+            "2021": 1
+        },
+        "loc_year_edit": {
+            "2019": 29101,
+            "2020": 791,
+            "2021": 35
+        },
+        "s0": "------------------------------------------------------------------------",
+        "RQ0": "How many types are used?",
+        "code_changes": [],
+        "commit_statistics": [],
+        "repo_with_types_changes": 1,
+        "percentage_repo_with_typeChanges": "",
+        "commits_with_typeChanges": 11,
+        "percentage_commits_with_typeChanges": "",
+        "total_typeAnnotation_codeChanges": 818,
+        "s1": "------------------------------------------------------------------------",
+        "RQ1": "Are type annotation inserted, removed and changed?",
+        "insert_types": {
+            "2019": 654,
+            "2020": 22
+        },
+        "percentage_insert_types": "",
+        "remove_types": {
+            "2019": 119,
+            "2020": 20
+        },
+        "percentage_remove_types": "",
+        "modify_existing_types": {
+            "2019": 3
+        },
+        "percentage_modify_existing_types": "",
+        "s2": "------------------------------------------------------------------------",
+        "RQ2_1": "What types are added (generic, numeric, ...)?",
+        "anyType_added": 0,
+        "noneType_added": 0,
+        "numericType_added": 0,
+        "binarySequenceType_added": 0,
+        "textSequenceType_added": 0,
+        "mappingTypes_added": 0,
+        "setTypes_added": 0,
+        "sequenceType_added": 0,
+        "newType_added": 0,
+        "total_added": 676,
+        "RQ2_2": "What are the top 5 types added?",
+        "typeAdded_dict": {
+            "\"list of ifuzzable\"": 2,
+            "str": 119,
+            "\"list of str\"": 1,
+            "argparse.namespace": 1,
+            "none": 94,
+            "\"list of request\"": 1,
+            "list [callable]": 12,
+            "session": 69,
+            "ifuzzable": 3,
+            "request": 11,
+            "list": 22,
+            "dict": 11,
+            "target": 5,
+            "socketconnection": 2,
+            "itargetconnection": 8,
+            "bytes": 55,
+            "document": 2,
+            "completeevent": 1,
+            "completion": 1,
+            "int": 64,
+            "float": 5,
+            "\"list of fuzzlogger\"": 2,
+            "bool": 78,
+            "irestarter": 2,
+            "\"list of imonitor\"": 2,
+            "exception.fuzzowskierror": 3,
+            "suspect": 2,
+            "'request'": 2,
+            "callable": 6,
+            "object": 11,
+            "list [mutant]": 1,
+            "mutant": 4,
+            "generator [bytes,none,none]": 3,
+            "union [str,bytes]": 4,
+            "iterable": 2,
+            "list [str]": 10,
+            "list [list]": 1,
+            "ifuzzlogger": 2,
+            "dict [any,list]": 1,
+            "list [edge]": 4,
+            "generator [list [edge],none,none]": 2,
+            "dict [str,request]": 1,
+            "union [request,none]": 1,
+            "union [str,callable]": 2,
+            "chr": 7,
+            "mapping [str,int]": 1,
+            "union [bytes,str]": 2,
+            "union [list [int],tuple [int]]": 2,
+            "list [bytes]": 3,
+            "typevar": 1,
+            "blocks.request": 1,
+            "'session'": 3,
+            "graph": 1,
+            "dict [int,...]": 2,
+            "dict [str,'mutant']": 2,
+            "generator [testcase,none,none]": 3,
+            "mapping [str,bytes]": 7,
+            "response": 1,
+            "type": 1,
+            "testcase": 3,
+            "exception": 1
+        },
+        "RQ2_3": "What types are removed (generic, numeric, ...)?",
+        "anyType_removed": 0,
+        "noneType_removed": 0,
+        "numericType_removed": 0,
+        "binarySequenceType_removed": 0,
+        "textSequenceType_removed": 0,
+        "mappingTypes_removed": 0,
+        "setTypes_removed": 0,
+        "sequenceType_removed": 0,
+        "newType_removed": 0,
+        "total_removed": 139,
+        "RQ2_4": "What are the top 5 types removed?",
+        "typeRemoved_dict": {
+            "dict": 6,
+            "bytes": 3,
+            "str": 11,
+            "none": 36,
+            "int": 9,
+            "float": 3,
+            "\"list of fuzzlogger\"": 1,
+            "bool": 14,
+            "target": 1,
+            "irestarter": 1,
+            "\"list of imonitor\"": 1,
+            "ifuzzable": 2,
+            "exception.fuzzowskierror": 3,
+            "list": 3,
+            "suspect": 2,
+            "mapping [str,int]": 1,
+            "session": 31,
+            "list [callable]": 4,
+            "itargetconnection": 3,
+            "ifuzzlogger": 1,
+            "request": 1,
+            "dict [int,...]": 1,
+            "dict [str,'mutant']": 1
+        },
+        "RQ2_5": "What types are the top 10 changed ?",
+        "total_changed": 3,
+        "typeChanged_dict_var": {
+            "dict [str,request] -> mapping [str,request]": 1
+        },
+        "typeChanged_dict_arg": {
+            "ifuzzable -> mutant": 1
+        },
+        "typeChanged_dict_ret": {
+            "none -> bool": 1
+        },
+        "s3": "------------------------------------------------------------------------",
+        "RQ3_1": "Where are types added (function args, function returns, variables)?",
+        "functionArgsType_added": 465,
+        "functionReturnsType_added": 199,
+        "variableType_added": 12,
+        "RQ3_2": "Where are types removed (function args, function returns, variables)?",
+        "functionArgsType_removed": 85,
+        "functionReturnsType_removed": 51,
+        "variableType_removed": 3,
+        "RQ3_3": "Where are types changed (function args, function returns, variables?",
+        "functionArgsType_changed": 1,
+        "functionReturnsType_changed": 1,
+        "variableType_changed": 1,
+        "s4": "------------------------------------------------------------------------",
+        "RQ4_1": "Are types added along with other changes around this code or in commits that only add types?",
+        "typeAnnotation_added_per_commit": 0,
+        "list_typeAnnotation_added_per_commit": [],
+        "RQ4_2": "Are types removed along with other changes around this code or in commits that only add types?",
+        "typeAnnotation_removed_per_commit": 0,
+        "list_typeAnnotation_removed_per_commit": [],
+        "RQ4_3": "Are types changed along with other changes around this code or in commits that only add types?",
+        "typeAnnotation_changed_per_commit": 0,
+        "list_typeAnnotation_changed_per_commit": [
+            0.7738039067660659,
+            3.644444444444445,
+            2.704852824184566,
+            0.5510485228838206,
+            0.017296549338406988,
+            1.0101010101010102,
+            2.4390243902439024,
+            3.2388663967611335,
+            5.555555555555555,
+            6.666666666666667,
+            0.3731343283582089,
+            2.843601895734597,
+            2.793296089385475,
+            1.7241379310344827,
+            14.285714285714285,
+            5.185185185185185,
+            1.2738853503184715,
+            1.5625,
+            2.981651376146789,
+            3.303303303303303
+        ],
+        "annotation_related_insertion_edits_vs_all_commit": [],
+        "annotation_related_deletion_edits_vs_all_commit": [],
+        "s5": "------------------------------------------------------------------------",
+        "RQ5": "Relation of properties of projects vs. properties of type changes.",
+        "matrix_commits_stars_annotations": [
+            [
+                "2019",
+                "39",
+                "370",
+                "818",
+                "61",
+                "6",
+                "37",
+                "236",
+                "6",
+                "0",
+                "0",
+                "479"
+            ]
+        ],
+        "matrix_files_annotations": [],
+        "matrix_test_files_annotations": [],
+        "dict_funct_call_no_types": {},
+        "dict_funct_call_types": {},
+        "s6": "------------------------------------------------------------------------",
+        "RQ6": "Which are the top 10 repository with the highest number of type annotations.",
+        "number_type_annotations_per_repo": {
+            "https://github.com/nccgroup/fuzzowski": 818
+        },
+        "s7": "------------------------------------------------------------------------",
+        "RQ7": "How many of all types are annotated in the last version of the code?",
+        "typeLastProjectVersion_total": 466,
+        "typeLastProjectVersion_average": 0,
+        "typeLastProjectVersion_percentage": [
+            68.93
+        ],
+        "typeLastProjectVersion_dict": {
+            "https://github.com/nccgroup/fuzzowski": 466
+        },
+        "typeLastProjectVersion_dict_error": {},
+        "RQ8": "Total number of annotations over time, across all projects",
+        "typeAnnotation_year_analysis": {
+            "2019": 654,
+            "2020": 22
+        },
+        "RQ9": "Total number of annotation-related commit over time, across all projects",
+        "typeAnnotation_commit_annotation_year_analysis": {
+            "2019": 10,
+            "2020": 1
+        },
+        "typeAnnotation_commit_not_annotation_year_analysis": {
+            "2019": 25
+        },
+        "RQ10": "Type annotation coverage for each each",
+        "annotation_coverage": {
+            "2014": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+            ],
+            "2015": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+            ],
+            "2016": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+            ],
+            "2017": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+            ],
+            "2018": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+            ],
+            "2019": [
+                94,
+                975,
+                65,
+                428,
+                1,
+                574
+            ],
+            "2020": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+            ]
+        },
+        "RQ11": "Developers statistics",
+        "list_dev_dict": [
+            {
+                "nccgroup-fuzzowski": 0,
+                "mario.rivas@nccgroup.com": 9,
+                "miguel.morillo@gmail.com": 1,
+                "1modm@users.noreply.github.com": 1
+            }
+        ],
+        "list_dev_dict_total": [
+            {
+                "nccgroup-fuzzowski": 0,
+                "mrv.gryphus@gmail.com": 7,
+                "mario.rivas@nccgroup.com": 24,
+                "1modm@users.noreply.github.com": 3,
+                "miguel.morillo@gmail.com": 3,
+                "miguel.morillo@jci.com": 2
+            }
+        ],
+        "dev_dict": {},
+        "dev_dict_total": {},
+        "list_dev_plot": []
+    }
+]

@@ -1,0 +1,302 @@
+[
+    {
+        "execution_time": "",
+        "machine": {
+            "OS": "Linux-4.15.0-166-generic-x86_64-with-Ubuntu-18.04-bionic",
+            "CPU": "x86_64",
+            "CORES": 48
+        },
+        "total_repositories": 1,
+        "total_commits": 525,
+        "commit_year_dict": {
+            "2017": 35,
+            "2018": 305,
+            "2019": 142,
+            "2020": 20,
+            "2021": 23
+        },
+        "loc_year_edit": {
+            "2017": 23096,
+            "2018": 493082,
+            "2019": 75096,
+            "2020": 1467,
+            "2021": 8017
+        },
+        "s0": "------------------------------------------------------------------------",
+        "RQ0": "How many types are used?",
+        "code_changes": [],
+        "commit_statistics": [],
+        "repo_with_types_changes": 1,
+        "percentage_repo_with_typeChanges": "",
+        "commits_with_typeChanges": 15,
+        "percentage_commits_with_typeChanges": "",
+        "total_typeAnnotation_codeChanges": 519,
+        "s1": "------------------------------------------------------------------------",
+        "RQ1": "Are type annotation inserted, removed and changed?",
+        "insert_types": {
+            "2018": 288
+        },
+        "percentage_insert_types": "",
+        "remove_types": {
+            "2018": 229
+        },
+        "percentage_remove_types": "",
+        "modify_existing_types": {
+            "2018": 2
+        },
+        "percentage_modify_existing_types": "",
+        "s2": "------------------------------------------------------------------------",
+        "RQ2_1": "What types are added (generic, numeric, ...)?",
+        "anyType_added": 0,
+        "noneType_added": 0,
+        "numericType_added": 0,
+        "binarySequenceType_added": 0,
+        "textSequenceType_added": 0,
+        "mappingTypes_added": 0,
+        "setTypes_added": 0,
+        "sequenceType_added": 0,
+        "newType_added": 0,
+        "total_added": 288,
+        "RQ2_2": "What are the top 5 types added?",
+        "typeAdded_dict": {
+            "int": 78,
+            "qcolor": 67,
+            "str": 6,
+            "\"qwebenginedownloaditem\"": 2,
+            "\"qint64\"": 4,
+            "bool": 40,
+            "qsize": 9,
+            "qpainter": 12,
+            "float": 38,
+            "\"./plugins\"": 5,
+            "\"str\"": 11,
+            "\"module list\"": 1,
+            "\"datas\"": 4,
+            "\"json\"": 1,
+            "\"tojson\"": 7,
+            "\"fojson\"": 3
+        },
+        "RQ2_3": "What types are removed (generic, numeric, ...)?",
+        "anyType_removed": 0,
+        "noneType_removed": 0,
+        "numericType_removed": 0,
+        "binarySequenceType_removed": 0,
+        "textSequenceType_removed": 0,
+        "mappingTypes_removed": 0,
+        "setTypes_removed": 0,
+        "sequenceType_removed": 0,
+        "newType_removed": 0,
+        "total_removed": 229,
+        "RQ2_4": "What are the top 5 types removed?",
+        "typeRemoved_dict": {
+            "int": 63,
+            "qcolor": 55,
+            "str": 6,
+            "float": 32,
+            "qsize": 7,
+            "\"str\"": 9,
+            "\"./plugins\"": 4,
+            "\"fojson\"": 3,
+            "\"tojson\"": 6,
+            "bool": 30,
+            "qpainter": 9,
+            "\"datas\"": 2,
+            "\"qwebenginedownloaditem\"": 1,
+            "\"qint64\"": 2
+        },
+        "RQ2_5": "What types are the top 10 changed ?",
+        "total_changed": 2,
+        "typeChanged_dict_var": {},
+        "typeChanged_dict_arg": {},
+        "typeChanged_dict_ret": {
+            "\"module list\" -> \"fojson\"": 1,
+            "\"json\" -> \"tojson\"": 1
+        },
+        "s3": "------------------------------------------------------------------------",
+        "RQ3_1": "Where are types added (function args, function returns, variables)?",
+        "functionArgsType_added": 155,
+        "functionReturnsType_added": 133,
+        "variableType_added": 0,
+        "RQ3_2": "Where are types removed (function args, function returns, variables)?",
+        "functionArgsType_removed": 122,
+        "functionReturnsType_removed": 107,
+        "variableType_removed": 0,
+        "RQ3_3": "Where are types changed (function args, function returns, variables?",
+        "functionArgsType_changed": 0,
+        "functionReturnsType_changed": 2,
+        "variableType_changed": 0,
+        "s4": "------------------------------------------------------------------------",
+        "RQ4_1": "Are types added along with other changes around this code or in commits that only add types?",
+        "typeAnnotation_added_per_commit": 0,
+        "list_typeAnnotation_added_per_commit": [],
+        "RQ4_2": "Are types removed along with other changes around this code or in commits that only add types?",
+        "typeAnnotation_removed_per_commit": 0,
+        "list_typeAnnotation_removed_per_commit": [],
+        "RQ4_3": "Are types changed along with other changes around this code or in commits that only add types?",
+        "typeAnnotation_changed_per_commit": 0,
+        "list_typeAnnotation_changed_per_commit": [
+            2.071251035625518,
+            2.095557418273261,
+            1.1904761904761905,
+            4.294478527607362,
+            8.181818181818182,
+            8.088235294117647,
+            8.088235294117647,
+            0.5859375,
+            3.4482758620689653,
+            8.823529411764707,
+            0.8695652173913043,
+            1.1560693641618496,
+            0.21834061135371177,
+            0.2617801047120419,
+            0.8496176720475787,
+            1.1086474501108647,
+            4.9504950495049505,
+            5.0761421319796955,
+            1.8255578093306288,
+            1.7922336541652837,
+            3.1654676258992804,
+            3.459320948110186,
+            0.16080584969204165,
+            0.15861614891961454
+        ],
+        "annotation_related_insertion_edits_vs_all_commit": [],
+        "annotation_related_deletion_edits_vs_all_commit": [],
+        "s5": "------------------------------------------------------------------------",
+        "RQ5": "Relation of properties of projects vs. properties of type changes.",
+        "matrix_commits_stars_annotations": [
+            [
+                "2017",
+                "525",
+                "2598",
+                "519",
+                "1084",
+                "9",
+                "139",
+                "1678",
+                "13",
+                "0",
+                "0",
+                "128503"
+            ]
+        ],
+        "matrix_files_annotations": [],
+        "matrix_test_files_annotations": [],
+        "dict_funct_call_no_types": {},
+        "dict_funct_call_types": {},
+        "s6": "------------------------------------------------------------------------",
+        "RQ6": "Which are the top 10 repository with the highest number of type annotations.",
+        "number_type_annotations_per_repo": {
+            "https://github.com/PyQt5/PyQt": 519
+        },
+        "s7": "------------------------------------------------------------------------",
+        "RQ7": "How many of all types are annotated in the last version of the code?",
+        "typeLastProjectVersion_total": 48,
+        "typeLastProjectVersion_average": 0,
+        "typeLastProjectVersion_percentage": [
+            16.67
+        ],
+        "typeLastProjectVersion_dict": {
+            "https://github.com/PyQt5/PyQt": 48
+        },
+        "typeLastProjectVersion_dict_error": {},
+        "RQ8": "Total number of annotations over time, across all projects",
+        "typeAnnotation_year_analysis": {
+            "2018": 288
+        },
+        "RQ9": "Total number of annotation-related commit over time, across all projects",
+        "typeAnnotation_commit_annotation_year_analysis": {
+            "2018": 15
+        },
+        "typeAnnotation_commit_not_annotation_year_analysis": {
+            "2018": 261
+        },
+        "RQ10": "Type annotation coverage for each each",
+        "annotation_coverage": {
+            "2014": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+            ],
+            "2015": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+            ],
+            "2016": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+            ],
+            "2017": [
+                0,
+                96,
+                0,
+                56,
+                0,
+                906
+            ],
+            "2018": [
+                0,
+                1256,
+                0,
+                611,
+                0,
+                2319
+            ],
+            "2019": [
+                27,
+                2105,
+                21,
+                1029,
+                0,
+                3178
+            ],
+            "2020": [
+                27,
+                2346,
+                21,
+                1154,
+                0,
+                3564
+            ]
+        },
+        "RQ11": "Developers statistics",
+        "list_dev_dict": [
+            {
+                "PyQt5-PyQt": 0,
+                "892768447@qq.com": 9,
+                "625781186@qq.com": 6
+            }
+        ],
+        "list_dev_dict_total": [
+            {
+                "PyQt5-PyQt": 0,
+                "892768447@qq.com": 393,
+                "625781186@qq.com": 85,
+                "30521429+625781186@users.noreply.github.com": 2,
+                "89276@DESKTOP-3CJ5UHG": 6,
+                "Adminis@WO": 2,
+                "Administrator@XK3B8QYDQFBPYV5": 1,
+                "31467487+weike32@users.noreply.github.com": 4,
+                "394967319@qq.com": 26,
+                "zhangqi2011@corp.netease.com": 3,
+                "joseph.lin@aliyun.com": 1,
+                "1308455330@qq.com": 1,
+                "zhang26162@gmail.com": 1
+            }
+        ],
+        "dev_dict": {},
+        "dev_dict_total": {},
+        "list_dev_plot": []
+    }
+]

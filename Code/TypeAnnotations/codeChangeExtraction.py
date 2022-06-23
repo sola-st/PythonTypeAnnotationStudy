@@ -1903,8 +1903,7 @@ def retype_stub(repo_name, filename, commit):
          if len(i) > 0:
              index = i.rindex('/')
              lll = i[:index]
-             #print('\n\n/home/luca/anaconda3/bin/retype -p '+ lll + ' -t ' + config.ROOT_DIR + "/GitHub/" + repo_name + ' ' + key)
-             os.system('/home/luca/anaconda3/bin/retype -p '+ lll + ' -t ' + config.ROOT_DIR + "/Test/" + ' ' + key)
+             os.system('/home/user/anaconda3/bin/retype -p '+ lll + ' -t ' + config.ROOT_DIR + "/Test/" + ' ' + key)
 
     with open(filename, 'r') as file:
         data = file.read()
@@ -1940,6 +1939,6 @@ def retype_stub_last_version_project(repo_name):
                 index = i.rindex('/')
                 lll = i[:index]
                 print(
-                    '\n\n/home/luca/anaconda3/bin/retype -p ' + lll + ' -t ' + config.ROOT_DIR + "/GitHub/" + repo_name + ' ' + key)
+                    '\n\n/home/user/anaconda3/bin/retype -p ' + lll + ' -t ' + config.ROOT_DIR + "/GitHub/" + repo_name + ' ' + key)
                 os.system(
-                    '/home/luca/anaconda3/bin/retype -p ' + lll + ' -t ' + config.ROOT_DIR + "/GitHub/mypy" + repo_name + ' ' + key)
+                    '/home/user/anaconda3/bin/retype -p ' + lll + ' -t ' + config.ROOT_DIR + "/GitHub/mypy" + repo_name + ' ' + key)

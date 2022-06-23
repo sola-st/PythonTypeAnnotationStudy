@@ -234,14 +234,14 @@ def myplot(statistics):
     #         title='What are the top 5 types removed?')
 
     # RQ4.1
-    histogram_plot_xy(config.ROOT_DIR + "/Resources/Output/perc_annotations_added_per_commit.pdf",
-                      statistics.list_typeAnnotation_added_per_commit,
-                      'Percentage of annotation-related lines among all added lines', 'Number of commits', 'linear', 'linear', bins=100)
+    # histogram_plot_xy(config.ROOT_DIR + "/Resources/Output/perc_annotations_added_per_commit.pdf",
+    #                  statistics.list_typeAnnotation_added_per_commit,
+    #                  'Percentage of annotation-related lines among all added lines', 'Number of commits', 'linear', 'linear', bins=100)
 
     # RQ4.2
-    histogram_plot_xy(config.ROOT_DIR + "/Resources/Output/perc_annotations_removed_per_commit.pdf",
-                      statistics.list_typeAnnotation_removed_per_commit,
-                      'Percentage of annotation-related lines among all removed lines', 'Number of commits', 'linear', 'linear', bins=100)
+    # histogram_plot_xy(config.ROOT_DIR + "/Resources/Output/perc_annotations_removed_per_commit.pdf",
+    #                  statistics.list_typeAnnotation_removed_per_commit,
+    #                  'Percentage of annotation-related lines among all removed lines', 'Number of commits', 'linear', 'linear', bins=100)
 
     # RQ4
     print("% type annotation only commits", sum(float(i) >= 95.0 for i in statistics.list_typeAnnotation_changed_per_commit)/len(statistics.list_typeAnnotation_changed_per_commit)*100)
@@ -252,7 +252,7 @@ def myplot(statistics):
                       'Number of commits (log scale)', 'linear', 'log', bins=20)
 
     # RQ4.4
-     #histogram_plot_xy(config.ROOT_DIR + "/Resources/Output/RQ4_4",
+    # histogram_plot_xy(config.ROOT_DIR + "/Resources/Output/RQ4_4",
     #                  statistics.annotation_related_insertion_edits_vs_all_commit,
     #                  'Percentage (%)', 'Occurrences', 'linear', 'log',
     #                  'Percentage of annotation-related insertions to all edits per commit')
@@ -539,8 +539,6 @@ def load_final_statistics():
     # RQ 11
     finalStatistics.list_dev_dict = allStatistics[0]['list_dev_dict']
     finalStatistics.list_dev_dict_total = allStatistics[0]['list_dev_dict_total']
-
-    selected_repo_dev = ['lucaresearch-pythontest', 'lucaresearch-pythontest2', '']
 
     finalStatistics.list_dev_plot = allStatistics[0]['list_dev_dict']
 

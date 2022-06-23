@@ -1,6 +1,5 @@
 #!/usr/bin/python3
 
-# Author: Michael Pradel
 # Script to quickly find some commits that reduce type errors.
 # Requires the history_*.json files that summarize the history of projects.
 
