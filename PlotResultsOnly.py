@@ -5,8 +5,9 @@ import json
 import re
 import matplotlib.pyplot as plt
 import config
-from script_AnalyzeRepos import results_base_dir, projects
 import pandas as pd
+from os import listdir
+from os.path import isfile, join
 font_size = 15
 
 
@@ -22,7 +23,7 @@ ignored_warning_kinds = [
 
 
 def read_results(name):
-    with open(results_base_dir+name+".json") as fp:
+    with open(plots_base_dir+name) as fp:
         r = json.load(fp)
     return r
 
@@ -30,9 +31,11 @@ def read_results(name):
 def get_results():
     project_to_history = {}
     latest_results = []
-    for p in projects:
+    onlyfiles = [f for f in listdir(plots_base_dir) if isfile(join(plots_base_dir, f))]
+
+    for p in onlyfiles:
         try:
-            p_results = read_results("history_"+p)
+            p_results = read_results(p)
         except Exception as e:
             print(
                 f"WARNING: Couldn't read results for {p}. Skipping this project.")
@@ -118,7 +121,6 @@ def plot_kinds_of_errors(results):
 
     plt.rcParams.update({'font.size': 15})
     y_pos = range(5)
-    numlist = sum(nbs)
     plt.bar(y_pos[:5], nbs[:5], align='center', alpha=0.5, color=(0.2, 0.4, 0.6, 0.6))
     plt.xticks(y_pos[:5], kinds[:5])
     plt.xticks(rotation=30, horizontalalignment='right')
@@ -161,30 +163,14 @@ def plot_evolution_of_errors_vs_loc(project_to_history):
     plt.savefig(plots_base_dir+"errors_vs_loc_evolution.pdf")
     plt.close()
 
-def plot_evolution_of_errors(project_to_history):
-    plt.rcParams.update({'font.size': font_size})
-    for p, h in project_to_history.items():
-        errors_per_loc = []
-        for r in h:
-            loc = r["loc"]
-            nb_warnings = count_filtered_warnings(r["kind_to_nb"])
-            errors_per_loc.append(nb_warnings)
-
-        plt.plot(errors_per_loc, color=(0.2, 0.4, 0.6, 0.6))
-    plt.xlabel("Time steps during version history")
-    plt.ylabel("Type errors")
-    plt.tight_layout()
-    plt.savefig(plots_base_dir+"errors_evolution.pdf")
-    plt.close()
-
 
 def plot_errors_vs_annotations(results):
     plt.rcParams.update({'font.size': font_size})
     plt.plot(results["nb_types"], results["nb_filtered_warnings"], "o", color=(0.2, 0.4, 0.6, 0.6))
     plt.xscale("log")
     plt.yscale("log")
-    plt.xlabel("Type annotations (log scale)")
-    plt.ylabel("Number of type errors (log scale)")
+    plt.xlabel("Type annotations")
+    plt.ylabel("Number of type errors")
     #plt.title("Type errors vs. annotations")
     plt.tight_layout()
     plt.savefig(plots_base_dir+"errors_vs_annotations.pdf")
@@ -257,29 +243,6 @@ def plot_per_project_evolution(project_to_history):
         plt.savefig(f"{plots_base_dir}per_project/{p}.pdf", bbox_inches='tight')
         plt.close()
 
-def plot_error_per_project_evolution(project_to_history):
-    plt.rcParams.update({'font.size': font_size})
-    plt.rcParams.update({'font.size': 20})
-    for p, h in project_to_history.items():
-        annotation_evol = []
-        loc_evol = []
-        for r in reversed(h[:10]):
-            annotation_evol.append(count_filtered_warnings(r["kind_to_nb"]))
-            loc_evol.append(r["loc"])
-        fig, ax1 = plt.subplots()
-        plt.xlabel(f"Time steps during version\nhistory of {p}")
-        ax1.set_ylim(bottom=0, top=max(loc_evol)*1.05)
-        line1 = ax1.plot(loc_evol, label="Lines of code (left)",
-                         marker="o", color=(0.2, 0.4, 0.6, 0.6))
-        ax2 = ax1.twinx()
-        ax2.set_ylim(bottom=0, top=max(max(annotation_evol)*1.05, 20))
-        line2 = ax2.plot(
-            annotation_evol, label="Type errors (right)", marker="x", color='lightsalmon')
-        lines = line1 + line2
-        labels = [l.get_label() for l in lines]
-        fig.legend(lines, labels,loc='upper center', bbox_to_anchor=(0.52, 1.1))
-        plt.savefig(f"{plots_base_dir}error_per_project/{p}.pdf", bbox_inches='tight')
-        plt.close()
 
 def compute_stats_on_histories(project_to_history):
     print("\n------------------")
@@ -320,19 +283,16 @@ def compute_stats_on_latest(results):
 
 if __name__ == "__main__":
     project_to_history, latest_results = get_results()
-    compute_more_columns(latest_results)
+    #compute_more_columns(latest_results)
 
     plot_kinds_of_errors(latest_results)
     plot_errors_vs_loc(latest_results)
     plot_errors_vs_annotations(latest_results)
 
     plot_per_project_evolution(project_to_history)
-    plot_error_per_project_evolution(project_to_history)
     plot_evolution_of_errors_vs_annotations(project_to_history)
     plot_evolution_of_avg_errors_vs_annotations(project_to_history)
     plot_evolution_of_errors_vs_loc(project_to_history)
-    #plot_evolution_of_errors(project_to_history)
-
 
     compute_stats_on_latest(latest_results)
     compute_stats_on_histories(project_to_history)

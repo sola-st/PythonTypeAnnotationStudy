@@ -9,7 +9,9 @@ import sys
 import time
 from collections import defaultdict
 import numpy as np
+from matplotlib import pyplot as plt
 
+from typed_ast import ast3
 import pygit2 as git
 from pygit2 import GIT_SORT_TOPOLOGICAL, GIT_SORT_REVERSE
 from typing import List
@@ -33,9 +35,13 @@ def repo_cloning(filenameInput: str, pathOutput: str, count: List[int]) -> None:
     i = 0
     for link in article_urls:
         i+=1
+        #if i >50:
+         #   print("new year")
+          #  return
 
         count[0] += 1
 
+        # out = link.rsplit('/', 1)[-1].replace('.git', '')
         out = re.sub('https://github.com/', '', link).replace('/', '-')
 
         if os.path.isdir(pathOutput + '/' + out):
@@ -51,6 +57,35 @@ def repo_cloning(filenameInput: str, pathOutput: str, count: List[int]) -> None:
                 print('[Error] cloning repository:', str(e))
                 continue
 
+def repo_cloning_oneplus(filenameInput: str, pathOutput: str, count: List[int]) -> None:
+    with open(filenameInput) as fh:
+        articles = json.load(fh)
+
+    article_urls = [article['typeLastProjectVersion_dict'] for article in articles]
+
+    i = 0
+    for l in article_urls:
+        for link in l:
+            i+=1
+            aaa = link[0]
+
+            count[0] += 1
+
+            # out = link.rsplit('/', 1)[-1].replace('.git', '')
+            out = re.sub('https://github.com/', '', link[0]).replace('/', '-')
+
+            if os.path.isdir(pathOutput + '/' + out):
+                print(str(count) + ' Already cloned', link[0])
+
+                continue
+
+            else:
+                print(str(count) + ' Cloning ' + link[0])
+                try:
+                    git.clone_repository(link[0], pathOutput + '/' + out)
+                except Exception as e:
+                    print('[Error] cloning repository:', str(e))
+                    continue
 
 def repo_cloning_csv( pathOutput: str) -> None:
     columns = defaultdict(list)  # each value in each column is appended to a list
@@ -84,7 +119,7 @@ def repo_cloning_csv( pathOutput: str) -> None:
                 print('[Error] cloning repository:', str(e))
                 continue
 
-def query_repo_get_changes(repo_name, err_dict=None, target_commits=None):  # statistics, pointer, dirlist_len):
+def query_repo_get_changes(repo_name):  # statistics, pointer, dirlist_len):
     start = time.time()
     file_extension = '.py'
     statistics = CodeStatistics()
@@ -117,7 +152,6 @@ def query_repo_get_changes(repo_name, err_dict=None, target_commits=None):  # st
         try:
             repo = git.Repository(config.ROOT_DIR + "/GitHub/" + repo_name)
         except:
-            print('Return, repo not found in dir: ', repo_name)
             return
 
         remote_url = None
@@ -132,21 +166,16 @@ def query_repo_get_changes(repo_name, err_dict=None, target_commits=None):  # st
         if statistics.typeLastProjectVersion_total > 0:
             # Go through each commit starting from the most recent commit
             commit_temp = 'e0'
-            commit_count = 0
-            # print(last_commit)
-            # for commit in repo.walk(last_commit, GIT_SORT_TOPOLOGICAL | GIT_SORT_REVERSE):                
-            #     print(commit)
             for commit in repo.walk(last_commit, GIT_SORT_TOPOLOGICAL | GIT_SORT_REVERSE):
                 try:
-                    commit_count += 1
-                    if target_commits is not None and str(commit.hex) not in target_commits:
-                       continue
-                    # print(str(commit.hex))
+                    #print(str(commit.hex))
+                    if commit.hex != '99f4d5af147d364eda1d4b99e79770c171896f13':  # b86598886ea50c5259982ac18a692748bd3ba402
+                        continue
                     commit_year = time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(commit.commit_time))[:4]
                     commit_month = time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(commit.commit_time))[5:7]
                     commit_day = time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(commit.commit_time))[8:10]
 
-                    if  int(commit_year) < 2014 or int(commit_year) > 2021:
+                    if  int(commit_year) < 2022 or int(commit_year) > 2022:
                         continue
 
                     #if int(commit_month) <= 12:
@@ -154,7 +183,6 @@ def query_repo_get_changes(repo_name, err_dict=None, target_commits=None):  # st
                         statistics.commit_year_dict[str(commit_year)] = 1
                     else:
                         statistics.commit_year_dict[str(commit_year)] += 1
-
 
                     if int(commit_month) < 9:
                         commit_temp = commit.hex
@@ -239,19 +267,19 @@ def query_repo_get_changes(repo_name, err_dict=None, target_commits=None):  # st
                                     n_non_test_files += 1
                             except Exception as e:
                                 return
-                            # repo = git.Repository(config.ROOT_DIR + "/GitHub/" + repo_name)
-                            # Go through each commit starting from the most recent commit: last -> 2nd last -> 3rd last -> ...
-                            # diff = repo.diff(commita, commitb)                     
-                            # for patch in diff # iterate over the deltas/patches in this diff.
+
                             TypeAnnotationExtractionLast_life(config.ROOT_DIR + "/GitHub/", repo_name, commit, patch,
                                                         remote_url + '/commit/' + commit.hex + '#diff-' + diff.patchid.hex,
                                                         statistics,  # lock, logging,
                                                         at_least_one_type_change,
                                                         statistics.code_changes, typeannotation_line_inserted,
                                                         typeannotation_line_removed, typeannotation_line_changed,
-                                                        list_line_added, list_line_removed, 
-                                                        commit_year, commit_month, commit_day,
-                                                        err_dict)
+                                                        list_line_added,
+                                                        list_line_removed, commit_year, commit_month, commit_day)
+
+                            dir = config.ROOT_DIR + "/Test/"
+                            for f in os.listdir(dir):
+                                os.remove(os.path.join(dir, f))
 
                     added_per_commit_percentage = 0
                     removed_per_commit_percentage = 0
@@ -620,3 +648,106 @@ def error_check():
 
     write_in_json(config.ROOT_DIR + "/Resources/Output/error_check_flake8.json",
                   dict_new)
+
+def stub_an():
+    x = [2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021]
+    y = [0, 0, 11, 26, 842, 1007, 1452, 7374]
+    yy = [0, 0, 6, 9, 44, 45, 50, 51]
+    yyy = ['177', '299', '1974', '2212', '2901']
+
+    plt.rcParams.update({'font.size': 14})
+
+    fig, ax1 = plt.subplots()
+
+    ax1.set_xlabel('Year')
+    ax1.set_ylabel('Stub annotations', color='black')
+    ax1.plot(x, y, label='Stub annotations (left)', marker='o', color=(0.2, 0.4, 0.6, 0.6))
+    ax1.tick_params(axis='y', color='black')
+    plt.setp(ax1.get_xticklabels(), rotation=30, horizontalalignment='right')
+
+    # ax2 = ax1.twinx()  # instantiate a second axes that shares the same x-axis
+
+    # ax2.set_ylabel('Stub annotations per 100 LoC', color='black')  # we already handled the x-label with ax1
+    # ax2.plot(x, yy, label='Stub annotations per 100 LoC (right)', marker='X', color='lightsalmon')
+    # ax2.tick_params(axis='y', color='black')
+    # plt.setp(ax2.get_xticklabels(), rotation=30, horizontalalignment='right')
+
+    fig.legend(loc='upper center', bbox_to_anchor=(0.517, 1.06))
+
+    plt.savefig(config.ROOT_DIR + '/Resources/stub/stub_fig.pdf', bbox_inches='tight')
+
+    plt.figure()
+
+    # error_check()
+
+    # repo_cloning_csv(config.ROOT_DIR + "/GitHub")
+    # get_TOP_repo() repositories_TOP100_2020
+
+    global locs_sum
+    directory_list = list()
+    directory_list = os.listdir(config.ROOT_DIR + "/GitHub4")
+    dictOfWords = {i: 0 for i in directory_list}
+
+    var = ret = arg = 0
+    var_num = []
+    ret_num = []
+    arg_num = []
+    locs = []
+
+    for i in directory_list:
+        print(i)
+        var_list = []
+        arg_list = []
+        ret_list = []
+        locs_sum = 0
+
+        try:
+            # subprocess.run(f"git checkout \'master@{2021}-01-01\' --quiet".split(" "), cwd=config.ROOT_DIR + "/GitHub/"+i)
+            for filepath in pathlib.Path(config.ROOT_DIR + "/GitHub4/" + i).glob('**/*'):
+                try:
+                    if str(filepath).endswith(".pyi"):
+                        with open(filepath) as pyi_file:
+                            pyi_txt = pyi_file.read()
+                            # nonempty_lines = [line.strip("\n\n") for line in pyi_txt if line != "\n\n"]
+                            locs_sum += pyi_txt.count('\n\n')
+
+                        pyi_ast = ast3.parse(pyi_txt)
+                        for x in pyi_ast.body:
+                            if 'AnnAssign' in type(x).__name__:
+                                if hasattr(x.annotation, 'id'):
+                                    var_list.append(x.annotation.id)
+                                elif hasattr(x.annotation.value, 'id'):
+                                    var_list.append(x.annotation.value.id)
+                            elif 'FunctionDef' in type(x).__name__:
+                                if x.returns != None:
+                                    ret_list.append(x.returns.id)
+                                if hasattr(x, 'args'):
+                                    for xx in x.args.args:
+                                        arg_list.append(xx.annotation.id)
+
+                                if len(x.body) > 0:
+                                    for xxx in x.body:
+                                        if 'AnnAssign' in type(xxx).__name__:
+                                            var_list.append(xxx.annotation.id)
+
+                        with open(config.ROOT_DIR + '/Resources/stub/' + str(i), 'w') as filehandle:
+                            filehandle.write('%s\n' % var_list)
+                            filehandle.write('%s\n' % arg_list)
+                            filehandle.write('%s\n' % ret_list)
+                except:
+                    continue
+        except:
+            continue
+        if len(var_list) > 0 or len(arg_list) > 0 or len(ret_list) > 0:
+            arg_num.append(len(arg_list))
+            var_num.append(len(var_list))
+            ret_num.append(len(ret_list))
+            locs.append(locs_sum)
+
+    with open(config.ROOT_DIR + '/Resources/stub/000final.txt', 'w') as filehandle:
+        # filehandle.write('%s\n' % arg_num)
+        # filehandle.write('%s\n' % var_num)
+        # filehandle.write('%s\n' % ret_num)
+        # filehandle.write('%s\n' % locs)
+        filehandle.write('%s\n' % sum(locs))
+        filehandle.write('%s\n' % str(sum(arg_num) + sum(var_num) + sum(ret_num)))

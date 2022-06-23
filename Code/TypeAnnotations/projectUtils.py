@@ -80,36 +80,71 @@ def compute_correlations2(commits_stars_annotations):
 
 def myplot(statistics):
 
+    count_optional = 0
 
+    for x in statistics.typeChanged_dict_var:
+        if "optional" in x:
+            count_optional += statistics.typeChanged_dict_var[x]
 
+    for x in statistics.typeChanged_dict_arg:
+        if "optional" in x:
+            count_optional += statistics.typeChanged_dict_arg[x]
+
+    for x in statistics.typeChanged_dict_ret:
+        if "optional" in x:
+            count_optional += statistics.typeChanged_dict_ret[x]
+
+    print(f"optional: {count_optional}")
+
+    statistics.typeChanged_dict_var = sum_type_changes(statistics.typeChanged_dict_var)
+    statistics.typeChanged_dict_arg = sum_type_changes(statistics.typeChanged_dict_arg)
+    statistics.typeChanged_dict_ret = sum_type_changes(statistics.typeChanged_dict_ret)
 
     # RQ2.3
     bar_plot_xy(config.ROOT_DIR + "/Resources/Output/TopChanged_arg.pdf",
                 list(statistics.typeChanged_dict_arg.keys())[:5],
-                list(statistics.typeChanged_dict_arg.values())[:5], 'Top types changed in function arguments',
-                'Occurrences', ylim=1000)
+                list(statistics.typeChanged_dict_arg.values())[:5], 'Type changes in function arguments',
+                'Occurrences\n(log scale)', ylim=50000)
 
     # RQ2.3
     bar_plot_xy(config.ROOT_DIR + "/Resources/Output/TopChanged_ret.pdf",
                 list(statistics.typeChanged_dict_ret.keys())[:5],
-                list(statistics.typeChanged_dict_ret.values())[:5], 'Top types changed in function return',
-                'Occurrences', ylim=1000)
+                list(statistics.typeChanged_dict_ret.values())[:5], 'Type changes in function return',
+                'Occurrences\n(log scale)', ylim=50000)
 
     # RQ2.3
     bar_plot_xy(config.ROOT_DIR + "/Resources/Output/TopChanged_var.pdf",
                 list(statistics.typeChanged_dict_var.keys())[:5],
-                list(statistics.typeChanged_dict_var.values())[:5], 'Top types changed in variable assignment',
-                'Occurrences', ylim=1000)
+                list(statistics.typeChanged_dict_var.values())[:5], 'Type changes in variable assignment',
+                'Occurrences\n(log scale)', ylim=50000)
 
 
     smooth_line_xy_multi(config.ROOT_DIR + "/Resources/Output/elements_annotated.pdf",
                         statistics.annotation_coverage,
                        x_label="Year",
-                      y_label="% program elements annotated",
+                      y_label="Type annotation coverage",
                      title="Presence of type annotations in\nthe last version of the repositories.",
                     color1='blue', color2='red',
                    xlim=None,
                  ylim=None)
+
+    llll = []
+    loc = []
+    years = []
+    for lll in statistics.annotation_coverage:
+        years.append(str(int(lll)+1))
+        llll.append(statistics.annotation_coverage[lll][0]+statistics.annotation_coverage[lll][2]+statistics.annotation_coverage[lll][4])
+        loc.append((statistics.annotation_coverage[lll][0]+statistics.annotation_coverage[lll][2]+statistics.annotation_coverage[lll][4])/((statistics.annotation_coverage[lll][1]+statistics.annotation_coverage[lll][3]+statistics.annotation_coverage[lll][5]+1)/1000))
+
+    smooth_line_xy_double(config.ROOT_DIR + "/Resources/Output/annotationsPerYear2.pdf",
+                          years,
+                          llll,
+                          loc,
+                          x_label="Year",
+                          y_label="Type annotations",
+                          color1='blue', color2='red',
+                          xlim=None,
+                          ylim=None)
 
     from collections import Counter
     A = Counter(statistics.insert_types)
@@ -119,7 +154,7 @@ def myplot(statistics):
 
     A = Counter(merged)
     B = Counter(statistics.loc_year_edit)
-    merged2 = dict({k: A[k] / (B[k]/10000) for k in A})
+    merged2 = dict({k: A[k] / (B[k]/1000) for k in A})
 
     merged = dict(sorted(merged.items()))
     merged2 = dict(sorted(merged2.items()))
@@ -174,13 +209,13 @@ def myplot(statistics):
 
         list_top_1_developers.append(float(dictionary[key] / statistics.list_dev_dict_total[i][key] * 100))
 
-    smooth_line_xy(config.ROOT_DIR + "/Resources/Output/top_1_dev_total2.pdf",
-                   [x for x in list_top_1_developers if x <= 100],
-                   x_label="Top developer for each\nrepository (sorted by percentage of commits over all commits)",
-                   y_label="% Type annotations inserted",
-                   color1='blue', color2='red',
-                   xlim=None,
-                   ylim=None)
+    # smooth_line_xy(config.ROOT_DIR + "/Resources/Output/top_1_dev_total2.pdf",
+    #                [x for x in list_top_1_developers if x <= 100],
+    #                x_label="Top developer for each\nrepository (sorted by percentage of commits over all commits)",
+    #                y_label="% Type annotations inserted",
+    #                color1='blue', color2='red',
+    #                xlim=None,
+    #                ylim=None)
 
     # RQ2.2
     # bar_plot_xy(config.ROOT_DIR + "/Resources/Output/TopAdded.pdf",
@@ -199,25 +234,25 @@ def myplot(statistics):
     #         title='What are the top 5 types removed?')
 
     # RQ4.1
-    # histogram_plot_xy(config.ROOT_DIR + "/Resources/Output/perc_annotations_added_per_commit.pdf",
-    #                  statistics.list_typeAnnotation_added_per_commit,
-    #                  'Percentage of annotation-related lines among all added lines', 'Number of commits', 'linear', 'linear', bins=100)
+    histogram_plot_xy(config.ROOT_DIR + "/Resources/Output/perc_annotations_added_per_commit.pdf",
+                      statistics.list_typeAnnotation_added_per_commit,
+                      'Percentage of annotation-related lines among all added lines', 'Number of commits', 'linear', 'linear', bins=100)
 
     # RQ4.2
-    # histogram_plot_xy(config.ROOT_DIR + "/Resources/Output/perc_annotations_removed_per_commit.pdf",
-    #                  statistics.list_typeAnnotation_removed_per_commit,
-    #                  'Percentage of annotation-related lines among all removed lines', 'Number of commits', 'linear', 'linear', bins=100)
+    histogram_plot_xy(config.ROOT_DIR + "/Resources/Output/perc_annotations_removed_per_commit.pdf",
+                      statistics.list_typeAnnotation_removed_per_commit,
+                      'Percentage of annotation-related lines among all removed lines', 'Number of commits', 'linear', 'linear', bins=100)
 
     # RQ4
     print("% type annotation only commits", sum(float(i) >= 95.0 for i in statistics.list_typeAnnotation_changed_per_commit)/len(statistics.list_typeAnnotation_changed_per_commit)*100)
 
-    histogram_plot_xy(config.ROOT_DIR + "/Resources/Output/perc_annotations_lines_per_commit.pdf",
+    histogram_plot_xy(config.ROOT_DIR + "/Resources/Output/annotationsPerYear.pdf",
                       statistics.list_typeAnnotation_changed_per_commit,
                       'Percentage of annotation-related lines among\nall inserted, removed and changed lines',
                       'Number of commits (log scale)', 'linear', 'log', bins=20)
 
     # RQ4.4
-    # histogram_plot_xy(config.ROOT_DIR + "/Resources/Output/RQ4_4",
+     #histogram_plot_xy(config.ROOT_DIR + "/Resources/Output/RQ4_4",
     #                  statistics.annotation_related_insertion_edits_vs_all_commit,
     #                  'Percentage (%)', 'Occurrences', 'linear', 'log',
     #                  'Percentage of annotation-related insertions to all edits per commit')
@@ -274,7 +309,7 @@ def myplot(statistics):
 
     # Last version annotation
     smooth_line_xy(config.ROOT_DIR + "/Resources/Output/types_last_version.pdf",
-                   [x for x in statistics.typeLastProjectVersion_percentage if x <= 100],
+                   [x if x <= 100 else 100 for x in statistics.typeLastProjectVersion_percentage],
                    x_label="Repositories sorted by ordinate",
                    y_label="% Type annotations in latest version",
                    title="Presence of type annotations in\nthe latest version of the repositories.",
@@ -282,237 +317,6 @@ def myplot(statistics):
                    xlim=None,
                    ylim=None)
 
-    # RQ10
-    # list_top_1_developers = []
-    # list_link_repo = []
-    # i = -1
-    # super_total = 0
-    #
-    # for dictionary in statistics.list_dev_plot:
-    #     i += 1
-    #     for key in dictionary:
-    #         if dictionary[key] == 0:
-    #             list_link_repo.append("https://api.github.com/repos/" + key.replace("-", "/", 1))
-    #
-    #     total = sum(dictionary.values())
-    #     super_total += total
-    #     if total == 0:
-    #         continue
-    #
-    #     for key in dictionary.keys():
-    #         dict_temp = statistics.list_dev_dict_total[i]
-    #         if dict_temp[key] > 0:
-    #             dictionary[key] = dictionary[key] / statistics.list_dev_dict_total[i][key] * 100
-    #
-    #     dictionary = dict(sort_dictionary(dictionary)[:1])
-    #
-    #     list_top_1_developers.append(float(sum(dictionary.values())))
-    #
-    # smooth_line_xy(config.ROOT_DIR + "/Resources/Output/top_1_dev.pdf",
-    #                [x for x in list_top_1_developers if x <= 100],
-    #                x_label="Top developer for each\nrepository (sorted by ordinate)",
-    #                y_label="% Type annotations inserted",
-    #                color1='blue', color2='red',
-    #                xlim=None,
-    #                ylim=None)
-
-    # RQ10.2
-    # list_top_1_developers = []
-    # list_link_repo = []
-    # i = -1
-    #
-    # for dictionary in statistics.list_dev_plot:
-    #     i += 1
-    #     for key in dictionary:
-    #         if dictionary[key] == 0:
-    #             list_link_repo.append("https://api.github.com/repos/" + key.replace("-", "/", 1))
-    #
-    #     total = sum(dictionary.values())
-    #     if total == 0:
-    #         continue
-    #
-    #     for key in dictionary.keys():
-    #         dict_temp = statistics.list_dev_dict_total[i]
-    #         if dict_temp[key] > 0:
-    #             dictionary[key] = dictionary[key] / super_total * 100
-    #
-    #     dictionary = dict(sort_dictionary(dictionary)[:1])
-    #
-    #     list_top_1_developers.append(float(sum(dictionary.values())))
-    #
-    # smooth_line_xy(config.ROOT_DIR + "/Resources/Output/top_1_dev_overall.pdf",
-    #                [x for x in list_top_1_developers if x <= 100],
-    #                x_label="Top developer for each\nrepository overall commits",
-    #                y_label="% Type annotations inserted",
-    #                color1='blue', color2='red',
-    #                xlim=None,
-    #                ylim=None)
-    #
-    # list_contributors_repo = []
-    #
-    # for url in list_link_repo:
-    #     all_contributors = list()
-    #     page_count = 1
-    #     while True:
-    #         contributors = requests.get(url + "/contributors?page=%d" % page_count)
-    #         if contributors != None and contributors.status_code == 200 and len(contributors.json()) > 0:
-    #             all_contributors = all_contributors + contributors.json()
-    #         else:
-    #             break
-    #         page_count = page_count + 1
-    #     count = len(all_contributors)
-    #     if count == 0:
-    #         print("Zero contributors for", url)
-    #         break
-    #     list_contributors_repo.append(count)
-
-    # from scipy.stats.stats import pearsonr
-    # print(pearsonr(list_2018_more_comm, list_2018_more_ann))
-    # print(pearsonr([x / 10 for x in list_2018_more_comm], [x / 20 for x in list_2018_more_ann]))
-    #
-    # scatter_plot_xy_multi(config.ROOT_DIR + "/Resources/Output/recent_repositories.pdf",
-    #                       list_2018_more_comm,
-    #                       list_2018_more_ann,
-    #                       [x / 10 for x in list_2018_more_comm],
-    #                       [x / 20 for x in list_2018_more_ann],
-    #                       '# Commits', '# Annotations Changes', 'log', 'log')
-    #
-    # scatter_plot_xy(config.ROOT_DIR + "/Resources/Output/recent_repositories2.pdf",
-    #                 list_2018_more_comm,
-    #                 list_2018_more_ann,
-    #                 '# Commits', '# Annotations Changes', 'log', 'log')
-    #
-    # try:
-    #     compute_correlations(statistics.matrix_commits_stars_annotations)
-    # except Exception as e:
-    #     print('[Correlation Error]', str(e))
-    #
-    # matrix = np.empty((0, 11), int)
-    #
-    # for array in statistics.matrix_commits_stars_annotations:
-    #     if array[2] != 0:
-    #         matrix = np.append(matrix, np.array([array]), axis=0)
-
-    # scatter_plot_xy(config.ROOT_DIR + "/Resources/Output/relationship_commits.pdf",
-    #                 [row[1] for row in matrix],
-    #                 [row[3] for row in matrix],
-    #                 '# Commits', '# Annotations Changes', 'log', 'log')
-    #
-    #
-    # scatter_plot_xy(config.ROOT_DIR + "/Resources/Output/relationship_stars.pdf",
-    #                 [row[2] for row in matrix],
-    #                 [row[3] for row in matrix],
-    #                 '# GitHub Stars', '# Annotations Changes', 'log', 'log')
-    #
-    # scatter_plot_xy(config.ROOT_DIR + "/Resources/Output/relationship_forks.pdf",
-    #                 [row[4] for row in matrix],
-    #                 [row[3] for row in matrix],
-    #                 '# GitHub forks', '# Annotations Changes', 'log', 'log')
-    #
-    # scatter_plot_xy(config.ROOT_DIR + "/Resources/Output/relationship_issues.pdf",
-    #                 [row[5] for row in matrix],
-    #                 [row[3] for row in matrix],
-    #                 '# GitHub open issues', '# Annotations Changes', 'log', 'log')
-    #
-    # scatter_plot_xy(config.ROOT_DIR + "/Resources/Output/relationship_devs.pdf",
-    #                 [row[8] for row in matrix],
-    #                 [row[3] for row in matrix],
-    #                 '# Developers', '# Annotations Changes', 'log', 'log')
-    #
-    # scatter_plot_xyz(config.ROOT_DIR + "/Resources/Output/relationship_files.pdf",
-    #                 [row[6] for row in matrix],
-    #                 [row[3] for row in matrix],
-    #                 [row[7] for row in matrix],
-    #                 '# Files', '# Annotations Changes', 'log', 'log')
-    #
-    # scatter_plot_xyz(config.ROOT_DIR + "/Resources/Output/relationship_funct_calls.pdf",
-    #                 [row[9] for row in matrix],
-    #                 [row[3] for row in matrix],
-    #                 [row[10] for row in matrix],
-    #                 '# Function calls', '# Annotations Changes', 'log', 'log')
-
-    # try:
-    #     compute_correlations2(statistics.matrix_files_annotations)
-    # except Exception as e:
-    #     print('[Correlation Error]', str(e))
-
-    # matrix = np.empty((0, 3), int)
-    #
-    # for array in statistics.matrix_files_annotations:
-    #     if array[2] != 0:
-    #         matrix = np.append(matrix, np.array([array]), axis=0)
-    #
-    # scatter_plot_xy(config.ROOT_DIR + "/Resources/Output/relationship_files_coverage.pdf",
-    #                 [row[0] for row in matrix],
-    #                 [row[1] for row in matrix],
-    #                 '# Function calls', 'Program elements coverage', 'linear', 'linear', xlim=120)
-    #
-    # scatter_plot_xy(config.ROOT_DIR + "/Resources/Output/relationship_tot.pdf",
-    #                 [row[0] for row in matrix],
-    #                 [row[2] for row in matrix],
-    #                 '# Function calls', '# Type Annotations', 'log', 'linear')
-    #
-    # try:
-    #     compute_correlations2(statistics.matrix_test_files_annotations)
-    # except Exception as e:
-    #     print('[Correlation Error]', str(e))
-    #
-    # matrix = np.empty((0, 3), int)
-    #
-    # for array in statistics.matrix_test_files_annotations:
-    #     if array[2] != 0:
-    #         matrix = np.append(matrix, np.array([array]), axis=0)
-    #
-    # scatter_plot_xy(config.ROOT_DIR + "/Resources/Output/relationship_test_files_coverage.pdf",
-    #                 [row[0] for row in matrix],
-    #                 [row[1] for row in matrix],
-    #                 '# Function calls', 'Program elements coverage', 'log', 'log')
-    #
-    # scatter_plot_xy(config.ROOT_DIR + "/Resources/Output/test_relationship_tot.pdf",
-    #                 [row[0] for row in matrix],
-    #                 [row[2] for row in matrix],
-    #                 '# Function calls', '# Type Annotations', 'log', 'log')
-
-    # RQ8
-    # years = [int(k) for k in statistics.typeAnnotation_year_analysis.keys()]
-    # annotations_per_year = [int(v) for v in statistics.typeAnnotation_year_analysis.values()]
-    # bar_plot_xy(config.ROOT_DIR + "/Resources/Output/annotationsPerYear.pdf", years,
-    #           annotations_per_year, '', 'Type annotations in a year',
-    #          ylim=int(max(annotations_per_year)*1.1))
-
-    #    avg = sum(list_contributors_repo) / len(list_contributors_repo)
-
-    #   print(f"Contributors per {len(list_contributors_repo)} repos (average): {avg}")
-
-    # list_top_3_developers = []
-    # i = -1
-    #
-    # for dictionary in statistics.list_dev_plot:
-    #     i += 1
-    #     total = sum(dictionary.values())
-    #     if total == 0:
-    #         continue
-    #
-    #     for key in dictionary.keys():
-    #         dict_temp = statistics.list_dev_dict_total[i]
-    #         if dict_temp[key] > 0:
-    #             dictionary[key] = dictionary[key] / statistics.list_dev_dict_total[i][key] * 100
-    #
-    #     dictionary = dict(sort_dictionary(dictionary)[:3])
-    #
-    #     # partial = 0
-    #     # for val in dictionary.values():
-    #     #   partial += int(val)
-    #
-    #     list_top_3_developers.append(float(sum(dictionary.values()) / len(dictionary)))
-    #
-    # smooth_line_xy(config.ROOT_DIR + "/Resources/Output/top_3_dev.pdf",
-    #                [x for x in list_top_3_developers if x <= 100],
-    #                x_label="Top-3 developers for each\nrepository (sorted by ordinate)",
-    #                y_label="% Type annotations inserted",
-    #                color1='blue', color2='red',
-    #                xlim=None,
-    #                ylim=None)
 
     # Variables are cleaned to have a better output
     statistics.matrix_commits_stars_annotations = "See the plots RQ5_commits and RQ5_stars."
@@ -582,8 +386,8 @@ def load_final_statistics():
         n_changes.append(int(re.findall('[-0-9]+', item )[0]))
 
     list_lifetime = [x for x in list_lifetime if x != -1]
-    tot_ch = len(n_changes2)
-    n_changes = [x for x in n_changes2 if x != 0]
+    tot_ch = 1414936
+    n_changes = [x for x in n_changes2 if x > 0]
     print(f"% never changed {100- len(n_changes)/tot_ch*100}")
 
     print(
@@ -600,7 +404,16 @@ def load_final_statistics():
     histogram_plot_xy(config.ROOT_DIR + "/Resources/Output/num_changes.pdf",
                       n_changes,
                       'Number of changes for a type annotation',
-                      'Type annotations (log scale)', 'linear', 'log', bins=6)
+                      'Type annotations (log scale)', 'linear', 'log', bins=26)
+
+    smooth_line_xy(config.ROOT_DIR + "/Resources/Output/types_nchanges.pdf",
+                   n_changes,
+                   x_label="Repositories sorted by ordinate",
+                   y_label="% Type annotations in latest version",
+                   title="Presence of type annotations in\nthe latest version of the repositories.",
+                   color1='blue', color2='red',
+                   xlim=None,
+                   ylim=None)
 
     finalStatistics = CodeStatistics()
 
@@ -732,3 +545,70 @@ def load_final_statistics():
     finalStatistics.list_dev_plot = allStatistics[0]['list_dev_dict']
 
     return finalStatistics
+
+def sum_type_changes(typeChanged_dict):
+    dict_temp = {}
+    anyType_list = ['any']
+    noneType_list = ['none']
+    numericType_list = ['int', 'float', 'complex', 'decimal', 'optional']
+    textSequenceType_list = ['str']
+    binarySequenceType_list = ['bytes', 'bytearray', 'memoryview']
+    setTypes_list = ['set', 'frozenset']
+    mappingType_list = ['dict', 'union']
+
+    types = anyType_list + noneType_list + numericType_list + textSequenceType_list + binarySequenceType_list + setTypes_list + mappingType_list
+    delete = []
+
+    for x in typeChanged_dict:
+        s = x.split(" -> ")
+        old = s[0].replace(",", "[").split("[")
+        new = s[1].replace(",", "[").split("[")
+        b = False
+        b2 = False
+        temp = ''
+        temp1 = []
+        for t in old:
+            for y in types:
+                if t.replace(']', "").replace(' ', '') in y:
+                    temp1.append(y)
+                    break
+
+        if len(old) > len(temp1):
+            # temp1 = 'User Type'
+            b = True
+
+        temp2 = []
+        for t in new:
+            for y in types:
+                if t.replace(']', "").replace(' ', '') in y:
+                    temp2.append(y)
+                    break
+
+        if len(new) > len(temp2):
+            # temp2 = 'User Type'
+            b2 = True
+
+        if b:
+            temp = 'UserType' + ' -> '
+        else:
+            temp = s[0] + ' -> '
+
+        if b2:
+            temp += 'UserType'
+        else:
+            temp += s[1]
+
+        if b or b2:
+            delete.append(x)
+            if temp not in dict_temp:
+                dict_temp[temp] = typeChanged_dict[x]
+            else:
+                dict_temp[temp] = dict_temp[temp] + typeChanged_dict[x]
+
+    for x in delete:
+        del typeChanged_dict[x]
+
+    for x in dict_temp:
+        typeChanged_dict[x] = dict_temp[x]
+
+    return dict(sort_dictionary(typeChanged_dict))

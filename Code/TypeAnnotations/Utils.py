@@ -6,6 +6,8 @@ import sys
 
 from io import StringIO
 from collections import Counter
+
+import numpy as np
 from scipy.interpolate import make_interp_spline, BSpline
 
 import matplotlib.pyplot as plt
@@ -72,7 +74,7 @@ def write_in_json(outputFilePath: str, data: list) -> None:
     except Exception as e:
         print("write_in_json error", e)
 
-        with open(outputFilePath + '.txt', 'w+') as f:
+        with open(outputFilePath + '.txt', 'w') as f:
             for item in data:
                 f.write("%s\n" % item)
         # print(data)
@@ -81,7 +83,7 @@ def write_in_json(outputFilePath: str, data: list) -> None:
     if '.json' not in outputFilePath:
         outputFilePath += '.json'
 
-    with open(outputFilePath, "w+") as f:
+    with open(outputFilePath, "w") as f:
         f.write(json_file)
     f.close()
 
@@ -139,18 +141,22 @@ def smooth_line_xy(outputFilePath, y, x_label=None, y_label=None, title=None, co
     plt.rcParams.update({'font.size': 15})
     y = sorted(y)
     x = list(range(len(y)))
+    plt.yscale('log')
 
     # Calculate the simple average of the data
     y_mean = [numpy.mean(y)] * len(x)
     print(outputFilePath, "has a mean of", y_mean[0], "with len(x)=", len(x))
 
     fig, ax = plt.subplots()
+    plt.xlim(min(x), max(x))
+    pp = max(x)
+    # plt.xticks(x)
 
     # Plot the data
-    data_line = ax.plot(x, y, label='Repositories', color=(0.2, 0.4, 0.6, 0.6))
+    data_line = ax.plot(y, x, label='Repositories', color=(0.2, 0.4, 0.6, 0.6))
 
     # Plot the average line
-    mean_line = ax.plot(x, y_mean, label='Mean', linestyle='--', color='lightsalmon')
+    #mean_line = ax.plot(x, y_mean, label='Mean', linestyle='--', color='lightsalmon')
 
     # Make a legend
     legend = ax.legend(loc='upper left')
@@ -178,10 +184,10 @@ def smooth_line_xy_multi(outputFilePath, dict, x_label=None, y_label=None, title
     var = []
 
     for key in dict:
-        x.append(key)
-        arg.append(float(dict[key][0] / dict[key][1] * 100))
-        ret.append(float(dict[key][2] / dict[key][3] * 100))
-        var.append(float(dict[key][4] / dict[key][5] * 100))
+        x.append(str(int(key) + 1))
+        arg.append(float(dict[key][0] / dict[key][1] * 100 if dict[key][1] else 0))
+        ret.append(float(dict[key][2] / dict[key][3] * 100 if dict[key][3] else 0))
+        var.append(float(dict[key][4] / dict[key][5] * 100 if dict[key][5] else 0))
 
     fig, ax = plt.subplots()
 
@@ -189,9 +195,9 @@ def smooth_line_xy_multi(outputFilePath, dict, x_label=None, y_label=None, title
 
     plt.setp(ax.get_xticklabels(), rotation=30, horizontalalignment='right')
     # Plot the data
-    data_line = ax.plot(x, arg, label='Function arguments', color=(0.2, 0.4, 0.6, 0.6))
-    data_line = ax.plot(x, ret, label='Function returns', color='lightsalmon')
-    data_line = ax.plot(x, var, label='Variable assignments', color='yellowgreen')
+    data_line = ax.plot(x, arg, label='Function arguments', marker='o', color=(0.2, 0.4, 0.6, 0.6))
+    data_line = ax.plot(x, ret, label='Function returns', marker='x', color='lightsalmon')
+    data_line = ax.plot(x, var, label='Variable assignments', marker='^', color='yellowgreen')
 
     # Make a legend
     legend = ax.legend(loc='upper left')
@@ -228,11 +234,13 @@ def smooth_line_xy_double(outputFilePath, x, y, yy, x_label=None, y_label=None, 
     # plt.xscale('log')
 
     fig, ax1 = plt.subplots()
+    yyy = [0, 11, 26, 842, 1007, 1452, 7374]
 
 
     ax1.set_xlabel('Year')
     ax1.set_ylabel('Type annotations', color= 'black')
     ax1.plot(x, y, label='Type annotations (left)', marker='o', color=(0.2, 0.4, 0.6, 0.6))
+    ax1.plot(x, yyy, label='STUB annotations (left)', marker='^', color='yellowgreen')
     ax1.tick_params(axis='y', color='black')
 
     ax2 = ax1.twinx()  # instantiate a second axes that shares the same x-axis
@@ -241,11 +249,12 @@ def smooth_line_xy_double(outputFilePath, x, y, yy, x_label=None, y_label=None, 
     ax2.plot(x, yy, label='Type annotations per 1000 LoC (right)', marker='X', color='lightsalmon')
     ax2.tick_params(axis='y', color='black')
 
+
     # if title is not None:
     #    plt.title(title)
 
     # Make a legend
-    fig.legend(loc='upper center', bbox_to_anchor=(0.517,1.06))
+    fig.legend(loc='upper center', bbox_to_anchor=(0.517,1.13))
 
     plt.savefig(outputFilePath, bbox_inches='tight')
 
@@ -276,17 +285,26 @@ def cartesian_plot_xy(outputFilePath, x, y, x_label, y_label, title=None, color=
 
 
 def bar_plot_xy(outputFilePath, x, y, x_label, y_label, title=None, color='blue', xlim=None, ylim=None):
-    plt.rcParams.update({'font.size': 26})
+    plt.rcParams.update({'font.size': 38})
 
+    x = [w.replace('optional', 'Optional') for w in x]
+    x = [w.replace('none', 'None') for w in x]
+    x = [w.replace('any', 'Any') for w in x]
+    #x = [ 'User Type -> User Type' if len(w) > 50 else w for w in x]
 
     axes = plt.gca()
     if ylim is not None:
-        axes.set_ylim([0, ylim])
+        #
+
+        #plt.yticks(np.arange(0, ylim + 1, 5000))
+        plt.yscale('log')
+        plt.ylim(1, ylim)
+
 
     # if xlim is not None:
     #    axes.set_xlim([0, xlim])
 
-    # plt.yscale('log')
+    #plt.yscale('log')
 
 
     plt.ylabel(y_label)
@@ -357,7 +375,10 @@ def histogram_plot_xy(outputFilePath, x, x_label, y_label, xscale, yscale, title
     if yscale == 'log':
         plt.yscale(yscale)
 
-    plt.hist(x, bins=bins, range=[1, max(x)], color=(0.2, 0.4, 0.6, 0.6))
+    plt.hist(x, bins=bins, color=(0.2, 0.4, 0.6, 0.6))
+    #values, base = np.histogram(x, bins=40)
+    #cumulative = np.cumsum(values)
+    #plt.plot(base[:-1], len(x)-cumulative,  color=(0.2, 0.4, 0.6, 0.6))
 
     plt.savefig(outputFilePath, bbox_inches='tight')
 
