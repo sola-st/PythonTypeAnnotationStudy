@@ -1,0 +1,3 @@
+['int', 'int', 'Grammar', 'Grammar', 'Grammar', 'Grammar', 'Grammar', 'int', 'Dict', 'int', 'int', 'int', 'int', 'int', 'int', 'int', 'int', 'int', 'int', 'int', 'int', 'int', 'int', 'int', 'int', 'int', 'int', 'int', 'int', 'int', 'int', 'int', 'int', 'int', 'int', 'int', 'int', 'int', 'int', 'int', 'int', 'int', 'int', 'int', 'int', 'int', 'int', 'int', 'int', 'int', 'int', 'int', 'int', 'int', 'int', 'int', 'int', 'int', 'int', 'int', 'int', 'int', 'int', 'int', 'int', 'Dict', 'Text', 'Dict']
+['int', 'Grammar', '_RawNode', 'Text', 'Match', 'Text', 'int', 'int', 'int', '_Path']
+['Text', '_NL', 'Grammar', 'Text', 'Text', 'bool', 'bool', 'bool', 'PgenGrammar']
