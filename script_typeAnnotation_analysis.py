@@ -13,13 +13,11 @@ from typed_ast import ast3
 
 def typeAnnotation_analisis():
 
-
     if config.CLONING:
         j = [0]
         
         gitUtils.repo_cloning_oneplus(config.ROOT_DIR + "/Resources/Input/oneplus_list.json",
                               config.ROOT_DIR + "/GitHub", j)
-
 
     if config.STATISTICS_COMPUTATION:
 
