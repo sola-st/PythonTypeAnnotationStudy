@@ -10,8 +10,8 @@ This paper presents the first large-scale empirical study of the evolution of ty
 Our results show that (i) type annotations are getting more popular, and once added, often remain unchanged in the projects for a long time, (ii) projects follow three evolution patterns for type annotation usage -- regular annotation, type sprints, and occasional uses -- and that the used pattern correlates with the number of contributors, (iii) more type annotations help find more type errors (0.704 correlation), but nevertheless, many commits (78.3%) are committed despite having such errors. Our findings show that better developer training and automated techniques for adding type annotations are needed, as most code still remains unannotated, and they call for a better integration of gradual type checking into the development process.
 
 <p float="left">
-  <img src="Resources/img/fse1.png" width="420" />
-  <img src="Resources/img/fse3.png" width="420" /> 
+  <img src="Resources/img/fse1.png" width="320" />
+  <img src="Resources/img/fse3.png" width="320" /> 
 </p>
 
 
