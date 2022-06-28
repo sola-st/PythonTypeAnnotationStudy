@@ -139,7 +139,7 @@ def plot_errors_vs_loc(results):
     plt.ylabel("Number of warnings")
     #plt.title("Type errors vs. code size")
     plt.tight_layout()
-    plt.savefig(plots_base_dir+"errors_vs_loc.pdf")
+    #plt.savefig(plots_base_dir+"errors_vs_loc.pdf")
     plt.close()
 
 
@@ -158,7 +158,7 @@ def plot_evolution_of_errors_vs_loc(project_to_history):
     plt.xlabel("Time steps during version history")
     plt.ylabel("Type errors per lines of code")
     plt.tight_layout()
-    plt.savefig(plots_base_dir+"errors_vs_loc_evolution.pdf")
+    #plt.savefig(plots_base_dir+"errors_vs_loc_evolution.pdf")
     plt.close()
 
 def plot_evolution_of_errors(project_to_history):
@@ -174,7 +174,7 @@ def plot_evolution_of_errors(project_to_history):
     plt.xlabel("Time steps during version history")
     plt.ylabel("Type errors")
     plt.tight_layout()
-    plt.savefig(plots_base_dir+"errors_evolution.pdf")
+    #plt.savefig(plots_base_dir+"errors_evolution.pdf")
     plt.close()
 
 
@@ -209,7 +209,7 @@ def plot_evolution_of_errors_vs_annotations(project_to_history):
     plt.ylabel("Type errors per annotation")
     plt.ylim(0, 50)
     plt.tight_layout()
-    plt.savefig(plots_base_dir+"errors_vs_annotations_evolution.pdf")
+    #plt.savefig(plots_base_dir+"errors_vs_annotations_evolution.pdf")
     plt.close()
 
 
@@ -228,7 +228,7 @@ def plot_evolution_of_avg_errors_vs_annotations(project_to_history):
     plt.xlabel("Time steps during version history")
     plt.ylabel("Type errors per annotation\n(avg. across projects)")
     plt.tight_layout()
-    plt.savefig(plots_base_dir+"errors_vs_annotations_evolution_avg.pdf")
+    #plt.savefig(plots_base_dir+"errors_vs_annotations_evolution_avg.pdf")
     plt.close()
 
 
@@ -334,7 +334,7 @@ if __name__ == "__main__":
     #plot_evolution_of_errors(project_to_history)
 
 
-    compute_stats_on_latest(latest_results)
-    compute_stats_on_histories(project_to_history)
+    #compute_stats_on_latest(latest_results)
+    #compute_stats_on_histories(project_to_history)
 
     #    plot_warnings_loc_evolution(p)

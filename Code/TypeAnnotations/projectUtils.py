@@ -160,16 +160,6 @@ def myplot(statistics):
     merged2 = dict(sorted(merged2.items()))
 
 
-    smooth_line_xy_double(config.ROOT_DIR + "/Resources/Output/annotationsPerYear.pdf",
-                           merged.keys(),
-                           merged.values(),
-                           merged2.values(),
-                           x_label="Year",
-                           y_label="Type annotations",
-                           color1='blue', color2='red',
-                           xlim=None,
-                           ylim=None)
-
     # Total number of commits in each year
     for key in list(statistics.commit_year_dict.keys()):
         if int(key) < 2010:
@@ -177,13 +167,6 @@ def myplot(statistics):
 
     statistics.commit_year_dict = dict(sort_dictionary(statistics.commit_year_dict))
 
-    # bar_plot_xy(config.ROOT_DIR + "/Resources/Output/NumCommitsYear.pdf",
-    #            statistics.commit_year_dict.keys(),
-    #           statistics.commit_year_dict.values(), 'Year',
-    #          '# Commits',
-    #          title='Total number of commits in each year')
-
-    ###################### newwwwwwwwwwwwwwwwwwwwwww
     list_top_1_developers = []
     list_link_repo = []
 
@@ -209,81 +192,17 @@ def myplot(statistics):
 
         list_top_1_developers.append(float(dictionary[key] / statistics.list_dev_dict_total[i][key] * 100))
 
-    # smooth_line_xy(config.ROOT_DIR + "/Resources/Output/top_1_dev_total2.pdf",
-    #                [x for x in list_top_1_developers if x <= 100],
-    #                x_label="Top developer for each\nrepository (sorted by percentage of commits over all commits)",
-    #                y_label="% Type annotations inserted",
-    #                color1='blue', color2='red',
-    #                xlim=None,
-    #                ylim=None)
-
-    # RQ2.2
-    # bar_plot_xy(config.ROOT_DIR + "/Resources/Output/TopAdded.pdf",
-    #            statistics.typeAdded_dict.keys(),
-    #           statistics.typeAdded_dict.values(), 'Top types added',
-    #          'Occurrences',
-    #         title='What are the top 5 types added?')
-
-
-
-    # RQ2.4
-    # bar_plot_xy(config.ROOT_DIR + "/Resources/Output/TopRemoved.pdf",
-    #            statistics.typeRemoved_dict.keys(),
-    #           statistics.typeRemoved_dict.values(), 'Top types removed',
-    #          'Occurrences',
-    #         title='What are the top 5 types removed?')
-
-    # RQ4.1
-    # histogram_plot_xy(config.ROOT_DIR + "/Resources/Output/perc_annotations_added_per_commit.pdf",
-    #                  statistics.list_typeAnnotation_added_per_commit,
-    #                  'Percentage of annotation-related lines among all added lines', 'Number of commits', 'linear', 'linear', bins=100)
-
-    # RQ4.2
-    # histogram_plot_xy(config.ROOT_DIR + "/Resources/Output/perc_annotations_removed_per_commit.pdf",
-    #                  statistics.list_typeAnnotation_removed_per_commit,
-    #                  'Percentage of annotation-related lines among all removed lines', 'Number of commits', 'linear', 'linear', bins=100)
-
     # RQ4
-    print("% type annotation only commits", sum(float(i) >= 95.0 for i in statistics.list_typeAnnotation_changed_per_commit)/len(statistics.list_typeAnnotation_changed_per_commit)*100)
+    #print("% type annotation only commits", sum(float(i) >= 95.0 for i in statistics.list_typeAnnotation_changed_per_commit)/len(statistics.list_typeAnnotation_changed_per_commit)*100)
 
-    histogram_plot_xy(config.ROOT_DIR + "/Resources/Output/annotationsPerYear.pdf",
+    histogram_plot_xy2(config.ROOT_DIR + "/Resources/Output/perc_annotations_lines_per_commit.pdf",
                       statistics.list_typeAnnotation_changed_per_commit,
                       'Percentage of annotation-related lines among\nall inserted, removed and changed lines',
                       'Number of commits (log scale)', 'linear', 'log', bins=20)
 
     # RQ4.4
-    # histogram_plot_xy(config.ROOT_DIR + "/Resources/Output/RQ4_4",
-    #                  statistics.annotation_related_insertion_edits_vs_all_commit,
-    #                  'Percentage (%)', 'Occurrences', 'linear', 'log',
-    #                  'Percentage of annotation-related insertions to all edits per commit')
     list_ann = []
     list_err = []
-
-    # import json
-    #
-    # with open(config.ROOT_DIR + '/Resources/Output/error_check_flake8.json') as f:
-    #     data = json.load(f)
-    #
-    # for repo in statistics.typeLastProjectVersion_dict:
-    #     try:
-    #         list_err.append(data[repo])
-    #         list_ann.append(statistics.typeLastProjectVersion_dict[repo])
-    #     except:
-    #         continue
-    #
-    # from scipy.stats.stats import pearsonr
-    # print(pearsonr(list_err, list_ann))
-    #
-    # scatter_plot_xy(config.ROOT_DIR + "/Resources/Output/flak8_correlation.pdf",
-    #                 list_ann,
-    #                 list_err,
-    #                 '# Annotations Changes', '# Errors', 'log', 'linear')
-
-    # RQ4.5
-    # histogram_plot_xy(config.ROOT_DIR + "/Resources/Output/RQ4_5",
-    #                  statistics.annotation_related_deletion_edits_vs_all_commit,
-    #                  'Percentage (%)', 'Occurrences', 'linear', 'log', 'Percentage of annotation-related deletions to '
-    #                                                                    'all edits per commit')
 
     # RQ5
     list_2018_more_ann = []
@@ -299,23 +218,6 @@ def myplot(statistics):
             elif int(array[0]) >= 2015:
                 list_2015_more_ann.append(int(array[3]))
                 list_2015_more_comm.append(int(array[1]))
-
-        # RQ9
-    bar_plot_double_xy(config.ROOT_DIR + "/Resources/Output/type_commits_vs_all_commits.pdf",
-                       x=[int(k) for k in statistics.typeAnnotation_commit_annotation_year_analysis.keys()],
-                       y1=[int(v) for v in statistics.typeAnnotation_commit_annotation_year_analysis.values()],
-                       y2=[int(v) for v in statistics.typeAnnotation_commit_not_annotation_year_analysis.values()],
-                       y_label='Number of commits')
-
-    # Last version annotation
-    smooth_line_xy(config.ROOT_DIR + "/Resources/Output/types_last_version.pdf",
-                   [x if x <= 100 else 100 for x in statistics.typeLastProjectVersion_percentage],
-                   x_label="Repositories sorted by ordinate",
-                   y_label="% Type annotations in latest version",
-                   title="Presence of type annotations in\nthe latest version of the repositories.",
-                   color1='blue', color2='red',
-                   xlim=None,
-                   ylim=None)
 
 
     # Variables are cleaned to have a better output
@@ -336,22 +238,7 @@ def load_final_statistics():
     list = re.findall(r'\'life_time\': \'[-0-9]+\'', fh)
     list2 = re.findall(r'\'change_num\': \'[-0-9]+\'', fh)
     list3 = re.findall(r'\'url_last_change\': \'(.*?)\'', fh)
-    # i = 0
-    # while True:
-    #     try:
-    #         code_changes = json.loads(fh)  # try to parse...
-    #         break  # parsing worked -> exit loop
-    #     except Exception as e:
-    #         print(e)
-    #         # "Expecting , delimiter: line 34 column 54 (char 1158)"
-    #         # position of unexpected character after '"'
-    #         unexp = int(re.findall(r'\(char (\d+)\)', str(e))[0])
-    #         # position of unescaped '"' before that
-    #         unesc = fh.rfind(r'"', 0, unexp)
-    #         fh = fh[:unesc] + r'\"' + fh[unesc + 1:]
-    #         # position of correspondig closing '"' (+2 for inserted '\')
-    #         closg = fh.find(r'"', unesc + 2)
-    #         fh = fh[:closg] + r'\"' + fh[closg + 1:]
+   
     for s in file:
         list = re.findall(r'[a-z]+', s)
 
@@ -363,21 +250,8 @@ def load_final_statistics():
             m = set(re.findall('/commit/(.+?)#diff', u))
             n_changes2.append(len(m))
 
-
-
-
-
-
-
-    #with open(config.ROOT_DIR + "/Resources/Output/typeAnnotationChanges.json") as fh:
-     #   code_changes = json.load(fh)
-
-
     list_lifetime = []
     n_changes = []
-    #for code_change in code_changes:
-     #   list_lifetime.append(int(code_change['life_time']))
-      #  n_changes.append(int(code_change['change_num']))
 
     for item in list:
         list_lifetime.append(int(re.findall('[-0-9]+', item )[0]))
@@ -396,24 +270,10 @@ def load_final_statistics():
     print(
         f"# changes:  mean {statistics.mean(n_changes)}, min {min(n_changes)}, max {max(n_changes)}, count {len(n_changes)}")
 
-    histogram_plot_xy(config.ROOT_DIR + "/Resources/Output/lifetime.pdf",
-                      list_lifetime,
-                      'Lifetime of a type annotation (in days)',
-                      'Type annotations', 'linear', 'log', bins=20)
-
     histogram_plot_xy(config.ROOT_DIR + "/Resources/Output/num_changes.pdf",
                       n_changes,
                       'Number of changes for a type annotation',
                       'Type annotations (log scale)', 'linear', 'log', bins=26)
-
-    smooth_line_xy(config.ROOT_DIR + "/Resources/Output/types_nchanges.pdf",
-                   n_changes,
-                   x_label="Repositories sorted by ordinate",
-                   y_label="% Type annotations in latest version",
-                   title="Presence of type annotations in\nthe latest version of the repositories.",
-                   color1='blue', color2='red',
-                   xlim=None,
-                   ylim=None)
 
     finalStatistics = CodeStatistics()
 

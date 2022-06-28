@@ -383,6 +383,39 @@ def histogram_plot_xy(outputFilePath, x, x_label, y_label, xscale, yscale, title
     plt.savefig(outputFilePath, bbox_inches='tight')
 
     plt.figure()
+    
+def histogram_plot_xy2(outputFilePath, x, x_label, y_label, xscale, yscale, title=None, bins='auto'):
+    plt.rcdefaults()
+    plt.rcParams.update({'font.size': 15})
+    
+    x = [y for y in x if y >= 0]
+
+    plt.xlabel(x_label)
+    plt.ylabel(y_label)
+
+    if len(x) == 0:
+        print('[Empty x]', title)
+        return
+
+    if title is not None:
+        plt.title(title)
+
+    plt.yscale(yscale)
+
+    if xscale == 'log':
+        plt.xscale(xscale)
+
+    if yscale == 'log':
+        plt.yscale(yscale)
+
+    plt.hist(x, bins=bins, color=(0.2, 0.4, 0.6, 0.6))
+    #values, base = np.histogram(x, bins=40)
+    #cumulative = np.cumsum(values)
+    #plt.plot(base[:-1], len(x)-cumulative,  color=(0.2, 0.4, 0.6, 0.6))
+
+    plt.savefig(outputFilePath, bbox_inches='tight')
+
+    plt.figure()
 
 
 def scatter_plot_xy(outputFilePath, x, y, x_label, y_label, xscale, yscale, title=None, color='blue', xlim=None,
