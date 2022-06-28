@@ -1,0 +1,184 @@
+[
+  {
+    "commit": "8af29c8d",
+    "commit_date": "2020-10-28 07:56:55 -0400",
+    "loc": 36874,
+    "nb_python_files": 215,
+    "nb_param_types": 189,
+    "nb_return_types": 97,
+    "nb_variable_types": 63,
+    "nb_warnings": 437,
+    "kind_to_nb": {
+      "Undefined import [21]": 181,
+      "Undefined or invalid type [11]": 87,
+      "Undefined attribute [16]": 111,
+      "Incompatible parameter type [6]": 11,
+      "Incompatible return type [7]": 2,
+      "Incompatible variable type [9]": 7,
+      "Uninitialized attribute [13]": 21,
+      "Inconsistent override [14]": 6,
+      "Inconsistent override [15]": 1,
+      "Incompatible attribute type [8]": 3,
+      "Unsupported operand [58]": 6,
+      "Too many arguments [19]": 1
+    }
+  },
+  {
+    "commit": "0ddf1d23",
+    "commit_date": "2020-06-06 13:23:43 +0200",
+    "loc": 37984,
+    "nb_python_files": 224,
+    "nb_param_types": 30,
+    "nb_return_types": 23,
+    "nb_variable_types": 48,
+    "nb_warnings": 364,
+    "kind_to_nb": {
+      "Undefined import [21]": 209,
+      "Undefined attribute [16]": 53,
+      "Undefined or invalid type [11]": 53,
+      "Incompatible parameter type [6]": 6,
+      "Uninitialized attribute [13]": 21,
+      "Unbound name [10]": 19,
+      "Unsupported operand [58]": 3
+    }
+  },
+  {
+    "commit": "4ac0f6d5",
+    "commit_date": "2016-02-03 21:03:28 -0800",
+    "loc": 37230,
+    "nb_python_files": 215,
+    "nb_param_types": 0,
+    "nb_return_types": 0,
+    "nb_variable_types": 0,
+    "nb_warnings": 599,
+    "kind_to_nb": {
+      "Undefined import [21]": 459,
+      "Undefined or invalid type [11]": 86,
+      "Incompatible parameter type [6]": 5,
+      "Parsing failure [404]": 7,
+      "Unsupported operand [58]": 2,
+      "Undefined attribute [16]": 34,
+      "Unbound name [10]": 6
+    }
+  },
+  {
+    "commit": "0aef6076",
+    "commit_date": "2014-05-06 17:58:47 +0200",
+    "loc": 36952,
+    "nb_python_files": 210,
+    "nb_param_types": 0,
+    "nb_return_types": 0,
+    "nb_variable_types": 0,
+    "nb_warnings": 592,
+    "kind_to_nb": {
+      "Undefined import [21]": 455,
+      "Undefined or invalid type [11]": 83,
+      "Incompatible parameter type [6]": 6,
+      "Parsing failure [404]": 8,
+      "Unsupported operand [58]": 2,
+      "Undefined attribute [16]": 32,
+      "Unbound name [10]": 6
+    }
+  },
+  {
+    "commit": "8b097bab",
+    "commit_date": "2013-03-06 19:23:14 +0100",
+    "loc": 41307,
+    "nb_python_files": 219,
+    "nb_param_types": 0,
+    "nb_return_types": 0,
+    "nb_variable_types": 0,
+    "nb_warnings": 668,
+    "kind_to_nb": {
+      "Undefined import [21]": 493,
+      "Unbound name [10]": 16,
+      "Undefined or invalid type [11]": 95,
+      "Incompatible parameter type [6]": 6,
+      "Parsing failure [404]": 8,
+      "Unsupported operand [58]": 2,
+      "Undefined attribute [16]": 48
+    }
+  },
+  {
+    "commit": "b286e601",
+    "commit_date": "2010-12-09 21:45:51 -0500",
+    "loc": 45304,
+    "nb_python_files": 231,
+    "nb_param_types": 0,
+    "nb_return_types": 0,
+    "nb_variable_types": 0,
+    "nb_warnings": 1044,
+    "kind_to_nb": {
+      "Parsing failure [404]": 13,
+      "Undefined import [21]": 794,
+      "Undefined or invalid type [11]": 170,
+      "Unbound name [10]": 29,
+      "Incompatible parameter type [6]": 7,
+      "Unsupported operand [58]": 2,
+      "Undefined attribute [16]": 28,
+      "Unexpected keyword [28]": 1
+    }
+  },
+  {
+    "commit": "b70bd29c",
+    "commit_date": "2008-11-12 03:20:12 +0000",
+    "loc": 42964,
+    "nb_python_files": 195,
+    "nb_param_types": 0,
+    "nb_return_types": 0,
+    "nb_variable_types": 0,
+    "nb_warnings": 893,
+    "kind_to_nb": {
+      "Parsing failure [404]": 15,
+      "Undefined import [21]": 674,
+      "Undefined or invalid type [11]": 140,
+      "Unbound name [10]": 24,
+      "Incompatible parameter type [6]": 9,
+      "Undefined attribute [16]": 29,
+      "Unexpected keyword [28]": 1,
+      "Unsupported operand [58]": 1
+    }
+  },
+  {
+    "commit": "5963b1b6",
+    "commit_date": "2006-07-21 02:54:00 +0000",
+    "loc": 44724,
+    "nb_python_files": 187,
+    "nb_param_types": 0,
+    "nb_return_types": 0,
+    "nb_variable_types": 0,
+    "nb_warnings": 863,
+    "kind_to_nb": {
+      "Undefined import [21]": 679,
+      "Unbound name [10]": 20,
+      "Undefined or invalid type [11]": 114,
+      "Unexpected keyword [28]": 2,
+      "Undefined attribute [16]": 24,
+      "Parsing failure [404]": 16,
+      "Incompatible parameter type [6]": 6,
+      "Analysis failure [30]": 1,
+      "Unsupported operand [58]": 1
+    }
+  },
+  {
+    "commit": "b72ee3b5",
+    "commit_date": "2005-12-21 05:39:47 +0000",
+    "loc": 38176,
+    "nb_python_files": 170,
+    "nb_param_types": 0,
+    "nb_return_types": 0,
+    "nb_variable_types": 0,
+    "nb_warnings": 784,
+    "kind_to_nb": {
+      "Undefined import [21]": 602,
+      "Unbound name [10]": 22,
+      "Undefined or invalid type [11]": 108,
+      "Unexpected keyword [28]": 2,
+      "Undefined attribute [16]": 29,
+      "Parsing failure [404]": 14,
+      "Incompatible parameter type [6]": 5,
+      "Analysis failure [30]": 1,
+      "Missing argument [20]": 1
+    }
+  }
+]

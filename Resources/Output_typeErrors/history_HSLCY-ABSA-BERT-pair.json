@@ -1,0 +1,47 @@
+[
+  {
+    "commit": "7d238eb",
+    "commit_date": "2020-10-12 10:35:15 +0800",
+    "loc": 2612,
+    "nb_python_files": 16,
+    "nb_param_types": 1,
+    "nb_return_types": 0,
+    "nb_variable_types": 0,
+    "nb_warnings": 28,
+    "kind_to_nb": {
+      "Undefined import [21]": 22,
+      "Unbound name [10]": 4,
+      "Undefined or invalid type [11]": 2
+    }
+  },
+  {
+    "commit": "85c001a",
+    "commit_date": "2019-06-25 16:00:21 +0800",
+    "loc": 2598,
+    "nb_python_files": 16,
+    "nb_param_types": 1,
+    "nb_return_types": 0,
+    "nb_variable_types": 0,
+    "nb_warnings": 28,
+    "kind_to_nb": {
+      "Undefined import [21]": 22,
+      "Unbound name [10]": 4,
+      "Undefined or invalid type [11]": 2
+    }
+  },
+  {
+    "commit": "f61018a",
+    "commit_date": "2019-03-22 14:25:11 +0800",
+    "loc": 2598,
+    "nb_python_files": 16,
+    "nb_param_types": 1,
+    "nb_return_types": 0,
+    "nb_variable_types": 0,
+    "nb_warnings": 28,
+    "kind_to_nb": {
+      "Undefined import [21]": 22,
+      "Unbound name [10]": 4,
+      "Undefined or invalid type [11]": 2
+    }
+  }
+]

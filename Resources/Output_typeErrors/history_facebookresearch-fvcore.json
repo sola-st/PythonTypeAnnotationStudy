@@ -1,0 +1,194 @@
+[
+  {
+    "commit": "1d1df86",
+    "commit_date": "2022-02-11 15:53:31 -0800",
+    "loc": 6709,
+    "nb_python_files": 58,
+    "nb_param_types": 462,
+    "nb_return_types": 407,
+    "nb_variable_types": 63,
+    "nb_warnings": 186,
+    "kind_to_nb": {
+      "Undefined import [21]": 70,
+      "Undefined or invalid type [11]": 42,
+      "Unused ignore [0]": 31,
+      "Too many arguments [19]": 1,
+      "Unsupported operand [58]": 2,
+      "Undefined attribute [16]": 19,
+      "Invalid decoration [56]": 1,
+      "Call error [29]": 12,
+      "Incompatible parameter type [6]": 8
+    }
+  },
+  {
+    "commit": "2d073f1",
+    "commit_date": "2021-07-21 16:07:23 -0700",
+    "loc": 6489,
+    "nb_python_files": 58,
+    "nb_param_types": 453,
+    "nb_return_types": 405,
+    "nb_variable_types": 53,
+    "nb_warnings": 181,
+    "kind_to_nb": {
+      "Undefined import [21]": 62,
+      "Undefined or invalid type [11]": 40,
+      "Unused ignore [0]": 37,
+      "Too many arguments [19]": 1,
+      "Unsupported operand [58]": 2,
+      "Undefined attribute [16]": 19,
+      "Call error [29]": 12,
+      "Incompatible parameter type [6]": 8
+    }
+  },
+  {
+    "commit": "086dfe4",
+    "commit_date": "2021-04-09 10:08:40 -0700",
+    "loc": 6344,
+    "nb_python_files": 58,
+    "nb_param_types": 438,
+    "nb_return_types": 399,
+    "nb_variable_types": 49,
+    "nb_warnings": 181,
+    "kind_to_nb": {
+      "Undefined import [21]": 61,
+      "Undefined or invalid type [11]": 39,
+      "Unused ignore [0]": 48,
+      "Too many arguments [19]": 1,
+      "Unsupported operand [58]": 2,
+      "Undefined attribute [16]": 18,
+      "Call error [29]": 12
+    }
+  },
+  {
+    "commit": "32425d7",
+    "commit_date": "2021-03-04 12:40:20 -0800",
+    "loc": 6277,
+    "nb_python_files": 57,
+    "nb_param_types": 455,
+    "nb_return_types": 403,
+    "nb_variable_types": 50,
+    "nb_warnings": 164,
+    "kind_to_nb": {
+      "Undefined import [21]": 57,
+      "Undefined or invalid type [11]": 35,
+      "Unused ignore [0]": 39,
+      "Too many arguments [19]": 1,
+      "Unsupported operand [58]": 2,
+      "Undefined attribute [16]": 18,
+      "Call error [29]": 12
+    }
+  },
+  {
+    "commit": "c56dade",
+    "commit_date": "2020-12-11 12:46:49 -0800",
+    "loc": 3896,
+    "nb_python_files": 42,
+    "nb_param_types": 288,
+    "nb_return_types": 266,
+    "nb_variable_types": 32,
+    "nb_warnings": 134,
+    "kind_to_nb": {
+      "Undefined import [21]": 46,
+      "Unused ignore [0]": 43,
+      "Undefined or invalid type [11]": 26,
+      "Too many arguments [19]": 1,
+      "Undefined attribute [16]": 17,
+      "Unsupported operand [58]": 1
+    }
+  },
+  {
+    "commit": "65ac931",
+    "commit_date": "2020-08-26 21:18:42 -0700",
+    "loc": 4138,
+    "nb_python_files": 42,
+    "nb_param_types": 374,
+    "nb_return_types": 300,
+    "nb_variable_types": 33,
+    "nb_warnings": 137,
+    "kind_to_nb": {
+      "Undefined import [21]": 44,
+      "Unused ignore [0]": 47,
+      "Undefined or invalid type [11]": 26,
+      "Unsupported operand [58]": 2,
+      "Too many arguments [19]": 1,
+      "Undefined attribute [16]": 17
+    }
+  },
+  {
+    "commit": "fb67974",
+    "commit_date": "2020-05-21 19:42:54 -0700",
+    "loc": 4003,
+    "nb_python_files": 42,
+    "nb_param_types": 366,
+    "nb_return_types": 291,
+    "nb_variable_types": 33,
+    "nb_warnings": 134,
+    "kind_to_nb": {
+      "Undefined import [21]": 45,
+      "Unused ignore [0]": 40,
+      "Undefined or invalid type [11]": 26,
+      "Unsupported operand [58]": 2,
+      "Too many arguments [19]": 1,
+      "Undefined attribute [16]": 17,
+      "Invalid decoration [56]": 3
+    }
+  },
+  {
+    "commit": "9fb9844",
+    "commit_date": "2020-03-14 19:59:35 -0700",
+    "loc": 3685,
+    "nb_python_files": 40,
+    "nb_param_types": 330,
+    "nb_return_types": 260,
+    "nb_variable_types": 33,
+    "nb_warnings": 121,
+    "kind_to_nb": {
+      "Undefined import [21]": 42,
+      "Unused ignore [0]": 32,
+      "Undefined or invalid type [11]": 25,
+      "Unsupported operand [58]": 2,
+      "Too many arguments [19]": 1,
+      "Undefined attribute [16]": 16,
+      "Invalid decoration [56]": 3
+    }
+  },
+  {
+    "commit": "f5aa799",
+    "commit_date": "2020-01-08 13:34:11 -0800",
+    "loc": 2609,
+    "nb_python_files": 33,
+    "nb_param_types": 222,
+    "nb_return_types": 93,
+    "nb_variable_types": 11,
+    "nb_warnings": 50,
+    "kind_to_nb": {
+      "Undefined import [21]": 30,
+      "Undefined or invalid type [11]": 6,
+      "Incompatible parameter type [6]": 2,
+      "Incompatible variable type [9]": 2,
+      "Undefined attribute [16]": 5,
+      "Too many arguments [19]": 1,
+      "Unsupported operand [58]": 1,
+      "Invalid decoration [56]": 1,
+      "Unused ignore [0]": 2
+    }
+  },
+  {
+    "commit": "d9b6529",
+    "commit_date": "2019-10-07 01:31:38 -0700",
+    "loc": 1401,
+    "nb_python_files": 22,
+    "nb_param_types": 85,
+    "nb_return_types": 46,
+    "nb_variable_types": 10,
+    "nb_warnings": 29,
+    "kind_to_nb": {
+      "Undefined import [21]": 21,
+      "Undefined or invalid type [11]": 4,
+      "Too many arguments [19]": 1,
+      "Incompatible variable type [9]": 1,
+      "Invalid decoration [56]": 1,
+      "Incompatible parameter type [6]": 1
+    }
+  }
+]

@@ -1,0 +1,66 @@
+[
+  {
+    "commit": "7ca0a3f",
+    "commit_date": "2020-03-04 00:52:55 -0500",
+    "loc": 3591,
+    "nb_python_files": 13,
+    "nb_param_types": 3,
+    "nb_return_types": 0,
+    "nb_variable_types": 0,
+    "nb_warnings": 67,
+    "kind_to_nb": {
+      "Undefined import [21]": 53,
+      "Undefined or invalid type [11]": 8,
+      "Incompatible parameter type [6]": 3,
+      "Unsupported operand [58]": 3
+    }
+  },
+  {
+    "commit": "12d52b6",
+    "commit_date": "2019-08-29 14:22:05 -0400",
+    "loc": 3624,
+    "nb_python_files": 13,
+    "nb_param_types": 3,
+    "nb_return_types": 0,
+    "nb_variable_types": 0,
+    "nb_warnings": 68,
+    "kind_to_nb": {
+      "Undefined import [21]": 54,
+      "Undefined or invalid type [11]": 8,
+      "Incompatible parameter type [6]": 3,
+      "Unsupported operand [58]": 3
+    }
+  },
+  {
+    "commit": "25ee8e2",
+    "commit_date": "2019-06-10 09:10:18 -0400",
+    "loc": 3624,
+    "nb_python_files": 13,
+    "nb_param_types": 3,
+    "nb_return_types": 0,
+    "nb_variable_types": 0,
+    "nb_warnings": 68,
+    "kind_to_nb": {
+      "Undefined import [21]": 54,
+      "Undefined or invalid type [11]": 8,
+      "Incompatible parameter type [6]": 3,
+      "Unsupported operand [58]": 3
+    }
+  },
+  {
+    "commit": "6313780",
+    "commit_date": "2019-05-25 00:05:02 -0400",
+    "loc": 3624,
+    "nb_python_files": 13,
+    "nb_param_types": 3,
+    "nb_return_types": 0,
+    "nb_variable_types": 0,
+    "nb_warnings": 68,
+    "kind_to_nb": {
+      "Undefined import [21]": 54,
+      "Undefined or invalid type [11]": 8,
+      "Incompatible parameter type [6]": 3,
+      "Unsupported operand [58]": 3
+    }
+  }
+]

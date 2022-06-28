@@ -1,0 +1,175 @@
+[
+  {
+    "commit": "0803981",
+    "commit_date": "2021-05-28 12:03:57 +0200",
+    "loc": 16740,
+    "nb_python_files": 186,
+    "nb_param_types": 0,
+    "nb_return_types": 1,
+    "nb_variable_types": 0,
+    "nb_warnings": 130,
+    "kind_to_nb": {
+      "Undefined import [21]": 101,
+      "Undefined or invalid type [11]": 12,
+      "Unbound name [10]": 4,
+      "Invalid Exception [48]": 1,
+      "Inconsistent override [15]": 12
+    }
+  },
+  {
+    "commit": "3b5524c",
+    "commit_date": "2020-03-09 08:50:49 +0100",
+    "loc": 16737,
+    "nb_python_files": 186,
+    "nb_param_types": 0,
+    "nb_return_types": 1,
+    "nb_variable_types": 0,
+    "nb_warnings": 130,
+    "kind_to_nb": {
+      "Undefined import [21]": 101,
+      "Undefined or invalid type [11]": 12,
+      "Unbound name [10]": 4,
+      "Invalid Exception [48]": 1,
+      "Inconsistent override [15]": 12
+    }
+  },
+  {
+    "commit": "1daca91",
+    "commit_date": "2019-12-04 10:57:30 +0100",
+    "loc": 16535,
+    "nb_python_files": 182,
+    "nb_param_types": 0,
+    "nb_return_types": 1,
+    "nb_variable_types": 0,
+    "nb_warnings": 128,
+    "kind_to_nb": {
+      "Undefined import [21]": 100,
+      "Undefined or invalid type [11]": 11,
+      "Unbound name [10]": 4,
+      "Invalid Exception [48]": 1,
+      "Inconsistent override [15]": 12
+    }
+  },
+  {
+    "commit": "f11a098",
+    "commit_date": "2019-11-04 09:11:55 +0100",
+    "loc": 16502,
+    "nb_python_files": 182,
+    "nb_param_types": 0,
+    "nb_return_types": 1,
+    "nb_variable_types": 0,
+    "nb_warnings": 128,
+    "kind_to_nb": {
+      "Undefined import [21]": 100,
+      "Undefined or invalid type [11]": 11,
+      "Unbound name [10]": 4,
+      "Invalid Exception [48]": 1,
+      "Inconsistent override [15]": 12
+    }
+  },
+  {
+    "commit": "ab08f3a",
+    "commit_date": "2019-10-03 15:51:42 +0200",
+    "loc": 16519,
+    "nb_python_files": 180,
+    "nb_param_types": 0,
+    "nb_return_types": 1,
+    "nb_variable_types": 0,
+    "nb_warnings": 128,
+    "kind_to_nb": {
+      "Undefined import [21]": 100,
+      "Undefined or invalid type [11]": 11,
+      "Unbound name [10]": 4,
+      "Invalid Exception [48]": 1,
+      "Inconsistent override [15]": 12
+    }
+  },
+  {
+    "commit": "ad36b24",
+    "commit_date": "2019-10-03 15:35:46 +0200",
+    "loc": 16519,
+    "nb_python_files": 180,
+    "nb_param_types": 0,
+    "nb_return_types": 1,
+    "nb_variable_types": 0,
+    "nb_warnings": 128,
+    "kind_to_nb": {
+      "Undefined import [21]": 100,
+      "Undefined or invalid type [11]": 11,
+      "Unbound name [10]": 4,
+      "Invalid Exception [48]": 1,
+      "Inconsistent override [15]": 12
+    }
+  },
+  {
+    "commit": "d8e6481",
+    "commit_date": "2019-09-24 08:45:29 +0200",
+    "loc": 16519,
+    "nb_python_files": 180,
+    "nb_param_types": 0,
+    "nb_return_types": 1,
+    "nb_variable_types": 0,
+    "nb_warnings": 128,
+    "kind_to_nb": {
+      "Undefined import [21]": 100,
+      "Undefined or invalid type [11]": 11,
+      "Unbound name [10]": 4,
+      "Invalid Exception [48]": 1,
+      "Inconsistent override [15]": 12
+    }
+  },
+  {
+    "commit": "cede0c3",
+    "commit_date": "2019-08-22 16:41:16 +0200",
+    "loc": 4531,
+    "nb_python_files": 82,
+    "nb_param_types": 0,
+    "nb_return_types": 0,
+    "nb_variable_types": 0,
+    "nb_warnings": 81,
+    "kind_to_nb": {
+      "Undefined import [21]": 71,
+      "Undefined or invalid type [11]": 5,
+      "Unbound name [10]": 4,
+      "Invalid Exception [48]": 1
+    }
+  },
+  {
+    "commit": "6bb68ec",
+    "commit_date": "2019-08-20 15:36:47 +0200",
+    "loc": 4285,
+    "nb_python_files": 78,
+    "nb_param_types": 0,
+    "nb_return_types": 0,
+    "nb_variable_types": 0,
+    "nb_warnings": 72,
+    "kind_to_nb": {
+      "Undefined import [21]": 63,
+      "Undefined or invalid type [11]": 4,
+      "Unbound name [10]": 4,
+      "Invalid Exception [48]": 1
+    }
+  },
+  {
+    "commit": "5948e12",
+    "commit_date": "2019-08-19 11:41:38 +0200",
+    "loc": 0,
+    "nb_python_files": 0,
+    "nb_param_types": 0,
+    "nb_return_types": 0,
+    "nb_variable_types": 0,
+    "nb_warnings": 0,
+    "kind_to_nb": {}
+  },
+  {
+    "commit": "d62057e",
+    "commit_date": "2019-08-07 10:24:38 +0100",
+    "loc": 0,
+    "nb_python_files": 0,
+    "nb_param_types": 0,
+    "nb_return_types": 0,
+    "nb_variable_types": 0,
+    "nb_warnings": 0,
+    "kind_to_nb": {}
+  }
+]

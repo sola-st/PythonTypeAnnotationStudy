@@ -1,0 +1,20 @@
+[
+  {
+    "commit": "1070a7e",
+    "commit_date": "2020-04-05 16:12:56 +0800",
+    "loc": 3027,
+    "nb_python_files": 32,
+    "nb_param_types": 93,
+    "nb_return_types": 28,
+    "nb_variable_types": 0,
+    "nb_warnings": 146,
+    "kind_to_nb": {
+      "Undefined import [21]": 108,
+      "Unsupported operand [58]": 1,
+      "Unbound name [10]": 4,
+      "Undefined or invalid type [11]": 26,
+      "Undefined attribute [16]": 6,
+      "Incompatible variable type [9]": 1
+    }
+  }
+]

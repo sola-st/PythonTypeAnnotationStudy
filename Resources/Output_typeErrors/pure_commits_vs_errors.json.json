@@ -1,0 +1,17 @@
+{
+  "add_only_commits": {
+    "same_nb_errors": 0,
+    "more_errors": 0,
+    "fewer_errors": 0
+  },
+  "remove_only_commits": {
+    "same_nb_errors": 0,
+    "more_errors": 0,
+    "fewer_errors": 0
+  },
+  "change_only_commits": {
+    "same_nb_errors": 0,
+    "more_errors": 0,
+    "fewer_errors": 0
+  }
+}

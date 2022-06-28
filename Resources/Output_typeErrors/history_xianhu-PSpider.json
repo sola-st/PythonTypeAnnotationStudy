@@ -1,0 +1,136 @@
+[
+  {
+    "commit": "f1162c7",
+    "commit_date": "2022-01-19 14:56:00 +0800",
+    "loc": 483,
+    "nb_python_files": 20,
+    "nb_param_types": 15,
+    "nb_return_types": 0,
+    "nb_variable_types": 0,
+    "nb_warnings": 11,
+    "kind_to_nb": {
+      "Undefined import [21]": 1,
+      "Invalid type [31]": 8,
+      "Unable to unpack [23]": 1,
+      "Inconsistent override [14]": 1
+    }
+  },
+  {
+    "commit": "bab683b",
+    "commit_date": "2019-07-14 20:46:53 +0800",
+    "loc": 541,
+    "nb_python_files": 20,
+    "nb_param_types": 0,
+    "nb_return_types": 0,
+    "nb_variable_types": 0,
+    "nb_warnings": 15,
+    "kind_to_nb": {
+      "Undefined import [21]": 3,
+      "Invalid type [31]": 11,
+      "Unable to unpack [23]": 1
+    }
+  },
+  {
+    "commit": "4386882",
+    "commit_date": "2018-12-18 11:38:30 +0800",
+    "loc": 574,
+    "nb_python_files": 20,
+    "nb_param_types": 10,
+    "nb_return_types": 0,
+    "nb_variable_types": 0,
+    "nb_warnings": 13,
+    "kind_to_nb": {
+      "Undefined import [21]": 3,
+      "Invalid type [31]": 8,
+      "Unable to unpack [23]": 2
+    }
+  },
+  {
+    "commit": "7fcca88",
+    "commit_date": "2018-06-07 14:58:27 +0800",
+    "loc": 584,
+    "nb_python_files": 21,
+    "nb_param_types": 10,
+    "nb_return_types": 0,
+    "nb_variable_types": 0,
+    "nb_warnings": 12,
+    "kind_to_nb": {
+      "Undefined import [21]": 2,
+      "Invalid type [31]": 8,
+      "Unable to unpack [23]": 2
+    }
+  },
+  {
+    "commit": "10184ec",
+    "commit_date": "2017-12-06 10:45:21 +0800",
+    "loc": 607,
+    "nb_python_files": 22,
+    "nb_param_types": 0,
+    "nb_return_types": 0,
+    "nb_variable_types": 0,
+    "nb_warnings": 11,
+    "kind_to_nb": {
+      "Undefined import [21]": 2,
+      "Invalid type [31]": 8,
+      "Unable to unpack [23]": 1
+    }
+  },
+  {
+    "commit": "848be55",
+    "commit_date": "2017-10-20 18:29:57 +0800",
+    "loc": 750,
+    "nb_python_files": 17,
+    "nb_param_types": 0,
+    "nb_return_types": 0,
+    "nb_variable_types": 0,
+    "nb_warnings": 9,
+    "kind_to_nb": {
+      "Undefined import [21]": 2,
+      "Invalid type [31]": 6,
+      "Unable to unpack [23]": 1
+    }
+  },
+  {
+    "commit": "4bcb61d",
+    "commit_date": "2017-04-01 14:25:04 +0800",
+    "loc": 2254,
+    "nb_python_files": 42,
+    "nb_param_types": 0,
+    "nb_return_types": 0,
+    "nb_variable_types": 0,
+    "nb_warnings": 28,
+    "kind_to_nb": {
+      "Undefined import [21]": 14,
+      "Unexpected keyword [28]": 3,
+      "Invalid type [31]": 9,
+      "Unable to unpack [23]": 2
+    }
+  },
+  {
+    "commit": "f7bb41d",
+    "commit_date": "2016-12-12 18:18:00 +0800",
+    "loc": 1586,
+    "nb_python_files": 32,
+    "nb_param_types": 0,
+    "nb_return_types": 0,
+    "nb_variable_types": 0,
+    "nb_warnings": 13,
+    "kind_to_nb": {
+      "Undefined import [21]": 10,
+      "Unexpected keyword [28]": 3
+    }
+  },
+  {
+    "commit": "4468b41",
+    "commit_date": "2016-11-24 11:16:55 +0800",
+    "loc": 840,
+    "nb_python_files": 21,
+    "nb_param_types": 0,
+    "nb_return_types": 0,
+    "nb_variable_types": 0,
+    "nb_warnings": 2,
+    "kind_to_nb": {
+      "Undefined import [21]": 2
+    }
+  }
+]

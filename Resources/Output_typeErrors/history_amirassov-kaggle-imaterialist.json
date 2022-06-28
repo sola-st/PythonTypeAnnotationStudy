@@ -1,0 +1,114 @@
+[
+  {
+    "commit": "f1ae371",
+    "commit_date": "2020-01-12 20:57:33 +0300",
+    "loc": 21010,
+    "nb_python_files": 226,
+    "nb_param_types": 4,
+    "nb_return_types": 1,
+    "nb_variable_types": 0,
+    "nb_warnings": 372,
+    "kind_to_nb": {
+      "Undefined import [21]": 331,
+      "Undefined or invalid type [11]": 34,
+      "Inconsistent override [15]": 1,
+      "Undefined attribute [16]": 6
+    }
+  },
+  {
+    "commit": "edb815c",
+    "commit_date": "2019-06-17 13:58:15 +0300",
+    "loc": 21010,
+    "nb_python_files": 226,
+    "nb_param_types": 4,
+    "nb_return_types": 1,
+    "nb_variable_types": 0,
+    "nb_warnings": 372,
+    "kind_to_nb": {
+      "Undefined import [21]": 331,
+      "Undefined or invalid type [11]": 34,
+      "Inconsistent override [15]": 1,
+      "Undefined attribute [16]": 6
+    }
+  },
+  {
+    "commit": "96149a2",
+    "commit_date": "2019-06-15 21:52:53 +0300",
+    "loc": 21010,
+    "nb_python_files": 226,
+    "nb_param_types": 4,
+    "nb_return_types": 1,
+    "nb_variable_types": 0,
+    "nb_warnings": 372,
+    "kind_to_nb": {
+      "Undefined import [21]": 331,
+      "Undefined or invalid type [11]": 34,
+      "Inconsistent override [15]": 1,
+      "Undefined attribute [16]": 6
+    }
+  },
+  {
+    "commit": "970bd5f",
+    "commit_date": "2019-06-15 21:52:41 +0300",
+    "loc": 21010,
+    "nb_python_files": 226,
+    "nb_param_types": 4,
+    "nb_return_types": 1,
+    "nb_variable_types": 0,
+    "nb_warnings": 372,
+    "kind_to_nb": {
+      "Undefined import [21]": 331,
+      "Undefined or invalid type [11]": 34,
+      "Inconsistent override [15]": 1,
+      "Undefined attribute [16]": 6
+    }
+  },
+  {
+    "commit": "65d041c",
+    "commit_date": "2019-06-12 17:27:48 +0300",
+    "loc": 21010,
+    "nb_python_files": 226,
+    "nb_param_types": 4,
+    "nb_return_types": 1,
+    "nb_variable_types": 0,
+    "nb_warnings": 372,
+    "kind_to_nb": {
+      "Undefined import [21]": 331,
+      "Undefined or invalid type [11]": 34,
+      "Inconsistent override [15]": 1,
+      "Undefined attribute [16]": 6
+    }
+  },
+  {
+    "commit": "210aee4",
+    "commit_date": "2019-06-12 17:14:58 +0300",
+    "loc": 21010,
+    "nb_python_files": 226,
+    "nb_param_types": 4,
+    "nb_return_types": 1,
+    "nb_variable_types": 0,
+    "nb_warnings": 372,
+    "kind_to_nb": {
+      "Undefined import [21]": 331,
+      "Undefined or invalid type [11]": 34,
+      "Inconsistent override [15]": 1,
+      "Undefined attribute [16]": 6
+    }
+  },
+  {
+    "commit": "7033250",
+    "commit_date": "2019-06-11 18:40:43 +0300",
+    "loc": 21010,
+    "nb_python_files": 226,
+    "nb_param_types": 4,
+    "nb_return_types": 1,
+    "nb_variable_types": 0,
+    "nb_warnings": 372,
+    "kind_to_nb": {
+      "Undefined import [21]": 331,
+      "Undefined or invalid type [11]": 34,
+      "Inconsistent override [15]": 1,
+      "Undefined attribute [16]": 6
+    }
+  }
+]

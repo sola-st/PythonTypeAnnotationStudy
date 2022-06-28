@@ -1,0 +1,166 @@
+[
+  {
+    "commit": "3daed8b",
+    "commit_date": "2022-02-09 23:35:28 +0000",
+    "loc": 4162,
+    "nb_python_files": 21,
+    "nb_param_types": 1495,
+    "nb_return_types": 885,
+    "nb_variable_types": 7,
+    "nb_warnings": 74,
+    "kind_to_nb": {
+      "Undefined import [21]": 22,
+      "Undefined or invalid type [11]": 8,
+      "Incompatible overload [43]": 3,
+      "Incompatible parameter type [6]": 3,
+      "Inconsistent override [15]": 5,
+      "Undefined attribute [16]": 1,
+      "Inconsistent override [14]": 10,
+      "Invalid decoration [56]": 22
+    }
+  },
+  {
+    "commit": "dc61045",
+    "commit_date": "2020-08-10 17:24:01 +0200",
+    "loc": 3781,
+    "nb_python_files": 21,
+    "nb_param_types": 1364,
+    "nb_return_types": 765,
+    "nb_variable_types": 7,
+    "nb_warnings": 68,
+    "kind_to_nb": {
+      "Undefined import [21]": 22,
+      "Undefined or invalid type [11]": 7,
+      "Incompatible overload [43]": 3,
+      "Incompatible parameter type [6]": 3,
+      "Inconsistent override [15]": 5,
+      "Undefined attribute [16]": 1,
+      "Inconsistent override [14]": 6,
+      "Invalid decoration [56]": 21
+    }
+  },
+  {
+    "commit": "aec4eed",
+    "commit_date": "2020-02-14 18:41:01 +0100",
+    "loc": 3686,
+    "nb_python_files": 21,
+    "nb_param_types": 1322,
+    "nb_return_types": 742,
+    "nb_variable_types": 7,
+    "nb_warnings": 67,
+    "kind_to_nb": {
+      "Undefined import [21]": 22,
+      "Undefined or invalid type [11]": 7,
+      "Incompatible overload [43]": 3,
+      "Incompatible parameter type [6]": 3,
+      "Inconsistent override [15]": 5,
+      "Undefined attribute [16]": 1,
+      "Inconsistent override [14]": 6,
+      "Invalid decoration [56]": 20
+    }
+  },
+  {
+    "commit": "b376bb9",
+    "commit_date": "2020-02-06 02:27:06 +0100",
+    "loc": 3452,
+    "nb_python_files": 20,
+    "nb_param_types": 1285,
+    "nb_return_types": 717,
+    "nb_variable_types": 2,
+    "nb_warnings": 64,
+    "kind_to_nb": {
+      "Undefined import [21]": 22,
+      "Undefined or invalid type [11]": 7,
+      "Incompatible overload [43]": 3,
+      "Incompatible parameter type [6]": 3,
+      "Inconsistent override [15]": 2,
+      "Undefined attribute [16]": 1,
+      "Inconsistent override [14]": 6,
+      "Invalid decoration [56]": 20
+    }
+  },
+  {
+    "commit": "2555efb",
+    "commit_date": "2020-01-31 19:14:18 +0100",
+    "loc": 2900,
+    "nb_python_files": 20,
+    "nb_param_types": 706,
+    "nb_return_types": 471,
+    "nb_variable_types": 1,
+    "nb_warnings": 56,
+    "kind_to_nb": {
+      "Undefined import [21]": 22,
+      "Undefined or invalid type [11]": 11,
+      "Incompatible overload [43]": 4,
+      "Incompatible parameter type [6]": 2,
+      "Undefined attribute [16]": 1,
+      "Inconsistent override [14]": 2,
+      "Invalid decoration [56]": 14
+    }
+  },
+  {
+    "commit": "6b94f22",
+    "commit_date": "2020-01-25 19:52:27 +0100",
+    "loc": 2223,
+    "nb_python_files": 18,
+    "nb_param_types": 0,
+    "nb_return_types": 0,
+    "nb_variable_types": 0,
+    "nb_warnings": 15,
+    "kind_to_nb": {
+      "Undefined import [21]": 15
+    }
+  },
+  {
+    "commit": "3cdb06d",
+    "commit_date": "2020-01-24 21:36:51 +0100",
+    "loc": 2140,
+    "nb_python_files": 17,
+    "nb_param_types": 0,
+    "nb_return_types": 0,
+    "nb_variable_types": 0,
+    "nb_warnings": 15,
+    "kind_to_nb": {
+      "Undefined import [21]": 15
+    }
+  },
+  {
+    "commit": "ee0c6f9",
+    "commit_date": "2020-01-10 10:22:01 +0100",
+    "loc": 2269,
+    "nb_python_files": 16,
+    "nb_param_types": 0,
+    "nb_return_types": 0,
+    "nb_variable_types": 0,
+    "nb_warnings": 30,
+    "kind_to_nb": {
+      "Undefined import [21]": 30
+    }
+  },
+  {
+    "commit": "65fc423",
+    "commit_date": "2019-10-30 00:21:54 +0100",
+    "loc": 946,
+    "nb_python_files": 13,
+    "nb_param_types": 0,
+    "nb_return_types": 0,
+    "nb_variable_types": 0,
+    "nb_warnings": 24,
+    "kind_to_nb": {
+      "Undefined import [21]": 24
+    }
+  },
+  {
+    "commit": "b15a838",
+    "commit_date": "2019-10-23 16:25:55 +0200",
+    "loc": 451,
+    "nb_python_files": 8,
+    "nb_param_types": 0,
+    "nb_return_types": 0,
+    "nb_variable_types": 0,
+    "nb_warnings": 7,
+    "kind_to_nb": {
+      "Undefined import [21]": 7
+    }
+  }
+]

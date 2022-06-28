@@ -1,0 +1,153 @@
+[
+  {
+    "commit": "61a246c",
+    "commit_date": "2022-02-16 23:36:35 +0000",
+    "loc": 4251,
+    "nb_python_files": 72,
+    "nb_param_types": 55,
+    "nb_return_types": 103,
+    "nb_variable_types": 39,
+    "nb_warnings": 54,
+    "kind_to_nb": {
+      "Undefined import [21]": 39,
+      "Undefined or invalid type [11]": 2,
+      "Incompatible parameter type [6]": 1,
+      "Incompatible attribute type [8]": 1,
+      "Invalid decoration [56]": 4,
+      "Incompatible return type [7]": 7
+    }
+  },
+  {
+    "commit": "107749c",
+    "commit_date": "2021-08-21 23:19:02 +0100",
+    "loc": 4357,
+    "nb_python_files": 70,
+    "nb_param_types": 55,
+    "nb_return_types": 98,
+    "nb_variable_types": 38,
+    "nb_warnings": 53,
+    "kind_to_nb": {
+      "Undefined import [21]": 38,
+      "Undefined or invalid type [11]": 2,
+      "Incompatible parameter type [6]": 1,
+      "Incompatible attribute type [8]": 1,
+      "Invalid decoration [56]": 4,
+      "Incompatible return type [7]": 7
+    }
+  },
+  {
+    "commit": "2278e4f",
+    "commit_date": "2020-11-14 02:21:26 +0000",
+    "loc": 3948,
+    "nb_python_files": 60,
+    "nb_param_types": 33,
+    "nb_return_types": 79,
+    "nb_variable_types": 29,
+    "nb_warnings": 35,
+    "kind_to_nb": {
+      "Undefined import [21]": 25,
+      "Undefined or invalid type [11]": 1,
+      "Incompatible parameter type [6]": 1,
+      "Incompatible attribute type [8]": 1,
+      "Incompatible return type [7]": 7
+    }
+  },
+  {
+    "commit": "a8cad8a",
+    "commit_date": "2020-06-05 10:58:50 +0100",
+    "loc": 3991,
+    "nb_python_files": 62,
+    "nb_param_types": 48,
+    "nb_return_types": 73,
+    "nb_variable_types": 31,
+    "nb_warnings": 43,
+    "kind_to_nb": {
+      "Undefined import [21]": 30,
+      "Undefined or invalid type [11]": 2,
+      "Incompatible parameter type [6]": 1,
+      "Incompatible attribute type [8]": 1,
+      "Incompatible return type [7]": 7,
+      "Invalid decoration [56]": 2
+    }
+  },
+  {
+    "commit": "bc79791",
+    "commit_date": "2020-02-19 19:04:40 +0000",
+    "loc": 3473,
+    "nb_python_files": 51,
+    "nb_param_types": 21,
+    "nb_return_types": 57,
+    "nb_variable_types": 30,
+    "nb_warnings": 28,
+    "kind_to_nb": {
+      "Undefined import [21]": 19,
+      "Incompatible parameter type [6]": 1,
+      "Incompatible attribute type [8]": 1,
+      "Incompatible return type [7]": 7
+    }
+  },
+  {
+    "commit": "14a0d06",
+    "commit_date": "2019-10-20 01:05:49 +0530",
+    "loc": 3335,
+    "nb_python_files": 52,
+    "nb_param_types": 22,
+    "nb_return_types": 40,
+    "nb_variable_types": 13,
+    "nb_warnings": 27,
+    "kind_to_nb": {
+      "Undefined import [21]": 25,
+      "Incompatible parameter type [6]": 1,
+      "Incompatible return type [7]": 1
+    }
+  },
+  {
+    "commit": "ed727f3",
+    "commit_date": "2019-09-03 22:38:05 +0100",
+    "loc": 6162,
+    "nb_python_files": 60,
+    "nb_param_types": 6,
+    "nb_return_types": 5,
+    "nb_variable_types": 8,
+    "nb_warnings": 28,
+    "kind_to_nb": {
+      "Undefined import [21]": 21,
+      "Incompatible parameter type [6]": 1,
+      "Undefined or invalid type [11]": 1,
+      "Incompatible variable type [9]": 1,
+      "Incompatible return type [7]": 1,
+      "Undefined attribute [16]": 3
+    }
+  },
+  {
+    "commit": "f50070b",
+    "commit_date": "2019-02-24 23:13:11 +0000",
+    "loc": 6489,
+    "nb_python_files": 59,
+    "nb_param_types": 0,
+    "nb_return_types": 0,
+    "nb_variable_types": 0,
+    "nb_warnings": 16,
+    "kind_to_nb": {
+      "Incompatible parameter type [6]": 1,
+      "Undefined import [21]": 12,
+      "Undefined attribute [16]": 3
+    }
+  },
+  {
+    "commit": "e8a768f",
+    "commit_date": "2018-12-22 17:37:35 +0000",
+    "loc": 7207,
+    "nb_python_files": 75,
+    "nb_param_types": 0,
+    "nb_return_types": 0,
+    "nb_variable_types": 0,
+    "nb_warnings": 21,
+    "kind_to_nb": {
+      "Undefined import [21]": 15,
+      "Incompatible parameter type [6]": 1,
+      "Undefined or invalid type [11]": 2,
+      "Undefined attribute [16]": 3
+    }
+  }
+]

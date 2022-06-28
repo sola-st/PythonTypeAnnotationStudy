@@ -1,0 +1,133 @@
+[
+  {
+    "commit": "005b10a",
+    "commit_date": "2019-12-24 23:57:41 +0000",
+    "loc": 689,
+    "nb_python_files": 13,
+    "nb_param_types": 73,
+    "nb_return_types": 48,
+    "nb_variable_types": 14,
+    "nb_warnings": 7,
+    "kind_to_nb": {
+      "Unable to concatenate tuple [60]": 1,
+      "Incompatible variable type [9]": 2,
+      "Call error [29]": 2,
+      "Unable to unpack [23]": 2
+    }
+  },
+  {
+    "commit": "0755252",
+    "commit_date": "2019-11-02 00:31:07 +0000",
+    "loc": 686,
+    "nb_python_files": 13,
+    "nb_param_types": 73,
+    "nb_return_types": 48,
+    "nb_variable_types": 14,
+    "nb_warnings": 7,
+    "kind_to_nb": {
+      "Unable to concatenate tuple [60]": 1,
+      "Incompatible variable type [9]": 2,
+      "Call error [29]": 2,
+      "Unable to unpack [23]": 2
+    }
+  },
+  {
+    "commit": "d6192a3",
+    "commit_date": "2019-07-07 09:53:48 +0100",
+    "loc": 617,
+    "nb_python_files": 13,
+    "nb_param_types": 68,
+    "nb_return_types": 43,
+    "nb_variable_types": 14,
+    "nb_warnings": 6,
+    "kind_to_nb": {
+      "Unable to concatenate tuple [60]": 1,
+      "Incompatible variable type [9]": 1,
+      "Call error [29]": 2,
+      "Unable to unpack [23]": 2
+    }
+  },
+  {
+    "commit": "f54191b",
+    "commit_date": "2019-04-28 01:43:00 +0100",
+    "loc": 584,
+    "nb_python_files": 11,
+    "nb_param_types": 64,
+    "nb_return_types": 38,
+    "nb_variable_types": 12,
+    "nb_warnings": 6,
+    "kind_to_nb": {
+      "Incompatible variable type [9]": 1,
+      "Call error [29]": 2,
+      "Redundant cast [22]": 1,
+      "Unable to unpack [23]": 1,
+      "Incompatible parameter type [6]": 1
+    }
+  },
+  {
+    "commit": "fa5677f",
+    "commit_date": "2018-05-24 10:25:49 +0100",
+    "loc": 138,
+    "nb_python_files": 0,
+    "nb_param_types": 0,
+    "nb_return_types": 0,
+    "nb_variable_types": 0,
+    "nb_warnings": 0,
+    "kind_to_nb": {}
+  },
+  {
+    "commit": "bdec8e1",
+    "commit_date": "2017-10-04 23:19:36 +0100",
+    "loc": 138,
+    "nb_python_files": 0,
+    "nb_param_types": 0,
+    "nb_return_types": 0,
+    "nb_variable_types": 0,
+    "nb_warnings": 0,
+    "kind_to_nb": {}
+  },
+  {
+    "commit": "5bdd2f3",
+    "commit_date": "2016-01-02 14:10:19 +0000",
+    "loc": 140,
+    "nb_python_files": 0,
+    "nb_param_types": 0,
+    "nb_return_types": 0,
+    "nb_variable_types": 0,
+    "nb_warnings": 0,
+    "kind_to_nb": {}
+  },
+  {
+    "commit": "c27f8b0",
+    "commit_date": "2014-12-13 11:23:10 +0000",
+    "loc": 140,
+    "nb_python_files": 0,
+    "nb_param_types": 0,
+    "nb_return_types": 0,
+    "nb_variable_types": 0,
+    "nb_warnings": 0,
+    "kind_to_nb": {}
+  },
+  {
+    "commit": "d09d4f1",
+    "commit_date": "2013-11-08 10:07:53 -0800",
+    "loc": 140,
+    "nb_python_files": 0,
+    "nb_param_types": 0,
+    "nb_return_types": 0,
+    "nb_variable_types": 0,
+    "nb_warnings": 0,
+    "kind_to_nb": {}
+  },
+  {
+    "commit": "2336aee",
+    "commit_date": "2011-12-25 01:01:57 +0000",
+    "loc": 142,
+    "nb_python_files": 0,
+    "nb_param_types": 0,
+    "nb_return_types": 0,
+    "nb_variable_types": 0,
+    "nb_warnings": 0,
+    "kind_to_nb": {}
+  }
+]

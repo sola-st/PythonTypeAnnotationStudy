@@ -1,0 +1,157 @@
+[
+  {
+    "commit": "620ff7b",
+    "commit_date": "2022-01-10 16:04:12 +0000",
+    "loc": 4620,
+    "nb_python_files": 95,
+    "nb_param_types": 0,
+    "nb_return_types": 8,
+    "nb_variable_types": 0,
+    "nb_warnings": 361,
+    "kind_to_nb": {
+      "Undefined import [21]": 264,
+      "Undefined or invalid type [11]": 64,
+      "Undefined attribute [16]": 29,
+      "Incompatible attribute type [8]": 1,
+      "Unexpected keyword [28]": 3
+    }
+  },
+  {
+    "commit": "102d0d9",
+    "commit_date": "2020-10-25 16:33:14 +0200",
+    "loc": 4708,
+    "nb_python_files": 96,
+    "nb_param_types": 0,
+    "nb_return_types": 8,
+    "nb_variable_types": 0,
+    "nb_warnings": 371,
+    "kind_to_nb": {
+      "Undefined import [21]": 274,
+      "Undefined or invalid type [11]": 65,
+      "Undefined attribute [16]": 29,
+      "Incompatible attribute type [8]": 1,
+      "Unexpected keyword [28]": 2
+    }
+  },
+  {
+    "commit": "69b628a",
+    "commit_date": "2019-06-13 02:26:36 +0300",
+    "loc": 4580,
+    "nb_python_files": 95,
+    "nb_param_types": 0,
+    "nb_return_types": 8,
+    "nb_variable_types": 0,
+    "nb_warnings": 359,
+    "kind_to_nb": {
+      "Undefined import [21]": 264,
+      "Undefined or invalid type [11]": 63,
+      "Undefined attribute [16]": 29,
+      "Incompatible attribute type [8]": 1,
+      "Unexpected keyword [28]": 2
+    }
+  },
+  {
+    "commit": "e5a569e",
+    "commit_date": "2018-12-28 01:37:13 +0200",
+    "loc": 4389,
+    "nb_python_files": 90,
+    "nb_param_types": 0,
+    "nb_return_types": 8,
+    "nb_variable_types": 0,
+    "nb_warnings": 337,
+    "kind_to_nb": {
+      "Undefined import [21]": 253,
+      "Undefined or invalid type [11]": 54,
+      "Undefined attribute [16]": 27,
+      "Incompatible attribute type [8]": 1,
+      "Unexpected keyword [28]": 2
+    }
+  },
+  {
+    "commit": "f587785",
+    "commit_date": "2018-11-29 02:39:32 +0200",
+    "loc": 4209,
+    "nb_python_files": 85,
+    "nb_param_types": 0,
+    "nb_return_types": 8,
+    "nb_variable_types": 0,
+    "nb_warnings": 302,
+    "kind_to_nb": {
+      "Undefined import [21]": 228,
+      "Undefined or invalid type [11]": 50,
+      "Undefined attribute [16]": 21,
+      "Incompatible attribute type [8]": 1,
+      "Unexpected keyword [28]": 2
+    }
+  },
+  {
+    "commit": "ec75293",
+    "commit_date": "2018-09-09 21:56:26 +0300",
+    "loc": 4100,
+    "nb_python_files": 85,
+    "nb_param_types": 0,
+    "nb_return_types": 8,
+    "nb_variable_types": 0,
+    "nb_warnings": 301,
+    "kind_to_nb": {
+      "Undefined import [21]": 227,
+      "Undefined or invalid type [11]": 50,
+      "Undefined attribute [16]": 21,
+      "Incompatible attribute type [8]": 1,
+      "Unexpected keyword [28]": 2
+    }
+  },
+  {
+    "commit": "6ac58b8",
+    "commit_date": "2018-06-16 15:41:51 +0300",
+    "loc": 3656,
+    "nb_python_files": 82,
+    "nb_param_types": 0,
+    "nb_return_types": 0,
+    "nb_variable_types": 0,
+    "nb_warnings": 288,
+    "kind_to_nb": {
+      "Undefined import [21]": 219,
+      "Incompatible variable type [9]": 1,
+      "Undefined or invalid type [11]": 45,
+      "Undefined attribute [16]": 21,
+      "Incompatible attribute type [8]": 1,
+      "Unexpected keyword [28]": 1
+    }
+  },
+  {
+    "commit": "3f7ad62",
+    "commit_date": "2018-02-26 17:18:52 +0200",
+    "loc": 3358,
+    "nb_python_files": 73,
+    "nb_param_types": 0,
+    "nb_return_types": 0,
+    "nb_variable_types": 0,
+    "nb_warnings": 256,
+    "kind_to_nb": {
+      "Undefined import [21]": 202,
+      "Incompatible variable type [9]": 1,
+      "Undefined or invalid type [11]": 37,
+      "Undefined attribute [16]": 14,
+      "Incompatible attribute type [8]": 1,
+      "Unexpected keyword [28]": 1
+    }
+  },
+  {
+    "commit": "ee47897",
+    "commit_date": "2017-12-27 20:47:32 +0100",
+    "loc": 3017,
+    "nb_python_files": 63,
+    "nb_param_types": 0,
+    "nb_return_types": 0,
+    "nb_variable_types": 0,
+    "nb_warnings": 222,
+    "kind_to_nb": {
+      "Undefined import [21]": 176,
+      "Undefined or invalid type [11]": 33,
+      "Undefined attribute [16]": 11,
+      "Incompatible attribute type [8]": 1,
+      "Unexpected keyword [28]": 1
+    }
+  }
+]

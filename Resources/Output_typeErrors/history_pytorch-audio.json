@@ -1,0 +1,202 @@
+[
+  {
+    "commit": "27a6dccc",
+    "commit_date": "2022-02-17 05:43:21 -0800",
+    "loc": 35161,
+    "nb_python_files": 302,
+    "nb_param_types": 2026,
+    "nb_return_types": 484,
+    "nb_variable_types": 107,
+    "nb_warnings": 1255,
+    "kind_to_nb": {
+      "Incompatible return type [7]": 7,
+      "Unable to unpack [23]": 1,
+      "Undefined import [21]": 584,
+      "Undefined attribute [16]": 186,
+      "Undefined or invalid type [11]": 316,
+      "Call error [29]": 64,
+      "Incompatible parameter type [6]": 29,
+      "Incompatible variable type [9]": 16,
+      "Missing parameter annotation [2]": 14,
+      "Missing attribute annotation [4]": 3,
+      "Incompatible attribute type [8]": 2,
+      "Invalid type parameters [24]": 4,
+      "Missing return annotation [3]": 5,
+      "Unsupported operand [58]": 4,
+      "Invalid type [31]": 1,
+      "Illegal annotation target [35]": 2,
+      "Invalid decoration [56]": 14,
+      "Unexpected keyword [28]": 1,
+      "Invalid class instantiation [45]": 2
+    }
+  },
+  {
+    "commit": "6c3e1c06",
+    "commit_date": "2021-12-09 12:45:27 +0000",
+    "loc": 3089,
+    "nb_python_files": 21,
+    "nb_param_types": 2,
+    "nb_return_types": 2,
+    "nb_variable_types": 14,
+    "nb_warnings": 232,
+    "kind_to_nb": {
+      "Undefined import [21]": 216,
+      "Incompatible variable type [9]": 4,
+      "Undefined or invalid type [11]": 8,
+      "Call error [29]": 4
+    }
+  },
+  {
+    "commit": "a85f1adc",
+    "commit_date": "2021-10-11 07:15:06 -0700",
+    "loc": 26652,
+    "nb_python_files": 223,
+    "nb_param_types": 1577,
+    "nb_return_types": 373,
+    "nb_variable_types": 48,
+    "nb_warnings": 881,
+    "kind_to_nb": {
+      "Undefined import [21]": 415,
+      "Undefined or invalid type [11]": 243,
+      "Undefined attribute [16]": 117,
+      "Incompatible parameter type [6]": 19,
+      "Incompatible variable type [9]": 13,
+      "Missing parameter annotation [2]": 14,
+      "Missing attribute annotation [4]": 3,
+      "Incompatible attribute type [8]": 1,
+      "Invalid type parameters [24]": 4,
+      "Missing return annotation [3]": 5,
+      "Call error [29]": 28,
+      "Unsupported operand [58]": 5,
+      "Incompatible return type [7]": 2,
+      "Invalid type [31]": 1,
+      "Illegal annotation target [35]": 1,
+      "Invalid decoration [56]": 8,
+      "Unexpected keyword [28]": 1,
+      "Unable to concatenate tuple [60]": 1
+    }
+  },
+  {
+    "commit": "a4f16ab0",
+    "commit_date": "2021-07-27 14:29:45 -0700",
+    "loc": 20803,
+    "nb_python_files": 202,
+    "nb_param_types": 1203,
+    "nb_return_types": 278,
+    "nb_variable_types": 27,
+    "nb_warnings": 699,
+    "kind_to_nb": {
+      "Undefined import [21]": 341,
+      "Undefined or invalid type [11]": 218,
+      "Undefined attribute [16]": 87,
+      "Call error [29]": 18,
+      "Incompatible variable type [9]": 12,
+      "Unsupported operand [58]": 5,
+      "Incompatible parameter type [6]": 14,
+      "Invalid type [31]": 1,
+      "Illegal annotation target [35]": 1,
+      "Invalid decoration [56]": 1,
+      "Unexpected keyword [28]": 1
+    }
+  },
+  {
+    "commit": "c1ef2edd",
+    "commit_date": "2021-04-07 16:24:12 -0400",
+    "loc": 17522,
+    "nb_python_files": 172,
+    "nb_param_types": 953,
+    "nb_return_types": 228,
+    "nb_variable_types": 24,
+    "nb_warnings": 568,
+    "kind_to_nb": {
+      "Undefined import [21]": 285,
+      "Undefined or invalid type [11]": 177,
+      "Undefined attribute [16]": 66,
+      "Call error [29]": 8,
+      "Incompatible variable type [9]": 11,
+      "Unsupported operand [58]": 5,
+      "Incompatible parameter type [6]": 14,
+      "Invalid type [31]": 1,
+      "Illegal annotation target [35]": 1
+    }
+  },
+  {
+    "commit": "72b76803",
+    "commit_date": "2021-01-12 14:06:37 -0500",
+    "loc": 16107,
+    "nb_python_files": 152,
+    "nb_param_types": 888,
+    "nb_return_types": 237,
+    "nb_variable_types": 22,
+    "nb_warnings": 483,
+    "kind_to_nb": {
+      "Undefined import [21]": 240,
+      "Undefined or invalid type [11]": 148,
+      "Undefined attribute [16]": 60,
+      "Call error [29]": 8,
+      "Incompatible variable type [9]": 8,
+      "Unsupported operand [58]": 1,
+      "Incompatible parameter type [6]": 16,
+      "Invalid type [31]": 1,
+      "Illegal annotation target [35]": 1
+    }
+  },
+  {
+    "commit": "c388ec2b",
+    "commit_date": "2020-09-02 17:08:19 -0700",
+    "loc": 12807,
+    "nb_python_files": 117,
+    "nb_param_types": 821,
+    "nb_return_types": 226,
+    "nb_variable_types": 23,
+    "nb_warnings": 370,
+    "kind_to_nb": {
+      "Undefined import [21]": 176,
+      "Undefined or invalid type [11]": 117,
+      "Incompatible variable type [9]": 7,
+      "Unsupported operand [58]": 1,
+      "Undefined attribute [16]": 58,
+      "Incompatible parameter type [6]": 4,
+      "Illegal annotation target [35]": 1,
+      "Call error [29]": 6
+    }
+  },
+  {
+    "commit": "9ceb96c0",
+    "commit_date": "2020-04-29 12:08:25 -0400",
+    "loc": 7960,
+    "nb_python_files": 49,
+    "nb_param_types": 642,
+    "nb_return_types": 188,
+    "nb_variable_types": 20,
+    "nb_warnings": 153,
+    "kind_to_nb": {
+      "Undefined import [21]": 86,
+      "Incompatible variable type [9]": 8,
+      "Unsupported operand [58]": 1,
+      "Undefined or invalid type [11]": 27,
+      "Undefined attribute [16]": 23,
+      "Incompatible parameter type [6]": 4,
+      "Illegal annotation target [35]": 1,
+      "Call error [29]": 3
+    }
+  },
+  {
+    "commit": "99ed0521",
+    "commit_date": "2019-11-21 13:19:32 -0500",
+    "loc": 5149,
+    "nb_python_files": 38,
+    "nb_param_types": 0,
+    "nb_return_types": 0,
+    "nb_variable_types": 0,
+    "nb_warnings": 89,
+    "kind_to_nb": {
+      "Undefined import [21]": 66,
+      "Incompatible variable type [9]": 1,
+      "Unsupported operand [58]": 1,
+      "Undefined or invalid type [11]": 12,
+      "Undefined attribute [16]": 8,
+      "Invalid decoration [56]": 1
+    }
+  }
+]

@@ -1,0 +1,155 @@
+[
+  {
+    "commit": "7c7f654",
+    "commit_date": "2022-02-14 12:11:24 +0100",
+    "loc": 3388,
+    "nb_python_files": 35,
+    "nb_param_types": 50,
+    "nb_return_types": 17,
+    "nb_variable_types": 7,
+    "nb_warnings": 78,
+    "kind_to_nb": {
+      "Undefined import [21]": 72,
+      "Undefined or invalid type [11]": 6
+    }
+  },
+  {
+    "commit": "0b08aa5",
+    "commit_date": "2021-12-10 15:42:12 +0100",
+    "loc": 3324,
+    "nb_python_files": 35,
+    "nb_param_types": 50,
+    "nb_return_types": 17,
+    "nb_variable_types": 7,
+    "nb_warnings": 78,
+    "kind_to_nb": {
+      "Undefined import [21]": 72,
+      "Undefined or invalid type [11]": 6
+    }
+  },
+  {
+    "commit": "8b57e60",
+    "commit_date": "2021-11-10 17:39:49 +0100",
+    "loc": 3318,
+    "nb_python_files": 35,
+    "nb_param_types": 50,
+    "nb_return_types": 17,
+    "nb_variable_types": 7,
+    "nb_warnings": 79,
+    "kind_to_nb": {
+      "Undefined import [21]": 73,
+      "Undefined or invalid type [11]": 6
+    }
+  },
+  {
+    "commit": "e389916",
+    "commit_date": "2021-09-06 02:50:34 -0700",
+    "loc": 2658,
+    "nb_python_files": 23,
+    "nb_param_types": 1,
+    "nb_return_types": 1,
+    "nb_variable_types": 4,
+    "nb_warnings": 67,
+    "kind_to_nb": {
+      "Undefined import [21]": 53,
+      "Incompatible attribute type [8]": 3,
+      "Undefined or invalid type [11]": 3,
+      "Missing argument [20]": 3,
+      "Call error [29]": 3,
+      "Incompatible parameter type [6]": 1,
+      "Undefined attribute [16]": 1
+    }
+  },
+  {
+    "commit": "a50345f",
+    "commit_date": "2021-05-14 18:39:15 +0200",
+    "loc": 2633,
+    "nb_python_files": 23,
+    "nb_param_types": 1,
+    "nb_return_types": 1,
+    "nb_variable_types": 4,
+    "nb_warnings": 66,
+    "kind_to_nb": {
+      "Undefined import [21]": 52,
+      "Incompatible attribute type [8]": 3,
+      "Undefined or invalid type [11]": 3,
+      "Missing argument [20]": 3,
+      "Call error [29]": 3,
+      "Incompatible parameter type [6]": 1,
+      "Undefined attribute [16]": 1
+    }
+  },
+  {
+    "commit": "d555f38",
+    "commit_date": "2021-05-09 11:01:37 +0000",
+    "loc": 2606,
+    "nb_python_files": 23,
+    "nb_param_types": 1,
+    "nb_return_types": 1,
+    "nb_variable_types": 4,
+    "nb_warnings": 67,
+    "kind_to_nb": {
+      "Undefined import [21]": 53,
+      "Incompatible attribute type [8]": 3,
+      "Undefined or invalid type [11]": 3,
+      "Missing argument [20]": 3,
+      "Call error [29]": 3,
+      "Incompatible parameter type [6]": 1,
+      "Undefined attribute [16]": 1
+    }
+  },
+  {
+    "commit": "abe629f",
+    "commit_date": "2021-02-23 23:24:39 +0100",
+    "loc": 2108,
+    "nb_python_files": 19,
+    "nb_param_types": 1,
+    "nb_return_types": 1,
+    "nb_variable_types": 4,
+    "nb_warnings": 49,
+    "kind_to_nb": {
+      "Undefined import [21]": 37,
+      "Incompatible attribute type [8]": 3,
+      "Undefined or invalid type [11]": 3,
+      "Missing argument [20]": 2,
+      "Call error [29]": 3,
+      "Incompatible parameter type [6]": 1
+    }
+  },
+  {
+    "commit": "1510cba",
+    "commit_date": "2020-04-07 16:49:05 +0200",
+    "loc": 2014,
+    "nb_python_files": 18,
+    "nb_param_types": 1,
+    "nb_return_types": 1,
+    "nb_variable_types": 4,
+    "nb_warnings": 48,
+    "kind_to_nb": {
+      "Undefined import [21]": 36,
+      "Incompatible attribute type [8]": 3,
+      "Undefined or invalid type [11]": 3,
+      "Missing argument [20]": 2,
+      "Call error [29]": 3,
+      "Incompatible parameter type [6]": 1
+    }
+  },
+  {
+    "commit": "283b12b",
+    "commit_date": "2019-12-09 12:19:26 +0100",
+    "loc": 1949,
+    "nb_python_files": 18,
+    "nb_param_types": 1,
+    "nb_return_types": 1,
+    "nb_variable_types": 4,
+    "nb_warnings": 48,
+    "kind_to_nb": {
+      "Undefined import [21]": 35,
+      "Incompatible attribute type [8]": 3,
+      "Undefined or invalid type [11]": 3,
+      "Missing argument [20]": 2,
+      "Call error [29]": 4,
+      "Incompatible parameter type [6]": 1
+    }
+  }
+]

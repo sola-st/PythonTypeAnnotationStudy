@@ -1,0 +1,160 @@
+[
+  {
+    "commit": "1f80229",
+    "commit_date": "2020-01-17 17:30:32 +0300",
+    "loc": 11506,
+    "nb_python_files": 79,
+    "nb_param_types": 0,
+    "nb_return_types": 1,
+    "nb_variable_types": 0,
+    "nb_warnings": 42,
+    "kind_to_nb": {
+      "Undefined import [21]": 23,
+      "Inconsistent override [15]": 13,
+      "Undefined or invalid type [11]": 6
+    }
+  },
+  {
+    "commit": "283d54d",
+    "commit_date": "2020-01-15 17:41:41 -0500",
+    "loc": 11228,
+    "nb_python_files": 79,
+    "nb_param_types": 0,
+    "nb_return_types": 1,
+    "nb_variable_types": 0,
+    "nb_warnings": 41,
+    "kind_to_nb": {
+      "Undefined import [21]": 23,
+      "Inconsistent override [15]": 12,
+      "Undefined or invalid type [11]": 6
+    }
+  },
+  {
+    "commit": "d9ecb3b",
+    "commit_date": "2019-10-02 18:30:43 +0300",
+    "loc": 11224,
+    "nb_python_files": 79,
+    "nb_param_types": 0,
+    "nb_return_types": 1,
+    "nb_variable_types": 0,
+    "nb_warnings": 41,
+    "kind_to_nb": {
+      "Undefined import [21]": 22,
+      "Inconsistent override [15]": 12,
+      "Parsing failure [404]": 1,
+      "Undefined or invalid type [11]": 6
+    }
+  },
+  {
+    "commit": "d8aefc4",
+    "commit_date": "2019-08-07 18:36:41 +0300",
+    "loc": 11211,
+    "nb_python_files": 79,
+    "nb_param_types": 0,
+    "nb_return_types": 1,
+    "nb_variable_types": 0,
+    "nb_warnings": 41,
+    "kind_to_nb": {
+      "Undefined import [21]": 22,
+      "Inconsistent override [15]": 12,
+      "Parsing failure [404]": 1,
+      "Undefined or invalid type [11]": 6
+    }
+  },
+  {
+    "commit": "66f2154",
+    "commit_date": "2019-08-07 17:29:33 +0300",
+    "loc": 11149,
+    "nb_python_files": 78,
+    "nb_param_types": 0,
+    "nb_return_types": 1,
+    "nb_variable_types": 0,
+    "nb_warnings": 41,
+    "kind_to_nb": {
+      "Undefined import [21]": 22,
+      "Inconsistent override [15]": 12,
+      "Parsing failure [404]": 1,
+      "Undefined or invalid type [11]": 6
+    }
+  },
+  {
+    "commit": "8d55e52",
+    "commit_date": "2019-07-29 14:35:41 +0200",
+    "loc": 11148,
+    "nb_python_files": 78,
+    "nb_param_types": 0,
+    "nb_return_types": 1,
+    "nb_variable_types": 0,
+    "nb_warnings": 41,
+    "kind_to_nb": {
+      "Undefined import [21]": 22,
+      "Inconsistent override [15]": 12,
+      "Parsing failure [404]": 1,
+      "Undefined or invalid type [11]": 6
+    }
+  },
+  {
+    "commit": "c6029ac",
+    "commit_date": "2019-07-29 14:02:34 +0200",
+    "loc": 11148,
+    "nb_python_files": 78,
+    "nb_param_types": 0,
+    "nb_return_types": 1,
+    "nb_variable_types": 0,
+    "nb_warnings": 41,
+    "kind_to_nb": {
+      "Undefined import [21]": 22,
+      "Inconsistent override [15]": 12,
+      "Parsing failure [404]": 1,
+      "Undefined or invalid type [11]": 6
+    }
+  },
+  {
+    "commit": "aac9c18",
+    "commit_date": "2019-07-27 14:15:45 +0200",
+    "loc": 11210,
+    "nb_python_files": 79,
+    "nb_param_types": 0,
+    "nb_return_types": 1,
+    "nb_variable_types": 0,
+    "nb_warnings": 41,
+    "kind_to_nb": {
+      "Undefined import [21]": 22,
+      "Inconsistent override [15]": 12,
+      "Parsing failure [404]": 1,
+      "Undefined or invalid type [11]": 6
+    }
+  },
+  {
+    "commit": "d8a7069",
+    "commit_date": "2019-07-26 04:28:12 +0300",
+    "loc": 11148,
+    "nb_python_files": 78,
+    "nb_param_types": 0,
+    "nb_return_types": 1,
+    "nb_variable_types": 0,
+    "nb_warnings": 41,
+    "kind_to_nb": {
+      "Undefined import [21]": 22,
+      "Inconsistent override [15]": 12,
+      "Parsing failure [404]": 1,
+      "Undefined or invalid type [11]": 6
+    }
+  },
+  {
+    "commit": "69d139c",
+    "commit_date": "2019-07-25 11:18:59 +0300",
+    "loc": 11148,
+    "nb_python_files": 78,
+    "nb_param_types": 0,
+    "nb_return_types": 1,
+    "nb_variable_types": 0,
+    "nb_warnings": 41,
+    "kind_to_nb": {
+      "Undefined import [21]": 22,
+      "Inconsistent override [15]": 12,
+      "Parsing failure [404]": 1,
+      "Undefined or invalid type [11]": 6
+    }
+  }
+]

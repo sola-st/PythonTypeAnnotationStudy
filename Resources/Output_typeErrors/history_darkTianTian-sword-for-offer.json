@@ -1,0 +1,151 @@
+[
+  {
+    "commit": "fda4152",
+    "commit_date": "2020-10-26 16:03:53 +0800",
+    "loc": 1043,
+    "nb_python_files": 67,
+    "nb_param_types": 78,
+    "nb_return_types": 65,
+    "nb_variable_types": 0,
+    "nb_warnings": 43,
+    "kind_to_nb": {
+      "Incompatible return type [7]": 9,
+      "Undefined or invalid type [11]": 28,
+      "Incompatible parameter type [6]": 2,
+      "Undefined attribute [16]": 3,
+      "Undefined import [21]": 1
+    }
+  },
+  {
+    "commit": "054e2b8",
+    "commit_date": "2019-03-22 23:17:44 +0800",
+    "loc": 1047,
+    "nb_python_files": 67,
+    "nb_param_types": 78,
+    "nb_return_types": 65,
+    "nb_variable_types": 0,
+    "nb_warnings": 43,
+    "kind_to_nb": {
+      "Incompatible return type [7]": 9,
+      "Undefined or invalid type [11]": 28,
+      "Incompatible parameter type [6]": 2,
+      "Undefined attribute [16]": 3,
+      "Undefined import [21]": 1
+    }
+  },
+  {
+    "commit": "2d67606",
+    "commit_date": "2019-03-17 19:30:17 +0800",
+    "loc": 985,
+    "nb_python_files": 64,
+    "nb_param_types": 76,
+    "nb_return_types": 62,
+    "nb_variable_types": 0,
+    "nb_warnings": 42,
+    "kind_to_nb": {
+      "Incompatible return type [7]": 9,
+      "Undefined or invalid type [11]": 27,
+      "Incompatible parameter type [6]": 2,
+      "Undefined attribute [16]": 3,
+      "Undefined import [21]": 1
+    }
+  },
+  {
+    "commit": "dea6de2",
+    "commit_date": "2019-03-16 16:56:49 +0800",
+    "loc": 924,
+    "nb_python_files": 60,
+    "nb_param_types": 72,
+    "nb_return_types": 61,
+    "nb_variable_types": 0,
+    "nb_warnings": 40,
+    "kind_to_nb": {
+      "Undefined or invalid type [11]": 27,
+      "Incompatible return type [7]": 7,
+      "Incompatible parameter type [6]": 2,
+      "Undefined attribute [16]": 3,
+      "Undefined import [21]": 1
+    }
+  },
+  {
+    "commit": "6f5f690",
+    "commit_date": "2019-03-16 13:42:26 +0800",
+    "loc": 924,
+    "nb_python_files": 60,
+    "nb_param_types": 72,
+    "nb_return_types": 61,
+    "nb_variable_types": 0,
+    "nb_warnings": 40,
+    "kind_to_nb": {
+      "Undefined or invalid type [11]": 27,
+      "Incompatible return type [7]": 7,
+      "Incompatible parameter type [6]": 2,
+      "Undefined attribute [16]": 3,
+      "Undefined import [21]": 1
+    }
+  },
+  {
+    "commit": "a3ff4c3",
+    "commit_date": "2019-03-16 13:05:14 +0800",
+    "loc": 924,
+    "nb_python_files": 60,
+    "nb_param_types": 72,
+    "nb_return_types": 61,
+    "nb_variable_types": 0,
+    "nb_warnings": 40,
+    "kind_to_nb": {
+      "Undefined or invalid type [11]": 27,
+      "Incompatible return type [7]": 7,
+      "Incompatible parameter type [6]": 2,
+      "Undefined attribute [16]": 3,
+      "Undefined import [21]": 1
+    }
+  },
+  {
+    "commit": "466f52a",
+    "commit_date": "2019-03-16 12:53:15 +0800",
+    "loc": 924,
+    "nb_python_files": 60,
+    "nb_param_types": 72,
+    "nb_return_types": 61,
+    "nb_variable_types": 0,
+    "nb_warnings": 40,
+    "kind_to_nb": {
+      "Undefined or invalid type [11]": 27,
+      "Incompatible return type [7]": 7,
+      "Incompatible parameter type [6]": 2,
+      "Undefined attribute [16]": 3,
+      "Undefined import [21]": 1
+    }
+  },
+  {
+    "commit": "97f6494",
+    "commit_date": "2019-03-10 20:28:49 +0800",
+    "loc": 924,
+    "nb_python_files": 60,
+    "nb_param_types": 72,
+    "nb_return_types": 61,
+    "nb_variable_types": 0,
+    "nb_warnings": 40,
+    "kind_to_nb": {
+      "Undefined or invalid type [11]": 27,
+      "Incompatible return type [7]": 7,
+      "Incompatible parameter type [6]": 2,
+      "Undefined attribute [16]": 3,
+      "Undefined import [21]": 1
+    }
+  },
+  {
+    "commit": "e35206d",
+    "commit_date": "2019-03-09 14:22:35 +0800",
+    "loc": 11,
+    "nb_python_files": 1,
+    "nb_param_types": 1,
+    "nb_return_types": 0,
+    "nb_variable_types": 0,
+    "nb_warnings": 1,
+    "kind_to_nb": {
+      "Undefined or invalid type [11]": 1
+    }
+  }
+]

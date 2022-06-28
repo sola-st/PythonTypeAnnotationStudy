@@ -1,0 +1,161 @@
+[
+  {
+    "commit": "dd857151",
+    "commit_date": "2022-02-15 11:15:03 +0800",
+    "loc": 7411,
+    "nb_python_files": 73,
+    "nb_param_types": 0,
+    "nb_return_types": 0,
+    "nb_variable_types": 0,
+    "nb_warnings": 59,
+    "kind_to_nb": {
+      "Parsing failure [404]": 2,
+      "Undefined import [21]": 56,
+      "Unbound name [10]": 1
+    }
+  },
+  {
+    "commit": "fdd8f936",
+    "commit_date": "2021-09-24 17:08:42 +0800",
+    "loc": 6946,
+    "nb_python_files": 68,
+    "nb_param_types": 0,
+    "nb_return_types": 0,
+    "nb_variable_types": 0,
+    "nb_warnings": 54,
+    "kind_to_nb": {
+      "Parsing failure [404]": 2,
+      "Undefined import [21]": 51,
+      "Unbound name [10]": 1
+    }
+  },
+  {
+    "commit": "43e2f5f7",
+    "commit_date": "2021-03-03 21:16:19 +0800",
+    "loc": 18615,
+    "nb_python_files": 468,
+    "nb_param_types": 3,
+    "nb_return_types": 246,
+    "nb_variable_types": 0,
+    "nb_warnings": 160,
+    "kind_to_nb": {
+      "Parsing failure [404]": 2,
+      "Undefined import [21]": 121,
+      "Undefined attribute [16]": 27,
+      "Incompatible parameter type [6]": 3,
+      "Unsupported operand [58]": 1,
+      "Unbound name [10]": 5,
+      "Undefined or invalid type [11]": 1
+    }
+  },
+  {
+    "commit": "d9ed19f7",
+    "commit_date": "2020-10-27 16:38:05 +0800",
+    "loc": 17389,
+    "nb_python_files": 450,
+    "nb_param_types": 754,
+    "nb_return_types": 250,
+    "nb_variable_types": 0,
+    "nb_warnings": 375,
+    "kind_to_nb": {
+      "Parsing failure [404]": 2,
+      "Undefined import [21]": 92,
+      "Incompatible variable type [9]": 249,
+      "Undefined attribute [16]": 24,
+      "Incompatible parameter type [6]": 3,
+      "Unsupported operand [58]": 1,
+      "Unbound name [10]": 3,
+      "Undefined or invalid type [11]": 1
+    }
+  },
+  {
+    "commit": "74e21166",
+    "commit_date": "2020-05-28 22:55:42 +0800",
+    "loc": 17966,
+    "nb_python_files": 432,
+    "nb_param_types": 64,
+    "nb_return_types": 20,
+    "nb_variable_types": 0,
+    "nb_warnings": 105,
+    "kind_to_nb": {
+      "Parsing failure [404]": 2,
+      "Undefined import [21]": 62,
+      "Incompatible variable type [9]": 20,
+      "Unsupported operand [58]": 1,
+      "Unbound name [10]": 1,
+      "Invalid decoration [56]": 11,
+      "Undefined or invalid type [11]": 8
+    }
+  },
+  {
+    "commit": "90dc719d",
+    "commit_date": "2020-03-21 22:11:08 +0800",
+    "loc": 13514,
+    "nb_python_files": 345,
+    "nb_param_types": 9,
+    "nb_return_types": 3,
+    "nb_variable_types": 0,
+    "nb_warnings": 63,
+    "kind_to_nb": {
+      "Undefined import [21]": 51,
+      "Incompatible variable type [9]": 4,
+      "Invalid decoration [56]": 5,
+      "Undefined or invalid type [11]": 3
+    }
+  },
+  {
+    "commit": "f148d012",
+    "commit_date": "2020-02-17 13:45:33 +0800",
+    "loc": 10435,
+    "nb_python_files": 244,
+    "nb_param_types": 0,
+    "nb_return_types": 0,
+    "nb_variable_types": 0,
+    "nb_warnings": 39,
+    "kind_to_nb": {
+      "Undefined import [21]": 35,
+      "Incompatible variable type [9]": 4
+    }
+  },
+  {
+    "commit": "5194e6f5",
+    "commit_date": "2019-12-25 22:12:07 +0800",
+    "loc": 16939,
+    "nb_python_files": 411,
+    "nb_param_types": 0,
+    "nb_return_types": 0,
+    "nb_variable_types": 0,
+    "nb_warnings": 278,
+    "kind_to_nb": {
+      "Undefined import [21]": 273,
+      "Incompatible variable type [9]": 5
+    }
+  },
+  {
+    "commit": "cab441a1",
+    "commit_date": "2019-09-29 06:51:25 +0800",
+    "loc": 14917,
+    "nb_python_files": 370,
+    "nb_param_types": 0,
+    "nb_return_types": 0,
+    "nb_variable_types": 0,
+    "nb_warnings": 27,
+    "kind_to_nb": {
+      "Undefined import [21]": 22,
+      "Incompatible variable type [9]": 5
+    }
+  },
+  {
+    "commit": "d2b4a7f8",
+    "commit_date": "2019-08-28 23:06:50 +0800",
+    "loc": 618,
+    "nb_python_files": 13,
+    "nb_param_types": 0,
+    "nb_return_types": 0,
+    "nb_variable_types": 0,
+    "nb_warnings": 11,
+    "kind_to_nb": {
+      "Undefined import [21]": 11
+    }
+  }
+]

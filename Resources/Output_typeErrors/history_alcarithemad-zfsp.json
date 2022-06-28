@@ -1,0 +1,45 @@
+[
+  {
+    "commit": "37a25b8",
+    "commit_date": "2019-05-04 15:55:19 -0400",
+    "loc": 2861,
+    "nb_python_files": 56,
+    "nb_param_types": 83,
+    "nb_return_types": 68,
+    "nb_variable_types": 0,
+    "nb_warnings": 109,
+    "kind_to_nb": {
+      "Undefined attribute [16]": 7,
+      "Undefined or invalid type [11]": 2,
+      "Undefined import [21]": 25,
+      "Call error [29]": 43,
+      "Unexpected keyword [28]": 15,
+      "Incompatible variable type [9]": 10,
+      "Unsupported operand [58]": 4,
+      "Incompatible parameter type [6]": 2,
+      "Incompatible return type [7]": 1
+    }
+  },
+  {
+    "commit": "2241f8a",
+    "commit_date": "2019-05-04 12:29:49 -0400",
+    "loc": 2962,
+    "nb_python_files": 57,
+    "nb_param_types": 83,
+    "nb_return_types": 68,
+    "nb_variable_types": 0,
+    "nb_warnings": 110,
+    "kind_to_nb": {
+      "Parsing failure [404]": 1,
+      "Undefined attribute [16]": 7,
+      "Undefined or invalid type [11]": 2,
+      "Undefined import [21]": 25,
+      "Call error [29]": 43,
+      "Unexpected keyword [28]": 15,
+      "Incompatible variable type [9]": 10,
+      "Unsupported operand [58]": 4,
+      "Incompatible parameter type [6]": 2,
+      "Incompatible return type [7]": 1
+    }
+  }
+]

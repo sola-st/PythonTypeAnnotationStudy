@@ -1,0 +1,158 @@
+[
+  {
+    "commit": "66e8b16",
+    "commit_date": "2022-02-08 09:30:28 +0200",
+    "loc": 1008,
+    "nb_python_files": 5,
+    "nb_param_types": 4,
+    "nb_return_types": 1,
+    "nb_variable_types": 0,
+    "nb_warnings": 38,
+    "kind_to_nb": {
+      "Undefined import [21]": 28,
+      "Undefined or invalid type [11]": 6,
+      "Undefined attribute [16]": 3,
+      "Incompatible variable type [9]": 1
+    }
+  },
+  {
+    "commit": "ef62936",
+    "commit_date": "2021-06-30 21:05:51 +0300",
+    "loc": 984,
+    "nb_python_files": 5,
+    "nb_param_types": 4,
+    "nb_return_types": 4,
+    "nb_variable_types": 0,
+    "nb_warnings": 37,
+    "kind_to_nb": {
+      "Undefined import [21]": 27,
+      "Undefined or invalid type [11]": 6,
+      "Undefined attribute [16]": 3,
+      "Incompatible variable type [9]": 1
+    }
+  },
+  {
+    "commit": "11ddeef",
+    "commit_date": "2020-11-06 16:51:47 +0200",
+    "loc": 934,
+    "nb_python_files": 5,
+    "nb_param_types": 4,
+    "nb_return_types": 4,
+    "nb_variable_types": 0,
+    "nb_warnings": 37,
+    "kind_to_nb": {
+      "Undefined import [21]": 27,
+      "Undefined or invalid type [11]": 6,
+      "Undefined attribute [16]": 3,
+      "Incompatible variable type [9]": 1
+    }
+  },
+  {
+    "commit": "7356afc",
+    "commit_date": "2020-06-12 16:57:24 +0300",
+    "loc": 913,
+    "nb_python_files": 5,
+    "nb_param_types": 4,
+    "nb_return_types": 4,
+    "nb_variable_types": 0,
+    "nb_warnings": 37,
+    "kind_to_nb": {
+      "Undefined import [21]": 27,
+      "Undefined or invalid type [11]": 6,
+      "Undefined attribute [16]": 3,
+      "Incompatible variable type [9]": 1
+    }
+  },
+  {
+    "commit": "fca5e68",
+    "commit_date": "2020-03-30 16:14:33 +0300",
+    "loc": 875,
+    "nb_python_files": 5,
+    "nb_param_types": 3,
+    "nb_return_types": 3,
+    "nb_variable_types": 0,
+    "nb_warnings": 37,
+    "kind_to_nb": {
+      "Undefined import [21]": 28,
+      "Undefined or invalid type [11]": 6,
+      "Undefined attribute [16]": 2,
+      "Incompatible variable type [9]": 1
+    }
+  },
+  {
+    "commit": "ba75680",
+    "commit_date": "2019-08-23 13:45:07 +0300",
+    "loc": 868,
+    "nb_python_files": 10,
+    "nb_param_types": 6,
+    "nb_return_types": 6,
+    "nb_variable_types": 0,
+    "nb_warnings": 74,
+    "kind_to_nb": {
+      "Undefined import [21]": 56,
+      "Undefined or invalid type [11]": 12,
+      "Undefined attribute [16]": 4,
+      "Incompatible variable type [9]": 2
+    }
+  },
+  {
+    "commit": "f6ab636",
+    "commit_date": "2019-05-02 12:14:19 +0300",
+    "loc": 846,
+    "nb_python_files": 5,
+    "nb_param_types": 3,
+    "nb_return_types": 3,
+    "nb_variable_types": 0,
+    "nb_warnings": 36,
+    "kind_to_nb": {
+      "Undefined import [21]": 27,
+      "Undefined or invalid type [11]": 6,
+      "Undefined attribute [16]": 2,
+      "Incompatible variable type [9]": 1
+    }
+  },
+  {
+    "commit": "0bd5261",
+    "commit_date": "2019-02-28 10:57:14 +0200",
+    "loc": 874,
+    "nb_python_files": 4,
+    "nb_param_types": 3,
+    "nb_return_types": 3,
+    "nb_variable_types": 0,
+    "nb_warnings": 35,
+    "kind_to_nb": {
+      "Undefined import [21]": 26,
+      "Undefined or invalid type [11]": 6,
+      "Undefined attribute [16]": 2,
+      "Incompatible variable type [9]": 1
+    }
+  },
+  {
+    "commit": "da32056",
+    "commit_date": "2019-02-22 15:20:05 +0200",
+    "loc": 510,
+    "nb_python_files": 3,
+    "nb_param_types": 0,
+    "nb_return_types": 2,
+    "nb_variable_types": 0,
+    "nb_warnings": 18,
+    "kind_to_nb": {
+      "Undefined import [21]": 14,
+      "Undefined or invalid type [11]": 4
+    }
+  },
+  {
+    "commit": "5415886",
+    "commit_date": "2019-02-17 14:55:11 +0200",
+    "loc": 238,
+    "nb_python_files": 1,
+    "nb_param_types": 0,
+    "nb_return_types": 1,
+    "nb_variable_types": 0,
+    "nb_warnings": 10,
+    "kind_to_nb": {
+      "Undefined import [21]": 8,
+      "Undefined or invalid type [11]": 2
+    }
+  }
+]

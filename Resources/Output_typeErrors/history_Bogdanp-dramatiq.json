@@ -1,0 +1,151 @@
+[
+  {
+    "commit": "71f5f65",
+    "commit_date": "2022-02-16 07:50:23 +0200",
+    "loc": 6198,
+    "nb_python_files": 109,
+    "nb_param_types": 17,
+    "nb_return_types": 13,
+    "nb_variable_types": 0,
+    "nb_warnings": 66,
+    "kind_to_nb": {
+      "Undefined import [21]": 46,
+      "Incompatible variable type [9]": 6,
+      "Undefined attribute [16]": 4,
+      "Uninitialized attribute [13]": 7,
+      "Undefined or invalid type [11]": 3
+    }
+  },
+  {
+    "commit": "a9e380b",
+    "commit_date": "2020-10-18 13:11:24 +0300",
+    "loc": 5587,
+    "nb_python_files": 105,
+    "nb_param_types": 17,
+    "nb_return_types": 13,
+    "nb_variable_types": 0,
+    "nb_warnings": 52,
+    "kind_to_nb": {
+      "Undefined import [21]": 37,
+      "Incompatible variable type [9]": 4,
+      "Uninitialized attribute [13]": 7,
+      "Undefined or invalid type [11]": 2,
+      "Undefined attribute [16]": 2
+    }
+  },
+  {
+    "commit": "d9c4c51",
+    "commit_date": "2020-01-14 14:22:48 +0200",
+    "loc": 5104,
+    "nb_python_files": 100,
+    "nb_param_types": 15,
+    "nb_return_types": 12,
+    "nb_variable_types": 0,
+    "nb_warnings": 52,
+    "kind_to_nb": {
+      "Undefined import [21]": 37,
+      "Incompatible variable type [9]": 4,
+      "Uninitialized attribute [13]": 7,
+      "Undefined or invalid type [11]": 2,
+      "Undefined attribute [16]": 2
+    }
+  },
+  {
+    "commit": "63768ad",
+    "commit_date": "2019-02-18 10:39:02 +0200",
+    "loc": 4776,
+    "nb_python_files": 98,
+    "nb_param_types": 15,
+    "nb_return_types": 12,
+    "nb_variable_types": 0,
+    "nb_warnings": 52,
+    "kind_to_nb": {
+      "Undefined import [21]": 36,
+      "Incompatible variable type [9]": 5,
+      "Uninitialized attribute [13]": 7,
+      "Undefined or invalid type [11]": 2,
+      "Undefined attribute [16]": 2
+    }
+  },
+  {
+    "commit": "b675bb7",
+    "commit_date": "2018-05-26 11:19:57 +0300",
+    "loc": 4639,
+    "nb_python_files": 94,
+    "nb_param_types": 15,
+    "nb_return_types": 12,
+    "nb_variable_types": 0,
+    "nb_warnings": 52,
+    "kind_to_nb": {
+      "Undefined import [21]": 36,
+      "Incompatible variable type [9]": 4,
+      "Uninitialized attribute [13]": 7,
+      "Undefined or invalid type [11]": 3,
+      "Undefined attribute [16]": 2
+    }
+  },
+  {
+    "commit": "33763af",
+    "commit_date": "2018-03-31 14:19:27 +0300",
+    "loc": 4370,
+    "nb_python_files": 89,
+    "nb_param_types": 15,
+    "nb_return_types": 12,
+    "nb_variable_types": 0,
+    "nb_warnings": 54,
+    "kind_to_nb": {
+      "Undefined import [21]": 38,
+      "Incompatible variable type [9]": 4,
+      "Undefined or invalid type [11]": 3,
+      "Uninitialized attribute [13]": 7,
+      "Undefined attribute [16]": 2
+    }
+  },
+  {
+    "commit": "391de28",
+    "commit_date": "2017-11-16 12:10:51 +0200",
+    "loc": 3274,
+    "nb_python_files": 62,
+    "nb_param_types": 0,
+    "nb_return_types": 0,
+    "nb_variable_types": 0,
+    "nb_warnings": 38,
+    "kind_to_nb": {
+      "Undefined import [21]": 29,
+      "Incompatible variable type [9]": 1,
+      "Undefined or invalid type [11]": 1,
+      "Uninitialized attribute [13]": 7
+    }
+  },
+  {
+    "commit": "34d5827",
+    "commit_date": "2017-10-19 12:00:52 +0300",
+    "loc": 2850,
+    "nb_python_files": 56,
+    "nb_param_types": 0,
+    "nb_return_types": 0,
+    "nb_variable_types": 0,
+    "nb_warnings": 32,
+    "kind_to_nb": {
+      "Undefined import [21]": 23,
+      "Incompatible variable type [9]": 1,
+      "Undefined or invalid type [11]": 1,
+      "Uninitialized attribute [13]": 7
+    }
+  },
+  {
+    "commit": "26df2d4",
+    "commit_date": "2017-06-22 13:39:48 +0300",
+    "loc": 1792,
+    "nb_python_files": 33,
+    "nb_param_types": 0,
+    "nb_return_types": 0,
+    "nb_variable_types": 0,
+    "nb_warnings": 18,
+    "kind_to_nb": {
+      "Undefined import [21]": 10,
+      "Undefined or invalid type [11]": 1,
+      "Uninitialized attribute [13]": 7
+    }
+  }
+]

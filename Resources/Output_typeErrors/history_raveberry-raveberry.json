@@ -1,0 +1,202 @@
+[
+  {
+    "commit": "a3746fe",
+    "commit_date": "2022-02-12 20:50:17 +0100",
+    "loc": 8003,
+    "nb_python_files": 96,
+    "nb_param_types": 345,
+    "nb_return_types": 531,
+    "nb_variable_types": 73,
+    "nb_warnings": 1070,
+    "kind_to_nb": {
+      "Undefined import [21]": 402,
+      "Invalid decoration [56]": 100,
+      "Undefined or invalid type [11]": 245,
+      "Too many arguments [19]": 21,
+      "Undefined attribute [16]": 281,
+      "Uninitialized attribute [13]": 3,
+      "Incompatible variable type [9]": 3,
+      "Incompatible overload [43]": 13,
+      "Unsupported operand [58]": 2
+    }
+  },
+  {
+    "commit": "194f6c2",
+    "commit_date": "2021-11-30 18:32:45 +0100",
+    "loc": 7791,
+    "nb_python_files": 92,
+    "nb_param_types": 291,
+    "nb_return_types": 460,
+    "nb_variable_types": 35,
+    "nb_warnings": 453,
+    "kind_to_nb": {
+      "Undefined import [21]": 180,
+      "Invalid decoration [56]": 24,
+      "Undefined or invalid type [11]": 72,
+      "Undefined attribute [16]": 124,
+      "Incompatible parameter type [6]": 23,
+      "Incompatible attribute type [8]": 1,
+      "Uninitialized attribute [13]": 2,
+      "Incompatible variable type [9]": 3,
+      "Unsupported operand [58]": 17,
+      "Invalid TypedDict operation [54]": 2,
+      "Call error [29]": 2,
+      "TypedDict initialization error [55]": 1,
+      "Incompatible return type [7]": 2
+    }
+  },
+  {
+    "commit": "c0b0ed9",
+    "commit_date": "2021-09-24 11:46:09 +0200",
+    "loc": 7650,
+    "nb_python_files": 90,
+    "nb_param_types": 280,
+    "nb_return_types": 451,
+    "nb_variable_types": 35,
+    "nb_warnings": 452,
+    "kind_to_nb": {
+      "Undefined import [21]": 178,
+      "Invalid decoration [56]": 25,
+      "Undefined or invalid type [11]": 71,
+      "Undefined attribute [16]": 124,
+      "Incompatible parameter type [6]": 21,
+      "Incompatible attribute type [8]": 1,
+      "Uninitialized attribute [13]": 2,
+      "Incompatible variable type [9]": 3,
+      "Unsupported operand [58]": 20,
+      "Invalid TypedDict operation [54]": 2,
+      "Call error [29]": 2,
+      "TypedDict initialization error [55]": 1,
+      "Incompatible return type [7]": 2
+    }
+  },
+  {
+    "commit": "dd1f614",
+    "commit_date": "2021-04-26 20:58:54 +0200",
+    "loc": 7601,
+    "nb_python_files": 82,
+    "nb_param_types": 273,
+    "nb_return_types": 428,
+    "nb_variable_types": 42,
+    "nb_warnings": 440,
+    "kind_to_nb": {
+      "Undefined import [21]": 169,
+      "Invalid decoration [56]": 15,
+      "Undefined or invalid type [11]": 74,
+      "Undefined attribute [16]": 146,
+      "Incompatible parameter type [6]": 14,
+      "Invalid type variable [34]": 4,
+      "Uninitialized attribute [13]": 2,
+      "Incompatible variable type [9]": 4,
+      "Unsupported operand [58]": 10,
+      "Call error [29]": 2
+    }
+  },
+  {
+    "commit": "3468462",
+    "commit_date": "2021-04-02 22:34:21 +0200",
+    "loc": 7276,
+    "nb_python_files": 79,
+    "nb_param_types": 240,
+    "nb_return_types": 397,
+    "nb_variable_types": 37,
+    "nb_warnings": 409,
+    "kind_to_nb": {
+      "Undefined import [21]": 161,
+      "Undefined or invalid type [11]": 66,
+      "Undefined attribute [16]": 137,
+      "Invalid decoration [56]": 14,
+      "Incompatible parameter type [6]": 11,
+      "Invalid type variable [34]": 4,
+      "Uninitialized attribute [13]": 2,
+      "Unsupported operand [58]": 9,
+      "Call error [29]": 2,
+      "Incompatible variable type [9]": 3
+    }
+  },
+  {
+    "commit": "44940ef",
+    "commit_date": "2020-08-20 16:28:01 +0200",
+    "loc": 7039,
+    "nb_python_files": 78,
+    "nb_param_types": 235,
+    "nb_return_types": 393,
+    "nb_variable_types": 37,
+    "nb_warnings": 392,
+    "kind_to_nb": {
+      "Undefined import [21]": 157,
+      "Undefined or invalid type [11]": 65,
+      "Undefined attribute [16]": 132,
+      "Invalid decoration [56]": 11,
+      "Incompatible parameter type [6]": 10,
+      "Invalid type variable [34]": 4,
+      "Uninitialized attribute [13]": 2,
+      "Unsupported operand [58]": 7,
+      "Call error [29]": 2,
+      "Incompatible variable type [9]": 2
+    }
+  },
+  {
+    "commit": "aadf4c1",
+    "commit_date": "2020-06-18 15:02:36 +0200",
+    "loc": 6454,
+    "nb_python_files": 63,
+    "nb_param_types": 214,
+    "nb_return_types": 356,
+    "nb_variable_types": 30,
+    "nb_warnings": 321,
+    "kind_to_nb": {
+      "Undefined import [21]": 131,
+      "Undefined or invalid type [11]": 43,
+      "Undefined attribute [16]": 115,
+      "Invalid decoration [56]": 11,
+      "Incompatible parameter type [6]": 8,
+      "Uninitialized attribute [13]": 2,
+      "Unsupported operand [58]": 7,
+      "Call error [29]": 2,
+      "Incompatible variable type [9]": 2
+    }
+  },
+  {
+    "commit": "9c8b35e",
+    "commit_date": "2020-05-07 14:49:34 +0200",
+    "loc": 5619,
+    "nb_python_files": 60,
+    "nb_param_types": 222,
+    "nb_return_types": 310,
+    "nb_variable_types": 27,
+    "nb_warnings": 312,
+    "kind_to_nb": {
+      "Undefined import [21]": 128,
+      "Undefined or invalid type [11]": 41,
+      "Undefined attribute [16]": 114,
+      "Invalid decoration [56]": 9,
+      "Incompatible parameter type [6]": 6,
+      "Uninitialized attribute [13]": 2,
+      "Unsupported operand [58]": 8,
+      "Call error [29]": 2,
+      "Incompatible variable type [9]": 2
+    }
+  },
+  {
+    "commit": "6c219c9",
+    "commit_date": "2020-04-22 21:29:48 +0200",
+    "loc": 5423,
+    "nb_python_files": 60,
+    "nb_param_types": 215,
+    "nb_return_types": 303,
+    "nb_variable_types": 27,
+    "nb_warnings": 306,
+    "kind_to_nb": {
+      "Undefined import [21]": 126,
+      "Undefined or invalid type [11]": 41,
+      "Undefined attribute [16]": 110,
+      "Invalid decoration [56]": 9,
+      "Incompatible parameter type [6]": 6,
+      "Uninitialized attribute [13]": 2,
+      "Unsupported operand [58]": 8,
+      "Call error [29]": 2,
+      "Incompatible variable type [9]": 2
+    }
+  }
+]

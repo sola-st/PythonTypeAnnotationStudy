@@ -1,0 +1,183 @@
+[
+  {
+    "commit": "d530c57",
+    "commit_date": "2022-02-11 03:45:59 +0000",
+    "loc": 9577,
+    "nb_python_files": 164,
+    "nb_param_types": 4,
+    "nb_return_types": 0,
+    "nb_variable_types": 0,
+    "nb_warnings": 86,
+    "kind_to_nb": {
+      "Undefined import [21]": 47,
+      "Undefined or invalid type [11]": 31,
+      "Undefined attribute [16]": 6,
+      "Analysis failure [30]": 2
+    }
+  },
+  {
+    "commit": "1a6ec73",
+    "commit_date": "2020-11-14 21:37:16 -0300",
+    "loc": 9013,
+    "nb_python_files": 157,
+    "nb_param_types": 1,
+    "nb_return_types": 0,
+    "nb_variable_types": 0,
+    "nb_warnings": 89,
+    "kind_to_nb": {
+      "Undefined import [21]": 50,
+      "Undefined or invalid type [11]": 31,
+      "Undefined attribute [16]": 6,
+      "Analysis failure [30]": 2
+    }
+  },
+  {
+    "commit": "5936159",
+    "commit_date": "2020-06-16 15:54:18 -0300",
+    "loc": 8203,
+    "nb_python_files": 143,
+    "nb_param_types": 1,
+    "nb_return_types": 0,
+    "nb_variable_types": 0,
+    "nb_warnings": 74,
+    "kind_to_nb": {
+      "Undefined import [21]": 42,
+      "Undefined or invalid type [11]": 25,
+      "Undefined attribute [16]": 5,
+      "Analysis failure [30]": 2
+    }
+  },
+  {
+    "commit": "d8674ae",
+    "commit_date": "2020-05-07 23:24:06 -0300",
+    "loc": 7338,
+    "nb_python_files": 128,
+    "nb_param_types": 1,
+    "nb_return_types": 0,
+    "nb_variable_types": 0,
+    "nb_warnings": 77,
+    "kind_to_nb": {
+      "Undefined import [21]": 44,
+      "Undefined or invalid type [11]": 26,
+      "Undefined attribute [16]": 5,
+      "Analysis failure [30]": 2
+    }
+  },
+  {
+    "commit": "040e5a2",
+    "commit_date": "2020-04-16 20:44:32 -0300",
+    "loc": 7068,
+    "nb_python_files": 125,
+    "nb_param_types": 0,
+    "nb_return_types": 0,
+    "nb_variable_types": 0,
+    "nb_warnings": 77,
+    "kind_to_nb": {
+      "Undefined import [21]": 44,
+      "Undefined or invalid type [11]": 26,
+      "Undefined attribute [16]": 5,
+      "Analysis failure [30]": 2
+    }
+  },
+  {
+    "commit": "761a7b2",
+    "commit_date": "2020-04-12 23:40:40 -0300",
+    "loc": 7048,
+    "nb_python_files": 125,
+    "nb_param_types": 0,
+    "nb_return_types": 0,
+    "nb_variable_types": 0,
+    "nb_warnings": 77,
+    "kind_to_nb": {
+      "Undefined import [21]": 44,
+      "Undefined or invalid type [11]": 26,
+      "Undefined attribute [16]": 5,
+      "Analysis failure [30]": 2
+    }
+  },
+  {
+    "commit": "635b893",
+    "commit_date": "2020-04-06 22:54:44 -0300",
+    "loc": 6391,
+    "nb_python_files": 120,
+    "nb_param_types": 0,
+    "nb_return_types": 0,
+    "nb_variable_types": 0,
+    "nb_warnings": 83,
+    "kind_to_nb": {
+      "Undefined import [21]": 48,
+      "Undefined or invalid type [11]": 28,
+      "Undefined attribute [16]": 5,
+      "Analysis failure [30]": 2
+    }
+  },
+  {
+    "commit": "4f72efb",
+    "commit_date": "2020-03-31 21:32:41 -0300",
+    "loc": 7172,
+    "nb_python_files": 128,
+    "nb_param_types": 0,
+    "nb_return_types": 0,
+    "nb_variable_types": 0,
+    "nb_warnings": 102,
+    "kind_to_nb": {
+      "Undefined import [21]": 59,
+      "Undefined or invalid type [11]": 34,
+      "Too many arguments [19]": 1,
+      "Undefined attribute [16]": 6,
+      "Analysis failure [30]": 2
+    }
+  },
+  {
+    "commit": "eca3887",
+    "commit_date": "2020-02-29 23:31:42 -0300",
+    "loc": 5881,
+    "nb_python_files": 107,
+    "nb_param_types": 0,
+    "nb_return_types": 0,
+    "nb_variable_types": 0,
+    "nb_warnings": 92,
+    "kind_to_nb": {
+      "Undefined import [21]": 50,
+      "Undefined or invalid type [11]": 32,
+      "Undefined attribute [16]": 6,
+      "Analysis failure [30]": 3,
+      "Too many arguments [19]": 1
+    }
+  },
+  {
+    "commit": "0b70bc8",
+    "commit_date": "2018-09-24 10:49:55 -0300",
+    "loc": 145573,
+    "nb_python_files": 1232,
+    "nb_param_types": 24,
+    "nb_return_types": 16,
+    "nb_variable_types": 5,
+    "nb_warnings": 2321,
+    "kind_to_nb": {
+      "Undefined import [21]": 1350,
+      "Undefined or invalid type [11]": 268,
+      "Undefined attribute [16]": 296,
+      "Unbound name [10]": 101,
+      "Incompatible parameter type [6]": 40,
+      "Parsing failure [404]": 11,
+      "Too many arguments [19]": 17,
+      "Incompatible variable type [9]": 8,
+      "Inconsistent override [15]": 94,
+      "Unsupported operand [58]": 42,
+      "Invalid type [31]": 20,
+      "Invalid inheritance [39]": 2,
+      "Incompatible attribute type [8]": 1,
+      "Missing argument [20]": 15,
+      "Unexpected keyword [28]": 12,
+      "Invalid argument [32]": 13,
+      "Invalid Exception [48]": 4,
+      "Call error [29]": 7,
+      "Unable to unpack [23]": 9,
+      "Unable to concatenate tuple [60]": 1,
+      "Incompatible return type [7]": 4,
+      "Uninitialized attribute [13]": 5,
+      "Analysis failure [30]": 1
+    }
+  }
+]

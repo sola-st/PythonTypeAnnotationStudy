@@ -1,0 +1,169 @@
+[
+  {
+    "commit": "78b206f",
+    "commit_date": "2022-02-14 12:13:59 -0300",
+    "loc": 3395,
+    "nb_python_files": 41,
+    "nb_param_types": 234,
+    "nb_return_types": 201,
+    "nb_variable_types": 19,
+    "nb_warnings": 87,
+    "kind_to_nb": {
+      "Undefined import [21]": 36,
+      "Invalid decoration [56]": 38,
+      "Undefined or invalid type [11]": 2,
+      "Incompatible parameter type [6]": 6,
+      "Inconsistent override [14]": 2,
+      "Incompatible variable type [9]": 3
+    }
+  },
+  {
+    "commit": "828725f",
+    "commit_date": "2021-12-06 09:10:46 -0300",
+    "loc": 3395,
+    "nb_python_files": 41,
+    "nb_param_types": 234,
+    "nb_return_types": 201,
+    "nb_variable_types": 19,
+    "nb_warnings": 87,
+    "kind_to_nb": {
+      "Undefined import [21]": 36,
+      "Invalid decoration [56]": 38,
+      "Undefined or invalid type [11]": 2,
+      "Incompatible parameter type [6]": 6,
+      "Inconsistent override [14]": 2,
+      "Incompatible variable type [9]": 3
+    }
+  },
+  {
+    "commit": "38eafce",
+    "commit_date": "2021-11-01 07:13:40 +0000",
+    "loc": 3395,
+    "nb_python_files": 41,
+    "nb_param_types": 234,
+    "nb_return_types": 201,
+    "nb_variable_types": 19,
+    "nb_warnings": 87,
+    "kind_to_nb": {
+      "Undefined import [21]": 36,
+      "Invalid decoration [56]": 38,
+      "Undefined or invalid type [11]": 2,
+      "Incompatible parameter type [6]": 6,
+      "Inconsistent override [14]": 2,
+      "Incompatible variable type [9]": 3
+    }
+  },
+  {
+    "commit": "3c6e6eb",
+    "commit_date": "2021-09-14 07:13:34 +0000",
+    "loc": 3397,
+    "nb_python_files": 42,
+    "nb_param_types": 234,
+    "nb_return_types": 201,
+    "nb_variable_types": 19,
+    "nb_warnings": 87,
+    "kind_to_nb": {
+      "Undefined import [21]": 36,
+      "Invalid decoration [56]": 38,
+      "Undefined or invalid type [11]": 2,
+      "Incompatible parameter type [6]": 6,
+      "Inconsistent override [14]": 2,
+      "Incompatible variable type [9]": 3
+    }
+  },
+  {
+    "commit": "5b2b65c",
+    "commit_date": "2021-07-17 14:28:26 -0300",
+    "loc": 3397,
+    "nb_python_files": 42,
+    "nb_param_types": 234,
+    "nb_return_types": 201,
+    "nb_variable_types": 19,
+    "nb_warnings": 87,
+    "kind_to_nb": {
+      "Undefined import [21]": 36,
+      "Invalid decoration [56]": 38,
+      "Undefined or invalid type [11]": 2,
+      "Incompatible parameter type [6]": 6,
+      "Inconsistent override [14]": 2,
+      "Incompatible variable type [9]": 3
+    }
+  },
+  {
+    "commit": "d064fd6",
+    "commit_date": "2020-06-17 18:15:17 -0300",
+    "loc": 1664,
+    "nb_python_files": 38,
+    "nb_param_types": 128,
+    "nb_return_types": 110,
+    "nb_variable_types": 14,
+    "nb_warnings": 23,
+    "kind_to_nb": {
+      "Undefined import [21]": 9,
+      "Incompatible parameter type [6]": 5,
+      "Incompatible variable type [9]": 5,
+      "Incompatible attribute type [8]": 1,
+      "Incompatible return type [7]": 3
+    }
+  },
+  {
+    "commit": "a6e74c1",
+    "commit_date": "2015-07-29 15:48:35 -0300",
+    "loc": 1608,
+    "nb_python_files": 29,
+    "nb_param_types": 0,
+    "nb_return_types": 0,
+    "nb_variable_types": 0,
+    "nb_warnings": 30,
+    "kind_to_nb": {
+      "Undefined import [21]": 21,
+      "Undefined attribute [16]": 1,
+      "Unbound name [10]": 4,
+      "Undefined or invalid type [11]": 4
+    }
+  },
+  {
+    "commit": "9fff2d7",
+    "commit_date": "2014-03-06 10:51:01 -0300",
+    "loc": 1189,
+    "nb_python_files": 23,
+    "nb_param_types": 0,
+    "nb_return_types": 0,
+    "nb_variable_types": 0,
+    "nb_warnings": 14,
+    "kind_to_nb": {
+      "Undefined import [21]": 11,
+      "Parsing failure [404]": 1,
+      "Unbound name [10]": 2
+    }
+  },
+  {
+    "commit": "bc0c432",
+    "commit_date": "2013-09-09 11:44:24 -0700",
+    "loc": 1049,
+    "nb_python_files": 19,
+    "nb_param_types": 0,
+    "nb_return_types": 0,
+    "nb_variable_types": 0,
+    "nb_warnings": 13,
+    "kind_to_nb": {
+      "Undefined import [21]": 11,
+      "Unbound name [10]": 2
+    }
+  },
+  {
+    "commit": "3dd442d",
+    "commit_date": "2012-12-14 17:39:41 -0200",
+    "loc": 482,
+    "nb_python_files": 6,
+    "nb_param_types": 0,
+    "nb_return_types": 0,
+    "nb_variable_types": 0,
+    "nb_warnings": 6,
+    "kind_to_nb": {
+      "Undefined import [21]": 3,
+      "Unbound name [10]": 2,
+      "Incompatible parameter type [6]": 1
+    }
+  }
+]

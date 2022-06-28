@@ -1,0 +1,115 @@
+[
+  {
+    "commit": "3b1b2bc",
+    "commit_date": "2019-07-15 22:08:03 -0600",
+    "loc": 474,
+    "nb_python_files": 2,
+    "nb_param_types": 6,
+    "nb_return_types": 0,
+    "nb_variable_types": 0,
+    "nb_warnings": 15,
+    "kind_to_nb": {
+      "Undefined import [21]": 1,
+      "Undefined attribute [16]": 2,
+      "Unsupported operand [58]": 11,
+      "Unbound name [10]": 1
+    }
+  },
+  {
+    "commit": "0ed3a06",
+    "commit_date": "2018-05-23 16:51:06 -0400",
+    "loc": 474,
+    "nb_python_files": 2,
+    "nb_param_types": 6,
+    "nb_return_types": 0,
+    "nb_variable_types": 0,
+    "nb_warnings": 15,
+    "kind_to_nb": {
+      "Undefined import [21]": 1,
+      "Undefined attribute [16]": 2,
+      "Unsupported operand [58]": 11,
+      "Unbound name [10]": 1
+    }
+  },
+  {
+    "commit": "8f0a8fb",
+    "commit_date": "2018-05-18 22:27:09 -0400",
+    "loc": 474,
+    "nb_python_files": 2,
+    "nb_param_types": 6,
+    "nb_return_types": 0,
+    "nb_variable_types": 0,
+    "nb_warnings": 15,
+    "kind_to_nb": {
+      "Undefined import [21]": 1,
+      "Undefined attribute [16]": 2,
+      "Unsupported operand [58]": 11,
+      "Unbound name [10]": 1
+    }
+  },
+  {
+    "commit": "8eaa3d4",
+    "commit_date": "2018-05-17 00:59:30 -0400",
+    "loc": 239,
+    "nb_python_files": 1,
+    "nb_param_types": 0,
+    "nb_return_types": 0,
+    "nb_variable_types": 0,
+    "nb_warnings": 1,
+    "kind_to_nb": {
+      "Undefined import [21]": 1
+    }
+  },
+  {
+    "commit": "828ee48",
+    "commit_date": "2018-05-08 15:49:29 -0700",
+    "loc": 228,
+    "nb_python_files": 1,
+    "nb_param_types": 0,
+    "nb_return_types": 0,
+    "nb_variable_types": 0,
+    "nb_warnings": 1,
+    "kind_to_nb": {
+      "Undefined import [21]": 1
+    }
+  },
+  {
+    "commit": "92d3ebc",
+    "commit_date": "2018-05-07 00:45:18 -0600",
+    "loc": 228,
+    "nb_python_files": 1,
+    "nb_param_types": 0,
+    "nb_return_types": 0,
+    "nb_variable_types": 0,
+    "nb_warnings": 1,
+    "kind_to_nb": {
+      "Undefined import [21]": 1
+    }
+  },
+  {
+    "commit": "3b3c579",
+    "commit_date": "2018-05-02 16:00:53 +0200",
+    "loc": 220,
+    "nb_python_files": 1,
+    "nb_param_types": 0,
+    "nb_return_types": 0,
+    "nb_variable_types": 0,
+    "nb_warnings": 1,
+    "kind_to_nb": {
+      "Undefined import [21]": 1
+    }
+  },
+  {
+    "commit": "2368f58",
+    "commit_date": "2018-04-26 00:51:51 +0200",
+    "loc": 220,
+    "nb_python_files": 1,
+    "nb_param_types": 0,
+    "nb_return_types": 0,
+    "nb_variable_types": 0,
+    "nb_warnings": 1,
+    "kind_to_nb": {
+      "Undefined import [21]": 1
+    }
+  }
+]

@@ -1,0 +1,161 @@
+[
+  {
+    "commit": "3793b90",
+    "commit_date": "2018-12-01 20:19:53 -0800",
+    "loc": 2990,
+    "nb_python_files": 11,
+    "nb_param_types": 0,
+    "nb_return_types": 22,
+    "nb_variable_types": 0,
+    "nb_warnings": 69,
+    "kind_to_nb": {
+      "Unbound name [10]": 50,
+      "Incompatible return type [7]": 2,
+      "Invalid type [31]": 9,
+      "Undefined import [21]": 4,
+      "Incompatible constructor annotation [17]": 1,
+      "Incompatible parameter type [6]": 2,
+      "Undefined attribute [16]": 1
+    }
+  },
+  {
+    "commit": "a4395b0",
+    "commit_date": "2016-07-03 22:38:32 -0400",
+    "loc": 2960,
+    "nb_python_files": 11,
+    "nb_param_types": 0,
+    "nb_return_types": 21,
+    "nb_variable_types": 0,
+    "nb_warnings": 70,
+    "kind_to_nb": {
+      "Unbound name [10]": 50,
+      "Incompatible return type [7]": 3,
+      "Invalid type [31]": 9,
+      "Undefined import [21]": 4,
+      "Incompatible constructor annotation [17]": 1,
+      "Incompatible parameter type [6]": 2,
+      "Undefined attribute [16]": 1
+    }
+  },
+  {
+    "commit": "3047f3b",
+    "commit_date": "2016-03-10 13:45:30 -0500",
+    "loc": 2931,
+    "nb_python_files": 11,
+    "nb_param_types": 0,
+    "nb_return_types": 20,
+    "nb_variable_types": 0,
+    "nb_warnings": 70,
+    "kind_to_nb": {
+      "Unbound name [10]": 50,
+      "Incompatible return type [7]": 3,
+      "Invalid type [31]": 9,
+      "Undefined import [21]": 4,
+      "Incompatible constructor annotation [17]": 1,
+      "Incompatible parameter type [6]": 2,
+      "Undefined attribute [16]": 1
+    }
+  },
+  {
+    "commit": "f2f3064",
+    "commit_date": "2016-01-27 11:33:50 -0500",
+    "loc": 2832,
+    "nb_python_files": 11,
+    "nb_param_types": 0,
+    "nb_return_types": 19,
+    "nb_variable_types": 0,
+    "nb_warnings": 65,
+    "kind_to_nb": {
+      "Unbound name [10]": 47,
+      "Incompatible return type [7]": 3,
+      "Invalid type [31]": 7,
+      "Undefined import [21]": 4,
+      "Incompatible constructor annotation [17]": 1,
+      "Incompatible parameter type [6]": 2,
+      "Undefined attribute [16]": 1
+    }
+  },
+  {
+    "commit": "e6497c6",
+    "commit_date": "2016-01-23 02:05:31 -0600",
+    "loc": 2828,
+    "nb_python_files": 12,
+    "nb_param_types": 0,
+    "nb_return_types": 17,
+    "nb_variable_types": 0,
+    "nb_warnings": 13,
+    "kind_to_nb": {
+      "Incompatible return type [7]": 2,
+      "Invalid type [31]": 7,
+      "Undefined import [21]": 1,
+      "Incompatible parameter type [6]": 2,
+      "Undefined attribute [16]": 1
+    }
+  },
+  {
+    "commit": "dbb9621",
+    "commit_date": "2016-01-20 16:43:11 -0600",
+    "loc": 2811,
+    "nb_python_files": 11,
+    "nb_param_types": 0,
+    "nb_return_types": 22,
+    "nb_variable_types": 0,
+    "nb_warnings": 44,
+    "kind_to_nb": {
+      "Unbound name [10]": 34,
+      "Undefined import [21]": 4,
+      "Incompatible constructor annotation [17]": 1,
+      "Incompatible return type [7]": 2,
+      "Incompatible parameter type [6]": 2,
+      "Undefined attribute [16]": 1
+    }
+  },
+  {
+    "commit": "67b5933",
+    "commit_date": "2016-01-18 12:44:20 -0600",
+    "loc": 2769,
+    "nb_python_files": 11,
+    "nb_param_types": 0,
+    "nb_return_types": 17,
+    "nb_variable_types": 0,
+    "nb_warnings": 1,
+    "kind_to_nb": {
+      "Incompatible return type [7]": 1
+    }
+  },
+  {
+    "commit": "c54f79b",
+    "commit_date": "2016-01-17 08:36:19 -0600",
+    "loc": 2708,
+    "nb_python_files": 9,
+    "nb_param_types": 0,
+    "nb_return_types": 16,
+    "nb_variable_types": 0,
+    "nb_warnings": 1,
+    "kind_to_nb": {
+      "Incompatible return type [7]": 1
+    }
+  },
+  {
+    "commit": "4b51285",
+    "commit_date": "2016-01-16 23:04:32 -0600",
+    "loc": 0,
+    "nb_python_files": 0,
+    "nb_param_types": 0,
+    "nb_return_types": 0,
+    "nb_variable_types": 0,
+    "nb_warnings": 0,
+    "kind_to_nb": {}
+  },
+  {
+    "commit": "166e699",
+    "commit_date": "2016-01-16 12:51:46 -0600",
+    "loc": 1,
+    "nb_python_files": 3,
+    "nb_param_types": 0,
+    "nb_return_types": 0,
+    "nb_variable_types": 0,
+    "nb_warnings": 0,
+    "kind_to_nb": {}
+  }
+]

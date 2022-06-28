@@ -1,0 +1,101 @@
+[
+  {
+    "commit": "3d9d4352",
+    "commit_date": "2022-02-16 17:46:41 -0500",
+    "loc": 527402,
+    "nb_python_files": 1907,
+    "nb_param_types": 13,
+    "nb_return_types": 8,
+    "nb_variable_types": 0,
+    "nb_warnings": 0,
+    "kind_to_nb": {}
+  },
+  {
+    "commit": "88a0c6e4",
+    "commit_date": "2021-03-27 07:58:36 -0400",
+    "loc": 526023,
+    "nb_python_files": 1906,
+    "nb_param_types": 13,
+    "nb_return_types": 8,
+    "nb_variable_types": 0,
+    "nb_warnings": 0,
+    "kind_to_nb": {}
+  },
+  {
+    "commit": "ba96aefc",
+    "commit_date": "2020-10-19 13:10:41 -0400",
+    "loc": 524854,
+    "nb_python_files": 1893,
+    "nb_param_types": 13,
+    "nb_return_types": 8,
+    "nb_variable_types": 0,
+    "nb_warnings": 0,
+    "kind_to_nb": {}
+  },
+  {
+    "commit": "c877c8d2",
+    "commit_date": "2020-05-25 14:29:55 -0400",
+    "loc": 524536,
+    "nb_python_files": 1891,
+    "nb_param_types": 13,
+    "nb_return_types": 8,
+    "nb_variable_types": 0,
+    "nb_warnings": 0,
+    "kind_to_nb": {}
+  },
+  {
+    "commit": "8c309aa7",
+    "commit_date": "2020-01-05 22:00:37 -0500",
+    "loc": 522739,
+    "nb_python_files": 1881,
+    "nb_param_types": 13,
+    "nb_return_types": 8,
+    "nb_variable_types": 0,
+    "nb_warnings": 0,
+    "kind_to_nb": {}
+  },
+  {
+    "commit": "daca23ca",
+    "commit_date": "2019-03-22 12:16:16 -0400",
+    "loc": 508278,
+    "nb_python_files": 1865,
+    "nb_param_types": 13,
+    "nb_return_types": 8,
+    "nb_variable_types": 0,
+    "nb_warnings": 0,
+    "kind_to_nb": {}
+  },
+  {
+    "commit": "9e1fddb0",
+    "commit_date": "2018-09-13 06:15:07 -0700",
+    "loc": 508026,
+    "nb_python_files": 1861,
+    "nb_param_types": 13,
+    "nb_return_types": 8,
+    "nb_variable_types": 0,
+    "nb_warnings": 0,
+    "kind_to_nb": {}
+  },
+  {
+    "commit": "73c99587",
+    "commit_date": "2017-04-18 12:32:36 -0700",
+    "loc": 509305,
+    "nb_python_files": 1882,
+    "nb_param_types": 13,
+    "nb_return_types": 8,
+    "nb_variable_types": 0,
+    "nb_warnings": 0,
+    "kind_to_nb": {}
+  },
+  {
+    "commit": "aa1320ed",
+    "commit_date": "2017-01-20 11:24:01 -0700",
+    "loc": 529779,
+    "nb_python_files": 1916,
+    "nb_param_types": 13,
+    "nb_return_types": 31,
+    "nb_variable_types": 0,
+    "nb_warnings": 0,
+    "kind_to_nb": {}
+  }
+]

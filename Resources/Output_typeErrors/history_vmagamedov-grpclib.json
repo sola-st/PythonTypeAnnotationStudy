@@ -1,0 +1,202 @@
+[
+  {
+    "commit": "c0a224b",
+    "commit_date": "2022-02-02 09:03:26 +0200",
+    "loc": 7190,
+    "nb_python_files": 97,
+    "nb_param_types": 383,
+    "nb_return_types": 324,
+    "nb_variable_types": 98,
+    "nb_warnings": 955,
+    "kind_to_nb": {
+      "Undefined import [21]": 121,
+      "Undefined or invalid type [11]": 85,
+      "Unexpected keyword [28]": 313,
+      "Undefined attribute [16]": 372,
+      "Incompatible parameter type [6]": 12,
+      "Uninitialized attribute [13]": 28,
+      "Incompatible variable type [9]": 1,
+      "Unsupported operand [58]": 1,
+      "Incompatible return type [7]": 2,
+      "Invalid Exception [48]": 2,
+      "Invalid decoration [56]": 17,
+      "Illegal annotation target [35]": 1
+    }
+  },
+  {
+    "commit": "3eb9f31",
+    "commit_date": "2020-06-05 23:17:09 +0300",
+    "loc": 7068,
+    "nb_python_files": 98,
+    "nb_param_types": 368,
+    "nb_return_types": 322,
+    "nb_variable_types": 90,
+    "nb_warnings": 321,
+    "kind_to_nb": {
+      "Undefined import [21]": 117,
+      "Undefined or invalid type [11]": 86,
+      "Undefined attribute [16]": 60,
+      "Incompatible parameter type [6]": 12,
+      "Uninitialized attribute [13]": 22,
+      "Incompatible variable type [9]": 1,
+      "Unsupported operand [58]": 1,
+      "Incompatible return type [7]": 2,
+      "Invalid Exception [48]": 2,
+      "Invalid decoration [56]": 17,
+      "Illegal annotation target [35]": 1
+    }
+  },
+  {
+    "commit": "a152438",
+    "commit_date": "2019-08-29 10:24:27 +0300",
+    "loc": 6228,
+    "nb_python_files": 83,
+    "nb_param_types": 345,
+    "nb_return_types": 276,
+    "nb_variable_types": 66,
+    "nb_warnings": 287,
+    "kind_to_nb": {
+      "Undefined import [21]": 109,
+      "Undefined or invalid type [11]": 53,
+      "Unsupported operand [58]": 7,
+      "Call error [29]": 25,
+      "Undefined attribute [16]": 38,
+      "Incompatible parameter type [6]": 12,
+      "Uninitialized attribute [13]": 20,
+      "Incompatible variable type [9]": 1,
+      "Incompatible return type [7]": 2,
+      "Invalid Exception [48]": 2,
+      "Invalid decoration [56]": 17,
+      "Illegal annotation target [35]": 1
+    }
+  },
+  {
+    "commit": "9dc8a05",
+    "commit_date": "2019-05-21 18:01:05 +0300",
+    "loc": 5461,
+    "nb_python_files": 75,
+    "nb_param_types": 134,
+    "nb_return_types": 78,
+    "nb_variable_types": 36,
+    "nb_warnings": 244,
+    "kind_to_nb": {
+      "Undefined import [21]": 99,
+      "Undefined or invalid type [11]": 43,
+      "Unsupported operand [58]": 6,
+      "Call error [29]": 35,
+      "Undefined attribute [16]": 10,
+      "Incompatible parameter type [6]": 2,
+      "Incompatible variable type [9]": 7,
+      "Incompatible return type [7]": 2,
+      "Uninitialized attribute [13]": 15,
+      "Inconsistent override [15]": 8,
+      "Invalid decoration [56]": 16,
+      "Illegal annotation target [35]": 1
+    }
+  },
+  {
+    "commit": "0fe7514",
+    "commit_date": "2019-03-31 17:59:28 +0300",
+    "loc": 4776,
+    "nb_python_files": 70,
+    "nb_param_types": 68,
+    "nb_return_types": 18,
+    "nb_variable_types": 16,
+    "nb_warnings": 174,
+    "kind_to_nb": {
+      "Undefined import [21]": 81,
+      "Undefined or invalid type [11]": 21,
+      "Unsupported operand [58]": 6,
+      "Call error [29]": 35,
+      "Undefined attribute [16]": 7,
+      "Uninitialized attribute [13]": 4,
+      "Inconsistent override [15]": 1,
+      "Incompatible variable type [9]": 1,
+      "Incompatible parameter type [6]": 1,
+      "Invalid decoration [56]": 16,
+      "Illegal annotation target [35]": 1
+    }
+  },
+  {
+    "commit": "d7c5ef4",
+    "commit_date": "2018-10-16 19:09:20 +0300",
+    "loc": 4261,
+    "nb_python_files": 65,
+    "nb_param_types": 58,
+    "nb_return_types": 16,
+    "nb_variable_types": 0,
+    "nb_warnings": 156,
+    "kind_to_nb": {
+      "Undefined import [21]": 65,
+      "Undefined or invalid type [11]": 17,
+      "Unsupported operand [58]": 6,
+      "Call error [29]": 35,
+      "Incompatible variable type [9]": 1,
+      "Uninitialized attribute [13]": 11,
+      "Undefined attribute [16]": 5,
+      "Incompatible parameter type [6]": 1,
+      "Invalid decoration [56]": 14,
+      "Illegal annotation target [35]": 1
+    }
+  },
+  {
+    "commit": "f792566",
+    "commit_date": "2018-06-08 18:54:03 +0300",
+    "loc": 2947,
+    "nb_python_files": 37,
+    "nb_param_types": 35,
+    "nb_return_types": 9,
+    "nb_variable_types": 0,
+    "nb_warnings": 89,
+    "kind_to_nb": {
+      "Undefined import [21]": 47,
+      "Unsupported operand [58]": 2,
+      "Call error [29]": 6,
+      "Incompatible variable type [9]": 1,
+      "Undefined or invalid type [11]": 15,
+      "Uninitialized attribute [13]": 11,
+      "Undefined attribute [16]": 5,
+      "Incompatible parameter type [6]": 1,
+      "Illegal annotation target [35]": 1
+    }
+  },
+  {
+    "commit": "68bfaf2",
+    "commit_date": "2017-11-30 14:53:09 +0200",
+    "loc": 1806,
+    "nb_python_files": 30,
+    "nb_param_types": 33,
+    "nb_return_types": 8,
+    "nb_variable_types": 0,
+    "nb_warnings": 81,
+    "kind_to_nb": {
+      "Undefined import [21]": 36,
+      "Unsupported operand [58]": 2,
+      "Call error [29]": 9,
+      "Incompatible variable type [9]": 1,
+      "Undefined or invalid type [11]": 15,
+      "Uninitialized attribute [13]": 11,
+      "Undefined attribute [16]": 5,
+      "Incompatible parameter type [6]": 1,
+      "Illegal annotation target [35]": 1
+    }
+  },
+  {
+    "commit": "8b19dec",
+    "commit_date": "2017-07-18 13:14:59 +0300",
+    "loc": 904,
+    "nb_python_files": 25,
+    "nb_param_types": 32,
+    "nb_return_types": 11,
+    "nb_variable_types": 4,
+    "nb_warnings": 51,
+    "kind_to_nb": {
+      "Undefined import [21]": 17,
+      "Undefined or invalid type [11]": 17,
+      "Unsupported operand [58]": 2,
+      "Call error [29]": 9,
+      "Undefined attribute [16]": 5,
+      "Incompatible parameter type [6]": 1
+    }
+  }
+]

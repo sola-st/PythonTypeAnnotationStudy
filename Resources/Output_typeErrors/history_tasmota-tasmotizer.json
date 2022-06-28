@@ -1,0 +1,155 @@
+[
+  {
+    "commit": "42faaba",
+    "commit_date": "2022-01-20 16:52:56 -0300",
+    "loc": 8463,
+    "nb_python_files": 6,
+    "nb_param_types": 1,
+    "nb_return_types": 0,
+    "nb_variable_types": 0,
+    "nb_warnings": 35,
+    "kind_to_nb": {
+      "Undefined import [21]": 14,
+      "Undefined or invalid type [11]": 8,
+      "Incompatible variable type [9]": 1,
+      "Undefined attribute [16]": 11,
+      "Unsupported operand [58]": 1
+    }
+  },
+  {
+    "commit": "b9a878e",
+    "commit_date": "2021-08-01 14:53:54 +0200",
+    "loc": 8463,
+    "nb_python_files": 6,
+    "nb_param_types": 1,
+    "nb_return_types": 0,
+    "nb_variable_types": 0,
+    "nb_warnings": 35,
+    "kind_to_nb": {
+      "Undefined import [21]": 14,
+      "Undefined or invalid type [11]": 8,
+      "Incompatible variable type [9]": 1,
+      "Undefined attribute [16]": 11,
+      "Unsupported operand [58]": 1
+    }
+  },
+  {
+    "commit": "44a3393",
+    "commit_date": "2021-01-28 11:43:13 +0100",
+    "loc": 8463,
+    "nb_python_files": 6,
+    "nb_param_types": 1,
+    "nb_return_types": 0,
+    "nb_variable_types": 0,
+    "nb_warnings": 35,
+    "kind_to_nb": {
+      "Undefined import [21]": 14,
+      "Undefined or invalid type [11]": 8,
+      "Incompatible variable type [9]": 1,
+      "Undefined attribute [16]": 11,
+      "Unsupported operand [58]": 1
+    }
+  },
+  {
+    "commit": "c6b9db2",
+    "commit_date": "2021-01-27 14:08:22 +0100",
+    "loc": 8463,
+    "nb_python_files": 6,
+    "nb_param_types": 1,
+    "nb_return_types": 0,
+    "nb_variable_types": 0,
+    "nb_warnings": 35,
+    "kind_to_nb": {
+      "Undefined import [21]": 14,
+      "Undefined or invalid type [11]": 8,
+      "Incompatible variable type [9]": 1,
+      "Undefined attribute [16]": 11,
+      "Unsupported operand [58]": 1
+    }
+  },
+  {
+    "commit": "0278b9b",
+    "commit_date": "2021-01-19 15:52:47 +0100",
+    "loc": 8463,
+    "nb_python_files": 6,
+    "nb_param_types": 1,
+    "nb_return_types": 0,
+    "nb_variable_types": 0,
+    "nb_warnings": 35,
+    "kind_to_nb": {
+      "Undefined import [21]": 14,
+      "Undefined or invalid type [11]": 8,
+      "Incompatible variable type [9]": 1,
+      "Undefined attribute [16]": 11,
+      "Unsupported operand [58]": 1
+    }
+  },
+  {
+    "commit": "7cf3dad",
+    "commit_date": "2020-09-21 17:00:43 +0200",
+    "loc": 8485,
+    "nb_python_files": 12,
+    "nb_param_types": 1,
+    "nb_return_types": 0,
+    "nb_variable_types": 0,
+    "nb_warnings": 49,
+    "kind_to_nb": {
+      "Undefined import [21]": 25,
+      "Undefined or invalid type [11]": 11,
+      "Undefined attribute [16]": 11,
+      "Unsupported operand [58]": 1,
+      "Incompatible variable type [9]": 1
+    }
+  },
+  {
+    "commit": "18424b8",
+    "commit_date": "2020-09-20 18:37:24 +0200",
+    "loc": 8407,
+    "nb_python_files": 6,
+    "nb_param_types": 0,
+    "nb_return_types": 0,
+    "nb_variable_types": 0,
+    "nb_warnings": 30,
+    "kind_to_nb": {
+      "Undefined import [21]": 14,
+      "Undefined or invalid type [11]": 7,
+      "Incompatible variable type [9]": 1,
+      "Undefined attribute [16]": 7,
+      "Unsupported operand [58]": 1
+    }
+  },
+  {
+    "commit": "18267da",
+    "commit_date": "2019-12-16 16:25:24 +0300",
+    "loc": 8312,
+    "nb_python_files": 5,
+    "nb_param_types": 0,
+    "nb_return_types": 0,
+    "nb_variable_types": 0,
+    "nb_warnings": 30,
+    "kind_to_nb": {
+      "Undefined import [21]": 14,
+      "Undefined or invalid type [11]": 7,
+      "Incompatible variable type [9]": 1,
+      "Undefined attribute [16]": 7,
+      "Unsupported operand [58]": 1
+    }
+  },
+  {
+    "commit": "07ffcb0",
+    "commit_date": "2019-12-02 11:29:51 +0100",
+    "loc": 8311,
+    "nb_python_files": 5,
+    "nb_param_types": 0,
+    "nb_return_types": 0,
+    "nb_variable_types": 0,
+    "nb_warnings": 30,
+    "kind_to_nb": {
+      "Undefined import [21]": 14,
+      "Undefined or invalid type [11]": 7,
+      "Undefined attribute [16]": 7,
+      "Unsupported operand [58]": 1,
+      "Incompatible variable type [9]": 1
+    }
+  }
+]

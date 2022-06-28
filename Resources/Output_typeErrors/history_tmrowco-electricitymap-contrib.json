@@ -1,0 +1,154 @@
+[
+  {
+    "commit": "e7fff557",
+    "commit_date": "2022-02-17 14:37:07 +0100",
+    "loc": 14753,
+    "nb_python_files": 148,
+    "nb_param_types": 89,
+    "nb_return_types": 238,
+    "nb_variable_types": 64,
+    "nb_warnings": 730,
+    "kind_to_nb": {
+      "Invalid inheritance [39]": 1,
+      "Incompatible parameter type [6]": 75,
+      "Undefined attribute [16]": 32,
+      "Undefined import [21]": 408,
+      "Undefined or invalid type [11]": 13,
+      "Uninitialized attribute [13]": 23,
+      "Unexpected keyword [28]": 1,
+      "Incompatible variable type [9]": 33,
+      "Incompatible return type [7]": 122,
+      "Incompatible attribute type [8]": 2,
+      "Too many arguments [19]": 2,
+      "Unsupported operand [58]": 14,
+      "Unbound name [10]": 2,
+      "Invalid type [31]": 2
+    }
+  },
+  {
+    "commit": "af3d7138",
+    "commit_date": "2021-03-13 20:38:00 +0000",
+    "loc": 14517,
+    "nb_python_files": 143,
+    "nb_param_types": 44,
+    "nb_return_types": 5,
+    "nb_variable_types": 1,
+    "nb_warnings": 474,
+    "kind_to_nb": {
+      "Undefined import [21]": 401,
+      "Undefined attribute [16]": 17,
+      "Incompatible attribute type [8]": 2,
+      "Incompatible variable type [9]": 22,
+      "Incompatible parameter type [6]": 22,
+      "Unsupported operand [58]": 6,
+      "Unbound name [10]": 2,
+      "Invalid type [31]": 2
+    }
+  },
+  {
+    "commit": "7222927b",
+    "commit_date": "2020-05-04 11:49:59 +0200",
+    "loc": 13235,
+    "nb_python_files": 124,
+    "nb_param_types": 24,
+    "nb_return_types": 0,
+    "nb_variable_types": 0,
+    "nb_warnings": 191,
+    "kind_to_nb": {
+      "Undefined import [21]": 176,
+      "Undefined attribute [16]": 4,
+      "Incompatible parameter type [6]": 3,
+      "Incompatible variable type [9]": 7,
+      "Invalid type [31]": 1
+    }
+  },
+  {
+    "commit": "d420823e",
+    "commit_date": "2019-04-27 09:15:34 +0100",
+    "loc": 12480,
+    "nb_python_files": 118,
+    "nb_param_types": 8,
+    "nb_return_types": 0,
+    "nb_variable_types": 0,
+    "nb_warnings": 178,
+    "kind_to_nb": {
+      "Undefined import [21]": 170,
+      "Undefined attribute [16]": 4,
+      "Incompatible variable type [9]": 3,
+      "Invalid type [31]": 1
+    }
+  },
+  {
+    "commit": "2ffc7c5c",
+    "commit_date": "2018-04-30 23:21:56 +0200",
+    "loc": 9469,
+    "nb_python_files": 97,
+    "nb_param_types": 4,
+    "nb_return_types": 0,
+    "nb_variable_types": 0,
+    "nb_warnings": 135,
+    "kind_to_nb": {
+      "Undefined import [21]": 130,
+      "Undefined attribute [16]": 2,
+      "Incompatible variable type [9]": 3
+    }
+  },
+  {
+    "commit": "7cb2d434",
+    "commit_date": "2018-01-02 20:04:48 +0100",
+    "loc": 6190,
+    "nb_python_files": 76,
+    "nb_param_types": 0,
+    "nb_return_types": 0,
+    "nb_variable_types": 0,
+    "nb_warnings": 100,
+    "kind_to_nb": {
+      "Undefined import [21]": 97,
+      "Undefined or invalid type [11]": 1,
+      "Undefined attribute [16]": 2
+    }
+  },
+  {
+    "commit": "3dc97846",
+    "commit_date": "2017-08-22 11:42:03 +0200",
+    "loc": 3870,
+    "nb_python_files": 36,
+    "nb_param_types": 0,
+    "nb_return_types": 0,
+    "nb_variable_types": 0,
+    "nb_warnings": 62,
+    "kind_to_nb": {
+      "Undefined import [21]": 60,
+      "Undefined attribute [16]": 2
+    }
+  },
+  {
+    "commit": "5b068384",
+    "commit_date": "2017-04-07 14:32:38 +0200",
+    "loc": 725,
+    "nb_python_files": 6,
+    "nb_param_types": 0,
+    "nb_return_types": 0,
+    "nb_variable_types": 0,
+    "nb_warnings": 9,
+    "kind_to_nb": {
+      "Undefined import [21]": 8,
+      "Undefined attribute [16]": 1
+    }
+  },
+  {
+    "commit": "3128bf08",
+    "commit_date": "2016-12-13 21:36:10 +0100",
+    "loc": 868,
+    "nb_python_files": 10,
+    "nb_param_types": 0,
+    "nb_return_types": 0,
+    "nb_variable_types": 0,
+    "nb_warnings": 20,
+    "kind_to_nb": {
+      "Undefined import [21]": 18,
+      "Incompatible parameter type [6]": 1,
+      "Undefined attribute [16]": 1
+    }
+  }
+]

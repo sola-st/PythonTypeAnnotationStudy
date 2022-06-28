@@ -1,0 +1,142 @@
+[
+  {
+    "commit": "1160ab7",
+    "commit_date": "2020-03-16 00:26:47 -0400",
+    "loc": 1170,
+    "nb_python_files": 17,
+    "nb_param_types": 36,
+    "nb_return_types": 0,
+    "nb_variable_types": 0,
+    "nb_warnings": 7,
+    "kind_to_nb": {
+      "Undefined import [21]": 6,
+      "Incompatible variable type [9]": 1
+    }
+  },
+  {
+    "commit": "53943d1",
+    "commit_date": "2020-02-29 16:23:54 -0500",
+    "loc": 726,
+    "nb_python_files": 13,
+    "nb_param_types": 21,
+    "nb_return_types": 0,
+    "nb_variable_types": 0,
+    "nb_warnings": 7,
+    "kind_to_nb": {
+      "Undefined import [21]": 6,
+      "Incompatible variable type [9]": 1
+    }
+  },
+  {
+    "commit": "3205307",
+    "commit_date": "2020-01-06 22:54:01 +0100",
+    "loc": 714,
+    "nb_python_files": 13,
+    "nb_param_types": 21,
+    "nb_return_types": 0,
+    "nb_variable_types": 0,
+    "nb_warnings": 6,
+    "kind_to_nb": {
+      "Undefined import [21]": 5,
+      "Incompatible variable type [9]": 1
+    }
+  },
+  {
+    "commit": "8726f59",
+    "commit_date": "2019-11-21 09:39:20 -0500",
+    "loc": 550,
+    "nb_python_files": 9,
+    "nb_param_types": 15,
+    "nb_return_types": 0,
+    "nb_variable_types": 0,
+    "nb_warnings": 5,
+    "kind_to_nb": {
+      "Undefined import [21]": 4,
+      "Incompatible variable type [9]": 1
+    }
+  },
+  {
+    "commit": "32283c7",
+    "commit_date": "2019-10-21 12:01:13 -0400",
+    "loc": 544,
+    "nb_python_files": 9,
+    "nb_param_types": 15,
+    "nb_return_types": 0,
+    "nb_variable_types": 0,
+    "nb_warnings": 5,
+    "kind_to_nb": {
+      "Undefined import [21]": 4,
+      "Incompatible variable type [9]": 1
+    }
+  },
+  {
+    "commit": "de35da0",
+    "commit_date": "2019-10-14 22:49:57 -0400",
+    "loc": 467,
+    "nb_python_files": 8,
+    "nb_param_types": 13,
+    "nb_return_types": 0,
+    "nb_variable_types": 0,
+    "nb_warnings": 5,
+    "kind_to_nb": {
+      "Undefined import [21]": 4,
+      "Incompatible variable type [9]": 1
+    }
+  },
+  {
+    "commit": "c5946c4",
+    "commit_date": "2019-08-15 10:49:48 -0400",
+    "loc": 294,
+    "nb_python_files": 6,
+    "nb_param_types": 7,
+    "nb_return_types": 0,
+    "nb_variable_types": 0,
+    "nb_warnings": 4,
+    "kind_to_nb": {
+      "Undefined import [21]": 3,
+      "Incompatible variable type [9]": 1
+    }
+  },
+  {
+    "commit": "52e5310",
+    "commit_date": "2019-04-14 16:25:07 +0200",
+    "loc": 256,
+    "nb_python_files": 6,
+    "nb_param_types": 7,
+    "nb_return_types": 0,
+    "nb_variable_types": 0,
+    "nb_warnings": 4,
+    "kind_to_nb": {
+      "Undefined import [21]": 3,
+      "Incompatible variable type [9]": 1
+    }
+  },
+  {
+    "commit": "c582934",
+    "commit_date": "2019-03-23 14:19:09 -0400",
+    "loc": 185,
+    "nb_python_files": 5,
+    "nb_param_types": 7,
+    "nb_return_types": 0,
+    "nb_variable_types": 0,
+    "nb_warnings": 4,
+    "kind_to_nb": {
+      "Undefined import [21]": 3,
+      "Incompatible variable type [9]": 1
+    }
+  },
+  {
+    "commit": "125dbd2",
+    "commit_date": "2019-03-20 11:17:32 -0400",
+    "loc": 126,
+    "nb_python_files": 4,
+    "nb_param_types": 5,
+    "nb_return_types": 0,
+    "nb_variable_types": 0,
+    "nb_warnings": 3,
+    "kind_to_nb": {
+      "Undefined import [21]": 2,
+      "Incompatible variable type [9]": 1
+    }
+  }
+]

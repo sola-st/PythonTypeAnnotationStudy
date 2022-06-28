@@ -1,0 +1,155 @@
+[
+  {
+    "commit": "0a4f539",
+    "commit_date": "2022-02-15 13:26:28 -0600",
+    "loc": 4400,
+    "nb_python_files": 38,
+    "nb_param_types": 399,
+    "nb_return_types": 165,
+    "nb_variable_types": 29,
+    "nb_warnings": 177,
+    "kind_to_nb": {
+      "Unsupported operand [58]": 4,
+      "Incompatible parameter type [6]": 30,
+      "Undefined import [21]": 18,
+      "Undefined or invalid type [11]": 23,
+      "Undefined attribute [16]": 7,
+      "Incompatible variable type [9]": 94,
+      "Too many arguments [19]": 1
+    }
+  },
+  {
+    "commit": "22be6d1",
+    "commit_date": "2020-11-16 08:47:16 -0600",
+    "loc": 3528,
+    "nb_python_files": 32,
+    "nb_param_types": 356,
+    "nb_return_types": 148,
+    "nb_variable_types": 27,
+    "nb_warnings": 154,
+    "kind_to_nb": {
+      "Unsupported operand [58]": 3,
+      "Incompatible parameter type [6]": 24,
+      "Undefined import [21]": 17,
+      "Incompatible variable type [9]": 92,
+      "Undefined or invalid type [11]": 16,
+      "Too many arguments [19]": 1,
+      "Illegal annotation target [35]": 1
+    }
+  },
+  {
+    "commit": "7bf45a8",
+    "commit_date": "2019-10-15 14:46:05 -0700",
+    "loc": 2882,
+    "nb_python_files": 29,
+    "nb_param_types": 208,
+    "nb_return_types": 98,
+    "nb_variable_types": 7,
+    "nb_warnings": 115,
+    "kind_to_nb": {
+      "Unsupported operand [58]": 1,
+      "Incompatible parameter type [6]": 13,
+      "Undefined import [21]": 13,
+      "Incompatible variable type [9]": 81,
+      "Undefined attribute [16]": 1,
+      "Unbound name [10]": 1,
+      "Undefined or invalid type [11]": 4,
+      "Illegal annotation target [35]": 1
+    }
+  },
+  {
+    "commit": "9f4ce16",
+    "commit_date": "2019-09-03 13:11:56 -0500",
+    "loc": 3234,
+    "nb_python_files": 28,
+    "nb_param_types": 201,
+    "nb_return_types": 72,
+    "nb_variable_types": 7,
+    "nb_warnings": 116,
+    "kind_to_nb": {
+      "Undefined import [21]": 7,
+      "Incompatible parameter type [6]": 4,
+      "Incompatible variable type [9]": 78,
+      "Undefined attribute [16]": 21,
+      "Undefined or invalid type [11]": 5,
+      "Illegal annotation target [35]": 1
+    }
+  },
+  {
+    "commit": "3a8236f",
+    "commit_date": "2017-12-03 17:50:43 -0500",
+    "loc": 3044,
+    "nb_python_files": 30,
+    "nb_param_types": 0,
+    "nb_return_types": 0,
+    "nb_variable_types": 0,
+    "nb_warnings": 15,
+    "kind_to_nb": {
+      "Undefined import [21]": 9,
+      "Unbound name [10]": 5,
+      "Undefined attribute [16]": 1
+    }
+  },
+  {
+    "commit": "de02d28",
+    "commit_date": "2015-09-08 12:31:51 -0700",
+    "loc": 2667,
+    "nb_python_files": 29,
+    "nb_param_types": 0,
+    "nb_return_types": 0,
+    "nb_variable_types": 0,
+    "nb_warnings": 33,
+    "kind_to_nb": {
+      "Undefined import [21]": 5,
+      "Unbound name [10]": 27,
+      "Undefined attribute [16]": 1
+    }
+  },
+  {
+    "commit": "3c98e02",
+    "commit_date": "2013-07-25 12:55:34 -0400",
+    "loc": 2311,
+    "nb_python_files": 28,
+    "nb_param_types": 0,
+    "nb_return_types": 0,
+    "nb_variable_types": 0,
+    "nb_warnings": 36,
+    "kind_to_nb": {
+      "Unbound name [10]": 28,
+      "Undefined import [21]": 6,
+      "Undefined attribute [16]": 1,
+      "Parsing failure [404]": 1
+    }
+  },
+  {
+    "commit": "b38f200",
+    "commit_date": "2013-02-19 19:43:15 +0100",
+    "loc": 2006,
+    "nb_python_files": 26,
+    "nb_param_types": 0,
+    "nb_return_types": 0,
+    "nb_variable_types": 0,
+    "nb_warnings": 32,
+    "kind_to_nb": {
+      "Unbound name [10]": 28,
+      "Undefined import [21]": 3,
+      "Parsing failure [404]": 1
+    }
+  },
+  {
+    "commit": "ab8c93a",
+    "commit_date": "2012-12-09 17:25:26 -0600",
+    "loc": 1294,
+    "nb_python_files": 15,
+    "nb_param_types": 0,
+    "nb_return_types": 0,
+    "nb_variable_types": 0,
+    "nb_warnings": 26,
+    "kind_to_nb": {
+      "Unbound name [10]": 19,
+      "Incompatible parameter type [6]": 3,
+      "Undefined import [21]": 3,
+      "Parsing failure [404]": 1
+    }
+  }
+]

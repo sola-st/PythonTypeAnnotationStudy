@@ -1,0 +1,162 @@
+[
+  {
+    "commit": "9e8e7a2",
+    "commit_date": "2022-01-30 03:23:42 +0100",
+    "loc": 24850,
+    "nb_python_files": 179,
+    "nb_param_types": 1,
+    "nb_return_types": 2,
+    "nb_variable_types": 0,
+    "nb_warnings": 379,
+    "kind_to_nb": {
+      "Undefined import [21]": 296,
+      "Inconsistent override [15]": 5,
+      "Undefined or invalid type [11]": 73,
+      "Unbound name [10]": 5
+    }
+  },
+  {
+    "commit": "0910246",
+    "commit_date": "2021-04-08 18:44:28 +0200",
+    "loc": 24509,
+    "nb_python_files": 178,
+    "nb_param_types": 1,
+    "nb_return_types": 1,
+    "nb_variable_types": 0,
+    "nb_warnings": 378,
+    "kind_to_nb": {
+      "Undefined import [21]": 295,
+      "Inconsistent override [15]": 5,
+      "Undefined or invalid type [11]": 73,
+      "Unbound name [10]": 5
+    }
+  },
+  {
+    "commit": "67f987d",
+    "commit_date": "2019-10-02 09:49:52 -0600",
+    "loc": 22915,
+    "nb_python_files": 155,
+    "nb_param_types": 1,
+    "nb_return_types": 1,
+    "nb_variable_types": 0,
+    "nb_warnings": 356,
+    "kind_to_nb": {
+      "Undefined import [21]": 275,
+      "Inconsistent override [15]": 5,
+      "Undefined or invalid type [11]": 71,
+      "Unbound name [10]": 5
+    }
+  },
+  {
+    "commit": "c499838",
+    "commit_date": "2019-02-12 20:10:31 +0100",
+    "loc": 21910,
+    "nb_python_files": 154,
+    "nb_param_types": 1,
+    "nb_return_types": 1,
+    "nb_variable_types": 0,
+    "nb_warnings": 352,
+    "kind_to_nb": {
+      "Undefined import [21]": 272,
+      "Inconsistent override [15]": 5,
+      "Undefined or invalid type [11]": 70,
+      "Unbound name [10]": 5
+    }
+  },
+  {
+    "commit": "98a8746",
+    "commit_date": "2018-01-03 17:18:30 +0100",
+    "loc": 21830,
+    "nb_python_files": 154,
+    "nb_param_types": 1,
+    "nb_return_types": 1,
+    "nb_variable_types": 0,
+    "nb_warnings": 349,
+    "kind_to_nb": {
+      "Undefined import [21]": 270,
+      "Inconsistent override [15]": 5,
+      "Undefined or invalid type [11]": 69,
+      "Unbound name [10]": 5
+    }
+  },
+  {
+    "commit": "a153606",
+    "commit_date": "2017-11-10 16:31:40 +0100",
+    "loc": 35429,
+    "nb_python_files": 161,
+    "nb_param_types": 1,
+    "nb_return_types": 1,
+    "nb_variable_types": 0,
+    "nb_warnings": 449,
+    "kind_to_nb": {
+      "Undefined import [21]": 301,
+      "Unbound name [10]": 73,
+      "Unsupported operand [58]": 2,
+      "Inconsistent override [15]": 4,
+      "Undefined or invalid type [11]": 69
+    }
+  },
+  {
+    "commit": "a6b49e2",
+    "commit_date": "2017-05-25 18:17:05 +0200",
+    "loc": 32882,
+    "nb_python_files": 142,
+    "nb_param_types": 1,
+    "nb_return_types": 1,
+    "nb_variable_types": 0,
+    "nb_warnings": 420,
+    "kind_to_nb": {
+      "Undefined import [21]": 276,
+      "Unbound name [10]": 73,
+      "Unsupported operand [58]": 2,
+      "Inconsistent override [15]": 4,
+      "Undefined or invalid type [11]": 65
+    }
+  },
+  {
+    "commit": "ed7e5f6",
+    "commit_date": "2016-03-09 17:20:43 +0100",
+    "loc": 30885,
+    "nb_python_files": 126,
+    "nb_param_types": 0,
+    "nb_return_types": 0,
+    "nb_variable_types": 0,
+    "nb_warnings": 378,
+    "kind_to_nb": {
+      "Undefined import [21]": 241,
+      "Unbound name [10]": 73,
+      "Unsupported operand [58]": 2,
+      "Inconsistent override [15]": 4,
+      "Undefined or invalid type [11]": 58
+    }
+  },
+  {
+    "commit": "3dc5217",
+    "commit_date": "2015-06-29 14:33:30 +0200",
+    "loc": 10260,
+    "nb_python_files": 67,
+    "nb_param_types": 0,
+    "nb_return_types": 0,
+    "nb_variable_types": 0,
+    "nb_warnings": 154,
+    "kind_to_nb": {
+      "Inconsistent override [15]": 2,
+      "Unbound name [10]": 84,
+      "Undefined import [21]": 68
+    }
+  },
+  {
+    "commit": "5df82d5",
+    "commit_date": "2015-05-28 03:32:09 +0200",
+    "loc": 1007,
+    "nb_python_files": 6,
+    "nb_param_types": 0,
+    "nb_return_types": 0,
+    "nb_variable_types": 0,
+    "nb_warnings": 9,
+    "kind_to_nb": {
+      "Unbound name [10]": 5,
+      "Undefined import [21]": 4
+    }
+  }
+]

@@ -1,0 +1,203 @@
+[
+  {
+    "commit": "f305972",
+    "commit_date": "2021-12-03 03:40:37 -0800",
+    "loc": 6419,
+    "nb_python_files": 209,
+    "nb_param_types": 668,
+    "nb_return_types": 238,
+    "nb_variable_types": 45,
+    "nb_warnings": 565,
+    "kind_to_nb": {
+      "Undefined import [21]": 282,
+      "Undefined or invalid type [11]": 226,
+      "Unable to concatenate tuple [60]": 7,
+      "Invalid decoration [56]": 14,
+      "Undefined attribute [16]": 22,
+      "Unexpected keyword [28]": 3,
+      "Incompatible parameter type [6]": 3,
+      "Incompatible attribute type [8]": 3,
+      "Unsupported operand [58]": 2,
+      "Incompatible variable type [9]": 1,
+      "Uninitialized attribute [13]": 2
+    }
+  },
+  {
+    "commit": "828f9bf",
+    "commit_date": "2020-09-09 07:35:47 -0700",
+    "loc": 6394,
+    "nb_python_files": 209,
+    "nb_param_types": 667,
+    "nb_return_types": 238,
+    "nb_variable_types": 45,
+    "nb_warnings": 675,
+    "kind_to_nb": {
+      "Undefined import [21]": 281,
+      "Undefined or invalid type [11]": 226,
+      "Unable to concatenate tuple [60]": 7,
+      "Invalid decoration [56]": 14,
+      "Undefined attribute [16]": 22,
+      "Unexpected keyword [28]": 3,
+      "Incompatible variable type [9]": 110,
+      "Incompatible parameter type [6]": 5,
+      "Incompatible attribute type [8]": 3,
+      "Unsupported operand [58]": 2,
+      "Uninitialized attribute [13]": 2
+    }
+  },
+  {
+    "commit": "cff02a4",
+    "commit_date": "2020-06-09 02:30:26 -0700",
+    "loc": 6370,
+    "nb_python_files": 209,
+    "nb_param_types": 663,
+    "nb_return_types": 237,
+    "nb_variable_types": 45,
+    "nb_warnings": 670,
+    "kind_to_nb": {
+      "Undefined import [21]": 281,
+      "Undefined or invalid type [11]": 226,
+      "Unable to concatenate tuple [60]": 7,
+      "Invalid decoration [56]": 14,
+      "Undefined attribute [16]": 22,
+      "Unexpected keyword [28]": 3,
+      "Incompatible variable type [9]": 106,
+      "Incompatible parameter type [6]": 3,
+      "Incompatible attribute type [8]": 3,
+      "Unsupported operand [58]": 2,
+      "Uninitialized attribute [13]": 3
+    }
+  },
+  {
+    "commit": "0bb2e73",
+    "commit_date": "2020-05-27 02:04:41 -0700",
+    "loc": 6395,
+    "nb_python_files": 211,
+    "nb_param_types": 665,
+    "nb_return_types": 237,
+    "nb_variable_types": 45,
+    "nb_warnings": 681,
+    "kind_to_nb": {
+      "Undefined import [21]": 288,
+      "Undefined or invalid type [11]": 231,
+      "Unable to concatenate tuple [60]": 7,
+      "Invalid decoration [56]": 16,
+      "Undefined attribute [16]": 21,
+      "Unexpected keyword [28]": 3,
+      "Incompatible variable type [9]": 106,
+      "Incompatible parameter type [6]": 3,
+      "Uninitialized attribute [13]": 1,
+      "Incompatible attribute type [8]": 3,
+      "Unsupported operand [58]": 2
+    }
+  },
+  {
+    "commit": "f00c774",
+    "commit_date": "2020-04-16 02:28:53 -0700",
+    "loc": 6323,
+    "nb_python_files": 203,
+    "nb_param_types": 638,
+    "nb_return_types": 207,
+    "nb_variable_types": 43,
+    "nb_warnings": 671,
+    "kind_to_nb": {
+      "Undefined import [21]": 303,
+      "Undefined or invalid type [11]": 229,
+      "Unable to concatenate tuple [60]": 7,
+      "Invalid decoration [56]": 16,
+      "Undefined attribute [16]": 3,
+      "Unexpected keyword [28]": 3,
+      "Incompatible variable type [9]": 106,
+      "Unsupported operand [58]": 2,
+      "Incompatible parameter type [6]": 2
+    }
+  },
+  {
+    "commit": "66f8f70",
+    "commit_date": "2020-04-03 05:07:28 -0700",
+    "loc": 5825,
+    "nb_python_files": 191,
+    "nb_param_types": 581,
+    "nb_return_types": 196,
+    "nb_variable_types": 27,
+    "nb_warnings": 621,
+    "kind_to_nb": {
+      "Undefined import [21]": 278,
+      "Undefined or invalid type [11]": 208,
+      "Invalid decoration [56]": 14,
+      "Undefined attribute [16]": 3,
+      "Unexpected keyword [28]": 3,
+      "Unable to concatenate tuple [60]": 5,
+      "Incompatible variable type [9]": 106,
+      "Unsupported operand [58]": 2,
+      "Incompatible parameter type [6]": 2
+    }
+  },
+  {
+    "commit": "f028e96",
+    "commit_date": "2020-03-26 05:32:39 -0700",
+    "loc": 5526,
+    "nb_python_files": 185,
+    "nb_param_types": 540,
+    "nb_return_types": 184,
+    "nb_variable_types": 8,
+    "nb_warnings": 579,
+    "kind_to_nb": {
+      "Undefined import [21]": 263,
+      "Undefined or invalid type [11]": 190,
+      "Invalid decoration [56]": 5,
+      "Inconsistent override [14]": 2,
+      "Unexpected keyword [28]": 3,
+      "Incompatible variable type [9]": 108,
+      "Unable to concatenate tuple [60]": 1,
+      "Undefined attribute [16]": 2,
+      "Unsupported operand [58]": 2,
+      "Incompatible parameter type [6]": 2,
+      "Incompatible return type [7]": 1
+    }
+  },
+  {
+    "commit": "5ab2cfd",
+    "commit_date": "2019-12-18 18:25:22 -0800",
+    "loc": 5702,
+    "nb_python_files": 189,
+    "nb_param_types": 554,
+    "nb_return_types": 182,
+    "nb_variable_types": 7,
+    "nb_warnings": 598,
+    "kind_to_nb": {
+      "Undefined import [21]": 278,
+      "Undefined or invalid type [11]": 192,
+      "Inconsistent override [14]": 6,
+      "Unexpected keyword [28]": 3,
+      "Undefined attribute [16]": 3,
+      "Incompatible variable type [9]": 109,
+      "Unable to concatenate tuple [60]": 1,
+      "Invalid decoration [56]": 1,
+      "Unsupported operand [58]": 2,
+      "Incompatible parameter type [6]": 2,
+      "Incompatible return type [7]": 1
+    }
+  },
+  {
+    "commit": "d418d82",
+    "commit_date": "2019-08-27 10:46:17 -0700",
+    "loc": 5595,
+    "nb_python_files": 188,
+    "nb_param_types": 544,
+    "nb_return_types": 180,
+    "nb_variable_types": 0,
+    "nb_warnings": 589,
+    "kind_to_nb": {
+      "Undefined import [21]": 273,
+      "Undefined or invalid type [11]": 189,
+      "Inconsistent override [14]": 8,
+      "Unexpected keyword [28]": 3,
+      "Undefined attribute [16]": 3,
+      "Incompatible variable type [9]": 108,
+      "Unsupported operand [58]": 2,
+      "Incompatible parameter type [6]": 2,
+      "Incompatible return type [7]": 1
+    }
+  }
+]

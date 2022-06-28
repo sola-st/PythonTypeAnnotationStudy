@@ -1,0 +1,188 @@
+[
+  {
+    "commit": "1be78f2",
+    "commit_date": "2022-02-17 06:49:15 -0500",
+    "loc": 31413,
+    "nb_python_files": 145,
+    "nb_param_types": 55,
+    "nb_return_types": 11,
+    "nb_variable_types": 6,
+    "nb_warnings": 554,
+    "kind_to_nb": {
+      "Undefined import [21]": 530,
+      "Uninitialized attribute [13]": 9,
+      "Undefined or invalid type [11]": 5,
+      "Unbound name [10]": 1,
+      "Incompatible variable type [9]": 1,
+      "Undefined attribute [16]": 5,
+      "Invalid type [31]": 1,
+      "Incompatible parameter type [6]": 1,
+      "Invalid type variable [34]": 1
+    }
+  },
+  {
+    "commit": "94c7d7d",
+    "commit_date": "2021-08-08 21:17:43 -0400",
+    "loc": 27125,
+    "nb_python_files": 130,
+    "nb_param_types": 40,
+    "nb_return_types": 11,
+    "nb_variable_types": 6,
+    "nb_warnings": 471,
+    "kind_to_nb": {
+      "Undefined import [21]": 444,
+      "Parsing failure [404]": 1,
+      "Uninitialized attribute [13]": 9,
+      "Undefined or invalid type [11]": 6,
+      "Unbound name [10]": 1,
+      "Incompatible variable type [9]": 1,
+      "Undefined attribute [16]": 5,
+      "Invalid type variable [34]": 2,
+      "Invalid type [31]": 1,
+      "Incompatible parameter type [6]": 1
+    }
+  },
+  {
+    "commit": "aa131ed",
+    "commit_date": "2021-02-28 21:12:03 -0600",
+    "loc": 18486,
+    "nb_python_files": 114,
+    "nb_param_types": 146,
+    "nb_return_types": 12,
+    "nb_variable_types": 0,
+    "nb_warnings": 407,
+    "kind_to_nb": {
+      "Undefined import [21]": 383,
+      "Undefined or invalid type [11]": 12,
+      "Unbound name [10]": 1,
+      "Incompatible variable type [9]": 1,
+      "Undefined attribute [16]": 5,
+      "Invalid type [31]": 1,
+      "Invalid type variable [34]": 1,
+      "Uninitialized attribute [13]": 3
+    }
+  },
+  {
+    "commit": "efd988e",
+    "commit_date": "2020-11-03 09:53:34 -0800",
+    "loc": 14525,
+    "nb_python_files": 101,
+    "nb_param_types": 20,
+    "nb_return_types": 9,
+    "nb_variable_types": 0,
+    "nb_warnings": 347,
+    "kind_to_nb": {
+      "Undefined import [21]": 331,
+      "Undefined or invalid type [11]": 6,
+      "Unbound name [10]": 1,
+      "Undefined attribute [16]": 4,
+      "Invalid type [31]": 1,
+      "Invalid type variable [34]": 1,
+      "Uninitialized attribute [13]": 3
+    }
+  },
+  {
+    "commit": "d019853",
+    "commit_date": "2020-06-11 18:57:47 +0000",
+    "loc": 12784,
+    "nb_python_files": 91,
+    "nb_param_types": 16,
+    "nb_return_types": 8,
+    "nb_variable_types": 0,
+    "nb_warnings": 346,
+    "kind_to_nb": {
+      "Undefined import [21]": 317,
+      "Undefined attribute [16]": 3,
+      "Unbound name [10]": 2,
+      "Undefined or invalid type [11]": 6,
+      "Unexpected keyword [28]": 14,
+      "Invalid type variable [34]": 1,
+      "Uninitialized attribute [13]": 3
+    }
+  },
+  {
+    "commit": "37016aa",
+    "commit_date": "2020-01-14 21:53:30 -0800",
+    "loc": 10629,
+    "nb_python_files": 79,
+    "nb_param_types": 5,
+    "nb_return_types": 4,
+    "nb_variable_types": 0,
+    "nb_warnings": 282,
+    "kind_to_nb": {
+      "Undefined import [21]": 257,
+      "Undefined or invalid type [11]": 5,
+      "Unbound name [10]": 1,
+      "Unexpected keyword [28]": 14,
+      "Undefined attribute [16]": 1,
+      "Invalid type variable [34]": 1,
+      "Uninitialized attribute [13]": 3
+    }
+  },
+  {
+    "commit": "4595020",
+    "commit_date": "2019-09-06 23:47:53 -0400",
+    "loc": 8573,
+    "nb_python_files": 66,
+    "nb_param_types": 5,
+    "nb_return_types": 4,
+    "nb_variable_types": 0,
+    "nb_warnings": 262,
+    "kind_to_nb": {
+      "Undefined import [21]": 239,
+      "Unexpected keyword [28]": 14,
+      "Undefined or invalid type [11]": 4,
+      "Invalid type variable [34]": 1,
+      "Undefined attribute [16]": 1,
+      "Uninitialized attribute [13]": 3
+    }
+  },
+  {
+    "commit": "d61e614",
+    "commit_date": "2019-05-23 10:34:10 -0700",
+    "loc": 5643,
+    "nb_python_files": 43,
+    "nb_param_types": 0,
+    "nb_return_types": 0,
+    "nb_variable_types": 0,
+    "nb_warnings": 167,
+    "kind_to_nb": {
+      "Undefined import [21]": 145,
+      "Unexpected keyword [28]": 14,
+      "Undefined or invalid type [11]": 4,
+      "Undefined attribute [16]": 1,
+      "Uninitialized attribute [13]": 3
+    }
+  },
+  {
+    "commit": "4436447",
+    "commit_date": "2019-03-22 10:43:11 -0700",
+    "loc": 1641,
+    "nb_python_files": 27,
+    "nb_param_types": 0,
+    "nb_return_types": 0,
+    "nb_variable_types": 0,
+    "nb_warnings": 92,
+    "kind_to_nb": {
+      "Undefined import [21]": 76,
+      "Unexpected keyword [28]": 10,
+      "Undefined or invalid type [11]": 5,
+      "Undefined attribute [16]": 1
+    }
+  },
+  {
+    "commit": "2747a56",
+    "commit_date": "2019-02-15 00:20:24 -0800",
+    "loc": 256,
+    "nb_python_files": 10,
+    "nb_param_types": 0,
+    "nb_return_types": 0,
+    "nb_variable_types": 0,
+    "nb_warnings": 18,
+    "kind_to_nb": {
+      "Undefined import [21]": 16,
+      "Undefined or invalid type [11]": 1,
+      "Unexpected keyword [28]": 1
+    }
+  }
+]

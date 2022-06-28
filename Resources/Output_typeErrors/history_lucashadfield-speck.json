@@ -1,0 +1,172 @@
+[
+  {
+    "commit": "520bf95",
+    "commit_date": "2020-09-19 21:18:04 +1000",
+    "loc": 629,
+    "nb_python_files": 9,
+    "nb_param_types": 79,
+    "nb_return_types": 24,
+    "nb_variable_types": 2,
+    "nb_warnings": 35,
+    "kind_to_nb": {
+      "Undefined import [21]": 15,
+      "Undefined or invalid type [11]": 13,
+      "Incompatible parameter type [6]": 1,
+      "Incompatible return type [7]": 1,
+      "Illegal annotation target [35]": 2,
+      "Call error [29]": 2,
+      "Unsupported operand [58]": 1
+    }
+  },
+  {
+    "commit": "5729338",
+    "commit_date": "2020-02-07 09:43:07 +1100",
+    "loc": 612,
+    "nb_python_files": 9,
+    "nb_param_types": 62,
+    "nb_return_types": 21,
+    "nb_variable_types": 2,
+    "nb_warnings": 32,
+    "kind_to_nb": {
+      "Undefined import [21]": 15,
+      "Incompatible variable type [9]": 1,
+      "Undefined or invalid type [11]": 13,
+      "Illegal annotation target [35]": 2,
+      "Incompatible return type [7]": 1
+    }
+  },
+  {
+    "commit": "2b1218a",
+    "commit_date": "2020-01-16 13:11:02 +0000",
+    "loc": 611,
+    "nb_python_files": 9,
+    "nb_param_types": 62,
+    "nb_return_types": 21,
+    "nb_variable_types": 2,
+    "nb_warnings": 32,
+    "kind_to_nb": {
+      "Undefined import [21]": 15,
+      "Incompatible variable type [9]": 1,
+      "Undefined or invalid type [11]": 13,
+      "Illegal annotation target [35]": 2,
+      "Incompatible return type [7]": 1
+    }
+  },
+  {
+    "commit": "0d013c3",
+    "commit_date": "2020-01-13 13:36:36 +0000",
+    "loc": 603,
+    "nb_python_files": 9,
+    "nb_param_types": 62,
+    "nb_return_types": 21,
+    "nb_variable_types": 2,
+    "nb_warnings": 33,
+    "kind_to_nb": {
+      "Undefined import [21]": 16,
+      "Incompatible variable type [9]": 1,
+      "Undefined or invalid type [11]": 13,
+      "Illegal annotation target [35]": 2,
+      "Incompatible return type [7]": 1
+    }
+  },
+  {
+    "commit": "5390147",
+    "commit_date": "2020-01-12 20:28:44 +0000",
+    "loc": 600,
+    "nb_python_files": 9,
+    "nb_param_types": 62,
+    "nb_return_types": 21,
+    "nb_variable_types": 2,
+    "nb_warnings": 33,
+    "kind_to_nb": {
+      "Undefined import [21]": 16,
+      "Incompatible variable type [9]": 1,
+      "Undefined or invalid type [11]": 13,
+      "Illegal annotation target [35]": 2,
+      "Incompatible return type [7]": 1
+    }
+  },
+  {
+    "commit": "797cdfa",
+    "commit_date": "2020-01-11 23:02:28 +0000",
+    "loc": 596,
+    "nb_python_files": 9,
+    "nb_param_types": 62,
+    "nb_return_types": 21,
+    "nb_variable_types": 2,
+    "nb_warnings": 33,
+    "kind_to_nb": {
+      "Undefined import [21]": 16,
+      "Incompatible variable type [9]": 1,
+      "Undefined or invalid type [11]": 13,
+      "Illegal annotation target [35]": 2,
+      "Incompatible return type [7]": 1
+    }
+  },
+  {
+    "commit": "c91248d",
+    "commit_date": "2020-01-10 13:41:51 +0000",
+    "loc": 594,
+    "nb_python_files": 9,
+    "nb_param_types": 62,
+    "nb_return_types": 21,
+    "nb_variable_types": 2,
+    "nb_warnings": 33,
+    "kind_to_nb": {
+      "Undefined import [21]": 16,
+      "Incompatible variable type [9]": 1,
+      "Undefined or invalid type [11]": 13,
+      "Illegal annotation target [35]": 2,
+      "Incompatible return type [7]": 1
+    }
+  },
+  {
+    "commit": "f41682e",
+    "commit_date": "2019-12-31 15:52:22 +0000",
+    "loc": 417,
+    "nb_python_files": 7,
+    "nb_param_types": 52,
+    "nb_return_types": 20,
+    "nb_variable_types": 2,
+    "nb_warnings": 27,
+    "kind_to_nb": {
+      "Undefined import [21]": 12,
+      "Undefined or invalid type [11]": 12,
+      "Illegal annotation target [35]": 2,
+      "Incompatible return type [7]": 1
+    }
+  },
+  {
+    "commit": "12d40be",
+    "commit_date": "2019-12-29 19:35:23 +0000",
+    "loc": 344,
+    "nb_python_files": 7,
+    "nb_param_types": 43,
+    "nb_return_types": 19,
+    "nb_variable_types": 2,
+    "nb_warnings": 22,
+    "kind_to_nb": {
+      "Undefined import [21]": 12,
+      "Undefined or invalid type [11]": 7,
+      "Illegal annotation target [35]": 2,
+      "Incompatible return type [7]": 1
+    }
+  },
+  {
+    "commit": "817edc8",
+    "commit_date": "2019-12-27 22:06:21 +0000",
+    "loc": 232,
+    "nb_python_files": 4,
+    "nb_param_types": 33,
+    "nb_return_types": 8,
+    "nb_variable_types": 0,
+    "nb_warnings": 16,
+    "kind_to_nb": {
+      "Undefined import [21]": 8,
+      "Undefined or invalid type [11]": 3,
+      "Incompatible variable type [9]": 1,
+      "Undefined attribute [16]": 3,
+      "Incompatible return type [7]": 1
+    }
+  }
+]

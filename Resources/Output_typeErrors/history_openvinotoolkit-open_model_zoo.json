@@ -1,0 +1,195 @@
+[
+  {
+    "commit": "d15b3938c",
+    "commit_date": "2022-02-17 16:23:41 +0300",
+    "loc": 78412,
+    "nb_python_files": 578,
+    "nb_param_types": 51,
+    "nb_return_types": 5,
+    "nb_variable_types": 0,
+    "nb_warnings": 1368,
+    "kind_to_nb": {
+      "Undefined import [21]": 920,
+      "Undefined or invalid type [11]": 24,
+      "Undefined attribute [16]": 43,
+      "Missing argument [20]": 132,
+      "Unsupported operand [58]": 2,
+      "Call error [29]": 3,
+      "Inconsistent override [15]": 242,
+      "Unable to concatenate tuple [60]": 1,
+      "Inconsistent override [14]": 1
+    }
+  },
+  {
+    "commit": "290141fc1",
+    "commit_date": "2021-09-14 11:56:47 +0300",
+    "loc": 81210,
+    "nb_python_files": 611,
+    "nb_param_types": 51,
+    "nb_return_types": 5,
+    "nb_variable_types": 0,
+    "nb_warnings": 1468,
+    "kind_to_nb": {
+      "Undefined import [21]": 977,
+      "Undefined or invalid type [11]": 25,
+      "Undefined attribute [16]": 46,
+      "Missing argument [20]": 165,
+      "Unsupported operand [58]": 2,
+      "Call error [29]": 3,
+      "Inconsistent override [15]": 248,
+      "Unable to concatenate tuple [60]": 1,
+      "Inconsistent override [14]": 1
+    }
+  },
+  {
+    "commit": "cb69ef407",
+    "commit_date": "2021-03-24 13:19:39 +0300",
+    "loc": 70236,
+    "nb_python_files": 513,
+    "nb_param_types": 45,
+    "nb_return_types": 3,
+    "nb_variable_types": 0,
+    "nb_warnings": 1077,
+    "kind_to_nb": {
+      "Undefined import [21]": 796,
+      "Undefined or invalid type [11]": 12,
+      "Undefined attribute [16]": 38,
+      "Unsupported operand [58]": 2,
+      "Call error [29]": 3,
+      "Inconsistent override [15]": 224,
+      "Unable to concatenate tuple [60]": 1,
+      "Inconsistent override [14]": 1
+    }
+  },
+  {
+    "commit": "3a406519a",
+    "commit_date": "2020-12-15 15:17:35 +0300",
+    "loc": 63265,
+    "nb_python_files": 482,
+    "nb_param_types": 44,
+    "nb_return_types": 2,
+    "nb_variable_types": 0,
+    "nb_warnings": 986,
+    "kind_to_nb": {
+      "Undefined import [21]": 720,
+      "Undefined or invalid type [11]": 11,
+      "Undefined attribute [16]": 36,
+      "Unsupported operand [58]": 2,
+      "Call error [29]": 3,
+      "Inconsistent override [15]": 212,
+      "Unable to concatenate tuple [60]": 1,
+      "Inconsistent override [14]": 1
+    }
+  },
+  {
+    "commit": "3c5b522b9",
+    "commit_date": "2020-10-30 23:28:23 +0300",
+    "loc": 57550,
+    "nb_python_files": 425,
+    "nb_param_types": 44,
+    "nb_return_types": 2,
+    "nb_variable_types": 0,
+    "nb_warnings": 892,
+    "kind_to_nb": {
+      "Undefined import [21]": 641,
+      "Undefined or invalid type [11]": 8,
+      "Undefined attribute [16]": 35,
+      "Unbound name [10]": 8,
+      "Unsupported operand [58]": 1,
+      "Inconsistent override [15]": 197,
+      "Unable to concatenate tuple [60]": 1,
+      "Inconsistent override [14]": 1
+    }
+  },
+  {
+    "commit": "05f007794",
+    "commit_date": "2020-07-22 17:02:52 +0300",
+    "loc": 47198,
+    "nb_python_files": 354,
+    "nb_param_types": 40,
+    "nb_return_types": 2,
+    "nb_variable_types": 0,
+    "nb_warnings": 712,
+    "kind_to_nb": {
+      "Undefined import [21]": 530,
+      "Undefined or invalid type [11]": 7,
+      "Undefined attribute [16]": 9,
+      "Unbound name [10]": 8,
+      "Unsupported operand [58]": 1,
+      "Inconsistent override [15]": 155,
+      "Unable to concatenate tuple [60]": 1,
+      "Inconsistent override [14]": 1
+    }
+  },
+  {
+    "commit": "f9c2ed239",
+    "commit_date": "2020-04-14 17:32:59 +0300",
+    "loc": 41131,
+    "nb_python_files": 324,
+    "nb_param_types": 34,
+    "nb_return_types": 2,
+    "nb_variable_types": 0,
+    "nb_warnings": 709,
+    "kind_to_nb": {
+      "Undefined import [21]": 539,
+      "Undefined or invalid type [11]": 13,
+      "Undefined attribute [16]": 9,
+      "Unbound name [10]": 6,
+      "Unsupported operand [58]": 1,
+      "Inconsistent override [15]": 139,
+      "Unable to concatenate tuple [60]": 1,
+      "Inconsistent override [14]": 1
+    }
+  },
+  {
+    "commit": "76c591d3f",
+    "commit_date": "2019-12-21 00:53:25 +0300",
+    "loc": 35850,
+    "nb_python_files": 286,
+    "nb_param_types": 33,
+    "nb_return_types": 2,
+    "nb_variable_types": 0,
+    "nb_warnings": 584,
+    "kind_to_nb": {
+      "Undefined import [21]": 437,
+      "Undefined or invalid type [11]": 11,
+      "Undefined attribute [16]": 10,
+      "Unbound name [10]": 6,
+      "Unsupported operand [58]": 1,
+      "Inconsistent override [15]": 117,
+      "Unable to concatenate tuple [60]": 1,
+      "Inconsistent override [14]": 1
+    }
+  },
+  {
+    "commit": "cde1d2ddb",
+    "commit_date": "2019-09-26 14:30:03 +0300",
+    "loc": 28694,
+    "nb_python_files": 237,
+    "nb_param_types": 33,
+    "nb_return_types": 2,
+    "nb_variable_types": 0,
+    "nb_warnings": 458,
+    "kind_to_nb": {
+      "Undefined import [21]": 332,
+      "Undefined or invalid type [11]": 5,
+      "Unbound name [10]": 4,
+      "Unsupported operand [58]": 1,
+      "Inconsistent override [15]": 105,
+      "Undefined attribute [16]": 9,
+      "Unable to concatenate tuple [60]": 1,
+      "Inconsistent override [14]": 1
+    }
+  },
+  {
+    "commit": "5a299c399",
+    "commit_date": "2018-10-15 22:03:00 +0300",
+    "loc": 0,
+    "nb_python_files": 0,
+    "nb_param_types": 0,
+    "nb_return_types": 0,
+    "nb_variable_types": 0,
+    "nb_warnings": 0,
+    "kind_to_nb": {}
+  }
+]

@@ -1,0 +1,161 @@
+[
+  {
+    "commit": "287af55",
+    "commit_date": "2019-10-14 14:53:43 +0800",
+    "loc": 661,
+    "nb_python_files": 13,
+    "nb_param_types": 4,
+    "nb_return_types": 1,
+    "nb_variable_types": 0,
+    "nb_warnings": 24,
+    "kind_to_nb": {
+      "Undefined import [21]": 14,
+      "Undefined or invalid type [11]": 2,
+      "Undefined attribute [16]": 4,
+      "Unsupported operand [58]": 2,
+      "Incompatible variable type [9]": 2
+    }
+  },
+  {
+    "commit": "5d42e6e",
+    "commit_date": "2018-03-01 10:48:47 +0800",
+    "loc": 683,
+    "nb_python_files": 13,
+    "nb_param_types": 4,
+    "nb_return_types": 1,
+    "nb_variable_types": 0,
+    "nb_warnings": 20,
+    "kind_to_nb": {
+      "Undefined import [21]": 14,
+      "Undefined or invalid type [11]": 2,
+      "Undefined attribute [16]": 1,
+      "Unsupported operand [58]": 1,
+      "Incompatible variable type [9]": 2
+    }
+  },
+  {
+    "commit": "b5a3661",
+    "commit_date": "2017-09-26 17:44:11 +0800",
+    "loc": 595,
+    "nb_python_files": 12,
+    "nb_param_types": 3,
+    "nb_return_types": 1,
+    "nb_variable_types": 0,
+    "nb_warnings": 16,
+    "kind_to_nb": {
+      "Undefined import [21]": 12,
+      "Undefined or invalid type [11]": 1,
+      "Unsupported operand [58]": 1,
+      "Incompatible variable type [9]": 2
+    }
+  },
+  {
+    "commit": "ba61cd1",
+    "commit_date": "2017-08-10 11:14:03 +0800",
+    "loc": 569,
+    "nb_python_files": 12,
+    "nb_param_types": 0,
+    "nb_return_types": 0,
+    "nb_variable_types": 0,
+    "nb_warnings": 15,
+    "kind_to_nb": {
+      "Undefined import [21]": 13,
+      "Undefined or invalid type [11]": 1,
+      "Unsupported operand [58]": 1
+    }
+  },
+  {
+    "commit": "8db17a8",
+    "commit_date": "2017-05-19 14:46:50 +0800",
+    "loc": 578,
+    "nb_python_files": 13,
+    "nb_param_types": 0,
+    "nb_return_types": 0,
+    "nb_variable_types": 0,
+    "nb_warnings": 13,
+    "kind_to_nb": {
+      "Unsupported operand [58]": 1,
+      "Undefined import [21]": 11,
+      "Undefined or invalid type [11]": 1
+    }
+  },
+  {
+    "commit": "894a9b3",
+    "commit_date": "2017-05-17 15:14:12 +0800",
+    "loc": 544,
+    "nb_python_files": 12,
+    "nb_param_types": 0,
+    "nb_return_types": 0,
+    "nb_variable_types": 0,
+    "nb_warnings": 13,
+    "kind_to_nb": {
+      "Unsupported operand [58]": 1,
+      "Undefined import [21]": 11,
+      "Undefined or invalid type [11]": 1
+    }
+  },
+  {
+    "commit": "cb58bcc",
+    "commit_date": "2017-03-19 22:01:54 +0800",
+    "loc": 465,
+    "nb_python_files": 10,
+    "nb_param_types": 0,
+    "nb_return_types": 0,
+    "nb_variable_types": 0,
+    "nb_warnings": 16,
+    "kind_to_nb": {
+      "Undefined import [21]": 14,
+      "Undefined or invalid type [11]": 1,
+      "Unsupported operand [58]": 1
+    }
+  },
+  {
+    "commit": "2d2d264",
+    "commit_date": "2017-03-16 15:23:39 +0800",
+    "loc": 458,
+    "nb_python_files": 10,
+    "nb_param_types": 0,
+    "nb_return_types": 0,
+    "nb_variable_types": 0,
+    "nb_warnings": 16,
+    "kind_to_nb": {
+      "Undefined import [21]": 14,
+      "Undefined or invalid type [11]": 1,
+      "Unsupported operand [58]": 1
+    }
+  },
+  {
+    "commit": "c878271",
+    "commit_date": "2017-01-18 12:31:45 +0800",
+    "loc": 758,
+    "nb_python_files": 14,
+    "nb_param_types": 0,
+    "nb_return_types": 0,
+    "nb_variable_types": 0,
+    "nb_warnings": 16,
+    "kind_to_nb": {
+      "Unsupported operand [58]": 1,
+      "Undefined import [21]": 12,
+      "Undefined or invalid type [11]": 1,
+      "Undefined attribute [16]": 1,
+      "Invalid Exception [48]": 1
+    }
+  },
+  {
+    "commit": "4280bdd",
+    "commit_date": "2017-01-12 11:57:09 +0800",
+    "loc": 715,
+    "nb_python_files": 14,
+    "nb_param_types": 0,
+    "nb_return_types": 0,
+    "nb_variable_types": 0,
+    "nb_warnings": 15,
+    "kind_to_nb": {
+      "Unsupported operand [58]": 1,
+      "Undefined import [21]": 11,
+      "Undefined or invalid type [11]": 1,
+      "Undefined attribute [16]": 1,
+      "Invalid Exception [48]": 1
+    }
+  }
+]

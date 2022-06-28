@@ -1,0 +1,209 @@
+[
+  {
+    "commit": "68f43d4d",
+    "commit_date": "2022-02-15 16:59:37 +0100",
+    "loc": 57355,
+    "nb_python_files": 376,
+    "nb_param_types": 3143,
+    "nb_return_types": 1294,
+    "nb_variable_types": 1223,
+    "nb_warnings": 1572,
+    "kind_to_nb": {
+      "Undefined import [21]": 757,
+      "Undefined or invalid type [11]": 439,
+      "Invalid decoration [56]": 16,
+      "Undefined attribute [16]": 253,
+      "Incompatible variable type [9]": 6,
+      "Unable to concatenate tuple [60]": 6,
+      "Inconsistent override [14]": 5,
+      "Call error [29]": 48,
+      "Redundant cast [22]": 2,
+      "Unsupported operand [58]": 16,
+      "Too many arguments [19]": 3,
+      "Incompatible parameter type [6]": 11,
+      "Uninitialized attribute [13]": 3,
+      "Illegal annotation target [35]": 7
+    }
+  },
+  {
+    "commit": "048bab04",
+    "commit_date": "2021-07-23 18:36:34 +0200",
+    "loc": 44979,
+    "nb_python_files": 238,
+    "nb_param_types": 2368,
+    "nb_return_types": 983,
+    "nb_variable_types": 1064,
+    "nb_warnings": 859,
+    "kind_to_nb": {
+      "Undefined import [21]": 503,
+      "Undefined or invalid type [11]": 221,
+      "Invalid decoration [56]": 6,
+      "Undefined attribute [16]": 80,
+      "Incompatible parameter type [6]": 6,
+      "Incompatible return type [7]": 1,
+      "Incompatible variable type [9]": 4,
+      "Inconsistent override [14]": 5,
+      "Unable to concatenate tuple [60]": 4,
+      "Redundant cast [22]": 2,
+      "Call error [29]": 17,
+      "Unsupported operand [58]": 1,
+      "Too many arguments [19]": 1,
+      "Illegal annotation target [35]": 8
+    }
+  },
+  {
+    "commit": "5c9356d3",
+    "commit_date": "2020-11-30 14:18:21 +0100",
+    "loc": 32804,
+    "nb_python_files": 201,
+    "nb_param_types": 1815,
+    "nb_return_types": 816,
+    "nb_variable_types": 929,
+    "nb_warnings": 810,
+    "kind_to_nb": {
+      "Undefined import [21]": 542,
+      "Undefined or invalid type [11]": 181,
+      "Invalid decoration [56]": 3,
+      "Undefined attribute [16]": 48,
+      "Incompatible parameter type [6]": 4,
+      "Unable to concatenate tuple [60]": 3,
+      "Redundant cast [22]": 2,
+      "Call error [29]": 20,
+      "Illegal annotation target [35]": 6,
+      "Incompatible variable type [9]": 1
+    }
+  },
+  {
+    "commit": "a5229614",
+    "commit_date": "2020-03-16 17:06:13 +0100",
+    "loc": 19435,
+    "nb_python_files": 147,
+    "nb_param_types": 920,
+    "nb_return_types": 479,
+    "nb_variable_types": 749,
+    "nb_warnings": 628,
+    "kind_to_nb": {
+      "Undefined import [21]": 419,
+      "Undefined attribute [16]": 26,
+      "Undefined or invalid type [11]": 149,
+      "Call error [29]": 23,
+      "Redundant cast [22]": 1,
+      "Incompatible parameter type [6]": 3,
+      "Unable to concatenate tuple [60]": 1,
+      "Illegal annotation target [35]": 3,
+      "Incompatible variable type [9]": 1,
+      "Unbound name [10]": 1,
+      "Invalid decoration [56]": 1
+    }
+  },
+  {
+    "commit": "8b34d0f4",
+    "commit_date": "2019-12-14 15:12:59 +0100",
+    "loc": 15658,
+    "nb_python_files": 135,
+    "nb_param_types": 667,
+    "nb_return_types": 368,
+    "nb_variable_types": 597,
+    "nb_warnings": 564,
+    "kind_to_nb": {
+      "Undefined import [21]": 380,
+      "Undefined or invalid type [11]": 133,
+      "Call error [29]": 21,
+      "Undefined attribute [16]": 21,
+      "Unable to concatenate tuple [60]": 2,
+      "Illegal annotation target [35]": 3,
+      "Incompatible parameter type [6]": 1,
+      "Incompatible variable type [9]": 1,
+      "Unbound name [10]": 1,
+      "Invalid decoration [56]": 1
+    }
+  },
+  {
+    "commit": "83e572c9",
+    "commit_date": "2019-10-24 22:00:11 +0530",
+    "loc": 13154,
+    "nb_python_files": 122,
+    "nb_param_types": 557,
+    "nb_return_types": 318,
+    "nb_variable_types": 521,
+    "nb_warnings": 500,
+    "kind_to_nb": {
+      "Undefined import [21]": 339,
+      "Undefined or invalid type [11]": 109,
+      "Call error [29]": 24,
+      "Undefined attribute [16]": 20,
+      "Illegal annotation target [35]": 3,
+      "Incompatible parameter type [6]": 1,
+      "Incompatible variable type [9]": 1,
+      "Unbound name [10]": 1,
+      "Too many arguments [19]": 2
+    }
+  },
+  {
+    "commit": "7de52cdc",
+    "commit_date": "2019-07-30 17:26:54 +0200",
+    "loc": 8687,
+    "nb_python_files": 91,
+    "nb_param_types": 320,
+    "nb_return_types": 186,
+    "nb_variable_types": 311,
+    "nb_warnings": 340,
+    "kind_to_nb": {
+      "Undefined import [21]": 239,
+      "Undefined or invalid type [11]": 69,
+      "Call error [29]": 19,
+      "Undefined attribute [16]": 7,
+      "Unbound name [10]": 2,
+      "Illegal annotation target [35]": 2,
+      "Incompatible parameter type [6]": 1,
+      "Incompatible variable type [9]": 1
+    }
+  },
+  {
+    "commit": "c9b4d49e",
+    "commit_date": "2019-05-03 14:54:05 +0200",
+    "loc": 5613,
+    "nb_python_files": 52,
+    "nb_param_types": 185,
+    "nb_return_types": 109,
+    "nb_variable_types": 157,
+    "nb_warnings": 223,
+    "kind_to_nb": {
+      "Undefined import [21]": 159,
+      "Undefined or invalid type [11]": 45,
+      "Incompatible parameter type [6]": 1,
+      "Incompatible variable type [9]": 1,
+      "Call error [29]": 11,
+      "Illegal annotation target [35]": 4,
+      "Undefined attribute [16]": 2
+    }
+  },
+  {
+    "commit": "e0882ea3",
+    "commit_date": "2019-01-23 09:41:36 -0800",
+    "loc": 2511,
+    "nb_python_files": 31,
+    "nb_param_types": 28,
+    "nb_return_types": 13,
+    "nb_variable_types": 13,
+    "nb_warnings": 112,
+    "kind_to_nb": {
+      "Undefined import [21]": 98,
+      "Undefined or invalid type [11]": 12,
+      "Call error [29]": 2
+    }
+  },
+  {
+    "commit": "981da63a",
+    "commit_date": "2018-08-22 15:48:42 +0200",
+    "loc": 45,
+    "nb_python_files": 3,
+    "nb_param_types": 0,
+    "nb_return_types": 0,
+    "nb_variable_types": 0,
+    "nb_warnings": 2,
+    "kind_to_nb": {
+      "Undefined import [21]": 2
+    }
+  }
+]

@@ -1,0 +1,151 @@
+[
+  {
+    "commit": "caf25c0",
+    "commit_date": "2021-12-05 17:31:58 +0100",
+    "loc": 18438,
+    "nb_python_files": 164,
+    "nb_param_types": 68,
+    "nb_return_types": 101,
+    "nb_variable_types": 5,
+    "nb_warnings": 619,
+    "kind_to_nb": {
+      "Undefined import [21]": 535,
+      "Undefined or invalid type [11]": 65,
+      "Undefined attribute [16]": 13,
+      "Invalid type variable [34]": 1,
+      "Incompatible parameter type [6]": 3,
+      "Incompatible variable type [9]": 1,
+      "Invalid decoration [56]": 1
+    }
+  },
+  {
+    "commit": "834b4d7",
+    "commit_date": "2021-04-13 22:25:05 +0300",
+    "loc": 16939,
+    "nb_python_files": 153,
+    "nb_param_types": 68,
+    "nb_return_types": 97,
+    "nb_variable_types": 2,
+    "nb_warnings": 571,
+    "kind_to_nb": {
+      "Undefined import [21]": 490,
+      "Undefined or invalid type [11]": 62,
+      "Undefined attribute [16]": 13,
+      "Invalid type variable [34]": 1,
+      "Incompatible parameter type [6]": 3,
+      "Incompatible variable type [9]": 1,
+      "Invalid decoration [56]": 1
+    }
+  },
+  {
+    "commit": "63d02ef",
+    "commit_date": "2020-08-09 13:46:15 +0200",
+    "loc": 15384,
+    "nb_python_files": 137,
+    "nb_param_types": 59,
+    "nb_return_types": 85,
+    "nb_variable_types": 0,
+    "nb_warnings": 475,
+    "kind_to_nb": {
+      "Undefined import [21]": 409,
+      "Undefined or invalid type [11]": 52,
+      "Undefined attribute [16]": 7,
+      "Invalid type variable [34]": 1,
+      "Incompatible parameter type [6]": 5,
+      "Incompatible variable type [9]": 1
+    }
+  },
+  {
+    "commit": "83614a7",
+    "commit_date": "2020-04-16 21:46:17 +0200",
+    "loc": 13310,
+    "nb_python_files": 121,
+    "nb_param_types": 41,
+    "nb_return_types": 66,
+    "nb_variable_types": 0,
+    "nb_warnings": 395,
+    "kind_to_nb": {
+      "Undefined import [21]": 351,
+      "Undefined or invalid type [11]": 35,
+      "Invalid type variable [34]": 1,
+      "Incompatible parameter type [6]": 5,
+      "Undefined attribute [16]": 2,
+      "Incompatible variable type [9]": 1
+    }
+  },
+  {
+    "commit": "80a8fd5",
+    "commit_date": "2019-09-02 23:00:40 +0200",
+    "loc": 11756,
+    "nb_python_files": 112,
+    "nb_param_types": 40,
+    "nb_return_types": 56,
+    "nb_variable_types": 0,
+    "nb_warnings": 344,
+    "kind_to_nb": {
+      "Undefined import [21]": 304,
+      "Undefined or invalid type [11]": 34,
+      "Invalid type variable [34]": 1,
+      "Incompatible parameter type [6]": 5
+    }
+  },
+  {
+    "commit": "c20cc83",
+    "commit_date": "2019-02-07 22:09:24 +0100",
+    "loc": 9896,
+    "nb_python_files": 88,
+    "nb_param_types": 37,
+    "nb_return_types": 52,
+    "nb_variable_types": 0,
+    "nb_warnings": 259,
+    "kind_to_nb": {
+      "Undefined import [21]": 222,
+      "Undefined or invalid type [11]": 31,
+      "Invalid type variable [34]": 1,
+      "Incompatible parameter type [6]": 5
+    }
+  },
+  {
+    "commit": "15f6b45",
+    "commit_date": "2018-07-31 08:07:54 +0200",
+    "loc": 7598,
+    "nb_python_files": 78,
+    "nb_param_types": 22,
+    "nb_return_types": 29,
+    "nb_variable_types": 0,
+    "nb_warnings": 218,
+    "kind_to_nb": {
+      "Undefined import [21]": 184,
+      "Undefined or invalid type [11]": 29,
+      "Incompatible parameter type [6]": 5
+    }
+  },
+  {
+    "commit": "6430f4d",
+    "commit_date": "2017-12-25 13:32:27 +0100",
+    "loc": 3040,
+    "nb_python_files": 41,
+    "nb_param_types": 2,
+    "nb_return_types": 0,
+    "nb_variable_types": 0,
+    "nb_warnings": 70,
+    "kind_to_nb": {
+      "Undefined import [21]": 59,
+      "Undefined or invalid type [11]": 11
+    }
+  },
+  {
+    "commit": "532e123",
+    "commit_date": "2016-12-05 21:39:19 +0100",
+    "loc": 1087,
+    "nb_python_files": 12,
+    "nb_param_types": 1,
+    "nb_return_types": 0,
+    "nb_variable_types": 0,
+    "nb_warnings": 9,
+    "kind_to_nb": {
+      "Undefined import [21]": 6,
+      "Undefined or invalid type [11]": 3
+    }
+  }
+]

@@ -1,0 +1,158 @@
+[
+  {
+    "commit": "b39401f0",
+    "commit_date": "2022-02-09 22:08:59 +0100",
+    "loc": 5721,
+    "nb_python_files": 84,
+    "nb_param_types": 99,
+    "nb_return_types": 66,
+    "nb_variable_types": 5,
+    "nb_warnings": 236,
+    "kind_to_nb": {
+      "Undefined import [21]": 217,
+      "Undefined or invalid type [11]": 11,
+      "Undefined attribute [16]": 5,
+      "Unexpected keyword [28]": 1,
+      "Incompatible variable type [9]": 2
+    }
+  },
+  {
+    "commit": "b5c73463",
+    "commit_date": "2021-01-05 10:00:21 +0100",
+    "loc": 4326,
+    "nb_python_files": 63,
+    "nb_param_types": 90,
+    "nb_return_types": 55,
+    "nb_variable_types": 3,
+    "nb_warnings": 201,
+    "kind_to_nb": {
+      "Undefined import [21]": 186,
+      "Undefined or invalid type [11]": 9,
+      "Undefined attribute [16]": 5,
+      "Unexpected keyword [28]": 1
+    }
+  },
+  {
+    "commit": "1c310534",
+    "commit_date": "2019-12-28 12:06:14 +0100",
+    "loc": 17162,
+    "nb_python_files": 218,
+    "nb_param_types": 12,
+    "nb_return_types": 62,
+    "nb_variable_types": 52,
+    "nb_warnings": 122,
+    "kind_to_nb": {
+      "Undefined import [21]": 83,
+      "Inconsistent override [15]": 4,
+      "Invalid inheritance [39]": 1,
+      "Undefined or invalid type [11]": 1,
+      "Incompatible variable type [9]": 2,
+      "Incompatible parameter type [6]": 10,
+      "Undefined attribute [16]": 2,
+      "Unsupported operand [58]": 1,
+      "Incompatible return type [7]": 3,
+      "Invalid type [31]": 2,
+      "Incompatible attribute type [8]": 13
+    }
+  },
+  {
+    "commit": "ffb6dbb2",
+    "commit_date": "2019-02-16 21:57:30 +0100",
+    "loc": 14311,
+    "nb_python_files": 192,
+    "nb_param_types": 9,
+    "nb_return_types": 32,
+    "nb_variable_types": 49,
+    "nb_warnings": 116,
+    "kind_to_nb": {
+      "Undefined import [21]": 78,
+      "Inconsistent override [15]": 4,
+      "Invalid inheritance [39]": 1,
+      "Undefined or invalid type [11]": 1,
+      "Incompatible variable type [9]": 2,
+      "Incompatible parameter type [6]": 10,
+      "Undefined attribute [16]": 2,
+      "Unsupported operand [58]": 1,
+      "Incompatible return type [7]": 3,
+      "Invalid type [31]": 2,
+      "Incompatible attribute type [8]": 12
+    }
+  },
+  {
+    "commit": "f1027e43",
+    "commit_date": "2018-08-13 21:06:56 +0200",
+    "loc": 12698,
+    "nb_python_files": 184,
+    "nb_param_types": 0,
+    "nb_return_types": 18,
+    "nb_variable_types": 0,
+    "nb_warnings": 43,
+    "kind_to_nb": {
+      "Undefined import [21]": 37,
+      "Inconsistent override [15]": 4,
+      "Unbound name [10]": 1,
+      "Incompatible return type [7]": 1
+    }
+  },
+  {
+    "commit": "a58d6b14",
+    "commit_date": "2018-07-18 23:05:16 +0200",
+    "loc": 11356,
+    "nb_python_files": 167,
+    "nb_param_types": 0,
+    "nb_return_types": 18,
+    "nb_variable_types": 0,
+    "nb_warnings": 59,
+    "kind_to_nb": {
+      "Undefined import [21]": 54,
+      "Inconsistent override [15]": 4,
+      "Incompatible return type [7]": 1
+    }
+  },
+  {
+    "commit": "2c9937dd",
+    "commit_date": "2018-06-12 09:59:41 +0200",
+    "loc": 9452,
+    "nb_python_files": 140,
+    "nb_param_types": 0,
+    "nb_return_types": 15,
+    "nb_variable_types": 0,
+    "nb_warnings": 66,
+    "kind_to_nb": {
+      "Undefined import [21]": 60,
+      "Inconsistent override [15]": 4,
+      "Incompatible return type [7]": 1,
+      "Undefined attribute [16]": 1
+    }
+  },
+  {
+    "commit": "ef0373ba",
+    "commit_date": "2018-05-21 13:48:02 +0200",
+    "loc": 6951,
+    "nb_python_files": 130,
+    "nb_param_types": 0,
+    "nb_return_types": 17,
+    "nb_variable_types": 0,
+    "nb_warnings": 55,
+    "kind_to_nb": {
+      "Undefined import [21]": 49,
+      "Undefined or invalid type [11]": 1,
+      "Inconsistent override [15]": 4,
+      "Incompatible return type [7]": 1
+    }
+  },
+  {
+    "commit": "ac6ac73f",
+    "commit_date": "2018-04-24 22:14:45 +0200",
+    "loc": 3317,
+    "nb_python_files": 72,
+    "nb_param_types": 0,
+    "nb_return_types": 14,
+    "nb_variable_types": 0,
+    "nb_warnings": 26,
+    "kind_to_nb": {
+      "Undefined import [21]": 22,
+      "Inconsistent override [15]": 4
+    }
+  }
+]

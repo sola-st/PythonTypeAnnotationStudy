@@ -1,0 +1,157 @@
+[
+  {
+    "commit": "862263f",
+    "commit_date": "2022-01-31 11:13:56 +0100",
+    "loc": 11829,
+    "nb_python_files": 144,
+    "nb_param_types": 36,
+    "nb_return_types": 36,
+    "nb_variable_types": 0,
+    "nb_warnings": 386,
+    "kind_to_nb": {
+      "Undefined import [21]": 307,
+      "Undefined attribute [16]": 50,
+      "Incompatible parameter type [6]": 2,
+      "Undefined or invalid type [11]": 25,
+      "Incompatible variable type [9]": 1,
+      "Unsupported operand [58]": 1
+    }
+  },
+  {
+    "commit": "572f412",
+    "commit_date": "2021-06-11 10:01:55 +0200",
+    "loc": 10421,
+    "nb_python_files": 136,
+    "nb_param_types": 30,
+    "nb_return_types": 37,
+    "nb_variable_types": 0,
+    "nb_warnings": 367,
+    "kind_to_nb": {
+      "Undefined import [21]": 290,
+      "Undefined attribute [16]": 50,
+      "Incompatible parameter type [6]": 2,
+      "Undefined or invalid type [11]": 23,
+      "Incompatible variable type [9]": 1,
+      "Unsupported operand [58]": 1
+    }
+  },
+  {
+    "commit": "6166310",
+    "commit_date": "2020-11-05 09:41:57 -0500",
+    "loc": 9522,
+    "nb_python_files": 124,
+    "nb_param_types": 16,
+    "nb_return_types": 33,
+    "nb_variable_types": 0,
+    "nb_warnings": 343,
+    "kind_to_nb": {
+      "Undefined import [21]": 249,
+      "Undefined attribute [16]": 72,
+      "Incompatible parameter type [6]": 2,
+      "Undefined or invalid type [11]": 18,
+      "Incompatible variable type [9]": 1,
+      "Unsupported operand [58]": 1
+    }
+  },
+  {
+    "commit": "f9ee2fa",
+    "commit_date": "2020-06-15 14:53:24 -0700",
+    "loc": 6265,
+    "nb_python_files": 93,
+    "nb_param_types": 0,
+    "nb_return_types": 0,
+    "nb_variable_types": 0,
+    "nb_warnings": 323,
+    "kind_to_nb": {
+      "Undefined import [21]": 210,
+      "Undefined or invalid type [11]": 14,
+      "Undefined attribute [16]": 97,
+      "Incompatible parameter type [6]": 2
+    }
+  },
+  {
+    "commit": "3764cbb",
+    "commit_date": "2020-04-16 19:59:10 -0400",
+    "loc": 5404,
+    "nb_python_files": 88,
+    "nb_param_types": 0,
+    "nb_return_types": 0,
+    "nb_variable_types": 0,
+    "nb_warnings": 160,
+    "kind_to_nb": {
+      "Undefined import [21]": 139,
+      "Undefined or invalid type [11]": 14,
+      "Undefined attribute [16]": 5,
+      "Incompatible parameter type [6]": 2
+    }
+  },
+  {
+    "commit": "2690cfa",
+    "commit_date": "2020-01-10 13:48:02 -0500",
+    "loc": 4572,
+    "nb_python_files": 80,
+    "nb_param_types": 0,
+    "nb_return_types": 0,
+    "nb_variable_types": 0,
+    "nb_warnings": 101,
+    "kind_to_nb": {
+      "Incompatible parameter type [6]": 2,
+      "Undefined import [21]": 91,
+      "Undefined attribute [16]": 7,
+      "Undefined or invalid type [11]": 1
+    }
+  },
+  {
+    "commit": "5acd76e",
+    "commit_date": "2019-11-01 13:03:06 -0400",
+    "loc": 3516,
+    "nb_python_files": 55,
+    "nb_param_types": 0,
+    "nb_return_types": 0,
+    "nb_variable_types": 0,
+    "nb_warnings": 74,
+    "kind_to_nb": {
+      "Undefined import [21]": 67,
+      "Undefined attribute [16]": 7
+    }
+  },
+  {
+    "commit": "41cb9af",
+    "commit_date": "2019-10-25 11:25:08 -0400",
+    "loc": 3558,
+    "nb_python_files": 57,
+    "nb_param_types": 0,
+    "nb_return_types": 0,
+    "nb_variable_types": 0,
+    "nb_warnings": 77,
+    "kind_to_nb": {
+      "Undefined import [21]": 73,
+      "Undefined attribute [16]": 3,
+      "Undefined or invalid type [11]": 1
+    }
+  },
+  {
+    "commit": "de6e147",
+    "commit_date": "2019-09-24 15:49:52 -0400",
+    "loc": 2167,
+    "nb_python_files": 39,
+    "nb_param_types": 0,
+    "nb_return_types": 0,
+    "nb_variable_types": 0,
+    "nb_warnings": 40,
+    "kind_to_nb": {
+      "Undefined import [21]": 40
+    }
+  },
+  {
+    "commit": "f5ccaa8",
+    "commit_date": "2018-05-14 18:51:40 -0700",
+    "loc": 0,
+    "nb_python_files": 0,
+    "nb_param_types": 0,
+    "nb_return_types": 0,
+    "nb_variable_types": 0,
+    "nb_warnings": 0,
+    "kind_to_nb": {}
+  }
+]

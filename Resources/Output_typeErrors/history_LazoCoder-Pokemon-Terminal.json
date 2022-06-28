@@ -1,0 +1,137 @@
+[
+  {
+    "commit": "ed8f7f4",
+    "commit_date": "2020-08-04 21:05:29 -0400",
+    "loc": 1442,
+    "nb_python_files": 37,
+    "nb_param_types": 39,
+    "nb_return_types": 23,
+    "nb_variable_types": 1,
+    "nb_warnings": 64,
+    "kind_to_nb": {
+      "Undefined import [21]": 3,
+      "Invalid override [40]": 22,
+      "Invalid method signature [47]": 27,
+      "Undefined attribute [16]": 5,
+      "Incompatible return type [7]": 1,
+      "Invalid type [31]": 4,
+      "Incompatible parameter type [6]": 2
+    }
+  },
+  {
+    "commit": "bd78b05",
+    "commit_date": "2018-08-03 23:16:51 -0300",
+    "loc": 1371,
+    "nb_python_files": 36,
+    "nb_param_types": 28,
+    "nb_return_types": 22,
+    "nb_variable_types": 1,
+    "nb_warnings": 49,
+    "kind_to_nb": {
+      "Undefined import [21]": 3,
+      "Undefined attribute [16]": 3,
+      "Incompatible return type [7]": 1,
+      "Invalid type [31]": 4,
+      "Invalid method signature [47]": 18,
+      "Invalid override [40]": 16,
+      "Incompatible parameter type [6]": 2,
+      "Unbound name [10]": 2
+    }
+  },
+  {
+    "commit": "a6867b3",
+    "commit_date": "2017-11-19 12:49:05 -0200",
+    "loc": 1150,
+    "nb_python_files": 29,
+    "nb_param_types": 17,
+    "nb_return_types": 6,
+    "nb_variable_types": 1,
+    "nb_warnings": 12,
+    "kind_to_nb": {
+      "Invalid type [31]": 2,
+      "Invalid method signature [47]": 6,
+      "Incompatible parameter type [6]": 1,
+      "Unsupported operand [58]": 1,
+      "Undefined import [21]": 2
+    }
+  },
+  {
+    "commit": "f33312f",
+    "commit_date": "2017-08-10 05:31:00 +0200",
+    "loc": 971,
+    "nb_python_files": 18,
+    "nb_param_types": 2,
+    "nb_return_types": 0,
+    "nb_variable_types": 0,
+    "nb_warnings": 0,
+    "kind_to_nb": {}
+  },
+  {
+    "commit": "2e9c596",
+    "commit_date": "2017-07-04 08:01:39 +0200",
+    "loc": 848,
+    "nb_python_files": 15,
+    "nb_param_types": 2,
+    "nb_return_types": 0,
+    "nb_variable_types": 0,
+    "nb_warnings": 1,
+    "kind_to_nb": {
+      "Undefined import [21]": 1
+    }
+  },
+  {
+    "commit": "f7be3ea",
+    "commit_date": "2017-07-01 13:50:54 -0300",
+    "loc": 679,
+    "nb_python_files": 12,
+    "nb_param_types": 2,
+    "nb_return_types": 0,
+    "nb_variable_types": 0,
+    "nb_warnings": 0,
+    "kind_to_nb": {}
+  },
+  {
+    "commit": "de31733",
+    "commit_date": "2017-06-23 22:16:23 -0400",
+    "loc": 527,
+    "nb_python_files": 11,
+    "nb_param_types": 0,
+    "nb_return_types": 0,
+    "nb_variable_types": 0,
+    "nb_warnings": 0,
+    "kind_to_nb": {}
+  },
+  {
+    "commit": "6cae7b6",
+    "commit_date": "2017-06-11 10:16:24 -0400",
+    "loc": 507,
+    "nb_python_files": 4,
+    "nb_param_types": 0,
+    "nb_return_types": 0,
+    "nb_variable_types": 0,
+    "nb_warnings": 0,
+    "kind_to_nb": {}
+  },
+  {
+    "commit": "3eda8c3",
+    "commit_date": "2017-04-27 23:23:09 -0400",
+    "loc": 0,
+    "nb_python_files": 0,
+    "nb_param_types": 0,
+    "nb_return_types": 0,
+    "nb_variable_types": 0,
+    "nb_warnings": 0,
+    "kind_to_nb": {}
+  },
+  {
+    "commit": "e021318",
+    "commit_date": "2017-04-18 19:22:59 -0400",
+    "loc": 0,
+    "nb_python_files": 0,
+    "nb_param_types": 0,
+    "nb_return_types": 0,
+    "nb_variable_types": 0,
+    "nb_warnings": 0,
+    "kind_to_nb": {}
+  }
+]
