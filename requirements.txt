@@ -1,8 +1,8 @@
-libcst==0.3.18
-lxml==4.6.3
 matplotlib==3.3.4
 numpy==1.23.0
 pandas==1.2.4
+libcst==0.3.18
+lxml==4.6.3
 pygit2==1.6.1
 scipy==1.5.4
 pyquery==1.4.3

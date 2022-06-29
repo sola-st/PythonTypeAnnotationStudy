@@ -142,7 +142,8 @@ cython_debug/
 *~
 *.swp
 
-Resources/Output
+Resources/Output/typeAnnotationChanges.tar.xz
+Resources/Output/typeAnnotationCommitStatistics.tar.xz
 .pyre_configuration
 Resources/Input/
 tmp_diff

@@ -10,9 +10,18 @@ from Code.TypeAnnotations.gitUtils import error_check
 from Code.TypeAnnotations.projectUtils import *
 import cProfile
 from typed_ast import ast3
+import tarfile
 
 def typeAnnotation_analisis():
 
+    tar = tarfile.open(config.ROOT_DIR + "/Resources/Output/typeAnnotationChanges.tar.xz", "r:xz")
+    tar.extractall(config.ROOT_DIR + "/Resources/Output/")
+    tar.close()
+    
+    tar = tarfile.open(config.ROOT_DIR + "/Resources/Output/typeAnnotationCommitStatistics.tar.xz", "r:xz")
+    tar.extractall(config.ROOT_DIR + "/Resources/Output/")
+    tar.close()
+    
     if config.CLONING:
         j = [0]
         
