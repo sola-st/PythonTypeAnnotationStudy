@@ -9,20 +9,19 @@ import sys
 dir = join(expanduser("~"), "my-venv")
 create(dir, with_pip=True)
 
-# where requirements.txt is in same dir as this script
+# Install requirements
 run(["bin/pip", "install", "-r", abspath("requirements.txt")], cwd=dir)
 
 if 'fast' in sys.argv[1]:
-	# Type Annotations results
 	script_typeAnnotation_analysis.typeAnnotation_analisis()
 	run(["python", abspath("PlotResultsAndComputeStats.py")], cwd=dir)
 elif 'slow' in sys.argv[1]:
-	config.CLONING = False
+	config.CLONING = True
 	config.STATISTICS_COMPUTATION = True
 	script_typeAnnotation_analysis.typeAnnotation_analisis()
 	run(["python", abspath("script_AnalyzeRepos.py")], cwd=dir)
 	run(["python", abspath("PlotResultsAndComputeStats.py")], cwd=dir)
 else:
-	print('Wrong argument: slow or fast')
+	print('Wrong argument: slow or fast supported')
 
 
