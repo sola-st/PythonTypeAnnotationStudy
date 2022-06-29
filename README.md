@@ -26,9 +26,9 @@ The paper has been accepted for the ESEC/FSE 2022 conference and it is avaible [
 	- python3 ./script_typeAnnotation_analysis.py
 	- python3 ./PlotResultsAndComputeStats.py
 	- All the results are in ./Resources/Output
-		- Figure 2: ./Resources/annotationsPerYear2.pdf
-		- Figure 3: ./Resources/elements_annotated.pdf
-		- Figure 5: ./Resources/perc_annotations_lines_per_commit.pdf
-		- Figure 7: ./Resources/num_changes.pdf
-		- Figure 9: ./Resources/TopChanged_arg.pdf and ./Resources/TopChanged_ret.pdf and ./Resources/TopChanged_var.pdf
-	
+		- Figure  2: ./Resources/Output/annotationsPerYear2.pdf
+		- Figure  3: ./Resources/Output/elements_annotated.pdf
+		- Figure  5: ./Resources/Output/perc_annotations_lines_per_commit.pdf
+		- Figure  7: ./Resources/Output/num_changes.pdf
+		- Figure  9: ./Resources/Output/TopChanged_arg.pdf and ./Resources/TopChanged_ret.pdf and ./Resources/TopChanged_var.pdf
+		- Figure 10: ./Resources/Output/Output_typeErrors/errors_vs_annotations.pdf
