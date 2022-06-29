@@ -5,8 +5,10 @@ import json
 import re
 import matplotlib.pyplot as plt
 import config
-from script_AnalyzeRepos import results_base_dir, projects
+#from script_AnalyzeRepos import results_base_dir, projects
 import pandas as pd
+from os import path, scandir
+import glob, os
 font_size = 15
 
 
@@ -20,13 +22,24 @@ ignored_warning_kinds = [
     "Undefined attribute [16]",
 ]
 
+def find_all_projects():
+    projects = []
+    for e in scandir(plots_base_dir):
+        if '.json' in e.name:
+            #print(e.name.replace('.json', '').replace('history_',''))
+            projects.append(e.name.replace('.json', '').replace('history_',''))
+    return projects
+
+# "history_"
+
+projects = find_all_projects()
+
 
 def read_results(name):
-    with open(results_base_dir+name+".json") as fp:
+    with open(plots_base_dir+name+".json") as fp:
         r = json.load(fp)
     return r
-
-
+    
 def get_results():
     project_to_history = {}
     latest_results = []
@@ -41,7 +54,7 @@ def get_results():
         latest_p_result = p_results[0]
         latest_p_result["project"] = p
         latest_results.append(latest_p_result)
-    print(f"Read {len(project_to_history)} project histories")
+    print(f"Read all project histories. Computing the plots...")
     return project_to_history, pd.DataFrame(latest_results)
 
 
@@ -322,15 +335,15 @@ if __name__ == "__main__":
     project_to_history, latest_results = get_results()
     compute_more_columns(latest_results)
 
-    plot_kinds_of_errors(latest_results)
-    plot_errors_vs_loc(latest_results)
+    #plot_kinds_of_errors(latest_results)
+    #plot_errors_vs_loc(latest_results)
     plot_errors_vs_annotations(latest_results)
 
     plot_per_project_evolution(project_to_history)
-    plot_error_per_project_evolution(project_to_history)
-    plot_evolution_of_errors_vs_annotations(project_to_history)
-    plot_evolution_of_avg_errors_vs_annotations(project_to_history)
-    plot_evolution_of_errors_vs_loc(project_to_history)
+    #plot_error_per_project_evolution(project_to_history)
+    #plot_evolution_of_errors_vs_annotations(project_to_history)
+    #plot_evolution_of_avg_errors_vs_annotations(project_to_history)
+    #plot_evolution_of_errors_vs_loc(project_to_history)
     #plot_evolution_of_errors(project_to_history)
 
 
