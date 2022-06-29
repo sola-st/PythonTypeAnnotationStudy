@@ -20,12 +20,12 @@ The paper has been accepted for the ESEC/FSE 2022 conference and it is avaible [
 
 * **Reproduce the results**:
 - Run the following command:
-	- python3 ./results_replicability.py
-	- wait around three minutes and the paper figures are in:
-		- Figure  2: ./Resources/Output/annotationsPerYear2.pdf
-		- Figure  3: ./Resources/Output/elements_annotated.pdf
-		- Figure  4: ./Resources/Output/Output_typeErrors/per_project/facebookresearch-pytext.pdf (and deepinsight-insightface.pdf and hhatto-autopep8.pdf)
-		- Figure  5: ./Resources/Output/perc_annotations_lines_per_commit.pdf
-		- Figure  7: ./Resources/Output/num_changes.pdf
-		- Figure  9: ./Resources/Output/TopChanged_arg.pdf (and TopChanged_ret.pdf and TopChanged_var.pdf)
-		- Figure 10: ./Resources/Output/Output_typeErrors/errors_vs_annotations.pdf
+                       python3 ./results_replicability.py
+- Wait around three minutes and the paper figures are in:
+	- Figure  2: ./Resources/Output/annotationsPerYear2.pdf
+	- Figure  3: ./Resources/Output/elements_annotated.pdf
+	- Figure  4: ./Resources/Output/Output_typeErrors/per_project/facebookresearch-pytext.pdf (and deepinsight-insightface.pdf and hhatto-autopep8.pdf)
+	- Figure  5: ./Resources/Output/perc_annotations_lines_per_commit.pdf
+	- Figure  7: ./Resources/Output/num_changes.pdf
+	- Figure  9: ./Resources/Output/TopChanged_arg.pdf (and TopChanged_ret.pdf and TopChanged_var.pdf)
+	- Figure 10: ./Resources/Output/Output_typeErrors/errors_vs_annotations.pdf
