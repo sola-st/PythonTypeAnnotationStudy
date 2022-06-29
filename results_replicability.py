@@ -20,6 +20,7 @@ elif 'slow' in sys.argv[1]:
 	config.CLONING = False
 	config.STATISTICS_COMPUTATION = True
 	script_typeAnnotation_analysis.typeAnnotation_analisis()
+	run(["python", abspath("script_AnalyzeRepos.py")], cwd=dir)
 	run(["python", abspath("PlotResultsAndComputeStats.py")], cwd=dir)
 else:
 	print('Wrong argument: slow or fast')
