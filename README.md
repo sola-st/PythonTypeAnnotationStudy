@@ -21,7 +21,6 @@ The paper has been accepted for the ESEC/FSE 2022 conference and it is avaible [
 * **Reproduce the results**:
 - Requirements:
 ```
-Ubuntu OS
 Python 3.5+
 Python Virtual Environment
 ```
