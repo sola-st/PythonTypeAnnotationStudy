@@ -20,7 +20,11 @@ The paper has been accepted for the ESEC/FSE 2022 conference and it is avaible [
 
 * **Reproduce the results**:
 - Run the following command:
-                       python3 ./results_replicability.py
+
+```
+python3 ./results_replicability.py
+```
+
 - Wait around three minutes and the paper figures are in:
 	- Figure  2: ./Resources/Output/annotationsPerYear2.pdf
 	- Figure  3: ./Resources/Output/elements_annotated.pdf
