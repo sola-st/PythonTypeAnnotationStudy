@@ -9,7 +9,7 @@ Type annotations and gradual type checkers attempt to reveal errors and facilita
 This paper presents the first large-scale empirical study of the evolution of type annotations and type errors in Python. The study is based on an analysis of 1,414,936 type annotation changes, which we extract from 1,123,393 commits among 9,655 projects.
 Our results show that (i) type annotations are getting more popular, and once added, often remain unchanged in the projects for a long time, (ii) projects follow three evolution patterns for type annotation usage -- regular annotation, type sprints, and occasional uses -- and that the used pattern correlates with the number of contributors, (iii) more type annotations help find more type errors (0.704 correlation), but nevertheless, many commits (78.3%) are committed despite having such errors. Our findings show that better developer training and automated techniques for adding type annotations are needed, as most code still remains unannotated, and they call for a better integration of gradual type checking into the development process.
 
-<p float="left">
+<p float="left" align="center">
   <img src="Resources/img/fse1.png" width="370" />
   <img src="Resources/img/fse3.png" width="370" /> 
 </p>
@@ -19,13 +19,9 @@ The paper has been accepted for the ESEC/FSE 2022 conference and it is avaible [
 
 
 * **Reproduce the results**:
-- Install requirements that are in ./requirements.txt:
-	- pip3 install -r requirements.txt
-
-- Run the following command for type annotation results:
-	- python3 ./script_typeAnnotation_analysis.py
-	- python3 ./PlotResultsAndComputeStats.py
-	- All the results are in ./Resources/Output
+- Run the following command:
+	- python3 ./python3 results_replicability.py
+	- wait around three minutes and all the results are in:
 		- Figure  2: ./Resources/Output/annotationsPerYear2.pdf
 		- Figure  3: ./Resources/Output/elements_annotated.pdf
 		- Figure  5: ./Resources/Output/perc_annotations_lines_per_commit.pdf
