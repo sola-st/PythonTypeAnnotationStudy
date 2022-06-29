@@ -28,7 +28,7 @@ Python Virtual Environment
 - Run the following command:
 
 ```
-python3 ./results_replicability.py
+python3 ./results_replicability.py --fast
 ```
 
 - Wait around three minutes and the paper figures are in:
@@ -39,3 +39,9 @@ python3 ./results_replicability.py
 	- Figure  7: ./Resources/Output/num_changes.pdf
 	- Figure  9: ./Resources/Output/TopChanged_arg.pdf (and TopChanged_ret.pdf and TopChanged_var.pdf)
 	- Figure 10: ./Resources/Output/Output_typeErrors/errors_vs_annotations.pdf
+	
+- If you want to run all the experiments from scratch (~50 hours):
+
+```
+python3 ./results_replicability.py --slow
+```
