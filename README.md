@@ -33,11 +33,11 @@ python3 ./results_replicability.py --fast
 - Wait around three minutes and the paper figures are in:
 	- Figure  2: ./Resources/Output/annotationsPerYear2.pdf
 	- Figure  3: ./Resources/Output/elements_annotated.pdf
-	- Figure  4: ./Resources/Output/Output_typeErrors/per_project/facebookresearch-pytext.pdf (and deepinsight-insightface.pdf and hhatto-autopep8.pdf)
+	- Figure  4: ./Resources/Output_typeErrors/per_project/facebookresearch-pytext.pdf (and deepinsight-insightface.pdf and hhatto-autopep8.pdf)
 	- Figure  5: ./Resources/Output/perc_annotations_lines_per_commit.pdf
 	- Figure  7: ./Resources/Output/num_changes.pdf
 	- Figure  9: ./Resources/Output/TopChanged_arg.pdf (and TopChanged_ret.pdf and TopChanged_var.pdf)
-	- Figure 10: ./Resources/Output/Output_typeErrors/errors_vs_annotations.pdf
+	- Figure 10: ./Resources/Output_typeErrors/errors_vs_annotations.pdf
 	
 - If you want to run all the experiments from scratch (~50 hours):
 
@@ -52,7 +52,7 @@ Python 3.5+
 ```
 
 - Clone all your repositories in ./GitHub
-- Remove all the files from ./Resources/Output/ and ./Resources/Output/Output_typeErrors/ and ./Resources/log
+- Remove all the files from ./Resources/Output/ and ./Resources/Output_typeErrors/ and ./Resources/log
 - Run the following command:
 
 ```
