@@ -35,13 +35,9 @@ def repo_cloning(filenameInput: str, pathOutput: str, count: List[int]) -> None:
     i = 0
     for link in article_urls:
         i+=1
-        #if i >50:
-         #   print("new year")
-          #  return
-
+        
         count[0] += 1
 
-        # out = link.rsplit('/', 1)[-1].replace('.git', '')
         out = re.sub('https://github.com/', '', link).replace('/', '-')
 
         if os.path.isdir(pathOutput + '/' + out):
@@ -168,17 +164,14 @@ def query_repo_get_changes(repo_name):  # statistics, pointer, dirlist_len):
             commit_temp = 'e0'
             for commit in repo.walk(last_commit, GIT_SORT_TOPOLOGICAL | GIT_SORT_REVERSE):
                 try:
-                    #print(str(commit.hex))
-                    if commit.hex != '99f4d5af147d364eda1d4b99e79770c171896f13':  # b86598886ea50c5259982ac18a692748bd3ba402
-                        continue
+                    
                     commit_year = time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(commit.commit_time))[:4]
                     commit_month = time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(commit.commit_time))[5:7]
                     commit_day = time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(commit.commit_time))[8:10]
 
-                    if  int(commit_year) < 2022 or int(commit_year) > 2022:
+                    if  int(commit_year) < 2015 or int(commit_year) > 2021:
                         continue
 
-                    #if int(commit_month) <= 12:
                     if commit_year not in statistics.commit_year_dict:
                         statistics.commit_year_dict[str(commit_year)] = 1
                     else:
@@ -222,7 +215,6 @@ def query_repo_get_changes(repo_name):  # statistics, pointer, dirlist_len):
 
                         if num_parents == 1:
                             diff = repo.diff(commit.hex + '^', commit.hex)
-
 
                             tot_line_removed += diff.stats.deletions
                             tot_line_inserted += diff.stats.insertions
