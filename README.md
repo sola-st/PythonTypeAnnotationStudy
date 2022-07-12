@@ -18,7 +18,7 @@ Our results show that (i) type annotations are getting more popular, and once ad
 The paper has been accepted for the ESEC/FSE 2022 conference and it is avaible [online](https://www.software-lab.org/publications/FSE22TypeAnnotationsStudy.pdf).
 
 
-* **Reproduce the results**:
+**Reproduce the results**:
 - Requirements:
 ```
 Python 3.5+
