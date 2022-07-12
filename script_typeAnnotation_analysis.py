@@ -14,13 +14,15 @@ import tarfile
 
 def typeAnnotation_analisis():
 
-    tar = tarfile.open(config.ROOT_DIR + "/Resources/Output/typeAnnotationChanges.tar.xz", "r:xz")
-    tar.extractall(config.ROOT_DIR + "/Resources/Output/")
-    tar.close()
+    if config.EXTRACT:
+
+        tar = tarfile.open(config.ROOT_DIR + "/Resources/Output/typeAnnotationChanges.tar.xz", "r:xz")
+        tar.extractall(config.ROOT_DIR + "/Resources/Output/")
+        tar.close()
     
-    tar = tarfile.open(config.ROOT_DIR + "/Resources/Output/typeAnnotationCommitStatistics.tar.xz", "r:xz")
-    tar.extractall(config.ROOT_DIR + "/Resources/Output/")
-    tar.close()
+        tar = tarfile.open(config.ROOT_DIR + "/Resources/Output/typeAnnotationCommitStatistics.tar.xz", "r:xz")
+        tar.extractall(config.ROOT_DIR + "/Resources/Output/")
+        tar.close()
     
     if config.CLONING:
         j = [0]
