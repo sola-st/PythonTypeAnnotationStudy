@@ -262,7 +262,7 @@ def load_final_statistics():
     list_lifetime = [x for x in list_lifetime if x != -1]
     tot_ch = 1414936
     n_changes = [x for x in n_changes2 if x > 0]
-    print(f"% never changed {100- len(n_changes)/tot_ch*100}")
+    #print(f"% never changed {100- len(n_changes)/tot_ch*100}")
 
     try: 
         print(
