@@ -51,9 +51,11 @@ python3 ./results_replicability.py --slow
 Python 3.5+
 ```
 
-- Clone all your repositories in ./GitHub
+- Clone all your GitHub repositories in ./GitHub
 - Remove all the files from ./Resources/log
 - Run the following command:
 
 ```
 python3 ./results_replicability.py --new
+```
+- You can find the results in ./Resources/Output/
