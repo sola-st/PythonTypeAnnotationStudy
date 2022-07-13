@@ -52,7 +52,7 @@ Python 3.5+
 ```
 
 - Clone all your repositories in ./GitHub
-- Remove all the files from ./Resources/Output/ and ./Resources/Output_typeErrors/ and ./Resources/log
+- Remove all the files from ./Resources/log
 - Run the following command:
 
 ```
