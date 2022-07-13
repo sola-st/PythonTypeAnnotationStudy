@@ -1,15 +1,9 @@
-import ast
-import pathlib
 import pstats
-import subprocess
 import time
 import multiprocessing
 from Code.TypeAnnotations import gitUtils, Utils
-from Code.TypeAnnotations.get_TOP_repo import get_TOP_repo
-from Code.TypeAnnotations.gitUtils import error_check
 from Code.TypeAnnotations.projectUtils import *
 import cProfile
-from typed_ast import ast3
 import tarfile
 
 def typeAnnotation_analisis():
