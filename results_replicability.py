@@ -24,9 +24,10 @@ elif 'slow' in sys.argv[1]:
 	run(["python", abspath("PlotResultsAndComputeStats.py")], cwd=dir)
 elif 'new' in sys.argv[1]:
 	config.STATISTICS_COMPUTATION = True
+	config.PLOT = True
+	config.NORMAL_PRINT = True
 	print('Extracting type annotations...')
 	script_typeAnnotation_analysis.typeAnnotation_analisis()
-	print('Extracting type errors...')
 else:
 	print('Wrong argument: --slow or --fast or --new supported')
 
