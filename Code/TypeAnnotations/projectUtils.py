@@ -264,16 +264,19 @@ def load_final_statistics():
     n_changes = [x for x in n_changes2 if x > 0]
     print(f"% never changed {100- len(n_changes)/tot_ch*100}")
 
-    print(
-        f"Lifetime: mean {statistics.mean(list_lifetime)}, min {min(list_lifetime)}, max {max(list_lifetime)}, count {len(list_lifetime)}")
+    try: 
+        print(
+            f"Lifetime: mean {statistics.mean(list_lifetime)}, min {min(list_lifetime)}, max {max(list_lifetime)}, count {len(list_lifetime)}")
 
-    print(
-        f"# changes:  mean {statistics.mean(n_changes)}, min {min(n_changes)}, max {max(n_changes)}, count {len(n_changes)}")
+        print(
+            f"# changes:  mean {statistics.mean(n_changes)}, min {min(n_changes)}, max {max(n_changes)}, count {len(n_changes)}")
 
-    histogram_plot_xy(config.ROOT_DIR + "/Resources/Output/num_changes.pdf",
-                      n_changes,
-                      'Number of changes for a type annotation',
-                      'Type annotations (log scale)', 'linear', 'log', bins=26)
+        histogram_plot_xy(config.ROOT_DIR + "/Resources/Output/num_changes.pdf",
+                          n_changes,
+                          'Number of changes for a type annotation',
+                          'Type annotations (log scale)', 'linear', 'log', bins=26)
+    except:
+        pass
 
     finalStatistics = CodeStatistics()
 
