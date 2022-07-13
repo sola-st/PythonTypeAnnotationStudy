@@ -269,9 +269,7 @@ def query_repo_get_changes(repo_name):  # statistics, pointer, dirlist_len):
                                                         list_line_added,
                                                         list_line_removed, commit_year, commit_month, commit_day)
 
-                            dir = config.ROOT_DIR + "/Test/"
-                            for f in os.listdir(dir):
-                                os.remove(os.path.join(dir, f))
+                          
 
                     added_per_commit_percentage = 0
                     removed_per_commit_percentage = 0
