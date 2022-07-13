@@ -1,16 +1,11 @@
-import locale
 import re
 import statistics
-
 import config
-from Code.TypeAnnotations import codeStatistics
 from Code.TypeAnnotations.codeStatistics import CodeStatistics
 from Code.TypeAnnotations.Utils import *
 import numpy as np
 import pandas as pd
-from lxml import html
-from pyquery import PyQuery as pq, PyQuery
-import json, requests
+import json
 
 
 def write_results(statistics, code_changes, commit_statistics):
