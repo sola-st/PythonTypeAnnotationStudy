@@ -20,8 +20,6 @@ elif 'slow' in sys.argv[1]:
 	config.CLONING = True
 	config.STATISTICS_COMPUTATION = True
 	script_typeAnnotation_analysis.typeAnnotation_analisis()
-	run(["python", abspath("script_AnalyzeRepos.py")], cwd=dir)
-	run(["python", abspath("PlotResultsAndComputeStats.py")], cwd=dir)
 elif 'new' in sys.argv[1]:
 	config.STATISTICS_COMPUTATION = True
 	config.NORMAL_PRINT = True
@@ -29,5 +27,3 @@ elif 'new' in sys.argv[1]:
 	script_typeAnnotation_analysis.typeAnnotation_analisis()
 else:
 	print('Wrong argument: --slow or --fast or --new supported')
-
-
