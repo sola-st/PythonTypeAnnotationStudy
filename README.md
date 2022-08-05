@@ -42,7 +42,6 @@ python3 ./results_replicability.py --fast
 - If you want to run all the experiments from scratch (~50 hours):
 
 ```
-run 'pyre init' in ./GitHub
 python3 ./results_replicability.py --slow
 ```
 
