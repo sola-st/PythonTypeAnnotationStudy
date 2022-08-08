@@ -24,10 +24,15 @@ The paper has been accepted for the ESEC/FSE 2022 conference and it is avaible [
 Python 3.5+
 ```
 
-- Run the following command:
+- Run the following commands:
 
 ```
-python3 ./results_replicability.py --fast
+sudo apt install python3-pip
+sudo apt install python3-virtualenv
+virtualenv -p /usr/bin/python3 test-env
+source test-env/bin/activate
+pip3 install -r requirements.txt
+python3 script_typeAnnotation_analysis.py
 ```
 
 - Wait around three minutes and the paper figures are in:
