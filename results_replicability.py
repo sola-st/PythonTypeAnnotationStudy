@@ -13,15 +13,16 @@ create(dir, with_pip=True)
 run(["bin/pip", "install", "-r", abspath("requirements.txt")], cwd=dir)
 
 if 'fast' in sys.argv[1]:
-	config.EXTRACT = True
 	script_typeAnnotation_analysis.typeAnnotation_analisis()
 	run(["python", abspath("PlotResultsAndComputeStats.py")], cwd=dir)
 elif 'slow' in sys.argv[1]:
 	config.CLONING = True
+	config.EXTRACT = False
 	config.STATISTICS_COMPUTATION = True
 	script_typeAnnotation_analysis.typeAnnotation_analisis()
 elif 'new' in sys.argv[1]:
 	config.STATISTICS_COMPUTATION = True
+	config.EXTRACT = False
 	config.NORMAL_PRINT = True
 	print('Extracting type annotations...')
 	script_typeAnnotation_analysis.typeAnnotation_analisis()
