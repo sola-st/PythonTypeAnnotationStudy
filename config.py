@@ -11,7 +11,7 @@ STATISTICS_COMPUTATION = False
 PLOT = True
 PARTIAL_PLOT = False
 STUB = False
-EXTRACT = False
+EXTRACT = True
 
 # REPO_LIST = ROOT_DIR + '/Resources/Input/repositoriesTOP1000.json'
 
