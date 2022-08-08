@@ -6,12 +6,6 @@ import script_typeAnnotation_analysis
 import config
 import sys
 
-dir = join(expanduser("~"), "my-venv")
-create(dir, with_pip=True)
-
-# Install requirements
-run(["bin/pip", "install", "-r", abspath("requirements.txt")], cwd=dir)
-
 if 'fast' in sys.argv[1]:
 	script_typeAnnotation_analysis.typeAnnotation_analisis()
 	run(["python", abspath("PlotResultsAndComputeStats.py")], cwd=dir)
