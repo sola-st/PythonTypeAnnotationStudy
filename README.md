@@ -48,6 +48,11 @@ python3 ./PlotResultsAndComputeStats.py
 - If you want to run all the experiments from scratch (~50 hours):
 
 ```
+sudo apt install python3-pip
+sudo apt install python3-virtualenv
+virtualenv -p /usr/bin/python3 test-env
+source test-env/bin/activate
+pip3 install -r requirements.txt
 python3 ./results_replicability.py --slow
 ```
 
