@@ -33,6 +33,7 @@ virtualenv -p /usr/bin/python3 test-env
 source test-env/bin/activate
 pip3 install -r requirements.txt
 python3 script_typeAnnotation_analysis.py
+python3 ./PlotResultsAndComputeStats.py
 ```
 
 - Wait around three minutes and the paper figures are in:
