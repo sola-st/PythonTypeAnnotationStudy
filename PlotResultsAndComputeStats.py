@@ -10,6 +10,7 @@ import pandas as pd
 from os import path, scandir
 import glob, os
 font_size = 15
+plt.rc('pdf',fonttype = 42)
 
 
 plots_base_dir = config.ROOT_DIR + "/Resources/Output_typeErrors/"
@@ -95,6 +96,7 @@ def plot_warnings_loc_evolution(p):
     print(locs)
 
     plt.rcParams.update({'font.size': font_size})
+    plt.rc('pdf',fonttype = 42)
 
     fig, ax1 = plt.subplots()
     ax1.set_xlabel("Date")
@@ -130,6 +132,7 @@ def plot_kinds_of_errors(results):
             nbs.append(nb)
 
     plt.rcParams.update({'font.size': 15})
+    plt.rc('pdf',fonttype = 42)
     y_pos = range(5)
     numlist = sum(nbs)
     plt.bar(y_pos[:5], nbs[:5], align='center', alpha=0.5, color=(0.2, 0.4, 0.6, 0.6))
@@ -145,6 +148,7 @@ def plot_kinds_of_errors(results):
 
 def plot_errors_vs_loc(results):
     plt.rcParams.update({'font.size': font_size})
+    plt.rc('pdf',fonttype = 42)
     plt.plot(results["loc"], results["nb_filtered_warnings"], "o", color=(0.2, 0.4, 0.6, 0.6))
     plt.xscale("log")
     plt.yscale("log")
@@ -158,6 +162,7 @@ def plot_errors_vs_loc(results):
 
 def plot_evolution_of_errors_vs_loc(project_to_history):
     plt.rcParams.update({'font.size': font_size})
+    plt.rc('pdf',fonttype = 42)
     for p, h in project_to_history.items():
         errors_per_loc = []
         for r in h:
@@ -176,6 +181,7 @@ def plot_evolution_of_errors_vs_loc(project_to_history):
 
 def plot_evolution_of_errors(project_to_history):
     plt.rcParams.update({'font.size': font_size})
+    plt.rc('pdf',fonttype = 42)
     for p, h in project_to_history.items():
         errors_per_loc = []
         for r in h:
@@ -193,6 +199,7 @@ def plot_evolution_of_errors(project_to_history):
 
 def plot_errors_vs_annotations(results):
     plt.rcParams.update({'font.size': font_size})
+    plt.rc('pdf',fonttype = 42)
     plt.plot(results["nb_types"], results["nb_filtered_warnings"], "o", color=(0.2, 0.4, 0.6, 0.6))
     plt.xscale("log")
     plt.yscale("log")
@@ -206,6 +213,7 @@ def plot_errors_vs_annotations(results):
 
 def plot_evolution_of_errors_vs_annotations(project_to_history):
     plt.rcParams.update({'font.size': font_size})
+    plt.rc('pdf',fonttype = 42)
     for p, h in project_to_history.items():
         errors_per_annotations = []
         for r in h:
@@ -228,6 +236,7 @@ def plot_evolution_of_errors_vs_annotations(project_to_history):
 
 def plot_evolution_of_avg_errors_vs_annotations(project_to_history):
     plt.rcParams.update({'font.size': font_size})
+    plt.rc('pdf',fonttype = 42)
     sum_at_step = [0.0] * 10
     for p, h in project_to_history.items():
         for step, r in enumerate(h[:10]):
@@ -248,6 +257,7 @@ def plot_evolution_of_avg_errors_vs_annotations(project_to_history):
 def plot_per_project_evolution(project_to_history):
     plt.rcParams.update({'font.size': font_size})
     plt.rcParams.update({'font.size': 20})
+    plt.rc('pdf',fonttype = 42)
     for p, h in project_to_history.items():
         annotation_evol = []
         loc_evol = []
@@ -273,6 +283,7 @@ def plot_per_project_evolution(project_to_history):
 def plot_error_per_project_evolution(project_to_history):
     plt.rcParams.update({'font.size': font_size})
     plt.rcParams.update({'font.size': 20})
+    plt.rc('pdf',fonttype = 42)
     for p, h in project_to_history.items():
         annotation_evol = []
         loc_evol = []
