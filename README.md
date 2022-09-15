@@ -43,7 +43,22 @@ python3 ./PlotResultsAndComputeStats.py
 	- Figure  5: ./Resources/Output/perc_annotations_lines_per_commit.pdf
 	- Figure  7: ./Resources/Output/num_changes.pdf
 	- Figure  9: ./Resources/Output/TopChanged_arg.pdf (and TopChanged_ret.pdf and TopChanged_var.pdf)
-	- Figure 10: ./Resources/Output_typeErrors/errors_vs_annotations.pdf
+	- Figure 11: ./Resources/Output_typeErrors/errors_vs_annotations.pdf
+	
+- Algorithms:
+ - Algorithm 1 -> File: ./Code/TypeAnnotations/codeChangeExtraction.py (from line 1367 to line 1664) 
+ - Algorithm 2 -> File: ./Resources/Output_typeErrors/evolution_scirpt.py (full file)
+	
+- Research Questions:
+ - RQ1.1: File: ./Code/TypeAnnotations/codeChangeExtraction.py (from line 1367 to line 1664)
+ - RQ1.2: File ./Code/TypeAnnotations/gitUtils.py (from line 463 to line 468)
+ - RQ2: File: ./Resources/Output_typeErrors/evolution_scirpt.py (full file)
+ - RQ3.1: File ./Code/TypeAnnotations/gitUtils.py (from line 277 to line 343) 
+ - RQ3.2: File ./Code/TypeAnnotations/codeChangeExtraction.py (line 1555)
+ - RQ3.3: File ./Code/TypeAnnotations/codeChangeExtraction.py (from line 1461 to 1529)
+ - RQ4.1: File ./script_AnalyzeRepo.py (from line 65 to line 123)
+ - RQ4.2 and RQ4.3: File ./PlotResultsAndComputeStats.py (from line 70 to line 77), then line 340 and 342.
+ 
 	
 - If you want to run all the experiments from scratch (~50 hours):
 
@@ -56,17 +71,22 @@ pip3 install -r requirements.txt
 python3 ./results_replicability.py --slow
 ```
 
-**Run tool on a different dataset**:
+**A usage example with a random repository**:
 - Requirements:
 ```
 Python 3.5+
 ```
 
-- Clone all your GitHub repositories in ./GitHub
+- In ./GitHub run 'git clone https://github.com/httpie/httpie.git'
 - Remove all the files from ./Resources/log
 - Run the following command:
 
 ```
+sudo apt install python3-pip
+sudo apt install python3-virtualenv
+virtualenv -p /usr/bin/python3 test-env
+source test-env/bin/activate
+pip3 install -r requirements.txt
 python3 ./results_replicability.py --new
 ```
-- You can find the results in ./Resources/Output/
+- Wait a few minutes and you can find the results in ./Resources/log/
