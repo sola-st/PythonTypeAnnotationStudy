@@ -59,6 +59,7 @@ python3 ./PlotResultsAndComputeStats.py
  - RQ4.1: File ./script_AnalyzeRepo.py (from line 65 to line 123)
  - RQ4.2 and RQ4.3: File ./PlotResultsAndComputeStats.py (from line 70 to line 77), then line 340 and 342.
  
+ The experiments are performed on a server with 48 Intel Xeon CPU cores clocked at 2.2GHz, 250GB of RAM, running Ubuntu 18.04.
 	
 - If you want to run all the experiments from scratch (~50 hours):
 
