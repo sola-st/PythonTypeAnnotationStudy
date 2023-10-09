@@ -22,6 +22,7 @@ The paper has been accepted for the ESEC/FSE 2022 conference and it is avaible [
 - Requirements:
 ```
 Python 3.5+
+Ubuntu OS
 ```
 
 - Run the following commands:
@@ -74,6 +75,7 @@ python3 ./results_replicability.py --slow
 - Requirements:
 ```
 Python 3.5+
+Ubuntu OS
 ```
 
 - In ./GitHub run 'git clone https://github.com/httpie/httpie.git'
